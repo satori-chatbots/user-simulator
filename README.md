@@ -1,2 +1,2 @@
 # taskyto-testgen
-a tets generator for taskyto
+a test generator for taskyto

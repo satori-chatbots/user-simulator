@@ -1,0 +1,24 @@
+interaction:
+- 'User: Hi there! I''d like to order a pizza, please.'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure! I''d like to order a pizza, please.'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure, I''d like to order a pizza, please. Can you help me with that?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure, I''d like to order a pizza, please. Can you help me with that?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I’d like to order a pizza, please. Can you help me with that?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I want to order a pizza! Can you assist me with that?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Hey, I want to order a small pizza with bacon, olives, and extra cheese as
+  toppings. Do you have Sprite as a drink?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Hi, I would like to order a small pizza with bacon, olives, and extra cheese.
+  Also, do you have Sprite as a drink?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Hello, I would like to place an order for a small pizza with bacon, olives,
+  and extra cheese. Could you also tell me if you have Sprite available?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Hi, I''d like to order a small pizza with bacon, olives, and extra cheese.
+  Also, do you have Sprite available as a drink?'

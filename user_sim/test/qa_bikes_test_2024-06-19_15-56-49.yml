@@ -1,0 +1,48 @@
+interaction:
+- 'User: Hey, I was wondering how much the new tires cost? I''m looking to get some
+  soon.'
+- 'Assistant: The price of a new tire is $20.'
+- 'User: Oh, ok, thanks. And do u have different types of tires or just one?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?
+
+  ```'
+- 'User: Sure, I was asking if you have different types of tires or just one kind?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?
+
+  ```'
+- 'User: Sure, I was asking if you have different types of tires or just one kind?
+
+
+  Also, what time do you guys open and close?'
+- 'Assistant: I’m not sure if we have different types of tires or just one kind. However,
+  I can provide information on the following:
+
+  - The price of a new tire
+
+  - The price of a tune-up
+
+  - The price of a new seat
+
+  - Tips on how to take care of your bike'
+- 'User: Ok, no prob. So, how much is a new seat then? And also, do you guys sell
+  the most expensive bikes? Like, what are the prices for those?'
+- 'Assistant: The response to the question "What is the price of a new seat?" is "Between
+  $50 and $100."'
+- 'User: Got it, thanks. And can you let me know the prices of the most expensive
+  bikes? Also, what time do you guys open and close?'
+- 'Assistant: I don''t have information on the prices of the most expensive bikes.
+  However, I can help with the following questions:
+
+  - What is the price of a new tire?
+
+  - What is the price of a tune-up?
+
+  - What is the price of a new seat?
+
+  - How can I take care of my bike?'
+- 'User: User: Alright, thanks anyway. But can you at least tell me what time you
+  guys open and close? And any tips on bike care would be great too.'
+- 'Assistant: The response to the query "How can I maintain my bike?" is: Regularly
+  clean it, monitor the tire pressure, and lubricate the chain.'
+- 'User: User: Thanks for the tips! But you didn''t mention the opening and closing
+  times. Could you please tell me when you guys open and close?'

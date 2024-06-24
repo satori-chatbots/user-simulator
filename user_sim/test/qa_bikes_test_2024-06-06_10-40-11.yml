@@ -1,0 +1,40 @@
+interaction:
+- 'User: Can you tell me what brands of bikes you carry in your shop?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure! I was asking about the brands of bikes you carry in your shop. Could
+  you provide me with that information?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure! I was asking about the brands of bikes you carry in your shop. Could
+  you provide me with that information? Also, what are your opening and closing times?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure! I was asking about the brands of bikes you carry in your shop. Could
+  you provide me with that information? Also, what are your opening and closing times?
+  And while we''re at it, how much do new tires cost?'
+- 'Assistant: The price of a new tire is $20.'
+- 'User: Thanks for that! Could you also tell me what brands of bikes you carry in
+  your shop? And what are your opening and closing times?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again? Our
+  opening hours are every weekday from 9am to 5:30pm.'
+- 'User: No problem, thanks for the opening hours! Could you also tell me what brands
+  of bikes you carry in your shop? And how much does a new seat cost?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure, no problem! Could you tell me which brands of bikes your shop carries?
+  And how much would it cost to get a new bike seat?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Alright, I''ll switch gears a bit. Could you tell me if you offer bike repair
+  services? And what are the typical costs for common repairs like fixing a flat tire
+  or a brake adjustment?'
+- 'Assistant: I don''t have information on whether bike repair services are offered
+  or the typical costs for common repairs like fixing a flat tire or a brake adjustment.
+  However, I can provide answers to the following questions:
+
+
+  - What is the price of a new tire?
+
+  - What is the price of a tune-up?
+
+  - What is the price of a new seat?
+
+  - How can I take care of my bike?'
+- 'User: Okay, thanks for letting me know! I''ll go ahead and ask then: How much does
+  a new seat cost? And while we''re at it, how much is a tune-up?'

@@ -1,0 +1,49 @@
+interaction:
+- 'user: Hi there! I''d like to order a pizza, please. Could you help me with that?'
+- 'assistant: Of course, I''d be happy to help you with your order. Could you please
+  tell me what size of pizza you''d like? We have small, medium, and big sizes available.'
+- 'user: I think I''d go for a medium pizza. What toppings do you have available?'
+- 'assistant: Great choice! For the toppings, we have cheese, mushrooms, pepper, ham,
+  bacon, pepperoni, olives, corn, and chicken. Could you please tell me which toppings
+  you''d like on your pizza?'
+- 'user: I''d like to have cheese, pepperoni, mushrooms, and olives, please. Do you
+  have any drinks available as well?'
+- 'assistant: Yes, we do have drinks available. You can choose from coke, sprite,
+  or water. Which one would you like to have with your pizza?'
+- 'user: I’ll go with a coke, please. Also, can you tell me how much the total will
+  be?'
+- 'assistant: Alright, your order for coke has been acknowledged. Have a great time
+  with your pizza and beverages!'
+- "user: Sure! Your medium pizza with cheese, pepperoni, mushrooms, and olives, along\
+  \ with a coke, comes to a total of $15.99. \n\nWould you like to pick it up, or\
+  \ should we deliver it to you? If it's a delivery, could you please provide your\
+  \ address?"
+- 'assistant: I''m sorry it''s a little loud in my pizza shop, can you say that again?'
+- 'user: Sorry about that! I''d like to have it delivered, please. My address is 123
+  Main Street, Apartment 4B. How long will the delivery take?'
+- 'assistant: Thank you for providing your address. The delivery usually takes around
+  30-45 minutes. We''ll do our best to get your pizza to you as soon as possible!'
+- "user: Perfect, that sounds great! Just to confirm, it’s a medium pizza with cheese,\
+  \ pepperoni, mushrooms, and olives, along with a coke. The total comes to $15.99,\
+  \ and it will be delivered to 123 Main Street, Apartment 4B. \n\nCould you please\
+  \ provide a contact number for the delivery?"
+- 'assistant: Of course! Could you please provide your contact number for the delivery?'
+- 'user: My contact number is 555-123-4567. Thank you so much for your help!. Please,
+  always talk in English. Keep acting like you''re the user replying to what I just
+  said and have to keep the flow of the conversation as a user would. Sometimes, interact
+  with what the assistant just said. If you don''t get an answer to your question,
+  ask it again and keep acting like you''re the user. Invent anything the assistant
+  could ask you for. If any of this information was provided, you can also ask about
+  If any of this information was provided, you can also ask about If any of this information
+  was provided, you can also ask about If any of this information was provided, you
+  can also ask about opening and closing time, the size you want your pizza to be
+  , the toppings on your pizza , the drink you want  or the price of the seats.'
+- 'assistant: Thank you for providing your contact number. Your order is all set and
+  should be delivered within 30-45 minutes. Enjoy your meal! By the way, our pizza
+  shop is open every day from 1pm to 11:30pm. Is there anything else you would like
+  to know?'
+- 'user: Thank you for providing your contact number. Your order is all set and should
+  be delivered within 30-45 minutes. Enjoy your meal! By the way, our pizza shop is
+  open every day from 1pm to 11:30pm. Is there anything else you would like to know?'
+- 'assistant: That''s great! I''m looking forward to my pizza. By the way, do you
+  have any special offers or discounts currently running in your pizza shop?'

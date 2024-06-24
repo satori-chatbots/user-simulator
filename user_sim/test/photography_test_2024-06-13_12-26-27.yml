@@ -1,0 +1,71 @@
+interaction:
+- 'User: Hi, my name is John Doe, and I''d like to schedule an appointment for a photo
+  session tomorrow. Can you help me with that?'
+- 'Assistant: Of course, John Doe. I can definitely help you with that. Could you
+  please provide me with your phone number? Also, if you wish, you can share your
+  email address with us. This is optional but it would help us to send you updates
+  and offers.'
+- 'User: Sure, my phone number is 555-1234. Can you tell me what time slots are available
+  for tomorrow? Also, what are your opening and closing times?'
+- 'Assistant: Thanks John Doe! We''ll contact you very soon for a session on 14/06/2024.'
+- 'User: Wait, there''s a mistake. I actually need the appointment for tomorrow, not
+  next year. Can you confirm the available time slots for tomorrow and let me know
+  your opening and closing times?'
+- 'Assistant: We capture art both on location and in our SoHo studio. Our hours of
+  operation are Monday through Friday, from 9am to 5pm.'
+- 'User: Got it, thanks for the info. Could you please let me know the available time
+  slots for tomorrow within that timeframe? Also, can you tell me more about the types
+  of photo sessions you offer and their costs?'
+- 'Assistant: We capture art both on location and in our SoHo studio. Our hours of
+  operation are Monday through Friday, from 9am to 5pm.'
+- 'User: I understand the hours, but I''d really need to know the specific time slots
+  available for tomorrow. Additionally, could you provide more details about the different
+  types of photo sessions you offer and their respective costs?'
+- "Assistant: Of course, I'd be happy to help you with that. Could you please provide\
+  \ me with the following details: \n1. The media you are interested in: photography,\
+  \ video, or 3D rendering?\n2. The number of artworks you have?\n3. The type of artworks:\
+  \ picture, sculpture, or ceramic?"
+- 'User: I''m interested in a photography session. I don''t have any artworks, just
+  looking to book a personal photo session. Can you please let me know what time slots
+  are available for tomorrow? Also, what are the costs for a standard personal photo
+  session?'
+- 'Assistant: I see, you''re interested in a personal photography session. However,
+  our shop specializes in photographing artworks for art galleries. We offer services
+  for photography, video, and 3D rendering of artworks such as pictures, sculptures,
+  and ceramics. If you have any of these types of artworks, could you please provide
+  the number and type of artworks you have?'
+- 'User: I understand now that your shop specializes in photographing artworks. However,
+  I''m looking to book a personal photo session for myself. Could you please confirm
+  if you can accommodate that type of session?
+
+
+  If not, could you recommend another photography service that handles personal photo
+  sessions?'
+- 'Assistant: I apologize for any confusion, but our shop specializes in photographing
+  artworks for art galleries. We don''t typically handle personal photo sessions.
+  However, I can recommend a few other local photography services that specialize
+  in personal photo sessions. Would you like me to do that?'
+- 'User: Yes, that would be really helpful. Could you please recommend a few local
+  photography services that handle personal photo sessions? Also, do you happen to
+  know their contact details and operating hours?'
+- 'Assistant: I''m sorry for any confusion, but as a chatbot for a photography shop
+  specializing in artworks, I don''t have the capability to recommend other photography
+  services for personal photo sessions. I would suggest searching online or asking
+  for recommendations from friends or family for local photographers who specialize
+  in personal photo sessions. I apologize for any inconvenience.'
+- 'User: That''s unfortunate, but I understand. Thank you for your assistance anyway.
+  Just to be sure, if I ever need your services for photographing artworks in the
+  future, how much notice would you typically need for booking an appointment? And
+  are there any specific requirements or preparations I should be aware of before
+  the session?'
+- 'Assistant: We typically require at least a week''s notice for booking an appointment,
+  but it can vary depending on our schedule. As for preparations, it would be helpful
+  if you could provide us with the details of the artworks you want us to photograph,
+  such as the type of artwork (picture, sculpture, ceramic), the number of artworks,
+  and the media you prefer (photography, video, 3D rendering). This will help us prepare
+  the necessary equipment and set up the studio accordingly. If you have any specific
+  requirements or requests, please let us know in advance so we can accommodate them.'
+- 'User: Thank you for the information. Just to clarify, when you mention providing
+  details about the artworks, should I do this at the time of booking, or can it be
+  done closer to the appointment date? Also, are there any additional costs for special
+  requests or specific setups?'

@@ -1,0 +1,51 @@
+interaction:
+- 'User: Hello! My name is John Doe and I''d like to schedule an appointment for tomorrow.
+  Could you help me with that?'
+- 'Assistant: Of course, John Doe. I can definitely assist you with that. Could you
+  please provide me with your phone number? Also, if you wish, you can share your
+  email address with us. This is optional but it can help us to keep you updated.'
+- "User: Sure! My phone number is 555-1234. My email address is john.doe@example.com.\
+  \ \n\nCould you tell me what time slots are available for tomorrow?"
+- 'Assistant: Thanks John Doe! We''ll contact you very soon for a session on 12/06/2024.'
+- 'User: Thank you for letting me know about the contact details. What time slots
+  are available for tomorrow? And could you also share the opening and closing times
+  of the shop?'
+- 'Assistant: We capture art both on location and in our SoHo studio. Our hours of
+  operation are Monday through Friday, from 9am to 5pm.'
+- 'User: Thanks for the info! Could you please let me know the specific time slots
+  available for tomorrow within those hours? Also, could you provide some details
+  about what the photo session includes and how long it typically lasts?'
+- 'Assistant: I am unsure, but I can provide information about our opening hours,
+  shop location, portfolio and key projects, pricing model, and the types of media
+  we work with.'
+- 'User: Sure, I understand. Could you please share the specific time slots available
+  for tomorrow within your operating hours of 9am to 5pm? Also, I''d love to know
+  more about what the photo session includes and how long it typically lasts. Additionally,
+  could you give me an estimate of the cost for a standard photo session?'
+- 'Assistant: Of course, I''d be happy to assist you further. However, I need some
+  additional information. Could you please specify the media you''re interested in?
+  We offer photography, video, and 3D rendering. Also, could you tell me the number
+  of artworks you have and their type? We work with pictures, sculptures, and ceramics.'
+- 'User: I''m primarily interested in a photography session for tomorrow. Could you
+  please provide the specific time slots available within your operating hours of
+  9am to 5pm? Also, I''d like to know more about what the photo session includes,
+  how long it typically lasts, and an estimate of the cost for a standard photography
+  session.'
+- 'Assistant: Thank you for your interest in our photography services. Before I can
+  provide you with the specific time slots and cost estimate, could you please tell
+  me the number of artworks you have and their type? We work with pictures, sculptures,
+  and ceramics.'
+- 'User: I''m interested in a standard photography session focused on portrait photography.
+  No artworks involved this time! Could you please provide the specific time slots
+  available within your operating hours of 9am to 5pm for tomorrow? Additionally,
+  I''d like to know what the session includes, how long it typically lasts, and an
+  estimate of the cost.'
+- 'Assistant: I understand that you''re interested in a photography session and there
+  are no artworks involved this time. However, for our records, could you please specify
+  the type of artworks you usually work with? We categorize them as pictures, sculptures,
+  or ceramics.'
+- 'User: I''m interested in portrait photography, so typically it would be pictures.
+  Could you now provide the specific time slots available for tomorrow within your
+  operating hours of 9am to 5pm? Also, I''d appreciate detailed information on what
+  the session includes, how long it typically lasts, and an estimate of the cost for
+  a standard photography session.'

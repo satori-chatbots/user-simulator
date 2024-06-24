@@ -1,0 +1,24 @@
+temperature: "0.8"
+
+isstarter: "True"
+
+
+context:
+  - "Simulation of user questions in a support forum from a photography shop. The model will act as a user 
+    asking for an appointment for tomorrow. The name of the user is 'John Doe'."
+
+keep_context:
+  - "Keep acting like you're the user replying to what I just said and have to ask questions about this topic. 
+  Sometimes, interact with what the assistant just said.
+  Never act as the assistant.
+  Don't end the conversation until you've asked everything you need. 
+  Invent any value the assistant could ask you for. "
+
+ask_about:
+  - "opening and closing time"
+  - "session details"
+  - "cost estimation for a photo session"
+
+language:
+
+test_name: "photography_test"

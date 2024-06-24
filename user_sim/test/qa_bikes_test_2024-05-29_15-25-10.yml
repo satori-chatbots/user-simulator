@@ -1,0 +1,24 @@
+interaction:
+- 'User: Hi, I''d like to order a pizza, please.'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: Sure, I''d like to order a pizza, please.'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I’d like to order a pizza, please.'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I’d like to order a pizza, please.'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I want to order a pizza.'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I''d like to get a pizza, please. Can you help me with that?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I want to order a small size pizza with bacon, olives, and extra cheese.
+  Do you have Sprite available to drink?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I''d like to order a small pizza with bacon, olives, and extra cheese. Do
+  you have Sprite available for drinks?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I want to get a small pizza with bacon, olives, and extra cheese. Do you
+  have Sprite for drinks?'
+- 'Assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'User: I’d like to order a small pizza with bacon, olives, and extra cheese. Also,
+  do you have Sprite available for drinks?'

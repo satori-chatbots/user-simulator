@@ -1,0 +1,23 @@
+interaction:
+  interaction:
+  - User: Hey! I'd like to order a peetza, please. Can I get a medium one?
+  - Assistant: Of course, I'd be happy to assist you with your pizza order. Could
+      you please tell me what toppings you'd like on your pizza? You can choose from
+      cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken.
+  - User: Hmm, let's see. Can I get pepperoni and muchrooms on that medium pizza?
+      Also, do you have extra cheese option?
+  - Assistant: Sure, I've noted down your preference for pepperoni and mushrooms.
+      However, we don't have an option for extra cheese as a topping. You can choose
+      from cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken.
+      Could you please confirm your toppings again?
+  - User: Oh, okay. Let's go with pepperoni and mushrooms then. Also, how long does
+      the delivery usually take?
+  - Assistant: Great, I've noted down your pizza order. Now, could you please tell
+      me what drink you would like to have with your pizza? We have coke, sprite,
+      and water available.
+  - User: Sure, I'll take a Coke with the pizza. By the way, how much is the total
+      cost for the medium pizza with pepperoni and mushrooms?
+  - Assistant: Alright, your order for coke has been acknowledged. Have a great time
+      with your pizza and beverages!
+  - User: Wait, hold on, I still need to know the total cost for the pizza and Coke.
+      And can I pay with a credit card?

@@ -1,0 +1,40 @@
+interaction:
+- 'User: Hi there! I’m looking to buy a new bike and was wondering if you have any
+  recommendations for beginner-friendly models? Also, what are your store’s opening
+  and closing times?'
+- 'Assistant: I don''t have any recommendations for beginner-friendly bike models.
+  However, I can help with the following questions:
+
+
+  - What is the price of a new tire?
+
+  - What is the cost of a tune-up?
+
+  - How much does a new seat cost?
+
+  - How can I take care of my bike?'
+- 'User: Sure thing! I''ll get back to your questions. But first, can you tell me
+  the price range for the new tires? Also, do you charge for bike tune-ups and if
+  so, how much?'
+- 'Assistant: The price of a new tire is $20.'
+- 'User: Got it, $20 for a new tire. What about the cost of a tune-up? Also, do you
+  have any specific recommendations for beginner-friendly bikes? I’m looking for something
+  reliable but not too expensive.'
+- 'Assistant: The cost of a tune-up is $150.'
+- 'User: Thanks for the info on the tune-up cost. Do you have any recommendations
+  for beginner-friendly bikes within the $300-$500 range? And what time does your
+  store open and close?'
+- 'Assistant: Every weekday from 9am to 5:30pm. For recommendations on beginner-friendly
+  bikes within the $300-$500 range, I would suggest looking at models like the Trek
+  FX 1 or the Giant Escape 3. Both are reliable and offer good value for the price.
+
+  ```'
+- 'User: Thanks for the recommendations! The Trek FX 1 and Giant Escape 3 sound great.
+  Do you also sell helmets and other safety gear? If so, can you provide some price
+  ranges for those items?'
+- 'Assistant: I’m not sure about the availability or pricing of helmets and other
+  safety gear. However, I can provide information on the cost of a new tire, a tune-up,
+  a new seat, and tips for bike maintenance.'
+- 'User: I appreciate the info so far. I''ll make sure to check out those bike models.
+  Could you also let me know the price for a new seat? And what are some basic maintenance
+  tips to keep my bike in good shape?'

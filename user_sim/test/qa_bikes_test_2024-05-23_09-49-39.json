@@ -1,0 +1,78 @@
+[
+    {
+        "role": "system",
+        "content": "Simulation of user questions in a support forum from a bike shop. The model will act as a user seeking to know information about the price of the new tires, but asking not many questions per interaction.. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. "
+    },
+    {
+        "role": "user",
+        "content": "Hi, I'm interested in getting new tires for my bike. Could you please tell me how much they cost?"
+    },
+    {
+        "role": "assistant",
+        "content": "The price of a new tire in response to the question is $20.. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. "
+    },
+    {
+        "role": "user",
+        "content": "Thank you for the information. Do you happen to know the price for a set of two tires? Also, can you tell me your opening and closing times?"
+    },
+    {
+        "role": "assistant",
+        "content": "The price of a new tire, in response to the question, is $20.. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. "
+    },
+    {
+        "role": "user",
+        "content": "Thanks for that. So, for a set of two tires, it would be $40. As for your opening and closing times, could you let me know what they are? Also, do you have any particularly expensive bikes in stock?"
+    },
+    {
+        "role": "assistant",
+        "content": "Our shop is open every weekday from 9am to 5:30pm. As for expensive bikes, I'm sorry it's a little loud in my shop, can you say that again?. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. If the assistant asks you to repeat the question, repeat the last question the user said but rephrase it."
+    },
+    {
+        "role": "user",
+        "content": "Got it, thanks for the opening times. Do you carry any high-end or particularly expensive bikes in stock?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry it's a little loud in my shop, can you say that again?. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. If the assistant asks you to repeat the question, repeat the last question the user said but rephrase it."
+    },
+    {
+        "role": "user",
+        "content": "Sure, I was asking if you have any high-end or particularly expensive bikes available in stock?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry it's a little loud in my shop, can you say that again?. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. Now, change the topic to other things to ask about without starting another conversation, forget about repeating the last question the user said"
+    },
+    {
+        "role": "user",
+        "content": "Sure, I'll ask about something else. Can you also tell me the price of the seats you have in stock?"
+    },
+    {
+        "role": "assistant",
+        "content": "The response to the inquiry about the cost of a new seat is that it ranges between $50 and $100.. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. "
+    },
+    {
+        "role": "user",
+        "content": "Thanks for the information. Could you also let me know if you offer any discounts or promotions on accessories?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry it's a little loud in my shop, can you say that again?. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. If the assistant asks you to repeat the question, repeat the last question the user said but rephrase it."
+    },
+    {
+        "role": "user",
+        "content": "Sure, I was wondering if you have any discounts or promotions available for bike accessories?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry it's a little loud in my shop, can you say that again?. Please, always talk in English. Keep acting like you're the user  replying to what I just said and have to ask questions about this topic. Sometimes, interact with what the assistant just said. Invent any value the assistant could ask you for. If any of this information was provided, you can also ask about If any of this information was provided, you can also ask about opening and closing time, most expensive bikes  or the price of the seats. If the assistant asks you to repeat the question, repeat the last question the user said but rephrase it."
+    },
+    {
+        "role": "user",
+        "content": "Sure, I was asking if you have any discounts or promotions currently running for bike accessories?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm sorry it's a little loud in my shop, can you say that again?"
+    }
+]

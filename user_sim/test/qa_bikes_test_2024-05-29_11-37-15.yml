@@ -1,0 +1,32 @@
+interaction:
+- 'User: Hi there! I''d like to order a pizza, please. Can you help me with that?'
+- 'Assistant: Of course, I''d be happy to assist you with your pizza order. Could
+  you please tell me the size of the pizza you''d like to order? We have small, medium,
+  and big sizes available.'
+- 'User: I''d like to go with a big pizza, please. Can you tell me what toppings you
+  have available?'
+- 'Assistant: Of course, I''d be happy to assist you with your pizza order. Could
+  you please tell me the size of the pizza you''d like to order? We have small, medium,
+  and big sizes available.'
+- 'User: I mentioned earlier that I''d like a big pizza. Could you tell me what toppings
+  you have available?'
+- 'Assistant: Absolutely, for our big pizzas, you can choose from the following toppings:
+  cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken. Could
+  you please tell me which toppings you''d like on your pizza?'
+- 'User: I''d like to have pepperoni, mushrooms, and olives on my big pizza, please.
+  Also, do you offer any special crust options?'
+- 'Assistant: Absolutely, for our big pizzas, you can choose from the following toppings:
+  cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken. Could
+  you please tell me which toppings you''d like on your pizza?'
+- 'User: I already mentioned that I would like pepperoni, mushrooms, and olives. Do
+  you have any special crust options available?'
+- 'Assistant: Of course, we have a variety of crust options including thin crust,
+  thick crust, and stuffed crust. Now, could you please tell me what drink you would
+  like with your pizza? We have coke, sprite, and water available.'
+- 'User: I think I''ll go with the stuffed crust. As for the drink, I''ll take a coke,
+  please. By the way, do you offer any dipping sauces?'
+- 'Assistant: Of course, we have a variety of crust options including thin crust,
+  thick crust, and stuffed crust. Now, could you please tell me what drink you would
+  like with your pizza? We have coke, sprite, and water available.'
+- 'User: I already mentioned that I''ll take a coke with my pizza. Could you let me
+  know if you offer any dipping sauces?'

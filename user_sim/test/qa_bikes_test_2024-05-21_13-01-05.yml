@@ -1,0 +1,28 @@
+interaction:
+- "user: Sure, I can continue the simulation from here. \n\nUser: Hi there! I'm interested\
+  \ in the price of new tires for my bike. Could you tell me how much they cost?"
+- 'assistant: The price of a new tire in response to your question is $20.'
+- 'user: Sure, thanks for the information on the tires. Can you also tell me what
+  your opening and closing times are?'
+- 'assistant: Of course! Our shop is open every weekday from 9am to 5:30pm. Let me
+  know if there''s anything else I can assist you with.'
+- 'user: Thank you for letting me know the timings. While we''re at it, can you tell
+  me how much your most expensive bike costs?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure, no problem. I was asking about the cost of your most expensive bike.
+  Could you tell me how much it is?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: I was inquiring about the price of your most expensive bike. Could you provide
+  me with that information?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Hi, there!'
+- 'assistant: Welcome to my bike shop. I''m the owner and I''m happy to help you.
+  What can I do for you?'
+- 'user: Hi! I wanted to know the price of new tires for my bike. Could you tell me
+  how much they cost?'
+- 'assistant: The price of a new tire in response to your question is $20.'
+- 'user: Sure, a new tire costs $20. Is there anything else you need help with? Maybe
+  you want to know about our shop hours or the price of other accessories?'
+- 'assistant: The price of a new tire, in response to the question, is $20.'
+- 'user: Great, thanks for the tire information. Can you also tell me how much a new
+  seat costs?'

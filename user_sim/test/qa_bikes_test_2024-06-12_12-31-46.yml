@@ -1,0 +1,43 @@
+interaction:
+- 'User: Hi there! I was wondering if you could tell me what time the bike shop opens
+  and closes?'
+- 'Assistant: I''m sorry, I can help you to set an appointment for a session, provide
+  price estimates, and answer on issues related to our shop. However, I don''t have
+  information about a bike shop. We are a photography shop specialized in photographs
+  for art galleries.'
+- 'User: Oh, I might have gotten the wrong place then. Thanks for letting me know!
+  But before I go, can you tell me if you have any recommendations for a good bike
+  shop in the area?'
+- 'Assistant: I''m sorry, I can help you to set an appointment for a session, provide
+  price estimates, and answer on issues related to our shop. However, I don''t have
+  information about bike shops in the area.'
+- 'User: No worries, thanks for your help anyway. I''ll look up some bike shops myself.
+  Before I go, just one last question—do you guys offer any photography workshops
+  or classes?'
+- 'Assistant: I''m sorry, I can help you to set an appointment for a session, provide
+  price estimates, and answer on issues related to our shop. However, we do not offer
+  photography workshops or classes.'
+- 'User: User: Alright, thanks for the clarification. I appreciate your help. Now,
+  back to finding a bike shop. When I do find one, what should I look for in terms
+  of customer service and quality? Any tips?'
+- 'Assistant: I''m sorry, I can help you to set an appointment for a session, provide
+  price estimates, and answer on issues related to our shop. However, I don''t have
+  information about what to look for in a bike shop.'
+- "User: User: Alright, it seems like I need to find some other resources for bike\
+  \ shops. Thanks for your help! \n\nWhen I do find a bike shop, I wonder about the\
+  \ cost of new tires and seats. Could you recommend what kind of prices I should\
+  \ expect for those items?"
+- 'Assistant: I''m sorry, I can help you to set an appointment for a session, provide
+  price estimates, and answer on issues related to our shop. However, I don''t have
+  information about bike shops or the cost of bike parts.'
+- 'User: User: Okay, got it. Seems like I need to do some more research on my own.
+  Thanks for the help anyway!
+
+
+  When I do find a bike shop, is it usually possible to get a discount if I buy multiple
+  items, like tires and seats together?'
+- 'Assistant: I''m sorry, I can help you to set an appointment for a session, provide
+  price estimates, and answer on issues related to our shop. However, I don''t have
+  information about discounts in bike shops.'
+- 'User: User: Alright, I understand. Thanks for your help anyway. I''ll make sure
+  to ask the bike shop directly about discounts. Have a good day!'

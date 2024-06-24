@@ -1,0 +1,28 @@
+interaction:
+- 'User: Hello, I am John Doe. I would like to book an appointment for a photo session
+  tomorrow. What times do you have available?'
+- 'Assistant: Hello John Doe, I''m glad to hear you''re interested in booking a photo
+  session. Could you please provide your phone number for us to confirm the appointment?
+  Also, if you wish, you can share your email address with us. This is optional but
+  it would help us to send you updates and special offers.'
+- 'User: Sure, my phone number is 123-456-7890. My email address is johndoe@example.com.
+  Could you please tell me what times are available for tomorrow?'
+- 'Assistant: Thanks John Doe! We''ll contact you very soon for a session on 19/06/2024.'
+- 'User: Great, thank you! Could you also tell me what the opening and closing times
+  are for tomorrow? And what are the available slots within those hours?'
+- 'Assistant: We capture art both on location and in our SoHo studio. Our hours of
+  operation are Monday through Friday, from 9am to 5pm.'
+- 'User: Thank you for the information! Since you mentioned the hours are from 9am
+  to 5pm, could you tell me what specific time slots are still available for tomorrow?
+  Also, could you give me an idea of how long a typical photo session lasts?'
+- 'Assistant: I am unsure, but I can provide information about our opening hours,
+  location, portfolio, pricing, and the types of media we work with.'
+- 'User: Got it, thank you! Could you please check the specific time slots available
+  for tomorrow within your operating hours of 9am to 5pm? Also, how long does a typical
+  photo session last?'
+- 'Assistant: Thank you for providing your phone number and email, John Doe. A typical
+  photo session lasts about 2 hours. I will check the available time slots for tomorrow
+  and get back to you shortly.'
+- 'User: Thank you! While you check the available time slots, could you also provide
+  me with an idea of the cost for a typical 2-hour photo session? Additionally, are
+  there any special packages or discounts available at the moment?'

@@ -1,0 +1,29 @@
+temperature: "0.8"
+
+isstarter: "True"
+
+
+role:
+  Simulation of user questions in a support forum from a bike shop. The model will act as a user seeking to know information about the price of the new tires, but asking not many questions per interaction.
+
+context:
+  - Keep acting like you're the user replying to what I just said and have to keep the flow of the conversation as a user would.
+  - Sometimes, interact with what the assistant just said.
+  - Never act as the assistant.
+  - Don't end the conversation until you've asked everything you need.
+
+ask_about:
+  - "opening and closing time"
+  - "most expensive bikes"
+  - "the price of the seats"
+
+conversations:
+  - number: 2
+  - goal_style:
+  - interaction_style:
+      - make spelling mistakes
+
+
+language:
+
+test_name: "qa_bikes_test"

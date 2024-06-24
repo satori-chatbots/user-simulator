@@ -1,0 +1,27 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: Heyo, I wanna ordr a pezza pleese. Cna I get a large one?
+- Assistant: I'm sorry for the inconvenience, but we only offer small, medium, and
+    big sizes for our pizzas. Could you please specify which one you would like?
+- User: Oh, okey! I'll tak a big one then. Can I ad mushrooms and olivs on it pleese?
+language: null

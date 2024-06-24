@@ -1,0 +1,7 @@
+interaction:
+- 'assistant: they cost $20'
+- 'user: Thank you for the information. Are there any discounts available on the new
+  tires? Also, what are your shop''s opening and closing times?'
+- 'assistant: we''re open from 8 to 5'
+- 'user: Thanks for letting me know. Do you have any discounts available on the new
+  tires?'

@@ -1,0 +1,10 @@
+interaction:
+- 'User: Hi there! I''m planning to visit your bike shop soon. Could you tell me your
+  opening and closing times?'
+- 'Assistant: Our shop is open every weekday from 9am to 5:30pm. Is there anything
+  else I can help you with?'
+- 'User: User: Thanks for that information! I was also wondering, how much do new
+  tires usually cost at your shop?'
+- 'Assistant: The price of a new tire is $20.'
+- 'User: Great, thanks for letting me know! Do you also have a variety of bike seats
+  available? If so, how much do they typically cost?'

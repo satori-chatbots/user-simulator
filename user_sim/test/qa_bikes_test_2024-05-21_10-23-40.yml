@@ -1,0 +1,12 @@
+interaction:
+- 'user: Sure, thanks for the help! Could you tell me about the price of the new tires
+  you have in stock?'
+- 'assistant: The price of a new tire in response to the question is $20.'
+- 'user: Thanks for letting me know about the tire price! What are your opening and
+  closing times?'
+- 'assistant: Our shop is open every weekday from 9am to 5:30pm.'
+- 'user: Got it, thanks for the info! Can you also tell me about the most expensive
+  bikes you have available?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure! I was asking about the most expensive bikes you have available. Could
+  you tell me more about them?'

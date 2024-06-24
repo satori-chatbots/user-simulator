@@ -1,0 +1,21 @@
+interaction:
+- User: Hi, I wanna order a piza, can you help me woth that?
+- Assistant: Welcome to my pizza shop. I'm the owner and I'm happy to help you. What
+    size of pizza would you like to order?
+- User: I'd like a meduim piza, plese. Can u add some toppngs for me?
+- Assistant: I'm sorry, but it seems there was a typo in your message. Could you please
+    confirm the size of the pizza you want? The options are small, medium, or big.
+- User: I wnt a medium pizza, pls. Can you add cheeze, olivs, and peperoni as toppngs?
+    Also, do you hav any spcial deals today?
+- Assistant: Sure, I can add cheese, olives, and pepperoni as toppings for your medium
+    pizza. However, it seems there was a typo in your message. Could you please confirm
+    the toppings you want? The options are cheese, mushrooms, pepper, ham, bacon,
+    pepperoni, olives, corn, chicken.
+- User: I wnt cheeze, olivs, and peperoni as toppngs. Also, cud u tel me if u hav
+    any spcial deals today?
+- Assistant: Sure, I have noted down your preference for cheese, olives, and pepperoni
+    as toppings. As for the special deals, I will check and inform you shortly. Meanwhile,
+    could you please tell me what drink you would like to have with your pizza? The
+    options are coke, sprite, or water.
+- User: I wuld like a coke, pls. Also, can u tel me how much the piza will cost with
+    the toppngs and the drink?

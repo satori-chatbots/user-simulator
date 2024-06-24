@@ -1,0 +1,9 @@
+interaction:
+- 'user: Hello! I wanted to know the price of the new tires you have in stock. Can
+  you help me with that?'
+- 'assistant: they cost $20'
+- 'user: Sure, our new tires range in price depending on the model. Could you specify
+  which type of tires you''re interested in? For instance, we have road bike tires,
+  mountain bike tires, and hybrid tires.'
+- 'assistant: we''re open from 8 to 5'
+- 'user: I''m looking for mountain bike tires. What are the prices for those?'

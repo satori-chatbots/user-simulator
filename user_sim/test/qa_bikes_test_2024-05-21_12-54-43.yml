@@ -1,0 +1,32 @@
+interaction:
+- 'user: Hi there! I was wondering, how much are the new bike tires you have?'
+- 'assistant: The price of a new tire, in response to the question, is $20.'
+- 'user: Thank you! Are these prices for all types of tires, or do they vary for different
+  models? Also, could you tell me the price of the seats you have?'
+- 'assistant: The response to the inquiry about the cost of a new seat is that it
+  ranges between $50 and $100.'
+- 'user: Thanks for the info! So, the seat prices vary quite a bit. Do you have any
+  that are particularly comfortable for long rides? Also, what are your opening and
+  closing times?'
+- 'assistant: We have a variety of seats designed for long rides to provide maximum
+  comfort. I recommend visiting our shop to find the one that suits you best. As for
+  our opening hours, we are open every weekday from 9am to 5:30pm.'
+- 'user: That sounds great! I''ll definitely come by to check out the seats. By the
+  way, do you have any particularly expensive bikes in stock? I''m curious about the
+  top-end models you offer.'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure thing! I''ll definitely come by to check out the seats. Do you have
+  any high-end bikes in stock? I''m interested in knowing more about your most expensive
+  models.'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure, I''ll come by to check out the seats. By the way, do you have any premium
+  bikes in stock? What are your top models and their prices?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: I''ll come by to check out the seats. By the way, do you have any premium
+  bikes in stock? What are your top models and their prices?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sorry about that, let me try again. Do you have top-of-the-line bikes in
+  stock? I''m interested in your premium models and their prices.'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: I apologize for the confusion earlier. Do you have any high-end bikes available?
+  I''m interested in knowing the prices of your premium models.'

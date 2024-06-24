@@ -1,0 +1,10 @@
+interaction:
+- 'assistant: Hi, how can I help you?'
+- 'user: Hello! I''m interested in knowing the price of the new bike tires you have
+  in stock. Can you help me with that?'
+- 'assistant: they cost $20'
+- 'user: Thanks for the information! Could you also let me know your opening and closing
+  times?'
+- 'assistant: we''re open from 8 to 5'
+- 'user: Thank you! One more thing, what is the price of the most expensive bike you
+  have in your shop?'

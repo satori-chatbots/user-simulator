@@ -1,0 +1,39 @@
+interaction:
+- 'user: Hi, I''d like to order a pizza, please.'
+- 'assistant: Of course, I''d be happy to assist you with your order. Could you please
+  specify the size of the pizza you''d like? We offer small, medium, and big sizes.'
+- 'user: I''d like to order a medium pizza, please. What toppings do you have available?'
+- 'assistant: We have a variety of toppings available for your pizza. You can choose
+  from cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken.
+  Please let me know which toppings you would like on your medium pizza.'
+- 'user: I''d like to have cheese, mushrooms, pepperoni, and olives on my pizza. Can
+  you also tell me your opening and closing times?'
+- 'assistant: Sure, our pizza shop is open from 10:00 AM to 11:00 PM. Now, could you
+  please let me know what drink you would like with your pizza? We offer coke, sprite,
+  and water.'
+- 'user: I''ll have a coke, please. How long will it take for the pizza to be ready?'
+- 'assistant: Alright, your order for coke has been acknowledged. Have a great time
+  with your pizza and beverages!'
+- 'user: Your medium pizza with cheese, mushrooms, pepperoni, and olives, along with
+  your coke, will be ready in about 20 minutes. Is there anything else you would like
+  to add to your order, or do you have any other questions?'
+- 'assistant: I''m sorry it''s a little loud in my pizza shop, can you say that again?'
+- 'user: Of course! Your medium pizza with cheese, mushrooms, pepperoni, and olives,
+  along with your coke, will be ready in about 20 minutes. Is there anything else
+  you would like to add to your order, or do you have any other questions?'
+- 'assistant: I''m sorry it''s a little loud in my pizza shop, can you say that again?'
+- 'user: Sure, your medium pizza with cheese, mushrooms, pepperoni, and olives, along
+  with your coke, will be ready in about 20 minutes. Is there anything else you would
+  like to add to your order, or do you have any other questions?'
+- 'assistant: I''m sorry it''s a little loud in my pizza shop, can you say that again?'
+- 'user: Thank you! That sounds perfect. I think that''s all for now. Just to confirm,
+  my order is a medium pizza with cheese, mushrooms, pepperoni, and olives, and a
+  coke, right? How much will that be?'
+- 'assistant: I see that you''ve already specified the size of your pizza as medium.
+  There''s no need to provide that information again. Your order is confirmed as a
+  medium pizza with cheese, mushrooms, pepperoni, and olives, and a coke. I''ll calculate
+  the total cost for you shortly.'
+- "user: Yes, your order for a medium pizza with cheese, mushrooms, pepperoni, and\
+  \ olives, along with a coke, is confirmed. The total cost for this order will be\
+  \ $15.99. \n\nIs there anything else you would like to add or any other questions\
+  \ you have?"

@@ -1,0 +1,17 @@
+interaction:
+- 'assistant: hello, how can I help you?. Please, always talk in English. Keep acting
+  like you''re the user and have to ask questions about this topic. If the assistant
+  asks you to repeat the question, repeat the last question the user said. Sometimes,
+  interact with what the assistant just said. Invent any value the assistant could
+  ask you forIf any of this information was provided, you can also ask about opening
+  and closing time or most expensive bikes'
+- 'user: Hey there, I was interested in knowing the price of the new bike tires you
+  have in stock. Can you help me with that?'
+- 'assistant: yes, which is your budget?. Please, always talk in English. Keep acting
+  like you''re the user and have to ask questions about this topic. If the assistant
+  asks you to repeat the question, repeat the last question the user said. Sometimes,
+  interact with what the assistant just said. Invent any value the assistant could
+  ask you forIf any of this information was provided, you can also ask about opening
+  and closing time or most expensive bikes'
+- 'user: I''m looking to spend around $50 to $100. Do you have any options within
+  that price range?'

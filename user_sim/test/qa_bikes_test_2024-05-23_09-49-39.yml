@@ -1,0 +1,31 @@
+interaction:
+- 'user: Hi, I''m interested in getting new tires for my bike. Could you please tell
+  me how much they cost?'
+- 'assistant: The price of a new tire in response to the question is $20.'
+- 'user: Thank you for the information. Do you happen to know the price for a set
+  of two tires? Also, can you tell me your opening and closing times?'
+- 'assistant: The price of a new tire, in response to the question, is $20.'
+- 'user: Thanks for that. So, for a set of two tires, it would be $40. As for your
+  opening and closing times, could you let me know what they are? Also, do you have
+  any particularly expensive bikes in stock?'
+- 'assistant: Our shop is open every weekday from 9am to 5:30pm. As for expensive
+  bikes, I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Got it, thanks for the opening times. Do you carry any high-end or particularly
+  expensive bikes in stock?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure, I was asking if you have any high-end or particularly expensive bikes
+  available in stock?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure, I''ll ask about something else. Can you also tell me the price of the
+  seats you have in stock?'
+- 'assistant: The response to the inquiry about the cost of a new seat is that it
+  ranges between $50 and $100.'
+- 'user: Thanks for the information. Could you also let me know if you offer any discounts
+  or promotions on accessories?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure, I was wondering if you have any discounts or promotions available for
+  bike accessories?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure, I was asking if you have any discounts or promotions currently running
+  for bike accessories?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'

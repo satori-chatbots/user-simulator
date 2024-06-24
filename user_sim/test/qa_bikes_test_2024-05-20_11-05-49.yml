@@ -1,0 +1,7 @@
+interaction:
+- 'user: Hi, I was wondering how much the new bike tires cost?'
+- 'assistant: they cost $20'
+- 'user: Thanks for the price info! Also, what are your opening and closing times?'
+- 'assistant: we''re open from 8 to 5'
+- 'user: We''re open from 9 AM to 7 PM on weekdays, and from 10 AM to 6 PM on weekends.
+  Is there anything else you''d like to know?'

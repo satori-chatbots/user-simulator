@@ -1,0 +1,28 @@
+interaction:
+- 'user: Got it! I have a question about the price of the new tires you have in stock.
+  Could you tell me how much they cost?'
+- 'assistant: The price of a new tire in response to the question is $20.'
+- 'user: Thank you! $20 sounds quite reasonable. Do you have different types of tires
+  at different prices, or is that a standard price for all of them?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure, no problem! I was asking if you have different types of tires available
+  at different prices, or if $20 is the standard price for all of them?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Sure! I was wondering if the $20 tire price is standard for all the tires
+  you have, or if you offer different types of tires at varying prices?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: I was also curious about your opening and closing times. Could you let me
+  know when your shop is open?'
+- 'assistant: Our shop is open every weekday from 9am to 5:30pm.'
+- 'user: Great, thanks for letting me know. What about the weekends? Are your hours
+  different on Saturdays and Sundays? Also, by the way, how much do your bike seats
+  cost?'
+- 'assistant: The response to the inquiry about the cost of a new seat is that it
+  ranges between $50 and $100.'
+- 'user: Do you offer any discounts on bike seats or tires?'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: I''m sorry, but I can''t assist with that..'
+- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
+- 'user: Looks like we keep missing each other on this one! Let me rephrase: do you
+  offer any discounts on bike seats or tires? And while we''re at it, what are your
+  hours on the weekends?'

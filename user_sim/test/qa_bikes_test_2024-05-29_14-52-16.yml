@@ -1,0 +1,18 @@
+interaction:
+- 'User: Hi there! I''d like to order a pizza, please.'
+- 'Assistant: Of course! Could you please specify the size of the pizza you''d like
+  to order? We have small, medium, and big sizes available.'
+- 'User: I''d like a small pizza, please. Can you add bacon, olives, and extra cheese
+  as toppings?'
+- 'Assistant: Of course! Could you please specify the size of the pizza you''d like
+  to order? We have small, medium, and big sizes available.'
+- 'User: I''d like a small pizza, please. Can you add bacon, olives, and extra cheese
+  as toppings? Also, could I get a Sprite to drink?'
+- 'Assistant: Thank you for your order. Just to confirm, you would like a small pizza
+  with bacon, olives, and extra cheese as toppings, correct?'
+- 'User: Yes, that''s correct! Also, don''t forget the Sprite to drink. How long will
+  it take for the order to be ready?'
+- 'Assistant: Thank you for your order. Just to confirm, you would like a small pizza
+  with bacon, olives, and extra cheese as toppings, correct?'
+- 'User: Yes, that''s correct! And please don''t forget the Sprite to drink. How long
+  will it take for the order to be ready?'

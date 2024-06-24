@@ -1,0 +1,9 @@
+interaction:
+- 'user: Sure thing! Hi there, I’m looking to replace the tires on my bike. Could
+  you tell me how much the new tires cost?'
+- 'assistant: The response to the inquiry about the cost of a new tire is 20$.'
+- 'user: Thanks for the info! That price seems reasonable. Do you know how much it
+  would cost to get a new seat for my bike as well?'
+- 'assistant: The response to the inquiry about the cost of a new seat is that it
+  ranges between $50 and $100.'
+- 'user: That sounds good. Can you also tell me what time the shop opens and closes?'

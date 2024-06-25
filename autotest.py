@@ -59,6 +59,7 @@ def get_metadata(user_profile):
     language = {'language': user_profile.yaml['language']}
     metadata = {**ask_about, **conversation, **language}
     return metadata
+
 def check_keys(key_list: list):
     # Check if keys.properties exists
 
@@ -75,6 +76,8 @@ def check_keys(key_list: list):
     for k in key_list:
         if not os.environ.get(k):
             raise Exception(f"{k} not found")
+
+
 def generate(technology, chatbot, user, extract):
     user_profile = role_data(user)
 
@@ -82,6 +85,8 @@ def generate(technology, chatbot, user, extract):
         if technology == 'rasa':      the_chatbot = ChatbotRasa(chatbot)
         elif technology == 'taskyto': the_chatbot = ChatbotTaskyto(chatbot)
         else:                         the_chatbot = Chatbot(chatbot)
+
+        the_chatbot.fallback = user_profile.fallback
         the_user = user_generation(user_profile, the_chatbot, True)
         starter  = user_profile.isstarter
 

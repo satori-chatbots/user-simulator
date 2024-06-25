@@ -58,6 +58,7 @@ class role_data:
     def __init__(self, path):
 
         self.yaml = read_yaml(path)
+        self.fallback = self.yaml['fallback']
         self.temperature = self.yaml["temperature"]
         self.isstarter = self.yaml["isstarter"]
         self.role = self.yaml["role"]

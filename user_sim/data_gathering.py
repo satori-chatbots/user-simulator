@@ -53,15 +53,26 @@ class user_assistant:
 
 class chatbot_assistant:
     def __init__(self, ask_about, enable_logs=False):
-        self.prompt = """
-        Assistant that detects if this sentence '{chatbot_msg}' is responding to any of these questions: {ask_about}. 
-        Answer which question is being answered in a dictionary-like way, using True or False.
+        self.prompt ="""
+        You're an assistant implemented in a chatbot that has to process the conversation the chatbot and the user 
+        are having. You have to focus on detecting if this sentence by the chatbot '{chatbot_msg}' is answering to what 
+        the user is saying in this sentence '{user_msg}'. You will also have to detect if the user asked about anything
+        in this list of questions '{ask_about}', and reply which question is being answered in a dictionary-like way, 
+        using True or False. If the chatbot is answering what the user asked but it's not a question in the list,
+        everything should stay as False.        
         List the questions in the same order and written the same way as here {ask_about}.
-        Always use the dictionary format using brackets.
+        Always use the dictionary format using brackets, without any other content but the questions and the evaluation.
+        
         """
+        # """
+        # Assistant that detects if this sentence '{chatbot_msg}' is responding to any of these questions: {ask_about}.
+        # Answer which question is being answered in a dictionary-like way, using True or False.
+        # List the questions in the same order and written the same way as here {ask_about}.
+        # Always use the dictionary format using brackets.
+        # """
         self.logger = logging.getLogger('my_logger')
         self.assistant_role_prompt = PromptTemplate(
-            input_variables=["chatbot_msg", "ask_about"],
+            input_variables=["chatbot_msg", "ask_about", 'user_msg'],
             template=self.prompt)
         self.llm = ChatOpenAI(model="gpt-4o")
         self.chain = LLMChain(llm=self.llm, prompt=self.assistant_role_prompt)
@@ -125,7 +136,8 @@ class chatbot_assistant:
 
     def response(self, chatbot_msg, user_msg): #user_msg?? dictionary
 
-        chatbot_response = self.chain.run(chatbot_msg=chatbot_msg, ask_about=str(self.ask_about))
+        chatbot_response = self.chain.run(chatbot_msg=chatbot_msg, ask_about=str(self.ask_about), user_msg = user_msg)
+        print(chatbot_response)
         chatbot_response = to_dict(chatbot_response)
 
         self.logger.info(f"Dictionary created from chatbot response:{chatbot_response}")

@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 from colorama import Fore, Style
 from user_sim.role_structure import *
 from user_sim.utilities import *
-from user_sim.user_simulator_lang import user_generation
+from user_sim.user_simulator import user_generation
 
 class Chatbot:
     def __init__(self, url):

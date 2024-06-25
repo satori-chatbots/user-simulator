@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="643bc230-fe91-4b2c-9351-c3dd953cb891" name="Changes" comment="" />
+    <list default="true" id="643bc230-fe91-4b2c-9351-c3dd953cb891" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_sim/role_structure.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/role_structure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_sim/user_simulator_lang.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/user_simulator_lang.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -22,7 +30,8 @@
   &quot;keyToString&quot;: {
     &quot;Python.autotest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/Py_projects/user_simulator&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/PROYECTO/SATORI/rasa-integration-user-sim/chatbot-llm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -59,7 +68,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>

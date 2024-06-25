@@ -59,7 +59,7 @@ class role_data:
 
         self.yaml = read_yaml(path)
         self.temperature = self.yaml["temperature"]
-        self.isstarter = str_to_bool(self.yaml["isstarter"])
+        self.isstarter = self.yaml["isstarter"]
         self.role = self.yaml["role"]
         self.context = list_to_str(self.yaml["context"])
         self.ask_about = self.ask_about_processor(self.yaml["ask_about"])

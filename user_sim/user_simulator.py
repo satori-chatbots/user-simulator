@@ -48,7 +48,8 @@ class user_generation:
         self.chatbot = chatbot
         self.logger_config = LoggerConfig(mostrar_logs=enable_logs)
         self.logger = logging.getLogger('my_logger')  #???
-        self.user_llm = ChatOpenAI(model="gpt-4o")
+        self.temp = user_profile.temperature
+        self.user_llm = ChatOpenAI(model="gpt-4o", temperature=self.temp)
         self.conversation_history = {'interaction':[]}
         self.ask_about = list_to_phrase(user_profile.ask_about, prompted=True)
         self.request_register = user_assistant(user_profile.ask_about)
@@ -57,7 +58,7 @@ class user_generation:
             input_variables=["reminder", "history"],
             template=self.set_role_template()
         )
-        self.temp = float(user_profile.temperature)
+
         self.test_name = user_profile.test_name
         self.repeat_count = 0
         self.loop_count = 0
@@ -174,14 +175,12 @@ class user_generation:
 
         self.data_gathering.response(input_msg, self.request_register)
 
+        self.update_history("Assistant", input_msg)
+
         if self.end_conversation(input_msg):
             return "exit"
 
-
-        self.update_history("Assistant", input_msg)
-
         reminder = self.repetition_track(input_msg)
-
         history = self.get_history()
 
         # Generar la respuesta del usuario

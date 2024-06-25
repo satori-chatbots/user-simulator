@@ -1,6 +1,6 @@
-temperature: "0.8"
+temperature: 0.8
 
-isstarter: "True"
+isstarter: True
 
 role:
   Simulation of user ordering a pizza to a pizza shop. The model will act as a user asking for a pizza.

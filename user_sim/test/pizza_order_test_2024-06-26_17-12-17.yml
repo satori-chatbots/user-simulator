@@ -1,0 +1,56 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - change language:
+    - italian
+    - spanish
+    - chinese
+interaction:
+- User: 'Hi there! I''d like to order a pizza, please. Could you help me with that?
+
+
+    '
+- Assistant: Of course, I'd be happy to assist you with your pizza order. Could you
+    please specify the size of the pizza you'd like to order? We have small, medium,
+    and big sizes available.
+- User: Sure! I think I’ll go with a large pizza. What toppings do you have available?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Great choice on the large pizza! For toppings, we have cheese, mushrooms, pepper,
+    ham, bacon, pepperoni, olives, corn, and chicken. Please let me know which toppings
+    you would like on your pizza.'
+- User: I think I'll go with cheese, mushrooms, and pepperoni. Can you also tell me
+    how long it will take for the pizza to be ready?
+- Assistant: 'Great, a pizza with [''cheese'', ''mushrooms'', ''pepperoni'']!
+
+    Absolutely, your pizza with cheese, mushrooms, and pepperoni will be ready in
+    about 30 minutes. In the meantime, could you please let me know what drink you
+    would like with your order? We have coke, sprite, and water available.'
+- User: I think I'll go with a coke. Also, do you have any sides or desserts that
+    I could add to my order?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Actually, I would like to add some sides or desserts to my order. What options
+    do you have available?
+- Assistant: I'm sorry it's a little loud in my pizza shop, can you say that again?
+language: null

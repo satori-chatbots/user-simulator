@@ -1,0 +1,56 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: Hi ther! I wud like to ordder a pizza plz. Can u help me with that?
+- Assistant: Of course! I'd be happy to help you order a pizza. Could you please tell
+    me the size of the pizza you want, the toppings you'd like, and if you'd like
+    to order a drink as well?
+- User: Sure! I wud like a mediumm pizza. Can i get mushrooms, tommato, and cheese
+    on it? Oh, and do you havve any deals or promotions going on?
+- Assistant: I'm sorry, but it seems there was a typo in your pizza size. Could you
+    please confirm if you want a small, medium, or big pizza?
+- User: Ohh sorry, I meent medium. So, a medium pizza with mushrooms, tommato, and
+    cheese. Any deals or promotions now? Andd what kind of drinks do u have?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    I''m sorry, but we don''t have tomatoes as a topping option. We do have cheese
+    and mushrooms as you requested. Could you please choose another topping from the
+    following options: pepper, ham, bacon, pepperoni, olives, corn, or chicken?'
+- User: Aww bummerr! Ok, in thaat case, can I get mushrooms, cheese, and olives insted?
+    And abot the drinks, what kind do u have? Also, I'm still curiouse about deals
+    or promotions you may have!
+- Assistant: 'Great, a pizza with [''mushrooms'', ''cheese'', ''olives'']!
+
+    Of course, your pizza with mushrooms, cheese, and olives is noted. As for the
+    drinks, we have coke, sprite, and water. Which one would you prefer? Regarding
+    the deals, I''m sorry for the inconvenience, but as a chatbot, I don''t have real-time
+    promotional information. I recommend checking our website or calling the store
+    for the most accurate information.'
+- User: Ohh, yay! I'll take a coke, pleese. Andd just to mak sure, u got the toppings
+    rite? Mushrooms, cheese, and olives on a mediumm pizza. Also, whuts the totall
+    cost for all this?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+language: null

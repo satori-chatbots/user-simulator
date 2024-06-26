@@ -3,13 +3,13 @@ import re
 from user_sim.utilities import *
 
 interaction_styles = {
-    'long phrases': "use very long phrases to write anything.",
-    'change your mind': "eventually, change your mind about any information you provided.",
-    'change language': "eventually, change language to any of these: {{langauge}}.",
+    'long phrases': "use very long phrases to write anything. ",
+    'change your mind': "eventually, change your mind about any information you provided. ",
+    'change language': "eventually, change language to any of these: {{langauge}}. ",
     'make spelling mistakes': "please, make several spelling mistakes or typos in the sentences you're generating. "
-                              "But I mean, a lot, like, minimum 5 typos per sentence if possible",
-    'single question': "ask only one question per interaction.",
-    'all questions': "ask everything you have to ask in one sentence",
+                              "But I mean, a lot, like, minimum 5 typos per sentence if possible. ",
+    'single question': "ask only one question per interaction. ",
+    'all questions': "ask everything you have to ask in one sentence. ",
     'default': ''
 }
 
@@ -30,7 +30,16 @@ def pick_goal_style(goal):
         else:
             return goal, goal_styles['all answered']
 
+def replace_placeholders(phrase, variables):
+    def replacer(match):
+        key = match.group(1)
+        if isinstance(variables, dict):
+            return ', '.join(map(str, variables.get(key, [])))
+        else:
+            return ', '.join(map(str, variables))
 
+    pattern = re.compile(r'\{\{(\w+)\}\}')
+    return pattern.sub(replacer, phrase)
 
 def pick_interaction_style(interactions):
     styles = []
@@ -38,20 +47,37 @@ def pick_interaction_style(interactions):
     if interactions is None:
         return styles.append(interaction_styles['default'])
 
+
     for inter in interactions:
-        styles.append(interaction_styles[inter])
+
+        if isinstance(inter, dict):
+            keys = list(inter.keys())
+            if keys[0] == "change language":
+
+                phrase = interaction_styles[keys[0]]
+                variables = inter.get(keys[0])
+                replaced = replace_placeholders(phrase, variables)
+                styles.append(replaced)
+
+        else:
+            styles.append(interaction_styles[inter])
+
+
 
     styles = list_to_str(styles)
 
     return styles
 
-def get_language(lang):
+def get_language(lang): #TODO: try add a specific language and affect it with the "change language" interaction style
     if isinstance(lang, type(None)):
         return ''
 
 def list_to_str(list_of_strings):
     single_string = ' '.join(list_of_strings)
     return single_string
+
+
+
 
 class role_data:
 
@@ -82,28 +108,13 @@ class role_data:
                 variables.update(item)
                 print(variables)
 
-        # phrases = []
-        # for item in data:
-        #     if isinstance(item, str):
-        #         phrases.append(item)
 
-        def replace_placeholders(phrase, variables):
-            def replacer(match):
-                key = match.group(1)
-                return ', '.join(map(str, variables.get(key, [])))
 
-            pattern = re.compile(r'\{\{(\w+)\}\}')
-            return pattern.sub(replacer, phrase)
-
-        # updated_phrases = []
-        # for phrase in phrases:
-        #     if phrase and variables:
-        #         updated_phrases.append(replace_placeholders(phrase, variables))
 
         result_phrases = []
         for item in data:
             if isinstance(item, str):
-                # Verificar si la frase contiene alguna plantilla
+
                 if re.search(r'\{\{\w+\}\}', item):
                     updated_phrase = replace_placeholders(item, variables)
                     result_phrases.append(updated_phrase)

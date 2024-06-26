@@ -5,7 +5,7 @@ isstarter: True
 fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
 
 role:
-  Simulation of user ordering a pizza to a pizza shop. The model will act as a user asking for a pizza.
+  you have to act as a user ordering a pizza to a pizza shop.
 
 context:
 #  - Keep acting like you're the user replying to what I just said and have to keep the flow of the conversation as a user would.
@@ -35,7 +35,10 @@ conversations:
   - goal_style:
         steps: 5
   - interaction_style:
-      - make spelling mistakes
+      - change language:
+          - italian
+          - spanish
+          - chinese
 
 language:
 

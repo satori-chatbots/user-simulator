@@ -11,7 +11,7 @@ from user_sim.user_simulator import user_generation
 class Chatbot:
     def __init__(self, url):
         self.url = url
-        self.fallback = 'I do not understand you' # TODO: read from user configuration file
+        self.fallback = 'I do not understand you'
 
     def execute_with_input(self, user_msg):
         return ''

@@ -1,0 +1,40 @@
+ask_about:
+- opening and closing time
+- most expensive bikes
+- the price of the seats
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: Hey guys, I'm new here and I have a few questions about bikes. Can anyone
+    help me out?
+- Assistant: 'Welcome to my bike shop. I''m the owner and I''m happy to help you.
+    What can I do for you?
+
+    ```'
+- User: 'User: Thansk! First off, what are your opning and closing times? And do you
+    have any really expensiv bikes?'
+- Assistant: 'Our opening hours are every weekday from 9am to 5:30pm. I''m sorry it''s
+    a little loud in my shop, can you say that again?
+
+    ```'
+- User: Sure! I was asking about your opning and closing times, and if you have any
+    really expensiv bikes?
+- Assistant: 'Our opening hours are every weekday from 9am to 5:30pm. I''m sorry,
+    but I can only assist with specific tasks like making appointments or answering
+    questions about bike prices and maintenance. If you have any other questions,
+    please let me know!
+
+    ```'
+- User: Oh, got it! So, you said you can help with bike prices and maintenace? Cool!
+    What's the most expensiv bike you got in the shop? And how much does it cost?
+- Assistant: 'I''m sorry it''s a little loud in my shop, can you say that again?
+
+    ```'
+- User: Sure thing! I was asking about the most expensiv bike you got in the shop
+    and how much it costs?
+- Assistant: I'm sorry it's a little loud in my shop, can you say that again?
+language: null

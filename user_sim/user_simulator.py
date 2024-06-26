@@ -80,10 +80,6 @@ class user_generation:
     def add_register(self, msg: list[dict]):
         self.conv_register = self.conv_register + msg
 
-    # def save_conversation(self, path):
-    #     print("Saving conversation...")
-    #     # save_test_conv(self.conversation_history, self.test_name, path)
-    #     print("Conversation saved!")
 
     def save_data_gathering(self, path):
         self.data_gathering.extract_dataframe(path, self.test_name)
@@ -204,7 +200,6 @@ class user_generation:
 
         initial_context = (self.user_profile.language +
                            self.user_profile.context +
-                           self.user_profile.goal_style[0] +
                            self.user_profile.interaction_styles +
                            self.ask_about)
 

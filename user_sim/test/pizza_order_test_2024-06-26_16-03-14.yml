@@ -1,0 +1,49 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: Helllo there! I'd like to order a piza, pleese. Can yu help me wth that?
+- Assistant: Of course, I'd be happy to help you with your order. Let's start with
+    the size of the pizza. What size would you like?
+- User: Oh, thnks! I'd like a larje piza, plese. Can I get mshrums, peproni, and chese
+    on it?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like?
+- User: Oh, I seee, my bad. I'll go with a medium piza, then. Can I still get thos
+    toppings? Mushrums, peproni, and chese?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Of course, you can have those toppings. Just to confirm, you would like mushrooms,
+    pepperoni, and cheese on your medium pizza, correct?'
+- User: Yes, tht's correct! Mushrums, peproni, and chese on a medium piza. Also, do
+    yu hav any deals or discounts going on right now?
+- Assistant: 'Great, a pizza with [''mushrooms'', ''pepperoni'', ''cheese'']!
+
+    That sounds like a great choice for a pizza! Now, would you like to add a drink
+    to your order? We offer coke, sprite, and water.'
+- User: Oh, yes! I'd lik to add a coke to my order, pleese. Also, do you hav any deals
+    or discounts going on rght now?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+language: null

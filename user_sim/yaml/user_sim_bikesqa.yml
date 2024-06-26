@@ -1,11 +1,11 @@
-temperature: 0.8
+temperature: 0.1
 
 isstarter: True
 
 fallback: I'm sorry it's a little loud in my shop, can you say that again?
 
 role:
-  you have to act as a user in a bike shop support forum.
+  you have to act as a user in a bike shop q&a forum
 
 context:
 #  - Keep acting like you're the user replying to what I just said and have to keep the flow of the conversation as a user would.

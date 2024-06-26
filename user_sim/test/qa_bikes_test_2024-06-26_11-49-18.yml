@@ -1,0 +1,32 @@
+ask_about:
+- opening and closing time
+- most expensive bikes
+- the price of the seats
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: Hey guys, I've been having some trouble with my bikke's chain. It keeps slipping
+    off when I try to change gears. Any ideass what could be causing thiss?
+- Assistant: 'I''m sorry it''s a little loud in my shop, can you say that again?
+
+    ```'
+- User: Sure thing! Soo my bike's chain keeps slipping off whenever I try to chnage
+    gears. Any idea what could be causing thiss?
+- Assistant: I'm sorry it's a little loud in my shop, can you say that again?
+- User: Sure, no problem! My bike's chain keeps slipping off whenever I try to cahnge
+    gears. Any ideaa what could be causing thiss?
+- Assistant: 'I''m sorry it''s a little loud in my shop, can you say that again?
+
+    ```'
+- User: Oh okay, nevermind the chain problm for now. Do yu guys kno what time you
+    open and close the shop? I need to visit in person.
+- Assistant: Every weekday from 9am to 5:30pm.
+- User: Got it, thx! Do yu also kno the prrice range for bike seats? Mine is pretty
+    worn out and I need a new one.
+- Assistant: The response to the question "What is the price of a new seat?" is "Between
+    $50 and $100."
+language: null

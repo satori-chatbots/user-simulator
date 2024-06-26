@@ -1,0 +1,47 @@
+ask_about:
+- opening and closing time
+- most expensive bikes
+- the price of the seats
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: Hey guys, I'm new here and I need some help. I'm looking for a good mountain
+    bike but I'm not sure where to start. Any recomendations? Also, what are your
+    opening and closing times?
+- Assistant: 'Welcome to my bike shop. I''m the owner and I''m happy to help you.
+
+    What can I do for you?
+
+
+    Our opening hours are every weekday from 9am to 5:30pm.
+
+    ```'
+- User: Thnaks for the info! So, I'm looking for a good mountian bike. Any recomendations
+    for a begginer? Also, do you have any idea about the price range for these bikes?
+- Assistant: 'I''m sorry it''s a little loud in my shop, can you say that again?
+
+    ```'
+- User: Sure, no problem! I'm looking for a good mountian bike for a begginer. Any
+    recomendations? Also, do you have any idea about the price range for these bikes?
+- Assistant: 'I don''t have information on good mountain bikes for beginners or their
+    price ranges. However, I can help with the following questions:
+
+    - What is the cost of a new tire?
+
+    - How much does a tune-up cost?
+
+    - What is the price of a new seat?
+
+    - How can I maintain my bike?'
+- User: Hey, thanks for the response! I still need help with the mountian bike recomendations
+    tho. But since you mentioned it, how much does a new seat cost? And do you have
+    any idea about the most expensive bikes you have in the shop?
+- Assistant: The price of a new seat ranges from $50 to $100.
+- User: Got it, thanks! So, about those mountian bikes, any recomendations for a begginer?
+    And also, what's the most expensive bike you got in the shop?
+- Assistant: The price of a new seat ranges from $50 to $100.
+language: null

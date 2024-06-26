@@ -1,0 +1,4 @@
+ask_about;is_answered;response
+a pizza with any size of the following: small, medium, large, extra large;False;
+any of the following for toppings: mushrooms, tomato, onion, cheese, olives, pepperoni;True;"Great, a pizza with ['cheese', 'mushrooms', 'pepperoni']!
+Absolutely, your pizza with cheese, mushrooms, and pepperoni will be ready in about 30 minutes. In the meantime, could you please let me know what drink you would like with your order? We have coke, sprite, and water available."

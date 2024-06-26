@@ -44,7 +44,7 @@ def list_to_phrase(s_list: list, prompted=False):
     l_string = s_list[0]
     if prompted:
         if len(s_list) <= 1:
-            return f"If any of this information was provided, you can also ask about {s_list[0]}"
+            return f"please, ask about {s_list[0]}. "
 
         else:
             for i in range(len(s_list) - 1):
@@ -53,7 +53,7 @@ def list_to_phrase(s_list: list, prompted=False):
                 else:
                     l_string = f" {l_string}, {s_list[i + 1]} "
 
-            l_string = "If any of this information was provided, you can also ask about" + l_string
+            l_string = "please, ask about" + l_string
             return l_string
     else:
         if len(s_list) <= 1:
@@ -100,16 +100,6 @@ def str_to_bool(s):
 
 def nlp_processor(msg, patterns=None, threshold=0.5):
 
-    # try:
-    #
-    #     if os.path.isdir(patterns) == True:
-    #          read_patterns = read_yaml(patterns_path)
-    #     else:
-    #          read_patterns = patterns
-    # except Exception as e:
-    #     print(f"An error occurred: {e}")
-
-    # read_patterns = read_yaml(patterns)
     read_patterns = [patterns]
 
     prepro_patterns = [preprocess_text(pattern) for pattern in read_patterns]
@@ -132,27 +122,3 @@ def nlp_processor(msg, patterns=None, threshold=0.5):
     return max_sim >= threshold
 
 
-# def is_fallback(msg):
-#
-#     fallaback_patterns = read_yaml("src/testing/user_sim/fallback_patterns.yml")
-#
-#     # Preprocesar los patrones de fallback
-#     fallaback_patterns = [preprocess_text(pattern) for pattern in fallaback_patterns["fallback_patterns"]]
-#
-#     # Vectorizador TF-IDF
-#     vectorizer = TfidfVectorizer().fit(fallaback_patterns)
-#
-#     processed_msg = preprocess_text(msg)
-#
-#     # Vectorizar el mensaje y los patrones de fallback
-#     vectors = vectorizer.transform([processed_msg] + fallaback_patterns)
-#     vector_msg = vectors[0]
-#     patt_msg = vectors[1:]
-#
-#     # Calcular similitud de coseno
-#     similarities = cosine_similarity(vector_msg, patt_msg)
-#     max_sim = similarities.max()
-#
-#     # Definir un umbral de similitud para detectar fallback
-#     threshold = 0.5
-#     return max_sim >= threshold

@@ -1,6 +1,6 @@
-temperature: "0.8"
+temperature: 0.5
 
-isstarter: "True"
+isstarter: True
 
 role:
   Simulation of user asking about parts of air conditioners. The model will act as a user asking information of some part.
@@ -26,4 +26,4 @@ conversations:
 
 language:
 
-test_name: "pizza_order_test"
+test_name: "air_conditioner_test"

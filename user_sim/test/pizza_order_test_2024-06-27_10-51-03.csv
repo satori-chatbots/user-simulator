@@ -1,0 +1,5 @@
+ask_about;is_answered;response
+a pizza with any size of the following: small, medium, large, extra large;True;"Great, a pizza with ['cheese', 'mushrooms', 'pepperoni']!
+Perfecto, tu pizza mediana con queso, champiñones y pepperoni estará lista en unos 30 minutos. Para acompañar tu pizza, ¿te gustaría pedir alguna bebida? Ofrecemos coke, sprite y agua."
+any of the following for toppings: mushrooms, tomato, onion, cheese, olives, pepperoni;True;"Great, a pizza with ['cheese', 'mushrooms', 'pepperoni']!
+Perfecto, tu pizza mediana con queso, champiñones y pepperoni estará lista en unos 30 minutos. Para acompañar tu pizza, ¿te gustaría pedir alguna bebida? Ofrecemos coke, sprite y agua."

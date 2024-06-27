@@ -1,0 +1,57 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - change language:
+    - italian
+    - spanish
+    - chinese
+
+interaction:
+- User: Hola, ¿es la pizzería? Me gustaría pedir una pizza, por favor. ¿Cuáles son
+    los tamaños disponibles?
+- Assistant: 'Hola, sí, este es el lugar correcto para pedir una pizza. Ofrecemos
+    pizzas en tres tamaños: pequeña, mediana y grande. ¿Qué tamaño prefieres para
+    tu pizza?'
+- User: Me gustaría una pizza mediana, por favor. ¿Qué ingredientes tienen disponibles
+    para añadir?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Claro, para tu pizza mediana puedes elegir entre los siguientes ingredientes:
+    queso, champiñones, pimiento, jamón, bacon, pepperoni, aceitunas, maíz y pollo.
+    ¿Qué ingredientes te gustaría añadir a tu pizza?'
+- User: Me gustaría añadir queso, champiñones y pepperoni a mi pizza mediana, por
+    favor. ¿Cuánto tiempo tardará en estar lista?
+- Assistant: 'Great, a pizza with [''cheese'', ''mushrooms'', ''pepperoni'']!
+
+    Perfecto, tu pizza mediana con queso, champiñones y pepperoni estará lista en
+    unos 30 minutos. Para acompañar tu pizza, ¿te gustaría pedir alguna bebida? Ofrecemos
+    coke, sprite y agua.'
+- User: Sí, me gustaría una Coca-Cola, por favor. ¿Cuánto sería el costo total de
+    mi pedido?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Gracias. ¿Cuánto sería el costo total de mi pedido con la Coca-Cola incluida?
+- Assistant: Parece que ya me has proporcionado el tamaño de la pizza que deseas,
+    que es mediana. ¿Necesitas ayuda con algo más?
+language: Spanish

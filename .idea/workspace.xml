@@ -5,27 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="643bc230-fe91-4b2c-9351-c3dd953cb891" name="Changes" comment="- changed name &quot;user_simulator_lang&quot; to &quot;user_simulator&quot;&#10;- implemented temperature parameter in langchain API for user_simulator&#10;- corrected bug in extract function (the chatbot last message didn't show in the yaml register)">
+      <change afterPath="$PROJECT_DIR$/user_sim/exceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/autotest.py" beforeDir="false" afterPath="$PROJECT_DIR$/autotest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_sim/role_structure.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/role_structure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user_sim/user_simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/user_simulator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/utilities.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/pizza_order_test_2024-06-24_16-34-12.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/pizza_order_test_2024-06-24_16-34-12.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/pizza_order_test_2024-06-24_16-36-32.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/pizza_order_test_2024-06-24_16-36-32.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/prueba.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_air_conditioner.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/yaml/user_sim_air_conditioner.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_bikesqa.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/yaml/user_sim_bikesqa.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_bikesqa_langchain.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_bikesqa_langchain_2.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,10 +38,10 @@
   "keyToString": {
     "Python.autotest.executor": "Run",
     "Python.autotest_bikesqa.executor": "Run",
-    "Python.autotest_pizzaorder.executor": "Run",
+    "Python.autotest_pizzaorder.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Usuario/Desktop/Py_projects/integration_user_sim/chatbot-llm",
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/PROYECTO/SATORI/user-simulator",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -133,7 +129,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-48aec45f0201-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17011.127" />
+        <option value="bundled-python-sdk-babbdf50b680-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.15989.155" />
       </set>
     </attachedChunks>
   </component>
@@ -160,5 +156,46 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- changed name &quot;user_simulator_lang&quot; to &quot;user_simulator&quot;&#10;- implemented temperature parameter in langchain API for user_simulator&#10;- corrected bug in extract function (the chatbot last message didn't show in the yaml register)" />
     <option name="LAST_COMMIT_MESSAGE" value="- changed name &quot;user_simulator_lang&quot; to &quot;user_simulator&quot;&#10;- implemented temperature parameter in langchain API for user_simulator&#10;- corrected bug in extract function (the chatbot last message didn't show in the yaml register)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
+          <line>240</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
+          <line>241</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
+          <line>242</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
+          <line>88</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
+          <line>87</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
+          <line>86</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="self.my_context.context_list[1]" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -1,0 +1,46 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - change language:
+    - italian
+    - portuguese
+    - chinese
+interaction:
+- User: Buongiorno! Vorrei ordinare una pizza, per favore. Puoi dirmi quali dimensioni
+    e tipi di pizza offrite?
+- Assistant: I'm sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?
+- User: Hello! I'd like to order a pizza, please. Could you tell me what sizes and
+    types of pizza you offer?
+- Assistant: Welcome to my pizza shop. I'm the owner and I'm happy to help you. We
+    offer small, medium, and large pizzas. As for the types, we have Margherita, Pepperoni,
+    Veggie, and Hawaiian. What size and type would you like?
+- User: Vorrei ordinare una pizza media, per favore. Potrei sapere quali condimenti
+    sono disponibili?
+- Assistant: I'm sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?
+- User: Quais são os ingredientes disponíveis para uma pizza média?
+- Assistant: I'm sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?
+- User: Vorrei ordinare una pizza media con funghi, pomodoro, cipolla e formaggio,
+    per favore. Quanto tempo ci vuole per la consegna?
+- Assistant: I'm sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?
+language: Spanish

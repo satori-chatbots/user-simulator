@@ -46,7 +46,6 @@ class interaction_style:
 
     def __init__(self, interaction_dict):
 
-
         self.interactions = []
         self.interactions_prompt = list_to_str(self.interactions)
         self.change_language = False
@@ -64,11 +63,8 @@ class interaction_style:
             if isinstance(inter, dict):
                 keys = list(inter.keys())
                 if keys[0] == "change language":
-                    # phrase = interaction_styles[keys[0]]
                     self.languages = inter.get(keys[0])
                     self.change_language = True
-                    # replaced = replace_placeholders(phrase, variables)
-                    # styles.append(replaced)
 
             else:
                 self.interactions.append(interaction_styles[inter])
@@ -106,7 +102,7 @@ class role_data:
         result_dict = {k: v for d in conv for k, v in d.items()}
         return result_dict
 
-    def get_language(self, chance=100):
+    def get_language(self, chance=50):
 
         if self.interaction_styles.change_language:
             rand_number = random.randint(1, 100)

@@ -1,0 +1,56 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - change language:
+    - italian
+    - portuguese
+    - chinese
+interaction:
+- User: "¡Hola! Me gustaría ordenar una pizza, por favor. \n\n¿Podrías decirme qué\
+    \ tamaños de pizza ofrecen?"
+- Assistant: '¡Hola! Ofrecemos pizzas en tres tamaños: pequeña, mediana y grande.
+    ¿Qué tamaño prefieres para tu pizza?'
+- User: Me encantaría pedir una pizza grande, por favor. ¿Qué opciones de ingredientes
+    tienen disponibles?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Tenemos una variedad de ingredientes para tu pizza. Puedes elegir entre queso,
+    champiñones, pimiento, jamón, bacon, pepperoni, aceitunas, maíz y pollo. ¿Qué
+    ingredientes te gustaría en tu pizza grande?'
+- User: Gostaria de uma pizza grande com queijo, tomate e pepperoni, por favor. É
+    possível adicionar cebola também?
+- Assistant: Lamento, pero no ofrecemos tomate y cebolla como ingredientes. Puedes
+    elegir entre queso, champiñones, pimiento, jamón, bacon, pepperoni, aceitunas,
+    maíz y pollo. ¿Te gustaría añadir o cambiar algo en tu pizza grande con queso
+    y pepperoni?
+- User: Entiendo, está bien. Entonces, me gustaría una pizza grande con queso, pepperoni
+    y champiñones, por favor. ¿Cuánto tiempo tardará en estar lista mi pizza?
+- Assistant: 'Great, a pizza with [''cheese'', ''pepperoni'', ''mushrooms'']!
+
+    Perfecto, tu pizza grande con queso, pepperoni y champiñones está en proceso.
+    Para completar tu pedido, ¿podrías decirme qué bebida te gustaría? Las opciones
+    son: coke, sprite o agua.'
+- User: Por favor, só gostaria de saber o tempo que vai demorar para a pizza ficar
+    pronta.
+- Assistant: 'Entiendo que estás ansioso por tu pizza. Normalmente, una pizza grande
+    con queso, pepperoni y champiñones tarda alrededor de 15-20 minutos en estar lista.
+    Mientras tanto, ¿podrías decirme qué bebida te gustaría con tu pizza? Las opciones
+    son: coke, sprite o agua.'
+language: Spanish

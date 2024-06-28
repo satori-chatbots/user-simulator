@@ -84,7 +84,11 @@ class user_generation:
                 self.context_list.append(context)
 
         def add_context(self, new_context):
-            self.context_list.append(new_context)  #TODO: add exception to force the user to initiate the context
+            if isinstance(new_context, list):
+                for cont in new_context:
+                    self.context_list.append(cont)
+            else:
+                self.context_list.append(new_context)  #TODO: add exception to force the user to initiate the context
 
 
         def get_context(self):
@@ -117,10 +121,6 @@ class user_generation:
 
     def repetition_track(self, response, reps=3):
 
-        # initial_context = (self.user_profile.language +
-        #                    self.user_profile.context +
-        #                    self.user_profile.interaction_styles +
-        #                    self.ask_about)
         self.my_context.reset_context()
         print(self.my_context.context_list)
         if nlp_processor(response, self.chatbot.fallback, 0.6):
@@ -136,9 +136,6 @@ class user_generation:
                                """
 
                 self.my_context.add_context(change_topic)
-                reminder = self.my_context.get_context()
-                self.my_context.reset_context()
-                return reminder
 
             else:
                 ask_repetition = """
@@ -147,16 +144,10 @@ class user_generation:
                                 """
 
                 self.my_context.add_context(ask_repetition)
-                reminder = self.my_context.get_context()
-                self.my_context.reset_context()
-                return reminder
-
         else:
             self.repeat_count = 0
             self.loop_count = 0
 
-            reminder = self.my_context.get_context()
-            return reminder
 
     @staticmethod
     def conversation_ending(response):
@@ -209,14 +200,17 @@ class user_generation:
         if self.end_conversation(input_msg):
             return "exit"
 
-        reminder = self.repetition_track(input_msg)
+        self.repetition_track(input_msg)
 
         self.my_context.add_context(self.user_profile.get_language())
-        # print(self.my_context.context_list)
+
         history = self.get_history()
 
         # Generar la respuesta del usuario
-        user_response = self.user_chain.run(history=history, reminder=reminder)
+        user_response = self.user_chain.run(history=history,
+                                            reminder=self.my_context.get_context())
+
+        # self.my_context.reset_context()
         self.request_register.get_request(user_response)
 
         self.update_history("User", user_response)

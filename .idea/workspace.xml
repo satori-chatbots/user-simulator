@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="643bc230-fe91-4b2c-9351-c3dd953cb891" name="Changes" comment="- changed name &quot;user_simulator_lang&quot; to &quot;user_simulator&quot;&#10;- implemented temperature parameter in langchain API for user_simulator&#10;- corrected bug in extract function (the chatbot last message didn't show in the yaml register)">
-      <change afterPath="$PROJECT_DIR$/user_sim/exceptions.py" afterDir="false" />
+    <list default="true" id="643bc230-fe91-4b2c-9351-c3dd953cb891" name="Changes" comment="-added interaction style &quot;change language&quot;. The user still speaks in original langauage even if a change is indicated in the context.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/role_structure.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/role_structure.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/user_simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/user_simulator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -38,9 +39,9 @@
   "keyToString": {
     "Python.autotest.executor": "Run",
     "Python.autotest_bikesqa.executor": "Run",
-    "Python.autotest_pizzaorder.executor": "Debug",
+    "Python.autotest_pizzaorder.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "language-change-style",
     "last_opened_file_path": "C:/Users/Usuario/Desktop/PROYECTO/SATORI/user-simulator",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
@@ -150,45 +151,34 @@
       <option name="project" value="LOCAL" />
       <updated>1719307446612</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-added interaction style &quot;change language&quot;. The user still speaks in original langauage even if a change is indicated in the context.">
+      <option name="closed" value="true" />
+      <created>1719500143039</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1719500143039</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- changed name &quot;user_simulator_lang&quot; to &quot;user_simulator&quot;&#10;- implemented temperature parameter in langchain API for user_simulator&#10;- corrected bug in extract function (the chatbot last message didn't show in the yaml register)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- changed name &quot;user_simulator_lang&quot; to &quot;user_simulator&quot;&#10;- implemented temperature parameter in langchain API for user_simulator&#10;- corrected bug in extract function (the chatbot last message didn't show in the yaml register)" />
+    <MESSAGE value="-added interaction style &quot;change language&quot;. The user still speaks in original langauage even if a change is indicated in the context." />
+    <option name="LAST_COMMIT_MESSAGE" value="-added interaction style &quot;change language&quot;. The user still speaks in original langauage even if a change is indicated in the context." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
-          <line>240</line>
-          <option name="timeStamp" value="46" />
+          <line>218</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
-          <line>241</line>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
-          <line>242</line>
-          <option name="timeStamp" value="48" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
-          <line>88</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
-          <line>87</line>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/user_sim/user_simulator.py</url>
-          <line>86</line>
-          <option name="timeStamp" value="51" />
+          <line>215</line>
+          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

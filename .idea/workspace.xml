@@ -120,9 +120,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.autotest_pizzaorder" />
-      <item itemvalue="Python.autotest_bikesqa" />
       <item itemvalue="Python.autotest_airconditioner" />
+      <item itemvalue="Python.autotest_bikesqa" />
+      <item itemvalue="Python.autotest_pizzaorder" />
     </list>
   </component>
   <component name="SharedIndexes">

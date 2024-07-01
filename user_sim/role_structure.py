@@ -2,16 +2,16 @@ import yaml
 import re
 from user_sim.utilities import *
 import random
+from interaction_styles import *
 
-interaction_styles = {
-    'long phrases': "use very long phrases to write anything. ",
-    'change your mind': "eventually, change your mind about any information you provided. ",
-    'change language': "eventually, change language to any of these: {{langauge}}. ",
-    'make spelling mistakes': "please, make several spelling mistakes or typos in the sentences you're generating. "
-                              "But I mean, a lot, like, minimum 5 typos per sentence if possible. ",
-    'single question': "ask only one question per interaction. ",
-    'all questions': "ask everything you have to ask in one sentence. ",
-    'default': ''
+inter_styles = {
+    'long phrases': long_phrases,
+    'change your mind': change_your_mind,
+    'change language': change_language,
+    'make spelling mistakes': make_spelling_mistakes,
+    'single question': single_questions,
+    'all questions': all_questions,
+    'default': default
 }
 
 goal_styles = {
@@ -42,32 +42,37 @@ def replace_placeholders(phrase, variables):
     pattern = re.compile(r'\{\{(\w+)\}\}')
     return pattern.sub(replacer, phrase)
 
-class interaction_style:
+# class interaction_style:
+#
+#     def __init__(self, interaction_dict):
+#
+#         self.interactions = []
+#         self.interactions_prompt = list_to_str(self.interactions)
+#         self.change_language = False
+#         self.languages = []
+#
+#         self.pick_interaction_style(interaction_dict)
 
-    def __init__(self, interaction_dict):
+def pick_interaction_style(interactions):
 
-        self.interactions = []
-        self.interactions_prompt = list_to_str(self.interactions)
-        self.change_language = False
-        self.languages = []
+    interactions_list = []
+    if interactions is None:
+        interaction = inter_styles['default']
+        return interactions_list.append(interaction)
 
-        self.pick_interaction_style(interaction_dict)
+    for inter in interactions:  #TODO: hay un problema aqui que hace que la lista sea None, revisar.
 
-    def pick_interaction_style(self, interactions):
+        if isinstance(inter, dict):
+            keys = list(inter.keys())
+            if keys[0] == "change language":
+                interaction = inter_styles[keys[0]]
+                interaction.languages = inter.get(keys[0])
+                interaction.change_language = True
+                interactions_list.append(interaction)
 
-        if interactions is None:
-            return self.interactions.append(interaction_styles['default'])
-
-        for inter in interactions:
-
-            if isinstance(inter, dict):
-                keys = list(inter.keys())
-                if keys[0] == "change language":
-                    self.languages = inter.get(keys[0])
-                    self.change_language = True
-
-            else:
-                self.interactions.append(interaction_styles[inter])
+        else:
+            interaction = inter_styles[inter]
+            interactions_list.append(interaction)
 
 
 def set_language(lang): #TODO: try add a specific language and affect it with the "change language" interaction style
@@ -94,7 +99,7 @@ class role_data:
         self.ask_about = self.ask_about_processor(self.yaml["ask_about"])
         self.conversation_number = self.list_to_dict_reformat(self.yaml["conversations"])['number']
         self.goal_style = pick_goal_style(self.list_to_dict_reformat(self.yaml["conversations"])['goal_style'])
-        self.interaction_styles = interaction_style(self.list_to_dict_reformat(self.yaml["conversations"])['interaction_style'])
+        self.interaction_styles = pick_interaction_style(self.list_to_dict_reformat(self.yaml["conversations"])['interaction_style'])
         self.language = set_language(self.yaml["language"])
         self.test_name = self.yaml["test_name"]
 
@@ -102,18 +107,29 @@ class role_data:
         result_dict = {k: v for d in conv for k, v in d.items()}
         return result_dict
 
-    def get_language(self, chance=50):
+    # def get_language(self, chance=50):
+    #
+    #     for instance in self.interaction_styles:
+    #         if isinstance(instance, change_language):
+    #             rand_number = random.randint(1, 100)
+    #             if rand_number <= chance:
+    #                 lang = random.choice(self.interaction_styles.languages)
+    #                 print(f'the language is: {lang}')
+    #                 return f"Please, always talk in {lang}, even If the assistant tells you that he doesn't understand. "
+    #             else:
+    #                 return f"Please, talk in {self.language}"
+    #         else:
+    #             return f"Please, talk in {self.language}"
+    #
+    def get_language(self):
 
-        if self.interaction_styles.change_language:
-            rand_number = random.randint(1, 100)
-            if rand_number <= chance:
-                lang = random.choice(self.interaction_styles.languages)
-                print(f'the language is: {lang}')
-                return f"Please, always talk in {lang}, even If the assistant tells you that he doesn't understand. "
-            else:
-                return f"Please, talk in {self.language}"
-        else:
-            return f"Please, talk in {self.language}"
+        for instance in self.interaction_styles:
+            if instance.change_language:
+                prompt = change_language.language
+                return prompt
+
+        return f"Please, talk in {self.language}"
+
 
 
     def ask_about_processor(self, data):

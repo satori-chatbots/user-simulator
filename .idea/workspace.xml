@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="643bc230-fe91-4b2c-9351-c3dd953cb891" name="Changes" comment="-added interaction style &quot;change language&quot;. The user is able now to change the language eventually during the conversation." />
+    <list default="true" id="643bc230-fe91-4b2c-9351-c3dd953cb891" name="Changes" comment="-added interaction style &quot;change language&quot;. The user is able now to change the language eventually during the conversation.">
+      <change afterPath="$PROJECT_DIR$/user_sim/interaction_styles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_sim/role_structure.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/role_structure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_sim/user_simulator.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/user_simulator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" beforeDir="false" afterPath="$PROJECT_DIR$/user_sim/yaml/user_sim_pizzaorder_API.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,17 +39,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.autotest.executor&quot;: &quot;Run&quot;,
-    &quot;Python.autotest_bikesqa.executor&quot;: &quot;Run&quot;,
-    &quot;Python.autotest_pizzaorder.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;language-change-style&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Desktop/PROYECTO/SATORI/user-simulator&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.autotest.executor": "Run",
+    "Python.autotest_bikesqa.executor": "Run",
+    "Python.autotest_pizzaorder.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Usuario/Desktop/PROYECTO/SATORI/user-simulator",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\Desktop\Py_projects\user_simulator\user_sim\patterns" />
@@ -175,6 +181,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="-added interaction style &quot;change language&quot;. The user is able now to change the language eventually during the conversation." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/role_structure.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/user_sim/role_structure.py</url>
+          <line>102</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="self.my_context.context_list[1]" language="Python" />

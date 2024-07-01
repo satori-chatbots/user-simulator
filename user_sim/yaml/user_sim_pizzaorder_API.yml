@@ -36,10 +36,12 @@ conversations:
   - goal_style:
         steps: 5
   - interaction_style:
+      - make spelling mistakes
       - change language:
           - italian
           - portuguese
           - chinese
+
 
 
 language: English

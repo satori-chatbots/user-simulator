@@ -34,33 +34,41 @@ def create_instance(class_list, interaction_syles):
 
 class interaction_style:
 
-    def __init__(self, default_language):
-
+    def __init__(self):
         self.change_language = False
         self.languages = []
 
     def get_prompt(self):
         return
 
+    def get_metadata(self):
+        return
+
 
 
 class long_phrases(interaction_style):
+    def __init__(self):
+        super().__init__()
     def get_prompt(self):
         return "use very long phrases to write anything. "
 
 class change_your_mind(interaction_style):
+    def __init__(self):
+        super().__init__()
     def get_prompt(self):
         return "eventually, change your mind about any information you provided. "
 
 class change_language(interaction_style): #TODO: add chance variable with *args
-
+    def __init__(self, default_language):
+        super().__init__()
+        self.default_language = default_language
 
     def get_prompt(self):
 
-        lang = self.get_language()
+        lang = self.language()
         return f"Please, always talk in {lang}, even If the assistant tells you that he doesn't understand. "
 
-    def language(self, default_language, chance=50):
+    def language(self, chance=50):
 
         rand_number = random.randint(1, 100)
         if rand_number <= chance:
@@ -69,12 +77,17 @@ class change_language(interaction_style): #TODO: add chance variable with *args
             self.languages.append(lang)
             return lang
         else:
-            self.languages.append(default_language)
+            self.languages.append(self.default_language)
             print(f'the language was set to default')
-            return f"Please, talk in {default_language}"
+            return self.default_language
+
+    def get_metadata(self):
+        return{'languages in conversation': self.languages}
 
 
 class make_spelling_mistakes(interaction_style):
+    def __init__(self):
+        super().__init__()
     def get_prompt(self):
         prompt = """
                  please, make several spelling mistakes or typos in the sentences you're generating. 
@@ -83,13 +96,19 @@ class make_spelling_mistakes(interaction_style):
         return prompt
 
 class single_questions(interaction_style):
+    def __init__(self):
+        super().__init__()
     def get_prompt(self):
         return "ask only one question per interaction. "
 
 class all_questions(interaction_style):
+    def __init__(self):
+        super().__init__()
     def get_prompt(self):
         return "ask everything you have to ask in one sentence. "
 
 class default(interaction_style):
+    def __init__(self):
+        super().__init__()
     def get_prompt(self):
         return ''

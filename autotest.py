@@ -57,7 +57,10 @@ def get_metadata(user_profile):
     ask_about = {'ask_about': user_profile.yaml['ask_about']}
     conversation = {'conversation': user_profile.yaml['conversations']}
     language = {'language': user_profile.yaml['language']}
-    metadata = {**ask_about, **conversation, **language}
+    interaction_style_metadata = {'interaction style metadata': user_profile.get_interaction_metadata()}
+
+    metadata = {**ask_about, **conversation, **language, **interaction_style_metadata}
+
     return metadata
 
 def check_keys(key_list: list):
@@ -117,6 +120,7 @@ def generate(technology, chatbot, user, extract):
             history = the_user.conversation_history
             metadata = get_metadata(user_profile)
             test_name = user_profile.test_name
+
 
             save_test_conv(history, metadata, test_name, extract)
             the_user.save_data_gathering(extract)

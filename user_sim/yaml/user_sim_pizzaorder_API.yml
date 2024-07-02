@@ -34,7 +34,7 @@ ask_about:
 conversations:
   - number: 1
   - goal_style:
-        steps: 5
+        steps: 2
   - interaction_style:
       - make spelling mistakes
       - change language:

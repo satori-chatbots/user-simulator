@@ -80,7 +80,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="OPENAI_API_KEY" value="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" />
+        <env name="OPENAI_API_KEY" value="" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />

@@ -218,7 +218,7 @@ class user_generation:
     def get_interaction_styles_prompt(self):
         interaction_style_prompt = []
         for instance in self.user_profile.interaction_styles:
-            if instance.change_language:
+            if instance.change_language_flag:
                 pass
             else:
                 interaction_style_prompt.append(instance.get_prompt())

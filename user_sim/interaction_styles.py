@@ -35,8 +35,8 @@ def create_instance(class_list, interaction_syles):
 class interaction_style:
 
     def __init__(self):
-        self.change_language = False
-        self.languages = []
+        self.change_language_flag = False
+        self.languages_options = []
 
     def get_prompt(self):
         return
@@ -62,6 +62,8 @@ class change_language(interaction_style): #TODO: add chance variable with *args
     def __init__(self, default_language):
         super().__init__()
         self.default_language = default_language
+        self.languages_list = []
+
 
     def get_prompt(self):
 
@@ -72,12 +74,12 @@ class change_language(interaction_style): #TODO: add chance variable with *args
 
         rand_number = random.randint(1, 100)
         if rand_number <= chance:
-            lang = random.choice(self.languages)
+            lang = random.choice(self.languages_options)
             print(f'the language is: {lang}')
-            self.languages.append(lang)
+            self.languages_list.append(lang)
             return lang
         else:
-            self.languages.append(self.default_language)
+            self.languages_list.append(self.default_language)
             print(f'the language was set to default')
             return self.default_language
 

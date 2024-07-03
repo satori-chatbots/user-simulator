@@ -55,11 +55,11 @@ def print_chatbot(msg): print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {msg
 def get_metadata(user_profile):
 
     ask_about = {'ask_about': user_profile.yaml['ask_about']}
-    conversation = {'conversation': user_profile.yaml['conversations']}
+    conversation = {'conversation': user_profile.yaml['conversations']} #TODO: Cual debería ser el formato para extraer la información de aqui?
     language = {'language': user_profile.yaml['language']}
-    interaction_style_metadata = {'interaction style metadata': user_profile.get_interaction_metadata()}
+    # interaction_style_metadata = {'interaction style metadata': user_profile.get_interaction_metadata()}
 
-    metadata = {**ask_about, **conversation, **language, **interaction_style_metadata}
+    metadata = {**ask_about, **conversation, **language}
 
     return metadata
 

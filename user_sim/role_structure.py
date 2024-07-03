@@ -106,14 +106,14 @@ class role_data:
             interaction = inter_styles['default']
             return interactions_list.append(interaction)
 
-        for inter in interactions:  # TODO: hay un problema aqui que hace que la lista sea None, revisar.
+        for inter in interactions:
 
             if isinstance(inter, dict):
                 keys = list(inter.keys())
                 if keys[0] == "change language":
                     interaction = inter_styles[keys[0]]
-                    interaction.languages = inter.get(keys[0])
-                    interaction.change_language = True
+                    interaction.languages_options = inter.get(keys[0]).copy()
+                    interaction.change_language_flag = True
                     interactions_list.append(interaction)
 
             else:
@@ -140,7 +140,7 @@ class role_data:
     def get_language(self):
 
         for instance in self.interaction_styles:
-            if instance.change_language:
+            if instance.change_language_flag:
                 prompt = instance.get_prompt()
                 return prompt
 

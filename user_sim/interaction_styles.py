@@ -34,7 +34,8 @@ def create_instance(class_list, interaction_syles):
 
 class interaction_style:
 
-    def __init__(self):
+    def __init__(self, intertype):
+        self.intertype = intertype
         self.change_language_flag = False
         self.languages_options = []
 
@@ -45,25 +46,27 @@ class interaction_style:
         return
 
 
-
 class long_phrases(interaction_style):
     def __init__(self):
-        super().__init__()
+        super().__init__(intertype='long phrases')
     def get_prompt(self):
         return "use very long phrases to write anything. "
+    def get_metadata(self):
+        return self.intertype
 
 class change_your_mind(interaction_style):
     def __init__(self):
-        super().__init__()
+        super().__init__(intertype='change your mind')
     def get_prompt(self):
         return "eventually, change your mind about any information you provided. "
+    def get_metadata(self):
+        return self.intertype
 
 class change_language(interaction_style): #TODO: add chance variable with *args
     def __init__(self, default_language):
-        super().__init__()
+        super().__init__(intertype='change language')
         self.default_language = default_language
         self.languages_list = []
-
 
     def get_prompt(self):
 
@@ -84,12 +87,13 @@ class change_language(interaction_style): #TODO: add chance variable with *args
             return self.default_language
 
     def get_metadata(self):
-        return{'languages in conversation': self.languages}
+        return {'change languages': self.languages_list}
 
 
 class make_spelling_mistakes(interaction_style):
     def __init__(self):
-        super().__init__()
+        super().__init__(intertype='make spelling mistakes')
+
     def get_prompt(self):
         prompt = """
                  please, make several spelling mistakes or typos in the sentences you're generating. 
@@ -97,20 +101,35 @@ class make_spelling_mistakes(interaction_style):
                  """
         return prompt
 
+    def get_metadata(self):
+        return self.intertype
+
 class single_questions(interaction_style):
     def __init__(self):
-        super().__init__()
+        super().__init__(intertype='single questions')
+
     def get_prompt(self):
         return "ask only one question per interaction. "
 
+    def get_metadata(self):
+        return self.intertype
+
 class all_questions(interaction_style):
     def __init__(self):
-        super().__init__()
+        super().__init__(intertype='all questions')
+
     def get_prompt(self):
         return "ask everything you have to ask in one sentence. "
 
+    def get_metadata(self):
+        return self.intertype
+
 class default(interaction_style):
     def __init__(self):
-        super().__init__()
+        super().__init__(intertype='default')
+
     def get_prompt(self):
         return ''
+
+    def get_metadata(self):
+        return self.intertype

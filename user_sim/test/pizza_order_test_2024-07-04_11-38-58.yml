@@ -1,0 +1,34 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - italian
+    - portuguese
+interaction:
+- User: Ciao! Mi piacerebbe ordinare una pizza. Puoi aiutarmi?
+- Assistant: I'm sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?
+    - time: 3
+- User: Oi! Eu queero umma piza media con cogomeloos, cebooola, qeijo e tomate. Vocês
+    tem isso?
+- Assistant: I'm sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?
+language: English

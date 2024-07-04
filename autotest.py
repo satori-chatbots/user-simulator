@@ -52,12 +52,29 @@ class ChatbotTaskyto (Chatbot):
 
 def print_user   (msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
 def print_chatbot(msg): print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {msg}")
-def get_metadata(user_profile):
+def get_conversation_metadata(user_profile):
+    def conversation_metadata(up):
+        interaction_style_list = []
+        conversation_list = []
+        for inter in up.interaction_styles:
+            interaction_style_list.append(inter.get_metadata())
+
+        for conv in user_profile.yaml['conversations']:
+            keys = list(conv.keys())
+            if keys[0] != 'interaction_style':
+                conversation_list.append(conv)
+            else:
+                conversation_list.append({'interaction_style': interaction_style_list})
+
+        return conversation_list
+
 
     ask_about = {'ask_about': user_profile.yaml['ask_about']}
-    conversation = {'conversation': user_profile.yaml['conversations']}
+    conversation = {'conversation': conversation_metadata(user_profile)}
     language = {'language': user_profile.yaml['language']}
+
     metadata = {**ask_about, **conversation, **language}
+
     return metadata
 
 def check_keys(key_list: list):
@@ -115,8 +132,9 @@ def generate(technology, chatbot, user, extract):
         if extract:
 
             history = the_user.conversation_history
-            metadata = get_metadata(user_profile)
+            metadata = get_conversation_metadata(user_profile)
             test_name = user_profile.test_name
+
 
             save_test_conv(history, metadata, test_name, extract)
             the_user.save_data_gathering(extract)

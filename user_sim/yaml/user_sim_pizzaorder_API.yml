@@ -15,13 +15,13 @@ context:
   - Don't end the conversation until you've asked everything you need.
 
 ask_about:
-  - "a pizza with any size of the following: {{size}}"
+  - "a pizza with any size of the following: {{size}}"  #"a pizza with the following size:{{size.random}}" ??
   - size:
     - small
     - medium
     - large
     - extra large
-  - "any of the following for toppings: {{toppings}}"
+  - "any of the following for toppings: {{toppings}}"  #"the following toppings: {{toppings.random(rand)}}" ??
   - toppings:
     - mushrooms
     - tomato
@@ -34,12 +34,14 @@ ask_about:
 conversations:
   - number: 1
   - goal_style:
-        steps: 5
+        steps: 2
   - interaction_style:
+      - make spelling mistakes
       - change language:
           - italian
           - portuguese
           - chinese
+
 
 
 language: English

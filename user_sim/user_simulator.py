@@ -2,6 +2,7 @@ import openai
 from user_sim.show_logs import LoggerConfig
 from user_sim.utilities import *
 from user_sim.data_gathering import *
+from interaction_styles import *
 
 from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
@@ -164,20 +165,12 @@ class user_generation:
     def update_history(self, role, message):
         self.conversation_history['interaction'].append({role: message})
 
-    # def change_language(self): TODO: add this part
-    #
-    #
-    #     if is_change
 
     def end_conversation(self, input_msg):
 
         if self.interaction_count >= self.user_profile.goal_style[1] and self.user_profile.goal_style[0] == 'steps':
             self.logger.info("is end")
             return True
-
-        # elif self.interaction_count >= 10 and self.user_profile.goal_style[0] == 'several steps':
-        #     self.logger.info("is end")
-        #     return True
 
         elif self.conversation_ending(input_msg) or self.loop_count >= 9:
             self.logger.info("is end")
@@ -222,12 +215,21 @@ class user_generation:
     @staticmethod
     def formatting(role, msg):
         return [{"role": role, "content": msg}]
+    def get_interaction_styles_prompt(self):
+        interaction_style_prompt = []
+        for instance in self.user_profile.interaction_styles:
+            if instance.change_language_flag:
+                pass
+            else:
+                interaction_style_prompt.append(instance.get_prompt())
+        return ''.join(interaction_style_prompt)
 
     def open_conversation(self):
         # print(type(self.user_profile.language))
 
+        interaction_style_prompt = self.get_interaction_styles_prompt()
         self.my_context.initiate_context([self.user_profile.context,
-                                          self.user_profile.interaction_styles.interactions_prompt,
+                                          interaction_style_prompt,
                                           self.ask_about])
 
         language_cont = self.user_profile.get_language()

@@ -73,7 +73,7 @@ class change_language(interaction_style): #TODO: add chance variable with *args
         lang = self.language()
         return f"Please, always talk in {lang}, even If the assistant tells you that he doesn't understand. "
 
-    def language(self, chance=50):
+    def language(self, chance=30):
 
         rand_number = random.randint(1, 100)
         if rand_number <= chance:

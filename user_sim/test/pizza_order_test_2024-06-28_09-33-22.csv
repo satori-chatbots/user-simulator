@@ -1,5 +1,0 @@
-ask_about;is_answered;response
-a pizza with any size of the following: small, medium, large, extra large;True;"Great, a pizza with ['cheese', 'pepperoni', 'mushrooms']!
-Perfecto, tu pizza grande con queso, pepperoni y champiñones está en proceso. Para completar tu pedido, ¿podrías decirme qué bebida te gustaría? Las opciones son: coke, sprite o agua."
-any of the following for toppings: mushrooms, tomato, onion, cheese, olives, pepperoni;True;"Great, a pizza with ['cheese', 'pepperoni', 'mushrooms']!
-Perfecto, tu pizza grande con queso, pepperoni y champiñones está en proceso. Para completar tu pedido, ¿podrías decirme qué bebida te gustaría? Las opciones son: coke, sprite o agua."

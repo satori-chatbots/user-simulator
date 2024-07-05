@@ -1,8 +1,0 @@
-ask_about;is_answered;response
-opening and closing time;True;"Welcome to my bike shop. I'm the owner and I'm happy to help you.
-What can I do for you?
-
-Our opening hours are every weekday from 9am to 5:30pm.
-```"
-most expensive bikes;False;
-the price of the seats;True;The price of a new seat ranges from $50 to $100.

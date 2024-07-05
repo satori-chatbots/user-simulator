@@ -1,8 +1,0 @@
-interaction:
-- 'user: Hi, I''m interested in buying new tires for my bike. Can you tell me how
-  much they cost?'
-- 'assistant: they cost $20'
-- 'user: Sorry about that, it seems like there was a mistake in the response. Could
-  you let me know the exact price range for the new tires you have?'
-- 'assistant: we''re open from 8 to 5'
-- 'user: Could you let me know the exact price range for the new tires you have?'

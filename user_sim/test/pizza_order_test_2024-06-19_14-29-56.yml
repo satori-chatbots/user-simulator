@@ -1,7 +1,0 @@
-interaction:
-- 'User: Hi there! I''d like to order a pizza, please. Can you help me with that?'
-- 'Assistant: Of course, I''d be happy to assist you with your pizza order. Could
-  you please specify the size of the pizza you''d like? We offer small, medium, and
-  big sizes.'
-- 'User: Sure! I think I''d like a large pizza. What kind of toppings do you have
-  available?'

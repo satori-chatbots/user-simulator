@@ -1,9 +1,0 @@
-interaction:
-- 'user: Hi, I''m interested in buying new tires for my bike. Can you tell me how
-  much they cost?'
-- 'assistant: The price of a new tire in response to the question is $20.'
-- 'user: That''s great, thanks! And what are your opening and closing times?'
-- 'assistant: We are open every weekday from 9am to 5:30pm.'
-- 'user: Good to know! Do you have any high-end, expensive bikes in stock?'
-- 'assistant: I''m sorry it''s a little loud in my shop, can you say that again?'
-- 'user: Do you have any high-end, expensive bikes in stock?'

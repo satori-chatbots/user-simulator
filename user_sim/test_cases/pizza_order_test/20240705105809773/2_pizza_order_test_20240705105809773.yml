@@ -1,0 +1,36 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - English
+    - portuguese
+interaction:
+- User: Hi, can I hav a lerge pizza with extrac cheese, tommato, and mushroomss?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: Quero uma pizza grnade entao, com muuuuito queijo, tomate e cogumelos, por
+    favor.
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I''m sorry, but we only accept the following toppings: cheese, mushrooms, pepper,
+    ham, bacon, pepperoni, olives, corn, chicken. You mentioned cheese and mushrooms,
+    would you like to add any other toppings from the list provided?'
+language: English

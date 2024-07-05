@@ -1,7 +1,0 @@
-interaction:
-- 'user: What''s the price of the new tires?'
-- 'assistant: they cost $20'
-- 'user: Thank you! Do you also have information on your opening and closing times?'
-- 'assistant: we''re open from 8 to 5'
-- 'user: Thank you for that. Could you also tell me about the most expensive bike
-  you have in the shop?'

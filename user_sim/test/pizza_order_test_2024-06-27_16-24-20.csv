@@ -1,4 +1,0 @@
-ask_about;is_answered;response
-a pizza with any size of the following: small, medium, large, extra large;True;"Thank you for placing an order for a large pizza!
-I'm sorry, but we only offer the following toppings: cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, chicken. You've chosen mushrooms and cheese, would you like to add any other toppings from the list?"
-any of the following for toppings: mushrooms, tomato, onion, cheese, olives, pepperoni;False;

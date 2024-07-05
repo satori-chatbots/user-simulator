@@ -1,9 +1,0 @@
-interaction:
-- 'user: Sure! I was looking to find out the price of the new tires you have in stock.
-  Can you help me with that?'
-- 'assistant: they cost $20'
-- 'user: Thank you for the information! Can you tell me if you have any tires on sale
-  right now?'
-- 'assistant: we''re open from 8 to 5'
-- 'user: I appreciate the store hours information! But I was asking if you have any
-  tires on sale right now?'

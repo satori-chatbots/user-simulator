@@ -7,6 +7,7 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+
 def save_json(msg, test_name, path):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     file_path = os.path.join(path, f'{test_name}_{timestamp}.json')
@@ -24,7 +25,6 @@ def str_to_bool(s):
 
 
 def set_language(lang_yml):
-
     if lang_yml is None:
         print("Empty. Setting language to Default (English)")
         language = "English"
@@ -38,7 +38,6 @@ def set_language(lang_yml):
 
 
 def list_to_phrase(s_list: list, prompted=False):
-
     #s_list: list of strings
     #l_string: string values extracted from s_list in string format
     l_string = s_list[0]
@@ -75,17 +74,32 @@ def read_yaml(file):
         yam_file = yaml.safe_load(f)
     return yam_file
 
-def save_test_conv(history, metadata, test_name, path):
 
+def get_serial():
+    now = datetime.now()
+    serial = datetime.now().strftime("%Y%m%d%H%M%S") + f"{now.microsecond // 1000:03d}"
+    return serial
+
+
+def save_test_conv(history, metadata, test_name, path, serial, counter):
     print("Saving conversation...")
+    path_folder = path + f"/{test_name}"
+    if not os.path.exists(path_folder):
+        os.makedirs(path_folder)
+
     data = {**history, **metadata}
 
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    file_path = os.path.join(path, f'{test_name}_{timestamp}.yml')
+    # timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+    # serial = get_serial()
+    test_folder = path_folder + f"/{serial}"
+    if not os.path.exists(test_folder):
+        os.makedirs(test_folder)
+
+    file_path = os.path.join(test_folder, f'{counter}_{test_name}_{serial}.yml')
     with open(file_path, "w", encoding="UTF-8") as archivo:
         yaml.dump(data, archivo, allow_unicode=True, default_flow_style=False)
     print(f"Conversation saved in {path}")
-
 
 
 def preprocess_text(text):
@@ -95,11 +109,12 @@ def preprocess_text(text):
     text = re.sub(r'[^\w\s]', '', text)
     return text
 
+
 def str_to_bool(s):
     return {'true': True, 'false': False}[s.lower()]
 
-def nlp_processor(msg, patterns=None, threshold=0.5):
 
+def nlp_processor(msg, patterns=None, threshold=0.5):
     read_patterns = [patterns]
 
     prepro_patterns = [preprocess_text(pattern) for pattern in read_patterns]
@@ -120,5 +135,3 @@ def nlp_processor(msg, patterns=None, threshold=0.5):
     # Definir un umbral de similitud para detectar fallback
 
     return max_sim >= threshold
-
-

@@ -1,7 +1,0 @@
-interaction:
-- 'user: Hi there! I was wondering how much the new tires cost?'
-- 'assistant: The price of a new tire in response to your question is $20.'
-- 'user: Thank you! I also wanted to know, what are your opening and closing times?'
-- 'assistant: The price of a new tire, in response to your question, is $20.'
-- 'user: We are open from 9 AM to 7 PM from Monday to Saturday. We are closed on Sundays.
-  Is there anything else you would like to know?'

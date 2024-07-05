@@ -1,0 +1,34 @@
+ask_about:
+- 'a pizza with any size of the following: {{size}}'
+- size:
+  - small
+  - medium
+  - large
+  - extra large
+- 'any of the following for toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - tomato
+  - onion
+  - cheese
+  - olives
+  - pepperoni
+conversation:
+- number: 2
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - chinese
+    - English
+interaction:
+- User: 请问你们有多大的披萨可以点？我想要一个中等大小的披萨。
+- Assistant: I'm sorry, but I can only communicate in English or Spanish. Could you
+    please switch to one of these languages?
+- User: Oh, ok, sorry abot that. Can I please ordar a smal pizzza with mushroooms,
+    tomto and chese?
+- Assistant: I noticed a small typo in your message. Could you please confirm the
+    size of the pizza you want? The options are small, medium, or big.
+language: English
+serial: '20240705110747084'

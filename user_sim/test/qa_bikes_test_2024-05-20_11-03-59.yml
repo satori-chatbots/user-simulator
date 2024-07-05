@@ -1,8 +1,0 @@
-interaction:
-- 'user: Hi, I was wondering how much do the new tires cost?'
-- 'assistant: they cost $20'
-- 'user: Sure, I''ll help with that. However, I need more information. Could you specify
-  the brand or type of tire you''re looking at?'
-- 'assistant: we''re open from 8 to 5'
-- 'user: Oh, sorry, my bad. I''m actually looking for the Continental GP5000 tires.
-  Could you tell me how much they cost?'

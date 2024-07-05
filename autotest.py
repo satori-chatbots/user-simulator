@@ -52,7 +52,7 @@ class ChatbotTaskyto (Chatbot):
 
 def print_user   (msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
 def print_chatbot(msg): print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {msg}")
-def get_conversation_metadata(user_profile):
+def get_conversation_metadata(user_profile, serial=None):
     def conversation_metadata(up):
         interaction_style_list = []
         conversation_list = []
@@ -72,8 +72,8 @@ def get_conversation_metadata(user_profile):
     ask_about = {'ask_about': user_profile.yaml['ask_about']}
     conversation = {'conversation': conversation_metadata(user_profile)}
     language = {'language': user_profile.yaml['language']}
-
-    metadata = {**ask_about, **conversation, **language}
+    serial_dict = {'serial': serial}
+    metadata = {**ask_about, **conversation, **language, **serial_dict}
 
     return metadata
 
@@ -97,6 +97,7 @@ def check_keys(key_list: list):
 
 def generate(technology, chatbot, user, extract):
     user_profile = role_data(user)
+    serial = get_serial()
 
     for i in range(user_profile.conversation_number):
         if technology == 'rasa':      the_chatbot = ChatbotRasa(chatbot)
@@ -132,12 +133,11 @@ def generate(technology, chatbot, user, extract):
         if extract:
 
             history = the_user.conversation_history
-            metadata = get_conversation_metadata(user_profile)
+            metadata = get_conversation_metadata(user_profile, serial)
             test_name = user_profile.test_name
 
-
-            save_test_conv(history, metadata, test_name, extract)
-            the_user.save_data_gathering(extract)
+            save_test_conv(history, metadata, test_name, extract, serial, counter=i)
+            # the_user.save_data_gathering(extract)
 
 
 if __name__ == '__main__':

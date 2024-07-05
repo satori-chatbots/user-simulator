@@ -45,7 +45,9 @@ class user_assistant:
         self.request = None
 
     def get_request(self, usr_msg=None):
-        request_register = to_dict(self.chain.run(user_msg=usr_msg, ask_about=str(self.ask_about)))
+        response = self.chain.run(user_msg=usr_msg, ask_about=str(self.ask_about))
+        print(f'response: {response}')
+        request_register = to_dict(response)
 
         self.logger.info(f"user request:{request_register}")
 
@@ -57,8 +59,8 @@ class chatbot_assistant:
         You're an assistant implemented in a chatbot that has to process the conversation the chatbot and the user 
         are having. You have to focus on detecting if this sentence by the chatbot '{chatbot_msg}' is answering to what 
         the user is saying in this sentence '{user_msg}'. You will also have to detect if the user asked about anything
-        in this list of questions '{ask_about}', and reply which question is being answered in a dictionary-like way, 
-        using True or False. If the chatbot is answering what the user asked but it's not a question in the list,
+        in this list of questions '{ask_about}', and reply which question is being answered in a python dictionary-like 
+        way, using True or False. If the chatbot is answering what the user asked but it's not a question in the list,
         everything should stay as False.        
         List the questions in the same order and written the same way as here {ask_about}.
         Always use the dictionary format using brackets, without any other content but the questions and the evaluation.

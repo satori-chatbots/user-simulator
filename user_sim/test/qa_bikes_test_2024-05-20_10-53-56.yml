@@ -1,6 +1,0 @@
-interaction:
-- 'assistant: they cost $20'
-- 'user: How much do the new tires cost?'
-- 'assistant: we''re open from 8 to 5'
-- 'user: The new tires cost $20. Can you also tell me what time the shop opens and
-  closes?'

@@ -86,8 +86,13 @@ class change_language(interaction_style): #TODO: add chance variable with *args
             print(f'the language was set to default')
             return self.default_language
 
+    def reset_language_list(self):
+        self.languages_list.clear()
+
     def get_metadata(self):
-        return {'change languages': self.languages_list}
+        language_list = self.languages_list.copy()
+        self.reset_language_list()
+        return {'change languages': language_list}
 
 
 class make_spelling_mistakes(interaction_style):

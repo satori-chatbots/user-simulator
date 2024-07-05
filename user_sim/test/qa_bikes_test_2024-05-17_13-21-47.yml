@@ -1,9 +1,0 @@
-interaction:
-- 'assistant: Hi, how can I help you?'
-- 'user: Hi! I''m looking for some new tires for my bike. Could you tell me the price
-  range for the new tires you have in stock?'
-- 'assistant: they cost $20'
-- 'user: Thanks for the info! Could you also let me know your opening and closing
-  times?'
-- 'assistant: we''re open from 8 to 5'
-- 'user: Thanks! One more thing: what''s the most expensive bike you have in stock?'

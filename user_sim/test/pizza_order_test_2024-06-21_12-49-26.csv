@@ -1,3 +1,0 @@
-ask_about;is_answered;response
-a pizza with any size of the following: small, medium, large, extra large;True;Welcome to my pizza shop. I'm the owner and I'm happy to help you. What size of pizza would you like to order?
-any of the following for toppings: mushrooms, tomato, onion, cheese, olives, pepperoni;True;Sure, I can add cheese, olives, and pepperoni as toppings for your medium pizza. However, it seems there was a typo in your message. Could you please confirm the toppings you want? The options are cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, chicken.

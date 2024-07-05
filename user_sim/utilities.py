@@ -41,32 +41,20 @@ def list_to_phrase(s_list: list, prompted=False):
     #s_list: list of strings
     #l_string: string values extracted from s_list in string format
     l_string = s_list[0]
-    if prompted:
-        if len(s_list) <= 1:
-            return f"please, ask about {s_list[0]}. "
 
-        else:
-            for i in range(len(s_list) - 1):
-                if s_list[i + 1] == s_list[-1]:
-                    l_string = f" {l_string} or {s_list[i + 1]}. "
-                else:
-                    l_string = f" {l_string}, {s_list[i + 1]} "
-
-            l_string = "please, ask about" + l_string
-            return l_string
+    if len(s_list) <= 1:
+        return f"{s_list[0]}"
     else:
-        if len(s_list) <= 1:
-            return f"{s_list[0]}"
+        for i in range(len(s_list) - 1):
+            if s_list[i + 1] == s_list[-1]:
+                l_string = f" {l_string} or {s_list[i + 1]}"
+            else:
+                l_string = f" {l_string}, {s_list[i + 1]}"
 
-        else:
-            for i in range(len(s_list) - 1):
-                if s_list[i + 1] == s_list[-1]:
-                    l_string = f" {l_string} or {s_list[i + 1]}"
-                else:
-                    l_string = f" {l_string}, {s_list[i + 1]}"
+    if prompted:
+        l_string = "please, ask about" + l_string
 
-            l_string = l_string
-            return l_string
+    return l_string
 
 
 def read_yaml(file):

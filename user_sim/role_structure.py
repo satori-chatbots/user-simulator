@@ -69,7 +69,8 @@ class role_data:
         self.isstarter = self.yaml["isstarter"]
         self.role = self.yaml["role"]
         self.context = list_to_str(self.yaml["context"])
-        self.ask_about = self.ask_about_processor(self.yaml["ask_about"])
+        # self.ask_about = self.ask_about_processor(self.yaml["ask_about"])
+        self.ask_about = self.ask_about_class(self.yaml["ask_about"])
         self.conversation_number = self.list_to_dict_reformat(self.yaml["conversations"])['number']
         self.goal_style = pick_goal_style(self.list_to_dict_reformat(self.yaml["conversations"])['goal_style'])
         self.language = set_language(self.yaml["language"])
@@ -147,12 +148,99 @@ class role_data:
         return f"Please, talk in {self.language}"
 
 
+    #     - "a pizza with any size of the following: {{size}}"  # "a pizza with the following size:{{size.random}}" ??
+    #     - size:
+        #     - small
+        #     - medium
+        #     - large
+        #     - extra large
+    #
+    #
+    #     - "any of the following for toppings: {{toppings}}"  # "the following toppings: {{toppings.random(rand)}}" ??
+    #     - toppings:
+        #     - mushrooms
+        #     - tomato
+        #     - onion
+        #     - cheese
+        #     - olives
+        #     - pepperoni
+
+    class ask_about_class:
+
+        def __init__(self, data):
+
+            self.variable_list = self.get_variables(data)
+            self.picked_elements = []
+            self.handlers = {'random': self.random_handler}
+            self.phrases = self.ask_about_processor(data)
+
+        def get_variables(self, data):
+            variables = {}
+            for item in data:
+                if isinstance(item, dict):
+                    variables.update(item)
+                    # print(variables)
+            return variables
+
+        def random_handler(self, values, count=''):
+            if count == '':
+                return [random.choice(values)]
+            elif count.isdigit():
+                count = int(count)
+                return random.sample(values, min(count, len(values)))
+            elif count == 'rand':
+                count = random.randint(1, len(values))
+                return random.sample(values, count)
+            return values #TODO: exception for .random(xxx) invalid parameter
+
+
+        def replace_variables(self, text, variables):
+            # Busca todas las variables con formatos manejados
+            matches = re.finditer(r'{{(\w+)\.(\w+)(?:\((\w*)\))?}}', text)
+            for match in matches:
+                var_name = match.group(1)
+                handler_name = match.group(2)
+                count = match.group(3) if match.group(3) else ''
+                if var_name in variables and handler_name in self.handlers:
+                    replacement = self.handlers[handler_name](self.variable_list[var_name], count)
+                    self.picked_elements.append({var_name: replacement})
+                    replacement_srt = ', '.join(replacement)
+                    text = text.replace(match.group(0), replacement_srt)
+
+            # Reemplaza variables en el formato {{variable}}
+            matches = re.finditer(r'{{(\w+)}}', text)
+            for match in matches:
+                var_name = match.group(1)
+                if var_name in variables:
+                    self.picked_elements.append(variables)
+                    replacement = ', '.join(variables[var_name])
+                    text = text.replace(match.group(0), replacement)
+
+            return text
+
+        def ask_about_processor(self, data):
+
+            result_phrases = []
+            for item in data:
+                if isinstance(item, str):
+                    result_phrases.append(self.replace_variables(item, self.variable_list))
+                # else:
+                #     result_phrases.append(item)
+
+            return result_phrases
+
+        def prompt(self):
+            return list_to_phrase(self.phrases, True)
+
+
+
 
     def ask_about_processor(self, data):
 
         variables = {}
         for item in data:
             if isinstance(item, dict):
+
                 variables.update(item)
                 print(variables)
 

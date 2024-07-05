@@ -15,13 +15,15 @@ context:
   - Don't end the conversation until you've asked everything you need.
 
 ask_about:
-  - "a pizza with any size of the following: {{size}}"  #"a pizza with the following size:{{size.random}}" ??
+#  - "a pizza with any size of the following: {{size}}"
+  - "a pizza with the following size: {{size.random()}}"
   - size:
     - small
     - medium
     - large
     - extra large
-  - "any of the following for toppings: {{toppings}}"  #"the following toppings: {{toppings.random(rand)}}" ??
+#  - "any of the following for toppings: {{toppings}}"
+  - "the following toppings: {{toppings.random(rand)}}"
   - toppings:
     - mushrooms
     - tomato

@@ -170,6 +170,7 @@ class role_data:
         def __init__(self, data):
 
             self.variable_list = self.get_variables(data)
+            self.str_list = self.get_phrases(data)
             self.picked_elements = []
             self.handlers = {'random': self.random_handler}
             self.phrases = self.ask_about_processor(data)
@@ -181,6 +182,13 @@ class role_data:
                     variables.update(item)
                     # print(variables)
             return variables
+
+        def get_phrases(self, data):
+            str_content = []
+            for item in data:
+                if isinstance(item, str):
+                    str_content.append(item)
+            return str_content
 
         def random_handler(self, values, count=''):
             if count == '':
@@ -231,9 +239,6 @@ class role_data:
 
         def prompt(self):
             return list_to_phrase(self.phrases, True)
-
-
-
 
     def ask_about_processor(self, data):
 

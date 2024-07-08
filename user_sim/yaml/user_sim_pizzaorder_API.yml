@@ -8,22 +8,18 @@ role:
   you have to act as a user ordering a pizza to a pizza shop.
 
 context:
-#  - Keep acting like you're the user replying to what I just said and have to keep the flow of the conversation as a user would.
-  - "never indicate that you are the user, like 'user: bla bla'"
-  - Sometimes, interact with what the assistant just said.
-  - Never act as the assistant.
-  - Don't end the conversation until you've asked everything you need.
+  - Since you're the user, just tell what you want to order
+
 
 ask_about:
-#  - "a pizza with any size of the following: {{size}}"
   - "a pizza with the following size: {{size.random()}}"
   - size:
     - small
     - medium
     - large
     - extra large
-#  - "any of the following for toppings: {{toppings}}"
-  - "the following toppings: {{toppings.random(rand)}}"
+
+  - "the following toppings: {{toppings.random(1)}}"
   - toppings:
     - mushrooms
     - tomato
@@ -34,7 +30,7 @@ ask_about:
 
 
 conversations:
-  - number: 2
+  - number: 1
   - goal_style:
         steps: 2
   - interaction_style:

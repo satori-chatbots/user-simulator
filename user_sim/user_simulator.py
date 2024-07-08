@@ -57,8 +57,8 @@ class user_generation:
         self.conversation_history = {'interaction': []}
         # self.ask_about = list_to_phrase(user_profile.ask_about, prompted=True)
         self.ask_about = user_profile.ask_about.prompt()
-        self.request_register = user_assistant(user_profile.ask_about)
-        self.data_gathering = chatbot_assistant(user_profile.ask_about)
+        self.request_register = user_assistant(user_profile.ask_about.phrases)
+        self.data_gathering = chatbot_assistant(user_profile.ask_about.phrases)
         self.user_role_prompt = PromptTemplate(
             input_variables=["reminder", "history"],
             template=self.set_role_template()
@@ -78,12 +78,19 @@ class user_generation:
 
         def initiate_context(self, context):
 
+            default_context = ["never indicate that you are the user, like 'user: bla bla'",
+                               'Sometimes, interact with what the assistant just said.',
+                               'Never act as the assistant, always behave as a user.',
+                               "Don't end the conversation until you've asked everything you need."]
+
             if isinstance(context, list):
-                self.original_context = context.copy()
-                self.context_list = context.copy()
+                self.original_context = context.copy() + default_context.copy()
+                self.context_list = context.copy() + default_context.copy()
             else:
-                self.original_context.append(context)
-                self.context_list.append(context)
+                self.original_context = [context] + default_context
+                self.context_list = [context] + default_context
+                # self.original_context.append(context)
+                # self.context_list.append(context)
 
         def add_context(self, new_context):
             if isinstance(new_context, list):
@@ -233,8 +240,8 @@ class user_generation:
                                           interaction_style_prompt,
                                           self.ask_about])
 
-        language_cont = self.user_profile.get_language()
-        self.my_context.add_context(language_cont)
+        language_context = self.user_profile.get_language()
+        self.my_context.add_context(language_context)
         history = self.get_history()
         user_response = self.user_chain.run(history=history,
                                             reminder=self.my_context.get_context())  # generation of user message

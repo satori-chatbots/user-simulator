@@ -71,7 +71,9 @@ class change_language(interaction_style): #TODO: add chance variable with *args
     def get_prompt(self):
 
         lang = self.language()
-        return f"Please, always talk in {lang}, even If the assistant tells you that he doesn't understand. "
+        prompt = f"""Please, always talk in {lang}, even If the assistant tells you that he doesn't understand, 
+                or you had a conversation in another language before. """
+        return prompt
 
     def language(self, chance=30):
 

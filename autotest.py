@@ -68,9 +68,15 @@ def get_conversation_metadata(user_profile, serial=None):
 
         return conversation_list
 
+    def ask_about_metadata(up):
+        if not up.ask_about.variable_list:
+            return up.ask_about.str_list
 
-    ask_about = {'ask_about': user_profile.yaml['ask_about']}
+        return user_profile.ask_about.str_list + user_profile.ask_about.picked_elements
+
+    ask_about = {'ask_about': ask_about_metadata(user_profile)}
     conversation = {'conversation': conversation_metadata(user_profile)}
+
     language = {'language': user_profile.yaml['language']}
     serial_dict = {'serial': serial}
     metadata = {**ask_about, **conversation, **language, **serial_dict}

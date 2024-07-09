@@ -19,7 +19,7 @@ ask_about:
     - large
     - extra large
 
-  - "the following toppings: {{toppings.random(1)}}"
+  - "the following toppings: {{toppings.random()}}"
   - toppings:
     - mushrooms
     - tomato
@@ -34,6 +34,7 @@ conversations:
   - goal_style:
         steps: 2
   - interaction_style:
+#      - random
       - make spelling mistakes
       - change language:
           - italian

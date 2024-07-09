@@ -56,6 +56,11 @@ def get_conversation_metadata(user_profile, serial=None):
     def conversation_metadata(up):
         interaction_style_list = []
         conversation_list = []
+
+        # if 'random' in up.interaction_styles:
+        #     for inter in up.interaction_styles['random']:
+        #         interaction_style_list.append(inter.get_metadata())
+        # else:
         for inter in up.interaction_styles:
             interaction_style_list.append(inter.get_metadata())
 

@@ -34,12 +34,14 @@ conversations:
   - goal_style:
         steps: 2
   - interaction_style:
-#      - random
-      - make spelling mistakes
-      - change language:
-          - italian
-          - portuguese
-          - chinese
+      - random:
+        - make spelling mistakes
+        - all questions
+        - long phrases
+        - change language:
+            - italian
+            - portuguese
+            - chinese
 
 
 

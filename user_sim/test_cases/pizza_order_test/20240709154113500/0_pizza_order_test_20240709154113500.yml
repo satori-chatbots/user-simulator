@@ -1,0 +1,36 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - large
+- toppings:
+  - pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - change your mind
+interaction:
+- User: 'Hi there! I''d like to place an order for a pizza. Can I get a large pizza
+    with pepperoni, please?
+
+
+    Actually, you know what? Make it a medium instead of a large. And could you also
+    add mushrooms to that?
+
+
+    Oh, and do you have any garlic dipping sauce?'
+- Assistant: I'm sorry for the confusion, but we only offer small, medium, and big
+    sizes for our pizzas. You've mentioned medium, so I'll take that as your choice.
+    Is that correct?
+- User: Oh, I see. Yes, medium is fine. Could you add mushrooms to the pepperoni,
+    please? And do you have any garlic dipping sauce available?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Of course, we can add mushrooms to your pepperoni pizza. However, I need to confirm
+    the toppings for your pizza. You''ve mentioned pepperoni and mushrooms. Would
+    you like to add any other toppings from the following: cheese, pepper, ham, bacon,
+    olives, corn, chicken?'
+language: English
+serial: '20240709154113500'

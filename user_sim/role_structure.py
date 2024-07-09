@@ -62,6 +62,7 @@ class role_data:
         self.goal_style = pick_goal_style(self.list_to_dict_reformat(self.yaml["conversations"])['goal_style'])
         self.language = set_language(self.yaml["language"])
         self.interaction_styles = self.pick_interaction_style(self.list_to_dict_reformat(self.yaml["conversations"])['interaction_style'])
+        # print(self.interaction_styles)
         self.test_name = self.yaml["test_name"]
 
     def reset_attributes(self):
@@ -100,25 +101,59 @@ class role_data:
             'default': default
         }
 
-        interactions_list = []
+        def choice_styles(interaction_styles):
+            count = random.randint(1, len(interaction_styles))
+            random_list = random.sample(interaction_styles, count)
+            print(f'numero de interaction_style: {count}') #todo: borrar
+            return random_list
+
+        def get_styles(interactions):
+            interactions_list = []
+            for inter in interactions:
+
+                if isinstance(inter, dict):
+                    keys = list(inter.keys())
+                    if keys[0] == "change language":
+                        interaction = inter_styles[keys[0]]
+                        interaction.languages_options = inter.get(keys[0]).copy()
+                        interaction.change_language_flag = True
+                        interactions_list.append(interaction)
+
+                else:
+                    interaction = inter_styles[inter]
+                    interactions_list.append(interaction)
+            return interactions_list
+
+        # interactions_list = []
         if interactions is None:
             interaction = inter_styles['default']
-            return interactions_list.append(interaction)
+            return [interaction]
 
-        for inter in interactions:
+        if isinstance(interactions[0], dict):
+            inter_keys = list(interactions[0].keys())
 
-            if isinstance(inter, dict):
-                keys = list(inter.keys())
-                if keys[0] == "change language":
-                    interaction = inter_styles[keys[0]]
-                    interaction.languages_options = inter.get(keys[0]).copy()
-                    interaction.change_language_flag = True
-                    interactions_list.append(interaction)
+            if 'random' in inter_keys:
+                inter = interactions[0]['random']
+                choice = choice_styles(inter)
+                return get_styles(choice)
 
-            else:
-                interaction = inter_styles[inter]
-                interactions_list.append(interaction)
-        return interactions_list
+        else:
+            return get_styles(interactions) #todo: probar
+
+            # for inter in interactions:
+            #
+            #     if isinstance(inter, dict):
+            #         keys = list(inter.keys())
+            #         if keys[0] == "change language":
+            #             interaction = inter_styles[keys[0]]
+            #             interaction.languages_options = inter.get(keys[0]).copy()
+            #             interaction.change_language_flag = True
+            #             interactions_list.append(interaction)
+            #
+            #     else:
+            #         interaction = inter_styles[inter]
+            #         interactions_list.append(interaction)
+            # return interactions_list
 
     def get_language(self):
 

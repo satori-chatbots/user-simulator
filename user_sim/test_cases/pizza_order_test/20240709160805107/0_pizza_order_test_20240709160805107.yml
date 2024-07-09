@@ -1,0 +1,31 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - small
+- toppings:
+  - tomato
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - all questions
+  - long phrases
+  - make spelling mistakes
+interaction:
+- User: Helo, cud i pleaz order a smal pizza with tomatos topings and cud u tel me
+    how lon it wil tak for delevry and also do u hav any speshal offers goin on ryt
+    now and wud thr be any extra charg fo added cheez?
+- Assistant: I see that you've mentioned a small pizza in your order. Just to confirm,
+    is 'small' the size of the pizza you'd like to order?
+- User: Yeh, smal is gud, and can u pleze also tel me if ther is a way to track my
+    order online and if i can pay wit a crdit card or if u only accept cash, oh and
+    do u hav garlic bred as a side and wat drinks do u offer?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    Of course, we can certainly help with all of that. But first, could you please
+    specify the toppings for your pizza? We offer cheese, mushrooms, pepper, ham,
+    bacon, pepperoni, olives, corn, and chicken.'
+language: English
+serial: '20240709160805107'

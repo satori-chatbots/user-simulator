@@ -1,0 +1,30 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - small
+- toppings:
+  - onion
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - English
+    - English
+interaction:
+- User: Hi hi! I wuld lik to oder a smol pizza, pleze. And can u ples add onoin as
+    a toping? thnks!
+- Assistant: Hi there! I'm glad to hear you'd like to order a pizza. However, I'm
+    having a bit of trouble understanding the size you want. Could you please confirm
+    if you want a small, medium, or big pizza?
+- User: I want a smol pizza, pls. And dont frget the onoin toping. Thnks!
+- Assistant: 'Thank you for placing an order for a small pizza!
+
+    I''m sorry for the confusion, but we don''t have onion as a topping. You can choose
+    from cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, or chicken.
+    Could you please specify your preferred topping from these options?'
+language: English
+serial: '20240709121524275'

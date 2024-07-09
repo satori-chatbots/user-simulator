@@ -142,6 +142,7 @@ def generate(technology, chatbot, user, extract):
             metadata = get_conversation_metadata(user_profile, serial)
             test_name = user_profile.test_name
 
+            user_profile.reset_attributes()
             save_test_conv(history, metadata, test_name, extract, serial, counter=i)
             # the_user.save_data_gathering(extract)
 

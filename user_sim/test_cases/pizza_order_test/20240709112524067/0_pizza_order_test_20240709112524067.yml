@@ -1,0 +1,27 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - small
+- toppings:
+  - mushrooms
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - chinese
+    - English
+interaction:
+- User: 我想要点一份比萨，小号的。请加蘑菇。
+- Assistant: I'm sorry, but I can only communicate in English and Spanish. Could you
+    please switch to one of these languages?
+- User: Sure thing! I wuld lik a smal pizza plz with musrooms. Cna you add extra chese
+    too?
+- Assistant: I see that you would like a small pizza with mushrooms and extra cheese.
+    However, I'm having a bit of trouble understanding the size of the pizza you want.
+    Could you please confirm if you want a small, medium, or big pizza?
+language: English
+serial: '20240709112524067'

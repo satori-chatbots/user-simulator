@@ -1,8 +1,7 @@
 import openai
-from user_sim.show_logs import LoggerConfig
-from user_sim.utilities import *
+from resources.show_logs import LoggerConfig
+from resources.utilities import *
 from user_sim.data_gathering import *
-from interaction_styles import *
 
 from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
@@ -16,32 +15,6 @@ def generar_interaccion(msg, temperatura=0.8, max_tokens=300):
         max_tokens=max_tokens
     )
     return response['choices'][0]['message']['content'].strip()
-
-
-class verbose:
-
-    def __init__(self, show_print):
-        self.print_list = []
-        self.show_print = show_print
-
-    def add(self, log):
-        self.print_list.add(log)
-
-    def add_show(self, log):
-        self.print_list.add(log)
-        if self.show_print:
-            print(log)
-
-    def show(self):
-        if self.show_print:
-            for log in self.print_list:
-                print(log)
-
-    def reset_verbose(self):
-        self.print_list = []
-
-
-#disabled
 
 
 class user_generation:

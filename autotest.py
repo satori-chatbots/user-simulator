@@ -1,11 +1,10 @@
 import requests
-import os
 import configparser
 
 from argparse import ArgumentParser
 from colorama import Fore, Style
 from user_sim.role_structure import *
-from user_sim.utilities import *
+from resources.utilities import *
 from user_sim.user_simulator import user_generation
 
 class Chatbot:
@@ -108,7 +107,7 @@ def check_keys(key_list: list):
 
 def generate(technology, chatbot, user, extract):
     user_profile = role_data(user)
-    serial = get_serial()
+    serial = generate_serial()
 
     for i in range(user_profile.conversation_number):
         if technology == 'rasa':      the_chatbot = ChatbotRasa(chatbot)

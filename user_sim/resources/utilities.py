@@ -63,7 +63,7 @@ def read_yaml(file):
     return yam_file
 
 
-def get_serial():
+def generate_serial():
     now = datetime.now()
     serial = datetime.now().strftime("%Y%m%d%H%M%S") + f"{now.microsecond // 1000:03d}"
     return serial

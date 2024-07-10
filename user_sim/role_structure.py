@@ -1,9 +1,9 @@
-import yaml
-import re
-from user_sim.utilities import *
-import random
+from pydantic import BaseModel, ValidationError
+from typing import List
 from interaction_styles import *
 from ask_about import *
+from resources.exceptions import *
+from resources.languages import Languages
 
 
 goal_styles = {
@@ -13,15 +13,19 @@ goal_styles = {
 
 
 def pick_goal_style(goal):
-
-    if goal is None:
-        return goal, goal_styles['default']
-
-    else:
-        if 'steps' in goal:
+    try:
+        if goal is None:
+            return goal, goal_styles['default']
+        elif 'steps' in goal:
             return list(goal.keys())[0], goal['steps']
-        else:
+        elif 'all answered' in goal:
             return goal, goal_styles['all answered']
+        else:
+            raise InvalidGoalException("Invalid goal value.")
+
+    except InvalidGoalException as e:
+        print(f"Error: {e}")
+        return None, None
 
 def replace_placeholders(phrase, variables):
     def replacer(match):
@@ -36,46 +40,82 @@ def replace_placeholders(phrase, variables):
 
 
 def set_language(lang): #TODO: try add a specific language and affect it with the "change language" interaction style
-    if isinstance(lang, type(None)):
+
+   if isinstance(lang, type(None)):
         return "English"
-    else:
-        return lang
+   try:
+       if lang in Languages:
+            return lang
+       else:
+           raise InvalidLanguageException(f'Invalid language input: {lang}. Setting language to default (English)')
+   except InvalidLanguageException as e:
+       print(f'Error: {e}')
+       return "English"
 
 def list_to_str(list_of_strings):
-    single_string = ' '.join(list_of_strings)
-    return single_string
+    try:
+        single_string = ' '.join(list_of_strings)
+        return single_string
+    except Exception as e:
+        print(e)
 
+
+
+class ConversationModel(BaseModel):
+    number: int
+    goal_style: dict
+    interaction_style: List[str]
+
+class RoleDataModel(BaseModel):
+    fallback: str
+    temperature: float
+    isstarter: bool
+    role: str
+    context: List[str]
+    ask_about: list
+    conversations: List[dict]
+    language: str
+    test_name: str
 
 class role_data:
 
     def __init__(self, path):
-
         self.yaml = read_yaml(path)
-        self.fallback = self.yaml['fallback']
-        self.temperature = self.yaml["temperature"]
-        self.isstarter = self.yaml["isstarter"]
-        self.role = self.yaml["role"]
-        self.context = list_to_str(self.yaml["context"])
+
+        try:
+            self.validated_data = RoleDataModel(**self.yaml)
+        except ValidationError as e:
+            print(e.json())
+            raise
+
+        # self.yaml = read_yaml(path)
+        self.fallback = self.validated_data.fallback
+        self.temperature = self.validated_data.temperature
+        self.isstarter = self.validated_data.isstarter
+        self.role = self.validated_data.role
+        self.context = list_to_str(self.validated_data.context) #list
         # self.ask_about = self.ask_about_processor(self.yaml["ask_about"])
-        self.ask_about = ask_about_class(self.yaml["ask_about"])
-        self.conversation_number = self.list_to_dict_reformat(self.yaml["conversations"])['number']
-        self.goal_style = pick_goal_style(self.list_to_dict_reformat(self.yaml["conversations"])['goal_style'])
-        self.language = set_language(self.yaml["language"])
-        self.interaction_styles = self.pick_interaction_style(self.list_to_dict_reformat(self.yaml["conversations"])['interaction_style'])
-        # print(self.interaction_styles)
-        self.test_name = self.yaml["test_name"]
+        self.ask_about = ask_about_class(self.validated_data.ask_about) #list
+
+        conversation = self.list_to_dict_reformat(self.yaml["conversations"])
+        self.conversation_number = conversation['number']  # list
+        self.goal_style = pick_goal_style(conversation['goal_style']) #list
+        self.language = set_language(self.validated_data.language) #str
+        self.interaction_styles = self.pick_interaction_style(conversation['interaction_style']) #list
+        self.test_name = self.validated_data.test_name #str
 
     def reset_attributes(self):
-        self.fallback = self.yaml['fallback']
-        self.temperature = self.yaml["temperature"]
-        self.isstarter = self.yaml["isstarter"]
-        self.role = self.yaml["role"]
-        self.context = list_to_str(self.yaml["context"])
-        self.ask_about = ask_about_class(self.yaml["ask_about"])
-        self.goal_style = pick_goal_style(self.list_to_dict_reformat(self.yaml["conversations"])['goal_style'])
-        self.language = set_language(self.yaml["language"])
-        self.interaction_styles = self.pick_interaction_style(self.list_to_dict_reformat(self.yaml["conversations"])['interaction_style'])
-        self.test_name = self.yaml["test_name"]
+        self.fallback = self.validated_data.fallback
+        self.temperature = self.validated_data.temperature
+        self.isstarter = self.validated_data.isstarter
+        self.role = self.validated_data.role
+        self.context = list_to_str(self.validated_data.context) #list
+        self.ask_about = ask_about_class(self.validated_data.ask_about)
+
+        conversation = self.list_to_dict_reformat(self.yaml["conversations"])
+        self.goal_style = pick_goal_style(conversation['goal_style']) #list
+        self.language = set_language(self.validated_data.language) #str
+        self.interaction_styles = self.pick_interaction_style(conversation['interaction_style']) #list
 
     def list_to_dict_reformat(self, conv):
         result_dict = {k: v for d in conv for k, v in d.items()}
@@ -98,7 +138,7 @@ class role_data:
             'make spelling mistakes': make_spelling_mistakes(),
             'single question': single_questions(),
             'all questions': all_questions(),
-            'default': default
+            'default': default()
         }
 
         def choice_styles(interaction_styles):
@@ -109,19 +149,26 @@ class role_data:
 
         def get_styles(interactions):
             interactions_list = []
-            for inter in interactions:
+            try:
+                for inter in interactions:
 
-                if isinstance(inter, dict):
-                    keys = list(inter.keys())
-                    if keys[0] == "change language":
-                        interaction = inter_styles[keys[0]]
-                        interaction.languages_options = inter.get(keys[0]).copy()
-                        interaction.change_language_flag = True
-                        interactions_list.append(interaction)
+                    if isinstance(inter, dict):
+                        keys = list(inter.keys())
+                        if keys[0] == "change language":
+                            interaction = inter_styles[keys[0]]
+                            interaction.languages_options = inter.get(keys[0]).copy()
+                            interaction.change_language_flag = True
+                            interactions_list.append(interaction)
 
-                else:
-                    interaction = inter_styles[inter]
-                    interactions_list.append(interaction)
+                    else:
+                        if inter in inter_styles:
+                            interaction = inter_styles[inter]
+                            interactions_list.append(interaction)
+                        else:
+                            raise InvalidInteractionException(f"Invalid interaction: {inter}")
+            except InvalidInteractionException as e:
+                print(f"Error: {e}")
+                # return None
             return interactions_list
 
         # interactions_list = []
@@ -129,7 +176,7 @@ class role_data:
             interaction = inter_styles['default']
             return [interaction]
 
-        if isinstance(interactions[0], dict):
+        elif isinstance(interactions[0], dict): #todo: add validation funct to admit random only if it alone in the list
             inter_keys = list(interactions[0].keys())
 
             if 'random' in inter_keys:
@@ -138,22 +185,8 @@ class role_data:
                 return get_styles(choice)
 
         else:
-            return get_styles(interactions) #todo: probar
+            return get_styles(interactions)
 
-            # for inter in interactions:
-            #
-            #     if isinstance(inter, dict):
-            #         keys = list(inter.keys())
-            #         if keys[0] == "change language":
-            #             interaction = inter_styles[keys[0]]
-            #             interaction.languages_options = inter.get(keys[0]).copy()
-            #             interaction.change_language_flag = True
-            #             interactions_list.append(interaction)
-            #
-            #     else:
-            #         interaction = inter_styles[inter]
-            #         interactions_list.append(interaction)
-            # return interactions_list
 
     def get_language(self):
 

@@ -121,7 +121,7 @@ class single_questions(interaction_style):
     def get_metadata(self):
         return self.intertype
 
-class all_questions(interaction_style):
+class all_questions(interaction_style): #todo: all questions should only get questions from ask_about
     def __init__(self):
         super().__init__(intertype='all questions')
 

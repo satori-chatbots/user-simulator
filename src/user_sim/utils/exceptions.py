@@ -13,3 +13,6 @@ class InvalidInteractionException(Exception):
 
 class InvalidLanguageException(Exception):
     pass
+
+class OutOfLimitException(Exception):
+    pass

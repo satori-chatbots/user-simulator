@@ -1,5 +1,5 @@
 import random
-from resources.utilities import *
+from utils.utilities import *
 
 
 class ask_about_class:

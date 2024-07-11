@@ -50,7 +50,7 @@ class LoggerConfig:
         # Verificar si ya se han agregado manejadores para evitar duplicados
         if not logger.hasHandlers():
             if self.mostrar_logs:
-                file_handler = logging.FileHandler('../../app.log')
+                file_handler = logging.FileHandler('../../../app.log')
                 file_handler.setLevel(logging.DEBUG)
 
                 console_handler = logging.StreamHandler()

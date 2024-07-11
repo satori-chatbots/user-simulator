@@ -3,9 +3,9 @@ import configparser
 
 from argparse import ArgumentParser
 from colorama import Fore, Style
-from user_sim.role_structure import *
-from resources.utilities import *
-from user_sim.user_simulator import user_generation
+from role_structure import *
+from utils.utilities import *
+from user_simulator import user_generation
 
 class Chatbot:
     def __init__(self, url):
@@ -56,19 +56,22 @@ def get_conversation_metadata(user_profile, serial=None):
         interaction_style_list = []
         conversation_list = []
 
-        # if 'random' in up.interaction_styles:
-        #     for inter in up.interaction_styles['random']:
-        #         interaction_style_list.append(inter.get_metadata())
-        # else:
         for inter in up.interaction_styles:
             interaction_style_list.append(inter.get_metadata())
 
         for conv in user_profile.yaml['conversations']:
             keys = list(conv.keys())
-            if keys[0] != 'interaction_style':
-                conversation_list.append(conv)
-            else:
+            if keys[0] == 'interaction_style':
                 conversation_list.append({'interaction_style': interaction_style_list})
+
+            elif keys[0] == 'goal_style':
+                if 'random steps' in conv[keys[0]]:
+                    conversation_list.append({keys[0]: {'steps': user_profile.goal_style[1]}})
+                else:
+                    conversation_list.append(conv)
+
+            else:
+                conversation_list.append(conv)
 
         return conversation_list
 

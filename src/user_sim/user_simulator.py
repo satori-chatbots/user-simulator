@@ -1,7 +1,7 @@
 import openai
-from resources.show_logs import LoggerConfig
-from resources.utilities import *
-from user_sim.data_gathering import *
+from utils.show_logs import LoggerConfig
+from utils.utilities import *
+from data_gathering import *
 
 from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
@@ -149,9 +149,10 @@ class user_generation:
 
     def end_conversation(self, input_msg):
 
-        if self.interaction_count >= self.user_profile.goal_style[1] and self.user_profile.goal_style[0] == 'steps':
-            self.logger.info("is end")
-            return True
+        if self.user_profile.goal_style[0] == 'steps' or self.user_profile.goal_style[0] == 'random steps':
+            if self.interaction_count >= self.user_profile.goal_style[1]:
+                self.logger.info("is end")
+                return True
 
         elif self.conversation_ending(input_msg) or self.loop_count >= 9:
             self.logger.info("is end")

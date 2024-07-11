@@ -19,7 +19,7 @@ ask_about:
     - large
     - extra large
 
-  - "the following toppings: {{toppings.random()}}"
+  - "the following toppings: {{toppings.random(rand)}}"
   - toppings:
     - mushrooms
     - tomato
@@ -32,7 +32,7 @@ ask_about:
 conversations:
   - number: 3
   - goal_style:
-        steps: 2
+        all answered
   - interaction_style:
       - random:
         - make spelling mistakes
@@ -43,6 +43,6 @@ conversations:
             - portuguese
             - chinese
 
-language: kjsrahgfvksuiea
+language:
 
 test_name: "pizza_order_test"

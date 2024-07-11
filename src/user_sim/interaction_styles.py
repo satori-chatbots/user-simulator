@@ -85,7 +85,7 @@ class change_language(interaction_style): #TODO: add chance variable with *args
             return lang
         else:
             self.languages_list.append(self.default_language)
-            print(f'the language was set to default')
+            print(f'the language was set to main language.')
             return self.default_language
 
     def reset_language_list(self):

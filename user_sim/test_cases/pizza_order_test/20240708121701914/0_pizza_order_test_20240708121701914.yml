@@ -1,0 +1,30 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(1)}}'
+- size:
+  - large
+- toppings:
+  - mushrooms
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - portuguese
+    - English
+interaction:
+- User: Oi, eu queru umh pizza grandde com cogumelos, por favoor. Quanto tenpo leva
+    pra fiicar pronta?
+- Assistant: I see that you want a pizza with mushrooms. However, I'm not sure about
+    the size. Could you please confirm if you want a small, medium, or big pizza?
+- User: I wat a lerge pizza with mushrumms, pleese. How loong dos it take to gett
+    ready?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I understand that you want a large pizza with mushrooms. However, would you like
+    to add any other toppings? You can choose from cheese, pepper, ham, bacon, pepperoni,
+    olives, corn, or chicken.'
+language: English
+serial: '20240708121701914'

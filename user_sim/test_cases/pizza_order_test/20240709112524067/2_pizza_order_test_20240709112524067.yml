@@ -1,0 +1,28 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - small
+- toppings:
+  - mushrooms
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - English
+    - English
+interaction:
+- User: Hi! Cna I ordder a smal pizza with musrhooms, pls?
+- Assistant: Hi there! I see you're interested in a small pizza with mushrooms. Just
+    to confirm, is 'small' the size of the pizza you'd like to order?
+- User: Yah, smal pizza with musrhooms. Can you add extrra chees too?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    Of course, we can add extra cheese to your small pizza with mushrooms. Would you
+    like to add any other toppings such as pepper, ham, bacon, pepperoni, olives,
+    corn, or chicken?'
+language: English
+serial: '20240709112524067'

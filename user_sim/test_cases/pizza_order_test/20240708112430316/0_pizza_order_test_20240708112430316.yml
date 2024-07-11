@@ -1,0 +1,27 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - large
+- toppings:
+  - cheese
+  - mushrooms
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - English
+    - English
+interaction:
+- User: 'Hi there! I''d liek to ordder a pizza. '
+- Assistant: Welcome to my pizza shop. I'm the owner and I'm happy to help you. What
+    size of pizza would you like to order? And what toppings and drink would you like
+    to have?
+- User: I wuld like a lrahe pizza pleease. Can I get cheeze and mushrooms as topppings?
+- Assistant: I'm sorry, but I didn't understand the size of the pizza you want. Could
+    you please specify if you want a small, medium, or big pizza?
+language: English
+serial: '20240708112430316'

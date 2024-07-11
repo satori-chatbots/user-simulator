@@ -1,0 +1,27 @@
+ask_about:
+- a small pizza
+- cheese, olives and bacon for toppings
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - English
+    - English
+interaction:
+- User: Hi threre! I wuld like to ordr a small pizza. Could u tell me wht topings
+    u have available?
+- Assistant: Hi there! I see that you've mentioned you'd like a small pizza. That's
+    great! We have your pizza size noted down.
+- User: We hav a variety of toppings for your pizza. Some of the options include pepperoni,
+    mushrooms, green peppers, onions, sausage, black olives, and extra cheese. What
+    toppings would you like on your small pizza?
+- Assistant: 'Thank you for placing an order for a small pizza!
+
+    Of course! Could you please specify which toppings you would like on your small
+    pizza? The options are cheese, mushrooms, pepper, ham, bacon, pepperoni, olives,
+    and corn.'
+language: English
+serial: '20240708114329011'

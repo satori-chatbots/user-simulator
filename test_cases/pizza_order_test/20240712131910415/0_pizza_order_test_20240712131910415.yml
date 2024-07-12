@@ -1,0 +1,46 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - medium
+- toppings:
+  - cheese
+  - mushrooms
+  - onion
+  - tomato
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - long phrases
+  - all questions
+interaction:
+- User: Hi thhere! I wud like to ordder a meedium pizza with cheeze, musshrooms, oniion,
+    and tomattoos, cud you pleease tell me how long it will taake to be delievered,
+    and also do you have any speecial offerrs or deeals going on rihgt now, and could
+    you make sure there’s no peppperoni on it, also how much would it cost in totall,
+    and do I need to payy extra for delievery, and if so, how much, also can I pay
+    with a card or is it cash onlly, and do you have any garlik bread or sodas that
+    I could addd to the ordder, and how much would tat be, and do you have any dessertts
+    available, and if yes, what kindds, also, can you make sure the crust is not too
+    crispy, and could you provide napkins or plates with the ordder, sorry for asking
+    so many qustions at once?
+- Assistant: Of course, I'd be happy to assist you with your order. However, I need
+    to confirm the size of the pizza you'd like. Could you please specify if you want
+    a small, medium, or big pizza?
+- User: Ohh, sorryy, I ment to say meedium pizza alreddy, could you alzo let me know
+    if you have any speecial offerrs for pizza and soda combbo, and also, how long
+    will it taake to be delievered, and do you have any desserts like icee cream or
+    browniies, and can I pay byy card or is it cash only, and could you make sure
+    the crust is soft and not too crispy, and also, do you provide napkinns or plates
+    with the order, and will there be any exxtra charge for delievery, and if yes,
+    how much, and cud you please make sure there’s no peppperoni on it?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Thank you for confirming the size of your pizza. Now, could you please specify
+    the toppings you would like on your medium pizza? The options are cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken.'
+language: null
+serial: '20240712131910415'

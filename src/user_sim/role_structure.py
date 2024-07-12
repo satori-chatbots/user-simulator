@@ -5,7 +5,7 @@ from interaction_styles import *
 from ask_about import *
 from utils.exceptions import *
 from utils.languages import Languages
-
+from utils.globals import *
 
 goal_styles = {
     'all answered': '',
@@ -154,7 +154,8 @@ class role_data:
         def choice_styles(interaction_styles):
             count = random.randint(1, len(interaction_styles))
             random_list = random.sample(interaction_styles, count)
-            print(f'numero de interaction_style: {count}') #todo: borrar
+            # print(f'numero de interaction_style: {count}') #todo: borrar
+            show_print(f'numero de interaction_style: {count}')
             return random_list
 
         def get_styles(interactions):

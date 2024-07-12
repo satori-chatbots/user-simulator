@@ -1,5 +1,6 @@
 import openai
 from utils.show_logs import LoggerConfig
+from utils.globals import *
 from utils.utilities import *
 from data_gathering import *
 
@@ -104,7 +105,10 @@ class user_generation:
     def repetition_track(self, response, reps=3):
 
         self.my_context.reset_context()
-        print(self.my_context.context_list)
+        # print(self.my_context.context_list)
+        # show_print(f'Context list: {self.my_context.context_list}')
+        logging.debug(f'Context list: {self.my_context.context_list}')
+
         if nlp_processor(response, self.chatbot.fallback, 0.6):
             self.repeat_count += 1
             self.loop_count += 1

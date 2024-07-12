@@ -1,0 +1,27 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - small
+- toppings:
+  - mushrooms
+  - pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - make spelling mistakes
+  - long phrases
+  - all questions
+  - change languages:
+    - English
+interaction:
+- User: Hi there, I'd like to ordr a smol pizzza with mushroomms and peperoni and
+    can you pleese tell me how much itt will cost and how long it will take to delivar
+    to my address becuz I'm really hungry right now and also do you have any speshul
+    offers or discounts on small pizzas with those toppings today?
+- Assistant: I'm sorry for the confusion, but could you please confirm the size of
+    the pizza you'd like to order? We offer small, medium, and big sizes.
+language: null
+serial: '20240712120307147'

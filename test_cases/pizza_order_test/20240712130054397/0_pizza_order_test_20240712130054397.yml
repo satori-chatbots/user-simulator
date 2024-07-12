@@ -1,0 +1,35 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - large
+- toppings:
+  - onion
+  - tomato
+  - cheese
+  - olives
+  - pepperoni
+  - mushrooms
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - long phrases
+  - make spelling mistakes
+interaction:
+- User: Hi, therre! I woud like 2 ordr a lerge piza plaese. Can I get it with onoin,
+    tomateos, chese, olivves, pepproni, and mushrroms? Thnks!
+- Assistant: Hi there! I'm glad to hear you're interested in ordering a pizza. However,
+    I noticed that you mentioned a 'lerge' size, which we don't offer. Our available
+    sizes are small, medium, and big. Could you please specify which one you'd prefer?
+- User: Oops, my misstake! I ment to say large! Could I plese have a big piza then?
+    With onoin, tomatos, chees, olivs, peproni, and mushroms? Thansk!
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Of course, a big pizza it is! However, I noticed that some of the toppings you
+    mentioned are not available. We offer cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken. From your list, we can do cheese, olives, pepperoni,
+    and mushrooms. Would you like to add or change any toppings?'
+language: null
+serial: '20240712130054397'

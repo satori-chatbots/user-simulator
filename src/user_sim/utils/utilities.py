@@ -2,7 +2,7 @@ import yaml
 import os
 import json
 from datetime import datetime
-
+from utils.globals import *
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -27,11 +27,13 @@ def str_to_bool(s):
 def set_language(lang_yml):
     if lang_yml is None:
         print("Empty. Setting language to Default (English)")
+        show_print("Empty. Setting language to Default (English)")
         language = "English"
         language = f". Please, always talk in {language}. "
         return language
     else:
-        print(lang_yml)
+        # print(lang_yml)
+        show_print(f"Main language set to {lang_yml}")
         language = lang_yml
         language = f". Please, always talk in {language}. "
         return language
@@ -88,6 +90,7 @@ def save_test_conv(history, metadata, test_name, path, serial, counter):
     with open(file_path, "w", encoding="UTF-8") as archivo:
         yaml.dump(data, archivo, allow_unicode=True, default_flow_style=False)
     print(f"Conversation saved in {path}")
+    print('------------------------------')
 
 
 def preprocess_text(text):

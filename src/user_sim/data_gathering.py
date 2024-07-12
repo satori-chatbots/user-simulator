@@ -1,11 +1,12 @@
 import os
 import logging
-logger = logging.getLogger('mi_logger')
 import ast
 import pandas as pd
 import numpy as np
 import re
 
+from utils.globals import *
+from utils.exceptions import *
 from datetime import datetime
 from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
@@ -23,7 +24,11 @@ def extract_dict(input):
 
 
 def to_dict(input):
-    dictionary = ast.literal_eval(extract_dict(input))
+    try:
+        dictionary = ast.literal_eval(extract_dict(input))
+    except BadDictionaryGeneration as e:
+        print(f'Bad dictionary generation fro user assistant: {e}')
+        dictionary = {}
     return dictionary
 
 
@@ -33,7 +38,7 @@ class user_assistant:
         Assistant that detects if this sentence '{user_msg}' is asking about any of these topics: {ask_about}. 
         Answer which question is being asked in a dictionary-like way, using True or False.
         List the questions in the same order and written the same way as here {ask_about}.
-        Always use the dictionary format using brackets.
+        Always use the dictionary format using brackets, without any other content but the questions and the evaluation.
         """
         self.logger = logging.getLogger('my_logger')
         self.assistant_role_prompt = PromptTemplate(
@@ -46,10 +51,10 @@ class user_assistant:
 
     def get_request(self, usr_msg=None):
         response = self.chain.run(user_msg=usr_msg, ask_about=str(self.ask_about))
-        print(f'response: {response}')
+        # print(f'response: {response}')
+        # show_print(f'response: {response}')
+        logging.getLogger().verbose(f'response: {response}')
         request_register = to_dict(response)
-
-        self.logger.info(f"user request:{request_register}")
 
         self.request = request_register
 
@@ -102,13 +107,10 @@ class chatbot_assistant:
 
     def add_to_register(self, chatbot_msg, dictionary, user_msg):
 
-        self.logger.info(f"dictionary:{dictionary}")
-
         df = self.gathering_register
 
         ab_index = []
 
-        self.logger.info(f"'ask about' list:{self.ask_about}")
         for i, question in enumerate(self.ask_about):
 
             for dfindex in df.index:
@@ -139,10 +141,10 @@ class chatbot_assistant:
     def response(self, chatbot_msg, user_msg): #user_msg?? dictionary
 
         chatbot_response = self.chain.run(chatbot_msg=chatbot_msg, ask_about=str(self.ask_about), user_msg = user_msg)
-        print(chatbot_response)
+        # print(chatbot_response)
+        # show_print(f'chatbot response: {chatbot_response}')
+        logging.getLogger().verbose(f'chatbot response: {chatbot_response}')
         chatbot_response = to_dict(chatbot_response)
-
-        self.logger.info(f"Dictionary created from chatbot response:{chatbot_response}")
 
         chatbot_response = self.request_control(user_msg.request, chatbot_response)
         self.add_to_register(chatbot_msg, chatbot_response, user_msg)

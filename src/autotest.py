@@ -1,11 +1,25 @@
 import requests
 import configparser
-
+import logging
 from argparse import ArgumentParser
+
+# Definir el nuevo nivel VERBOSE
+VERBOSE_LEVEL_NUM = 15
+logging.addLevelName(VERBOSE_LEVEL_NUM, "VERBOSE")
+
+
+def verbose(self, message, *args, **kwargs):
+    if self.isEnabledFor(VERBOSE_LEVEL_NUM):
+        self._log(VERBOSE_LEVEL_NUM, message, args, **kwargs)
+
+
+logging.Logger.verbose = verbose
+
 from colorama import Fore, Style
 from user_sim.role_structure import *
 from user_sim.utils.utilities import *
 from user_sim.user_simulator import user_generation
+
 
 class Chatbot:
     def __init__(self, url):
@@ -15,7 +29,8 @@ class Chatbot:
     def execute_with_input(self, user_msg):
         return ''
 
-class ChatbotRasa (Chatbot):
+
+class ChatbotRasa(Chatbot):
     def execute_with_input(self, user_msg):
         new_data = {
             "sender": "user",
@@ -23,34 +38,41 @@ class ChatbotRasa (Chatbot):
         }
         post_response = requests.post(self.url, json=new_data)
         post_response_json = post_response.json()
-        if len(post_response_json)>0:
+        if len(post_response_json) > 0:
             return post_response_json[0].get('text')
-        else: return ''
+        else:
+            return ''
 
-class ChatbotTaskyto (Chatbot):
+
+class ChatbotTaskyto(Chatbot):
     def __init__(self, url):
         Chatbot.__init__(self, url)
         self.id = None
 
     def execute_with_input(self, user_msg):
-        if self.id==None:
-            post_response = requests.post(self.url+'/conversation/new')
+        if self.id == None:
+            post_response = requests.post(self.url + '/conversation/new')
             post_response_json = post_response.json()
             self.id = post_response_json.get('id')
 
-        if self.id!=None:
+        if self.id != None:
             new_data = {
                 "id": self.id,
                 "message": user_msg
             }
-            post_response = requests.post(self.url+'/conversation/user_message', json=new_data)
+            post_response = requests.post(self.url + '/conversation/user_message', json=new_data)
             post_response_json = post_response.json()
             return post_response_json.get('message')
 
         return ''
 
-def print_user   (msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
+
+def print_user(msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
+
+
 def print_chatbot(msg): print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {msg}")
+
+
 def get_conversation_metadata(user_profile, serial=None):
     def conversation_metadata(up):
         interaction_style_list = []
@@ -90,11 +112,13 @@ def get_conversation_metadata(user_profile, serial=None):
 
     return metadata
 
+
 def check_keys(key_list: list):
     # Check if keys.properties exists
 
     if os.path.exists("keys.properties"):
-        print("properties found!")
+        # print("properties found!")
+        show_print("properties found!")
         config = configparser.ConfigParser()
         config.read('keys.properties')
 
@@ -113,38 +137,40 @@ def generate(technology, chatbot, user, extract):
     serial = generate_serial()
 
     for i in range(user_profile.conversation_number):
-        if technology == 'rasa':      the_chatbot = ChatbotRasa(chatbot)
-        elif technology == 'taskyto': the_chatbot = ChatbotTaskyto(chatbot)
-        else:                         the_chatbot = Chatbot(chatbot)
+        if technology == 'rasa':
+            the_chatbot = ChatbotRasa(chatbot)
+        elif technology == 'taskyto':
+            the_chatbot = ChatbotTaskyto(chatbot)
+        else:
+            the_chatbot = Chatbot(chatbot)
 
         the_chatbot.fallback = user_profile.fallback
         the_user = user_generation(user_profile, the_chatbot, True)
-        starter  = user_profile.isstarter
+        starter = user_profile.isstarter
 
         while True:
-             if starter:
-                 user_msg = the_user.open_conversation()
-                 print_user(user_msg)
+            if starter:
+                user_msg = the_user.open_conversation()
+                print_user(user_msg)
 
-                 response = the_chatbot.execute_with_input(user_msg)
-                 print_chatbot(response)
+                response = the_chatbot.execute_with_input(user_msg)
+                print_chatbot(response)
 
-                 starter = False
+                starter = False
 
-             user_msg = the_user.get_response(response)
+            user_msg = the_user.get_response(response)
 
-             if user_msg == "exit":
-                 print('exit')
-                 break
+            if user_msg == "exit":
+                print('exit')
+                break
 
-             else:
-                 # configure parameter "user starts?"
-                 print_user(user_msg)
-                 response = the_chatbot.execute_with_input(user_msg)
-                 print_chatbot(response)
+            else:
+                # configure parameter "user starts?"
+                print_user(user_msg)
+                response = the_chatbot.execute_with_input(user_msg)
+                print_chatbot(response)
 
         if extract:
-
             history = the_user.conversation_history
             metadata = get_conversation_metadata(user_profile, serial)
             test_name = user_profile.test_name
@@ -156,11 +182,23 @@ def generate(technology, chatbot, user, extract):
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Conversation generator for a chatbot')
-    parser.add_argument('--technology', required=True, choices=['rasa', 'taskyto'], help='Technology the chatbot is implemented in')
+    parser.add_argument('--technology', required=True, choices=['rasa', 'taskyto'],
+                        help='Technology the chatbot is implemented in')
     parser.add_argument('--chatbot', required=True, help='URL where the chatbot is deployed')
     parser.add_argument('--user', required=True, help='User profile to test the chatbot')
     parser.add_argument("--extract", default=False, help='Path to store conversation user-chatbot')
+    parser.add_argument('--verbose', action='store_true', help='Shows debug prints')
     args = parser.parse_args()
+
+    #logging config
+    # logging_level = VERBOSE_LEVEL_NUM if args.verbose else logging.INFO
+    if args.verbose:
+        logging_level = VERBOSE_LEVEL_NUM
+        logging.basicConfig(level=logging_level, format='%(asctime)s - %(levelname)s - %(message)s')
+
+    # logging.info("Iniciando el generador de conversaciones")
+    logging.debug(f"Argumentos recibidos: {args}")
+    logging.getLogger().verbose('verbose enabled')
 
     check_keys(["OPENAI_API_KEY"])
     generate(args.technology, args.chatbot, args.user, args.extract)

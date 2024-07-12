@@ -1,5 +1,6 @@
 import pydantic
 import random
+from utils.globals import *
 
 # interaction_styles = {
 #     'long phrases': "use very long phrases to write anything. ",
@@ -80,12 +81,14 @@ class change_language(interaction_style): #TODO: add chance variable with *args
         rand_number = random.randint(1, 100)
         if rand_number <= chance:
             lang = random.choice(self.languages_options)
-            print(f'the language is: {lang}')
+            # print(f'the language is: {lang}')
+            show_print(f'the language is: {lang}')
             self.languages_list.append(lang)
             return lang
         else:
             self.languages_list.append(self.default_language)
-            print(f'the language was set to main language.')
+            # print(f'the language was set to main language.')
+            show_print(f'the language was set to main language.')
             return self.default_language
 
     def reset_language_list(self):

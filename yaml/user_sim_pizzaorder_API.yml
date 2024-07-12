@@ -30,9 +30,9 @@ ask_about:
 
 
 conversations:
-  - number: 3
+  - number: 1
   - goal_style:
-        random steps: 4
+        steps: 2
   - interaction_style:
       - random:
         - make spelling mistakes

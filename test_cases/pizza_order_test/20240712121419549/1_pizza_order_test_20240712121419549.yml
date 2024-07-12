@@ -1,0 +1,24 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - extra large
+- toppings:
+  - pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - change languages:
+    - English
+  - long phrases
+  - make spelling mistakes
+interaction:
+- User: Hi, I wuld liek to order an extra laarge pizza with pepporiny. Can yu add
+    extra cheeze on that too? And also, do you hav any spcial offers or discount going
+    on right now?
+- Assistant: Hi there! I'm sorry, but we only offer small, medium, and big sizes for
+    our pizzas. Could you please specify which size you would like for your pizza?
+language: null
+serial: '20240712121419549'

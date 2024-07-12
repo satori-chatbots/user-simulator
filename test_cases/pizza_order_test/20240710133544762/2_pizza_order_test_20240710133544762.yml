@@ -1,0 +1,37 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - small
+- toppings:
+  - cheese
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - default
+interaction:
+- User: 'Hi ther! I''de lik to ordar a piza plese. Can i get a smal one with extr
+    chese?
+
+
+    Is it possibl to ad more chese on top if i wannt?
+
+
+    Howw much will thet cost?'
+- Assistant: Of course, you can add extra cheese on your pizza. However, I noticed
+    that you mentioned you want a 'smal' pizza. I believe you meant 'small'. Can you
+    please confirm the size of the pizza you want? It can be small, medium, or big.
+- User: Yes, I wnt a smal one. Can yu tel me hw much it wil cost wit the xtra cheese?
+    alsso, do you hav any speshal deals goinng on rite now?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    I''m glad to hear you want a small pizza with extra cheese. However, I need to
+    know if you would like any other toppings on your pizza. We offer mushrooms, pepper,
+    ham, bacon, pepperoni, olives, corn, and chicken. Please let me know your preference.
+    As for the cost and special deals, I recommend contacting the shop directly as
+    I am currently unable to provide that information.'
+language: asada
+serial: '20240710133544762'

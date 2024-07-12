@@ -1,0 +1,26 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - extra large
+- toppings:
+  - pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - all questions
+interaction:
+- User: I'd like to order an extra large pizza with pepperoni, and could you also
+    tell me how long it will take to be ready and what the total price will be?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pepperoni pizza?
+- User: Okay, I'll take a big pepperoni pizza then; and could you tell me how long
+    it will take to be ready and what the total price will be?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Great choice! Just to confirm, would you like any additional toppings on your
+    big pepperoni pizza or will it just be pepperoni?'
+language: asada
+serial: '20240710131202645'

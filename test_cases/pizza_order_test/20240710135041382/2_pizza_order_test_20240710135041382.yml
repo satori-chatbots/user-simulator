@@ -1,0 +1,37 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - extra large
+- toppings:
+  - pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - all questions
+  - change languages:
+    - null
+    - null
+  - long phrases
+interaction:
+- User: I would like to order an extra-large pizza with pepperoni, and I would like
+    to know if you have any special deals or offers currently available, and also,
+    could you tell me approximately how long it will take for delivery, and what are
+    the available payment methods, and do you have any recommendations for side dishes
+    or drinks that would pair well with the pizza?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: J'aimerais commander une pizza de grande taille avec des pepperoni, et je
+    souhaiterais savoir si vous avez des offres spéciales ou des promotions en cours,
+    et aussi, pourriez-vous me dire approximativement combien de temps prendra la
+    livraison, et quels sont les modes de paiement disponibles, et avez-vous des recommandations
+    de plats d'accompagnement ou de boissons qui se marient bien avec la pizza?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I see that you''ve chosen pepperoni as a topping for your large pizza. Would you
+    like to add any other toppings? We have cheese, mushrooms, pepper, ham, bacon,
+    olives, corn, and chicken available.'
+language: asada
+serial: '20240710135041382'

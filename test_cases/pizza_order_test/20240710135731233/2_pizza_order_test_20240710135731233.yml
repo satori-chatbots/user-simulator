@@ -1,0 +1,37 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - medium
+- toppings:
+  - tomato
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - change languages:
+    - English
+    - English
+  - make spelling mistakes
+  - long phrases
+interaction:
+- User: Helloo, gud afternon! I wuld like to ordr a medeum piza pleese. I'm reely
+    hungree and cant wait to eat it. Could I have tomatos on it? And mayb some extra
+    sheese too if thats ok?
+- Assistant: Hello! I see you're excited for your pizza. However, I'm having a bit
+    of trouble understanding the size you want. Could you please confirm if you want
+    a small, medium, or big pizza?
+- User: Oh, sowree abot that! I ment to say I wuld like a medeium piza pleese. And
+    yes, deffinitely want tomatos on it, with extra sheeze too. Can you also tel me
+    if you have any speshal offers or discounts going on rite now?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    I''m glad to hear you''re excited about your pizza! However, I''m sorry but we
+    don''t have tomatoes as a topping option. We do have cheese, mushrooms, pepper,
+    ham, bacon, pepperoni, olives, corn, and chicken. Could you please choose from
+    these options? As for the special offers, I''m afraid I don''t have that information
+    right now. I suggest you check our website or call our shop for the latest deals
+    and discounts.'
+language: kjsrahgfvksuiea
+serial: '20240710135731233'

@@ -1,0 +1,33 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - large
+- toppings:
+  - mushrooms
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - all questions
+  - make spelling mistakes
+  - long phrases
+  - change languages:
+    - null
+    - chinese
+interaction:
+- User: Hi theree! I woud like to oerder a largge piza with mushrroms, and can you
+    tel me if you have anny spesial offers today orr if theres anny promo's on large
+    pizzas? Alssso, do you guys offer anyy gluteen-free crust options beacause I have
+    a frend who's gluten intolerent and would liek to know if it's availble?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: 你好呀！我想要訂購一個大號的披薩，上面要有蘑菇，然後我還想知道你們今天有沒有什麼特別的優惠還是大號披薩的促銷活動？還有，你們有沒有無麩質的餅皮選項，因為我有一個朋友對麩質過敏，所以想知道能不能選無麩質的？
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I see that you''ve chosen mushrooms for your pizza. Would you like to add any
+    other toppings? We offer cheese, pepper, ham, bacon, pepperoni, olives, corn,
+    and chicken.'
+language: asada
+serial: '20240710135041382'

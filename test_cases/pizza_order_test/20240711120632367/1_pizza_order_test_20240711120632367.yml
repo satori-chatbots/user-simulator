@@ -1,0 +1,61 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - extra large
+- toppings:
+  - mushrooms
+conversation:
+- number: 3
+- goal_style: all answered
+- interaction_style:
+  - all questions
+interaction:
+- User: Hi, I'd like to order an extra large pizza with mushrooms; can you tell me
+    the price and how long it will take for delivery?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: Okay, I'll go with the big size then; can you tell me the price and how long
+    it will take for delivery?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Sure, I can help with that. You''ve chosen a big size pizza with mushrooms. Would
+    you like to add any other toppings? We have cheese, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken available.'
+- User: Can I also get cheese and pepperoni added to that, and does the pizza come
+    with any dipping sauces?
+- Assistant: 'Great, a pizza with [''mushrooms'', ''cheese'', ''pepperoni'']!
+
+    Absolutely, we can add cheese and pepperoni to your pizza. As for the dipping
+    sauces, we do offer a variety of them. Now, would you like to order a drink with
+    your pizza? We have coke, sprite, and water available.'
+- User: I'll take a Coke with my pizza, and can you tell me what dipping sauces you
+    have available?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Actually, I still need to know about the dipping sauces you have available,
+    and can you tell me the total price including the Coke? Also, do you accept credit
+    card payments?
+- Assistant: I see that you've chosen a big size for your pizza. However, I'm here
+    to assist you with the size of your pizza. You've already provided that information.
+    Is there anything else you need help with regarding the size of your pizza?
+- User: No, I've already decided on the size; I just need to know about the dipping
+    sauces you have available, the total price including the Coke, and if you accept
+    credit card payments.
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I see that you''ve chosen mushrooms, cheese, and pepperoni as your toppings. Is
+    there anything else you would like to add to your pizza? We also have ham, bacon,
+    olives, corn, and chicken available.'
+- User: No, I'm good with just mushrooms, cheese, and pepperoni; can you tell me about
+    the dipping sauces you have available, the total price including the Coke, and
+    if you accept credit card payments?
+- Assistant: 'Great, a pizza with [''mushrooms'', ''cheese'', ''pepperoni'']!
+
+    I see that you''ve already chosen a Coke as your drink. Is there anything else
+    you would like to add to your order?'
+language: null
+serial: '20240711120632367'

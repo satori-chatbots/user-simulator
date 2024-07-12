@@ -1,0 +1,28 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - extra large
+- toppings:
+  - tomato
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - all questions
+interaction:
+- User: I'd like to order an extra large pizza with tomato, can you tell me the price
+    and estimated delivery time, and do you have any special deals or discounts available?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: Okay, I'll go with the big size then, can you tell me the price and estimated
+    delivery time for a big pizza with tomato, and let me know if there are any special
+    deals or discounts available?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Of course, I can help with that. However, I need to know what toppings you would
+    like on your pizza. We have cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken. Could you please specify your choice?'
+language: English
+serial: '20240709160628526'

@@ -1,0 +1,31 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - large
+- toppings:
+  - mushrooms
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - all questions
+  - long phrases
+  - make spelling mistakes
+interaction:
+- User: Hi, can I plase ordr a largge piza with musrooms and can you tell me if it
+    will take lonng to delivr to my adress? Alsso, do you have any disscounts on large
+    ordres today?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: Ohh, I meant bigg pizza, not large, sorry about thatt, with mushrooms. And
+    do you have an idea of how long it will take to deliveer? Also, about those disscounts,
+    any specials for bigg orders today?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    No problem at all! I see that you''ve chosen mushrooms as one of your toppings.
+    Would you like to add any other toppings to your big pizza? We have cheese, pepper,
+    ham, bacon, pepperoni, olives, corn, and chicken available.'
+language: English
+serial: '20240710130757039'

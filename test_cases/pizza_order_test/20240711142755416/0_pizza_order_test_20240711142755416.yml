@@ -1,0 +1,25 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - large
+- toppings:
+  - tomato
+- price: 20
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - long phrases
+interaction:
+- User: Hello there! I'm in the mood for some delicious pizza today, and I'd love
+    to place an order. Could you please make me a large pizza? I'm really craving
+    something with fresh, juicy tomatoes as one of the toppings. Is that something
+    you can do for me?
+- Assistant: Of course, we can definitely add fresh, juicy tomatoes as one of the
+    toppings. However, we offer small, medium, and big sizes for our pizzas. Unfortunately,
+    we don't have a 'large' size. Could you please specify if you'd like a medium
+    or big pizza?
+language: null
+serial: '20240711142755416'

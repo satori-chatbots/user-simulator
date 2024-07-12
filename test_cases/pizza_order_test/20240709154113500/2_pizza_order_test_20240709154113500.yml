@@ -1,0 +1,24 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - small
+- toppings:
+  - olives
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - change languages:
+    - English
+interaction:
+- User: Hello! I'd like to order a pizza, please. Can I get a small pizza with olives?
+- Assistant: Hello! You've mentioned that you'd like a small pizza. That's great!
+    Your pizza size is noted as 'small'. Is there anything else you would like to
+    add to your order?
+- User: No, that's all for now. How long will it take for the pizza to be ready?
+- Assistant: Your small pizza with olives will be ready in about 15-20 minutes. Is
+    there anything else you need assistance with?
+language: English
+serial: '20240709154113500'

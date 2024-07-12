@@ -1,0 +1,34 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - extra large
+- toppings:
+  - olives
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - long phrases
+  - make spelling mistakes
+  - all questions
+  - change languages:
+    - English
+    - English
+interaction:
+- User: Hi, kin I pleez order a exxtra larg pizaa with olivs, an can u tel me if u
+    hav any spesial offrs or discounts going on rite now? Also, du u hav any gluten-free
+    crust optiuns, and hw much wil it cost for home delivry?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your order?
+- User: Ohh, okay, can I get the big siz pizzza with olivs then? And, cud u let me
+    no if ther are any speshul deals or discouts today? Plus, doo you hav any gluten-free
+    crust optons too and howw much does it cost for home delivery to 123 Main Street?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Sure, I can help with that. You''ve mentioned olives as a topping. Would you like
+    to add any other toppings to your pizza? We offer cheese, mushrooms, pepper, ham,
+    bacon, pepperoni, corn, and chicken.'
+language: English
+serial: '20240710130757039'

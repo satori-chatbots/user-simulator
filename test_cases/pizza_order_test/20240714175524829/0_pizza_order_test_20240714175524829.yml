@@ -1,0 +1,41 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - large
+- toppings:
+  - cheese
+  - olives
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - long phrases
+interaction:
+- User: "Hello there! I hope you're doing well. I would love to place an order for\
+    \ one of your delicious pizzas. Could you kindly help me with that? \n\nI'm interested\
+    \ in getting a pizza in the size large, because I want to make sure there's enough\
+    \ for everyone to enjoy. And, for the toppings, I'd definitely like to have cheese\
+    \ and olives on it. Cheese just makes everything better, and olives add that perfect\
+    \ touch of flavor. \n\nCould you let me know if you have any specials or deals\
+    \ going on right now for large pizzas? And also, what kind of crust options do\
+    \ you have? Thank you so much!"
+- Assistant: I'm sorry for the confusion, but we only offer small, medium, and big
+    sizes for our pizzas. Could you please specify your preference from these options?
+- User: "Oh, I see, thank you for clarifying that for me. In that case, I would like\
+    \ to place an order for a big pizza instead. I still want to have cheese and olives\
+    \ as the toppings. Cheese is just so irresistible, and olives bring such a unique\
+    \ flavor that I can't resist. \n\nAlso, can you please let me know if there are\
+    \ any specials or deals going on right now for big pizzas? And, I'm curious about\
+    \ the crust options you offer—whether you have something like thin crust, thick\
+    \ crust, or maybe even a stuffed crust. I really appreciate your help with this!"
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Thank you for your order. You''ve chosen a big pizza with cheese and olives as
+    toppings. As for the specials, deals, and crust options, I''m afraid I can''t
+    assist with that as my function is to help with the pizza toppings. I suggest
+    contacting the pizza shop directly for this information. Is there any other topping
+    you would like to add to your pizza?'
+language: null
+serial: '20240714175524829'

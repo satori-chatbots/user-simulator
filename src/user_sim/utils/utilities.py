@@ -1,6 +1,7 @@
 import yaml
 import os
 import json
+import logging
 from datetime import datetime
 from utils.globals import *
 import re
@@ -26,14 +27,14 @@ def str_to_bool(s):
 
 def set_language(lang_yml):
     if lang_yml is None:
-        print("Empty. Setting language to Default (English)")
-        show_print("Empty. Setting language to Default (English)")
+        logging.getLogger().verbose("Empty. Setting language to Default (English)")
         language = "English"
         language = f". Please, always talk in {language}. "
         return language
     else:
         # print(lang_yml)
         show_print(f"Main language set to {lang_yml}")
+        logging.getLogger().verbose(f"Main language set to {lang_yml}")
         language = lang_yml
         language = f". Please, always talk in {language}. "
         return language
@@ -79,9 +80,6 @@ def save_test_conv(history, metadata, test_name, path, serial, counter):
 
     data = {**history, **metadata}
 
-    # timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-
-    # serial = get_serial()
     test_folder = path_folder + f"/{serial}"
     if not os.path.exists(test_folder):
         os.makedirs(test_folder)

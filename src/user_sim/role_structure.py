@@ -155,7 +155,7 @@ class role_data:
             count = random.randint(1, len(interaction_styles))
             random_list = random.sample(interaction_styles, count)
             # print(f'numero de interaction_style: {count}') #todo: borrar
-            show_print(f'numero de interaction_style: {count}')
+            logging.getLogger().verbose(f'interaction style amount: {count} style(s): {random_list}')
             return random_list
 
         def get_styles(interactions):

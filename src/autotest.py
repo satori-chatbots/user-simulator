@@ -114,11 +114,9 @@ def get_conversation_metadata(user_profile, serial=None):
 
 
 def check_keys(key_list: list):
-    # Check if keys.properties exists
 
     if os.path.exists("keys.properties"):
-        # print("properties found!")
-        show_print("properties found!")
+        logging.getLogger().verbose("properties found!")
         config = configparser.ConfigParser()
         config.read('keys.properties')
 
@@ -161,7 +159,7 @@ def generate(technology, chatbot, user, extract):
             user_msg = the_user.get_response(response)
 
             if user_msg == "exit":
-                print('exit')
+                logging.getLogger().verbose('exit')
                 break
 
             else:

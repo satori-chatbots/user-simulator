@@ -1,6 +1,5 @@
 import openai
-from utils.show_logs import LoggerConfig
-from utils.globals import *
+import logging
 from utils.utilities import *
 from data_gathering import *
 
@@ -24,7 +23,7 @@ class user_generation:
 
         self.user_profile = user_profile
         self.chatbot = chatbot
-        self.logger_config = LoggerConfig(mostrar_logs=enable_logs)
+        # self.logger_config = LoggerConfig(mostrar_logs=enable_logs)
         self.logger = logging.getLogger('my_logger')  #???
         self.temp = user_profile.temperature
         self.user_llm = ChatOpenAI(model="gpt-4o", temperature=self.temp)
@@ -105,14 +104,13 @@ class user_generation:
     def repetition_track(self, response, reps=3):
 
         self.my_context.reset_context()
-        # print(self.my_context.context_list)
-        # show_print(f'Context list: {self.my_context.context_list}')
-        logging.debug(f'Context list: {self.my_context.context_list}')
+        logging.getLogger().verbose(f'Context list: {self.my_context.context_list}')
 
         if nlp_processor(response, self.chatbot.fallback, 0.6):
             self.repeat_count += 1
             self.loop_count += 1
-            self.logger.info("is end")
+            # self.logger.verbo("is end")
+            logging.getLogger().verbose("is end")
 
             if self.repeat_count >= reps:
                 self.repeat_count = 0
@@ -155,16 +153,16 @@ class user_generation:
 
         if self.user_profile.goal_style[0] == 'steps' or self.user_profile.goal_style[0] == 'random steps':
             if self.interaction_count >= self.user_profile.goal_style[1]:
-                self.logger.info("is end")
+                logging.getLogger().verbose("is end")
                 return True
 
         elif self.conversation_ending(input_msg) or self.loop_count >= 9:
-            self.logger.info("is end")
+            logging.getLogger().verbose("is end")
             return True
 
         elif (self.data_gathering.gathering_register["is_answered"].all()
               and (self.user_profile.goal_style[0] == 'all answered' or self.user_profile.goal_style[0] == 'default')):
-            self.logger.info("is end")
+            logging.getLogger().verbose("is end")
             return True
 
         else:

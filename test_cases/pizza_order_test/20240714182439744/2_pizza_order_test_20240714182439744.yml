@@ -1,0 +1,33 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - large
+- toppings:
+  - onion
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - long phrases
+interaction:
+- User: "Hello there! I hope you're having a fantastic day. I was hoping to place\
+    \ an order for a pizza, and I have a few specific preferences in mind for my delightful\
+    \ culinary experience. \n\nFirst and foremost, I would love to have a generously\
+    \ sized pizza, something that truly satisfies my hunger and allows me to share\
+    \ with friends if they happen to drop by. So, could you please make that a large\
+    \ pizza? \n\nAnd when it comes to toppings, I have a particular fondness for certain\
+    \ flavors that elevate the entire experience. I was thinking of adding some delicious,\
+    \ freshly sliced onions to my pizza. Their sweet and slightly sharp taste would\
+    \ be the perfect complement to the gooey, melted cheese and savory tomato sauce.\n\
+    \nCould you please confirm if you can accommodate these specific requests? If\
+    \ you have any special recommendations or unique combinations that include onions,\
+    \ I'd be happy to hear those as well!"
+- Assistant: Hello! I'm glad to hear that you're looking forward to a delicious pizza
+    experience. However, our size options are small, medium, and big. You mentioned
+    a large pizza, but could you please confirm if you'd like a 'big' pizza according
+    to our size options? As for the toppings, onions are a great choice and we can
+    definitely add them to your pizza.
+language: null
+serial: '20240714182439744'

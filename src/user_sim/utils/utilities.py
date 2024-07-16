@@ -3,7 +3,7 @@ import os
 import json
 import logging
 from datetime import datetime
-from utils.globals import *
+from .globals import *
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity

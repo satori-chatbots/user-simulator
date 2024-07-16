@@ -5,8 +5,8 @@ import pandas as pd
 import numpy as np
 import re
 
-from utils.globals import *
-from utils.exceptions import *
+from .utils.globals import *
+from .utils.exceptions import *
 from datetime import datetime
 from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI

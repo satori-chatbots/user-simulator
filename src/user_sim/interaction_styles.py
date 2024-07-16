@@ -2,7 +2,7 @@ import logging
 
 import pydantic
 import random
-from utils.globals import *
+from .utils.globals import *
 
 # interaction_styles = {
 #     'long phrases': "use very long phrases to write anything. ",

@@ -1,11 +1,11 @@
 from pydantic import BaseModel, ValidationError
 import random
 from typing import List, Union
-from interaction_styles import *
-from ask_about import *
-from utils.exceptions import *
-from utils.languages import Languages
-from utils.globals import *
+from .interaction_styles import *
+from .ask_about import *
+from .utils.exceptions import *
+from .utils.languages import Languages
+from .utils.globals import *
 
 goal_styles = {
     'all answered': '',

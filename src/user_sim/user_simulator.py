@@ -1,7 +1,7 @@
 import openai
 import logging
-from utils.utilities import *
-from data_gathering import *
+from .utils.utilities import *
+from .data_gathering import *
 
 from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI

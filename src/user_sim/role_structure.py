@@ -21,20 +21,17 @@ def pick_goal_style(goal):
         if goal['steps'] < 20:
             return list(goal.keys())[0], goal['steps']
         else:
-            raise OutOfLimitException(f'Goal steps higher than 20 steps: {goal['random steps']}')
+            raise OutOfLimitException(f"Goal steps higher than 20 steps: {goal['random steps']}")
     elif 'all answered' in goal:
         return goal, goal_styles['all answered']
     elif 'random steps' in goal:
         if goal['random steps'] < 20:
             return list(goal.keys())[0], random.randint(1, goal['random steps'])
         else:
-            raise OutOfLimitException(f'Goal steps higher than 20 steps: {goal['random steps']}')
+            raise OutOfLimitException(f"Goal steps higher than 20 steps: {goal['random steps']}")
     else:
         raise InvalidGoalException(f"Invalid goal value: {goal}")
-    #
-    # except InvalidGoalException as e:
-    #     print(f"Error: {e}")
-    #     return None, None
+
 
 def replace_placeholders(phrase, variables):
     def replacer(match):
@@ -48,7 +45,7 @@ def replace_placeholders(phrase, variables):
     return pattern.sub(replacer, phrase)
 
 
-def set_language(lang): #TODO: try add a specific language and affect it with the "change language" interaction style
+def set_language(lang):
 
    if isinstance(lang, type(None)):
         return "English"
@@ -70,10 +67,6 @@ def list_to_str(list_of_strings):
 
 
 
-# class ConversationModel(BaseModel):
-#     number: int
-#     goal_style: dict
-#     interaction_style: List[str]
 
 class RoleDataModel(BaseModel):
     fallback: str

@@ -15,3 +15,8 @@ class Test(BaseModel):
         test = Test(**args)
         test.file_name = file
         return test
+
+
+    def to_dict(self):
+        print(f"Dict = {self.dict()}")
+        return {'size': 'small', 'toppings': 'olives'}

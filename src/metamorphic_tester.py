@@ -45,9 +45,8 @@ def check_rules(rules, conversations):
     rules = get_rules_from_yaml_files(rules)
     tests = get_tests_from_yaml_files(conversations)
     for rule in rules:
-        print(f" - Checking rule {rule.name}")        
-        for test in tests:
-            print(f" - On file {test.file_name}")
+        rule.test(tests)
+
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Tester of conversations against metamorphic rules')

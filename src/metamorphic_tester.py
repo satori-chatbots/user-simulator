@@ -1,0 +1,61 @@
+import glob
+import yaml
+import os
+import sys
+
+from pydantic import ValidationError
+from argparse import ArgumentParser
+from metamorphic.rules import *
+from metamorphic.tests import Test
+
+
+def __get_object_from_yaml_files(directory, operation, name):
+    objects = []
+    yaml_files = glob.glob(os.path.join(directory, '*.yaml')) + glob.glob(os.path.join(directory, '*.yml'))
+    for file_path in yaml_files:
+        with open(file_path, 'r') as file:
+            yaml_data = yaml.safe_load(file.read())
+        try:
+            object = operation(file_path, yaml_data)
+        except ValidationError as e:
+            raise ValueError(f"Validation error for {name}:\n {e}")
+        objects.append(object)
+    return objects
+
+
+def get_rules_from_yaml_files(directory):
+    return __get_object_from_yaml_files(directory, lambda file_path, data: Rule(**data), 'rule')
+
+
+def get_tests_from_yaml_files(conversations):
+    return __get_object_from_yaml_files(conversations, lambda file_path, data: Test.build_test(file_path, data), 'test')
+
+
+def check_rules(rules, conversations):
+    """
+    Processes metamorphic rules against a set of conversations
+    :param rules: the folder to the metamorphic rules
+    :param conversations: the folder to the conversations
+    :raises ValueError when paths rules or conversations do not exist
+    """
+    for folder in [rules, conversations]:
+        if not os.path.isdir(folder):
+            raise ValueError(f"Folder {folder} does not exist.")
+    print(f"Testing rules at {rules} into conversations at {conversations}")
+    rules = get_rules_from_yaml_files(rules)
+    tests = get_tests_from_yaml_files(conversations)
+    for rule in rules:
+        print(f" - Checking rule {rule.name}")        
+        for test in tests:
+            print(f" - On file {test.file_name}")
+
+if __name__ == '__main__':
+    parser = ArgumentParser(description='Tester of conversations against metamorphic rules')
+    parser.add_argument('--rules', required=True, help='Folder with the yaml files containing the metamorphic rules')
+    parser.add_argument('--conversations', required=True, help='Folder with the conversations to analyse')
+    args = parser.parse_args()
+
+    try:
+        check_rules(args.rules, args.conversations)
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)

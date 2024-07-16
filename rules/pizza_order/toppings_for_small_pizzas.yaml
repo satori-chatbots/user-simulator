@@ -1,0 +1,6 @@
+name: toppings_for_small_pizzas
+description: Small pizzas should have less than 3 toppings
+conversations: 1
+if: size == small
+then: len(toppings)<3
+

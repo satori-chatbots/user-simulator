@@ -22,22 +22,29 @@ class Rule(BaseModel):
 
     def __property_test(self, tests: List[Test]):
         for test in tests:
-            print(f"   - On file {test.file_name}")
-            if self.applies(test):
-                print(f"     - Applies!")
-                if self.if_eval(test):
-                    print(f"     - If evals to True!")
+            test_dict = test.to_dict()
+            if self.applies(test_dict):
+                print(f"   - On file {test.file_name}")
+                if self.if_eval(test_dict):
+                    if self.then_eval(test_dict):
+                        print(f"     -> Satisfied!")
+                    else:
+                        print(f"     -> NOT Satisfied!")
+                else:
+                    print(f"     -> Does not apply.")
 
 
     def __metamorphic_test(self, tests: List[Test]):
         print(f"   - (to be implemented)")
 
 
-    def applies(self, test: Test):
-        test_dict = test.to_dict()
+    def applies(self, test_dict: dict):
         return eval(self.when, test_dict)
 
 
-    def if_eval(self, test: Test):
-        test_dict = test.to_dict()
+    def if_eval(self, test_dict: dict):
         return eval(self.if_, test_dict)
+
+
+    def then_eval(self, test_dict: dict):
+        return eval(self.then, test_dict)

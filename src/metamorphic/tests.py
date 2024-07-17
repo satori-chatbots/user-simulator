@@ -16,7 +16,33 @@ class Test(BaseModel):
         test.file_name = file
         return test
 
-
     def to_dict(self):
-        print(f"Dict = {self.dict()}")
-        return {'size': 'small', 'toppings': 'olives'}
+        variable_dict = self.__get_ask_about_dict()
+        variable_dict.update(self.__get_conversation_dict())
+        #print(f"Dict = {variable_dict}")
+        return variable_dict
+
+    def __get_ask_about_dict(self):
+        clean_dict = dict()
+        for item in self.ask_about:
+            if isinstance(item, dict):
+                for key in item:
+                    clean_dict[key] = item[key]
+        return clean_dict
+
+    def __get_conversation_dict(self):
+        clean_dict = dict()
+        for item in self.conversation:
+            if isinstance(item, dict):
+                clean_dict.update(self.__flatten_dict('conversation', item))
+        return clean_dict
+
+    def __flatten_dict(self, name, map):
+        flatten_dict = dict()
+        for key in map:
+            if not isinstance(map[key], dict):
+                flatten_dict[name + '_' + key] = map[key]
+                flatten_dict[key] = map[key]
+            else:
+                flatten_dict.update(self.__flatten_dict(name + '_' + key, map[key]))
+        return flatten_dict

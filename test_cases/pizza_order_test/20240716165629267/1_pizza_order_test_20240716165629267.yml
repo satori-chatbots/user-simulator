@@ -1,0 +1,39 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - medium
+- toppings:
+  - olives
+  - onion
+  - tomato
+conversation:
+- number: 3
+- goal_style:
+    steps: 3
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - English
+    - English
+    - English
+interaction:
+- User: Hi! Cud I oder a meduim piza with olivse, onons, and tomatos plz? Thx!
+- Assistant: Of course, I'd be happy to assist with your order. However, it seems
+    there was a small typo in your message. Could you please confirm the size of the
+    pizza? It can be small, medium, or big.
+- User: I ment medium pizaa, with olivse, onons, and tomatos plez.
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Thank you for confirming the size of the pizza. However, we only offer the following
+    toppings: cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and
+    chicken. Could you please choose from these options?'
+- User: Oh, I sory about that. In that case, can I hav a meduim piza with olivse,
+    onons, and tomatos? Or maybe with olivse, cheese, and onons?
+- Assistant: 'Great, a pizza with [''olives'', ''cheese'']!
+
+    No problem at all! Your medium pizza with olives, cheese, and onions sounds delicious.
+    Could you please also let me know what drink you would like with your order? We
+    offer coke, sprite, and water.'
+language: null
+serial: '20240716165629267'

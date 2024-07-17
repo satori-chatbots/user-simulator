@@ -23,6 +23,8 @@ class Rule(BaseModel):
     def __property_test(self, tests: List[Test]):
         for test in tests:
             test_dict = test.to_dict()
+            conv = [SimpleNamespace(**test_dict)]
+            test_dict['conv'] = conv
             if self.applies(test_dict):
                 print(f"   - On file {test.file_name}")
                 if self.if_eval(test_dict):

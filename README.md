@@ -42,10 +42,7 @@ role:
 
 # (list of str) this are some features addeed to the prompt in order to narrow down the user's role
 context:                              
-  - "never indicate that you are the user, like 'user: bla bla'"
-  - Sometimes, interact with what the assistant just said.
-  - Never act as the assistant.
-  - Don't end the conversation until you've asked everything you need.
+  - Since you're the user, just tell what you want to order
 
 # (list of types) this field allows the programmer to define what should be said by the user simulator to test tome specific capabilities of the chatbot.
 # This field can process text with variables, which should be indicated as shown in the example.

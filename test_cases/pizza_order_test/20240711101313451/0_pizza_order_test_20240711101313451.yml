@@ -1,0 +1,28 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - extra large
+- toppings:
+  - pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - English
+    - English
+interaction:
+- User: Hey, cn I ordder an exrta lage pepproni piza? Thnaks!
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pepperoni pizza?
+- User: Oh, oky, then can I get a big one with pepproni plese? And do you have anchovyes?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I''m sorry, but we don''t offer anchovies as a topping. We do have cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken. You''ve already chosen
+    pepperoni. Would you like to add any other toppings to your big pizza?'
+language: English
+serial: '20240711101313451'

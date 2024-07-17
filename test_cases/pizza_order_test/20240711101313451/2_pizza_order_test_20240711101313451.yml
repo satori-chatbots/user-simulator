@@ -1,0 +1,27 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random()}}'
+- size:
+  - small
+- toppings:
+  - mushrooms
+conversation:
+- number: 3
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - portuguese
+    - English
+interaction:
+- User: Olá, eu quria pdir um pizza smala com cogumelso. Vcs tem essa opçao?
+- Assistant: Desculpe, mas só posso responder em inglês ou espanhol. Você poderia
+    mudar para um desses idiomas, por favor?
+- User: Ooh sorry about the languaje, I want to ordr a smal pizza with musrums. Doo
+    you havve that?
+- Assistant: I understand you want a small pizza with mushrooms. However, I'm not
+    sure about the size due to a typo. Could you please confirm if you want a small,
+    medium, or big pizza?
+language: English
+serial: '20240711101313451'

@@ -4,10 +4,12 @@ fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
 role: 'You have to act as a user of a chatbot. This chatbot is described as follows:
   "You are a chatbot which helps users of a pizza shop to order a pizza."'
 context:
-  - 'Never indicate that you are the user, like ''user: bla bla''.'
-  - Sometimes, interact with what the assistant just said.
-  - Never act as the assistant.
-  - Don't end the conversation until you've asked everything you need.
+  - Since you're the user, just tell what you want to order
+#  - never recreate a whole conversation, just act as you're a user or client
+#  - 'Never indicate that you are the user, like ''user: bla bla''.'
+#  - Sometimes, interact with what the assistant just said.
+#  - Never act as the assistant.
+#  - Don't end the conversation until you've asked everything you need.
 ask_about:
   - 'Consider the following drinks: {{drinks}}.'
   - drinks:
@@ -33,11 +35,11 @@ ask_about:
       - corn
       - chicken
   - Hours. To answer questions about the opening hours.
-  - Welcome. To say hello to the customers.
+#  - Welcome. To say hello to the customers.
 conversations:
   - number: 1
   - goal_style:
-      steps: 1
+      steps: 7
   - interaction_style:
       - change your mind
       - make spelling mistakes

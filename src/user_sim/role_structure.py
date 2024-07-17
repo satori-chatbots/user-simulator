@@ -73,7 +73,7 @@ class RoleDataModel(BaseModel):
     temperature: float
     isstarter: bool
     role: str
-    context: List[str]
+    context: Union[List[str], None]
     ask_about: list
     conversations: list
     language: Union[str, None]

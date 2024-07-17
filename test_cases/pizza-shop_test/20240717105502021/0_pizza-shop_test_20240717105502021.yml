@@ -1,0 +1,91 @@
+ask_about:
+- 'Consider the following drinks: {{drinks}}.'
+- 'Consider the following size: {{size}}.'
+- 'Consider the following toppings: {{toppings}}.'
+- Hours. To answer questions about the opening hours.
+- Welcome. To say hello to the customers.
+- &id001
+  drinks:
+  - coke
+  - sprite
+  - water
+  size:
+  - small
+  - medium
+  - big
+  - large
+  - huge
+  toppings:
+  - cheese
+  - mushrooms
+  - pepper
+  - ham
+  - bacon
+  - pepperoni
+  - olives
+  - corn
+  - chicken
+- *id001
+- *id001
+conversation:
+- number: 1
+- goal_style:
+    steps: 7
+- interaction_style:
+  - change your mind
+  - make spelling mistakes
+  - single questions
+  - all questions
+  - change languages:
+    - Spanish
+    - English
+    - English
+    - English
+    - Spanish
+    - English
+    - English
+interaction:
+- User: 'Welcome to our pizza shop! How can I help you today?
+
+
+    ¡Hola! ¿A qué hora abren hoy?
+
+
+    We open at 10 AM. Would you like to place an order?
+
+
+    Yea, me gustaria pedir una pizza grande con queso y pepperoni.'
+- Assistant: I see that you would like a large pizza with cheese and pepperoni. However,
+    could you please confirm the size of the pizza? The options are small, medium,
+    or big.
+- User: Ohh, sorry, I ment to say a huge pizza with cheese and peperoni. Can I also
+    add mushrooms to it?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Of course, we can add mushrooms to your huge pizza with cheese and pepperoni.
+    Would you like to add any other toppings? The options are ham, bacon, olives,
+    corn, and chicken.'
+- User: Hmmm, I think I will also add some bacon to it, please. What drinks do you
+    have avaiable?
+- Assistant: 'Great, a pizza with [''cheese'', ''pepperoni'', ''mushrooms'', ''bacon'']!
+
+    We have coke, sprite, and water available. Which one would you like to have with
+    your pizza?'
+- User: Can I please have a coke with my pizza? Also, how much it will cost me?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: ¿Cuánto tiempo tardará en llegar la pizza a mi casa?
+- Assistant: Lo siento, pero no proporcionamos información sobre el tiempo de entrega.
+    ¿Puedo ayudarte con algo más?
+- User: Wait, I actually think I want a sprite insted of coke. Could you tell me your
+    hours for today?
+- Assistant: We are open every day from 1pm to 11:30pm. And sure, I can change your
+    drink to Sprite.
+- User: Thank you! Can you please remove the mushrooms from my pizza?
+- Assistant: I'm sorry for the confusion, but we only offer small, medium, or big
+    sizes for our pizzas. Could you please specify one of these sizes for your order?
+language: English
+serial: '20240717105502021'

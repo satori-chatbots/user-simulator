@@ -1,0 +1,79 @@
+ask_about:
+- 'Consider the following drinks: {{drinks}}.'
+- 'Consider the following size: {{size}}.'
+- 'Consider the following toppings: {{toppings}}.'
+- Hours. To answer questions about the opening hours.
+- &id001
+  drinks:
+  - coke
+  - sprite
+  - water
+  size:
+  - small
+  - medium
+  - big
+  - large
+  - huge
+  toppings:
+  - cheese
+  - mushrooms
+  - pepper
+  - ham
+  - bacon
+  - pepperoni
+  - olives
+  - corn
+  - chicken
+- *id001
+- *id001
+conversation:
+- number: 1
+- goal_style:
+    steps: 7
+- interaction_style:
+  - change your mind
+  - make spelling mistakes
+  - single questions
+  - all questions
+  - change languages:
+    - English
+    - English
+    - English
+    - English
+    - English
+    - English
+    - English
+interaction:
+- User: Hey, wht time do u guys opn tomorow?
+- Assistant: We are open every day from 1pm to 11:30pm.
+- User: Thnks! do u have huuge pizzas with chickn and olivs?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: Cna I get a big pizza with cheez, mushroms, and backn plz?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Sure, you can have a big pizza with cheese, mushrooms, and bacon. However, you
+    mentioned earlier that you wanted chicken and olives as well. Would you like to
+    add these toppings to your pizza too?'
+- User: No, just cheeze, mushroms, and backn is gud. Do u hv coke?
+- Assistant: 'Great, a pizza with [''cheese'', ''mushrooms'', ''bacon'']!
+
+    Great, we do have coke. So, you would like to order a coke with your pizza, correct?'
+- User: Yes, plz! Can i also add a sprite to my order?
+- Assistant: 'Alright, I''ve got your order for [''coke'', ''sprite'']. Have a great
+    time with your pizza and beverages!
+
+    Alright, I''ve got your order for [''coke'', ''sprite'']. Have a great time with
+    your pizza and beverages!'
+- User: Thnks a lot! actully, can i change the coke to watr insted?
+- Assistant: Of course, we can change your drink to water. However, I noticed that
+    you didn't specify the size of your pizza. We offer small, medium, and big sizes.
+    Could you please tell me which size you would like?
+- User: Sure! I want a big pizza with cheeze, mushroms, and backn, and a sprite and
+    water plz.
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Great, you''ve chosen a big pizza. However, I need to confirm the toppings. You
+    mentioned cheese, mushrooms, and bacon. Is that correct?'
+language: English
+serial: '20240717112514583'

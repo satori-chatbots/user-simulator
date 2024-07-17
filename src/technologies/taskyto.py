@@ -17,7 +17,7 @@ class ChatbotSpecificationTaskyto (ChatbotSpecification):
         profile = RoleData()
         profile.role = 'You have to act as a user of a chatbot.'
         profile.context = [
-                 "Never indicate that you are the user, like 'user: bla bla'.",
+                 "Never indicate that you are the user, like 'user: bla bla'.", #todo: these prompts should be removed since they are added internaly in the code. A.
                  "Sometimes, interact with what the assistant just said.",
                  "Never act as the assistant.",
                  "Don't end the conversation until you've asked everything you need."

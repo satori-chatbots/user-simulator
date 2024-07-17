@@ -51,7 +51,8 @@ class user_generation:
 
         def initiate_context(self, context):
 
-            default_context = ["never indicate that you are the user, like 'user: bla bla'",
+            default_context = ["never recreate a whole conversation, just act as you're a user or client",
+                               "never indicate that you are the user, like 'user: bla bla'",
                                'Sometimes, interact with what the assistant just said.',
                                'Never act as the assistant, always behave as a user.',
                                "Don't end the conversation until you've asked everything you need."]
@@ -107,10 +108,11 @@ class user_generation:
         logging.getLogger().verbose(f'Context list: {self.my_context.context_list}')
 
         if nlp_processor(response, self.chatbot.fallback, 0.6):
+
             self.repeat_count += 1
             self.loop_count += 1
             # self.logger.verbo("is end")
-            logging.getLogger().verbose("is end")
+            logging.getLogger().verbose(f"is fallback. Repeat_count: {self.repeat_count }. Loop count: {self.loop_count}")
 
             if self.repeat_count >= reps:
                 self.repeat_count = 0

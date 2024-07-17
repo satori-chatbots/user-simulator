@@ -1,0 +1,45 @@
+ask_about:
+- 'Consider the following drinks: {{drinks}}.'
+- 'Consider the following size: {{size}}.'
+- 'Consider the following toppings: {{toppings}}.'
+- Hours. To answer questions about the opening hours.
+- Welcome. To say hello to the customers.
+- &id001
+  drinks:
+  - coke
+  - sprite
+  - water
+  size:
+  - small
+  - medium
+  - big
+  - large
+  - huge
+  toppings:
+  - cheese
+  - mushrooms
+  - pepper
+  - ham
+  - bacon
+  - pepperoni
+  - olives
+  - corn
+  - chicken
+- *id001
+- *id001
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - change your mind
+  - make spelling mistakes
+  - single questions
+  - all questions
+  - change languages:
+    - Spanish
+interaction:
+- User: ¡Hola! ¿A que hora abren la pizzería los fines de semnaa?
+- Assistant: Hola, abrimos todos los días de 1pm a 11:30pm.
+language: English
+serial: '20240717105418898'

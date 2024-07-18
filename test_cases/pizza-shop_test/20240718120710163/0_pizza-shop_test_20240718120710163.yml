@@ -1,0 +1,87 @@
+ask_about:
+- 'Consider the following drinks: {{drinks}}.'
+- 'Consider the following size: {{size}}.'
+- 'Consider the following toppings: {{toppings}}.'
+- Hours. To answer questions about the opening hours.
+- &id001
+  drinks:
+  - coke
+  - sprite
+  - water
+  size:
+  - small
+  - medium
+  - big
+  - large
+  - huge
+  toppings:
+  - cheese
+  - mushrooms
+  - pepper
+  - ham
+  - bacon
+  - pepperoni
+  - olives
+  - corn
+  - chicken
+- *id001
+- *id001
+conversation:
+- number: 1
+- goal_style:
+    steps: 7
+- interaction_style:
+  - change your mind
+  - make spelling mistakes
+  - single questions
+  - all questions
+  - change languages:
+    - English
+    - Spanish
+    - English
+    - English
+    - English
+    - English
+    - English
+interaction:
+- User: "I wuld like to ordder a medium piza with peproni, mushrooms, and extra cheasee.\
+    \ \n\nOh, wait, can I chnge that to a large pizaa instead and also ad some olives?\n\
+    \nAlso, do you havve any Sprite?\n\nActully, can you make it a huge pizaa insted\
+    \ of large, plz?\n\nWhat are your opning hours today?"
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify your preferred size from these options?
+- User: Lo siento, me equivoqé. Quiero una pizza grande con pepperoni, champiñones,
+    extra queso y aceitunas. ¿Y tienen Sprite?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I see that you want a big pizza with pepperoni, mushrooms, extra cheese, and olives.
+    That sounds delicious! However, could you please confirm if you want any other
+    toppings on your pizza?'
+- User: No, I don't want any more topppings, but do you havve Coke insteed of Sprite?
+- Assistant: 'Great, a pizza with [''pepperoni'', ''mushrooms'', ''cheese'', ''olives'']!
+
+    Of course, we do have Coke. So, to confirm, you would like a Coke as your drink
+    with your pizza, correct?'
+- User: Yes, I wuld like a Coke pleese. Also, what time do you cloze today?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Actually, can I also add some baconn to the pizza insted of olives, please?
+- Assistant: I understand you've made some changes to your order. However, I still
+    need to confirm the size of the pizza. We offer small, medium, and big sizes.
+    Could you please specify your preferred size?
+- User: I alredy told you, I want a big pizza with peproni, mushrooms, extra chease,
+    and now with baccn insted of olivess. Can you confirm my order nw?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I apologize for any confusion. I see that you want a big pizza with pepperoni,
+    mushrooms, extra cheese, and bacon. Is that correct?'
+- User: Yes, that is correct! Also, at what time do you cloze today?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Thank you for confirming your order. However, I noticed that you mentioned ''extra
+    cheese''. Would you like to add ''cheese'' as a topping to your pizza?'
+language: English
+serial: '20240718120710163'

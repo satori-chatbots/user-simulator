@@ -33,14 +33,14 @@ def set_language(lang_yml):
         return language
     else:
         # print(lang_yml)
-        show_print(f"Main language set to {lang_yml}")
+        # show_print(f"Main language set to {lang_yml}")
         logging.getLogger().verbose(f"Main language set to {lang_yml}")
         language = lang_yml
         language = f". Please, always talk in {language}. "
         return language
 
 
-def list_to_phrase(s_list: list, prompted=False):
+def list_to_phrase(s_list: list, prompted=False): #todo: cambiar a list_to_askabout
     #s_list: list of strings
     #l_string: string values extracted from s_list in string format
     l_string = s_list[0]

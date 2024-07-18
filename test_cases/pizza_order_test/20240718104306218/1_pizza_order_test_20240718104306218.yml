@@ -1,0 +1,56 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - extra large
+- toppings:
+  - pepperoni
+  - tomato
+  - onion
+  - cheese
+  - olives
+conversation:
+- number: 3
+- goal_style:
+    steps: 4
+- interaction_style:
+  - make spelling mistakes
+  - all questions
+  - long phrases
+interaction:
+- User: Hey therre, can I pleease ordder an extrra large pizzza with pepperoni, tomat,
+    onio, cheeese, annd olivess, and also couuld you tell me if you have anyy deals
+    or discountss going on right now becuz I'm tryin to save some mony and also how
+    long will it take to delivver to my addres?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: Ohh, oops! I ment to sayy I want a big pizza with pepperoni, tomat, onio,
+    cheeese, and olivess, and don't forget to let me kno if there are any deals or
+    discounts available becuz I'm really tryn to save some mony and how long will
+    it take for delivry to my place?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I''m sorry for the confusion, but we only offer the following toppings: cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken. From your
+    previous message, I understand that you want pepperoni, cheese, and olives. Could
+    you please confirm this and let me know if you would like to add any other toppings
+    from the list provided?'
+- User: Ohh mann, I reely wanted tomatoos annd onionss on my pizza, but okkay, let's
+    go with pepperoni, cheeese, and olivess, and also can you let me kno if there
+    are anyy deals or discounts going on right now becuz I'm tryin to save sum mony
+    and how long will it take to delivver to my addres?
+- Assistant: 'Great, a pizza with [''pepperoni'', ''cheese'', ''olives'']!
+
+    Of course, I''ll check for any available deals or discounts for you. In the meantime,
+    could you please let me know what drink you would like with your order? We have
+    coke, sprite, and water available.'
+- User: Hmm, I didn't reallyy think of drinks, but okayy let's add a coke to my ordr,
+    and don't forget to let me kno about the deals or discounts cuz I'm reely trying
+    to save sum mony, also howw long will it take to delivver to my place?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+language: null
+serial: '20240718104306218'

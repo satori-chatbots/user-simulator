@@ -1,0 +1,58 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - extra large
+- toppings:
+  - pepperoni
+  - olives
+  - mushrooms
+  - cheese
+  - onion
+  - tomato
+conversation:
+- number: 3
+- goal_style:
+    steps: 4
+- interaction_style:
+  - long phrases
+  - make spelling mistakes
+  - change languages:
+    - English
+    - English
+    - English
+    - English
+interaction:
+- User: Hi! I'd liek too oder an exxtra larde peeza with peporoni, olves, mushrums,
+    chesee, onoin, and tommato. Make sur itz really big, pleese.
+- Assistant: Hi there! I noticed you mentioned you want a really big pizza. However,
+    our sizes are small, medium, and big. Can you please confirm that you want a big
+    pizza?
+- User: Ohh, I'm sory, I actualy ment to say extra large pizza! I reelly need it to
+    be that bigg. Can you ad those toppins too? Peporoni, olves, mushrums, chesee,
+    onoin, and tommato.
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I''m sorry for the confusion, but we only offer the following toppings: cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken. From your
+    list, I can add pepperoni, olives, mushrooms, and cheese. Could you please confirm
+    these toppings or select from the ones we offer?'
+- User: Hmmm, I seee. Can you ad peporoni, olves, mushrums, and chesee for the exxtra
+    larde peeza then? Also, could you tell mee if you hav any speshul sauces that
+    go well with the toppins I chose?
+- Assistant: 'Great, a pizza with [''pepperoni'', ''olives'', ''mushrooms'', ''cheese'']!
+
+    Absolutely, we can add pepperoni, olives, mushrooms, and cheese to your extra
+    large pizza. As for the sauces, our special marinara and garlic sauces go really
+    well with the toppings you''ve chosen. By the way, would you like to add a drink
+    to your order? We offer coke, sprite, and water.'
+- User: Ohh, thank you for the sauce recomndatons! I'll defnitley take both the marianra
+    and garilc sauces, pleese. For the drinks, can you ad a coke an a sprite to my
+    oder? Also, how long wil it take for the peeza to arive?
+- Assistant: 'Alright, I''ve got your order for coke and sprite. Have a great time
+    with your pizza and beverages!
+
+    Alright, I''ve got your order for coke and sprite. Have a great time with your
+    pizza and beverages!'
+language: null
+serial: '20240718104306218'

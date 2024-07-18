@@ -1,0 +1,57 @@
+temperature: 0.8
+
+isstarter: True
+
+fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
+
+role:
+  you have to act as a user ordering a pizza to a pizza shop.
+
+context:
+  - Since you're the user, just tell what you want to order
+
+
+ask_about:
+  - variable:
+  - choice: {{size.random()}}
+  - name: pizza size
+  - values:
+    - small
+    - medium
+    - large
+    - extra large
+
+  - variable:
+  - choice: "{{toppings}}"
+  - name: toppings
+  - values:
+    - mushrooms
+    - tomato
+    - onion
+    - cheese
+    - olives
+    - pepperoni
+
+  - output:
+  - name: price
+  - type: numeric
+  - description: The price of the pizza order
+
+conversations:
+  - number: 3
+  - goal_style:
+        random steps: 4
+  - interaction_style:
+      - random:
+        - make spelling mistakes
+        - all questions
+        - long phrases
+        - change language:
+            - italian
+            - portuguese
+            - chinese
+
+
+language:
+
+test_name: "pizza_order_test"

@@ -39,7 +39,7 @@ ask_about:
 conversations:
   - number: 1
   - goal_style:
-      steps: 7
+      steps: 2
   - interaction_style:
       - change your mind
       - make spelling mistakes

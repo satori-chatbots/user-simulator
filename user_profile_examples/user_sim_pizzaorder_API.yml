@@ -13,11 +13,12 @@ context:
 
 ask_about:
   - "a pizza with the following size: {{size.random()}}"
+  - "the price of the pizza once you've ordered"
+  - "how long is going to take for the pizza to arrive in the end of the conversation"
   - size:
     - small
     - medium
-    - large
-    - extra large
+    - big
 
   - "the following toppings: {{toppings.random(rand)}}"
   - toppings:
@@ -29,19 +30,30 @@ ask_about:
     - pepperoni
 
 
+output:
+  - price:
+      type: money
+      description: The price of the pizza order
+  - time:
+      type: time
+      description: how long is going to take to deliver the pizza
+
+
+
 conversations:
-  - number: 3
+  - number: 1
   - goal_style:
-        random steps: 4
+        steps: 4
   - interaction_style:
-      - random:
-        - make spelling mistakes
-        - all questions
-        - long phrases
-        - change language:
-            - italian
-            - portuguese
-            - chinese
+      - default
+#      - random:
+#        - make spelling mistakes
+#        - all questions
+#        - long phrases
+#        - change language:
+#            - italian
+#            - portuguese
+#            - chinese
 
 
 language:

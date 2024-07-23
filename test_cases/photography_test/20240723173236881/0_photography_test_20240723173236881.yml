@@ -1,0 +1,42 @@
+ask_about:
+- opening and closing time
+- session details
+- cost estimation for a photo session
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- cost: None
+interaction:
+- User: Hi there! I'm interested in learning more about your photography services.
+    Could you tell me your opening and closing times? Also, I'd like some details
+    about what a photo session includes and an estimate of the cost. Thanks!
+- Assistant: We capture art both on location and in our SoHo studio. Our hours of
+    operation are Monday through Friday, from 9am to 5pm.
+- User: Got it, thanks for the hours! Could you give me some details on what a typical
+    photo session includes? Also, an estimate of the cost would be helpful.
+- Assistant: Of course, I'd be happy to provide more details. However, to give you
+    the most accurate information, could you please tell me the media you're interested
+    in (photography, video, or 3D rendering), the number of artworks you have, and
+    the type of artworks (picture, sculpture, or ceramic)?
+- User: Sure, I'm interested in a photography session for a family portrait. Could
+    you give me details on what that includes and an estimate of the cost?
+- Assistant: I'm sorry for the confusion, but our shop specializes in photographs
+    for art galleries. We work with artworks such as pictures, sculptures, or ceramics.
+    Could you please specify the number of artworks and their type for the photography
+    session? This will help me provide a more accurate cost estimate.
+- User: Oh, I see. Thanks for clarifying that. Do you also offer photography services
+    for personal events or portraits, or do you strictly work with art galleries and
+    artworks? And if you do, what might the cost and details be for a simple family
+    portrait session?
+- Assistant: I'm sorry for any confusion, but our shop specializes in photographs
+    for art galleries and other artworks. We offer services for media such as photography,
+    video, and 3D rendering for artworks like pictures, sculptures, and ceramics.
+    Unfortunately, we do not offer family portrait sessions or personal event photography.
+    If you have any artworks that you'd like us to work on, I'd be happy to provide
+    more details and an estimate of the cost.
+language: English
+serial: '20240723173236881'

@@ -19,7 +19,7 @@ def generar_interaccion(msg, temperatura=0.8, max_tokens=300):
 
 class user_generation:
 
-    def __init__(self, user_profile, chatbot, enable_logs=True):
+    def __init__(self, user_profile, chatbot):
 
         self.user_profile = user_profile
         self.chatbot = chatbot
@@ -197,6 +197,8 @@ class user_generation:
         self.interaction_count += 1
 
         return user_response
+
+
 
     @staticmethod
     def formatting(role, msg):

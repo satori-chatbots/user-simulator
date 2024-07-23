@@ -41,7 +41,7 @@ class user_assistant:
         List the questions in the same order and written the same way as here {ask_about}.
         Always use the dictionary format using brackets, without any other content but the questions and the evaluation.
         """
-        self.logger = logging.getLogger('my_logger')
+        # self.logger = logging.getLogger('my_logger')
         self.assistant_role_prompt = PromptTemplate(
             input_variables=["user_msg", "ask_about"],
             template=self.prompt)

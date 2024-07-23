@@ -13,29 +13,29 @@ context:
 
 ask_about:
   - variable:
-  - choice: {{size.random()}}
-  - name: pizza size
-  - values:
-    - small
-    - medium
-    - large
-    - extra large
+    choice: {{size.random()}}
+    name: pizza size
+    values:
+      - small
+      - medium
+      - large
+      - extra large
 
   - variable:
-  - choice: "{{toppings}}"
-  - name: toppings
-  - values:
-    - mushrooms
-    - tomato
-    - onion
-    - cheese
-    - olives
-    - pepperoni
+    choice: "{{toppings}}"
+    name: toppings
+    values:
+      - mushrooms
+      - tomato
+      - onion
+      - cheese
+      - olives
+      - pepperoni
 
   - output:
-  - name: price
-  - type: numeric
-  - description: The price of the pizza order
+      name: price
+      type: int
+      description: The price of the pizza order
 
 conversations:
   - number: 3

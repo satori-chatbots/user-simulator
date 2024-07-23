@@ -59,6 +59,8 @@ def set_language(lang):
        return "English"
 
 def list_to_str(list_of_strings):
+    if list_of_strings is None:
+        return ''
     try:
         single_string = ' '.join(list_of_strings)
         return single_string
@@ -75,6 +77,7 @@ class RoleDataModel(BaseModel):
     role: str
     context: Union[List[str], None]
     ask_about: list
+    output: list
     conversations: list
     language: Union[str, None]
     test_name: str
@@ -90,17 +93,16 @@ class role_data:
             print(e.json())
             raise
 
-        # self.yaml = read_yaml(path)
         self.fallback = self.validated_data.fallback
         self.temperature = self.validated_data.temperature
         self.isstarter = self.validated_data.isstarter
         self.role = self.validated_data.role
         self.context = list_to_str(self.validated_data.context) #list
-        # self.ask_about = self.ask_about_processor(self.yaml["ask_about"])
         self.ask_about = ask_about_class(self.validated_data.ask_about) #list
+        self.output = self.validated_data.output #dict
 
         conversation = self.list_to_dict_reformat(self.validated_data.conversations)
-        # conversation = self.list_to_dict_reformat(self.yaml["conversations"])
+
         self.conversation_number = conversation['number']
         self.goal_style = pick_goal_style(conversation['goal_style']) #list
         self.language = set_language(self.validated_data.language) #str

@@ -141,7 +141,7 @@ class default(interaction_style):
         super().__init__(intertype='default')
 
     def get_prompt(self):
-        return ''
+        return "Ask about one or two things per interaction, don't ask everything you want to know in one sentence."
 
     def get_metadata(self):
         return self.intertype

@@ -1,0 +1,52 @@
+ask_about:
+- opening and closing time
+- cost estimation for 3 photo artowrks
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- cost: $150
+- opening_and_closing: Our hours of operation are Monday through Friday, from 9am
+    to 5pm.
+interaction:
+- User: Hi there! Could you please tell me your opening and closing times?
+- Assistant: We capture art both on location and in our SoHo studio. Our hours of
+    operation are Monday through Friday, from 9am to 5pm.
+- User: Thanks for the info! Usually, how much would it cost to get three photo artworks
+    done?
+- Assistant: I'd be happy to help you with that. Could you please specify the media
+    you're interested in? We offer photography, video, and 3D rendering. Also, could
+    you clarify the type of artworks? We work with pictures, sculptures, and ceramics.
+- User: I'm interested in getting three photo artworks done. Could you provide a rough
+    cost estimate for those?
+- Assistant: Of course, I'd be happy to assist you with that. However, I need a bit
+    more information. Could you please specify the type of media you're interested
+    in? We offer photography, video, and 3D rendering. Also, could you clarify the
+    type of artworks? We work with pictures, sculptures, and ceramics.
+- User: I'm specifically interested in photography. The three artworks would be digital
+    photos. Can you give me a rough estimate for that?
+- Assistant: 'Thanks {name} for giving those details!.
+
+    The cost would be approximately $150, but it could vary based on other factors
+    such as the size of the artworks.
+
+    The cost would be approximately $150, but it could vary based on other factors
+    such as the size of the artworks.'
+- User: Got it, thank you for the estimate! Are there any additional fees I should
+    be aware of, like for editing or printing?
+- Assistant: I understand that you're interested in photography. However, could you
+    please specify the type of artworks you're interested in? We work with pictures,
+    sculptures, and ceramics. Also, could you confirm the number of artworks you want
+    to be done?
+- User: I need three digital photos done. Are there any additional fees for editing
+    or printing those?
+- Assistant: Thank you for the information. To clarify, when you say "digital photos",
+    are you referring to pictures, sculptures, or ceramics? This will help us provide
+    a more accurate cost estimate. As for your question about additional fees, editing
+    is included in the price. However, printing would be an additional cost. Would
+    you like an estimate for that as well?
+language: English
+serial: '20240723173956221'

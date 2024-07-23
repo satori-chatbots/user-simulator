@@ -19,6 +19,7 @@ from colorama import Fore, Style
 from user_sim.role_structure import *
 from user_sim.utils.utilities import *
 from user_sim.user_simulator import user_generation
+from data_extraction import data_extraction
 
 
 class Chatbot:
@@ -73,7 +74,7 @@ def print_user(msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
 def print_chatbot(msg): print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {msg}")
 
 
-def get_conversation_metadata(user_profile, serial=None):
+def get_conversation_metadata(user_profile, the_user, serial=None):
     def conversation_metadata(up):
         interaction_style_list = []
         conversation_list = []
@@ -103,12 +104,33 @@ def get_conversation_metadata(user_profile, serial=None):
 
         return user_profile.ask_about.str_list + user_profile.ask_about.picked_elements
 
+    def data_output_extraction(user_profile, the_user):
+        output_list = user_profile.output
+        data_list = []
+
+        for output in output_list:
+            var_name = list(output.keys())[0]
+            var_dict = output.get(var_name)
+            my_data_extract = data_extraction(the_user.conversation_history,
+                                              var_name,
+                                              var_dict["type"],
+                                              var_dict["description"])
+            data_list.append(my_data_extract.get_data_extraction())
+
+        return data_list
+
+
+    data_output = {'data_output': data_output_extraction(user_profile, the_user)}
     ask_about = {'ask_about': ask_about_metadata(user_profile)}
     conversation = {'conversation': conversation_metadata(user_profile)}
-
     language = {'language': user_profile.yaml['language']}
     serial_dict = {'serial': serial}
-    metadata = {**ask_about, **conversation, **language, **serial_dict}
+
+    metadata = {**ask_about,
+                **conversation,
+                **language,
+                **serial_dict,
+                **data_output}
 
     return metadata
 
@@ -143,7 +165,7 @@ def generate(technology, chatbot, user, extract):
             the_chatbot = Chatbot(chatbot)
 
         the_chatbot.fallback = user_profile.fallback
-        the_user = user_generation(user_profile, the_chatbot, True)
+        the_user = user_generation(user_profile, the_chatbot)
         starter = user_profile.isstarter
 
         while True:
@@ -170,7 +192,7 @@ def generate(technology, chatbot, user, extract):
 
         if extract:
             history = the_user.conversation_history
-            metadata = get_conversation_metadata(user_profile, serial)
+            metadata = get_conversation_metadata(user_profile, the_user, serial)
             test_name = user_profile.test_name
 
             user_profile.reset_attributes()

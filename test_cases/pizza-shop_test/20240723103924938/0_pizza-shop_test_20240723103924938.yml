@@ -1,0 +1,52 @@
+ask_about:
+- 'Consider the following drinks: {{drinks}}.'
+- 'Consider the following size: {{size}}.'
+- 'Consider the following toppings: {{toppings}}.'
+- Hours. To answer questions about the opening hours.
+- &id001
+  drinks:
+  - coke
+  - sprite
+  - water
+  size:
+  - small
+  - medium
+  - big
+  - large
+  - huge
+  toppings:
+  - cheese
+  - mushrooms
+  - pepper
+  - ham
+  - bacon
+  - pepperoni
+  - olives
+  - corn
+  - chicken
+- *id001
+- *id001
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - change your mind
+  - make spelling mistakes
+  - single questions
+  - all questions
+  - change languages:
+    - English
+    - Spanish
+interaction:
+- User: Can I get a lage piza with pepproni, bacn, and chese, and a smal sprite?
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify your preferred size from these options?
+- User: Claro, entonces quiero una piza grande con pepproni, bacn, y chese, y una
+    smal sprite. Tienen agua tambien?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I noticed there might have been a typo in your message. Did you mean to order
+    a large pizza with pepperoni, bacon, and cheese? Please confirm your toppings.'
+language: English
+serial: '20240723103924938'

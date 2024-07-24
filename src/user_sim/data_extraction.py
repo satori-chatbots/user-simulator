@@ -47,7 +47,7 @@ class data_extraction:
             elif dtype == 'str':
                 return str(text)
             elif dtype == 'time':
-                time = parser.parse(text).time()
+                time = parser.parse(text).time().strftime("%H:%M:%S")
                 return time
             elif dtype == 'date':
                 date = parser.parse(text).date()
@@ -56,15 +56,17 @@ class data_extraction:
                 raise ValueError(f"Unsupported data type: {dtype}")
 
         except ValueError as e:
-            return f"Error in casting: {e}"
+            logging.getLogger().verbose(f"Error in casting: {e}")
+            return None
 
     def get_data_prompt(self):
 
         data_prompts = {'int': 'Output the data as an integer',
                         'float': 'Output the data as a float',
                         'money': 'Output the data as money using the coin type in the conversation',
-                        'str': 'Output the data as text',
-                        'time': 'Output the data in a "hours, minutes and seconds" format',
+                        'str': "Extract and  display concisely only the requested information "
+                               "without including additional context",
+                        'time': 'Output the data in a "hh:mm:ss" format',
                         'date': 'Output the data in a date format understandable for Python'}
 
         return data_prompts.get(self.dtype)

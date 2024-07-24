@@ -61,9 +61,13 @@ class ChatbotTaskyto(Chatbot):
                 "id": self.id,
                 "message": user_msg
             }
-            post_response = requests.post(self.url + '/conversation/user_message', json=new_data)
-            post_response_json = post_response.json()
-            return post_response_json.get('message')
+            try:
+                post_response = requests.post(self.url + '/conversation/user_message', json=new_data)
+                post_response_json = post_response.json()
+                return post_response_json.get('message')
+            except requests.exceptions.JSONDecodeError as e:
+                logging.getLogger().verbose(f"Couldn't get response from the server: {e}")
+                return 'exit'
 
         return ''
 
@@ -174,6 +178,9 @@ def generate(technology, chatbot, user, extract):
                 print_user(user_msg)
 
                 response = the_chatbot.execute_with_input(user_msg)
+                if response == 'exit':
+                    logging.getLogger().verbose('The server cut the conversation. End.')
+                    break
                 print_chatbot(response)
 
                 starter = False

@@ -1,0 +1,41 @@
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at 6:00PM
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- date: 2024-07-25
+- time: '18:00:00'
+- opening_and_closing: 9am to 6pm
+interaction:
+- User: Hi there, this is Jon Doe. I have a dog named Tommy. What are your opening
+    and closing times?
+- Assistant: Hello Jon Doe, our veterinary center is open every weekday from 9am to
+    6pm. How can I assist you further?
+- User: Is it possible to book an appointment for Tommy tomorrow at 6:00 PM?
+- Assistant: "Ok, I have received your request to schedule an appointment for 25/07/2024\
+    \ at 18:00:00 for Physical examination. \nSee you then!    \n"
+- User: Thank you! Is there any specific preparation I need to do before bringing
+    Tommy in for his physical examination?
+- Assistant: Their fundamental needs such as food, water, shelter, exercise, and love
+    should be fulfilled by you.
+- User: Got it, I'll make sure Tommy is well taken care of. Also, could you let me
+    know how long the physical examination usually takes?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, availability during weekends, veterinary visit charges, the variety of
+    animals we cater to, and offer basic guidance on pet care.
+- User: No problem, I understand. Is your vet usually very busy around this time,
+    or is it generally easy to find parking?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Sure, I was wondering if the vet is usually very busy around the time of my
+    appointment, and if finding parking is generally easy?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, availability during weekends, the price for a vet consultation, the variety
+    of animals we cater to, and offer basic guidance on pet care.
+language: English
+serial: '20240724115140500'

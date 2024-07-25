@@ -5,6 +5,7 @@ from typing import List, Optional
 class Test(BaseModel):
     ask_about: list
     conversation: list
+    data_output: list
     interaction: list
     language: Optional[str] = None
     serial: str
@@ -18,7 +19,8 @@ class Test(BaseModel):
 
     def to_dict(self):
         variable_dict = self.__get_ask_about_dict()
-        variable_dict.update(self.__get_conversation_dict())
+        variable_dict.update(self.__get_parameters_dict(self.conversation, 'conversation'))
+        variable_dict.update(self.__get_parameters_dict(self.data_output, 'data_output'))
         #print(f"Dict = {variable_dict}")
         return variable_dict
 
@@ -30,11 +32,11 @@ class Test(BaseModel):
                     clean_dict[key] = item[key]
         return clean_dict
 
-    def __get_conversation_dict(self):
+    def __get_parameters_dict(self, attribute, name):
         clean_dict = dict()
-        for item in self.conversation:
+        for item in attribute:
             if isinstance(item, dict):
-                clean_dict.update(self.__flatten_dict('conversation', item))
+                clean_dict.update(self.__flatten_dict(name, item))
         return clean_dict
 
     def __flatten_dict(self, name, map):

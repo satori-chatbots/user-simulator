@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from types import SimpleNamespace
+from .rule_utils import *
 
 from metamorphic.tests import Test
 
@@ -42,6 +43,7 @@ class Rule(BaseModel):
             sns = SimpleNamespace(**test_dict1)
             conv = [sns, sns]
             test_dict = {'conv': conv}
+            test_dict.update(util_functions_to_dict())
             for test2 in tests:
                 if test1 == test2:
                     continue

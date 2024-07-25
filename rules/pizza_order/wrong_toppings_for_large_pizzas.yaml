@@ -2,6 +2,6 @@ name: wrong_toppings_for_large_pizzas
 description: Large pizzas should have more than 3 toppings
 conversations: 1
 if: |
-  'large' in size
+  'small' in size
 then: len(toppings)>13
 

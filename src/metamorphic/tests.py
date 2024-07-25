@@ -5,7 +5,7 @@ from typing import List, Optional
 class Test(BaseModel):
     ask_about: list
     conversation: list
-    data_output: list
+    data_output: Optional[list] = []
     interaction: list
     language: Optional[str] = None
     serial: str

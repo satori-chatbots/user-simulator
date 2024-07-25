@@ -23,14 +23,15 @@ class Rule(BaseModel):
             values['then'] = values.pop('oracle')
         return values
 
-    def test(self, tests: List[Test]):
+    def test(self, tests: List[Test]) -> dict:
         print(f" - Checking rule {self.name} [conversations: {self.conversations}]")
         if self.conversations == 1:
-            self.__property_test(tests)
+            return self.__property_test(tests)
         else:
-            self.__metamorphic_test(tests)
+            return self.__metamorphic_test(tests)
 
-    def __property_test(self, tests: List[Test]):
+    def __property_test(self, tests: List[Test]) -> dict:
+        results = {'pass': [], 'fail': [], 'not_applicable': []}
         for test in tests:
             test_dict = test.to_dict()
             conv = [SimpleNamespace(**test_dict)]
@@ -40,16 +41,21 @@ class Rule(BaseModel):
             if self.applies(test_dict):
                 if self.if_eval(test_dict):
                     if self.then_eval(test_dict):
+                        results['pass'].append(test.file_name)
                         print(f"     -> Satisfied!")
                     else:
+                        results['fail'].append(test.file_name)
                         print(f"     -> NOT Satisfied!")
                 else:
+                    results['not_applicable'].append(test.file_name)
                     print(f"     -> Does not apply.")
             else:
+                results['not_applicable'].append(test.file_name)
                 print(f"     -> Does not apply.")
+        return results
 
-    def __metamorphic_test(self, tests: List[Test]):
-        # print(f"   - (to be implemented)")
+    def __metamorphic_test(self, tests: List[Test]) -> dict:
+        results = {'pass': [], 'fail': [], 'not_applicable': []}
         for test1 in tests:
             test_dict1 = test1.to_dict()
             sns = SimpleNamespace(**test_dict1)
@@ -65,13 +71,18 @@ class Rule(BaseModel):
                 if self.applies(test_dict):
                     if self.if_eval(test_dict):
                         if self.then_eval(test_dict):
+                            results['pass'].append((test1.file_name, test2.file_name))
                             print(f"     -> Satisfied!")
                         else:
+                            results['fail'].append((test1.file_name, test2.file_name))
                             print(f"     -> NOT Satisfied!")
                     else:
+                        results['not_applicable'].append((test1.file_name, test2.file_name))
                         print(f"     -> Does not apply.")
                 else:
+                    results['not_applicable'].append((test1.file_name, test2.file_name))
                     print(f"     -> Does not apply.")
+        return results
 
     def applies(self, test_dict: dict):
         return eval(self.when, test_dict)

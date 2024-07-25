@@ -5,6 +5,8 @@ import sys
 
 from pydantic import ValidationError
 from argparse import ArgumentParser
+
+from metamorphic.results import Result
 from metamorphic.rules import *
 from metamorphic.tests import Test
 
@@ -44,9 +46,11 @@ def check_rules(rules, conversations):
     print(f"Testing rules at {rules} into conversations at {conversations}")
     rules = get_rules_from_yaml_files(rules)
     tests = get_tests_from_yaml_files(conversations)
+    result_store = Result()
     for rule in rules:
-        rule.test(tests)
-
+        results = rule.test(tests)
+        result_store.add(rule.name, results)
+    print(result_store)
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Tester of conversations against metamorphic rules')

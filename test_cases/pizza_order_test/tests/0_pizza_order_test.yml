@@ -1,0 +1,47 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - extra large
+- toppings:
+  - onion
+  - tomato
+  - olives
+  - pepperoni
+  - cheese
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+interaction:
+- User: I'd like to order an extra large pizza with onion, tomato, olives, pepperoni,
+    and cheese.
+- Assistant: I'm sorry, but we only offer small, medium, and big sizes for our pizzas.
+    Could you please specify which size you would like for your pizza?
+- User: 'Alright, I''ll go with a big size then. Can I still get all those toppings:
+    onion, tomato, olives, pepperoni, and cheese?'
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I''m sorry for the inconvenience, but we only offer the following toppings: cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken. From your
+    previous selection, we can provide olives, pepperoni, and cheese. Could you please
+    choose from the available toppings for the remaining ones?'
+- User: Alright, let's go with olives, pepperoni, cheese, and add mushrooms and bacon.
+- Assistant: 'Great, a pizza with [''olives'', ''pepperoni'', ''cheese'', ''mushrooms'',
+    ''bacon'']!
+
+    Great choice on the toppings! Now, could you please tell me what drink you would
+    like to have with your pizza? We offer coke, sprite, and water.'
+- User: I'll take a coke with the pizza, please.
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Could you also let me know how long the delivery will take?
+- Assistant: I'm sorry it's a little loud in my pizza shop, can you say that again?
+language: null
+price: 'Error in casting: Unsupported data type: numeric'
+serial: '20240723125714053'

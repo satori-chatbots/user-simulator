@@ -1,0 +1,5 @@
+name: session_prices_equal
+description: A photo is 50$
+conversations: 1
+then: extract_float(cost) == 50*int(number_photo[0]) and currency(cost)=='USD'
+

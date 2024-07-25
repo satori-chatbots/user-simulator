@@ -6,7 +6,7 @@ def util_functions_to_dict() -> dict:
     :return: a dict with all functions defined in this module
     """
     return {'extract_float': extract_float,
-            'currency' : currency}
+            'currency': currency}
 
 
 def extract_float(string: str) -> float:

@@ -1,6 +1,7 @@
-from pydantic import BaseModel, Field
-from typing import Optional, List
+from pydantic import BaseModel, Field, model_validator
+from typing import Optional, List, Any
 from types import SimpleNamespace
+
 from .rule_utils import *
 
 from metamorphic.tests import Test
@@ -13,6 +14,14 @@ class Rule(BaseModel):
     when: Optional[str] = "True"
     if_: Optional[str] = Field("True", alias="if")
     then: str
+
+    @model_validator(mode='before')
+    @classmethod
+    def check_aliases(cls, values: Any) -> Any:
+        # Handle 'oracle' or 'then' interchangeably
+        if 'oracle' in values:
+            values['then'] = values.pop('oracle')
+        return values
 
     def test(self, tests: List[Test]):
         print(f" - Checking rule {self.name} [conversations: {self.conversations}]")

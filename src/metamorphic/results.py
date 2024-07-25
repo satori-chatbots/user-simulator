@@ -2,10 +2,10 @@ import csv
 
 
 def stat_to_str(rule:str, stats: dict) -> str:
-    return (f"\n - rule {rule}:" 
-            f"{stats['checks']} checks," 
-            f"fail {stats['fail']} times," 
-            f"satisfied {stats['pass']} times." 
+    return (f"\n - rule {rule}: " 
+            f"{stats['checks']} checks, " 
+            f"fail {stats['fail']} times, " 
+            f"satisfied {stats['pass']} times. " 
             f"Fail rate = {stats['fail_rate']}")
 
 

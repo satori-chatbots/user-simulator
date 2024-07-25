@@ -23,38 +23,40 @@ class Rule(BaseModel):
             values['then'] = values.pop('oracle')
         return values
 
-    def test(self, tests: List[Test]) -> dict:
+    def test(self, tests: List[Test], verbose: bool = False) -> dict:
         print(f" - Checking rule {self.name} [conversations: {self.conversations}]")
         if self.conversations == 1:
-            return self.__property_test(tests)
+            return self.__property_test(tests, verbose)
         else:
-            return self.__metamorphic_test(tests)
+            return self.__metamorphic_test(tests, verbose)
 
-    def __property_test(self, tests: List[Test]) -> dict:
+    def __property_test(self, tests: List[Test], verbose: bool) -> dict:
         results = {'pass': [], 'fail': [], 'not_applicable': []}
         for test in tests:
             test_dict = test.to_dict()
             conv = [SimpleNamespace(**test_dict)]
             test_dict['conv'] = conv
             test_dict.update(util_functions_to_dict())
-            print(f"   - On file {test.file_name}")
+            if verbose:
+                print(f"   - On file {test.file_name}")
             if self.applies(test_dict):
                 if self.if_eval(test_dict):
                     if self.then_eval(test_dict):
                         results['pass'].append(test.file_name)
-                        print(f"     -> Satisfied!")
+                        if verbose:
+                            print(f"     -> Satisfied!")
                     else:
                         results['fail'].append(test.file_name)
-                        print(f"     -> NOT Satisfied!")
+                        if verbose: print(f"     -> NOT Satisfied!")
                 else:
                     results['not_applicable'].append(test.file_name)
-                    print(f"     -> Does not apply.")
+                    if verbose: print(f"     -> Does not apply.")
             else:
                 results['not_applicable'].append(test.file_name)
-                print(f"     -> Does not apply.")
+                if verbose: print(f"     -> Does not apply.")
         return results
 
-    def __metamorphic_test(self, tests: List[Test]) -> dict:
+    def __metamorphic_test(self, tests: List[Test], verbose: bool) -> dict:
         results = {'pass': [], 'fail': [], 'not_applicable': []}
         for test1 in tests:
             test_dict1 = test1.to_dict()
@@ -67,21 +69,22 @@ class Rule(BaseModel):
                     continue
                 test_dict2 = test2.to_dict()
                 conv[1] = SimpleNamespace(**test_dict2)
-                print(f"   - On files: {test1.file_name}, {test2.file_name}")
+                if verbose:
+                    print(f"   - On files: {test1.file_name}, {test2.file_name}")
                 if self.applies(test_dict):
                     if self.if_eval(test_dict):
                         if self.then_eval(test_dict):
                             results['pass'].append((test1.file_name, test2.file_name))
-                            print(f"     -> Satisfied!")
+                            if verbose: print(f"     -> Satisfied!")
                         else:
                             results['fail'].append((test1.file_name, test2.file_name))
-                            print(f"     -> NOT Satisfied!")
+                            if verbose: print(f"     -> NOT Satisfied!")
                     else:
                         results['not_applicable'].append((test1.file_name, test2.file_name))
-                        print(f"     -> Does not apply.")
+                        if verbose: print(f"     -> Does not apply.")
                 else:
                     results['not_applicable'].append((test1.file_name, test2.file_name))
-                    print(f"     -> Does not apply.")
+                    if verbose: print(f"     -> Does not apply.")
         return results
 
     def applies(self, test_dict: dict):

@@ -33,7 +33,7 @@ def get_tests_from_yaml_files(conversations):
     return __get_object_from_yaml_files(conversations, lambda file_path, data: Test.build_test(file_path, data), 'test')
 
 
-def check_rules(rules, conversations):
+def check_rules(rules, conversations, csv_file):
     """
     Processes metamorphic rules against a set of conversations
     :param rules: the folder to the metamorphic rules
@@ -51,14 +51,18 @@ def check_rules(rules, conversations):
         results = rule.test(tests)
         result_store.add(rule.name, results)
     print(result_store)
+    if csv_file is not None:
+        result_store.to_csv(csv_file)
+
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Tester of conversations against metamorphic rules')
     parser.add_argument('--rules', required=True, help='Folder with the yaml files containing the metamorphic rules')
     parser.add_argument('--conversations', required=True, help='Folder with the conversations to analyse')
+    parser.add_argument('--dump', required=False, help='CSV file to store the statistics')
     args = parser.parse_args()
 
     try:
-        check_rules(args.rules, args.conversations)
+        check_rules(args.rules, args.conversations, args.dump)
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)

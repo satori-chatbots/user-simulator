@@ -1,0 +1,29 @@
+temperature: "0.8"
+isstarter: "True"
+fallback: "I'm sorry, I can help you to set an appointment for a session, provide price estimates, and answer on issues related to our shop"
+role:
+  'your name is Jon Doe and you have to act as a user contacting a photography shop'
+context:
+ask_about:
+  - "cost estimation for photos of {{number_photo.random()}} artworks"
+  - number_photo:
+      - '1'
+      - '2'
+      - '3'
+      - '4'
+      - '5'
+      - '6'
+
+output:
+  - cost:
+      type: money
+      description: the cost estimation for a photo session
+
+conversations:
+  - number: 4
+  - goal_style:
+        steps: 6
+  - interaction_style:
+      - default
+language: English
+test_name: "photography_test"

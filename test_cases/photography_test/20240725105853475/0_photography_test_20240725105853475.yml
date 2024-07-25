@@ -1,0 +1,56 @@
+ask_about:
+- cost estimation for photos of {{number_photo.random()}} artworks
+- number_photo:
+  - '1'
+conversation:
+- number: 4
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- cost: $50.0
+interaction:
+- User: Hi there! I have an artwork that I'd like to get photographed. Could you tell
+    me a bit about your process for photographing artworks?
+- Assistant: Of course! At ArtClicks, we take great care in photographing artworks.
+    We start by understanding the artwork and your specific needs. We then set up
+    the perfect lighting and background to capture the essence of the piece. Our professional
+    photographers use high-quality cameras to ensure the best results. After the shoot,
+    we provide post-production services to enhance the images and make sure they are
+    gallery-ready. Would you like to set an appointment or get a price estimate for
+    this service?
+- User: 'Jon Doe: That sounds great! Could you give me a price estimate for photographing
+    one artwork?'
+- Assistant: Of course, Jon Doe. To provide you with an accurate price estimate, I
+    need a bit more information. Could you please specify the type of artwork you
+    want to photograph? Is it a picture, sculpture, or ceramic?
+- User: 'Jon Doe: It''s a painting, roughly 24x36 inches. Does that help?'
+- Assistant: Thank you for the information, Jon Doe. However, for our categorization,
+    we classify paintings under the 'picture' category. So, to confirm, you would
+    like a price estimate for photographing one picture, correct?
+- User: 'Jon Doe: Yes, that''s correct. Can you also tell me if there are any additional
+    costs for post-production services?'
+- Assistant: Absolutely, Jon Doe. Post-production services are indeed an additional
+    cost and vary depending on the complexity of the work. However, to provide you
+    with a precise estimate for the photography session, I need to confirm the type
+    of artwork. You mentioned it's a painting, which we categorize as a 'picture'.
+    Is that correct?
+- User: 'Jon Doe: Yes, it''s a painting categorized as a ''picture''. How much would
+    the total cost be, including the post-production services?'
+- Assistant: 'Thanks {name} for giving those details!.
+
+    The cost would be approximately $50.0, but could vary based on other factors such
+    as the size of the artworks.
+
+    The cost would be approximately $50.0, but could vary based on other factors such
+    as the size of the artworks.'
+- User: 'Jon Doe: Thanks for that estimate. Could you tell me how long the whole process
+    would take, from photographing to post-production?'
+- Assistant: Absolutely, Jon Doe. To provide you with an accurate timeline, I need
+    to confirm a few details. You've mentioned that the artwork is a 'picture'. Could
+    you please confirm the media you want us to use for this project? We offer photography,
+    video, and 3D rendering. Also, could you please confirm the number of artworks
+    that need to be processed?
+language: English
+serial: '20240725105853475'

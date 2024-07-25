@@ -1,0 +1,45 @@
+ask_about:
+- cost estimation for photos of {{number_photo.random()}} artworks
+- number_photo:
+  - '4'
+conversation:
+- number: 4
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- cost: $200
+interaction:
+- User: Hi there! I'm interested in getting some photos taken of a few artworks. Could
+    you tell me what services you offer for art photography?
+- Assistant: Primarily on photos, but also on videos and virtual/3D renderings.
+- User: That's great! I'm mainly interested in high-quality photos. Can you provide
+    me with an estimate for photographing four artworks?
+- Assistant: Of course, I'd be happy to help you with that. You've mentioned that
+    you're interested in photography for four artworks. Could you please specify the
+    type of artworks? Are they pictures, sculptures, or ceramics?
+- User: They are paintings. Each one is around 24x36 inches.
+- Assistant: I see, thank you for the information. However, for our estimation, we
+    categorize paintings under the 'picture' category. So, to confirm, you're interested
+    in photography for four pictures, correct?
+- User: Yes, that's correct. Four paintings. Could you give me a ballpark figure on
+    the cost for that?
+- Assistant: 'Thanks {name} for giving those details!.
+
+    The cost would be approximately $200, but it could vary based on other factors
+    such as the size of the artworks.
+
+    The cost would be approximately $200, but it could vary based on other factors
+    such as the size of the artworks.'
+- User: Got it, thanks for the estimate. What does that $200 include? For example,
+    does it cover basic editing or any touch-ups?
+- Assistant: I am unsure, but I can provide information about our opening hours, shop
+    location, portfolio, pricing model, and the types of media we work with.
+- User: Could you clarify what that $200 includes? For example, does it cover basic
+    editing or any touch-ups?
+- Assistant: I understand that you have four paintings that you'd like to have photographed.
+    However, I need to clarify a few things to provide you with the most accurate
+    information. Could you please confirm that the media you're interested in is photography?
+language: English
+serial: '20240725105853475'

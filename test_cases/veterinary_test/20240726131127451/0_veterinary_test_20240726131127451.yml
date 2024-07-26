@@ -1,0 +1,23 @@
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at 6:00PM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - default
+data_output:
+- date: 2024-07-27
+- time: '18:00:00'
+- opening_and_closing: 9am to 6pm
+language: English
+serial: '20240726131127451'
+interaction:
+- User: Hi, this is Jon Doe. I have a dog named Tommy. Can you tell me your opening
+    and closing times?
+- Assistant: Hello Jon Doe, our veterinary center is open every weekday from 9am to
+    6pm. How can I assist you further?
+- User: Can I schedule an appointment for Tommy tomorrow at 6:00 PM?
+- Assistant: "Ok, I have received your request to schedule an appointment for 27/07/2024\
+    \ at 18:00:00 for Physical examination. \nSee you then!    \n"

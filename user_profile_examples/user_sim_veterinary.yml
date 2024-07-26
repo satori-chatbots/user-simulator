@@ -29,7 +29,7 @@ output:
 conversations:
   - number: 1
   - goal_style:
-        steps: 6
+        steps: 2
   - interaction_style:
       - default
 

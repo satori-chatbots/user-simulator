@@ -2,8 +2,6 @@ from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
 import re
 from dateutil import parser
-from datetime import datetime
-
 import logging
 
 
@@ -23,7 +21,7 @@ class data_extraction:
         If you couldn't find the data, output %%None%%
         """
         self.assistant_role_prompt = PromptTemplate(
-            input_variables=["conversation","description", "data_type"],
+            input_variables=["conversation", "description", "data_type"],
             template=self.prompt)
         self.llm = ChatOpenAI(model="gpt-4o")
         self.chain = LLMChain(llm=self.llm, prompt=self.assistant_role_prompt)

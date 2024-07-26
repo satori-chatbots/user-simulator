@@ -1,5 +1,6 @@
 from pydantic import BaseModel, ValidationError
 import random
+import logging
 from typing import List, Union
 from .interaction_styles import *
 from .ask_about import *
@@ -55,7 +56,7 @@ def set_language(lang):
        else:
            raise InvalidLanguageException(f'Invalid language input: {lang}. Setting language to default (English)')
    except InvalidLanguageException as e:
-       print(f'Error: {e}')
+       logging.getLogger().verbose(f'Error: {e}')
        return "English"
 
 def list_to_str(list_of_strings):
@@ -65,10 +66,8 @@ def list_to_str(list_of_strings):
         single_string = ' '.join(list_of_strings)
         return single_string
     except Exception as e:
-        print(e)
-
-
-
+        logging.getLogger().verbose(f'Error: {e}')
+        return ''
 
 class RoleDataModel(BaseModel):
     fallback: str

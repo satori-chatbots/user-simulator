@@ -5,6 +5,7 @@ import logging
 from datetime import datetime
 from .globals import *
 import re
+from collections import ChainMap
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -71,6 +72,11 @@ def generate_serial():
     serial = datetime.now().strftime("%Y%m%d%H%M%S") + f"{now.microsecond // 1000:03d}"
     return serial
 
+class MyDumper(yaml.Dumper):
+    def write_line_break(self, data=None):
+        super().write_line_break(data)
+        super().write_line_break(data)
+
 
 def save_test_conv(history, metadata, test_name, path, serial, counter):
     print("Saving conversation...")
@@ -78,15 +84,15 @@ def save_test_conv(history, metadata, test_name, path, serial, counter):
     if not os.path.exists(path_folder):
         os.makedirs(path_folder)
 
-    data = {**history, **metadata}
-
+    # data = {**metadata, **history}
+    data = [metadata, history]
     test_folder = path_folder + f"/{serial}"
     if not os.path.exists(test_folder):
         os.makedirs(test_folder)
 
     file_path = os.path.join(test_folder, f'{counter}_{test_name}_{serial}.yml')
     with open(file_path, "w", encoding="UTF-8") as archivo:
-        yaml.dump(data, archivo, allow_unicode=True, default_flow_style=False)
+        yaml.dump_all(data, archivo, allow_unicode=True, default_flow_style=False, sort_keys=False)
     print(f"Conversation saved in {path}")
     print('------------------------------')
 

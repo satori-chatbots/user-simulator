@@ -16,6 +16,7 @@ def verbose(self, message, *args, **kwargs):
 logging.Logger.verbose = verbose
 
 from colorama import Fore, Style
+from collections import OrderedDict
 from user_sim.role_structure import *
 from user_sim.utils.utilities import *
 from user_sim.user_simulator import user_generation
@@ -123,24 +124,32 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
 
         return data_list
 
-
     data_output = {'data_output': data_output_extraction(user_profile, the_user)}
     ask_about = {'ask_about': ask_about_metadata(user_profile)}
     conversation = {'conversation': conversation_metadata(user_profile)}
     language = {'language': user_profile.yaml['language']}
     serial_dict = {'serial': serial}
 
-    metadata = {**ask_about,
-                **conversation,
+    metadata = {**serial_dict,
                 **language,
-                **serial_dict,
-                **data_output}
+                **ask_about,
+                **conversation,
+                ** data_output
+                }
+
+    # metadata = OrderedDict([
+    #     ('ask_about', ask_about_metadata(user_profile)),
+    #     ('conversation', conversation_metadata(user_profile)),
+    #     ('data_output', data_output_extraction(user_profile, the_user)),
+    #     ('language', user_profile.yaml['language']),
+    #     ('serial', serial),
+    #
+    # ])
 
     return metadata
 
 
 def check_keys(key_list: list):
-
     if os.path.exists("keys.properties"):
         logging.getLogger().verbose("properties found!")
         config = configparser.ConfigParser()

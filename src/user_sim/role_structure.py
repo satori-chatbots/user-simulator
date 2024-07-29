@@ -148,7 +148,6 @@ class role_data:
         def choice_styles(interaction_styles):
             count = random.randint(1, len(interaction_styles))
             random_list = random.sample(interaction_styles, count)
-            # print(f'numero de interaction_style: {count}') #todo: borrar
             logging.getLogger().verbose(f'interaction style amount: {count} style(s): {random_list}')
             return random_list
 
@@ -160,10 +159,10 @@ class role_data:
                     if isinstance(inter, dict):
                         keys = list(inter.keys())
                         if keys[0] == "change language":
-                            interaction = inter_styles[keys[0]]
-                            interaction.languages_options = inter.get(keys[0]).copy()
-                            interaction.change_language_flag = True
-                            interactions_list.append(interaction)
+                            cl_interaction = inter_styles[keys[0]]
+                            cl_interaction.languages_options = inter.get(keys[0]).copy()
+                            cl_interaction.change_language_flag = True
+                            interactions_list.append(cl_interaction)
 
                     else:
                         if inter in inter_styles:
@@ -178,20 +177,20 @@ class role_data:
 
         # interactions_list = []
         if interactions is None:
-            interaction = inter_styles['default']
-            return [interaction]
+            interaction_def = inter_styles['default']
+            return [interaction_def]
 
-        elif isinstance(interactions[0], dict): #todo: add validation funct to admit random only if it alone in the list
+        elif isinstance(interactions[0], dict):
+            # todo: add validation funct to admit random only if it alone in the list
             inter_keys = list(interactions[0].keys())
 
             if 'random' in inter_keys:
-                inter = interactions[0]['random']
-                choice = choice_styles(inter)
+                inter_rand = interactions[0]['random']
+                choice = choice_styles(inter_rand)
                 return get_styles(choice)
 
         else:
             return get_styles(interactions)
-
 
     def get_language(self):
 

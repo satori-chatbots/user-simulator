@@ -1,0 +1,22 @@
+serial: '20240729112203935'
+language: English
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at 6:00PM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - default
+data_output:
+- date: None
+- time: None
+- opening_and_closing: 9am to 6pm
+---
+interaction:
+- User: Hello, I have a question about your opening and closing times. Can you please
+    let me know?
+- Assistant: We are open every weekday from 9am to 6pm.
+- User: Are you open on weekends as well?
+- Assistant: We are closed on weekends.

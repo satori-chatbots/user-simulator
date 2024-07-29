@@ -1,0 +1,24 @@
+serial: '20240729113926276'
+language: English
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at 6:00PM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+data_output:
+- date: 2024-07-30
+- time: '18:00:00'
+- opening_and_closing: From 9am to 6pm on weekdays
+---
+interaction:
+- User: Helo, i need som info abut ur vet clinic. Wat are yer opning and closng times?
+    Also, cn I schedual an apointmnt for tomorw at 6:00PM for my dog Tomy? Thnaks!
+- Assistant: From 9am to 6pm on weekdays
+- User: Ohh, Thx for the info! Do u hav any opn slots tomorow at 6:00PM for Tomy?
+    He needz a checkup.
+- Assistant: "Ok, I have received your request to schedule an appointment for 30/07/2024\
+    \ at 18:00:00 for Physical examination. \nSee you then!    \n"

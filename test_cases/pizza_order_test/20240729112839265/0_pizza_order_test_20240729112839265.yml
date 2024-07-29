@@ -1,0 +1,46 @@
+serial: '20240729112839265'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - small
+- toppings:
+  - cheese
+  - tomato
+  - mushrooms
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: 00:30:00
+---
+interaction:
+- User: Hi there! Could I order a small pizza, please?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    Of course! Could you please specify what toppings you would like on your pizza?
+    You can choose from cheese, mushrooms, pepper, ham, bacon, pepperoni, olives,
+    corn, or chicken.'
+- User: I'd like cheese, tomato, and mushrooms on my pizza, please.
+- Assistant: 'I''m sorry, but we don''t have tomato as a topping option. Could you
+    please choose from the following toppings: cheese, mushrooms, pepper, ham, bacon,
+    pepperoni, olives, corn, or chicken?'
+- User: Okay, I'll have cheese and mushrooms. Can you tell me how long it will take
+    for the pizza to arrive?
+- Assistant: 'Great, a pizza with [''cheese'', ''mushrooms'']!
+
+    Sure, your pizza with cheese and mushrooms will be ready soon. By the way, would
+    you like to add a drink to your order? You can choose from coke, sprite, or water.'
+- User: No, thanks. How long will the pizza take to arrive?
+- Assistant: Your pizza will take approximately 30 minutes to arrive. Is there anything
+    else you need?
+- User: No, that's all. Thank you!
+- Assistant: You're welcome! Your pizza will be ready soon. Enjoy your meal!
+- User: Thank you so much! I'm looking forward to it. Have a great day!
+- Assistant: You're welcome! Enjoy your pizza and have a great day too!

@@ -19,7 +19,7 @@ from colorama import Fore, Style
 from collections import OrderedDict
 from user_sim.role_structure import *
 from user_sim.utils.utilities import *
-from user_sim.user_simulator import user_generation
+from user_sim.user_simulator import UserGeneration
 from user_sim.data_extraction import data_extraction
 
 
@@ -134,17 +134,8 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
                 **language,
                 **ask_about,
                 **conversation,
-                ** data_output
+                **data_output
                 }
-
-    # metadata = OrderedDict([
-    #     ('ask_about', ask_about_metadata(user_profile)),
-    #     ('conversation', conversation_metadata(user_profile)),
-    #     ('data_output', data_output_extraction(user_profile, the_user)),
-    #     ('language', user_profile.yaml['language']),
-    #     ('serial', serial),
-    #
-    # ])
 
     return metadata
 
@@ -178,7 +169,7 @@ def generate(technology, chatbot, user, extract):
             the_chatbot = Chatbot(chatbot)
 
         the_chatbot.fallback = user_profile.fallback
-        the_user = user_generation(user_profile, the_chatbot)
+        the_user = UserGeneration(user_profile, the_chatbot)
         starter = user_profile.isstarter
 
         while True:

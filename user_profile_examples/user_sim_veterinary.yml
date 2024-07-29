@@ -31,7 +31,7 @@ conversations:
   - goal_style:
         steps: 2
   - interaction_style:
-      - default
+      - make spelling mistakes
 
 language: English
 

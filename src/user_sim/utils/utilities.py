@@ -3,7 +3,6 @@ import os
 import json
 import logging
 from datetime import datetime
-from .globals import *
 import re
 from collections import ChainMap
 from sklearn.feature_extraction.text import TfidfVectorizer

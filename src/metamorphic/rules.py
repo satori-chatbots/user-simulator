@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Optional, List
 from types import SimpleNamespace
-
 from metamorphic.tests import Test
 
 

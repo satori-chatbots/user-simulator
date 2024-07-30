@@ -1,9 +1,14 @@
 import requests
 import configparser
+from colorama import Fore, Style
+from user_sim.role_structure import *
+from user_sim.utils.utilities import *
+from user_sim.user_simulator import UserGeneration
+from user_sim.data_extraction import DataExtraction
 import logging
 from argparse import ArgumentParser
 
-# Definir el nuevo nivel VERBOSE
+# Define new level "verbose"
 VERBOSE_LEVEL_NUM = 15
 logging.addLevelName(VERBOSE_LEVEL_NUM, "VERBOSE")
 
@@ -14,13 +19,6 @@ def verbose(self, message, *args, **kwargs):
 
 
 logging.Logger.verbose = verbose
-
-from colorama import Fore, Style
-from collections import OrderedDict
-from user_sim.role_structure import *
-from user_sim.utils.utilities import *
-from user_sim.user_simulator import UserGeneration
-from user_sim.data_extraction import data_extraction
 
 
 class Chatbot:
@@ -52,12 +50,12 @@ class ChatbotTaskyto(Chatbot):
         self.id = None
 
     def execute_with_input(self, user_msg):
-        if self.id == None:
+        if self.id is None:
             post_response = requests.post(self.url + '/conversation/new')
             post_response_json = post_response.json()
             self.id = post_response_json.get('id')
 
-        if self.id != None:
+        if self.id is not None:
             new_data = {
                 "id": self.id,
                 "message": user_msg
@@ -109,17 +107,17 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
 
         return user_profile.ask_about.str_list + user_profile.ask_about.picked_elements
 
-    def data_output_extraction(user_profile, the_user):
-        output_list = user_profile.output
+    def data_output_extraction(u_profile, user):
+        output_list = u_profile.output
         data_list = []
 
         for output in output_list:
             var_name = list(output.keys())[0]
             var_dict = output.get(var_name)
-            my_data_extract = data_extraction(the_user.conversation_history,
-                                              var_name,
-                                              var_dict["type"],
-                                              var_dict["description"])
+            my_data_extract = DataExtraction(user.conversation_history,
+                                             var_name,
+                                             var_dict["type"],
+                                             var_dict["description"])
             data_list.append(my_data_extract.get_data_extraction())
 
         return data_list
@@ -157,7 +155,7 @@ def check_keys(key_list: list):
 
 
 def generate(technology, chatbot, user, extract):
-    user_profile = role_data(user)
+    user_profile = RoleData(user)
     serial = generate_serial()
 
     for i in range(user_profile.conversation_number):
@@ -170,7 +168,7 @@ def generate(technology, chatbot, user, extract):
 
         the_chatbot.fallback = user_profile.fallback
         the_user = UserGeneration(user_profile, the_chatbot)
-        starter = user_profile.isstarter
+        starter = user_profile.is_starter
 
         while True:
             if starter:
@@ -217,14 +215,12 @@ if __name__ == '__main__':
     parser.add_argument('--verbose', action='store_true', help='Shows debug prints')
     args = parser.parse_args()
 
-    #logging config
     # logging_level = VERBOSE_LEVEL_NUM if args.verbose else logging.INFO
     if args.verbose:
         logging_level = VERBOSE_LEVEL_NUM
-        logging.basicConfig(level=logging_level, format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.basicConfig(level=logging_level, format='%(asc_time)s - %(level_name)s - %(message)s')
 
-    # logging.info("Iniciando el generador de conversaciones")
-    logging.debug(f"Argumentos recibidos: {args}")
+    logging.debug(f"Received arguments: {args}")
     logging.getLogger().verbose('verbose enabled')
 
     check_keys(["OPENAI_API_KEY"])

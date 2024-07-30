@@ -83,9 +83,9 @@ def save_test_conv(history, metadata, test_name, path, serial, counter):
     if not os.path.exists(path_folder):
         os.makedirs(path_folder)
 
-    # data = {**metadata, **history}
     data = [metadata, history]
     test_folder = path_folder + f"/{serial}"
+
     if not os.path.exists(test_folder):
         os.makedirs(test_folder)
 

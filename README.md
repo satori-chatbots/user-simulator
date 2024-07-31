@@ -97,11 +97,11 @@ test_name: "pizza_order_test"
 
 ## isstarter
 
-  This parameter defines wether the user will start the conversation or not. The value supported is boolean and will be set depending on the chetbot to test.
+  This parameter defines wether the user will start the conversation or not. The value supported is boolean and will be set depending on the chatbot to test.
 
 ## fallback
 
-  Here, the tester should provide the chatbot's original fallback message in order to allow the user simulator to detect fallbacks. This is used to avoid fallback loops, allowing the user simulator to rephrase the query or change the topic.
+  Here, the tester should provide the chatbot's original fallback message in order to allow the user simulator to detect fallbacks. This is needed to avoid fallback loops, allowing the user simulator to rephrase the query or change the topic.
 
 ## role
 
@@ -113,9 +113,9 @@ test_name: "pizza_order_test"
 
 ## ask_baout
 
-This filed is used to narrow down the conversation topics the user simulator will carry out with the chatbot. It consist of a multitype list of strings and dictionaries.
+This filed is used to narrow down the conversation topics the user simulator will carry out with the chatbot. It consist of list of strings and dictionaries.
 
-The tester define a list of prompts por the user simulator to check on the chatbot. These prompts can contain variables that should be called inside the text between double brackets {{var}}. The varibales should be instantiated in the list as shown in the example avobe with the exact same name as written between brackets (case-sensitive).
+The tester define a list of prompts for the user simulator to check on the chatbot. These prompts can contain variables that should be called inside the text between double brackets {{var}}. The varibales should be instantiated in the list as shown in the example above with the exact same name as written between brackets (case-sensitive).
 
 Some functions have been added to define how the data assigned to the variable will be treated. These functions can be called by adding a dot and the name of the function next to the variable {{var.function()}}:
 
@@ -127,7 +127,7 @@ Some functions have been added to define how the data assigned to the variable w
 
 ## output
 
-This field helps the tester get some certain information for the conversation once is finished. It is used for data validation tasks.
+This field helps the tester get some certain information for the conversation once it is finished. It is used for data validation tasks.
 
 The tester defines some certain values to obtain from the conversation to validate the consisntency of the chatbot. The values to obtain should be defined in a list of dictionaries with the name of the value, and should have the following structure:
 
@@ -138,7 +138,7 @@ The tester defines some certain values to obtain from the conversation to valida
   - str: Outputs the data as text.
   - time: Outputs the data in a time format.
   - date: Outputs the data in a date format.
-- descriptio: In this parameter, the tester should prompt a text definig which information has to be obtained from the convesation.
+- description: In this parameter, the tester should prompt a text definig which information has to be obtained from the convesation.
 
 
 ## conversations
@@ -160,11 +160,23 @@ The tester defines some certain values to obtain from the conversation to valida
   - make spelling mistakes: the user will make typos and spelling mistakes during the conversation
   - single question: the user makes only one query per interaction from "ask_about" field.
   - all questions: the user asks everyrhing inside the "ask_about" field in one interaction.
-  - default: the user simulator will carry out the conversation in a normal way.
+  - random: this options allows to create a list inside of it with any of the interaction styles mentioned above. Then, it selects a random amount of interaction styles to apply to the conversation. Here's an example on how to apply this interaction style:
+    ```
+    interaction_style:
+      - random:
+        - make spelling mistakes
+        - all questions
+        - long phrases
+        - change language:
+            - italian
+            - portuguese
+            - chinese
+    ```
+  - default: the user simulator will carry out the conversation in a natural way.
 
 ## language
 
-This parameter defines the main language that will be used in the conversations. if no language is provided, it is set to English by default.
+This parameter defines the main language that will be used in the conversations. If no language is provided, it is set to English by default.
 
 ## test_name
 

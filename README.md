@@ -9,6 +9,7 @@ with the chatbot to test.
 ## Usage
 
 In order to run the simulator, a specific chatbot should be deployed previously (i.e Taskyto, Rasa...). 
+
 The script "autorun.py" contains the functions to load the user simulator profile, start a conversation with the chatbot 
 and save this conversation and its configuration parámeters. The user simulator profile is stored in yaml files,
 which should be located in some folder (`user_sim/yaml/user_sim_bikesqa.yaml`).
@@ -16,6 +17,7 @@ which should be located in some folder (`user_sim/yaml/user_sim_bikesqa.yaml`).
 ## Environment Configuration
 
 API keys can be set as environment variables.
+
 The most important API key is `OPENAI_API_KEY`.
 
 ## User Profile YAML Configuration

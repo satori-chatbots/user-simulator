@@ -140,4 +140,8 @@ conversations:
 
 ## language
 
+This parameter defines the main language that will be used in the conversations. if no language is provided, it is set to English by default.
+
 ## test_name
+
+Here it is defined the name of the test. This name will be assigned to the exported test file and the folder containing the tests.

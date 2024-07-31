@@ -5,6 +5,8 @@ import sys
 
 from pydantic import ValidationError
 from argparse import ArgumentParser
+
+from metamorphic.results import Result
 from metamorphic.rules import *
 from metamorphic.tests import Test
 
@@ -31,7 +33,7 @@ def get_tests_from_yaml_files(conversations):
     return __get_object_from_yaml_files(conversations, lambda file_path, data: Test.build_test(file_path, data), 'test')
 
 
-def check_rules(rules, conversations):
+def check_rules(rules, conversations, verbose, csv_file):
     """
     Processes metamorphic rules against a set of conversations
     :param rules: the folder to the metamorphic rules
@@ -43,18 +45,26 @@ def check_rules(rules, conversations):
             raise ValueError(f"Folder {folder} does not exist.")
     print(f"Testing rules at {rules} into conversations at {conversations}")
     rules = get_rules_from_yaml_files(rules)
+    rules = [rule for rule in rules if rule.active] # filter the inactive rules
     tests = get_tests_from_yaml_files(conversations)
+    result_store = Result()
     for rule in rules:
-        rule.test(tests)
+        results = rule.test(tests, verbose)
+        result_store.add(rule.name, results)
+    print(result_store)
+    if csv_file is not None:
+        result_store.to_csv(csv_file)
 
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Tester of conversations against metamorphic rules')
     parser.add_argument('--rules', required=True, help='Folder with the yaml files containing the metamorphic rules')
     parser.add_argument('--conversations', required=True, help='Folder with the conversations to analyse')
+    parser.add_argument('--verbose', default=False, action='store_true')
+    parser.add_argument('--dump', required=False, help='CSV file to store the statistics')
     args = parser.parse_args()
 
     try:
-        check_rules(args.rules, args.conversations)
+        check_rules(args.rules, args.conversations, args.verbose, args.dump)
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)

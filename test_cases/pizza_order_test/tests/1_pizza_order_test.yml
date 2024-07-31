@@ -1,0 +1,47 @@
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- the price of the pizza once you've ordered
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - small
+- toppings:
+  - cheese
+  - mushrooms
+  - tomato
+  - onion
+  - olives
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+interaction:
+- User: Can I get a small pizza with cheese, mushrooms, tomato, onion, and olives,
+    please? How much will that be?
+- Assistant: I see that you've already mentioned that you'd like a small pizza. Is
+    there anything else you would like to add to your order?
+- User: No, that's all. What's the total cost for the pizza?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    I''m sorry for the confusion, but we only offer the following toppings: cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken. You''ve already
+    chosen cheese, mushrooms, and olives. Could you please revise your toppings selection?'
+- User: In that case, I’ll go with cheese, mushrooms, onions, and olives. How much
+    will that be?
+- Assistant: 'I''m sorry for the confusion, but we don''t offer onions as a topping.
+    We only offer the following toppings: cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken. You''ve already chosen cheese, mushrooms, and olives.
+    Could you please revise your toppings selection?'
+- User: Alright, I'll have cheese, mushrooms, olives, and pepper. What's the total
+    cost for that?
+- Assistant: 'Great, a pizza with [''cheese'', ''mushrooms'', ''olives'', ''pepper'']!
+
+    Great choice on the toppings! Now, would you like to add a drink to your order?
+    We offer coke, sprite, and water.'
+- User: No, I'm good with just the pizza. What's the total cost for that?
+- Assistant: I understand. Let me calculate the total for your small pizza with cheese,
+    mushrooms, olives, and pepper. Please wait a moment.
+language: null
+price: 'Error in casting: Unsupported data type: numeric'
+serial: '20240723125918774'

@@ -2,12 +2,10 @@ from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
 import re
 from dateutil import parser
-from datetime import datetime
-
 import logging
 
 
-class data_extraction:
+class DataExtraction:
 
     def __init__(self, conversation, variable_name, dtype, description):
 
@@ -23,17 +21,19 @@ class data_extraction:
         If you couldn't find the data, output %%None%%
         """
         self.assistant_role_prompt = PromptTemplate(
-            input_variables=["conversation","description", "data_type"],
+            input_variables=["conversation", "description", "data_type"],
             template=self.prompt)
         self.llm = ChatOpenAI(model="gpt-4o")
         self.chain = LLMChain(llm=self.llm, prompt=self.assistant_role_prompt)
 
-    def regex_data(self, text):
+    @staticmethod
+    def regex_data(text):
         patron = re.compile(r'%%(.*?)%%')
         coincidence = patron.findall(text)
         return coincidence[0]
 
-    def data_process(self, text, dtype):
+    @staticmethod
+    def data_process(text, dtype):
         logging.getLogger().verbose(f'input text on data process for casting: {text}')
         if text == 'None':
             return text
@@ -70,7 +70,6 @@ class data_extraction:
                         'date': 'Output the data in a date format understandable for Python'}
 
         return data_prompts.get(self.dtype)
-
 
     def get_data_extraction(self):
 

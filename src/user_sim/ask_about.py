@@ -2,7 +2,7 @@ import random
 from .utils.utilities import *
 
 
-class ask_about_class:
+class AskAboutClass:
 
     def __init__(self, data):
 
@@ -12,21 +12,24 @@ class ask_about_class:
         self.handlers = {'random': self.random_handler}
         self.phrases = self.ask_about_processor(data)
 
-    def get_variables(self, data):
+    @staticmethod
+    def get_variables(data):
         variables = {}
         for item in data:
             if isinstance(item, dict):
                 variables.update(item)
         return variables
 
-    def get_phrases(self, data):
+    @staticmethod
+    def get_phrases(data):
         str_content = []
         for item in data:
             if isinstance(item, str):
                 str_content.append(item)
         return str_content
 
-    def random_handler(self, values, count=''):
+    @staticmethod
+    def random_handler(values, count=''):
         if count == '':
             return [random.choice(values)]
         elif count.isdigit():
@@ -38,7 +41,6 @@ class ask_about_class:
         return values  # TODO: exception for .random(xxx) invalid parameter
 
     def replace_variables(self, text, variables):
-        # Busca todas las variables con formatos manejados
         matches = re.finditer(r'{{(\w+)\.(\w+)(?:\((\w*)\))?}}', text)
         for match in matches:
             var_name = match.group(1)
@@ -47,10 +49,9 @@ class ask_about_class:
             if var_name in variables and handler_name in self.handlers:
                 replacement = self.handlers[handler_name](self.variable_list[var_name], count)
                 self.picked_elements.append({var_name: replacement})
-                replacement_srt = ', '.join(replacement)
+                replacement_srt = ', '.join(map(str, replacement))
                 text = text.replace(match.group(0), replacement_srt)
 
-        # Reemplaza variables en el formato {{variable}}
         matches = re.finditer(r'{{(\w+)}}', text)
         for match in matches:
             var_name = match.group(1)

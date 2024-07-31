@@ -1,0 +1,29 @@
+!!python/object:collections.ChainMap
+maps:
+- interaction:
+  - User: Hi, I'm Jon Doe. I have a dog named Tommy. Could you let me know your opening
+      and closing times?
+  - Assistant: Hello Jon Doe, nice to meet you and Tommy! Our veterinary center is
+      open every weekday from 9am to 6pm. How can I assist you further?
+  - User: Thanks for the information! Can I schedule an appointment for tomorrow at
+      6:00 PM for Tommy?
+  - Assistant: "Ok, I have received your request to schedule an appointment for 27/07/2024\
+      \ at 18:00:00 for Physical examination. \nSee you then!    \n"
+- !!python/object/apply:collections.OrderedDict
+  - - - ask_about
+      - - opening and closing time
+        - an appointment for tomorrow at 6:00PM
+    - - data_output
+      - - date: 2024-07-27
+        - time: '18:00:00'
+        - opening_and_closing: 9am to 6pm
+    - - language
+      - English
+    - - serial
+      - '20240726124423553'
+    - - conversation
+      - - number: 1
+        - goal_style:
+            steps: 2
+        - interaction_style:
+          - default

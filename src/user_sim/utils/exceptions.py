@@ -1,10 +1,8 @@
 class InvalidGoalException(Exception):
     pass
 
-
 class InvalidInteractionException(Exception):
     pass
-
 
 class InvalidLanguageException(Exception):
     pass

@@ -13,7 +13,6 @@ context:
 
 ask_about:
   - "a pizza with the following size: {{size.random()}}"
-  - "the price of the pizza once you've ordered"
   - "how long is going to take for the pizza to arrive in the end of the conversation"
   - size:
     - small
@@ -43,7 +42,7 @@ output:
 conversations:
   - number: 1
   - goal_style:
-        steps: 4
+        steps: 6
   - interaction_style:
       - default
 #      - random:

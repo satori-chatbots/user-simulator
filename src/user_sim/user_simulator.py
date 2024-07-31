@@ -1,5 +1,3 @@
-import openai
-import logging
 from .utils.utilities import *
 from .data_gathering import *
 
@@ -7,31 +5,18 @@ from langchain import PromptTemplate, LLMChain
 from langchain.chat_models import ChatOpenAI
 
 
-def generar_interaccion(msg, temperatura=0.8, max_tokens=300):
-    response = openai.ChatCompletion.create(
-        model="gpt-4o",
-        messages=msg,
-        temperature=temperatura,
-        max_tokens=max_tokens
-    )
-    return response['choices'][0]['message']['content'].strip()
-
-
-class user_generation:
+class UserGeneration:
 
     def __init__(self, user_profile, chatbot):
 
         self.user_profile = user_profile
         self.chatbot = chatbot
-        # self.logger_config = LoggerConfig(mostrar_logs=enable_logs)
-        self.logger = logging.getLogger('my_logger')  #???
         self.temp = user_profile.temperature
         self.user_llm = ChatOpenAI(model="gpt-4o", temperature=self.temp)
         self.conversation_history = {'interaction': []}
-        # self.ask_about = list_to_phrase(user_profile.ask_about, prompted=True)
         self.ask_about = user_profile.ask_about.prompt()
-        self.request_register = user_assistant(user_profile.ask_about.phrases)
-        self.data_gathering = chatbot_assistant(user_profile.ask_about.phrases)
+        self.request_register = UserAssistant(user_profile.ask_about.phrases)
+        self.data_gathering = ChatbotAssistant(user_profile.ask_about.phrases)
         self.user_role_prompt = PromptTemplate(
             input_variables=["reminder", "history"],
             template=self.set_role_template()
@@ -42,9 +27,9 @@ class user_generation:
         self.loop_count = 0
         self.interaction_count = 0
         self.user_chain = LLMChain(llm=self.user_llm, prompt=self.user_role_prompt)
-        self.my_context = self.initial_context()
+        self.my_context = self.InitialContext()
 
-    class initial_context:
+    class InitialContext:
         def __init__(self):
             self.original_context = []
             self.context_list = []
@@ -63,16 +48,14 @@ class user_generation:
             else:
                 self.original_context = [context] + default_context
                 self.context_list = [context] + default_context
-                # self.original_context.append(context)
-                # self.context_list.append(context)
 
         def add_context(self, new_context):
             if isinstance(new_context, list):
                 for cont in new_context:
                     self.context_list.append(cont)
             else:
-                self.context_list.append(new_context)  #TODO: add exception to force the user to initiate the context
-
+                self.context_list.append(new_context)
+                # TODO: add exception to force the user to initiate the context
 
         def get_context(self):
             return '. '.join(self.context_list)
@@ -86,21 +69,8 @@ class user_generation:
         role_prompt = self.user_profile.role + reminder + history
         return role_prompt
 
-    def add_register(self, msg: list[dict]):
-        self.conv_register = self.conv_register + msg
-
     def save_data_gathering(self, path):
         self.data_gathering.extract_dataframe(path, self.test_name)
-
-    def get_info(self):
-        info = {"context": self.context,
-                "register": self.conv_register,
-                "user_profile": self.user_act,
-                "language": self.language,
-                "keep_context": self.keep_context,
-                "ask_about": self.ask_about,
-                "temperature": self.temp}
-        return info
 
     def repetition_track(self, response, reps=3):
 
@@ -111,8 +81,8 @@ class user_generation:
 
             self.repeat_count += 1
             self.loop_count += 1
-            # self.logger.verbo("is end")
-            logging.getLogger().verbose(f"is fallback. Repeat_count: {self.repeat_count }. Loop count: {self.loop_count}")
+            logging.getLogger().verbose(f"is fallback. Repeat_count: {self.repeat_count}. "
+                                        f"Loop count: {self.loop_count}")
 
             if self.repeat_count >= reps:
                 self.repeat_count = 0
@@ -134,7 +104,6 @@ class user_generation:
             self.repeat_count = 0
             self.loop_count = 0
 
-
     @staticmethod
     def conversation_ending(response):
         return nlp_processor(response, "src/testing/user_sim/end_conversation_patterns.yml", 0.5)
@@ -149,7 +118,6 @@ class user_generation:
 
     def update_history(self, role, message):
         self.conversation_history['interaction'].append({role: message})
-
 
     def end_conversation(self, input_msg):
 
@@ -185,11 +153,10 @@ class user_generation:
 
         history = self.get_history()
 
-        # Generar la respuesta del usuario
+        # Generate user response
         user_response = self.user_chain.run(history=history,
                                             reminder=self.my_context.get_context())
 
-        # self.my_context.reset_context()
         self.request_register.get_request(user_response)
 
         self.update_history("User", user_response)
@@ -198,11 +165,10 @@ class user_generation:
 
         return user_response
 
-
-
     @staticmethod
     def formatting(role, msg):
         return [{"role": role, "content": msg}]
+
     def get_interaction_styles_prompt(self):
         interaction_style_prompt = []
         for instance in self.user_profile.interaction_styles:
@@ -213,7 +179,6 @@ class user_generation:
         return ''.join(interaction_style_prompt)
 
     def open_conversation(self):
-        # print(type(self.user_profile.language))
 
         interaction_style_prompt = self.get_interaction_styles_prompt()
         self.my_context.initiate_context([self.user_profile.context,

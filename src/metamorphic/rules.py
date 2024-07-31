@@ -11,6 +11,7 @@ class Rule(BaseModel):
     name: str
     description: str
     conversations: int = 1
+    active: Optional[bool] = True
     when: Optional[str] = "True"
     if_: Optional[str] = Field("True", alias="if")
     then: str

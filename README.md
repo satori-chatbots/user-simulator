@@ -122,6 +122,21 @@ Some functions have been added to define how the data assigned to the variable w
 - {{var.random(rand)}}:; this function picks a random amount of random values inside the list. This amount will not exceed the list length. 
 
 
+## output
+
+This field helps the tester get some certain information for the conversation once is finished. It is used for data validation tasks.
+
+The tester defines some certain values to obtain from the conversation to validate the consisntency of the chatbot. The values to obtain should be defined in a list of dictionaries with the name of the value, and should have the following structure:
+
+- type: here it is defined the type of value to output. This type can be one of the following:
+  - int: Ouputs the data as an integer.
+  - float: Outputs the data as a float.
+  - money: Outputs the data as a monetary value with the currency used during the conversation.
+  - str: Outputs the data as text.
+  - time: Outputs the data in a time format.
+  - date: Outputs the data in a date format.
+- descriptio: In this parameter, the tester should prompt a text definig which information has to be obtained from the convesation.
+
 
 ## conversations
 

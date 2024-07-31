@@ -117,7 +117,7 @@ test_name: "pizza_order_test"
 
 ## ask_baout
 
-This filed is used to narrow down the conversation topics the user simulator will carry out with the chatbot. It consist of list of strings and dictionaries.
+This field is used to narrow down the conversation topics the user simulator will carry out with the chatbot. It consist of a list of strings and dictionaries.
 
 The tester define a list of prompts for the user simulator to check on the chatbot. These prompts can contain variables that should be called inside the text between double brackets {{var}}. The varibales should be instantiated in the list as shown in the example above with the exact same name as written between brackets (case-sensitive).
 
@@ -126,7 +126,7 @@ Some functions have been added to define how the data assigned to the variable w
 - {{var}}: by only placing the name of the variable, all data assignet to it will be prompted in the text.
 - {{var.random()}}: this function picks only one random value inside the list assigned to the variable.
 - {{var.random(5)}}: this function picks a certain amount of random values inside the list. In this example, 5 random values will be picked from the list. This number can't exceed the list length.
-- {{var.random(rand)}}:; this function picks a random amount of random values inside the list. This amount will not exceed the list length. 
+- {{var.random(rand)}}: this function picks a random amount of random values inside the list. This amount will not exceed the list length. 
 
 
 ## output

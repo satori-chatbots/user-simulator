@@ -45,8 +45,7 @@ def check_rules(rules, conversations, verbose, csv_file):
             raise ValueError(f"Folder {folder} does not exist.")
     print(f"Testing rules at {rules} into conversations at {conversations}")
     rules = get_rules_from_yaml_files(rules)
-    # filter the inactive rules
-    rules = [rule for rule in rules if rule.active]
+    rules = [rule for rule in rules if rule.active] # filter the inactive rules
     tests = get_tests_from_yaml_files(conversations)
     result_store = Result()
     for rule in rules:

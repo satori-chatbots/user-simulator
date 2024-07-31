@@ -26,7 +26,7 @@ The most important API key is `OPENAI_API_KEY`.
 
 This file contains all the properties the user will follow in order to carry out the conversation. Sice the user simulator is
 based in OpenAI GPT4-o LLM technology, some of the fields should be written as prompts in natural language. For this fileds, a 
-prompt engineering task should be carried out by the programmer to narrow down the role of the user simulator and guide its
+prompt engineering task should be carried out by the tester to narrow down the role of the user simulator and guide its
 behaviour. A description of the fields and an exaple of the YAML structure is described below.
 
 ```

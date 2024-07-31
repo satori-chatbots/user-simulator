@@ -3,7 +3,9 @@
 ## Description
 The evolution of technology increased the complexity of chatbots and also it's testing methods. With the introduction of LLMs, chatbots are capable of humanizing
 conversations and imitating the pragmatics of natural language. Several approaches have been created in order to evaluate the
-performance of chatbots. The code in this project allows creating test cases based in conversations that a user simulator will have
+performance of chatbots. 
+
+The code in this project allows creating test cases based in conversations that a user simulator will have
 with the chatbot to test.
 
 ## Usage

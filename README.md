@@ -44,7 +44,7 @@ role:
 context:                              
   - Since you're the user, just tell what you want to order
 
-# (list of types) this field allows the programmer to define what should be said by the user simulator to test tome specific capabilities of the chatbot.
+# (list of types) this field allows the tester to define what should be said by the user simulator to test tome specific capabilities of the chatbot.
 # This field can process text with variables, which should be indicated as shown in the example.
 ask_about:
   - "a pizza with any size of the following: {{size}}"
@@ -62,6 +62,14 @@ ask_about:
     - olives
     - pepperoni
 
+output:
+  - price:
+      type: money
+      description: The price of the pizza order
+  - time:
+      type: time
+      description: how long is going to take to deliver the pizza
+
 # (list of dict) In this field some parameters should be defined, such as the number of conversations to generate,
 # the goal style to end the conversation, and the interaction style to carry out in the conversation. Below is shown an example of implementation, next up, a breakdown of each parameter will be performed
 conversations:
@@ -74,23 +82,10 @@ conversations:
           - portuguese
           - chinese
 
-# number: number of conversations to generate
-# goal_style: this defines how the conversation should end. There are 3 options in this update
-#    - steps: a limit number of interactions should be done before the conversation ends
-#    - all answered: the conversation will end as long as all the queries in "ask_about" have been asked by the user
-#                    and answered by the chatbot. This option is still flaky in some cases where the user has
-#                    to provide data instead of asking for information to the chatbot.
-#    - default: the default mode enables "all answered" mode, since no steps are defined.
-# interaction_style: this indicates how the user simulator should carry out the conversation. There are 7 options in this update
-#    - long phrase: the user will use very long phrases to write any query.
-#    - change your mind: the user will change its mind eventually. Useful in conversations when the user has to
-#                        provide information, such as toppings on a pizza, an appointment date...
-#    - change language: the user will change the language in the middle of a conversation. This should be defined as a list
-#                       of languages inside the parameter, as shown in the example above.
-#    - make spelling mistakes: the user will make typos and spelling mistakes during the conversation
-#    - single question: the user makes only one query per interaction from "ask_about" field.
-#    - all questions: the user asks everyrhing inside the "ask_about" field in one interaction.
-#    - default: the user simulator will carry out the conversation in a normal way.
+language: Engish
+
+test_name: "pizza_order_test"
+
 ```
 
 ## temperature
@@ -114,6 +109,17 @@ conversations:
   This field consist of a list of prompts that will define some caracteristics of the user simulator. This can be used to define the name of the user, the availability for an appointment, allergies or intolerances, etc.
 
 ## ask_baout
+
+This filed is used to narrow down the conversation topics the user simulator will carry out with the chatbot. It consist of a multitype list of strings and dictionaries.
+
+The tester define a list of prompts por the user simulator to check on the chatbot. These prompts can contain variables that should be called inside the text between double brackets {{var}}. The varibales should be instantiated in the list as shown in the example avobe with the exact same name as written between brackets (case-sensitive).
+
+Some functions have been added to define how the data assigned to the variable will be treated. These functions can be called by adding a dot and the name of the function next to the variable {{var.function()}}:
+
+- {{var}}: by only placing the name of the variable, all data assignet to it will be prompted in the text.
+- {{var.random()}}: this function picks only one random value inside the list assigned to the variable.
+- {{var.random(5)}}: this function picks a certain amount of random values inside the list. In this example, 5 random values will be picked from the list. This number can't exceed the list length.
+- {{var.random(rand)}}:; this function picks a random amount of random values inside the list. This amount will not exceed the list length. 
 
 
 

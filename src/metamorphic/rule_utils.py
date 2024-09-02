@@ -10,7 +10,8 @@ def util_functions_to_dict() -> dict:
     """
     return {'extract_float': extract_float,
             'currency': currency,
-            'language': language}
+            'language': language,
+            'length': length}
 
 
 def extract_float(string: str) -> float:
@@ -74,10 +75,42 @@ def currency_name(string: str):
         return None
 
 
-def language(string: str):
+def length(item, kind='min'):
+    """
+    :param item: a string or a list of strings
+    :param kind: which length to provide. Accepted values are min, max or average
+    :return: the desired length
+    """
+    if isinstance(item, str):
+        item = [item]
+    if not isinstance(item, list):
+        raise ValueError(f"Expecting a list of strings, or a string, but got {item}")
+    kind = kind.lower()
+    if kind not in ['min', 'max', 'average']:
+        raise ValueError(f"Expecting one of min, max or average, but got {kind}")
+
+    inits = {
+        'min': 100000000,
+        'max': 0,
+        'average': 0
+    }
+    current = inits[kind]
+    operations = {
+        'min': lambda x, n: x if x < current else current,
+        'max': lambda x, n: x if x > current else current,
+        'average': lambda x, n: (current + x) / n
+    }
+    iteration = 1
+    for element in item:
+        current = operations[kind](len(element), iteration)
+        iteration += 1
+    return current
+
+
+def language(string):
     """
     returns the language of the given string
-    :param string:
+    :param string: a list of strings or a string
     :return:
     """
     prompt = f"""What is the language of the following text?: \n {string}. \n Return ENG for 

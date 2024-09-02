@@ -1,5 +1,4 @@
 import requests
-import configparser
 from colorama import Fore, Style
 from user_sim.role_structure import *
 from user_sim.utils.utilities import *
@@ -136,22 +135,6 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
                 }
 
     return metadata
-
-
-def check_keys(key_list: list):
-    if os.path.exists("keys.properties"):
-        logging.getLogger().verbose("properties found!")
-        config = configparser.ConfigParser()
-        config.read('keys.properties')
-
-        # Loop over all keys and values
-        for key in config['keys']:
-            key = key.upper()
-            os.environ[key] = config['keys'][key]
-
-    for k in key_list:
-        if not os.environ.get(k):
-            raise Exception(f"{k} not found")
 
 
 def generate(technology, chatbot, user, extract):

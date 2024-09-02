@@ -2,6 +2,7 @@ import glob
 import yaml
 import os
 import sys
+import configparser
 
 from pydantic import ValidationError
 from argparse import ArgumentParser
@@ -9,6 +10,7 @@ from argparse import ArgumentParser
 from metamorphic.results import Result
 from metamorphic.rules import *
 from metamorphic.tests import Test
+from user_sim.utils.utilities import check_keys
 
 
 def __get_object_from_yaml_files(directory, operation, name):
@@ -63,6 +65,7 @@ if __name__ == '__main__':
     parser.add_argument('--verbose', default=False, action='store_true')
     parser.add_argument('--dump', required=False, help='CSV file to store the statistics')
     args = parser.parse_args()
+    check_keys(["OPENAI_API_KEY"])
 
     try:
         check_rules(args.rules, args.conversations, args.verbose, args.dump)

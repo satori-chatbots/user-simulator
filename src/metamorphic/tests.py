@@ -21,8 +21,31 @@ class Test(BaseModel):
         variable_dict = self.__get_ask_about_dict()
         variable_dict.update(self.__get_parameters_dict(self.conversation, 'conversation'))
         variable_dict.update(self.__get_parameters_dict(self.data_output, 'data_output'))
+        variable_dict.update(self.__get_interactions_dict(self.interaction))
         #print(f"Dict = {variable_dict}")
         return variable_dict
+
+
+    def __get_interactions_dict(self, interactions_dict):
+        """
+        return a dictionary with, the interactions, the chatbot_phrases and the user_phrases
+        :param interactions_dict:
+        :return:
+        """
+        clean_dict = dict()
+        clean_dict.update({'interaction': interactions_dict})
+        chatbot_phrases = []
+        for phrase in interactions_dict:
+            if 'Assistant' in phrase:
+                chatbot_phrases.append(phrase['Assistant'])
+        clean_dict.update({'chatbot_phrases': chatbot_phrases})
+        user_phrases = []
+        for phrase in interactions_dict:
+            if 'User' in phrase:
+                user_phrases.append(phrase['User'])
+        clean_dict.update({'user_phrases': user_phrases})
+        return clean_dict
+
 
     def __get_ask_about_dict(self):
         clean_dict = dict()

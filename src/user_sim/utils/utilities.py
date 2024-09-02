@@ -2,6 +2,7 @@ import yaml
 import os
 import json
 import logging
+import configparser
 from datetime import datetime
 import re
 from collections import ChainMap
@@ -129,3 +130,19 @@ def nlp_processor(msg, patterns=None, threshold=0.5):
     # Definir un umbral de similitud para detectar fallback
 
     return max_sim >= threshold
+
+
+def check_keys(key_list: list):
+    if os.path.exists("keys.properties"):
+        #logging.getLogger().verbose("properties found!")
+        config = configparser.ConfigParser()
+        config.read('keys.properties')
+
+        # Loop over all keys and values
+        for key in config['keys']:
+            key = key.upper()
+            os.environ[key] = config['keys'][key]
+
+    for k in key_list:
+        if not os.environ.get(k):
+            raise Exception(f"{k} not found")

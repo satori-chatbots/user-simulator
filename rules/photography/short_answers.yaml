@@ -1,0 +1,5 @@
+name: short_answers
+description: Average chatbot answers are short (<2000 characters)
+conversations: 1
+oracle: length(chatbot_phrases, kind='average') < 2000
+

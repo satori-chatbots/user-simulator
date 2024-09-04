@@ -1,8 +1,6 @@
 import glob
 import yaml
-import os
 import sys
-import configparser
 
 from pydantic import ValidationError
 from argparse import ArgumentParser

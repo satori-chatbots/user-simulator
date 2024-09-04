@@ -1,6 +1,7 @@
 import os
 import re
 
+import inflect
 from openai import OpenAI
 
 
@@ -10,7 +11,9 @@ def util_functions_to_dict() -> dict:
     """
     return {'extract_float': extract_float,
             'currency': currency,
-            'language': language}
+            'language': language,
+            'length': length,
+            'tone': tone}
 
 
 def extract_float(string: str) -> float:
@@ -74,16 +77,78 @@ def currency_name(string: str):
         return None
 
 
-def language(string: str):
+def length(item, kind='min'):
     """
-    returns the language of the given string
-    :param string:
-    :return:
+    :param item: a string or a list of strings
+    :param kind: which length to provide. Accepted values are min, max or average
+    :return: the desired length
     """
-    prompt = f"""What is the language of the following text?: \n {string}. \n Return ENG for 
-    English, ESP for Spanish, FR for French, GER for German and OTHER for other language."""
+    if isinstance(item, str):
+        item = [item]
+    if not isinstance(item, list):
+        raise ValueError(f"Expecting a list of strings, or a string, but got {item}")
+    kind = kind.lower()
+    if kind not in ['min', 'max', 'average']:
+        raise ValueError(f"Expecting one of min, max or average, but got {kind}")
+
+    inits = {
+        'min': 100000000,
+        'max': 0,
+        'average': 0
+    }
+    current = inits[kind]
+    operations = {
+        'min': lambda x, n: x if x < current else current,
+        'max': lambda x, n: x if x > current else current,
+        'average': lambda x, n: (current + x) / n
+    }
+    iteration = 1
+    for element in item:
+        current = operations[kind](len(element), iteration)
+        iteration += 1
+    return current
+
+
+def language(string):
+    """
+    returns the language of the given string, or list of strings
+    :param string: a list of strings or a string
+    :return: One of the codes of the languages dictionary
+    """
+    languages = {'ENG': 'English',
+                 'ESP': 'Spanish',
+                 'FR': 'French',
+                 'GER': 'German',
+                 'IT': 'Italian',
+                 'POR': 'Portuguese',
+                 'CHI': 'Chinese',
+                 'JAP': 'Japanese',
+                 'OTHER': 'other language'}
+
+    p = inflect.engine()
+    lang_list = [f"{k} for {v}" for k, v in languages.items()]
+    prompt = f"""What is the language of the following text?: \n {string}. \n Return {p.join(tuple(lang_list))}."""
     response = call_openai(prompt)
     return response
+
+
+def tone(item):
+    """
+    returns the tone ('POSITIVE', 'NEGATIVE', 'NEUTRAL') of each text in the parameter
+    :param string: the text
+    :return: a list with 'POSITIVE', 'NEGATIVE', 'NEUTRAL' for each text in item
+    """
+    if isinstance(item, str):
+        item = [item]
+    if not isinstance(item, list):
+        raise ValueError(f"Expecting a list of strings, or a string, but got {item}")
+
+    responses = []
+    for element in item:
+        prompt = f"""What is the tone of the following text: \n {element}. \n Return only POSTIVE, NEGATIVE or NEUTRAL."""
+        response = call_openai(prompt)
+        responses.append(response)
+    return responses
 
 
 def call_openai(message: str):

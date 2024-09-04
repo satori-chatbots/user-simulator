@@ -1,6 +1,7 @@
 import os
 import re
 
+import inflect
 from openai import OpenAI
 
 
@@ -11,7 +12,8 @@ def util_functions_to_dict() -> dict:
     return {'extract_float': extract_float,
             'currency': currency,
             'language': language,
-            'length': length}
+            'length': length,
+            'tone': tone}
 
 
 def extract_float(string: str) -> float:
@@ -109,14 +111,44 @@ def length(item, kind='min'):
 
 def language(string):
     """
-    returns the language of the given string
+    returns the language of the given string, or list of strings
     :param string: a list of strings or a string
-    :return:
+    :return: One of the codes of the languages dictionary
     """
-    prompt = f"""What is the language of the following text?: \n {string}. \n Return ENG for 
-    English, ESP for Spanish, FR for French, GER for German and OTHER for other language."""
+    languages = {'ENG': 'English',
+                 'ESP': 'Spanish',
+                 'FR': 'French',
+                 'GER': 'German',
+                 'IT': 'Italian',
+                 'POR': 'Portuguese',
+                 'CHI': 'Chinese',
+                 'JAP': 'Japanese',
+                 'OTHER': 'other language'}
+
+    p = inflect.engine()
+    lang_list = [f"{k} for {v}" for k, v in languages.items()]
+    prompt = f"""What is the language of the following text?: \n {string}. \n Return {p.join(tuple(lang_list))}."""
     response = call_openai(prompt)
     return response
+
+
+def tone(item):
+    """
+    returns the tone ('POSITIVE', 'NEGATIVE', 'NEUTRAL') of each text in the parameter
+    :param string: the text
+    :return: a list with 'POSITIVE', 'NEGATIVE', 'NEUTRAL' for each text in item
+    """
+    if isinstance(item, str):
+        item = [item]
+    if not isinstance(item, list):
+        raise ValueError(f"Expecting a list of strings, or a string, but got {item}")
+
+    responses = []
+    for element in item:
+        prompt = f"""What is the tone of the following text: \n {element}. \n Return only POSTIVE, NEGATIVE or NEUTRAL."""
+        response = call_openai(prompt)
+        responses.append(response)
+    return responses
 
 
 def call_openai(message: str):

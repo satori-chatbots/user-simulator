@@ -1,0 +1,5 @@
+name: answers_tone
+description: Answers do not have negative tone
+conversations: 1
+oracle: |
+  'NEGATIVE' not in tone(chatbot_phrases)

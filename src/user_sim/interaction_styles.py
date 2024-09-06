@@ -39,7 +39,7 @@ class InteractionStyle:
 
 class LongPhrases(InteractionStyle):
     def __init__(self):
-        super().__init__(intertype='long phrases')
+        super().__init__(inter_type='long phrases')
 
     def get_prompt(self):
         return "use very long phrases to write anything. "
@@ -50,7 +50,7 @@ class LongPhrases(InteractionStyle):
 
 class ChangeYourMind(InteractionStyle):
     def __init__(self):
-        super().__init__(intertype='change your mind')
+        super().__init__(inter_type='change your mind')
 
     def get_prompt(self):
         return "eventually, change your mind about any information you provided. "
@@ -62,7 +62,7 @@ class ChangeYourMind(InteractionStyle):
 class ChangeLanguage(InteractionStyle):
     # TODO: add chance variable with *args
     def __init__(self, default_language):
-        super().__init__(intertype='change language')
+        super().__init__(inter_type='change language')
         self.default_language = default_language
         self.languages_list = []
 
@@ -97,7 +97,7 @@ class ChangeLanguage(InteractionStyle):
 
 class MakeSpellingMistakes(InteractionStyle):
     def __init__(self):
-        super().__init__(intertype='make spelling mistakes')
+        super().__init__(inter_type='make spelling mistakes')
 
     def get_prompt(self):
         prompt = """
@@ -112,7 +112,7 @@ class MakeSpellingMistakes(InteractionStyle):
 
 class SingleQuestions(InteractionStyle):
     def __init__(self):
-        super().__init__(intertype='single questions')
+        super().__init__(inter_type='single questions')
 
     def get_prompt(self):
         return "ask only one question per interaction. "
@@ -124,7 +124,7 @@ class SingleQuestions(InteractionStyle):
 class AllQuestions(InteractionStyle):
     # todo: all questions should only get questions from ask_about
     def __init__(self):
-        super().__init__(intertype='all questions')
+        super().__init__(inter_type='all questions')
 
     def get_prompt(self):
         return "ask everything you have to ask in one sentence. "
@@ -135,7 +135,7 @@ class AllQuestions(InteractionStyle):
 
 class Default(InteractionStyle):
     def __init__(self):
-        super().__init__(intertype='default')
+        super().__init__(inter_type='default')
 
     def get_prompt(self):
         return "Ask about one or two things per interaction, don't ask everything you want to know in one sentence."

@@ -12,3 +12,18 @@ class OutOfLimitException(Exception):
 
 class BadDictionaryGeneration(Exception):
     pass
+
+class InvalidItemType(Exception):
+    pass
+
+class EmptyListExcept(Exception):
+    pass
+
+class InvalidDataType(Exception):
+    pass
+
+class InvalidFormat(Exception):
+    pass
+
+class MissingStepDefinition(Exception):
+    pass

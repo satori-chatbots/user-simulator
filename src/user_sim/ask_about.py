@@ -1,5 +1,7 @@
 import random
+from .utils.exceptions import *
 from .utils.utilities import *
+import numpy as np
 
 
 class AskAboutClass:
@@ -13,11 +15,80 @@ class AskAboutClass:
         self.phrases = self.ask_about_processor(data)
 
     @staticmethod
+    # def get_variables(data):
+    #     variables = {}
+    #     for item in data:
+    #         if isinstance(item, dict):
+    #             variables.update(item)
+    #     return variables
     def get_variables(data):
         variables = {}
+
         for item in data:
             if isinstance(item, dict):
-                variables.update(item)
+                var_name = list(item.keys())[0]
+                content = item[var_name]
+                if content['type'] == 'string':
+                    for i in content['data']:
+                        if type(i) is not str:
+                            raise InvalidDataType(f'The following item is not a string: {i}')
+
+                    if content['data']:
+                        data_list = content['data']
+                    else:
+                        raise EmptyListExcept(f'Data list is empty.')
+
+                elif content['type'] == 'int':
+                    if isinstance(content['data'], list):
+                        for i in content['data']:
+                            if type(i) is not int:
+                                raise InvalidDataType(f'The following item is not an integer: {i}')
+                        if content['data']:
+                            data_list = content['data']
+                        else:
+                            raise EmptyListExcept(f'Data list is empty.')
+                    elif isinstance(content['data'], dict):
+                        keys = list(content['data'].keys())
+                        data = content['data']
+                        if 'step' in keys:
+                            if isinstance(data['min'], int) and isinstance(data['max'], int) and isinstance(
+                                    data['step'], int):
+                                data_list = np.arange(data['min'], data['max'], data['step'])
+                            else:
+                                raise InvalidDataType(f'Some of the range function parameters are not integers.')
+                        else:
+                            if isinstance(data['min'], int) and isinstance(data['max'], int):
+                                data_list = np.arange(data['min'], data['max'])
+                            else:
+                                raise InvalidDataType(f'Some of the range function parameters are not integers.')
+                    else:
+                        raise InvalidFormat(f'Data follows an invalid format.')
+
+                elif content['type'] == 'float':
+                    if isinstance(content['data'], list):
+                        for i in content['data']:
+                            if not isinstance(i, (int, float)):
+                                raise InvalidDataType(f'The following item is not a number: {i}')
+                        if content['data']:
+                            data_list = content['data']
+                        else:
+                            raise EmptyListExcept(f'Data list is empty.')
+                    elif isinstance(content['data'], dict):
+                        keys = list(content['data'].keys())
+                        data = content['data']
+                        if 'step' in keys:
+                            data_list = np.arange(data['min'], data['max'], data['step'])
+                        elif 'linspace' in keys:
+                            data_list = np.linspace(data['min'], data['max'], data['linspace'])
+                        else:
+                            raise MissingStepDefinition(f'"step" or "lisnpace" parameter missing. A step separation must be defined.')
+                    else:
+                        raise InvalidFormat(f'Data follows an invalid format.')
+                else:
+                    raise InvalidItemType(f'Invalid data type for variable list.')
+
+                dictionary = {var_name: data_list}
+                variables.update(dictionary)
         return variables
 
     @staticmethod

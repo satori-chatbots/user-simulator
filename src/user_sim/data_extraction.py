@@ -63,7 +63,7 @@ class DataExtraction:
 
         data_prompts = {'int': 'Output the data as an integer',
                         'float': 'Output the data as a float',
-                        'money': 'Output the data as money using the coin type in the conversation',
+                        'money': 'Output the data as money with the currency used in the conversation',
                         'str': "Extract and  display concisely only the requested information "
                                "without including additional context",
                         'time': 'Output the data in a "hh:mm:ss" format',

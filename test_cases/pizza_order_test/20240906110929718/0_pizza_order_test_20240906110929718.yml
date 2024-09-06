@@ -1,0 +1,49 @@
+serial: '20240906110929718'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size.random()}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings.random(rand)}}'
+- size:
+  - b
+- toppings:
+  - onion
+  - mushrooms
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! What sizes of pizza do you have available?
+- Assistant: Hello! We offer pizzas in small, medium, and big sizes. Could you please
+    specify which size you would like to order?
+- User: I'd like to order a big size pizza, please.
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Great choice! Now, could you please specify the toppings you would like on your
+    big pizza? We have cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn,
+    and chicken.'
+- User: Could you add onions and mushrooms to the pizza, please?
+- Assistant: 'I''m sorry, but we don''t offer onions as a topping. Could you please
+    choose from the following options: cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken? You''ve already chosen mushrooms.'
+- User: Sure, in that case, please add mushrooms and pepperoni.
+- Assistant: 'Great, a pizza with [''mushrooms'', ''pepperoni'']!
+
+    Perfect, we will add mushrooms and pepperoni to your big pizza. Now, could you
+    please tell me what drink you would like to have with your pizza? We offer coke,
+    sprite, and water.'
+- User: I'd like to have a coke with my pizza, please.
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Thanks! Can you tell me how long it will take for the pizza to arrive?
+- Assistant: I'm sorry it's a little loud in my pizza shop, can you say that again?

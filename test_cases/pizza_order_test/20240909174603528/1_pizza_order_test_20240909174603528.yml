@@ -1,0 +1,43 @@
+serial: '20240909174603528'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings}}'
+- size:
+  - medium
+- toppings:
+  - cheese
+  - tomato
+  - mushrooms
+  - olives
+  - pepperoni
+  - onion
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi! What sizes of pizza do you have available?
+- Assistant: Hello! We offer pizzas in small, medium, and big sizes. Could you please
+    specify which size you would like to order?
+- User: I'd like to order a medium pizza, please. Can you tell me what toppings you
+    have available?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Of course! We have a variety of toppings available. You can choose from cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken. Could you
+    please specify which toppings you would like on your medium pizza?'
+- User: Great! I'd like to have cheese and mushrooms on my pizza. What other toppings
+    would you recommend?
+- Assistant: 'Great, a pizza with [''cheese'', ''mushrooms'']!
+
+    That sounds like a delicious combination! For a little extra flavor, I would recommend
+    adding some olives or bacon. By the way, would you like to add a drink to your
+    order? We have coke, sprite, and water available.'

@@ -27,3 +27,9 @@ class InvalidFormat(Exception):
 
 class MissingStepDefinition(Exception):
     pass
+
+class InvalidGenerator(Exception):
+    pass
+
+class VariableNotFound(Exception):
+    pass

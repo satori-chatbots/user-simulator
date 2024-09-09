@@ -1,0 +1,47 @@
+serial: '20240909171953746'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings}}'
+- size:
+  - medium
+- toppings:
+  - olives
+conversation:
+- number: 2
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi, I'd like to order a medium pizza, please. What toppings do you have available?
+- Assistant: Hi there! I see you've already chosen a medium pizza. That's great! Now,
+    let's move on to the next step.
+- User: Could you tell me if you have olives as a topping?
+- Assistant: Yes, we do have olives as a topping. Would you like to add them to your
+    medium pizza?
+- User: Yes, please add olives to the pizza. What other toppings do you recommend?
+- Assistant: I'm glad you like olives! As for other toppings, we have a variety of
+    options such as pepperoni, mushrooms, bell peppers, onions, and sausage. Would
+    you like to add any of these to your pizza?
+- User: Mushrooms sound good. Could you add those as well, please?
+- Assistant: Absolutely, I've added mushrooms to your medium pizza along with olives.
+    Is there anything else you would like to add to your pizza?
+- User: No, that will be all for the toppings. How long is it going to take for the
+    pizza to arrive?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    I''m glad you''ve chosen olives and mushrooms as your toppings. However, I need
+    to confirm if you''d like any meat toppings such as ham, bacon, pepperoni, or
+    chicken. If not, we can proceed with your order.'
+- User: No, I'm good with just olives and mushrooms. Thank you! So how long will it
+    take for the pizza to arrive?
+- Assistant: 'Great, a pizza with [''olives'', ''mushrooms'']!
+
+    Great, your pizza order is almost complete. Could you please let me know what
+    drink you would like with your pizza? We have coke, sprite, and water available.'

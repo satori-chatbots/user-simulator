@@ -1,0 +1,62 @@
+serial: '20240909173544360'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings}}'
+- size:
+  - big
+- toppings:
+  - onion
+  - mushrooms
+  - pepperoni
+  - olives
+- size:
+  - big
+- toppings:
+  - tomato
+  - olives
+  - cheese
+  - mushrooms
+conversation:
+- number: 2
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: null
+---
+interaction:
+- User: Do you have a big size pizza available?
+- Assistant: Yes, we do have big size pizzas available. Would you like to order one?
+- User: 'User: Great! Can I get a pizza with tomatoes as one of the toppings?'
+- Assistant: Of course, we can add tomatoes to your pizza. Could you please specify
+    the size of the pizza you want? We have small, medium, and big sizes available.
+- User: I would like a big size pizza, please. And can you also add olives to it?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    I''m sorry, but we don''t have tomatoes as a topping option. We do have cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, corn, and chicken. You''ve already chosen
+    olives. Would you like to add any of these other toppings to your pizza?'
+- User: Sure, could you add cheese to the pizza as well?
+- Assistant: 'Great, a pizza with [''olives'', ''cheese'']!
+
+    Absolutely, we will add cheese to your pizza. Now, could you please tell me what
+    drink you would like to have with your pizza? We have coke, sprite, and water
+    available.'
+- User: I'm not interested in drinks right now. Could you also add mushrooms to my
+    pizza?
+- Assistant: 'Great, a pizza with mushrooms!
+
+    Sure, we can add mushrooms to your pizza. However, we still need to know your
+    choice of drink. We have coke, sprite, and water available. Could you please specify
+    your preference?'
+- User: I'm not interested in drinks right now. I'd just like to confirm that my big
+    pizza will have olives, cheese, and mushrooms. How long will it take for the pizza
+    to arrive?
+- Assistant: Your big pizza will indeed have olives, cheese, and mushrooms. As for
+    the delivery time, it usually takes about 30-45 minutes. However, we still need
+    to know your choice of drink. We have coke, sprite, and water available. Could
+    you please specify your preference?

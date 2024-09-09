@@ -1,0 +1,34 @@
+serial: '20240909174253287'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings}}'
+- size:
+  - medium
+- toppings:
+  - olives
+  - tomato
+  - mushrooms
+  - onion
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! Can I please order a medium pizza?
+- Assistant: Hi! You've mentioned that you'd like a medium pizza, so the size of the
+    pizza is already provided. Is there anything else you would like to add to your
+    order?
+- User: Yes, I'd like to add olives to the pizza.
+- Assistant: Great choice! We will add olives to your medium pizza. Is there anything
+    else you would like to add to your order?
+- User: I'd also like to add tomatoes, please.
+- Assistant: Great choice! We will add olives and tomatoes to your medium pizza. Is
+    there anything else you would like to add to your order?

@@ -1,0 +1,52 @@
+serial: '20240909171953746'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings}}'
+- size:
+  - medium
+- toppings:
+  - olives
+conversation:
+- number: 2
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! I'd like to order a medium pizza, please.
+- Assistant: Hi! You've mentioned that you'd like a medium pizza. So, I assume the
+    size of the pizza you want is medium. Is that correct?
+- User: Yes, that's correct. Could you tell me what kind of crust options you have?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Of course, we have a variety of crust options. But before we proceed, could you
+    please tell me what toppings you would like on your pizza? We have cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken.'
+- User: I'd like to have olives as one of the toppings, please. What crust options
+    do you have?
+- Assistant: 'Great, a pizza with olives!
+
+    Sure, we have a variety of crust options like thin crust, pan, and stuffed crust.
+    But before we proceed, could you please tell me what drink you would like to have
+    with your pizza? We have coke, sprite, and water.'
+- User: I'll go with a thin crust for my pizza. Regarding drinks, could you tell me
+    the sizes you offer for the coke?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: I didn't actually choose a coke yet. Could you please tell me the sizes you
+    offer for the coke?
+- Assistant: 'Of course! We offer our drinks in two sizes: small (12 oz) and large
+    (20 oz). Which one would you prefer for your coke?'
+- User: I'll take a large coke, please. How long will it take for my pizza to arrive?
+- Assistant: I'm sorry for the confusion, but it seems there might be a misunderstanding.
+    You've already mentioned that you'd like a medium pizza. So, we have the size
+    of the pizza you want. Is there anything else you would like to add to your order?

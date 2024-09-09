@@ -141,7 +141,9 @@ def generate(technology, chatbot, user, extract):
     user_profile = RoleData(user)
     serial = generate_serial()
 
+
     for i in range(user_profile.conversation_number):
+
         if technology == 'rasa':
             the_chatbot = ChatbotRasa(chatbot)
         elif technology == 'taskyto':

@@ -114,7 +114,7 @@ class RoleData:
         self.is_starter = self.validated_data.is_starter
         self.role = self.validated_data.role
         self.context = list_to_str(self.validated_data.context)  # list
-        self.ask_about = AskAboutClass(self.validated_data.ask_about)
+        self.ask_about.reset()      # self.picked_elements = [], self.phrases = []
 
         conversation = self.list_to_dict_reformat(self.validated_data.conversations)
         self.goal_style = pick_goal_style(conversation['goal_style'])  # list
@@ -181,7 +181,7 @@ class RoleData:
             return [interaction_def]
 
         elif isinstance(interactions[0], dict):
-            # todo: add validation funct to admit random only if it alone in the list
+            # todo: add validation funct to admit random only if it's alone in the list
             inter_keys = list(interactions[0].keys())
 
             if 'random' in inter_keys:

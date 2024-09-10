@@ -24,7 +24,7 @@ ask_about:
         - big
 
   - toppings:
-      function: random(rand)
+      function: forward()
       type: string
       data:
         - mushrooms

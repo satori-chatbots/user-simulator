@@ -11,12 +11,20 @@ class VarGenerators:
         self.value_list = value_list
         self.funct = funct
         self.generator = self.create_generator()
+        self.dependence_variable = None
+        self.first_execution = True
+        self.flag = True
+        self.last_return = None
+
+
 
     def get_gen(self):
-        return next(self.generator)
+        item = next(self.generator)
+        self.first_execution = False
+        self.last_return = item.copy()
+        return item
 
     def create_generator(self):
-        # matches = re.finditer(r'{{(\w+)(?:\((\w*)\))?}}', self.funct)
         pattern = r'(\w+)\((\w*)\)'
         match = re.search(pattern, self.funct)
         if match:
@@ -34,8 +42,14 @@ class VarGenerators:
                     return generator
 
             elif handler_name == 'forward':
+                if count != '':
+                    self.dependence_variable = count
                 generator = self.forward_generator()
                 return generator
+
+            # elif handler_name == 'forward_dependence':
+            #     generator = self.forward_dependence_generator()
+            #     return generator
 
             elif handler_name == 'another':
                 generator = self.another_generator()
@@ -64,7 +78,10 @@ class VarGenerators:
     def forward_generator(self):
         while True:
             for sample in self.value_list:
+                self.flag = False
                 yield [sample]
+            self.flag = True
+
 
     def another_generator(self):
         while True:
@@ -81,7 +98,7 @@ class AskAboutClass:
         self.variable_list = self.get_variables(data)
         self.str_list = self.get_phrases(data)
         self.picked_elements = []
-        self.var_generator = self.variable_generator(self.variable_list)
+        self.var_generators = self.variable_generator(self.variable_list)
         self.phrases = []
 
     @staticmethod
@@ -185,52 +202,30 @@ class AskAboutClass:
 
         return generators
 
-    # def replace_variables(self, text, variables):
-    #     matches = re.finditer(r'{{(\w+)\.(\w+)(?:\((\w*)\))?}}', text)
-    #     for match in matches:
-    #         var_name = match.group(1)
-    #         handler_name = match.group(2)
-    #         count = match.group(3) if match.group(3) else ''
-    #         if var_name in variables and handler_name in self.handlers:
-    #             if handler_name == 'random':
-    #                 replacement = self.handlers[handler_name](self.variable_list[var_name], count)
-    #             elif handler_name == 'forward':
-    #                 replacement = next(self.handlers[handler_name](self.variable_list[var_name]))
-    #             elif handler_name == 'another':
-    #
-    #             self.picked_elements.append({var_name: replacement})
-    #             replacement_srt = ', '.join(map(str, replacement))
-    #             text = text.replace(match.group(0), replacement_srt)
-    #
-    #     matches = re.finditer(r'{{(\w+)}}', text)
-    #     for match in matches:
-    #         var_name = match.group(1)
-    #         if var_name in variables:
-    #             self.picked_elements.append(variables)
-    #             replacement = ', '.join(variables[var_name])
-    #             text = text.replace(match.group(0), replacement)
-    #
-    #     return text
+    def analyze_dependency(self, generator, var_generators):
+
+        if 'depend' in generator.func:
+            pass
+
+        else:
+            return generator.get_gen()
+
 
     def replace_variables(self, text):
 
         matches = re.finditer(r'{{(\w+)}}', text)
         for match in matches:
-
-            for gen in self.var_generator:
+            for gen in self.var_generators:
                 if match.group(1) == gen['name']:
                     generator = gen['generator']
                     value = generator.get_gen()
                     self.picked_elements.append({match.group(1): value})
                     replacement = ', '.join(value)
                     text = text.replace(match.group(0), replacement)
-                # else:
-                #     raise VariableNotFound(f"couldn't find a match for variable '{match.group(1)}' ")
-
         return text
 
-    def ask_about_processor(self, phrases):
 
+    def ask_about_processor(self, phrases):
         result_phrases = []
         for text in phrases:
             result_phrases.append(self.replace_variables(text))

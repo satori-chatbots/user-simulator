@@ -1,0 +1,24 @@
+serial: '20240911152519578'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: {{toppings}}'
+- size:
+  - medium
+- toppings:
+  - tomato
+conversation:
+- number: 4
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! I'd like to order a pizza. Do you have medium sizes available?
+- Assistant: Of course, we do have medium-sized pizzas. So, you would like a medium
+    pizza, correct?

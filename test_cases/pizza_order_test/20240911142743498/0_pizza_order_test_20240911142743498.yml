@@ -1,0 +1,48 @@
+serial: '20240911142743498'
+language: null
+ask_about:
+- 'a pizza with the following size: small'
+- how long is going to take for the pizza to arrive in the end of the conversation
+- 'the following toppings: mushrooms'
+- size:
+  - small
+- toppings:
+  - mushrooms
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! I would like to order a pizza. Do you have mushrooms as a topping?
+- Assistant: Welcome to my pizza shop. I'm the owner and I'm happy to help you. Yes,
+    we do have mushrooms as a topping. What size of pizza would you like and would
+    you like to order a drink as well?
+- User: I'd like a small pizza with mushrooms, please. What drinks do you have available?
+- Assistant: I see that you've already chosen a small pizza. Could you please confirm
+    that this is the size you want?
+- User: Yes, a small pizza is perfect. Could you tell me what drinks you have available?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    Great, a small pizza with mushrooms it is! However, we need to confirm the rest
+    of your toppings. You can choose from cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken. What other toppings would you like on your pizza?'
+- User: I'd like just mushrooms as the topping. For drinks, what options do you have
+    available?
+- Assistant: 'Great, a pizza with mushrooms!
+
+    Sure, for drinks we have coke, sprite, and water. Which one would you like to
+    have with your pizza?'
+- User: I'll have a coke, please. How long will it take for my pizza to arrive?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Thank you! How long will it take for my pizza to arrive?
+- Assistant: I'm sorry it's a little loud in my pizza shop, can you say that again?

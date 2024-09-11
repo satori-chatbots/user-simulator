@@ -16,12 +16,11 @@ ask_about:
   - "the following toppings: {{toppings}}"
 
   - size:
-      function: forward()
+      function: forward(toppings)
       type: string
       data:
         - small
         - medium
-        - big
 
   - toppings:
       function: forward()
@@ -29,11 +28,6 @@ ask_about:
       data:
         - mushrooms
         - tomato
-        - onion
-        - cheese
-        - olives
-        - pepperoni
-
 
 output:
   - price:
@@ -45,9 +39,9 @@ output:
 
 
 conversations:
-  - number: 2
+  - number: 4
   - goal_style:
-        steps: 3
+        steps: 1
   - interaction_style:
       - default
 #      - random:

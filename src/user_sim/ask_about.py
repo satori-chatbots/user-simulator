@@ -1,4 +1,5 @@
 import random
+import copy
 from .utils.exceptions import *
 from .utils.utilities import *
 import numpy as np
@@ -10,17 +11,14 @@ class VarGenerators:
 
         self.value_list = value_list
         self.funct = funct
-        self.generator = self.create_generator()
         self.dependence_variable = None
-        self.first_execution = True
         self.flag = True
         self.last_return = None
-
+        self.generator = self.create_generator()
 
 
     def get_gen(self):
         item = next(self.generator)
-        self.first_execution = False
         self.last_return = item.copy()
         return item
 
@@ -78,10 +76,8 @@ class VarGenerators:
     def forward_generator(self):
         while True:
             for sample in self.value_list:
-                self.flag = False
+                self.flag = True if sample == self.value_list[-1] else False
                 yield [sample]
-            self.flag = True
-
 
     def another_generator(self):
         while True:
@@ -91,15 +87,59 @@ class VarGenerators:
                 yield sample
 
 
+def reorder_variables(entries):
+    def parse_entry(entry):
+
+        match = re.search(r'forward\((.*?)\)', entry['function'])
+        if match:
+            slave = entry['name']
+            master = match.group(1)
+            return slave, master
+
+    def reorder_list(dependencies):
+        tuple_list = []
+        none_list = []
+        for main_tuple in dependencies:
+            if main_tuple:
+                for comp_tuple in dependencies:
+                    if comp_tuple:
+                        if main_tuple[1] == comp_tuple[0]:
+                            tuple_list.append(main_tuple)
+                            tuple_list.append(comp_tuple)
+            else:
+                none_list.append(main_tuple)
+
+        tuple_list = list(dict.fromkeys(tuple_list))
+        return tuple_list
+
+    dependencies_list = []
+
+    for entry in entries:
+        dependencies_list.append(parse_entry(entry))
+
+    reordered_list = reorder_list(dependencies_list)
+
+    editable_entries = entries.copy()
+    new_entries = []
+    for tupl in reordered_list:
+        for entry in entries:
+            if tupl[0] == entry['name']:
+                new_entries.append(entry)
+                editable_entries.remove(entry)
+    reordered_entries = new_entries + editable_entries
+    return reordered_entries
+
+
 class AskAboutClass:
 
     def __init__(self, data):
 
         self.variable_list = self.get_variables(data)
         self.str_list = self.get_phrases(data)
-        self.picked_elements = []
         self.var_generators = self.variable_generator(self.variable_list)
-        self.phrases = []
+        self.phrases = self.str_list.copy()
+        self.picked_elements = []
+
 
     @staticmethod
     def get_variables(data):
@@ -169,9 +209,11 @@ class AskAboutClass:
                 else:
                     raise InvalidItemType(f'Invalid data type for variable list.')
 
-                dictionary = {'name': var_name, 'data': data_list, 'function': content['function']} #(size, [small, medium], random())
+                dictionary = {'name': var_name, 'data': data_list,
+                              'function': content['function']}  #(size, [small, medium], random())
                 variables.append(dictionary)
-        return variables
+        reordered_variables = reorder_variables(variables)
+        return reordered_variables
 
     @staticmethod
     def get_phrases(data):
@@ -202,41 +244,62 @@ class AskAboutClass:
 
         return generators
 
-    def analyze_dependency(self, generator, var_generators):
 
-        if 'depend' in generator.func:
-            pass
+    # def replace_variables(self, text):
+    #     matches = re.finditer(r'{{(\w+)}}', text)
+    #     for match in matches:
+    #         for gen in self.var_generators:
+    #             if match.group(1) == gen['name']:
+    #                 generator = gen['generator']
+    #                 value = generator.get_gen()
+    #                 self.picked_elements.append({match.group(1): value})
+    #                 replacement = ', '.join(value)
+    #                 text = text.replace(match.group(0), replacement)
+    #     return text
 
+    def check_dependency(self, generator):
+        gen = generator['generator']
+
+        if gen.dependence_variable:
+            for var in self.var_generators:
+                if var['name'] == gen.dependence_variable:
+                    if var['generator'].flag:
+                        return gen.get_gen()
+                    else:
+                        return gen.last_return
         else:
-            return generator.get_gen()
+            return gen.get_gen()
 
 
-    def replace_variables(self, text):
+    def replace_variables(self, variable):
 
-        matches = re.finditer(r'{{(\w+)}}', text)
-        for match in matches:
-            for gen in self.var_generators:
-                if match.group(1) == gen['name']:
-                    generator = gen['generator']
-                    value = generator.get_gen()
-                    self.picked_elements.append({match.group(1): value})
-                    replacement = ', '.join(value)
-                    text = text.replace(match.group(0), replacement)
-        return text
+        for gen in self.var_generators:
+            if variable['name'] == gen['name']:
+                value = self.check_dependency(gen)
+
+                for index, text in enumerate(self.phrases):
+                    matches = re.finditer(r'{{(\w+)}}', text)
+                    for match in matches:
+                        if match.group(1) == variable['name']:
+                            self.picked_elements.append({match.group(1): value})
+                            replacement = ', '.join(value)
+                            text = text.replace(match.group(0), replacement)
+                            self.phrases[index] = text
+                            break
+                    else:
+                        self.phrases[index] = text
 
 
-    def ask_about_processor(self, phrases):
+    def ask_about_processor(self, variable_list):
         result_phrases = []
-        for text in phrases:
-            result_phrases.append(self.replace_variables(text))
-
-        return result_phrases
+        for variable in variable_list:
+            self.replace_variables(variable)
+        return self.phrases
 
     def prompt(self):
-        phrases = self.ask_about_processor(self.str_list)
-        self.phrases = phrases
+        phrases = self.ask_about_processor(self.variable_list)
         return list_to_phrase(phrases, True)
 
     def reset(self):
         self.picked_elements = []
-        self.phrases = []
+        self.phrases = self.str_list.copy()

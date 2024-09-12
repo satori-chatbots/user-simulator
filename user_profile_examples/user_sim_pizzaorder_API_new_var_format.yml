@@ -12,7 +12,7 @@ context:
 
 ask_about:
   - "a pizza with the following size: {{size}}"
-  - "how long is going to take for the pizza to arrive in the end of the conversation"
+  - "the following drink: {{drink}}"
   - "the following toppings: {{toppings}}"
 
   - size:
@@ -23,11 +23,20 @@ ask_about:
         - medium
 
   - toppings:
-      function: forward()
+      function: forward(drink)
       type: string
       data:
         - mushrooms
         - tomato
+
+  - drink:
+      function: forward()
+      type: string
+      data:
+        - sprite
+        - coke
+
+
 
 output:
   - price:
@@ -39,7 +48,7 @@ output:
 
 
 conversations:
-  - number: 4
+  - number: 8
   - goal_style:
         steps: 1
   - interaction_style:

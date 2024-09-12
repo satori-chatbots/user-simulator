@@ -33,3 +33,6 @@ class InvalidGenerator(Exception):
 
 class VariableNotFound(Exception):
     pass
+
+class InvalidDependence(Exception):
+    pass

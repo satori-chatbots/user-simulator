@@ -16,7 +16,6 @@ class VarGenerators:
         self.last_return = None
         self.generator = self.create_generator()
 
-
     def get_gen(self):
         item = next(self.generator)
         self.last_return = item.copy()
@@ -44,10 +43,6 @@ class VarGenerators:
                     self.dependence_variable = count
                 generator = self.forward_generator()
                 return generator
-
-            # elif handler_name == 'forward_dependence':
-            #     generator = self.forward_dependence_generator()
-            #     return generator
 
             elif handler_name == 'another':
                 generator = self.another_generator()
@@ -78,6 +73,7 @@ class VarGenerators:
             for sample in self.value_list:
                 self.flag = True if sample == self.value_list[-1] else False
                 yield [sample]
+
 
     def another_generator(self):
         while True:
@@ -130,6 +126,17 @@ def reorder_variables(entries):
     return reordered_entries
 
 
+def dependency_error_check(variable_list):
+    for slave in variable_list:
+        for master in variable_list:
+            if slave['dependence'] == master['name']:
+                pattern = r'(\w+)\((\w*)\)'
+                match = re.search(pattern, master['function'])
+                function = match.group(1)
+                if function != 'forward':
+                    raise InvalidDependence(f"the following function doesn't admit dependence: {function}")
+
+
 class AskAboutClass:
 
     def __init__(self, data):
@@ -139,7 +146,6 @@ class AskAboutClass:
         self.var_generators = self.variable_generator(self.variable_list)
         self.phrases = self.str_list.copy()
         self.picked_elements = []
-
 
     @staticmethod
     def get_variables(data):
@@ -209,10 +215,23 @@ class AskAboutClass:
                 else:
                     raise InvalidItemType(f'Invalid data type for variable list.')
 
+                pattern = r'(\w+)\((\w*)\)'
+                match = re.search(pattern, content['function'])
+                if match:
+                    count = match.group(2) if match.group(2) else ''
+                    if not count == '' or count == 'rand' or count.isdigit():
+                        dependence = count
+                    else:
+                        dependence = None
+                else:
+                    dependence = None
+
                 dictionary = {'name': var_name, 'data': data_list,
-                              'function': content['function']}  #(size, [small, medium], random())
+                              'function': content['function'],
+                              'dependence': dependence}  # (size, [small, medium], random())
                 variables.append(dictionary)
         reordered_variables = reorder_variables(variables)
+        dependency_error_check(reordered_variables)
         return reordered_variables
 
     @staticmethod
@@ -244,19 +263,6 @@ class AskAboutClass:
 
         return generators
 
-
-    # def replace_variables(self, text):
-    #     matches = re.finditer(r'{{(\w+)}}', text)
-    #     for match in matches:
-    #         for gen in self.var_generators:
-    #             if match.group(1) == gen['name']:
-    #                 generator = gen['generator']
-    #                 value = generator.get_gen()
-    #                 self.picked_elements.append({match.group(1): value})
-    #                 replacement = ', '.join(value)
-    #                 text = text.replace(match.group(0), replacement)
-    #     return text
-
     def check_dependency(self, generator):
         gen = generator['generator']
 
@@ -269,7 +275,6 @@ class AskAboutClass:
                         return gen.last_return
         else:
             return gen.get_gen()
-
 
     def replace_variables(self, variable):
 
@@ -288,7 +293,6 @@ class AskAboutClass:
                             break
                     else:
                         self.phrases[index] = text
-
 
     def ask_about_processor(self, variable_list):
         result_phrases = []

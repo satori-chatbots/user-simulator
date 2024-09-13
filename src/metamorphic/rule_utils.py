@@ -1,8 +1,10 @@
 import os
 import re
-
+from metamorphic import filtered_tests
 import inflect
 from openai import OpenAI
+
+from metamorphic.tests import Test
 
 
 def util_functions_to_dict() -> dict:
@@ -13,8 +15,21 @@ def util_functions_to_dict() -> dict:
             'currency': currency,
             'language': language,
             'length': length,
-            'tone': tone}
+            'tone': tone,
+            'is_unique': is_unique}
 
+def is_unique(property: str) -> bool:
+    values = dict() # a dictionary of property values to test file name
+    for test in filtered_tests:
+        var_dict = test.to_dict()
+        if property not in var_dict:
+            continue
+        if var_dict[property] in values:
+            print(f"   Tests: {test.file_name} and {values[var_dict[property]]} have value {var_dict[property]} for {property}.")
+            return False
+        else:
+            values[var_dict[property]] = test.file_name
+    return True
 
 def extract_float(string: str) -> float:
     """

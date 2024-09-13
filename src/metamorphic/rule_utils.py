@@ -19,8 +19,20 @@ def util_functions_to_dict() -> dict:
             'length': length,
             'tone': tone,
             'is_unique': is_unique,
-            'exists': exists}
+            'exists': exists,
+            'num_exist': num_exist}
 
+
+def num_exist(condition: str) -> int:
+    num = 0
+    for test in get_filtered_tests():
+        test_dict = test.to_dict()
+        conv = [SimpleNamespace(**test_dict)]
+        test_dict['conv'] = conv
+        test_dict.update(util_functions_to_dict())
+        if eval(condition, test_dict):
+            num += 1
+    return num
 
 def exists(condition: str) -> bool:
     for test in get_filtered_tests():

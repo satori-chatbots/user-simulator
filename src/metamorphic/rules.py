@@ -2,8 +2,10 @@ from pydantic import BaseModel, Field, model_validator
 from typing import Optional, List, Any
 from types import SimpleNamespace
 
+from . import get_filtered_tests, empty_filtered_tests
 from .rule_utils import *
 
+from .rule_utils import filtered_tests
 from metamorphic.tests import Test
 
 
@@ -19,17 +21,48 @@ class Rule(BaseModel):
     @model_validator(mode='before')
     @classmethod
     def check_aliases(cls, values: Any) -> Any:
-        # Handle 'oracle' or 'then' interchangeably
-        if 'oracle' in values:
+        if 'oracle' in values:      # Handle 'oracle' or 'then' interchangeably
             values['then'] = values.pop('oracle')
+        if 'conversations' in values and values['conversations'] == 'all':  # handle global rules ('all')
+            values['conversations'] = -1
         return values
 
     def test(self, tests: List[Test], verbose: bool = False) -> dict:
-        print(f" - Checking rule {self.name} [conversations: {self.conversations}]")
+        print(f" - Checking rule {self.name} [conversations: {self.conversations if self.conversations!=-1 else 'all'}]")
         if self.conversations == 1:
             return self.__property_test(tests, verbose)
-        else:
+        elif self.conversations == -1: # global rules
+            return self.__global_test(tests, verbose)
+        else: # by now we assume just 2 conversations...
             return self.__metamorphic_test(tests, verbose)
+
+    def __global_test(self, tests: List[Test], verbose: bool) -> dict:
+        results = {'pass': [], 'fail': [], 'not_applicable': []}
+        # filter the tests, to select only those satisfying when and if
+        empty_filtered_tests()
+        filtered = get_filtered_tests()
+        for test in tests:
+            test_dict = test.to_dict()
+            conv = [SimpleNamespace(**test_dict)]
+            test_dict['conv'] = conv
+            test_dict.update(util_functions_to_dict())
+            if self.applies(test_dict) and self.if_eval(test_dict):
+                filtered.append(test)
+            else: # does not apply
+                results['not_applicable'].append(test.file_name)
+                if verbose:
+                    print(f"   - On file {test.file_name}")
+                    print(f"     -> Does not apply.")
+
+        if self.then_eval(test_dict):
+            results['pass'].append(filtered)
+            if verbose:
+                print(f"   - On files {', '.join([test.file_name for test in filtered])}")
+                print(f"     -> Satisfied!")
+        else:
+            results['fail'].append(filtered)
+
+        return results
 
     def __property_test(self, tests: List[Test], verbose: bool) -> dict:
         results = {'pass': [], 'fail': [], 'not_applicable': []}

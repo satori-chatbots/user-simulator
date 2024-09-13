@@ -34,7 +34,10 @@ class Result:
             sat = len(self.results_dict[rule]['pass'])
             fail = len(self.results_dict[rule]['fail'])
             not_applic = len(self.results_dict[rule]['not_applicable'])
-            fail_rate = 100.0 * fail / (sat + fail)
+            if (sat + fail) > 0:
+                fail_rate = 100.0 * fail / (sat + fail)
+            else:
+                fail_rate = 0.0
             stats_dict[rule] = {
                 'checks': total,
                 'pass': sat,

@@ -2,9 +2,12 @@ from pydantic import BaseModel, Field, model_validator
 from typing import Optional, List, Any
 from types import SimpleNamespace
 
+from . import get_filtered_tests, empty_filtered_tests
 from .rule_utils import *
 
+from .rule_utils import filtered_tests
 from metamorphic.tests import Test
+
 
 class Rule(BaseModel):
     name: str
@@ -33,19 +36,18 @@ class Rule(BaseModel):
         else: # by now we assume just 2 conversations...
             return self.__metamorphic_test(tests, verbose)
 
-
     def __global_test(self, tests: List[Test], verbose: bool) -> dict:
         results = {'pass': [], 'fail': [], 'not_applicable': []}
         # filter the tests, to select only those satisfying when and if
-        global filtered_tests
-        filtered_tests = []
+        empty_filtered_tests()
+        filtered = get_filtered_tests()
         for test in tests:
             test_dict = test.to_dict()
             conv = [SimpleNamespace(**test_dict)]
             test_dict['conv'] = conv
             test_dict.update(util_functions_to_dict())
             if self.applies(test_dict) and self.if_eval(test_dict):
-                filtered_tests.append(test)
+                filtered.append(test)
             else: # does not apply
                 results['not_applicable'].append(test.file_name)
                 if verbose:
@@ -53,12 +55,12 @@ class Rule(BaseModel):
                     print(f"     -> Does not apply.")
 
         if self.then_eval(test_dict):
-            results['pass'].append(filtered_tests)
+            results['pass'].append(filtered)
             if verbose:
-                print(f"   - On files {', '.join([test.file_name for test in filtered_tests])}")
+                print(f"   - On files {', '.join([test.file_name for test in filtered])}")
                 print(f"     -> Satisfied!")
         else:
-            results['fail'].append(filtered_tests)
+            results['fail'].append(filtered)
 
         return results
 

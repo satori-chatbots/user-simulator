@@ -1,11 +1,13 @@
 import os
 import re
-from metamorphic import filtered_tests
+from types import SimpleNamespace
+
 import inflect
 from openai import OpenAI
 
-from metamorphic.tests import Test
+from metamorphic import get_filtered_tests
 
+filtered_tests = []
 
 def util_functions_to_dict() -> dict:
     """
@@ -16,11 +18,25 @@ def util_functions_to_dict() -> dict:
             'language': language,
             'length': length,
             'tone': tone,
-            'is_unique': is_unique}
+            'is_unique': is_unique,
+            'exists': exists}
+
+
+def exists(condition: str) -> bool:
+    for test in get_filtered_tests():
+        test_dict = test.to_dict()
+        conv = [SimpleNamespace(**test_dict)]
+        test_dict['conv'] = conv
+        test_dict.update(util_functions_to_dict())
+        if eval(condition, test_dict):
+            # print(f"   Satisfied on {test.file_name}")
+            return True
+    return False
+
 
 def is_unique(property: str) -> bool:
     values = dict() # a dictionary of property values to test file name
-    for test in filtered_tests:
+    for test in get_filtered_tests():
         var_dict = test.to_dict()
         if property not in var_dict:
             continue

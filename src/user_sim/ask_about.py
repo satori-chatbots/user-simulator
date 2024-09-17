@@ -5,79 +5,273 @@ from .utils.utilities import *
 import numpy as np
 
 
+# class VarGenerators:
+#
+#     def __init__(self, value_list, funct):
+#
+#
+#         self.value_list = value_list
+#         self.funct = funct
+#         self.dependence_variable = None
+#         self.flag = True
+#         self.last_return = None
+#         self.generator = self.create_generator()
+#
+#     def get_gen(self):
+#         item = next(self.generator)
+#         self.last_return = item.copy()
+#         return item
+#
+#     def create_generator(self):
+#         pattern = r'(\w+)\((\w*)\)'
+#         match = re.search(pattern, self.funct)
+#         if match:
+#             handler_name = match.group(1)
+#             count = match.group(2) if match.group(2) else ''
+#             if handler_name == 'random':
+#                 if count == '':
+#                     generator = self.random_choice_generator()
+#                     return generator
+#                 elif count.isdigit():
+#                     generator = self.random_choice_count_generator(count)
+#                     return generator
+#                 elif count == 'rand':
+#                     generator = self.random_choice_random_count_generator()
+#                     return generator
+#
+#             elif handler_name == 'forward':
+#                 if count != '':
+#                     self.dependence_variable = count
+#                 generator = self.forward_generator()
+#                 return generator
+#
+#             elif handler_name == 'another':
+#                 generator = self.another_generator()
+#                 return generator
+#
+#             else:
+#                 raise InvalidGenerator(f'Invalid generator function: {handler_name}')
+#         else:
+#             raise InvalidFormat(f"an invalid function format was used: {self.funct}")
+#
+#     def random_choice_generator(self):
+#         while True:
+#             yield [random.choice(self.value_list)]
+#
+#     def random_choice_count_generator(self, count):
+#         while True:
+#             sample = random.sample(self.value_list, min(count, len(self.value_list)))
+#             yield sample
+#
+#     def random_choice_random_count_generator(self):
+#         while True:
+#             count = random.randint(1, len(self.value_list))
+#             sample = random.sample(self.value_list, min(count, len(self.value_list)))
+#             yield sample
+#
+#     def forward_generator(self):
+#         while True:
+#             for sample in self.value_list:
+#                 self.flag = True if sample == self.value_list[-1] else False
+#                 yield [sample]
+#
+#
+#     def another_generator(self):
+#         while True:
+#             copy_list = self.value_list[:]
+#             random.shuffle(copy_list)
+#             for sample in copy_list:
+#                 yield sample
+
+# def build_sequence(pairs):
+#     mapping = {}
+#     starts = set()
+#     ends = set()
+#     for a, b in pairs:
+#         mapping[a] = b
+#         starts.add(a)
+#         ends.add(b)
+#     # Find the starting word (appears in 'starts' but not in 'ends')
+#     start = starts - ends
+#     if len(start) != 1:
+#         raise ValueError("Cannot determine a unique starting point.")
+#     current_word = start.pop()
+#     sequence = [current_word]
+#     while current_word in mapping:
+#         current_word = mapping[current_word]
+#         sequence.append(current_word)
+#     return sequence
+
+
+
 class VarGenerators:
 
-    def __init__(self, value_list, funct):
+    def __init__(self, variable_list):
 
-        self.value_list = value_list
-        self.funct = funct
-        self.dependence_variable = None
-        self.flag = True
-        self.last_return = None
-        self.generator = self.create_generator()
+        self.variable_list = variable_list
+        self.generator_list = self.create_generator_list()
+        # self.dependence_variable = None
+        # self.flag = True
+        # self.last_return = None
+        # self.generator = self.create_generator()
 
     def get_gen(self):
         item = next(self.generator)
         self.last_return = item.copy()
         return item
 
-    def create_generator(self):
-        pattern = r'(\w+)\((\w*)\)'
-        match = re.search(pattern, self.funct)
-        if match:
-            handler_name = match.group(1)
-            count = match.group(2) if match.group(2) else ''
-            if handler_name == 'random':
-                if count == '':
-                    generator = self.random_choice_generator()
-                    return generator
-                elif count.isdigit():
-                    generator = self.random_choice_count_generator(count)
-                    return generator
-                elif count == 'rand':
-                    generator = self.random_choice_random_count_generator()
-                    return generator
+    class ForwardMatrixGenerator:
+        def __init__(self):
+            self.forward_function_list = []
+            self.dependence_tuple_list = []  # [(size, toppings), (toppings,drink), (drink, None)]
+            self.dependent_list = []
+            self.independent_list = []
+            self.dependence_matrix = []
+            self.dependent_generators = []
+            self.independent_generators = []
 
-            elif handler_name == 'forward':
-                if count != '':
-                    self.dependence_variable = count
-                generator = self.forward_generator()
-                return generator
+        def get_matrix(self, dependent_variable_list):
+            self.dependence_matrix.clear()
+            for variable in dependent_variable_list:
+                for forward in self.forward_function_list:
+                    if variable == forward['name']:
+                        self.dependence_matrix.append(forward['data'])
 
-            elif handler_name == 'another':
-                generator = self.another_generator()
-                return generator
+
+        def add_forward(self, forward_variable): # 'name': var_name, 'data': data_list,'function': content['function'],'dependence': dependence}
+            self.forward_function_list.append(forward_variable)
+
+            if forward_variable['dependence']:
+                master = forward_variable['dependence']
+                slave = forward_variable['name']
+                self.dependence_tuple_list.append((slave, master))
+                for indep_item in self.independent_list:
+                    if indep_item == master:
+                        self.independent_list.remove(master)
+                        self.dependence_tuple_list.append((master, None))
 
             else:
-                raise InvalidGenerator(f'Invalid generator function: {handler_name}')
-        else:
-            raise InvalidFormat(f"an invalid function format was used: {self.funct}")
+                if self.dependence_tuple_list:
+                    dtlc = self.dependence_tuple_list.copy()
+                    for dependence in dtlc:  # [(size, toppings), (toppings,drink), (drink, None)]
+                        if forward_variable['name'] in dependence:
+                            master = forward_variable['name']
+                            self.dependence_tuple_list.append((master, None))
+                            break
+                    else:
+                        master = forward_variable['name']
+                        self.independent_list.append(master)
+                else:
+                    master = forward_variable['name']
+                    self.independent_list.append(master)
 
-    def random_choice_generator(self):
-        while True:
-            yield [random.choice(self.value_list)]
+            self.dependent_list = build_sequence(self.dependence_tuple_list)
 
-    def random_choice_count_generator(self, count):
+            self.get_matrix(self.dependent_list)
+
+
+        def combination_generator(self, matrix):
+                if not matrix:
+                    while True:
+                        yield []
+                else:
+                    lengths = [len(lst) for lst in matrix]
+                    indices = [0] * len(matrix)
+                    while True:
+                        # Yield the current combination based on indices
+                        yield [matrix[i][indices[i]] for i in range(len(matrix))]
+                        # Increment indices from the last position
+                        i = len(matrix) - 1
+                        while i >= 0:
+                            indices[i] += 1
+                            if indices[i] < lengths[i]:
+                                break
+                            else:
+                                indices[i] = 0
+                                i -= 1
+
+        def forward_generator(self, value_list):
+            while True:
+                for sample in value_list:
+                    yield [sample]
+
+        def get_generator_list(self):
+
+            function_map = {function['name']: function['data'] for function in self.forward_function_list}
+            independent_generators = [
+                {'name': i, 'generator': self.forward_generator(function_map[i])} for i in self.independent_list if i in function_map
+            ]
+
+            dependent_generators = {
+                'name': self.dependent_list, 'generator': self.combination_generator(self.dependence_matrix)
+            }
+
+            return independent_generators + [dependent_generators]
+
+
+    def create_generator_list(self):
+        generator_list = []
+        my_forward = self.ForwardMatrixGenerator()
+        for variable in self.variable_list:
+            name = variable['name']
+            data = variable['data']
+            pattern = r'(\w+)\((\w*)\)'
+            match = re.search(pattern, variable['function'])
+            if match:
+                handler_name = match.group(1)
+                count = match.group(2) if match.group(2) else ''
+                if handler_name == 'random':
+                    if count == '':
+                        generator = self.random_choice_generator(data)
+                        generator_list.append({'name': name, 'generator': generator})
+                    elif count.isdigit():
+                        generator = self.random_choice_count_generator(data, count)
+                        generator_list.append({'name': name, 'generator': generator})
+                    elif count == 'rand':
+                        generator = self.random_choice_random_count_generator(data)
+                        generator_list.append({'name': name, 'generator': generator})
+
+                elif handler_name == 'forward':
+                    my_forward.add_forward(variable)
+
+                elif handler_name == 'another':
+                    generator = self.another_generator(data)
+                    generator_list.append({'name': name, 'generator': generator})
+                else:
+                    raise InvalidGenerator(f'Invalid generator function: {handler_name}')
+            else:
+                raise InvalidFormat(f"an invalid function format was used: {variable['function']}")
+
+        return generator_list + my_forward.get_generator_list()
+
+    @staticmethod
+    def random_choice_generator(data):
         while True:
-            sample = random.sample(self.value_list, min(count, len(self.value_list)))
+            yield [random.choice(data)]
+
+    @staticmethod
+    def random_choice_count_generator(data, count):
+        while True:
+            sample = random.sample(data, min(count, len(data)))
             yield sample
 
-    def random_choice_random_count_generator(self):
+    @staticmethod
+    def random_choice_random_count_generator(data):
         while True:
-            count = random.randint(1, len(self.value_list))
-            sample = random.sample(self.value_list, min(count, len(self.value_list)))
+            count = random.randint(1, len(data))
+            sample = random.sample(data, min(count, len(data)))
             yield sample
+    # @staticmethod
+    # def forward_generator(data):
+    #     while True:
+    #         for sample in data:
+    #             self.flag = True if sample == data[-1] else False
+    #             yield [sample]
 
-    def forward_generator(self):
+    @staticmethod
+    def another_generator(data):
         while True:
-            for sample in self.value_list:
-                self.flag = True if sample == self.value_list[-1] else False
-                yield [sample]
-
-
-    def another_generator(self):
-        while True:
-            copy_list = self.value_list[:]
+            copy_list = data[:]
             random.shuffle(copy_list)
             for sample in copy_list:
                 yield sample
@@ -135,6 +329,7 @@ def dependency_error_check(variable_list):
                 function = match.group(1)
                 if function != 'forward':
                     raise InvalidDependence(f"the following function doesn't admit dependence: {function}")
+
 
 
 class AskAboutClass:
@@ -254,14 +449,21 @@ class AskAboutClass:
             return random.sample(values, count)
         return values  # TODO: exception for .random(xxx) invalid parameter
 
+    # def variable_generator(self, variables):
+    #
+    #     generators = []
+    #     for var in variables:
+    #         generator = VarGenerators(var['data'], var['function'])
+    #         generators.append({'name': var['name'], 'generator': generator})
+    #
+    #     return generators
+
     def variable_generator(self, variables):
+        generators = VarGenerators(variables)
+        generators_list = generators.generator_list
+        return generators_list
 
-        generators = []
-        for var in variables:
-            generator = VarGenerators(var['data'], var['function'])
-            generators.append({'name': var['name'], 'generator': generator})
 
-        return generators
 
     def check_dependency(self, generator):
         gen = generator['generator']
@@ -276,32 +478,67 @@ class AskAboutClass:
         else:
             return gen.get_gen()
 
-    def replace_variables(self, variable):
+    # def replace_variables(self, variable):
+    #
+    #     for gen in self.var_generators:
+    #         if variable['name'] == gen['name']:
+    #             value = self.check_dependency(gen)
+    #
+    #             for index, text in enumerate(self.phrases):
+    #                 matches = re.finditer(r'{{(\w+)}}', text)
+    #                 for match in matches:
+    #                     if match.group(1) == variable['name']:
+    #                         self.picked_elements.append({match.group(1): value})
+    #                         replacement = ', '.join(value)
+    #                         text = text.replace(match.group(0), replacement)
+    #                         self.phrases[index] = text
+    #                         break
+    #                 else:
+    #                     self.phrases[index] = text
 
-        for gen in self.var_generators:
-            if variable['name'] == gen['name']:
-                value = self.check_dependency(gen)
+    def replace_variables(self, generator):
+        pattern = re.compile(r'\{\{(.*?)\}\}')
+        if isinstance(generator['name'], list) and len(generator['name']) > 1:  # this is for nested forwards
 
-                for index, text in enumerate(self.phrases):
-                    matches = re.finditer(r'{{(\w+)}}', text)
-                    for match in matches:
-                        if match.group(1) == variable['name']:
-                            self.picked_elements.append({match.group(1): value})
-                            replacement = ', '.join(value)
-                            text = text.replace(match.group(0), replacement)
-                            self.phrases[index] = text
-                            break
-                    else:
+            values = next(generator['generator'])
+            keys = generator['name']
+            mapped_combinations = dict(zip(keys, values))
+            self.picked_elements.extend([{key: value} for key, value in mapped_combinations.items()])
+            replaced_phrases = []
+            for phrase in self.phrases.copy():
+                # Helper function to replace the variables
+                def replace_variable(match):
+                    variable = match.group(1)
+                    # Return the value from the dictionary if it exists, otherwise keep the variable intact
+                    return mapped_combinations.get(variable, match.group(0))
+                # Replace all occurrences of {{variable}} in the phrase
+                replaced_phrase = re.sub(r'\{\{(\w+)\}\}', replace_variable, phrase)
+                replaced_phrases.append(replaced_phrase)
+            self.phrases = replaced_phrases
+
+        else:                                                   # this is for everything else
+            value = next(generator['generator'])
+            name = generator['name']
+
+            for index, text in enumerate(self.phrases):
+                matches = re.finditer(pattern, text)
+                for match in matches:
+                    if match.group(1) == name:
+                        self.picked_elements.append({match.group(1): value})
+                        replacement = ', '.join(value)
+                        text = text.replace(match.group(0), replacement)
                         self.phrases[index] = text
+                        break
+                else:
+                    self.phrases[index] = text
 
-    def ask_about_processor(self, variable_list):
-        result_phrases = []
-        for variable in variable_list:
-            self.replace_variables(variable)
+    def ask_about_processor(self):
+        for generator in self.var_generators:
+            self.replace_variables(generator)
         return self.phrases
 
     def prompt(self):
-        phrases = self.ask_about_processor(self.variable_list)
+        phrases = self.ask_about_processor()
         return list_to_phrase(phrases, True)
 
     def reset(self):

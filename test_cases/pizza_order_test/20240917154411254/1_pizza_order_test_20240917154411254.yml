@@ -1,0 +1,24 @@
+serial: '20240917154411254'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- drink:
+  - coke
+- size: small
+- toppings: mushrooms
+conversation:
+- number: 8
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi! Do you have small pizzas available?
+- Assistant: Welcome to my pizza shop. I'm the owner and I'm happy to help you. Yes,
+    we do have small pizzas available. What toppings would you like on your pizza?

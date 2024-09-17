@@ -16,18 +16,20 @@ ask_about:
   - "the following toppings: {{toppings}}"
 
   - size:
-      function: forward(toppings)
+      function: forward(drink)
       type: string
       data:
         - small
         - medium
 
   - toppings:
-      function: forward(drink)
+      function: another()
       type: string
       data:
         - mushrooms
         - tomato
+        - onion
+        - cheese
 
   - drink:
       function: forward()

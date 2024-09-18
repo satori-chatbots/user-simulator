@@ -1,0 +1,26 @@
+serial: '20240918164947432'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- 'the following crust: {{crust}}'
+- how long is going to take the pizza to arrive
+- size: small
+- toppings: cheese
+- drink: sprite
+- crust: thin
+conversation:
+- number: 5
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi, I'd like to order a pizza. Do you offer a small size?
+- Assistant: Yes, we do offer a small size pizza. What toppings would you like on
+    your pizza?

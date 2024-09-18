@@ -33,7 +33,7 @@ ask_about:
         - mushrooms
 
   - drink:
-      function: forward(crust)
+      function: forward()
       type: string
       data:
         - sprite

@@ -123,10 +123,12 @@ class VarGenerators:
 
         def get_matrix(self, dependent_variable_list):
             self.dependence_matrix.clear()
-            for variable in dependent_variable_list:
-                for forward in self.forward_function_list:
-                    if variable == forward['name']:
-                        self.dependence_matrix.append(forward['data'])
+            for index, dependence in enumerate(dependent_variable_list):
+                self.dependence_matrix.append([])
+                for variable in dependence:
+                    for forward in self.forward_function_list:
+                        if variable == forward['name']:
+                            self.dependence_matrix[index].append(forward['data'])
 
         def add_forward(self, forward_variable): # 'name': var_name, 'data': data_list,'function': content['function'],'dependence': dependence}
             self.forward_function_list.append(forward_variable)
@@ -193,11 +195,14 @@ class VarGenerators:
                 {'name': i, 'generator': self.forward_generator(function_map[i])} for i in self.independent_list if i in function_map
             ]
 
-            dependent_generators = {
-                'name': self.dependent_list, 'generator': self.combination_generator(self.dependence_matrix)
-            }
+            dependent_generators = [
+                {'name': val, 'generator': self.combination_generator(self.dependence_matrix[index])} for index, val in enumerate(self.dependent_list)
+            ]
+            # dependent_generators = {
+            #     'name': self.dependent_list, 'generator': self.combination_generator(self.dependence_matrix)
+            # }
 
-            return independent_generators + [dependent_generators]
+            return independent_generators + dependent_generators
 
     def create_generator_list(self):
         generator_list = []
@@ -407,7 +412,7 @@ class AskAboutClass:
 
                 dictionary = {'name': var_name, 'data': data_list,
                               'function': content['function'],
-                              'dependence': dependence}  # (size, [small, medium], random())
+                              'dependence': dependence}  # (size, [small, medium], random(), toppings)
                 variables.append(dictionary)
         reordered_variables = reorder_variables(variables)
         dependency_error_check(reordered_variables)

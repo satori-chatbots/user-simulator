@@ -52,20 +52,41 @@ context:
 
 # (list of types) defines what should be said by the user simulator to test tome specific capabilities of the chatbot.
 ask_about:
-  - "a pizza with any size of the following: {{size}}"
+  - "a pizza with the following size: {{size}}"
+  - "the following drink: {{drink}}"
+  - "the following toppings: {{toppings}}"
+  - how long is going to take the pizza to arrive
+
   - size:
-    - small
-    - medium
-    - large
-    - extra large
-  - "any of the following for toppings: {{toppings}}"
+      function: forward(drink)
+      type: string
+      data:
+        - small
+        - medium
+        - big
+
   - toppings:
-    - mushrooms
-    - tomato
-    - onion
-    - cheese
-    - olives
-    - pepperoni
+      function: random(rand)
+      type: string
+      data:
+        - cheese
+        - mushrooms
+        - pepper
+        - ham
+        - bacon
+        - pepperoni
+        - olives
+        - corn
+        - chicken
+
+  - drink:
+      function: forward()
+      type: string
+      data:
+        - sprite
+        - coke
+        - Orange Fanta
+
 
 # Outputs some specific data defined by the tester.
 output:

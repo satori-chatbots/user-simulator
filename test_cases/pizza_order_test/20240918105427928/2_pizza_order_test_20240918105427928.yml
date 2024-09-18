@@ -1,0 +1,54 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - ham
+  - chicken
+  - pepper
+  - corn
+  - bacon
+  - olives
+  - pepperoni
+  - cheese
+- size: small
+- drink: Orange Fanta
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there, I'd like to order a small pizza, please.
+- Assistant: Hi, thank you for your order. Just to confirm, you would like a small
+    pizza, correct?
+- User: Yes, that's correct. Can I get mushrooms on that pizza?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    Of course, we can add mushrooms to your pizza. Would you like to add any other
+    toppings such as cheese, pepper, ham, bacon, pepperoni, olives, corn, or chicken?'
+- User: Yes, could you also add ham and chicken?
+- Assistant: 'Great, a pizza with [''mushrooms'', ''ham'', ''chicken'']!
+
+    Absolutely, we can add ham and chicken to your pizza. By the way, would you like
+    to order a drink with your pizza? We have coke, sprite, and water available.'
+- User: Do you have Orange Fanta?
+- Assistant: I'm sorry, we only have coke, sprite, and water available. Would you
+    like to choose one of these options?
+- User: I’ll go with a Sprite, please. Also, can you add cheese to the pizza?
+- Assistant: 'Alright, I''ve got your order for Sprite. Have a great time with your
+    pizza and beverages!
+
+    Alright, I''ve got your order for Sprite. Have a great time with your pizza and
+    beverages!'
+- User: Could you also add olives and pepperoni to the pizza, please?
+- Assistant: I see that you've already specified the size of your pizza as small.
+    Is there anything else you would like to add to your order?

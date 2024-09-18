@@ -1,0 +1,24 @@
+serial: '20240918095237570'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings: tomato
+- size: medium
+- drink: sprite
+conversation:
+- number: 8
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi, I'd like to order a pizza. Can you tell me about the medium sizes you
+    have?
+- Assistant: Of course, I can help with that. Just to confirm, would you like to order
+    a medium-sized pizza?

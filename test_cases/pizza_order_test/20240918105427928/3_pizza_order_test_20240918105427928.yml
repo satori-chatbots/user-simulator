@@ -1,0 +1,52 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - pepperoni
+  - chicken
+  - pepper
+  - mushrooms
+- size: medium
+- drink: sprite
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Do you have medium-sized pizzas?
+- Assistant: Yes, we do have medium-sized pizzas. Would you like to order one?
+- User: Yes, I'd like to order a medium-sized pizza. Do you have Sprite as a drink
+    option?
+- Assistant: I see that you've already chosen a medium-sized pizza. Is there anything
+    else you would like to add to your order?
+- User: Do you have Sprite as a drink option?
+- Assistant: Yes, we do have Sprite as a drink option. Would you like to add it to
+    your order?
+- User: Yes, please add a Sprite to my order. What toppings can I choose from?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Of course, you can choose from the following toppings: cheese, mushrooms, pepper,
+    ham, bacon, pepperoni, olives, corn, and chicken. Please let me know which ones
+    you''d like on your pizza.'
+- User: I'd like to add pepperoni and chicken as toppings. Do you have any special
+    offers or deals today?
+- Assistant: 'Great, a pizza with [''pepperoni'', ''chicken'']!
+
+    I see that you''ve chosen pepperoni and chicken as your toppings. As for your
+    drink, you''ve already selected Sprite. Regarding special offers, we have a deal
+    today where you get a free dessert with any medium-sized pizza. Would you like
+    to add that to your order?'
+- User: Yes, I'd love to add the free dessert to my order. Could you tell me what
+    dessert options you have?
+- Assistant: I'm glad to hear you're interested in our dessert offer! Our dessert
+    options include chocolate cake, tiramisu, and apple pie. Which one would you like
+    to add to your order?

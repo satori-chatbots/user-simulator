@@ -14,30 +14,39 @@ ask_about:
   - "a pizza with the following size: {{size}}"
   - "the following drink: {{drink}}"
   - "the following toppings: {{toppings}}"
+  - "the following crust: {{crust}}"
+  - how long is going to take the pizza to arrive
 
   - size:
-      function: forward(drink)
+      function: forward(toppings)
       type: string
       data:
         - small
         - medium
+        - big
 
   - toppings:
-      function: another()
+      function: forward()
       type: string
       data:
-        - mushrooms
-        - tomato
-        - onion
         - cheese
+        - mushrooms
 
   - drink:
-      function: forward()
+      function: forward(crust)
       type: string
       data:
         - sprite
         - coke
+        - Orange Fanta
 
+  - crust:
+      function: forward()
+      type: string
+      data:
+        - thin
+        - classic
+        - wide
 
 
 output:
@@ -50,7 +59,7 @@ output:
 
 
 conversations:
-  - number: 8
+  - number: 5
   - goal_style:
         steps: 1
   - interaction_style:

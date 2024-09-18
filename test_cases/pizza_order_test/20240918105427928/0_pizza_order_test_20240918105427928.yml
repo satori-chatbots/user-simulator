@@ -1,0 +1,56 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - olives
+  - corn
+  - chicken
+- size: small
+- drink: sprite
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi! Can I order a small pizza, please?
+- Assistant: Hi there! You've mentioned that you'd like a small pizza. Just to confirm,
+    is 'small' the size of the pizza you want?
+- User: Yes, small is the size I want. What kind of toppings do you have available?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    We have a variety of toppings available for you. You can choose from cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken. Please let me know which
+    toppings you would like on your small pizza.'
+- User: Great, could I get olives, corn, and chicken as the toppings, please?
+- Assistant: 'Great, a pizza with [''olives'', ''corn'', ''chicken'']!
+
+    Absolutely, we can add olives, corn, and chicken to your small pizza. Now, could
+    you please let me know what you''d like to drink? We have coke, sprite, and water
+    available.'
+- User: I'll have a Sprite to go with the pizza, please.
+- Assistant: 'Alright, I''ve got your order for Sprite. Have a great time with your
+    pizza and beverages!
+
+    Alright, I''ve got your order for Sprite. Have a great time with your pizza and
+    beverages!'
+- User: Wait, I didn't mean I'm done. How much will my total be for the small pizza
+    with olives, corn, chicken, and the Sprite?
+- Assistant: I'm sorry for the confusion, but it seems there might be a misunderstanding.
+    You've already provided the size of the pizza as 'small'. Could you please confirm
+    if that's correct?
+- User: Yes, that's correct. I've confirmed that I'd like a small pizza with olives,
+    corn, chicken, and a Sprite. Could you please tell me the total cost for my order?
+- Assistant: 'We appreciate your order for a small pizza!
+
+    I apologize for any confusion, but it seems you''ve already provided your desired
+    toppings: olives, corn, and chicken. Could you please confirm if these are the
+    toppings you want on your small pizza?'

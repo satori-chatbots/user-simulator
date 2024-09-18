@@ -1,0 +1,59 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - chicken
+  - olives
+  - mushrooms
+  - ham
+  - corn
+  - bacon
+  - cheese
+  - pepperoni
+  - pepper
+- size: big
+- drink: sprite
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! I’d like to order a pizza, please. Do you have a big size available?
+- Assistant: Of course, we do have big size pizzas. So, you would like to order a
+    big size pizza, correct?
+- User: Yes, that's right. Can you tell me what toppings are available?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Sure, we have a variety of toppings available. You can choose from cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken. Could you please tell
+    me which toppings you would like on your pizza?'
+- User: I’d like to have chicken, olives, and mushrooms on my pizza. Is that possible?
+- Assistant: 'Great, a pizza with [''chicken'', ''olives'', ''mushrooms'']!
+
+    Absolutely, a pizza with chicken, olives, and mushrooms is a great choice! Now,
+    could you please tell me what you would like to drink with your pizza? We have
+    coke, sprite, and water available.'
+- User: I would like to have a Sprite, please.
+- Assistant: 'Alright, I''ve got your order for Sprite. Have a great time with your
+    pizza and beverages!
+
+    Alright, I''ve got your order for Sprite. Have a great time with your pizza and
+    beverages!'
+- User: Actually, I'd like to add a few more toppings to my pizza. Can I also get
+    ham and bacon on it?
+- Assistant: I see that you've already chosen a big size for your pizza. Is there
+    anything else you need help with?
+- User: Yes, I’d like to confirm if I can add ham and bacon to the toppings I already
+    selected.
+- Assistant: Absolutely, you can add ham and bacon to your pizza. Your order is a
+    big size pizza with ham and bacon toppings. Is there anything else you would like
+    to add or change?

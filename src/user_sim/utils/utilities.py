@@ -189,19 +189,18 @@ def build_sequence(pairs):
         starts.add(a)
         if b is not None:
             ends.add(b)
-    # Find starting words (appears in 'starts' but not in 'ends')
+    # Find starting words (appear in 'starts' but not in 'ends')
     start_words = starts - ends
     start_words.discard(None)
-    # Prioritize 'size' as the starting point if it's among start_words
-    if 'size' in start_words:
-        start_word = 'size'
-    elif len(start_words) == 1:
-        start_word = start_words.pop()
-    else:
+    sequences = []
+    for start_word in start_words:
+        sequence = [start_word]
+        current_word = start_word
+        while current_word in mapping and mapping[current_word] is not None:
+            current_word = mapping[current_word]
+            sequence.append(current_word)
+        sequences.append(sequence)
+
+    if not sequences:
         raise ValueError("Cannot determine a unique starting point.")
-    sequence = [start_word]
-    current_word = start_word
-    while current_word in mapping and mapping[current_word] is not None:
-        current_word = mapping[current_word]
-        sequence.append(current_word)
-    return sequence
+    return sequences

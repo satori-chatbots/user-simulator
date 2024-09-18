@@ -110,15 +110,6 @@ class VarGenerators:
 
         self.variable_list = variable_list
         self.generator_list = self.create_generator_list()
-        # self.dependence_variable = None
-        # self.flag = True
-        # self.last_return = None
-        # self.generator = self.create_generator()
-
-    def get_gen(self):
-        item = next(self.generator)
-        self.last_return = item.copy()
-        return item
 
     class ForwardMatrixGenerator:
         def __init__(self):
@@ -136,7 +127,6 @@ class VarGenerators:
                 for forward in self.forward_function_list:
                     if variable == forward['name']:
                         self.dependence_matrix.append(forward['data'])
-
 
         def add_forward(self, forward_variable): # 'name': var_name, 'data': data_list,'function': content['function'],'dependence': dependence}
             self.forward_function_list.append(forward_variable)
@@ -165,32 +155,33 @@ class VarGenerators:
                     master = forward_variable['name']
                     self.independent_list.append(master)
 
-            self.dependent_list = build_sequence(self.dependence_tuple_list)
+            if self.dependence_tuple_list:
+                self.dependent_list = build_sequence(self.dependence_tuple_list)
+                self.get_matrix(self.dependent_list)
 
-            self.get_matrix(self.dependent_list)
+        @staticmethod
+        def combination_generator(matrix):
+            if not matrix:
+                while True:
+                    yield []
+            else:
+                lengths = [len(lst) for lst in matrix]
+                indices = [0] * len(matrix)
+                while True:
+                    # Yield the current combination based on indices
+                    yield [matrix[i][indices[i]] for i in range(len(matrix))]
+                    # Increment indices from the last position
+                    i = len(matrix) - 1
+                    while i >= 0:
+                        indices[i] += 1
+                        if indices[i] < lengths[i]:
+                            break
+                        else:
+                            indices[i] = 0
+                            i -= 1
 
-
-        def combination_generator(self, matrix):
-                if not matrix:
-                    while True:
-                        yield []
-                else:
-                    lengths = [len(lst) for lst in matrix]
-                    indices = [0] * len(matrix)
-                    while True:
-                        # Yield the current combination based on indices
-                        yield [matrix[i][indices[i]] for i in range(len(matrix))]
-                        # Increment indices from the last position
-                        i = len(matrix) - 1
-                        while i >= 0:
-                            indices[i] += 1
-                            if indices[i] < lengths[i]:
-                                break
-                            else:
-                                indices[i] = 0
-                                i -= 1
-
-        def forward_generator(self, value_list):
+        @staticmethod
+        def forward_generator(value_list):
             while True:
                 for sample in value_list:
                     yield [sample]
@@ -207,7 +198,6 @@ class VarGenerators:
             }
 
             return independent_generators + [dependent_generators]
-
 
     def create_generator_list(self):
         generator_list = []
@@ -261,12 +251,6 @@ class VarGenerators:
             count = random.randint(1, len(data))
             sample = random.sample(data, min(count, len(data)))
             yield sample
-    # @staticmethod
-    # def forward_generator(data):
-    #     while True:
-    #         for sample in data:
-    #             self.flag = True if sample == data[-1] else False
-    #             yield [sample]
 
     @staticmethod
     def another_generator(data):
@@ -328,7 +312,7 @@ def dependency_error_check(variable_list):
                 match = re.search(pattern, master['function'])
                 function = match.group(1)
                 if function != 'forward':
-                    raise InvalidDependence(f"the following function doesn't admit dependence: {function}")
+                    raise InvalidDependence(f"the following function doesn't admit dependence: {function}()")
 
 
 
@@ -449,52 +433,11 @@ class AskAboutClass:
             return random.sample(values, count)
         return values  # TODO: exception for .random(xxx) invalid parameter
 
-    # def variable_generator(self, variables):
-    #
-    #     generators = []
-    #     for var in variables:
-    #         generator = VarGenerators(var['data'], var['function'])
-    #         generators.append({'name': var['name'], 'generator': generator})
-    #
-    #     return generators
-
-    def variable_generator(self, variables):
+    @staticmethod
+    def variable_generator(variables):
         generators = VarGenerators(variables)
         generators_list = generators.generator_list
         return generators_list
-
-
-
-    def check_dependency(self, generator):
-        gen = generator['generator']
-
-        if gen.dependence_variable:
-            for var in self.var_generators:
-                if var['name'] == gen.dependence_variable:
-                    if var['generator'].flag:
-                        return gen.get_gen()
-                    else:
-                        return gen.last_return
-        else:
-            return gen.get_gen()
-
-    # def replace_variables(self, variable):
-    #
-    #     for gen in self.var_generators:
-    #         if variable['name'] == gen['name']:
-    #             value = self.check_dependency(gen)
-    #
-    #             for index, text in enumerate(self.phrases):
-    #                 matches = re.finditer(r'{{(\w+)}}', text)
-    #                 for match in matches:
-    #                     if match.group(1) == variable['name']:
-    #                         self.picked_elements.append({match.group(1): value})
-    #                         replacement = ', '.join(value)
-    #                         text = text.replace(match.group(0), replacement)
-    #                         self.phrases[index] = text
-    #                         break
-    #                 else:
-    #                     self.phrases[index] = text
 
     def replace_variables(self, generator):
         pattern = re.compile(r'\{\{(.*?)\}\}')
@@ -506,12 +449,9 @@ class AskAboutClass:
             self.picked_elements.extend([{key: value} for key, value in mapped_combinations.items()])
             replaced_phrases = []
             for phrase in self.phrases.copy():
-                # Helper function to replace the variables
                 def replace_variable(match):
                     variable = match.group(1)
-                    # Return the value from the dictionary if it exists, otherwise keep the variable intact
                     return mapped_combinations.get(variable, match.group(0))
-                # Replace all occurrences of {{variable}} in the phrase
                 replaced_phrase = re.sub(r'\{\{(\w+)\}\}', replace_variable, phrase)
                 replaced_phrases.append(replaced_phrase)
             self.phrases = replaced_phrases

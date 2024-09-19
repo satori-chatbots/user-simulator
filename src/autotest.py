@@ -138,67 +138,102 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
 
     return metadata
 
+def parse_profiles(user_path):
+    def is_yaml(file):
+        if not file.endswith(('.yaml', '.yml')):
+            return False
+        try:
+            with open(file, 'r') as f:
+                yaml.safe_load(f)
+            return True
+        except yaml.YAMLError:
+            return False
+
+    list_of_files = []
+    if os.path.isfile(user_path):
+        if is_yaml(user_path):
+            yaml_file = read_yaml(user_path)
+            return [yaml_file]
+        else:
+            raise Exception(f'The user profile file is not a yaml: {user_path}')
+    elif os.path.isdir(user_path):
+        for root, _, files in os.walk(user_path):
+            for file in files:
+                if is_yaml(os.path.join(root, file)):
+                    path = root + '/' + file
+                    yaml_file = read_yaml(path)
+                    list_of_files.append(yaml_file)
+
+            return list_of_files
+    else:
+        raise Exception(f'Invalid path for user profile operation: {user_path}')
+
+
 
 def generate(technology, chatbot, user, extract):
-    user_profile = RoleData(user)
-    serial = generate_serial()
 
-    start_time_test = timeit.default_timer()
-    for i in range(user_profile.conversation_number):
-        start_time_conversation = timeit.default_timer()
-        if technology == 'rasa':
-            the_chatbot = ChatbotRasa(chatbot)
-        elif technology == 'taskyto':
-            the_chatbot = ChatbotTaskyto(chatbot)
-        else:
-            the_chatbot = Chatbot(chatbot)
+    profiles = parse_profiles(user)
 
-        the_chatbot.fallback = user_profile.fallback
-        the_user = UserGeneration(user_profile, the_chatbot)
-        starter = user_profile.is_starter
+    for profile in profiles:
+        user_profile = RoleData(profile)
+        serial = generate_serial()
 
-        while True:
-
-            if starter:
-                user_msg = the_user.open_conversation()
-                print_user(user_msg)
-
-                response = the_chatbot.execute_with_input(user_msg)
-                if response == 'exit':
-                    logging.getLogger().verbose('The server cut the conversation. End.')
-                    break
-                print_chatbot(response)
-
-                starter = False
-
-            user_msg = the_user.get_response(response)
-
-            if user_msg == "exit":
-                logging.getLogger().verbose('exit')
-                break
-
+        start_time_test = timeit.default_timer()
+        for i in range(user_profile.conversation_number):
+            start_time_conversation = timeit.default_timer()
+            if technology == 'rasa':
+                the_chatbot = ChatbotRasa(chatbot)
+            elif technology == 'taskyto':
+                the_chatbot = ChatbotTaskyto(chatbot)
             else:
-                # configure parameter "user starts?"
-                print_user(user_msg)
-                response = the_chatbot.execute_with_input(user_msg)
-                print_chatbot(response)
+                the_chatbot = Chatbot(chatbot)
 
-        if extract:
-            history = the_user.conversation_history
-            metadata = get_conversation_metadata(user_profile, the_user, serial)
-            test_name = user_profile.test_name
-            end_time_conversation = timeit.default_timer()
-            conversation_time = end_time_conversation - start_time_conversation
-            formatted_time_conv = str(timedelta(seconds=conversation_time))
-            print(f"Conversation Time: {formatted_time_conv}")
-            user_profile.reset_attributes()
-            save_test_conv(history, metadata, test_name, extract, serial, formatted_time_conv, counter=i)
-            # the_user.save_data_gathering(extract)
+            the_chatbot.fallback = user_profile.fallback
+            the_user = UserGeneration(user_profile, the_chatbot)
+            starter = user_profile.is_starter
 
-    end_time_test = timeit.default_timer()
-    execution_time = end_time_test - start_time_test
-    formatted_time = str(timedelta(seconds=execution_time))
-    print(f"Execution Time: {formatted_time}")
+            while True:
+
+                if starter:
+                    user_msg = the_user.open_conversation()
+                    print_user(user_msg)
+
+                    response = the_chatbot.execute_with_input(user_msg)
+                    if response == 'exit':
+                        logging.getLogger().verbose('The server cut the conversation. End.')
+                        break
+                    print_chatbot(response)
+
+                    starter = False
+
+                user_msg = the_user.get_response(response)
+
+                if user_msg == "exit":
+                    logging.getLogger().verbose('exit')
+                    break
+
+                else:
+                    # configure parameter "user starts?"
+                    print_user(user_msg)
+                    response = the_chatbot.execute_with_input(user_msg)
+                    print_chatbot(response)
+
+            if extract:
+                history = the_user.conversation_history
+                metadata = get_conversation_metadata(user_profile, the_user, serial)
+                test_name = user_profile.test_name
+                end_time_conversation = timeit.default_timer()
+                conversation_time = end_time_conversation - start_time_conversation
+                formatted_time_conv = str(timedelta(seconds=conversation_time))
+                print(f"Conversation Time: {formatted_time_conv}")
+                user_profile.reset_attributes()
+                save_test_conv(history, metadata, test_name, extract, serial, formatted_time_conv, counter=i)
+                # the_user.save_data_gathering(extract)
+
+        end_time_test = timeit.default_timer()
+        execution_time = end_time_test - start_time_test
+        formatted_time = str(timedelta(seconds=execution_time))
+        print(f"Execution Time: {formatted_time}")
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Conversation generator for a chatbot')

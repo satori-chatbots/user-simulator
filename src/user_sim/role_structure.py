@@ -83,8 +83,9 @@ class RoleDataModel(BaseModel):
 
 class RoleData:
 
-    def __init__(self, path):
-        self.yaml = read_yaml(path)
+    def __init__(self, yaml):
+        # self.yaml = read_yaml(yaml)
+        self.yaml = yaml
 
         try:
             self.validated_data = RoleDataModel(**self.yaml)

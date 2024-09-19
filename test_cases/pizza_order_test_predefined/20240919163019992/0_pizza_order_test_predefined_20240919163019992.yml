@@ -1,0 +1,41 @@
+serial: '20240919163019992'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink: sprite
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $8
+- time: null
+- order_id: None
+---
+conversation time: '0:00:41.491214'
+---
+interaction:
+- User: Hi, I'd like to order a small Margherita pizza. Do you have Sprite available
+    for drinks?
+- Assistant: It looks like you have already chosen a small Margherita pizza. Is there
+    anything else you would like to add to your order?
+- User: How much will the small Margherita pizza cost?
+- Assistant: The cost of a small Margherita pizza is $8. Is there anything else you
+    would like to add to your order?
+- User: How much is a Sprite?
+- Assistant: I currently don't have information about the cost of a Sprite. Please
+    check with the store directly for pricing details. Is there anything else I can
+    assist you with regarding your pizza order?
+- User: How long will it take for the pizza to arrive?
+- Assistant: The delivery time for your pizza typically ranges from 30 to 45 minutes.
+    Is there anything else you would like to know or add to your order?
+- User: That's all I needed to know. Thank you!
+- Assistant: You're welcome! If you have any other questions or need further assistance,
+    feel free to ask. Have a great day!

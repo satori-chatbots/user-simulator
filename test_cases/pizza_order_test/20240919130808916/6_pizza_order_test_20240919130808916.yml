@@ -1,0 +1,61 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+  - mushrooms
+- drink: coke
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:30:00
+---
+interaction:
+- User: Hi there! I'd like to order a small custom pizza with cheese and mushrooms,
+    please.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    The available sizes are small, medium, and large.
+- User: I would like a small pizza, please. Also, could I get a Coke with that?
+- Assistant: 'Thanks for ordering a small pizza with cheese and mushrooms!
+
+    Thank you for confirming the size of your pizza. Could you please let me know
+    how many drinks you would like to order and if you would like any other drinks
+    besides Coke? The available options are Coke, Sprite, and Water.'
+- User: Just one Coke will be fine, thank you. How long will it take for the pizza
+    to arrive?
+- Assistant: ''
+- User: The estimated delivery time for your order is approximately 30 to 45 minutes.
+    Would you like to know the total cost of your order?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a small cheese and mushroom pizza, along with one Coke, is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is eb3f81.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is eb3f81.'
+- User: Great, thanks! Just to confirm, is there any delivery option available, or
+    do I need to pick it up myself?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Alright, I'll come by to pick it up then. Thank you!
+- Assistant: You're welcome! Your order will be ready for pickup soon. Thank you for
+    choosing Fast Pizza!
+- User: Great, see you soon.
+- Assistant: Great, see you soon! Thank you for choosing Fast Pizza!
+- User: Can I pay with a card when I pick it up, or is it cash only?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, delivery options, and how long
+    it takes to get an order.

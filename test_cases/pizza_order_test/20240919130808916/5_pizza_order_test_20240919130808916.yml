@@ -1,0 +1,62 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+  - mushrooms
+- drink: Orange Fanta
+- size:
+  - big
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- time: 00:15:00
+---
+interaction:
+- User: Hi there! I'd like to order a big custom pizza with cheese and mushrooms.
+- Assistant: It looks like we have your toppings as cheese and mushrooms. Could you
+    please specify the size of the pizza you'd like? The available sizes are small,
+    medium, and large.
+- User: I'll take the large pizza, please.
+- Assistant: 'Thanks for ordering a large pizza with cheese and mushrooms!
+
+    Thank you for your order of a large pizza with cheese and mushrooms. Could you
+    please let me know how many drinks you would like to order and which type? The
+    available options are coke, sprite, and water.'
+- User: Could I get one Orange Fanta, please?
+- Assistant: I'm sorry, but we only have coke, sprite, and water available. Could
+    you please choose one of these options and let me know how many drinks you would
+    like to order?
+- User: Alright, I'll take one Coke, please. How long is it going to take for the
+    pizza to arrive?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a large cheese and mushroom pizza, along with one Coke, is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 3efdbe.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 3efdbe.'
+- User: Is delivery an option, or do I need to pick it up myself?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Alright, thanks. Do you accept credit cards for payment?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.
+- User: Okay, thanks for the info. What are your opening hours?
+- Assistant: Every day from 1pm to 11:30pm
+- User: Great, I'll come by within the opening hours to pick up my order. Thanks for
+    your help!
+- Assistant: You're welcome! If you have any other questions or need further assistance,
+    feel free to ask. Have a great day!

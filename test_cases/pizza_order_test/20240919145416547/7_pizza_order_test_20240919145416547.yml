@@ -1,0 +1,63 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - egg
+  - bacon
+  - ham
+  - onion
+  - pepperoni
+  - cheese
+- drink: Orange Fanta
+- size:
+  - medium
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $17.00
+- time: 00:15:00
+---
+conversation time: '0:00:54.666950'
+---
+interaction:
+- User: Hello! I'd like to order a medium custom pizza. Can I have egg, bacon, and
+    ham on it?
+- Assistant: It looks like you have chosen a medium pizza. However, "egg" is not an
+    available topping. The available toppings are cheese, mushrooms, pepper, ham,
+    bacon, pepperoni, olives, corn, and chicken. Could you please choose from these
+    toppings?
+- User: Got it! Let's go with bacon, ham, cheese, and pepperoni then.
+- Assistant: 'Thanks for ordering a medium pizza with bacon, ham, cheese and pepperoni!
+
+    Thank you for updating your toppings to bacon, ham, cheese, and pepperoni. Could
+    you please let me know how many drinks you would like to order and which drinks
+    you prefer? The available options are coke, sprite, and water.'
+- User: Do you have Orange Fanta by any chance?
+- Assistant: I'm sorry, but we only have coke, sprite, and water available. Could
+    you please let me know how many drinks you would like to order and which one you
+    prefer?
+- User: I'll take one Coke, please. How much will the total be for the pizza and the
+    drink?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a medium pizza topped with bacon, ham, cheese, and pepperoni, along
+    with one Coke, is $17.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c2d596.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c2d596.'
+- User: Thanks for the information! Could you tell me if you have any ongoing deals
+    or promotions on pizzas?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, delivery options, and how long
+    it takes to get an order.

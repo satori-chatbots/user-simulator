@@ -1,0 +1,53 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - bacon
+- drink: sprite
+- size:
+  - big
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- time: 00:15:00
+---
+conversation time: '0:00:48.276590'
+---
+interaction:
+- User: Hi, I'd like to order a big custom pizza with bacon.
+- Assistant: I'm sorry, but we only offer small, medium, or large pizzas. Could you
+    please choose one of these sizes? Also, would you like to add any other toppings
+    besides bacon?
+- User: Sure, I'll take a large pizza with bacon. Could you also add mushrooms and
+    extra cheese?
+- Assistant: 'Thanks for ordering a large pizza with bacon, mushrooms and cheese!
+
+    Could you please let me know how many drinks you would like to order and which
+    drinks you prefer? We have coke, sprite, and water.'
+- User: I'd like one sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a large pizza topped with bacon, mushrooms, and cheese, along with
+    one Sprite, is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ac8b6a.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ac8b6a.'
+- User: Actually, I was hoping for delivery. How long will it take for the pizza to
+    arrive at my address?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I see. Could you give me an estimate for my order?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.

@@ -1,0 +1,62 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - bacon
+  - egg
+  - cheese
+  - pepperoni
+  - mushrooms
+- drink: coke
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $12.00
+- time: 00:15:00
+---
+conversation time: '0:00:52.237692'
+---
+interaction:
+- User: Hi there! Can I get a small custom pizza with bacon, egg, cheese, pepperoni,
+    and mushrooms?
+- Assistant: 'I see that you have chosen a small pizza. However, some of the toppings
+    you selected are not available. Please choose from the following toppings: cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, chicken.'
+- User: Alright, then I'll go with cheese, mushrooms, bacon, and pepperoni.
+- Assistant: 'Thanks for ordering a small pizza with cheese, mushrooms, bacon and
+    pepperoni!
+
+    Thank you for your pizza order with cheese, mushrooms, bacon, and pepperoni. Could
+    you please let me know how many drinks you would like to order and which drinks
+    you prefer? The available options are coke, sprite, and water.'
+- User: I'd like to add one coke to my order, please. How much will the total cost
+    be?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a small pizza with cheese, mushrooms, bacon, and pepperoni, along
+    with one Coke, is $12.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 11a1c2.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 11a1c2.'
+- User: Thank you for the information. Is there an option for delivery, or do I need
+    to pick it up myself?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Alright, I'll come to pick it up then. Can I pay with a credit card when I
+    arrive?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.

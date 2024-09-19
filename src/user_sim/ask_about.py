@@ -211,33 +211,44 @@ class VarGenerators:
             name = variable['name']
             data = variable['data']
             pattern = r'(\w+)\((\w*)\)'
-            match = re.search(pattern, variable['function'])
-            if match:
-                handler_name = match.group(1)
-                count = match.group(2) if match.group(2) else ''
-                if handler_name == 'random':
-                    if count == '':
-                        generator = self.random_choice_generator(data)
-                        generator_list.append({'name': name, 'generator': generator})
-                    elif count.isdigit():
-                        generator = self.random_choice_count_generator(data, count)
-                        generator_list.append({'name': name, 'generator': generator})
-                    elif count == 'rand':
-                        generator = self.random_choice_random_count_generator(data)
-                        generator_list.append({'name': name, 'generator': generator})
-
-                elif handler_name == 'forward':
-                    my_forward.add_forward(variable)
-
-                elif handler_name == 'another':
-                    generator = self.another_generator(data)
-                    generator_list.append({'name': name, 'generator': generator})
-                else:
-                    raise InvalidGenerator(f'Invalid generator function: {handler_name}')
+            if not variable['function'] or variable['function'] == 'default()':
+                generator = self.default_generator(data)
+                generator_list.append({'name': name, 'generator': generator})
             else:
-                raise InvalidFormat(f"an invalid function format was used: {variable['function']}")
+                match = re.search(pattern, variable['function'])
+                if match:
+                    handler_name = match.group(1)
+                    count = match.group(2) if match.group(2) else ''
+                    if handler_name == 'random':
+                        if count == '':
+                            generator = self.random_choice_generator(data)
+                            generator_list.append({'name': name, 'generator': generator})
+                        elif count.isdigit():
+                            count_digit = int(count)
+                            generator = self.random_choice_count_generator(data, count_digit)
+                            generator_list.append({'name': name, 'generator': generator})
+                        elif count == 'rand':
+                            generator = self.random_choice_random_count_generator(data)
+                            generator_list.append({'name': name, 'generator': generator})
+
+                    elif handler_name == 'forward':
+                        my_forward.add_forward(variable)
+
+                    elif handler_name == 'another':
+                        generator = self.another_generator(data)
+                        generator_list.append({'name': name, 'generator': generator})
+                    else:
+                        raise InvalidGenerator(f'Invalid generator function: {handler_name}')
+                else:
+                    raise InvalidFormat(f"an invalid function format was used: {variable['function']}")
+
 
         return generator_list + my_forward.get_generator_list()
+
+    @staticmethod
+    def default_generator(data):
+        while True:
+            yield data
 
     @staticmethod
     def random_choice_generator(data):
@@ -319,7 +330,33 @@ def dependency_error_check(variable_list):
                 if function != 'forward':
                     raise InvalidDependence(f"the following function doesn't admit dependence: {function}()")
 
+def check_circular_dependency(items):
+    # Construir un mapeo de nombre a dependencia
+    dependencies = {}
+    for item in items:
+        name = item['name']
+        dep = item['dependence']
+        dependencies[name] = dep
 
+    # Función para realizar DFS y detectar ciclos
+    def visit(node, visited, stack):
+        if node in stack:
+            # Se detectó una dependencia circular
+            cycle = ' -> '.join(stack + [node])
+            raise Exception(f"Circular dependency detected: {cycle}")
+        if node in visited or node not in dependencies:
+            return
+        stack.append(node)
+        dep = dependencies[node]
+        if dep is not None:
+            visit(dep, visited, stack)
+        stack.pop()
+        visited.add(node)
+
+    visited = set()
+    for node in dependencies.keys():
+        if node not in visited:
+            visit(node, visited, [])
 
 class AskAboutClass:
 
@@ -400,6 +437,9 @@ class AskAboutClass:
                     raise InvalidItemType(f'Invalid data type for variable list.')
 
                 pattern = r'(\w+)\((\w*)\)'
+                if not content['function']:
+                    content['function'] = 'default()'
+
                 match = re.search(pattern, content['function'])
                 if match:
                     count = match.group(2) if match.group(2) else ''
@@ -416,6 +456,7 @@ class AskAboutClass:
                 variables.append(dictionary)
         reordered_variables = reorder_variables(variables)
         dependency_error_check(reordered_variables)
+        check_circular_dependency(reordered_variables)
         return reordered_variables
 
     @staticmethod

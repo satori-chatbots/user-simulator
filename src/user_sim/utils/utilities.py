@@ -78,13 +78,14 @@ class MyDumper(yaml.Dumper):
         super().write_line_break(data)
 
 
-def save_test_conv(history, metadata, test_name, path, serial, counter):
+def save_test_conv(history, metadata, test_name, path, serial, conversation_time, counter):
     print("Saving conversation...")
+    c_time = {'conversation time': conversation_time}
     path_folder = path + f"/{test_name}"
     if not os.path.exists(path_folder):
         os.makedirs(path_folder)
 
-    data = [metadata, history]
+    data = [metadata, c_time, history]
     test_folder = path_folder + f"/{serial}"
 
     if not os.path.exists(test_folder):
@@ -147,38 +148,6 @@ def check_keys(key_list: list):
         if not os.environ.get(k):
             raise Exception(f"{k} not found")
 
-
-# def chain_tuples(tuple_list):
-#     primero_a_tupla = {t[0]: t for t in tuple_list}
-#
-#     segundos = set(t[1] for t in tuple_list if t[1] is not None)
-#
-#     tuplas_inicio = [t for t in tuple_list if t[0] not in segundos]
-#
-#     tuplas_usadas = set()
-#
-#     cadenas = []
-#
-#     def construir_cadena(tupla_inicial):
-#         cadena = []
-#         actual = tupla_inicial
-#         while actual and actual not in tuplas_usadas:
-#             cadena.append(actual)
-#             tuplas_usadas.add(actual)
-#             siguiente_clave = actual[1]
-#             if siguiente_clave is None:
-#                 break
-#             actual = primero_a_tupla.get(siguiente_clave)
-#         return cadena
-#
-#     for tupla_inicio in tuplas_inicio:
-#         cadena = construir_cadena(tupla_inicio)
-#         cadenas.extend(cadena)
-#
-#     tuplas_restantes = [t for t in tuple_list if t not in tuplas_usadas]
-#     cadenas.extend(tuplas_restantes)
-#
-#     return cadenas
 
 def build_sequence(pairs):
     mapping = {}

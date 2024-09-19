@@ -6,6 +6,8 @@ from user_sim.user_simulator import UserGeneration
 from user_sim.data_extraction import DataExtraction
 import logging
 from argparse import ArgumentParser
+import timeit
+from datetime import timedelta
 
 # Define new level "verbose"
 VERBOSE_LEVEL_NUM = 15
@@ -124,7 +126,7 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
     data_output = {'data_output': data_output_extraction(user_profile, the_user)}
     ask_about = {'ask_about': ask_about_metadata(user_profile)}
     conversation = {'conversation': conversation_metadata(user_profile)}
-    language = {'language': user_profile.yaml['language']}
+    language = {'language': user_profile.yaml['language'] if user_profile.yaml['language'] else 'English'}
     serial_dict = {'serial': serial}
 
     metadata = {**serial_dict,
@@ -141,9 +143,9 @@ def generate(technology, chatbot, user, extract):
     user_profile = RoleData(user)
     serial = generate_serial()
 
-
+    start_time_test = timeit.default_timer()
     for i in range(user_profile.conversation_number):
-
+        start_time_conversation = timeit.default_timer()
         if technology == 'rasa':
             the_chatbot = ChatbotRasa(chatbot)
         elif technology == 'taskyto':
@@ -156,6 +158,7 @@ def generate(technology, chatbot, user, extract):
         starter = user_profile.is_starter
 
         while True:
+
             if starter:
                 user_msg = the_user.open_conversation()
                 print_user(user_msg)
@@ -184,11 +187,18 @@ def generate(technology, chatbot, user, extract):
             history = the_user.conversation_history
             metadata = get_conversation_metadata(user_profile, the_user, serial)
             test_name = user_profile.test_name
-
+            end_time_conversation = timeit.default_timer()
+            conversation_time = end_time_conversation - start_time_conversation
+            formatted_time_conv = str(timedelta(seconds=conversation_time))
+            print(f"Conversation Time: {formatted_time_conv}")
             user_profile.reset_attributes()
-            save_test_conv(history, metadata, test_name, extract, serial, counter=i)
+            save_test_conv(history, metadata, test_name, extract, serial, formatted_time_conv, counter=i)
             # the_user.save_data_gathering(extract)
 
+    end_time_test = timeit.default_timer()
+    execution_time = end_time_test - start_time_test
+    formatted_time = str(timedelta(seconds=execution_time))
+    print(f"Execution Time: {formatted_time}")
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Conversation generator for a chatbot')

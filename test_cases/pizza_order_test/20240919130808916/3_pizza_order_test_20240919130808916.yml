@@ -1,0 +1,74 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+- drink: sprite
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+---
+interaction:
+- User: Hi! I'd like to order a small custom pizza with cheese, please.
+- Assistant: Could you please confirm the size of your pizza? The available options
+    are small, medium, or large.
+- User: I would like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with cheese!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The available options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost of a small cheese pizza and one Sprite is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is d5fe9c.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is d5fe9c.'
+- User: Could you confirm if you offer delivery? If so, how long would it take for
+    the pizza to arrive?
+- Assistant: "We do not do delivery, but customers need to get the shop for their\
+    \ orders. We are located at 23 Main Street, New York.\n It depends on the number\
+    \ of pizzas of the order, typically around 15 minutes per pizza, but depends on\
+    \ how busy we are."
+- User: Thanks for confirming. Just to clarify, so I'll need to pick up the order
+    myself, right? Also, is it possible to get an email or text confirmation for the
+    order?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Got it, thanks. Can you please send me a text confirmation for my order?
+- Assistant: I'm sorry, but I currently cannot send text confirmations. However, I
+    can help you with any other questions or assist you in placing your order. What
+    would you like to do next?
+- User: Alright, thanks for letting me know. What about an email confirmation? Is
+    that possible?
+- Assistant: 'I do not know. Here are the questions I can answer:
+
+
+    - What are the opening hours?
+
+    - What types of pizza do you serve?
+
+    - What are the prices of the pizzas? How much do they cost?
+
+    - What are the prices of the beverages?
+
+    - How do I get the order? Do you deliver orders?
+
+    - How much time does it take to get an order?'
+- User: Okay, understood. In that case, can you confirm your opening hours, please?
+- Assistant: Every day from 1pm to 11:30pm

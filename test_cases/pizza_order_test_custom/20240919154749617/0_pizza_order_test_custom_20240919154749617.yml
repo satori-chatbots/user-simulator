@@ -1,0 +1,57 @@
+serial: '20240919154749617'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - bacon
+  - mushrooms
+  - pepperoni
+- drink: sprite
+- size:
+  - small
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+- order_id: 545f1c
+---
+conversation time: '0:01:44.626400'
+---
+interaction:
+- User: Hi! I'd like to order a small custom pizza, please. Can I get bacon, mushrooms,
+    and pepperoni on it?
+- Assistant: I see that you've chosen bacon, mushrooms, and pepperoni as your toppings.
+    Could you please confirm the size of the pizza you'd like to order? The available
+    sizes are small, medium, and large.
+- User: Yes, I would like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with bacon, mushrooms and pepperoni!
+
+    Thank you for confirming the size of your pizza. Could you please let me know
+    how many drinks you would like to order and which drinks you prefer? The available
+    options are coke, sprite, and water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Alright, I have received your order for one Sprite.
+
+    The cost for a small pizza topped with bacon, mushrooms, and pepperoni, along
+    with one Sprite, is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 545f1c.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 545f1c.'
+- User: How long will it take for the pizza to be delivered if I choose delivery instead
+    of pickup?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Could you please give me an estimated delivery time for just one small pizza?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.

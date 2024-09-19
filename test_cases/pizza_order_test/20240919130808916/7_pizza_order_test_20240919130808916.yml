@@ -1,0 +1,58 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+- drink: Orange Fanta
+- size:
+  - medium
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- time: 00:15:00
+---
+interaction:
+- User: Hi, I'd like to order a medium custom pizza with extra cheese, please.
+- Assistant: "It looks like we need to confirm some details for your order. \n\nCould\
+    \ you please confirm the size of your pizza? The available sizes are small, medium,\
+    \ and large.\n\nAlso, please provide the toppings you would like from the following\
+    \ options: cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, chicken."
+- User: I would like a medium pizza with extra cheese. Could you also add mushrooms
+    and pepperoni?
+- Assistant: 'Thanks for ordering a medium pizza with cheese, mushrooms and pepperoni!
+
+    Thank you for confirming your pizza order. Now, could you please let me know how
+    many drinks you would like to order and which drinks you prefer? The available
+    options are coke, sprite, and water.'
+- User: Do you have Orange Fanta available?
+- Assistant: I'm sorry, but we only have coke, sprite, and water available. Could
+    you please let me know which of these drinks you would like and how many?
+- User: I'll take one Coke, please. How long will it take for the pizza to arrive?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium pizza topped with cheese, mushrooms, and pepperoni, along
+    with one Coke, is $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e44cea.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e44cea.'
+- User: Got it, I'll be there in 15 minutes. Thanks!
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: I'll be there in 15 minutes to pick up my order. Thanks!
+- Assistant: Thank you for your order! We will have your medium custom pizza with
+    extra cheese ready for you in 15 minutes. See you soon!
+- User: Great, see you soon!
+- Assistant: Great, see you soon! Thank you for choosing Fast Pizza!
+- User: Thank you! Looking forward to it.
+- Assistant: You're welcome! We look forward to seeing you soon. Enjoy your pizza!

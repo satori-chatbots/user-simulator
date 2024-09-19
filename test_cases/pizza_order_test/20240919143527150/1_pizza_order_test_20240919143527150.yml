@@ -1,0 +1,59 @@
+serial: '20240919143527150'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - olives
+  - pepperoni
+  - mushrooms
+  - bacon
+  - ham
+  - cheese
+- drink: coke
+- size:
+  - medium
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $18.00
+- time: 00:15:00
+---
+conversation time: '0:00:53.399056'
+---
+interaction:
+- User: Hi, I'd like to order a medium custom pizza with olives, pepperoni, mushrooms,
+    bacon, ham, and cheese.
+- Assistant: 'I see that you have chosen a medium pizza with the following toppings:
+    olives, pepperoni, mushrooms, bacon, ham, and cheese. Is that correct?'
+- User: Yes, that's correct. Can I also add a drink to my order?
+- Assistant: 'Thanks for ordering a medium pizza with olives, pepperoni, mushrooms,
+    bacon, ham and cheese!
+
+    Sure! How many drinks would you like to add to your order, and which type of drink
+    would you prefer? We have coke, sprite, and water.'
+- User: I'd like to add one coke to my order, please. How much will the total cost
+    be?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium pizza topped with olives, pepperoni, mushrooms, bacon, ham,
+    and cheese, along with one Coke, is $18.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 297934.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 297934.'
+- User: Thank you! Just to clarify, is delivery available, or is this for pickup only?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Alright, thanks for letting me know. I'll come by to pick it up.
+- Assistant: Thank you for your order! Your medium custom pizza with olives, pepperoni,
+    mushrooms, bacon, ham, and cheese will be ready for pickup. See you soon at Fast
+    Pizza!

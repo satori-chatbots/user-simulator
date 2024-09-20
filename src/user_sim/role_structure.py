@@ -1,9 +1,10 @@
 from pydantic import BaseModel, ValidationError
-from typing import List, Union
+from typing import List, Union, Dict
 from .interaction_styles import *
 from .ask_about import *
 from .utils.exceptions import *
 from .utils.languages import Languages
+from pathlib import Path
 
 goal_styles = {
     'all answered': '',
@@ -44,7 +45,6 @@ def replace_placeholders(phrase, variables):
 
 
 def set_language(lang):
-
     if isinstance(lang, type(None)):
         return "English"
     try:
@@ -73,7 +73,7 @@ class RoleDataModel(BaseModel):
     temperature: float
     is_starter: bool
     role: str
-    context: Union[List[str], None]
+    context: Union[List[Union[str, Dict]], Dict, None]
     ask_about: list
     output: list
     conversations: list
@@ -97,7 +97,7 @@ class RoleData:
         self.temperature = self.validated_data.temperature
         self.is_starter = self.validated_data.is_starter
         self.role = self.validated_data.role
-        self.context = list_to_str(self.validated_data.context)  # list
+        self.context = self.context_processor(self.validated_data.context)  # list
         self.ask_about = AskAboutClass(self.validated_data.ask_about)  # list
         self.output = self.validated_data.output  # dict
 
@@ -114,8 +114,8 @@ class RoleData:
         self.temperature = self.validated_data.temperature
         self.is_starter = self.validated_data.is_starter
         self.role = self.validated_data.role
-        self.context = list_to_str(self.validated_data.context)  # list
-        self.ask_about.reset()      # self.picked_elements = [], self.phrases = []
+        self.context = self.context_processor(self.validated_data.context)  # list
+        self.ask_about.reset()  # self.picked_elements = [], self.phrases = []
 
         conversation = self.list_to_dict_reformat(self.validated_data.conversations)
         self.goal_style = pick_goal_style(conversation['goal_style'])  # list
@@ -126,6 +126,42 @@ class RoleData:
     def list_to_dict_reformat(conv):
         result_dict = {k: v for d in conv for k, v in d.items()}
         return result_dict
+
+    @staticmethod
+    def personality_extraction(context):
+        if context["personality"]:
+            path = Path(context["personality"])
+            if path.exists() and path.is_file():
+                personality = read_yaml(path)
+                try:
+                    return personality['context']
+                except KeyError:
+                    raise InvalidFormat(f"Key 'context' not found in personality file")
+        else:
+            raise InvalidDataType("Data for context is not a dictionary with context key.")
+
+    def context_processor(self, context):
+        if isinstance(context, dict):
+            personality_phrases = self.personality_extraction(context)
+            return list_to_str(personality_phrases)
+
+        res = len(list(filter(lambda x: isinstance(x, dict), context)))
+        if res > 1:
+            raise InvalidFormat(f"Too many keys in context list.")
+        elif res <= 0 and not isinstance(context, dict):
+            return list_to_str(context)
+        else:
+            custom_phrases = []
+            personality_phrases = []
+            for item in context:
+                if isinstance(item, str):
+                    custom_phrases.append(item)
+                elif isinstance(item, dict):
+                    personality_phrases = personality_phrases + self.personality_extraction(item)
+                else:
+                    raise InvalidDataType(f'Invalid data type in context list: {type(item)}:{item}')
+            total_phrases =  personality_phrases + custom_phrases
+            return list_to_str(total_phrases)
 
     def get_interaction_metadata(self):
         metadata_list = []

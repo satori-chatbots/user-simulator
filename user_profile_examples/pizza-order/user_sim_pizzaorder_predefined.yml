@@ -8,8 +8,7 @@ role:
   you have to act as a user ordering a pizza to a pizza shop.
 
 context:
-#  personality:
-  - Since you're the user, just tell what you want to order
+  personality: personalities/formal-user.yml
 
 ask_about:
   - "a {{size}} {{pizza_type}} pizza"

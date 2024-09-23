@@ -34,7 +34,7 @@ behaviour. A description of the fields and an exaple of the YAML structure is de
 temperature: 0.8                      
 
 # (bool) defines wether the user simulator or the chatbot will start the conversation.
-isstarter: True                       
+is_starter: True                       
 
 # (str) the chatbot's own fallback message
 fallback:

@@ -1,0 +1,68 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - mushrooms
+- drink: coke
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+---
+interaction:
+- User: Hi, I'd like to order a small custom pizza with mushrooms.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    The available sizes are small, medium, and large.
+- User: I would like a small pizza, please. How much will that cost?
+- Assistant: 'Thanks for ordering a small pizza with mushrooms!
+
+    Thank you for confirming your pizza size. Could you please let me know how many
+    drinks you would like to order and which type of drinks you prefer? The available
+    options are coke, sprite, and water.'
+- User: I'd like one Coke, please. How much will that be?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a small pizza with mushrooms and one Coke is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 69b251.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 69b251.'
+- User: Thank you! Is there a delivery option available, or is it pick-up only?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Alright, I'll come by and pick it up. Thank you!
+- Assistant: Thank you for your order! Your small custom pizza with mushrooms will
+    be ready for pick-up. See you soon at Fast Pizza!
+- User: Great, I'll see you soon. Thanks!
+- Assistant: You're welcome! See you soon at Fast Pizza!
+- User: I may need to order an extra pizza next time. Do you have any deals or special
+    offers?
+- Assistant: 'I do not know. Here are the questions I can answer:
+
+
+    - What are the opening hours?
+
+    - What types of pizza do you serve?
+
+    - What are the prices of the pizzas? How much do they cost?
+
+    - What are the prices of the beverages?
+
+    - How do I get the order? Do you deliver orders?
+
+    - How much time does it take to get an order?'
+- User: I'll ask next time I visit. Thanks again!
+- Assistant: You're welcome! Have a great day and see you next time at Fast Pizza!

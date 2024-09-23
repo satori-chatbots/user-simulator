@@ -1,0 +1,53 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - mushrooms
+  - pepper
+  - corn
+  - olives
+- size: big
+- drink: coke
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi, I'd like to order a pizza. Do you have a big size available?
+- Assistant: Of course, we do have big size pizzas. So, you would like to order a
+    big size pizza, correct?
+- User: Yes, a big size pizza. What toppings do you have?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    We have a variety of toppings available for you. You can choose from cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken. Could you please tell
+    me which toppings you would like on your pizza?'
+- User: I'd like mushrooms and pepper, please.
+- Assistant: 'Great, a pizza with [''mushrooms'', ''pepper'']!
+
+    Great choice on the toppings! Now, could you please tell me what you would like
+    to drink with your pizza? We have coke, sprite, and water available.'
+- User: I'd like a coke, please.
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Thank you! Could you also add corn and olives to the pizza?
+- Assistant: I see that you've confirmed your preference for a big size pizza. So,
+    we have the size of your pizza. Is there anything else you would like to add to
+    your order?
+- User: Yes, please add corn and olives to the pizza.
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Absolutely, we can add corn and olives to your pizza. So, to confirm, your pizza
+    will have mushrooms, pepper, corn, and olives as toppings. Is that correct?'

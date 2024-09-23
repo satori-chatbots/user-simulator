@@ -1,0 +1,53 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - ham
+- drink: coke
+- size:
+  - medium
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- time: 00:15:00
+---
+conversation time: '0:00:53.108456'
+---
+interaction:
+- User: Hi, I'd like to order a medium custom pizza with ham, please.
+- Assistant: Could you please confirm the size of your pizza? The available options
+    are small, medium, or large.
+- User: I mentioned a medium pizza. How much will it cost?
+- Assistant: 'Thanks for ordering a medium pizza with ham!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The available options are coke, sprite, or water.'
+- User: I'll have one coke, please. How long will it take for the pizza to arrive?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a medium ham pizza and one Coke is $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 7608cc.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 7608cc.'
+- User: Alright, thanks for the details. Could you confirm if the pizza comes with
+    any additional toppings or is it just ham?
+- Assistant: Thank you for confirming the size of your pizza as medium. You have chosen
+    ham as your topping. Is there anything else you would like to add to your order?
+- User: No, just ham is fine. But can you confirm if the pizza comes with cheese and
+    tomato sauce as standard?
+- Assistant: 'Thanks for ordering a medium pizza with ham!
+
+    Thank you for your patience. Just to confirm, you would like one drink. Could
+    you please confirm if you would like a coke, sprite, or water?'

@@ -1,0 +1,60 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - pepperoni
+  - mushrooms
+  - olives
+  - bacon
+- drink: sprite
+- size:
+  - medium
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $17.00
+- time: 00:15:00
+---
+conversation time: '0:00:50.198750'
+---
+interaction:
+- User: Hi there! I'd like to order a medium custom pizza. Could you add pepperoni,
+    mushrooms, olives, and bacon to it?
+- Assistant: 'I see that you''ve chosen the toppings: pepperoni, mushrooms, olives,
+    and bacon. Could you please confirm the size of the pizza you''d like to order?
+    The available sizes are small, medium, and large.'
+- User: Yes, a medium pizza, please. Also, do you have Sprite as a drink option?
+- Assistant: 'Thanks for ordering a medium pizza with pepperoni, mushrooms, olives
+    and bacon!
+
+    Thank you for confirming the size of your pizza. How many drinks would you like
+    to order, and would you like Sprite, Coke, or water?'
+- User: Just one Sprite, please. How long will it take for the pizza to arrive?
+- Assistant: 'Alright, I''ve received your order for one Sprite.
+
+    The cost of a medium pizza with pepperoni, mushrooms, olives, and bacon, along
+    with one Sprite, is $17.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 730e1a.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 730e1a.'
+- User: Thank you for the details. Can you give me a rough estimate on the delivery
+    time to my location?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Alright, thank you! Could you also let me know the total cost including delivery?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

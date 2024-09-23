@@ -1,6 +1,6 @@
 temperature: 0.8
 
-isstarter: True
+is_starter: True
 
 fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
 
@@ -15,9 +15,9 @@ ask_about:
   - "a pizza with the following size: {{size.random()}}"
   - "how long is going to take for the pizza to arrive in the end of the conversation"
   - size:
-    - small
-    - medium
-    - big
+      - small
+      - medium
+      - big
 
   - "the following toppings: {{toppings.random(rand)}}"
   - toppings:
@@ -36,7 +36,6 @@ output:
   - time:
       type: time
       description: how long is going to take to deliver the pizza
-
 
 
 conversations:

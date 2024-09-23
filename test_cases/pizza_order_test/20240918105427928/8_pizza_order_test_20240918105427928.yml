@@ -1,0 +1,62 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - bacon
+  - ham
+  - mushrooms
+  - cheese
+  - pepper
+  - chicken
+  - olives
+  - pepperoni
+  - corn
+- size: big
+- drink: Orange Fanta
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! I'd like to start by ordering a big pizza. What sizes do you offer?
+- Assistant: Hi! You've already chosen a big pizza, which is one of the sizes we offer.
+    We also have small and medium sizes. Can you please confirm that you want a big
+    pizza?
+- User: Yes, I confirm that I want a big pizza. What types of drinks do you have?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Great, a big pizza it is! Now, could you please tell me what toppings you would
+    like on your pizza? You can choose from cheese, mushrooms, pepper, ham, bacon,
+    pepperoni, olives, corn, and chicken.'
+- User: Sure, I'd like to add cheese and pepperoni. Also, do you have Orange Fanta?
+- Assistant: 'Great, a pizza with [''cheese'', ''pepperoni'']!
+
+    I''m sorry, but we only offer coke, sprite, and water as drink options. Could
+    you please choose one of these?'
+- User: Oh, I see. In that case, I'll go with a Coke. Can I also add mushrooms to
+    the pizza?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Sure, thanks! Can I also add bacon to the pizza?
+- Assistant: I'm glad to hear that you've confirmed your choice of a big pizza. However,
+    I noticed that you mentioned adding bacon to the pizza, which is not related to
+    the size of the pizza. Can we focus on finalizing the size of your pizza first?
+    You've already chosen a big pizza, is that correct?
+- User: Yes, that's correct, I've already chosen a big pizza. Now, can I add bacon
+    to the toppings along with cheese, pepperoni, and mushrooms?
+- Assistant: 'Thank you for placing an order for a large pizza!
+
+    Absolutely, you can add bacon to your pizza. So, your toppings are cheese, pepperoni,
+    mushrooms, and bacon. Is that correct?'

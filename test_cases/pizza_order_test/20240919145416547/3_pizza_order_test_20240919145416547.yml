@@ -1,0 +1,73 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - bacon
+  - mushrooms
+  - ham
+  - egg
+  - cheese
+  - pepperoni
+  - olives
+- drink: Orange Fanta
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $14.50
+- time: 00:15:00
+---
+conversation time: '0:00:59.262241'
+---
+interaction:
+- User: Hi, I’d like to order a small custom pizza. Can I get bacon and mushrooms
+    on it?
+- Assistant: I see that you've chosen bacon and mushrooms as your toppings. Could
+    you please confirm the size of your pizza? The available sizes are small, medium,
+    and large.
+- User: Yes, I want a small pizza. Can I also add ham and egg to it?
+- Assistant: 'Thanks for ordering a small pizza with bacon, mushrooms and ham!
+
+    Thank you for confirming the size and toppings for your pizza. Could you please
+    let me know how many drinks you would like to order and which drinks you prefer?
+    The available options are coke, sprite, and water.'
+- User: Can I also add cheese, pepperoni, and olives to the pizza? And do you have
+    Orange Fanta as a drink option?
+- Assistant: 'Unfortunately, we do not have Orange Fanta as a drink option. The available
+    drink options are coke, sprite, and water. Could you please let me know which
+    drink you would like and how many drinks you would like to order?
+
+
+    Regarding your pizza, we currently offer predefined pizza types. Here are the
+    available options: margarita, carbonara, marinera, hawaiian, four cheese, and
+    vegetarian. Could you please choose one of these types and confirm the size as
+    small?'
+- User: I really want a custom pizza, not a predefined one. Is it possible to get
+    that with bacon, mushrooms, ham, egg, cheese, pepperoni, and olives? And I'll
+    go with a Coke for my drink.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a small pizza topped with bacon, mushrooms, and ham, along with one
+    Coke, is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is fb09bb.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is fb09bb.'
+- User: 'Can I get the total cost for the pizza with all the toppings I''ve asked
+    for: bacon, mushrooms, ham, egg, cheese, pepperoni, and olives?'
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

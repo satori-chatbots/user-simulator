@@ -1,0 +1,76 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+- drink: sprite
+- size:
+  - big
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- time: None
+---
+interaction:
+- User: Hi, I'd like to order a big custom pizza with extra cheese. Can you help me
+    with that?
+- Assistant: "It looks like there was an issue with the previous order details. We\
+    \ need to confirm the correct pizza size and toppings. \n\nCould you please specify\
+    \ the pizza size (small, medium, or large) and choose from the following toppings:\
+    \ cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, chicken?"
+- User: Large size, extra cheese, and can I add some mushrooms and pepperoni too?
+- Assistant: "Thanks for ordering a large pizza with cheese, mushrooms and pepperoni!\n\
+    Thank you for your order! I have noted down a large pizza with extra cheese, mushrooms,\
+    \ and pepperoni. \n\nCould you please let me know how many drinks you would like\
+    \ to order and which drinks you prefer? The options are coke, sprite, or water."
+- User: I'd like one Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a large pizza with cheese, mushrooms, and pepperoni, along with one
+    Sprite, is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is f7bef3.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is f7bef3.'
+- User: Alright, thanks for the information! How long will it take for the delivery
+    if I can't pick it up?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Got it. Could you give me an estimated delivery time for my order?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I understand that, but could you give me a rough estimate for the delivery
+    time for my specific order?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I'm really just looking for a rough idea. Do you think it might be around
+    30 minutes, an hour, or longer?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Alright, thanks for trying. Let me know if you can give me an estimate later.
+    Just to confirm, will I get a notification when the order is out for delivery?
+- Assistant: 'I do not know. Here are the questions I can answer:
+
+
+    - What are the opening hours?
+
+    - What types of pizza do you serve?
+
+    - What are the prices of the pizzas? How much do they cost?
+
+    - What are the prices of the beverages?
+
+    - How do I get the order? Do you deliver orders?
+
+    - How much time does it take to get an order?'

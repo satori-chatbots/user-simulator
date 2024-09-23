@@ -1,0 +1,65 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - bacon
+  - mushrooms
+  - olives
+  - onion
+  - egg
+  - ham
+  - pepperoni
+- drink: coke
+- size:
+  - big
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- time: 00:15:00
+---
+conversation time: '0:00:54.359199'
+---
+interaction:
+- User: Hi, I'd like to order a big custom pizza, please. Can I have bacon and mushrooms
+    on it?
+- Assistant: It looks like you want a custom pizza with bacon and mushrooms, but we
+    only offer small, medium, and large sizes. Could you please choose one of these
+    sizes?
+- User: Sure, let's go with a large pizza. Can I also add olives and onions to that?
+- Assistant: 'Thanks for ordering a large pizza with bacon, mushrooms and olives!
+
+    Thank you for your order of a large custom pizza with bacon, mushrooms, olives,
+    and onions. Could you please let me know how many drinks you would like to order
+    and which type of drinks you prefer? We have coke, sprite, and water.'
+- User: I'll take one Coke, please. Also, can I add egg and ham to the pizza?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a large pizza topped with bacon, mushrooms, and olives, along with
+    one Coke, is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 5e8dc5.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 5e8dc5.'
+- User: Could you also add pepperoni to the pizza, please?
+- Assistant: 'It looks like you want a large pizza with bacon, mushrooms, and pepperoni.
+    However, we don''t offer onions as a topping. Would you like to add olives instead,
+    or any other toppings from the following options: cheese, mushrooms, pepper, ham,
+    bacon, pepperoni, olives, corn, chicken?'
+- User: I would like to add pepperoni, along with the bacon, mushrooms, olives, onions,
+    egg, and ham. Is that possible?
+- Assistant: 'Thanks for ordering a large pizza with bacon, mushrooms, pepperoni,
+    olives and ham!
+
+    Could you please confirm the number of drinks you would like to order? So far,
+    I have noted one Coke. Is that correct, or would you like to add more drinks?'

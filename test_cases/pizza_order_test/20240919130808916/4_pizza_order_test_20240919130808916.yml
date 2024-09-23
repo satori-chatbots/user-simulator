@@ -1,0 +1,53 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+  - mushrooms
+- drink: coke
+- size:
+  - medium
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $18.99
+- time: 00:30:00
+---
+interaction:
+- User: Hi, I'd like to order a medium custom pizza with cheese and mushrooms, please.
+- Assistant: I see that you've chosen cheese and mushrooms as your toppings. Could
+    you please confirm the size of the pizza you'd like? The available sizes are small,
+    medium, and large.
+- User: I'd like a medium pizza, please. Also, can I get a Coke with that?
+- Assistant: 'Thanks for ordering a medium pizza with cheese and mushrooms!
+
+    How many drinks would you like to order? And just to confirm, would you like Coke,
+    Sprite, or water?'
+- User: Just one Coke, please. How long will it take for the pizza to arrive?
+- Assistant: ''
+- User: The estimated delivery time for your order is about 30-45 minutes. Would you
+    like to know the total cost of your order?
+- Assistant: ''
+- User: Yes, could you please tell me the total cost of my order?
+- Assistant: ''
+- User: The total cost for your medium custom pizza with cheese and mushrooms, along
+    with one Coke, is $18.99. Would you like to proceed with your order?
+- Assistant: The total cost for your medium custom pizza with cheese and mushrooms,
+    along with one Coke, is $18.99. Would you like to proceed with your order?
+- User: Yes, I'd like to proceed with my order. Can I pay with a credit card?
+- Assistant: Yes, you can pay with a credit card. Your order for a medium custom pizza
+    with cheese and mushrooms, along with one Coke, is confirmed. The total cost is
+    $18.99, and the estimated delivery time is about 30-45 minutes. Thank you for
+    choosing Fast Pizza!
+- User: Great, thanks! Could you send me a confirmation email or text with the order
+    details?
+- Assistant: Sure, I can send you a confirmation email or text with the order details.
+    Could you please provide your email address or phone number for the confirmation?

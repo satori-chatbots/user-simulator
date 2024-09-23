@@ -1,0 +1,54 @@
+serial: '20240923100930975'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink: sprite
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: 11.50$
+- time: 00:15:00
+- order_id: None
+---
+conversation time: '0:00:57.490528'
+---
+interaction:
+- User: "Hi, um, can I get, you know, the small one... the pizza? Uh, margarita, I\
+    \ think. Also, hmm, what was that drink... s, p, something... sprite? Yeah, that.\
+    \ And, uh, how long does it take, do you think? \n\nOh, wait, how much is it?\
+    \ The cost, I mean."
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Wait, wait, so if I want that drink with the s, p, r, i, t, e, how much is
+    that? And, um, you said something about ingredients but I just want, like, the
+    small margarita... So, 10$, right? But... how long for it to get here?
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: Oh, hmm, okay, so 1.50$ for the drink. And, um, just to be clear, the small
+    margarita is 10$, right? But you didn't say how long it takes. Like, if I order
+    now, when will it get here?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Oh, alright, so... 10$ for the small margarita, and the drink is 1.50$, got
+    it. So, um, if I order now, it's like... 15 minutes per pizza, but what if you're
+    busy? Will it take longer? And also, do you guys have, uh, garlic bread or something?
+    I mean, on the side.
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Okay, uh, so if it's busy it could take longer, right? But, like, how much
+    longer? Also, um, do you have garlic bread? How much is that? And, do you serve
+    any dips with the pizza? Or extra cheese, maybe?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of the pizzas, prices of the beverages, how to get the
+    order, and how much time it takes to get an order.

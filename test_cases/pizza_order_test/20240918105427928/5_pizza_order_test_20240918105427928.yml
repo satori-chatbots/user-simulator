@@ -1,0 +1,51 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - cheese
+  - mushrooms
+- size: medium
+- drink: Orange Fanta
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi, can I order a medium pizza, please?
+- Assistant: Hi there! I see you've mentioned a medium pizza. Just to confirm, is
+    medium the size of the pizza you'd like to order?
+- User: Yes, medium is the size I want. What kind of crust options do you have?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    Great! Now, could you please tell me what toppings you would like on your pizza?
+    You can choose from cheese, mushrooms, pepper, ham, bacon, pepperoni, olives,
+    corn, or chicken.'
+- User: I would like cheese and mushrooms as my toppings. Can I also add an Orange
+    Fanta to my order?
+- Assistant: 'Great, a pizza with [''cheese'', ''mushrooms'']!
+
+    I''m sorry, but we only offer coke, sprite, and water as drink options. Could
+    you please choose one of these?'
+- User: Do you have any other orange-flavored drinks available?
+- Assistant: I'm sorry for the inconvenience, but currently we only offer coke, sprite,
+    and water as drink options. Could you please choose one of these?
+- User: In that case, I'll go with a Sprite.
+- Assistant: 'Alright, I''ve got your order for Sprite. Have a great time with your
+    pizza and beverages!
+
+    Alright, I''ve got your order for Sprite. Have a great time with your pizza and
+    beverages!'
+- User: Actually, I still need to finish my order. Can I also get some garlic bread
+    on the side?
+- Assistant: I'm glad to hear you'd like a medium pizza. However, it seems there's
+    been a misunderstanding. We've already confirmed the size of your pizza as medium.
+    Is there anything else you need help with for your order?

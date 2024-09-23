@@ -78,13 +78,14 @@ class MyDumper(yaml.Dumper):
         super().write_line_break(data)
 
 
-def save_test_conv(history, metadata, test_name, path, serial, counter):
+def save_test_conv(history, metadata, test_name, path, serial, conversation_time, counter):
     print("Saving conversation...")
+    c_time = {'conversation time': conversation_time}
     path_folder = path + f"/{test_name}"
     if not os.path.exists(path_folder):
         os.makedirs(path_folder)
 
-    data = [metadata, history]
+    data = [metadata, c_time, history]
     test_folder = path_folder + f"/{serial}"
 
     if not os.path.exists(test_folder):
@@ -146,3 +147,29 @@ def check_keys(key_list: list):
     for k in key_list:
         if not os.environ.get(k):
             raise Exception(f"{k} not found")
+
+
+def build_sequence(pairs):
+    mapping = {}
+    starts = set()
+    ends = set()
+    for a, b in pairs:
+        mapping[a] = b
+        starts.add(a)
+        if b is not None:
+            ends.add(b)
+    # Find starting words (appear in 'starts' but not in 'ends')
+    start_words = starts - ends
+    start_words.discard(None)
+    sequences = []
+    for start_word in start_words:
+        sequence = [start_word]
+        current_word = start_word
+        while current_word in mapping and mapping[current_word] is not None:
+            current_word = mapping[current_word]
+            sequence.append(current_word)
+        sequences.append(sequence)
+
+    if not sequences:
+        raise ValueError("Cannot determine a unique starting point.")
+    return sequences

@@ -1,0 +1,51 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - pepperoni
+  - pepper
+  - mushrooms
+  - bacon
+  - olives
+  - ham
+- size: small
+- drink: coke
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: 00:15:00
+---
+interaction:
+- User: Hi there! Can I get a small pizza, please?
+- Assistant: Hi! You've mentioned that you want a small pizza. So, the size of the
+    pizza is already provided. Is there anything else you would like to add to your
+    order?
+- User: Yes, can I get pepperoni and mushrooms as toppings on that small pizza?
+- Assistant: Absolutely, we can add pepperoni and mushrooms to your small pizza. Your
+    order is now being processed. Is there anything else you would like to add or
+    change?
+- User: Yes, I'd also like to add bacon as a topping, please.
+- Assistant: Great choice! So, you would like a small pizza with pepperoni, mushrooms,
+    and bacon as toppings. Is there anything else you would like to add to your order?
+- User: Yes, can I also get a Coke with that, please?
+- Assistant: Of course, we will add a Coke to your order. So, to confirm, you're ordering
+    a small pizza with pepperoni, mushrooms, and bacon toppings, and a Coke. Is that
+    correct?
+- User: Yes, that's correct! Could you tell me how much the total will be?
+- Assistant: I'm sorry, but as a chatbot, I don't have the ability to calculate the
+    total cost of your order. However, I can confirm that your order for a small pizza
+    with pepperoni, mushrooms, and bacon toppings, along with a Coke, has been placed.
+    The staff at the pizza shop will be able to provide you with the total cost.
+- User: Alright, thank you! How long will it take for my order to be ready?
+- Assistant: I'm sorry, but as a chatbot, I don't have the ability to provide an exact
+    time for when your order will be ready. However, typically, it takes about 15-20
+    minutes for a small pizza to be prepared. The staff at the pizza shop will be
+    able to give you a more accurate estimate.

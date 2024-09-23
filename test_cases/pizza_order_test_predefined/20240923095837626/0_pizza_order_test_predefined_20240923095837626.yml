@@ -1,0 +1,48 @@
+serial: '20240923095837626'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink: coke
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $8
+- time: None
+- order_id: None
+---
+conversation time: '0:00:43.649190'
+---
+interaction:
+- User: Hey there! I'm craving a small margarita pizza tonight. 🍕 Do you guys have
+    that?
+- Assistant: It looks like you have already chosen a small margarita pizza. Is there
+    anything else you would like to add or change?
+- User: Oh, perfect! Can I also get a Coke with that? 🥤 And just curious, how long
+    is it gonna take for the pizza to arrive?
+- Assistant: Unfortunately, I can only help with ordering pizzas at the moment. For
+    adding drinks like Coke and checking delivery times, please contact the shop directly.
+    Is there anything else related to your pizza order that I can assist you with?
+- User: Oh, got it. Thanks anyway! How much is the small margarita pizza, by the way?
+    🍕 Curious about the total cost.
+- Assistant: The cost of a small margarita pizza is $8. If you have any other questions
+    or need further assistance, feel free to ask!
+- User: Alright, thanks for the info! Just wondering, do you guys have any special
+    deals or discounts on pizzas? 🤔🍕
+- Assistant: Currently, we don't have any special deals or discounts on pizzas. However,
+    we always strive to offer the best quality and taste at a reasonable price. If
+    you have any other questions or need further assistance, feel free to ask!
+- User: That's good to know! I'll keep an eye out for deals next time. 😊 By the way,
+    do you guys offer any dessert options? I might want something sweet to go with
+    my pizza. 🍰
+- Assistant: Currently, we only handle pizza orders through this system. For dessert
+    options, please check our website or contact the store directly. Is there anything
+    else I can assist you with regarding your pizza order?

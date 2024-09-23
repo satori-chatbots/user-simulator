@@ -1,0 +1,52 @@
+serial: '20240923104930086'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - sprite
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+- order_id: 150c48
+---
+conversation time: '0:02:02.878656'
+---
+interaction:
+- User: Hi there! I'd like to order a small margherita pizza, please.
+- Assistant: It looks like you want a small margherita pizza. Just to confirm, is
+    that correct?
+- User: Yes, that's right. Also, can I get a Sprite with that?
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    Sure, I can add a Sprite to your order. How many drinks would you like?'
+- User: Just one Sprite, please. By the way, how long is it going to take for the
+    pizza to arrive?
+- Assistant: 'Alright, I have received your order for one Sprite.
+
+    The cost for a small margarita pizza and one Sprite is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 150c48.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 150c48.'
+- User: I'm a bit confused. I thought you were going to deliver it. Is delivery not
+    available?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Oh, I see. Just to make sure, if I come to pick it up, do you have parking
+    available nearby?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.

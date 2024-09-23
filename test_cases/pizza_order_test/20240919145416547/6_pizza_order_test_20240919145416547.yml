@@ -1,0 +1,66 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - egg
+  - pepperoni
+  - bacon
+  - cheese
+  - mushrooms
+  - olives
+- drink: sprite
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $12.50
+- time: None
+---
+conversation time: '0:00:56.683892'
+---
+interaction:
+- User: Hi, I'd like to order a small custom pizza. Can I get one with egg, pepperoni,
+    and bacon?
+- Assistant: It looks like you have chosen a small pizza, but one of the toppings
+    you selected, "egg," is not available. The available toppings are cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken. Could you please choose
+    from these toppings?
+- User: Okay, I'll skip the egg then. Can I get cheese, mushrooms, olives, pepperoni,
+    and bacon on the small pizza?
+- Assistant: 'Thanks for ordering a small pizza with cheese, mushrooms, olives, pepperoni
+    and bacon!
+
+    Thank you for your order of a small pizza with cheese, mushrooms, olives, pepperoni,
+    and bacon. Could you please let me know how many drinks you would like to order
+    and which drinks you prefer? The available options are coke, sprite, and water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Alright, I''ve received your order for one Sprite.
+
+    The cost for a small pizza topped with cheese, mushrooms, olives, pepperoni, and
+    bacon, along with one Sprite, is $12.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 9f8949.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 9f8949.'
+- User: Thank you! Could you confirm if you offer delivery services? If so, how long
+    will it take to deliver to 45 Elm Street?
+- Assistant: "We do not do delivery, but customers need to get the shop for their\
+    \ orders. We are located at 23 Main Street, New York.\n It depends on the number\
+    \ of pizzas of the order, typically around 15 minutes per pizza, but depends on\
+    \ how busy we are."
+- User: Got it, thanks! Can you tell me if there's any additional cost for extra toppings
+    on the pizza?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, delivery options, and how long
+    it takes to get an order.

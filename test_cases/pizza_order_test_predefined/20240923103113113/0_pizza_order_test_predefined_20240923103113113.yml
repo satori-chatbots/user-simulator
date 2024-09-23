@@ -1,0 +1,45 @@
+serial: '20240923103113113'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink: coke
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $8
+- time: 00:45:00
+- order_id: None
+---
+conversation time: '0:00:50.510739'
+---
+interaction:
+- User: Hi there! I'd like to order a small margarita pizza, please.
+- Assistant: It looks like you have already chosen a small margarita pizza. Is there
+    anything else you would like to add to your order?
+- User: Yes, could I also get a drink? Specifically, do you have c, o, k, e?
+- Assistant: I'm sorry, but I can only assist with pizza orders at the moment. Would
+    you like to add another pizza to your order? If so, please let me know the type
+    and size.
+- User: That's a bit odd. Alright, forget about the drink for now. Can you tell me
+    how long it will take for the small margarita pizza to arrive?
+- Assistant: The delivery time for a small margarita pizza is typically around 30-45
+    minutes. Is there anything else you would like to add to your order?
+- User: How much will the small margarita pizza cost?
+- Assistant: The cost of a small margarita pizza is $8. Is there anything else you
+    would like to know or add to your order?
+- User: No, that should be all for now. Can you confirm my order and let me know the
+    total cost including any delivery fees?
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    I can confirm your order for a small margarita pizza. However, I need to know
+    if you would like to add any drinks to your order. Could you please let me know
+    the number of drinks and your choice of drink (coke, sprite, or water)?'

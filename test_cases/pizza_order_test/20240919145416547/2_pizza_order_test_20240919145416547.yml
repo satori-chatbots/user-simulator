@@ -1,0 +1,67 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - bacon
+  - onion
+  - pepperoni
+  - ham
+  - mushrooms
+  - egg
+  - cheese
+  - olives
+- drink: Orange Fanta
+- size:
+  - big
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $23.00
+- time: 00:15:00
+---
+conversation time: '0:01:09.230827'
+---
+interaction:
+- User: Hi! I'd like to order a big custom pizza. Can you make one with bacon, onion,
+    pepperoni, ham, mushrooms, egg, cheese, and olives?
+- Assistant: "It looks like there are some issues with your previous order details.\
+    \ The size \"big\" is not available, and some of the toppings like \"onion\" and\
+    \ \"egg\" are not on our menu. \n\nCould you please choose a pizza size from small,\
+    \ medium, or large? Also, please select from the following toppings: cheese, mushrooms,\
+    \ pepper, ham, bacon, pepperoni, olives, corn, chicken."
+- User: Sure, I'll take a large pizza then. For the toppings, I'd like bacon, pepperoni,
+    ham, mushrooms, cheese, and olives.
+- Assistant: 'Thanks for ordering a large pizza with bacon, pepperoni, ham, mushrooms,
+    cheese and olives!
+
+    Thank you for your pizza order. Now, could you please let me know how many drinks
+    you would like and which type of drinks you prefer? The available options are
+    coke, sprite, and water.'
+- User: Can I get an Orange Fanta instead of the options you mentioned?
+- Assistant: I'm sorry, but we only have coke, sprite, and water available. Could
+    you please choose one of these options for your drink? Also, let me know how many
+    drinks you would like.
+- User: Alright, I'll have one Coke, please. How much will the total cost be for the
+    large pizza and the Coke?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a large pizza topped with bacon, pepperoni, ham, mushrooms, cheese,
+    and olives, along with one Coke, is $23.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c6acc9.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c6acc9.'
+- User: Great, thanks for the information. Is delivery available, or do I need to
+    come to the shop to pick it up?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.

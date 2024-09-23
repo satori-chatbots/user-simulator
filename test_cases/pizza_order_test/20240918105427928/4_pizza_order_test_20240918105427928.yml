@@ -1,0 +1,56 @@
+serial: '20240918105427928'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- toppings:
+  - olives
+  - corn
+  - mushrooms
+  - pepperoni
+  - chicken
+  - cheese
+  - pepper
+  - ham
+  - bacon
+- size: medium
+- drink: coke
+conversation:
+- number: 9
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi there! Could you tell me the sizes you offer for your pizzas?
+- Assistant: Hello! We offer pizzas in small, medium, and big sizes. Could you please
+    tell me which size you would like to order?
+- User: I would like to order a medium size pizza. What toppings do you have available?
+- Assistant: 'We appreciate your order for a medium pizza!
+
+    We have a variety of toppings available for you. You can choose from cheese, mushrooms,
+    pepper, ham, bacon, pepperoni, olives, corn, and chicken. Could you please tell
+    me which toppings you would like on your pizza?'
+- User: Could you add mushrooms and pepperoni to my medium pizza, please?
+- Assistant: 'Great, a pizza with [''mushrooms'', ''pepperoni'']!
+
+    Of course, we will add mushrooms and pepperoni to your medium pizza. Could you
+    please also tell me what drink you would like to have with your pizza? We offer
+    coke, sprite, and water.'
+- User: Could I get a coke with that, please?
+- Assistant: 'Alright, your order for coke has been acknowledged. Have a great time
+    with your pizza and beverages!
+
+    Alright, your order for coke has been acknowledged. Have a great time with your
+    pizza and beverages!'
+- User: Thank you! Could you also add some olives and bacon to the pizza?
+- Assistant: I see that you've already chosen a medium size for your pizza. Is there
+    anything else you would like to add to your order?
+- User: Yes, could you please add olives and bacon to my pizza as well?
+- Assistant: Absolutely, we will add olives and bacon to your medium-sized pizza.
+    Is there anything else you would like to add to your order?

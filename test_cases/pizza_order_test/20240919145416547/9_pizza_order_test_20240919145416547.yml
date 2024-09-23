@@ -1,0 +1,49 @@
+serial: '20240919145416547'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - ham
+- drink: sprite
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+---
+conversation time: '0:00:47.719641'
+---
+interaction:
+- User: Hi, I'd like to order a small custom pizza with ham, please.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    The available sizes are small, medium, and large.
+- User: I would like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with ham!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The available options are coke, sprite, and water.'
+- User: I'd like one Sprite, please.
+- Assistant: 'Alright, I have received your order for one Sprite.
+
+    The cost of a small ham pizza and one Sprite is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 1c5771.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 1c5771.'
+- User: Thank you! How long will it take for delivery if I decide to get it delivered
+    instead of picking it up?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I see, how busy are you right now?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

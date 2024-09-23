@@ -1,0 +1,53 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+- drink: sprite
+- size:
+  - small
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+---
+interaction:
+- User: Hi, I'd like to order a small custom pizza with cheese, please.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    The available sizes are small, medium, and large.
+- User: I would like a small pizza, please. Also, can I get a Sprite with that?
+- Assistant: 'Thanks for ordering a small pizza with cheese!
+
+    Could you please let me know how many drinks you would like to order?'
+- User: Just one Sprite, please. By the way, how long will it take for my pizza to
+    arrive?
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost of a small cheese pizza and one Sprite is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 66df4b.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 66df4b.'
+- User: Is there any delivery option available?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Okay, thank you. What are your operating hours?
+- Assistant: Every day from 1pm to 11:30pm
+- User: Thanks! I'll come by to pick up my order.
+- Assistant: Thank you for your order! We look forward to seeing you. If you have
+    any other questions or need further assistance, feel free to ask.
+- User: Great, see you soon!
+- Assistant: Great! See you soon at Fast Pizza!
+- User: Alright, see you soon!
+- Assistant: Have a great day! See you soon at Fast Pizza!

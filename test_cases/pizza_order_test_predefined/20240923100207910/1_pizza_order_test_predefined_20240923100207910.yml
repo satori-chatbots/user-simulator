@@ -1,0 +1,68 @@
+serial: '20240923100207910'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink: sprite
+- size: small
+- pizza_type: cuattro stagioni
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $13.50
+- time: 00:15:00
+- order_id: e021e3
+---
+conversation time: '0:00:55.563852'
+---
+interaction:
+- User: 'Hey there! 👋 I''m craving some pizza tonight. Can I get a small Quattro Stagioni
+    pizza, please? 😊 Also, do you guys have Sprite?
+
+
+    By the way, how''s your day going?'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Sure thing! I'd like a small Quattro Stagioni pizza, please. 😊 And do you
+    have Sprite available? How's your day going so far?
+- Assistant: "I'm sorry, but we don't have Quattro Stagioni pizza on our menu. We\
+    \ do have margarita, carbonara, marinera, hawaiian, four cheese, and vegetarian\
+    \ pizzas. Would you like to choose one of these, or would you prefer to create\
+    \ a custom pizza with your favorite toppings?\n\nAs for drinks, we can check if\
+    \ Sprite is available once you've decided on your pizza. \n\nMy day is going well,\
+    \ thank you for asking! How can I assist you further?"
+- User: 'Oh, bummer about the Quattro Stagioni. 😅 You know what, I''ll go for a four
+    cheese pizza then—that sounds delicious! 🍕 And please check if you have Sprite.
+
+
+    By the way, do you like pizza too? What''s your favorite kind?'
+- Assistant: Sure, a four cheese pizza sounds great! Could you please let me know
+    what size you'd like? We have small, medium, and large.
+- User: 'I''ll stick with a small four cheese pizza, thanks! 🍕 And don''t forget to
+    check if you have Sprite.
+
+
+    So, do you have a favorite pizza? 🍕 Or maybe a favorite topping?'
+- Assistant: "Thanks for ordering a small four cheese pizza!\nThank you for your order\
+    \ of a small four cheese pizza! \U0001F355 \n\nTo complete your order, could you\
+    \ please let me know how many drinks you'd like and confirm if you'd like Sprite?\
+    \ We have coke, sprite, and water available."
+- User: 'You can add just one Sprite for me, please! 🥤
+
+
+    And hey, do you know how long it''ll take for the pizza to get here? ⏰ Also, got
+    any fun plans for the weekend? 😊'
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a small four-cheese pizza and one Sprite is $13.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e021e3.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e021e3.'

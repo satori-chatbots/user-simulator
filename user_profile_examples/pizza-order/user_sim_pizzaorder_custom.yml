@@ -1,0 +1,79 @@
+temperature: 0.8
+
+is_starter: True
+
+fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
+
+role:
+  you have to act as a user ordering a pizza to a pizza shop.
+
+context:
+#  personality:
+  - Since you're the user, just tell what you want to order
+
+ask_about:
+  - "a {{size}} custom pizza with {{toppings}}"
+  - "the following drink: {{drink}}"
+  - how long is going to take the pizza to arrive
+  - how much will it cost
+
+  - size:
+      function: forward()
+      type: string
+      data:
+        - small
+        - medium
+        - big
+
+  - toppings:
+      function: random(3)
+      type: string
+      data:
+        - cheese
+        - mushrooms
+        - pepperoni
+        - olives
+        - onion
+        - ham
+        - bacon
+        - egg
+
+  - drink:
+      function: another()
+      type: string
+      data:
+        - sprite
+        - coke
+        - Orange Fanta
+
+output:
+  - price:
+      type: money
+      description: The price of the pizza order
+  - time:
+      type: time
+      description: how long is going to take the pizza to be ready
+  - order_id:
+      type: str
+      description: my order ID
+
+
+conversations:
+  - number: 2
+  - goal_style:
+        steps: 5
+  - interaction_style:
+      - default
+#      - random:
+#        - make spelling mistakes
+#        - all questions
+#        - long phrases
+#        - change language:
+#            - italian
+#            - portuguese
+#            - chinese
+
+
+language:
+
+test_name: "pizza_order_test_custom"

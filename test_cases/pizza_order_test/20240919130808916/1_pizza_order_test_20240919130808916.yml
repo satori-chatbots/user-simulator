@@ -1,0 +1,59 @@
+serial: '20240919130808916'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+- drink: sprite
+- size:
+  - medium
+conversation:
+- number: 10
+- goal_style:
+    steps: 8
+- interaction_style:
+  - default
+data_output:
+- price: '16.50'
+- time: None
+---
+interaction:
+- User: 'Hi, I''d like to order a medium custom pizza with cheese. Do you offer Sprite
+    as a drink?
+
+
+    '
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: Great, I'd like to add a Sprite to my order. How much will the medium custom
+    pizza with cheese cost?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Thank you! So, my total is $15 for the medium custom pizza with cheese and
+    $1.50 for the Sprite, making it $16.50, right? How long will it take for the pizza
+    to arrive?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: That works for me. Can you give me an estimated delivery time for my order?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Got it. Can you give me a rough estimate based on your current workload?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I understand. If you could provide a rough estimate based on your current
+    workload, that would be really helpful.
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Could you please check with the kitchen and give me an estimated delivery
+    time for my order?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: That makes sense. Can you provide an approximate delivery time considering
+    your current workload? Thank you.
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.

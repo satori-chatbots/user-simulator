@@ -1,0 +1,61 @@
+serial: '20240923100930975'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink: Orange Fanta
+- size: small
+- pizza_type: cuattro stagioni
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: 12$
+- time: None
+- order_id: None
+---
+conversation time: '0:01:02.423331'
+---
+interaction:
+- User: Can I get a... um, small pizza, Quattro... Stagioni, I think. And, uh, how
+    much will it cost? Oh, and do you have Orange Fanta? And—wait, how long will it
+    take to arrive?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Wait, so the Quattro Stagioni will be... more than the Margarita? And did
+    you say how long it takes to arrive? Oh, and do you have that drink... the Orange
+    Fanta?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: So, uh, okay, the Quattro Stagioni is more, right? And, um, delivery time—how
+    long again? Or wait, how much for a small one? And, uh, did you have Orange Fanta?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: But, like, how much is the small Quattro Stagioni then? And the drink, Orange
+    Fanta, do you... have that? Oh, and delivery time—how long?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: So, um, the small Quattro Stagioni is, um, 12 dollars, right? And the drink—did
+    you say you have Orange Fanta? And, like, how long for delivery again? Is it fast?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

@@ -1,0 +1,64 @@
+serial: '20240919143527150'
+language: null
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+  - olives
+  - pepperoni
+  - onion
+- drink: Orange Fanta
+- size:
+  - small
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $12.00
+- time: 00:15:00
+---
+conversation time: '0:00:56.595978'
+---
+interaction:
+- User: 'Hi! I''d like to order a small custom pizza, please. Can I get cheese, olives,
+    pepperoni, and onion on that?
+
+
+    Also, do you have Orange Fanta?'
+- Assistant: 'I see you would like to order a small custom pizza. However, we don''t
+    have onion as a topping option. Could you please choose from the following toppings:
+    cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, or chicken?'
+- User: Oh, I see. In that case, I'll go with cheese, olives, pepperoni, and mushrooms
+    instead. Is that okay? And do you have Orange Fanta available?
+- Assistant: 'Thanks for ordering a small pizza with cheese, olives, pepperoni and
+    mushrooms!
+
+    I have noted your pizza order with cheese, olives, pepperoni, and mushrooms. Unfortunately,
+    we do not have Orange Fanta available. Could you please let me know how many drinks
+    you would like to order and choose from the following options: coke, sprite, or
+    water?'
+- User: Alright, I'll take a Sprite then. How long will it take for my order to arrive?
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost of a small pizza with cheese, olives, pepperoni, mushrooms, and one Sprite
+    is $12.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0e8157.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0e8157.'
+- User: Thank you! I'll be there to pick it up in 15 minutes.
+- Assistant: Your order for a small custom pizza with cheese, olives, pepperoni, and
+    onion has been placed. We do have Orange Fanta available. Your order will be ready
+    for pick-up in 15 minutes. Thank you for choosing Fast Pizza!
+- User: I actually ordered mushrooms instead of onions because onions weren't available.
+    Just to confirm, my order is a small custom pizza with cheese, olives, pepperoni,
+    and mushrooms, along with a Sprite. I'll be there in 15 minutes. Thank you!
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

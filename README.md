@@ -52,20 +52,41 @@ context:
 
 # (list of types) defines what should be said by the user simulator to test tome specific capabilities of the chatbot.
 ask_about:
-  - "a pizza with any size of the following: {{size}}"
+  - "a pizza with the following size: {{size}}"
+  - "the following drink: {{drink}}"
+  - "the following toppings: {{toppings}}"
+  - how long is going to take the pizza to arrive
+
   - size:
-    - small
-    - medium
-    - large
-    - extra large
-  - "any of the following for toppings: {{toppings}}"
+      function: forward(drink)
+      type: string
+      data:
+        - small
+        - medium
+        - big
+
   - toppings:
-    - mushrooms
-    - tomato
-    - onion
-    - cheese
-    - olives
-    - pepperoni
+      function: random(rand)
+      type: string
+      data:
+        - cheese
+        - mushrooms
+        - pepper
+        - ham
+        - bacon
+        - pepperoni
+        - olives
+        - corn
+        - chicken
+
+  - drink:
+      function: forward()
+      type: string
+      data:
+        - sprite
+        - coke
+        - Orange Fanta
+
 
 # Outputs some specific data defined by the tester.
 output:
@@ -121,12 +142,41 @@ This field is used to narrow down the conversation topics the user simulator wil
 
 The tester define a list of prompts for the user simulator to check on the chatbot. These prompts can contain variables that should be called inside the text between double brackets {{var}}. The varibales should be instantiated in the list as shown in the example above with the exact same name as written between brackets (case-sensitive).
 
-Some functions have been added to define how the data assigned to the variable will be treated. These functions can be called by adding a dot and the name of the function next to the variable {{var.function()}}:
+Variables follow a specific structure defined by 3 fields as shown below: data, type and function.
+```
+ask_about:
+  - "cost estimation for photos of {{number_photo.random()}} artworks"
+  - number_photo:
+      function: forward()
+      type: int
+      data:
+        step: 2
+        min: 1
+        max: 6
+
+#      data:             only with float
+#        steps: 0.2 // linspace: 5 
+#        min: 1
+#        max: 6
+```
+  ### type
+  This field indicates the type of data that will be substituted in the variable placement. The types available for this version are int, float and string, and must be stated as written here.
+
+  ### data
+  Here, the data list to use will be defined. In general, the data list must be defined manually by the user, but there are some cases where it can be created automatically, as long as it consists of integers or floats. As shown in the example above, instead of defining a list of the amount of artworks, it is posible to automatically create an integer or float list based on range instructions using a 'min, max, step' structure, where min refers to the minimum value of the list, max refers to the maximum value of the list, and step refers to the separation steps between samples. When working with float data, it can also be used the linspace parameter instead of step, where samples will be listed with a linear separation step between them.
+
+  
+  
+
+
+
+  
 
 - {{var}}: by only placing the name of the variable, all data assignet to it will be prompted in the text.
 - {{var.random()}}: this function picks only one random value inside the list assigned to the variable.
 - {{var.random(5)}}: this function picks a certain amount of random values inside the list. In this example, 5 random values will be picked from the list. This number can't exceed the list length.
-- {{var.random(rand)}}: this function picks a random amount of random values inside the list. This amount will not exceed the list length. 
+- {{var.random(rand)}}: this function picks a random amount of random values inside the list. This amount will not exceed the list length.
+
 
 
 ## output

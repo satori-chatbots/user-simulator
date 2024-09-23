@@ -1,0 +1,27 @@
+serial: '20240919123027371'
+language: null
+ask_about:
+- 'a pizza with the following size: {{size}}'
+- 'the following drink: {{drink}}'
+- 'the following toppings: {{toppings}}'
+- how long is going to take the pizza to arrive
+- drink:
+  - coke
+- size: small
+- toppings: mushrooms
+conversation:
+- number: 5
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+---
+interaction:
+- User: Hi, I'd like to place an order for a small pizza. What toppings do you have
+    available?
+- Assistant: 'You mentioned you are interested in a small pizza. Could you please
+    let me know which toppings you would like? The available toppings are: cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken.'

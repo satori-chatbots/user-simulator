@@ -1,0 +1,47 @@
+serial: '20240923130642059'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - sprite
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $8
+- time: 00:30:00
+- order_id: None
+---
+conversation time: '0:00:43.109915'
+---
+interaction:
+- User: Hi there! I'm looking to order a small Margarita pizza. Can you tell me if
+    that's available and what the price is?
+- Assistant: It looks like you have already chosen a small Margarita pizza. Is there
+    anything else you would like to add to your order?
+- User: Yes, I'd like to add a Sprite to my order. Do you have that, and how much
+    is it?
+- Assistant: Currently, I can only assist with ordering pizzas. For information about
+    drinks and their prices, please check with the store directly or visit our website.
+    Is there anything else you would like to add to your pizza order?
+- User: Okay, I understand. Can you tell me how long it will take for the pizza to
+    arrive?
+- Assistant: Thank you for your order. The small Margarita pizza will take approximately
+    30 minutes to arrive. Unfortunately, we do not have Sprite available at the moment.
+    Is there anything else you would like to add to your order?
+- User: Got it, thanks for letting me know about the Sprite. How much is the small
+    Margarita pizza going to cost?
+- Assistant: The cost of a small Margarita pizza is $8. Is there anything else you
+    would like to add to your order?
+- User: No, I think that's everything for now. How do I proceed with the payment?
+- Assistant: Thank you for confirming your order. The cost of the small Margarita
+    pizza is $8. To proceed with the payment, you can either pay online through our
+    website or pay in cash upon delivery. Which option would you prefer?

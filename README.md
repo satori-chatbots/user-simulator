@@ -45,9 +45,9 @@ role:
   you have to act as a user ordering a pizza to a pizza shop
 
 # (list of str) features addeed to the prompt in order to narrow down the user's role
-context:                              
-  - Since you're the user, just tell what you want to order
-  - you're vegetarian
+context:
+  - personality:  personalities/formal-user.yml                             
+  - you're vegan
   - your name is John
 
 # (list of types) defines what should be said by the user simulator to test tome specific capabilities of the chatbot.
@@ -134,18 +134,27 @@ test_name: "pizza_order_test"
 
 ## context
 
-  This field consist of a list of prompts that will define some caracteristics of the user simulator. This can be used to define the name of the user, the availability for an appointment, allergies or intolerances, etc.
+  This field consist of a list of prompts that will define some characteristics of the user simulator. 
+  This can be used to define the name of the user, the availability for an appointment, allergies or intolerances, etc.
+  An option for loading predefined "personalities" can be enabled by typing inside of this field "personality:" and the
+  path to the YAML file containing the desired personality. These personalities can go along with characteristics added
+  by the programmer.
+  
 
 ## ask_baout
 
-This field is used to narrow down the conversation topics the user simulator will carry out with the chatbot. It consist of a list of strings and dictionaries.
+This field is used to narrow down the conversation topics the user simulator will carry out with the chatbot. 
+It consists of a list of strings and dictionaries.
 
-The tester define a list of prompts for the user simulator to check on the chatbot. These prompts can contain variables that should be called inside the text between double brackets {{var}}. The varibales should be instantiated in the list as shown in the example above with the exact same name as written between brackets (case-sensitive).
+The tester define a list of prompts with indications for the user simulator to check on the chatbot. 
+These prompts can contain variables that should be called inside the text between double brackets {{var}}. 
+Variables are useful to provide variability in the testing process and should be instantiated in the list as 
+shown in the example above with the exact same name as written between brackets (case-sensitive).
 
 Variables follow a specific structure defined by 3 fields as shown below: data, type and function.
 ```
 ask_about:
-  - "cost estimation for photos of {{number_photo.random()}} artworks"
+  - "cost estimation for photos of {{number_photo}} artworks"
   - number_photo:
       function: forward()
       type: int
@@ -154,30 +163,79 @@ ask_about:
         min: 1
         max: 6
 
-#      data:             only with float
+#      data:             (only with float)
 #        steps: 0.2 // linspace: 5 
 #        min: 1
 #        max: 6
 ```
   ### type
-  This field indicates the type of data that will be substituted in the variable placement. The types available for this version are int, float and string, and must be stated as written here.
+  This field indicates the type of data that will be substituted in the variable placement. 
+  The types available for this version are int, float and string, and must be stated as written here.
 
   ### data
-  Here, the data list to use will be defined. In general, the data list must be defined manually by the user, but there are some cases where it can be created automatically, as long as it consists of integers or floats. As shown in the example above, instead of defining a list of the amount of artworks, it is posible to automatically create an integer or float list based on range instructions using a 'min, max, step' structure, where min refers to the minimum value of the list, max refers to the maximum value of the list, and step refers to the separation steps between samples. When working with float data, it can also be used the linspace parameter instead of step, where samples will be listed with a linear separation step between them.
+  Here, the data list to use will be defined. In general, the data list must be defined manually by the user, but there 
+  are some cases where it can be created automatically, as long as it consists of integers or floats. 
 
-  
-  
+  As shown in the example above, instead of defining a list of the amount of artworks, 
+  it is possible to automatically create an integer or float list based on range instructions using a 'min, max, step' structure, 
+  where min refers to the minimum value of the list, max refers to the maximum value of the list, 
+  and step refers to the separation steps between samples. When working with float data, it can also be used the "linspace" 
+  parameter instead of step, where samples will be listed with a linear separation step between them.
 
+  ### function
+  Functions are useful to determine how data will be added to the prompt.
 
+  Since the data is listed, functions can be used to iterate through these lists in order to change the information
+  inside the variable in each conversation. The functions available in this update are the following:
 
-  
+- default(): the default() function assigns all data in the list to the variable in the prompt.
+- random(): this function picks only one random sample inside the list assigned to the variable.
+- random(5): this function picks a certain amount of random samples inside the list. In this example, 5 random 
+samples will be picked from the list. This number can't exceed the list length.
+- random(rand): this function picks a random amount of random samples inside the list. 
+This amount will not exceed the list length.
+- another(): the another() function will always randomly pick a different sample until finishing the options.
+- forward(): this function iterates through each of the samples in the list one by one. It allows to nest multiple
+functions of the same type in order to cover all combinations possible. An example of this is shown in the ask_about section
+in the main example. To nest forward() functions it is necessary to reference the variable that is going to nest by typing
+its name inside the brackets, as shown in the mentioned example:
+```
+  - "a pizza with the following size: {{size}}"
+  - "the following drink: {{drink}}"
+  - "the following toppings: {{toppings}}"
+  - how long is going to take the pizza to arrive
 
-- {{var}}: by only placing the name of the variable, all data assignet to it will be prompted in the text.
-- {{var.random()}}: this function picks only one random value inside the list assigned to the variable.
-- {{var.random(5)}}: this function picks a certain amount of random values inside the list. In this example, 5 random values will be picked from the list. This number can't exceed the list length.
-- {{var.random(rand)}}: this function picks a random amount of random values inside the list. This amount will not exceed the list length.
+  - size:
+      function: forward(drink)
+      type: string
+      data:
+        - small
+        - medium
+        - big
 
+  - toppings:
+      function: random(rand)
+      type: string
+      data:
+        - cheese
+        - mushrooms
+        - pepper
+        - ham
+        - bacon
+        - pepperoni
+        - olives
+        - corn
+        - chicken
 
+  - drink:
+      function: forward()
+      type: string
+      data:
+        - sprite
+        - coke
+        - Orange Fanta
+
+```
 
 ## output
 
@@ -213,7 +271,7 @@ The tester defines some certain values to obtain from the conversation to valida
                      of languages inside the parameter, as shown in the example above.
   - make spelling mistakes: the user will make typos and spelling mistakes during the conversation
   - single question: the user makes only one query per interaction from "ask_about" field.
-  - all questions: the user asks everyrhing inside the "ask_about" field in one interaction.
+  - all questions: the user asks everything inside the "ask_about" field in one interaction.
   - random: this options allows to create a list inside of it with any of the interaction styles mentioned above. Then, it selects a random amount of interaction styles to apply to the conversation. Here's an example on how to apply this interaction style:
     ```
     interaction_style:

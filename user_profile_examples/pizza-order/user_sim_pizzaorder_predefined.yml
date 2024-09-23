@@ -8,13 +8,22 @@ role:
   you have to act as a user ordering a pizza to a pizza shop.
 
 context:
-  personality: personalities/skeptical-user.yml
+  - personality: personalities/formal-user.yml
+  - "you're very vegan"
 
 ask_about:
   - "a {{size}} {{pizza_type}} pizza"
-  - "the following drink: {{drink}}"
+  - "{{number}} cans of the following drink: {{drink}}"
   - how long is going to take the pizza to arrive
   - how much will it cost
+
+  - number:
+      function: forward()
+      type: int
+      data:
+        step: 2
+        min: 1
+        max: 6
 
   - size:
       function: forward(pizza_type)

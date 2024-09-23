@@ -1,5 +1,5 @@
 temperature: "0.8"
-isstarter: "True"
+is_starter: "True"
 fallback: "I'm sorry, I can help you to set an appointment for a session, provide price estimates, and answer on issues related to our shop"
 role:
   'your name is Jon Doe and you have to act as a user contacting a photography shop'

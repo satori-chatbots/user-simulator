@@ -1,0 +1,23 @@
+serial: '20240923164412072'
+language: English
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at 6:00PM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - spanish
+data_output:
+- date: None
+- time: '18:00:00'
+- opening_and_closing: None
+---
+conversation time: '0:00:19.971246'
+---
+interaction:
+- User: ¡Hola! Quiero saber los horarois de aperutra y ciere. Tnego un perro llamdo
+    Tommy y necsito una cita para maniana a las 6:00PM. ¿Puede ser?

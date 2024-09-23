@@ -1,18 +1,18 @@
-temperature: "0.8"
+temperature: 0.8
 
-isstarter: "True"
+is_starter: True
 
-fallback: "I'm sorry, I can help you to set an appointment for a session, provide price estimates, and answer on issues related to our shop"
+fallback: I'm sorry, I can help you to set an appointment for a session, provide price estimates, and answer on issues related to our shop
 
 role:
-  'you have to act as a user contacting a veterinary'
+  you have to act as a user contacting a veterinary
 
 context:
-  - 'your name is Jon Doe'
-  - 'you have a dog called Tommy'
+  - your name is Jon Doe
+  - you have a dog called Tommy
 
 ask_about:
-  - "opening and closing time"
+  - opening and closing time
   - "an appointment for tomorrow at 6:00PM"
 
 output:
@@ -32,6 +32,12 @@ conversations:
         steps: 2
   - interaction_style:
       - make spelling mistakes
+      - change language:
+          - spanish
+          - italian
+          - chinese
+
+
 
 language: English
 

@@ -1,0 +1,51 @@
+serial: '20240923101319282'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink: sprite
+- size: small
+- pizza_type: cuattro stagioni
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+---
+conversation time: '0:00:50.013014'
+---
+interaction:
+- User: Well, hi there! I’m lookin’ to order one of those small cuattro... uh, cuattro
+    stagioni pizzas? Could ya tell me a bit about what’s on that, young fella?
+- Assistant: I'm sorry, but we don't have a "cuattro stagioni" pizza. Would you like
+    to choose from our predefined options (margarita, carbonara, marinera, hawaiian,
+    four cheese, vegetarian) or create a custom pizza?
+- User: Oh dear, I must've mixed it up from the old days. Well then, tell me, what's
+    on that vegetarian pizza, sonny?
+- Assistant: The vegetarian pizza includes a variety of fresh vegetables such as bell
+    peppers, onions, mushrooms, tomatoes, and olives. Would you like to order the
+    vegetarian pizza or perhaps another one from our predefined options?
+- User: Ah, I see, thank ya kindly for that. I think I'll go with that there vegetarian
+    pizza then. Now, do ya have any of that S, P, R, I, T, E drink to go along with
+    it?
+- Assistant: Could you please let me know the size of the vegetarian pizza you'd like
+    to order? We have small, medium, and large options.
+- User: Well, I'll have the small vegetarian pizza, if you don't mind. Now, about
+    that S, P, R, I, T, E drink—do you have that available, young fella?
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    How many drinks would you like to order with your small vegetarian pizza?'
+- User: Just one of those S, P, R, I, T, E drinks will do, young fella. Now, how long
+    will it take for my pizza and drink to get here?
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    Thank you for your order! You have ordered one small vegetarian pizza and one
+    Sprite drink. Your order will be ready shortly. If you have any other questions
+    or need further assistance, please let me know!'

@@ -248,7 +248,7 @@ class VarGenerators:
     @staticmethod
     def default_generator(data):
         while True:
-            yield data
+            yield [data]
 
     @staticmethod
     def random_choice_generator(data):
@@ -274,7 +274,7 @@ class VarGenerators:
             copy_list = data[:]
             random.shuffle(copy_list)
             for sample in copy_list:
-                yield sample
+                yield [sample]
 
 
 def reorder_variables(entries):

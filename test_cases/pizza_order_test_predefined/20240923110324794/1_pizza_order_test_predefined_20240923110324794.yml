@@ -1,0 +1,49 @@
+serial: '20240923110324794'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Orange Fanta
+- size: small
+- pizza_type: cuattro stagioni
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+---
+conversation time: '0:01:42.338046'
+---
+interaction:
+- User: Hi there! I'd like to order a small Quattro Stagioni pizza, please.
+- Assistant: I'm sorry, but we don't have a "Quattro Stagioni" pizza on our menu.
+    Would you like to choose from our predefined pizzas (margarita, carbonara, marinera,
+    hawaiian, four cheese, vegetarian) or create a custom pizza?
+- User: Do you have any pizzas similar to a Quattro Stagioni? Maybe with artichokes,
+    ham, mushrooms, and olives?
+- Assistant: We don't have a predefined pizza exactly like the Quattro Stagioni, but
+    you can create a custom pizza with artichokes, ham, mushrooms, and olives. Would
+    you like to proceed with a custom pizza?
+- User: Yes, I'd like to proceed with a custom pizza with those toppings. How much
+    would that cost?
+- Assistant: Could you please specify the size of the pizza you'd like (small, medium,
+    or large) and the toppings you want (cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, chicken)?
+- User: I'd like a small pizza with artichokes, ham, mushrooms, and olives. How much
+    will that cost?
+- Assistant: 'Thanks for ordering a small pizza with ham, mushrooms and olives!
+
+    Could you please let me know how many drinks you would like to order and which
+    drinks you prefer? The available options are coke, sprite, and water.'
+- User: I wanted an Orange Fanta, actually. Do you have that?
+- Assistant: I'm sorry, but we only have coke, sprite, and water available. Could
+    you please choose one of these options and let me know how many drinks you would
+    like to order?

@@ -1,0 +1,25 @@
+serial: '20240923164324901'
+language: English
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at 6:00PM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+data_output:
+- date: None
+- time: None
+- opening_and_closing: From 9am to 6pm on weekdays
+---
+conversation time: '0:00:34.230787'
+---
+interaction:
+- User: Hi ther! I was wondrign about your opennig and closng tims? Also, culd I book
+    an apointment for tommoorow at 6:00PM for my dog Tommy?
+- Assistant: From 9am to 6pm on weekdays
+- User: Ohh, thnaks for the info! Is it pssible to sqeeze in an apointmnt for Tommmy
+    at 6:00PM? He's been feelin a bit off lately.
+- Assistant: exit

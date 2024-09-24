@@ -1,0 +1,44 @@
+serial: '20240923153630084'
+language: Spanish
+ask_about:
+- opening and closing time
+- most expensive bikes
+- the price of the seats
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+data_output:
+- seats: $50 y $100
+- opening_and_closing: 9 a.m. a 5:30 p.m.
+- most_expensive_bike: None
+---
+conversation time: '0:01:02.853925'
+---
+interaction:
+- User: ¿A qé hro abre este lugar d e mierd? Y no me vengas con excusas baratas, qiero
+    saber ya! Y no me vengas con esas respuestas automáticas, chatbot de pacotilla.
+- Assistant: Nuestro horario de atención es de lunes a viernes de 9 a.m. a 5:30 p.m.
+    ¿Hay algo más en lo que pueda ayudarte?
+- User: ¿Y a qé hro cierra? No me vengas con tonterías, qiero saber exactamnte. Y
+    no me hables como si fuera idiota, chatbot barato.
+- Assistant: Nuestro horario de atención es todos los días laborables de 9 a.m. a
+    5:30 p.m. ¿Hay algo más en lo que pueda ayudarte?
+- User: ¿Y cúal es la bicicleta más cara que tienen? No me vengas con esas respuestas
+    genéricas, qiero saber el precio exacto. Y no me hagas perder el tiempo, chatbot
+    inútil.
+- Assistant: Lo siento, pero no puedo proporcionar información sobre los precios exactos
+    de nuestras bicicletas. ¿Hay algo más en lo que pueda ayudarte?
+- User: ¿Es en serio? ¿Ni siquiera puedes decirme el precio de la bicicleta más cara?
+    Menudo chatbot inútil. ¿Cuánto cuestan los asientos? Y no me vengas con evasivas,
+    quiero saber el precio exacto. Y que sea rápido, no tengo todo el día para perder
+    con un chatbot de pacotilla como tú.
+- Assistant: The response to the inquiry about the cost of a new seat is that it ranges
+    between $50 and $100.
+- User: ¿$50 y $100? ¿Estás de broma? Eso es un robo, ni que fueran de oro los asientos.
+    ¿Y los asientos más baratos cuánto cuestan? Y no me vengas con excusas, quiero
+    saber ya, chatbot de pacotilla.
+- Assistant: The response to the inquiry about the cost of a new seat is that it ranges
+    between $50 and $100.

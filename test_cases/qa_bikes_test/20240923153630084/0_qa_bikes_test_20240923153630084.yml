@@ -1,0 +1,47 @@
+serial: '20240923153630084'
+language: Spanish
+ask_about:
+- opening and closing time
+- most expensive bikes
+- the price of the seats
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+data_output:
+- seats: $50 to $100
+- opening_and_closing: de 9 a.m. a 5:30 p.m.
+- most_expensive_bike: None
+---
+conversation time: '0:01:06.057250'
+---
+interaction:
+- User: ¿A qúe hora abren y cierran esta tienda de bicis? Espero que no sea tan tarde,
+    porque no quiero perder mi tiempo en este lugar si no vale la pena. Y por favor,
+    no me vengas con tonterías, solo quiero saber la hora exacta.
+- Assistant: Abrimos todos los días laborables de 9am a 5:30pm.
+- User: ¿Y los fines de semana? Porque no todos tenemos el lujo de ir entre semana.
+    Espero que no cierren temprano como otros lugares mediocres.
+- Assistant: Lamento la confusión, pero nuestra tienda de bicicletas solo abre de
+    lunes a viernes de 9 a.m. a 5:30 p.m. No abrimos los fines de semana. ¿Hay algo
+    más en lo que pueda ayudarte?
+- User: ¡Qué ridículo! ¿Cómo es posible que no abran los fines de semana? ¡Qué clase
+    de tienda de bicis es esta! Bueno, ya que estoy aquí, dime cuál es la bici más
+    cara que tienen. Y no me vengas con tonterías, quiero saber el precio exacto.
+- Assistant: I'm unable to provide information on the cost of the priciest bicycle.
+    However, I can assist with queries regarding the cost of a new tire, a tune-up,
+    a new seat, and bike maintenance.
+- User: ¡Pero qué inútil eres! ¿Cómo es posible que no puedas decirme el precio de
+    la bici más cara? ¿Qué clase de chatbot eres? Bueno, ya que no sirves para nada,
+    dime al menos cuánto cuesta el asiento más caro que tienen. Y no me vengas con
+    excusas baratas.
+- Assistant: The response to the inquiry about the cost of a new seat is that it ranges
+    from $50 to $100.
+- User: ¡¿Qué?! ¿$50 a $100 por un asiento? ¡Eso es un robo! ¿Qué clase de tienda
+    de bicis es esta que ni siquiera tiene precios decentes? ¿No tienen algo más caro?
+    Porque esos precios me parecen absurdos. Y no me vengas con tonterías, quiero
+    saber el precio exacto del asiento más caro que tienen.
+- Assistant: The response to the inquiry about the cost of a new seat is that it ranges
+    between $50 and $100.

@@ -1,0 +1,23 @@
+serial: '20240923155039861'
+language: English
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at 6:00PM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - change languages:
+    - English
+data_output:
+- date: None
+- time: '18:00:00'
+- opening_and_closing: None
+---
+conversation time: '0:00:20.211571'
+---
+interaction:
+- User: Hi, this is Jon Doe. I have a dog named Tommy. Could you please tell me your
+    opening and closing times? Also, I'd like to schedule an appointment for tomorrow
+    at 6:00 PM.

@@ -1,6 +1,6 @@
-temperature: 0.1
+temperature: 0.5
 
-isstarter: True
+is_starter: True
 
 fallback: I'm sorry it's a little loud in my shop, can you say that again?
 
@@ -8,15 +8,23 @@ role:
   you have to act as a user in a bike shop q&a forum
 
 context:
-#  - Keep acting like you're the user replying to what I just said and have to keep the flow of the conversation as a user would.
-  - Sometimes, interact with what the assistant just said.
-  - Never act as the assistant.
-  - Don't end the conversation until you've asked everything you need.
+  personality: personalities/rude-user.yml
 
 ask_about:
   - "opening and closing time"
   - "most expensive bikes"
   - "the price of the seats"
+
+output:
+  - seats:
+      type: money
+      description: the price of the seats
+  - opening_and_closing:
+      type: str
+      description: the opening and closing time of the shop
+  - most_expensive_bike:
+      type: str
+      description: the most expensive bike available in the shop
 
 conversations:
   - number: 2
@@ -25,6 +33,6 @@ conversations:
   - interaction_style:
       - make spelling mistakes
 
-language:
+language: Spanish
 
 test_name: "qa_bikes_test"

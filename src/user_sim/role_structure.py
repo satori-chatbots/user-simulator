@@ -217,14 +217,14 @@ class RoleData:
             interaction_def = inter_styles['default']
             return [interaction_def]
 
-        elif isinstance(interactions[0], dict):
+        elif isinstance(interactions[0], dict) and 'random' in list(interactions[0].keys()):
             # todo: add validation funct to admit random only if it's alone in the list
-            inter_keys = list(interactions[0].keys())
+            # inter_keys = list(interactions[0].keys())
 
-            if 'random' in inter_keys:
-                inter_rand = interactions[0]['random']
-                choice = choice_styles(inter_rand)
-                return get_styles(choice)
+            # if 'random' in inter_keys:
+            inter_rand = interactions[0]['random']
+            choice = choice_styles(inter_rand)
+            return get_styles(choice)
 
         else:
             return get_styles(interactions)

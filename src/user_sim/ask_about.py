@@ -5,105 +5,6 @@ from .utils.utilities import *
 import numpy as np
 
 
-# class VarGenerators:
-#
-#     def __init__(self, value_list, funct):
-#
-#
-#         self.value_list = value_list
-#         self.funct = funct
-#         self.dependence_variable = None
-#         self.flag = True
-#         self.last_return = None
-#         self.generator = self.create_generator()
-#
-#     def get_gen(self):
-#         item = next(self.generator)
-#         self.last_return = item.copy()
-#         return item
-#
-#     def create_generator(self):
-#         pattern = r'(\w+)\((\w*)\)'
-#         match = re.search(pattern, self.funct)
-#         if match:
-#             handler_name = match.group(1)
-#             count = match.group(2) if match.group(2) else ''
-#             if handler_name == 'random':
-#                 if count == '':
-#                     generator = self.random_choice_generator()
-#                     return generator
-#                 elif count.isdigit():
-#                     generator = self.random_choice_count_generator(count)
-#                     return generator
-#                 elif count == 'rand':
-#                     generator = self.random_choice_random_count_generator()
-#                     return generator
-#
-#             elif handler_name == 'forward':
-#                 if count != '':
-#                     self.dependence_variable = count
-#                 generator = self.forward_generator()
-#                 return generator
-#
-#             elif handler_name == 'another':
-#                 generator = self.another_generator()
-#                 return generator
-#
-#             else:
-#                 raise InvalidGenerator(f'Invalid generator function: {handler_name}')
-#         else:
-#             raise InvalidFormat(f"an invalid function format was used: {self.funct}")
-#
-#     def random_choice_generator(self):
-#         while True:
-#             yield [random.choice(self.value_list)]
-#
-#     def random_choice_count_generator(self, count):
-#         while True:
-#             sample = random.sample(self.value_list, min(count, len(self.value_list)))
-#             yield sample
-#
-#     def random_choice_random_count_generator(self):
-#         while True:
-#             count = random.randint(1, len(self.value_list))
-#             sample = random.sample(self.value_list, min(count, len(self.value_list)))
-#             yield sample
-#
-#     def forward_generator(self):
-#         while True:
-#             for sample in self.value_list:
-#                 self.flag = True if sample == self.value_list[-1] else False
-#                 yield [sample]
-#
-#
-#     def another_generator(self):
-#         while True:
-#             copy_list = self.value_list[:]
-#             random.shuffle(copy_list)
-#             for sample in copy_list:
-#                 yield sample
-
-# def build_sequence(pairs):
-#     mapping = {}
-#     starts = set()
-#     ends = set()
-#     for a, b in pairs:
-#         mapping[a] = b
-#         starts.add(a)
-#         ends.add(b)
-#     # Find the starting word (appears in 'starts' but not in 'ends')
-#     start = starts - ends
-#     if len(start) != 1:
-#         raise ValueError("Cannot determine a unique starting point.")
-#     current_word = start.pop()
-#     sequence = [current_word]
-#     while current_word in mapping:
-#         current_word = mapping[current_word]
-#         sequence.append(current_word)
-#     return sequence
-
-
-
 class VarGenerators:
 
     def __init__(self, variable_list):
@@ -402,6 +303,7 @@ class AskAboutClass:
                             if isinstance(data['min'], int) and isinstance(data['max'], int) and isinstance(
                                     data['step'], int):
                                 data_list = np.arange(data['min'], data['max'], data['step'])
+
                             else:
                                 raise InvalidDataType(f'Some of the range function parameters are not integers.')
                         else:
@@ -511,7 +413,7 @@ class AskAboutClass:
                 for match in matches:
                     if match.group(1) == name:
                         self.picked_elements.append({match.group(1): value})
-                        replacement = ', '.join(value)
+                        replacement = ', '.join([str(v) for v in value])
                         text = text.replace(match.group(0), replacement)
                         self.phrases[index] = text
                         break

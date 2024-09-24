@@ -101,8 +101,8 @@ class MakeSpellingMistakes(InteractionStyle):
 
     def get_prompt(self):
         prompt = """
-                 please, make several spelling mistakes or typos in the sentences you're generating. 
-                 But I mean, a lot, like, minimum 5 typos per sentence if possible. 
+                 please, make several spelling mistakes during the conversation. Minimum 5 typos per 
+                 sentence if possible. 
                  """
         return prompt
 

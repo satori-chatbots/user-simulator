@@ -1,0 +1,60 @@
+serial: '20240923154720314'
+language: English
+ask_about:
+- opening and closing time.
+- cost estimation for {{number}} photo artworks.
+- number:
+  - !!python/object/apply:numpy.core.multiarray.scalar
+    - !!python/object/apply:numpy.dtype
+      args:
+      - i4
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      AQAAAA==
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- cost: None
+- opening_and_closing: Monday through Friday, from 9am to 5pm
+---
+conversation time: '0:01:12.271841'
+---
+interaction:
+- User: Hi there! I was wondering what your opening and closing times are?
+- Assistant: We capture art both on location and in our SoHo studio. Our hours of
+    operation are Monday through Friday, from 9am to 5pm.
+- User: Got it, thanks! Do you offer any services on weekends by any chance?
+- Assistant: I am unsure, but I can provide information about our opening hours, location,
+    portfolio, pricing, and the types of media we work with.
+- User: Do you perhaps have extended hours during the week or any special appointments
+    available outside of the regular times?
+- Assistant: I am unsure, but I can provide information about our opening hours, location,
+    portfolio, pricing, and the media we work with.
+- User: 'User: Could you give me an estimate for how much it would cost to have one
+    photo turned into an artwork?'
+- Assistant: Of course, I'd be happy to help with that. However, I need a bit more
+    information. Could you please specify the media you're interested in? We offer
+    photography, video, and 3D rendering. Also, could you let me know the type of
+    artwork you're considering? We specialize in pictures, sculptures, and ceramics.
+- User: I'm interested in having a photo turned into an artwork, specifically a photograph.
+    Could you provide an estimate for that?
+- Assistant: Absolutely, I can help with that. You've mentioned that you're interested
+    in photography. Could you please specify the type of artwork you're considering?
+    We specialize in pictures, sculptures, and ceramics.
+- User: I'm interested specifically in a picture. Could you provide an estimate for
+    turning a photo into a picture?
+- Assistant: exit

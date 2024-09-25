@@ -15,13 +15,12 @@ class UserGeneration:
         self.user_llm = ChatOpenAI(model="gpt-4o", temperature=self.temp)
         self.conversation_history = {'interaction': []}
         self.ask_about = user_profile.ask_about.prompt()
-        self.request_register = UserAssistant(user_profile.ask_about.phrases)
         self.data_gathering = ChatbotAssistant(user_profile.ask_about.phrases)
         self.user_role_prompt = PromptTemplate(
             input_variables=["reminder", "history"],
             template=self.set_role_template()
         )
-
+        self.goal_style = user_profile.goal_style
         self.test_name = user_profile.test_name
         self.repeat_count = 0
         self.loop_count = 0
@@ -69,8 +68,8 @@ class UserGeneration:
         role_prompt = self.user_profile.role + reminder + history
         return role_prompt
 
-    def save_data_gathering(self, path):
-        self.data_gathering.extract_dataframe(path, self.test_name)
+    # def save_data_gathering(self, path):
+    #     self.data_gathering.extract_dataframe(path, self.test_name)
 
     def repetition_track(self, response, reps=3):
 
@@ -121,8 +120,8 @@ class UserGeneration:
 
     def end_conversation(self, input_msg):
 
-        if self.user_profile.goal_style[0] == 'steps' or self.user_profile.goal_style[0] == 'random steps':
-            if self.interaction_count >= self.user_profile.goal_style[1]:
+        if self.goal_style[0] == 'steps' or self.goal_style[0] == 'random steps':
+            if self.interaction_count >= self.goal_style[1]:
                 logging.getLogger().verbose("is end")
                 return True
 
@@ -130,8 +129,8 @@ class UserGeneration:
             logging.getLogger().verbose("is end")
             return True
 
-        elif (self.data_gathering.gathering_register["is_answered"].all()
-              and (self.user_profile.goal_style[0] == 'all answered' or self.user_profile.goal_style[0] == 'default')):
+        elif (self.data_gathering.gathering_register["verification"].all()
+              and ('all answered' in self.goal_style[0] or 'default' in self.goal_style[0])):
             logging.getLogger().verbose("is end")
             return True
 
@@ -140,9 +139,9 @@ class UserGeneration:
 
     def get_response(self, input_msg):
 
-        self.data_gathering.response(input_msg, self.request_register)
-
+        # self.data_gathering.response(input_msg, self.request_register)
         self.update_history("Assistant", input_msg)
+        self.data_gathering.add_message(self.conversation_history)
 
         if self.end_conversation(input_msg):
             return "exit"
@@ -157,7 +156,7 @@ class UserGeneration:
         user_response = self.user_chain.run(history=history,
                                             reminder=self.my_context.get_context())
 
-        self.request_register.get_request(user_response)
+        # self.request_register.get_request(user_response)
 
         self.update_history("User", user_response)
 
@@ -193,6 +192,7 @@ class UserGeneration:
 
         self.update_history("User", user_response)
 
-        self.request_register.get_request(user_response)
+        # self.request_register.get_request(user_response)
+        self.data_gathering.add_message(self.conversation_history)
         self.interaction_count += 1
         return user_response

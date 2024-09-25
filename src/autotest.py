@@ -227,8 +227,11 @@ def generate(technology, chatbot, user, extract):
                 formatted_time_conv = str(timedelta(seconds=conversation_time))
                 print(f"Conversation Time: {formatted_time_conv}")
                 user_profile.reset_attributes()
-                save_test_conv(history, metadata, test_name, extract, serial, formatted_time_conv, counter=i)
-                # the_user.save_data_gathering(extract)
+                dg_dataframe = the_user.data_gathering.gathering_register
+                csv_extraction = the_user.goal_style[1] if the_user.goal_style[0] == 'all answered' else False
+                answer_validation_data = (dg_dataframe, csv_extraction)
+                save_test_conv(history, metadata, test_name, extract, serial,
+                               formatted_time_conv,answer_validation_data, counter=i)
 
         end_time_test = timeit.default_timer()
         execution_time = end_time_test - start_time_test

@@ -9,7 +9,6 @@ role:
 
 context:
   - personality: personalities/formal-user.yml
-  - you're very vegan
 
 ask_about:
   - "a {{size}} {{pizza_type}} pizza"
@@ -62,9 +61,10 @@ output:
 
 
 conversations:
-  - number: 2
+  - number: 1
   - goal_style:
-        steps: 5
+      all answered:
+        export: True
   - interaction_style:
       - default
 #      - random:

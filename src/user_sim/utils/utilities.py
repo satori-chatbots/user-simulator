@@ -78,7 +78,7 @@ class MyDumper(yaml.Dumper):
         super().write_line_break(data)
 
 
-def save_test_conv(history, metadata, test_name, path, serial, conversation_time, counter):
+def save_test_conv(history, metadata, test_name, path, serial, conversation_time, av_data, counter):
     print("Saving conversation...")
     c_time = {'conversation time': conversation_time}
     path_folder = path + f"/{test_name}"
@@ -91,9 +91,14 @@ def save_test_conv(history, metadata, test_name, path, serial, conversation_time
     if not os.path.exists(test_folder):
         os.makedirs(test_folder)
 
-    file_path = os.path.join(test_folder, f'{counter}_{test_name}_{serial}.yml')
-    with open(file_path, "w", encoding="UTF-8") as archivo:
+    file_path_yaml = os.path.join(test_folder, f'{counter}_{test_name}_{serial}.yml')
+    file_path_csv = os.path.join(test_folder, f'{counter}_{test_name}_{serial}.csv')
+
+    with open(file_path_yaml, "w", encoding="UTF-8") as archivo:
         yaml.dump_all(data, archivo, allow_unicode=True, default_flow_style=False, sort_keys=False)
+    if av_data[1]:
+        av_data[0].to_csv(file_path_csv, index=True, sep=';', header=True, columns=['verification', 'data'])
+
     print(f"Conversation saved in {path}")
     print('------------------------------')
 

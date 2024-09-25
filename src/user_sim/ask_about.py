@@ -303,12 +303,14 @@ class AskAboutClass:
                             if isinstance(data['min'], int) and isinstance(data['max'], int) and isinstance(
                                     data['step'], int):
                                 data_list = np.arange(data['min'], data['max'], data['step'])
+                                data_list = data_list.tolist()
 
                             else:
                                 raise InvalidDataType(f'Some of the range function parameters are not integers.')
                         else:
                             if isinstance(data['min'], int) and isinstance(data['max'], int):
                                 data_list = np.arange(data['min'], data['max'])
+                                data_list = data_list.tolist()
                             else:
                                 raise InvalidDataType(f'Some of the range function parameters are not integers.')
                     else:
@@ -328,8 +330,10 @@ class AskAboutClass:
                         data = content['data']
                         if 'step' in keys:
                             data_list = np.arange(data['min'], data['max'], data['step'])
+                            data_list = data_list.tolist()
                         elif 'linspace' in keys:
                             data_list = np.linspace(data['min'], data['max'], data['linspace'])
+                            data_list = data_list.tolist()
                         else:
                             raise MissingStepDefinition(
                                 f'"step" or "lisnpace" parameter missing. A step separation must be defined.')

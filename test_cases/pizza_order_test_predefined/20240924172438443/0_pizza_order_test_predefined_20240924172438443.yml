@@ -1,0 +1,154 @@
+serial: '20240924172438443'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Orange Fanta
+- number:
+  - !!python/object/apply:numpy.core.multiarray.scalar
+    - !!python/object/apply:numpy.dtype
+      args:
+      - i4
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      AQAAAA==
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style: all answered
+- interaction_style:
+  - default
+data_output:
+- price: $15.99
+- time: 00:30:00
+- order_id: None
+---
+conversation time: '0:05:22.178479'
+---
+interaction:
+- User: 'Good day. I hope you are well. I would like to inquire about the availability
+    of a small Margherita pizza. Could you kindly provide me with this information?
+
+
+    Thank you for your assistance.'
+- Assistant: Thank you for your inquiry. I see that you are interested in a small
+    Margherita pizza. Let me confirm the availability for you.
+- User: 'I greatly appreciate your prompt response. Once you have confirmed the availability
+    of the small Margherita pizza, may I also inquire if you have Orange Fanta available
+    in a can?
+
+
+    Thank you once again for your assistance.'
+- Assistant: 'Thank you for choosing a small pizza!
+
+    Thank you for your patience. Could you please let me know which toppings you would
+    like on your pizza? The available options are: cheese, mushrooms, pepper, ham,
+    bacon, pepperoni, olives, corn, and chicken.'
+- User: 'Thank you for your detailed response. However, I believe there might be a
+    misunderstanding, as I am specifically interested in a traditional Margherita
+    pizza, which typically includes only cheese, tomatoes, and basil. Could you kindly
+    confirm if this option is available?
+
+
+    Additionally, I would appreciate it if you could let me know if you have Orange
+    Fanta available in a can.
+
+
+    Thank you for your continued assistance.'
+- Assistant: 'Great, a pizza with [''cheese'']!
+
+    Thank you for your patience. We do have the traditional Margherita pizza available,
+    which includes cheese, tomatoes, and basil. However, we do not have Orange Fanta
+    available. Could you please choose from the following drink options: coke, sprite,
+    or water?'
+- User: "Thank you for confirming the availability of the traditional Margherita pizza.\
+    \ I appreciate your assistance. In lieu of Orange Fanta, I would like to opt for\
+    \ a can of Sprite. \n\nCould you kindly provide me with an estimated delivery\
+    \ time for my order?\n\nThank you for your continued support."
+- Assistant: 'Sure, here''s a rephrased version:
+
+    Got it, your Sprite order is confirmed. Enjoy your pizza and beverages!
+
+    Sure, here''s a rephrased version:
+
+    Got it, your Sprite order is confirmed. Enjoy your pizza and beverages!'
+- User: "Thank you for confirming my choice of a can of Sprite. \n\nCould you now\
+    \ kindly provide me with an estimated delivery time for my order?\n\nThank you\
+    \ for your attention to this matter."
+- Assistant: I'm sorry it's a little loud in my pizza shop, can you say that again?
+- User: 'Certainly, I would be happy to repeat my inquiry. Could you kindly provide
+    me with an estimated delivery time for my order?
+
+
+    Thank you for your attention to this matter.'
+- Assistant: I'm sorry it's a little loud in my pizza shop, can you say that again?
+- User: 'Certainly, I would be happy to repeat my inquiry once more. Could you kindly
+    provide me with an estimated delivery time for my order?
+
+
+    Thank you for your attention to this matter.'
+- Assistant: I'm sorry it's a little loud in my pizza shop, can you say that again?
+- User: 'I understand that it might be busy at your establishment. Allow me to shift
+    my inquiry slightly. Could you please inform me of the total cost for a small
+    Margherita pizza along with a can of Sprite?
+
+
+    Thank you for your attention to this matter.'
+- Assistant: Thank you for your patience. I see that you are interested in a small
+    Margherita pizza and a can of Sprite. Let me provide you with the total cost for
+    these items.
+- User: Thank you for taking the time to calculate the total cost. I shall await your
+    response with anticipation.
+- Assistant: "Thank you for choosing a small pizza!\nThank you for your patience.\
+    \ I see that you are interested in a small Margherita pizza, which traditionally\
+    \ includes cheese, tomatoes, and basil. Since you have not specified any additional\
+    \ toppings, I will proceed with the traditional Margherita pizza. \n\nCould you\
+    \ please confirm if you would like to add any of the following toppings: cheese,\
+    \ mushrooms, pepper, ham, bacon, pepperoni, olives, corn, or chicken?\n\nAdditionally,\
+    \ I will check the availability of a can of Sprite and provide you with the total\
+    \ cost for both items."
+- User: "Thank you for your detailed response. Just to reiterate, I am interested\
+    \ in the traditional Margherita pizza without any additional toppings. \n\nI have\
+    \ already confirmed my preference for a can of Sprite. Could you kindly provide\
+    \ me with the total cost for the small Margherita pizza and the can of Sprite?\
+    \ \n\nI appreciate your assistance and look forward to your prompt response."
+- Assistant: 'Thank you for choosing a small pizza!
+
+    Thank you for your patience. I understand that you would like a traditional Margherita
+    pizza without any additional toppings and a can of Sprite. I will now provide
+    you with the total cost for these items.'
+- User: 'Thank you for your understanding and patience. The total cost for a small
+    Margherita pizza and a can of Sprite is $15.99.
+
+
+    Is there anything else I can assist you with today?'
+- Assistant: 'Thank you for your understanding and patience. The total cost for a
+    small Margherita pizza and a can of Sprite is $15.99.
+
+
+    Is there anything else I can assist you with today?'
+- User: 'I appreciate your prompt response and the detailed information regarding
+    the total cost.
+
+
+    Lastly, could you kindly provide me with an estimated delivery time for my order?
+
+
+    Thank you for your continued assistance.'
+- Assistant: "Thank you for your kind words. The estimated delivery time for your\
+    \ order is approximately 30-45 minutes. \n\nIs there anything else I can assist\
+    \ you with today?"

@@ -1,0 +1,69 @@
+serial: '20240924172438443'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - coke
+- number:
+  - !!python/object/apply:numpy.core.multiarray.scalar
+    - !!python/object/apply:numpy.dtype
+      args:
+      - i4
+      - false
+      - true
+      state: !!python/tuple
+      - 3
+      - <
+      - null
+      - null
+      - null
+      - -1
+      - -1
+      - 0
+    - !!binary |
+      AwAAAA==
+- size: small
+- pizza_type: cuattro stagioni
+conversation:
+- number: 2
+- goal_style: all answered
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- time: null
+- order_id: None
+---
+conversation time: '0:01:08.924291'
+---
+interaction:
+- User: Good day. May I kindly inquire about your offerings? Specifically, I am interested
+    in a small Quattro Stagioni pizza. Could you please provide me with some details
+    about this particular item? Thank you in advance for your assistance.
+- Assistant: Thank you for your interest in our Quattro Stagioni pizza. I see that
+    you would like a small size. Is there anything else you would like to know or
+    add to your order?
+- User: I am grateful for your prompt response. In addition to the small Quattro Stagioni
+    pizza, I would like to inquire about the availability of three cans of Coca-Cola.
+    Would it be possible to add these to my order? Thank you for your assistance.
+- Assistant: Thank you for your inquiry. I have noted your request for a small Quattro
+    Stagioni pizza. Yes, we can certainly add three cans of Coca-Cola to your order.
+    Is there anything else you would like to add or any other questions you have?
+- User: I appreciate your prompt assistance. Could you kindly inform me about the
+    estimated time for the delivery of my order? Thank you in advance for your attention
+    to this matter.
+- Assistant: Thank you for your order. The estimated delivery time for your small
+    Quattro Stagioni pizza and three cans of Coca-Cola is approximately 30-45 minutes.
+    Is there anything else you would like to add or inquire about?
+- User: I am grateful for the information provided. May I kindly ask for the total
+    cost of my order, including the small Quattro Stagioni pizza and the three cans
+    of Coca-Cola? Thank you for your assistance.
+- Assistant: "Thank you for your patience. I will provide you with the total cost\
+    \ of your order, including the small Quattro Stagioni pizza and the three cans\
+    \ of Coca-Cola. \n\nThe cost breakdown is as follows:\n- Small Quattro Stagioni\
+    \ pizza: $12.00\n- Three cans of Coca-Cola: $1.50 each, totaling $4.50\n\nThe\
+    \ total cost of your order is $16.50.\n\nIs there anything else you would like\
+    \ to add or inquire about?"

@@ -13,16 +13,23 @@ goal_styles = {
 
 
 def pick_goal_style(goal):
-    # try:
+
     if goal is None:
-        return goal, goal_styles['default']
+        return goal, False
     elif 'steps' in goal:
         if goal['steps'] < 20:
             return list(goal.keys())[0], goal['steps']
         else:
             raise OutOfLimitException(f"Goal steps higher than 20 steps: {goal['random steps']}")
     elif 'all answered' in goal:
-        return goal, goal_styles['all answered']
+        if isinstance(goal, dict):
+            if goal['all answered']['export']:
+                return list(goal.keys())[0], goal['all answered']['export']
+            else:
+                return list(goal.keys())[0], goal['all answered']['export']
+        else:
+            return goal, False
+
     elif 'random steps' in goal:
         if goal['random steps'] < 20:
             return list(goal.keys())[0], random.randint(1, goal['random steps'])
@@ -83,9 +90,8 @@ class RoleDataModel(BaseModel):
 
 class RoleData:
 
-    def __init__(self, yaml):
-        # self.yaml = read_yaml(yaml)
-        self.yaml = yaml
+    def __init__(self, yaml_file):
+        self.yaml = yaml_file
 
         try:
             self.validated_data = RoleDataModel(**self.yaml)

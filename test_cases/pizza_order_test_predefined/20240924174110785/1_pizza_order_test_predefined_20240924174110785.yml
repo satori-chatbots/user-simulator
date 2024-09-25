@@ -1,0 +1,66 @@
+serial: '20240924174110785'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - coke
+- number:
+  - 3
+- size: small
+- pizza_type: cuattro stagioni
+conversation:
+- number: 2
+- goal_style: all answered
+- interaction_style:
+  - default
+data_output:
+- price: $12
+- time: null
+- order_id: None
+---
+conversation time: '0:01:26.924261'
+---
+interaction:
+- User: Good evening. I hope you are well. Could you kindly inform me if you have
+    a small Quattro Stagioni pizza available?
+- Assistant: Good evening! I can help you with that. Could you please confirm the
+    size of the pizza you would like to order? We have small, medium, and big sizes
+    available.
+- User: Thank you for your prompt response. I am indeed interested in a small Quattro
+    Stagioni pizza. Could you please confirm if it is available?
+- Assistant: 'Thank you for ordering a small pizza!
+
+    Could you please specify the toppings you would like on your small Quattro Stagioni
+    pizza? The available toppings are cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken.'
+- User: 'Thank you for your detailed response. I would like to confirm the traditional
+    toppings for a Quattro Stagioni pizza: cheese, mushrooms, ham, and olives. Are
+    these available for the small size?'
+- Assistant: 'Thank you for ordering a small pizza!
+
+    Yes, cheese, mushrooms, ham, and olives are available for the small size. Would
+    you like to proceed with your order?'
+- User: I appreciate your confirmation. Yes, I would like to proceed with the order.
+    Additionally, I would like to include three cans of Coke with the pizza. Are these
+    available as well?
+- Assistant: 'Thank you for choosing a small pizza!
+
+    Thank you for confirming your order. I have noted the toppings for your small
+    Quattro Stagioni pizza: cheese, mushrooms, ham, and olives. Unfortunately, I can
+    only assist with pizza orders at the moment. For additional items like cans of
+    Coke, please contact the store directly. Would you like to proceed with just the
+    pizza order?'
+- User: Thank you for your assistance. I understand. In that case, I will proceed
+    with just the small Quattro Stagioni pizza. Could you kindly inform me of the
+    estimated delivery time for the pizza?
+- Assistant: Thank you for confirming your order. The estimated delivery time for
+    your small Quattro Stagioni pizza is approximately 30-45 minutes. Would you like
+    to proceed with the order?
+- User: Yes, I would like to proceed with the order. Could you kindly provide me with
+    the total cost for the small Quattro Stagioni pizza?
+- Assistant: Thank you for confirming your order. The total cost for a small Quattro
+    Stagioni pizza with cheese, mushrooms, ham, and olives is $12. Would you like
+    to proceed with the payment?

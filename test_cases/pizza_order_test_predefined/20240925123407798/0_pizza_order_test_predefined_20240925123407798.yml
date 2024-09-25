@@ -1,0 +1,51 @@
+serial: '20240925123407798'
+language: English
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - coke
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 1
+- goal_style: all answered
+- interaction_style:
+  - default
+data_output:
+- price: 11.50$
+- time: 00:15:00
+- order_id: None
+---
+conversation time: '0:01:09.093094'
+---
+interaction:
+- User: Good evening. May I kindly inquire about the availability of a small Margarita
+    pizza on your esteemed menu?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, delivery options, and how much
+    time it takes to get an order.
+- User: Good evening once again. I would like to know the price of a small Margarita
+    pizza, if you please.
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Thank you for the information. Could you kindly inform me of the cost of a
+    single can of Coca-Cola from your esteemed establishment?
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: I appreciate your prompt response. Could you kindly inform me of the estimated
+    delivery time for a small Margarita pizza along with a can of Coca-Cola?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Thank you for the detailed information. May I kindly inquire if there are
+    any current delays or if it is particularly busy at this moment, which might affect
+    the estimated delivery time?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and the
+    typical time it takes to get an order.

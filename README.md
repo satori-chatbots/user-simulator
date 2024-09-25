@@ -262,8 +262,15 @@ The tester defines some certain values to obtain from the conversation to valida
   - steps: the tester should input the number of interactions to be done before the conversation ends.
   - random steps: a random number of interactions will be done between 1 and an amount defined by the user. This amount can't exceed 20.
   - all answered: the conversation will end as long as all the queries in "ask_about" have been asked by the user and answered by the chatbot. 
-This option is still in beta, and it can be flaky in some cases where the user has to provide data instead of asking for information to the chatbot.
-  - default: the default mode enables "all answered" mode, since no steps are defined.
+  This option creates an internal data frame that verifies if all "ask_about" queries are being responded or confirmed, and it is possible to export this
+  dataframe once the conversation ended by setting the "export" field as True, as shown in the following example. This field is not mandatory, thus if only
+  "all answered" is defined, the export field is set as False by default.
+  ```
+  goal_style:
+    all answered:
+      export: True
+  ```
+  - default: the default mode enables "all answered" mode with export set as False, since no steps are defined.
 - interaction_style: this indicates how the user simulator should carry out the conversation. There are 7 options in this update
   - long phrase: the user will use very long phrases to write any query.
   - change your mind: the user will change its mind eventually. Useful in conversations when the user has to

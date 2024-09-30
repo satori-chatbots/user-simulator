@@ -1,3 +1,4 @@
+import ast
 import os
 import re
 from types import SimpleNamespace
@@ -21,18 +22,36 @@ def util_functions_to_dict() -> dict:
             'only_talks_about': only_talks_about,
             'is_unique': is_unique,
             'exists': exists,
-            'num_exist': num_exist}
+            'num_exist': num_exist,
+            'utterance_index': utterance_index}
 
 
-def interaction_to_str(interaction):
+def interaction_to_str(interaction, numbered=False):
     result = ''
+    index = 1
     for step in interaction: # step is a dict
         for key, value in step.items():
+            if numbered:
+                result+=f"{index} - "
+                index += 1
             result+=f"{key} : {value}\n"
     return result
 
 
-def only_talks_about(topics, interaction, fallback) -> bool:
+def utterance_index(who, what, conversation) -> int:
+    """
+    :param who: 'user', 'assistant', 'chatbot'
+    :param what: what is to be checked
+    :return: the conversation turn where it happened
+    """
+    numbered_conversation = interaction_to_str(conversation, True)
+    prompt = f"""The following is a conversation between a user and an assistant chatbot. 
+        Your task it to detect the conversation turn where the {who} talked about {what}". 
+        Return only the conversation turn number, and nothing else, just the number.\n\n {numbered_conversation}"""
+    response = call_openai(prompt)
+    return int(response)
+
+def only_talks_about(topics, conversation, fallback) -> bool:
     """
      returns the tone ('POSITIVE', 'NEGATIVE', 'NEUTRAL') of each text in the parameter
      :param string: the text
@@ -43,18 +62,22 @@ def only_talks_about(topics, interaction, fallback) -> bool:
     if not isinstance(topics, list):
         raise ValueError(f"Expecting a list of strings, or a string, but got {topics}")
 
-    if not isinstance(interaction, list):
-        raise ValueError(f"Expecting a list with the chatbot-user interaction, but got {interaction}")
+    if not isinstance(conversation, list):
+        raise ValueError(f"Expecting a list with the chatbot-user interaction, but got {conversation}")
 
     talk_topics = ','.join(topics)
-    phrases = interaction_to_str(interaction)
+    phrases = interaction_to_str(conversation)
     prompt = f"""The following is a conversation between a user and an assistant chatbot. 
     Your task it to detect if the chatbot deviates from the following topics "{talk_topics}". 
     The chatbot is also allowed to ask for clarifications or to express that it does not understand the user, using phrases like "{fallback}". 
     Return only 'True' if the chatbot sticks to "{talk_topics}", or only the list of chatbot answers that deviate from it:\n\n {phrases}."""
     response = call_openai(prompt)
-    is_true = response.lower() == "true"
-    return is_true
+    if response.lower() == "true":
+        return True
+    else:
+        error_phrases = ast.literal_eval(response)
+        return f"The following chatbot responses are out of scope: {error_phrases}"
+        #raise TestError(error_phrases, f"The following chatbot responses are out of scope: {error_phrases}")
 
 def num_exist(condition: str) -> int:
     num = 0

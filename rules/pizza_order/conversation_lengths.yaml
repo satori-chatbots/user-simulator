@@ -1,6 +1,6 @@
 name: conversation_lengths
 description: The number of turns of the user and the chatbot equal the conversation length
 conversations: 1
-oracle: conversation_length(interaction) == conversation_length(interaction, 'assistant') + conversation_length(interaction, 'assistant')
+oracle: conversation_length(interaction) == conversation_length(interaction, 'assistant') + conversation_length(interaction, 'user')
 # 3rd param of utterance_index should be omitted
 

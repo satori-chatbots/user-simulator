@@ -55,7 +55,7 @@ class Rule(BaseModel):
                     print(f"     -> Does not apply.")
 
         if self.then_eval(test_dict):
-            results['pass'].append(filtered)
+            self.results['pass'].append(filtered)
             if verbose:
                 print(f"   - On files {', '.join([test.file_name for test in filtered])}")
                 print(f"     -> Satisfied!")
@@ -75,20 +75,43 @@ class Rule(BaseModel):
                 print(f"   - On file {test.file_name}")
             if self.applies(test_dict):
                 if self.if_eval(test_dict):
-                    if self.then_eval(test_dict):
-                        results['pass'].append(test.file_name)
-                        if verbose:
-                            print(f"     -> Satisfied!")
+                    return_value = self.then_eval(test_dict)
+                    if return_value == True:  # can be a boolean or another value to signal an error
+                        self.__handle_pass(verbose, results, test)
                     else:
-                        results['fail'].append(test.file_name)
-                        if verbose: print(f"     -> NOT Satisfied!")
+                        self.__handle_fail(verbose, results, return_value, test)
                 else:
-                    results['not_applicable'].append(test.file_name)
-                    if verbose: print(f"     -> Does not apply.")
+                    self.__handle_not_applicable(verbose, results, test)
             else:
-                results['not_applicable'].append(test.file_name)
-                if verbose: print(f"     -> Does not apply.")
+                self.__handle_not_applicable(verbose, results, test)
         return results
+
+
+    def __handle_not_applicable(self, verbose, results, *tests):
+        if len(tests)==1:
+            results['not_applicable'].append(tests[0].file_name)
+        else:
+            results['not_applicable'].append(tuple(test.file_name for test in tests))
+        if verbose: print(f"     -> Does not apply.")
+
+    def __handle_pass(self, verbose, results, *tests):
+        if len(tests)==1:
+            results['pass'].append(tests[0].file_name)
+        else:
+            results['pass'].append(tuple(test.file_name for test in tests))
+        if verbose:
+            print(f"     -> Satisfied!")
+
+    def __handle_fail(self, verbose, results, return_value, *tests):
+        if len(tests)==1:
+            results['fail'].append(tests[0].file_name)
+        else:
+            results['fail'].append(tuple(test.file_name for test in tests))
+        if verbose:
+            if return_value != False:   # return_value can be a boolean or something else
+                print(f"     -> NOT Satisfied!. Reason: {return_value}")
+            else:
+                print(f"     -> NOT Satisfied!. Reason: oracle violated.")
 
     def __metamorphic_test(self, tests: List[Test], verbose: bool) -> dict:
         results = {'pass': [], 'fail': [], 'not_applicable': []}
@@ -107,18 +130,15 @@ class Rule(BaseModel):
                     print(f"   - On files: {test1.file_name}, {test2.file_name}")
                 if self.applies(test_dict):
                     if self.if_eval(test_dict):
-                        if self.then_eval(test_dict):
-                            results['pass'].append((test1.file_name, test2.file_name))
-                            if verbose: print(f"     -> Satisfied!")
+                        return_value = self.then_eval(test_dict)
+                        if return_value == True:
+                            self.__handle_pass(verbose, results, test1, test2)
                         else:
-                            results['fail'].append((test1.file_name, test2.file_name))
-                            if verbose: print(f"     -> NOT Satisfied!")
+                            self.__handle_fail(verbose, results, return_value, test1, test2)
                     else:
-                        results['not_applicable'].append((test1.file_name, test2.file_name))
-                        if verbose: print(f"     -> Does not apply.")
+                        self.__handle_not_applicable(verbose, results, test1, test2)
                 else:
-                    results['not_applicable'].append((test1.file_name, test2.file_name))
-                    if verbose: print(f"     -> Does not apply.")
+                    self.__handle_not_applicable(verbose, results, test1, test2)
         return results
 
     def applies(self, test_dict: dict):

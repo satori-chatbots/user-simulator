@@ -148,6 +148,4 @@ class Rule(BaseModel):
         return eval(self.if_, test_dict)
 
     def then_eval(self, test_dict: dict):
-        #global_vars = globals()
-        #global_vars.update(test_dict)
         return eval(self.then, test_dict)

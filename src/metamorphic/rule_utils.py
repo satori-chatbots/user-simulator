@@ -9,6 +9,7 @@ from openai import OpenAI
 from metamorphic import get_filtered_tests
 
 filtered_tests = []
+interaction = []
 
 def util_functions_to_dict() -> dict:
     """
@@ -23,8 +24,23 @@ def util_functions_to_dict() -> dict:
             'is_unique': is_unique,
             'exists': exists,
             'num_exist': num_exist,
-            'utterance_index': utterance_index}
+            'utterance_index': utterance_index,
+            'conversation_length': conversation_length}
 
+
+def conversation_length(interaction, who = 'both'):
+    who = who.lower()
+    if who not in ['user', 'chatbot', 'assistant', 'both']:
+        raise ValueError(f"Expected 'user', 'chatbot' or 'both', bit got '{who}'")
+    if who.lower() == 'both':
+        return len(interaction)
+    else:
+        number = 0
+        for step in interaction: # step is a dict
+            for key, value in step.items():
+                if key.lower() == who:
+                    number += 1
+        return number
 
 def interaction_to_str(interaction, numbered=False):
     result = ''

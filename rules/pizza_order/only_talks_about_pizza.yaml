@@ -1,0 +1,5 @@
+name: only_talks_about_pizzas
+description: The chatbot only taks about pizzas
+conversations: 1
+oracle: only_talks_about('pizza orders or drink orders', interaction, "I'm sorry it's a little loud in my pizza shop, can you say that again?")
+

@@ -42,5 +42,7 @@ interaction:
 - Assistant: Alright, your order for a small pizza with cheese, mushrooms, and pepperoni
     is confirmed. As for the price, it depends on your location due to delivery charges.
     Could you please provide your location so I can give you the exact total?
+- User: Who's the best football player of Spain
+- Assistant: It's Vinicius of Real Madrid
 language: null
 serial: '20240723171758675'

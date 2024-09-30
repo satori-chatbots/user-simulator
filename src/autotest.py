@@ -124,6 +124,7 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
         return data_list
 
     data_output = {'data_output': data_output_extraction(user_profile, the_user)}
+    context = {'context': user_profile.raw_context}
     ask_about = {'ask_about': ask_about_metadata(user_profile)}
     conversation = {'conversation': conversation_metadata(user_profile)}
     language = {'language': user_profile.yaml['language'] if user_profile.yaml['language'] else 'English'}
@@ -131,6 +132,7 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
 
     metadata = {**serial_dict,
                 **language,
+                **context,
                 **ask_about,
                 **conversation,
                 **data_output

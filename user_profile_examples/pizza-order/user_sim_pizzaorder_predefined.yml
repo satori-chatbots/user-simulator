@@ -5,10 +5,11 @@ is_starter: True
 fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
 
 role:
-  you have to act as a user ordering a pizza to a pizza shop.
+  you must act as a user ordering a pizza to a pizza shop.
 
 context:
-  - personality: personalities/formal-user.yml
+  - personality: personalities/conversational-user.yml
+  - you are vegan
 
 ask_about:
   - "a {{size}} {{pizza_type}} pizza"

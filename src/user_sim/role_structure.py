@@ -1,5 +1,5 @@
 from pydantic import BaseModel, ValidationError
-from typing import List, Union, Dict
+from typing import List, Union, Dict, Optional
 from .interaction_styles import *
 from .ask_about import *
 from .utils.exceptions import *
@@ -78,7 +78,7 @@ def list_to_str(list_of_strings):
 class RoleDataModel(BaseModel):
     fallback: str
     temperature: float
-    is_starter: bool
+    is_starter: Optional[bool] = True
     role: str
     context: Union[List[Union[str, Dict]], Dict, None]
     ask_about: list
@@ -103,6 +103,7 @@ class RoleData:
         self.temperature = self.validated_data.temperature
         self.is_starter = self.validated_data.is_starter
         self.role = self.validated_data.role
+        self.raw_context = self.validated_data.context
         self.context = self.context_processor(self.validated_data.context)  # list
         self.ask_about = AskAboutClass(self.validated_data.ask_about)  # list
         self.output = self.validated_data.output  # dict

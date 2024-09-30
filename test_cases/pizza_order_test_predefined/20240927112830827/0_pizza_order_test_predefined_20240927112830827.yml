@@ -1,0 +1,197 @@
+serial: '20240927112830827'
+language: English
+context:
+- personality: personalities/formal-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - sprite
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 1
+- goal_style:
+    all answered:
+      export: true
+- interaction_style:
+  - default
+data_output:
+- price: $12.00
+- time: 00:15:00
+- order_id: '544866'
+---
+conversation time: '0:01:37.407084'
+---
+interaction:
+- User: 'Good afternoon,
+
+
+    I hope this message finds you well. I would like to inquire about the possibility
+    of ordering a small Margherita pizza. Could you please inform me if your establishment
+    offers a vegan version of this item?
+
+
+    Thank you for your assistance.'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Good afternoon,
+
+
+    Thank you for your prompt response. I would like to inquire if your establishment
+    offers a small Margherita pizza that is suitable for a vegan diet. Could you please
+    confirm if this option is available?
+
+
+    Thank you for your assistance.'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Good afternoon,
+
+
+    I appreciate your dedication to ensuring clear communication. I am interested
+    in ordering a small Margherita pizza. Could you kindly confirm if your establishment
+    offers a vegan version of this particular pizza?
+
+
+    Thank you for your attention to this matter.'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Good afternoon,
+
+
+    I am encountering some difficulty in obtaining information about a small Margherita
+    pizza that adheres to vegan dietary requirements. Could you please direct me to
+    the appropriate person or department within your establishment who can assist
+    me with this inquiry?
+
+
+    Your help in this regard is much appreciated.'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Good afternoon,
+
+
+    It appears that my previous attempts to inquire about a vegan Margherita pizza
+    have not been successful. Could you please confirm if your establishment''s pizza
+    menu includes any vegan options?
+
+
+    Thank you for your assistance.'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Good afternoon,
+
+
+    I am experiencing some difficulty in obtaining information regarding vegan options
+    at your establishment. Could you please confirm if your menu includes any items
+    that cater to a vegan diet, specifically a vegan Margherita pizza?
+
+
+    Thank you for your understanding and assistance.'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Good afternoon,
+
+
+    I appreciate your patience and your efforts to assist me. I would like to inquire
+    if your establishment offers any vegan options on your pizza menu. Specifically,
+    I am interested in knowing if you provide a small Margherita pizza that is suitable
+    for a vegan diet.
+
+
+    Thank you for your understanding and assistance.'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Good afternoon,
+
+
+    I appreciate your patience. I am interested in ordering a small Margherita pizza
+    and would like to know if there is a vegan option available. Could you please
+    confirm this for me?
+
+
+    Thank you for your attention to this matter.'
+- Assistant: 'Good afternoon,
+
+
+    Thank you for your patience. Unfortunately, we do not offer a vegan version of
+    the Margherita pizza. However, you can create a custom pizza with vegan toppings
+    if you prefer. Would you like to proceed with a custom pizza order?
+
+
+    Thank you for your understanding.'
+- User: 'Good afternoon,
+
+
+    Thank you for your prompt response and the information provided. I am indeed interested
+    in creating a custom pizza with vegan toppings. Could you kindly inform me what
+    vegan toppings are available for the custom pizza?
+
+
+    Thank you for your assistance.'
+- Assistant: 'Good afternoon! Thank you for reaching out. Unfortunately, we do not
+    have specific vegan toppings available. However, you can choose from the following
+    toppings: cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and
+    chicken.
+
+
+    Could you please let me know your preferred pizza size (small, medium, or large)
+    and which of these toppings you would like to include?'
+- User: 'Good afternoon,
+
+
+    Thank you for your prompt reply. I appreciate the information provided regarding
+    the available toppings. As I adhere to a vegan diet, I will need to avoid any
+    animal-derived products. Could you kindly confirm if you can provide vegan cheese
+    as an option? Additionally, I would like to know if there are any vegetable toppings
+    available, such as spinach, tomatoes, or onions.
+
+
+    Thank you for your assistance.'
+- Assistant: 'Good afternoon!
+
+
+    Thank you for your patience. Unfortunately, we do not offer vegan cheese or additional
+    vegetable toppings like spinach, tomatoes, or onions. The available toppings are
+    cheese, mushrooms, pepper, ham, bacon, pepperoni, olives, corn, and chicken.
+
+
+    Could you please let me know your preferred pizza size (small, medium, or large)
+    and which of these available toppings you would like to include?'
+- User: 'Good afternoon,
+
+
+    Thank you for your response. Given the current options, I would like to proceed
+    with a small custom pizza. Could you kindly include mushrooms, pepper, olives,
+    and corn as the toppings, ensuring that no cheese or any animal-derived products
+    are used?
+
+
+    I appreciate your assistance in accommodating my dietary preferences.'
+- Assistant: 'Thanks for ordering a small pizza with mushrooms, pepper, olives and
+    corn!
+
+    Thank you for your order! I have noted down your request for a small custom pizza
+    with mushrooms, pepper, olives, and corn, ensuring no cheese or any animal-derived
+    products are used.
+
+
+    Could you please let me know how many drinks you would like to order and which
+    type(s) you prefer? The available options are coke, sprite, and water.'
+- User: 'Good afternoon,
+
+
+    I appreciate your prompt response and your attention to detail. I would like to
+    order one can of Sprite to accompany my pizza.
+
+
+    Thank you for your assistance.'
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a small pizza topped with mushrooms, peppers, olives, and corn, along
+    with one Sprite, is $12.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 544866.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 544866.'

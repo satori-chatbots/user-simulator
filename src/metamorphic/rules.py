@@ -156,12 +156,7 @@ def _eval(**kwargs):
 {self.__unpack_dict(test_dict)}
     
     #wrappers for functions with implicit parameters
-    def conversation_length(who = 'both'):
-        return _conversation_length(interaction, who)
-    def only_talks_about(topics, fallback):
-        return _only_talks_about(topics, interaction, fallback)
-    def utterance_index(who, what):
-        return _utterance_index(who, what, interaction)
+{self.__wrapper_functions()}
             
     return {self.then}
         """
@@ -171,6 +166,10 @@ def _eval(**kwargs):
         self._eval = local_namespace['_eval']
         return self._eval(**test_dict)
         #return eval(self.then, test_dict)
+
+    def __wrapper_functions(self):
+        result = "\n".join(func for func in util_to_wrapper_dict().values())
+        return result
 
     def __unpack_dict(self, dict):
         reserved = ['conv', 'interaction', '__builtins__']

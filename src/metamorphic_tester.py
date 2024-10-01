@@ -16,7 +16,10 @@ def __get_object_from_yaml_files(directory, operation, name):
     yaml_files = glob.glob(os.path.join(directory, '*.yaml')) + glob.glob(os.path.join(directory, '*.yml'))
     for file_path in yaml_files:
         with open(file_path, 'r') as file:
-            yaml_data = yaml.safe_load(file.read())
+            if name=='rule':
+                yaml_data = yaml.safe_load(file.read())
+            else:
+                yaml_data = yaml.safe_load_all(file.read())
         try:
             object = operation(file_path, yaml_data)
         except ValidationError as e:

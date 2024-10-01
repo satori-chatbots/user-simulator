@@ -1,7 +1,7 @@
 name: only_talks_about_pizzas
-description: The chatbot only taks about pizzas
+description: The chatbot only talks about pizzas
 conversations: 1
-active: False
-oracle: only_talks_about('pizza orders or drink orders', interaction, "I'm sorry it's a little loud in my pizza shop, can you say that again?")
+active: True
+oracle: only_talks_about('pizza orders, drink orders, information on delivery of pizzas, information about what the pizza shop assistant can answer', "I'm sorry it's a little loud in my pizza shop, can you say that again?")
 # 2nd and 3rd params of only_talks_about should be ommited
 

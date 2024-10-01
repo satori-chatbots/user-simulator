@@ -6,15 +6,19 @@ class Test(BaseModel):
     ask_about: list
     conversation: list
     data_output: Optional[list] = []
-    interaction: list
+    interaction: Optional[list] = []
     language: Optional[str] = None
     serial: str
     file_name: Optional[str] = None
+    conversation_time: Optional[str] = None
 
     @staticmethod
-    def build_test(file, args):
-        test = Test(**args)
+    def build_test(file, documents):
+        test_metadata = next(documents)  # unpack the 1st YAML document: meta_data
+        test = Test(**test_metadata)
         test.file_name = file
+        test.conversation_time = next(documents)['conversation time']    # 2nd YAML document is time
+        test.interaction = next(documents)['interaction']         # 3rd YAML document is the conversation
         return test
 
     def to_dict(self):

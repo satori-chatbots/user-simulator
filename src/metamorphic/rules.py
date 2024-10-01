@@ -5,7 +5,7 @@ from types import SimpleNamespace
 from . import get_filtered_tests, empty_filtered_tests
 from .rule_utils import *
 
-from .rule_utils import filtered_tests
+from .rule_utils import filtered_tests, _conversation_length, extract_float, _only_talks_about, _utterance_index
 from metamorphic.tests import Test
 
 
@@ -119,7 +119,7 @@ class Rule(BaseModel):
             test_dict1 = test1.to_dict()
             sns = SimpleNamespace(**test_dict1)
             conv = [sns, sns]
-            test_dict = {'conv': conv}
+            test_dict = {'conv': conv, 'interaction': []}   # just add a dummy interaction variable
             test_dict.update(util_functions_to_dict())
             for test2 in tests:
                 if test1 == test2:
@@ -148,4 +148,35 @@ class Rule(BaseModel):
         return eval(self.if_, test_dict)
 
     def then_eval(self, test_dict: dict):
-        return eval(self.then, test_dict)
+        code = f"""        
+def _eval(**kwargs):
+    # unpack parameters
+    interaction = kwargs['interaction']
+    conv = kwargs['conv']
+{self.__unpack_dict(test_dict)}
+    
+    #wrappers for functions with implicit parameters
+{self.__wrapper_functions()}
+            
+    return {self.then}
+        """
+        local_namespace = {}
+
+        exec(code, globals(), local_namespace)
+        self._eval = local_namespace['_eval']
+        return self._eval(**test_dict)
+        #return eval(self.then, test_dict)
+
+    def __wrapper_functions(self):
+        result = "\n".join(func for func in util_to_wrapper_dict().values())
+        return result
+
+    def __unpack_dict(self, dict):
+        reserved = ['conv', 'interaction', '__builtins__']
+        reserved += util_functions_to_dict().keys()
+        code = ""
+        for key, value in dict.items():
+            if key in reserved:
+                continue
+            code += "    " + key + f"= kwargs['{key}']\n"
+        return code

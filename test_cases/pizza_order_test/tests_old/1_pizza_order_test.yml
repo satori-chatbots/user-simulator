@@ -10,6 +10,8 @@ ask_about:
   - tomato
   - onion
   - olives
+- drink:
+  - coke
 conversation:
 - number: 1
 - goal_style:

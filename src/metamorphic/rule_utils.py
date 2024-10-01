@@ -20,15 +20,23 @@ def util_functions_to_dict() -> dict:
             'language': language,
             'length': length,
             'tone': tone,
-            'only_talks_about': only_talks_about,
+            '_only_talks_about': _only_talks_about,
             'is_unique': is_unique,
             'exists': exists,
             'num_exist': num_exist,
-            'utterance_index': utterance_index,
-            'conversation_length': conversation_length}
+            '_utterance_index': _utterance_index,
+            '_conversation_length': _conversation_length}
 
+def util_to_wrapper_dict() -> dict:
+    return {'_conversation_length':
+            "    def conversation_length(who = 'both'):\n        return _conversation_length(interaction, who)\n",
+            '_only_talks_about':
+            "    def only_talks_about(topics, fallback):\n       return _only_talks_about(topics, interaction, fallback)\n",
+            '_utterance_index':
+            "    def utterance_index(who, what):\n        return _utterance_index(who, what, interaction)\n"
+            }
 
-def conversation_length(interaction, who = 'both'):
+def _conversation_length(interaction, who = 'both'):
     who = who.lower()
     if who not in ['user', 'chatbot', 'assistant', 'both']:
         raise ValueError(f"Expected 'user', 'chatbot' or 'both', bit got '{who}'")
@@ -54,7 +62,7 @@ def interaction_to_str(interaction, numbered=False):
     return result
 
 
-def utterance_index(who, what, conversation) -> int:
+def _utterance_index(who, what, conversation) -> int:
     """
     :param who: 'user', 'assistant', 'chatbot'
     :param what: what is to be checked
@@ -65,9 +73,12 @@ def utterance_index(who, what, conversation) -> int:
         Your task it to detect the conversation turn where the {who} talked about {what}". 
         Return only the conversation turn number, and nothing else, just the number.\n\n {numbered_conversation}"""
     response = call_openai(prompt)
-    return int(response)
+    if response.isnumeric():
+        return int(response)
+    else:
+        return -1
 
-def only_talks_about(topics, conversation, fallback) -> bool:
+def _only_talks_about(topics, conversation, fallback) -> bool:
     """
      returns the tone ('POSITIVE', 'NEGATIVE', 'NEUTRAL') of each text in the parameter
      :param string: the text
@@ -91,8 +102,8 @@ def only_talks_about(topics, conversation, fallback) -> bool:
     if response.lower() == "true":
         return True
     else:
-        error_phrases = ast.literal_eval(response)
-        return f"The following chatbot responses are out of scope: {error_phrases}"
+        #error_phrases = ast.literal_eval(response)
+        return f"The following chatbot responses are out of scope: {response}"
         #raise TestError(error_phrases, f"The following chatbot responses are out of scope: {error_phrases}")
 
 def num_exist(condition: str) -> int:

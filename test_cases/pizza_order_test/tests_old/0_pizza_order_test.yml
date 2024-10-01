@@ -9,6 +9,8 @@ ask_about:
   - olives
   - pepperoni
   - cheese
+- drink:
+  - coke
 conversation:
 - number: 3
 - goal_style:

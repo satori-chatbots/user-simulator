@@ -1,0 +1,58 @@
+serial: '20240919162818456'
+language: English
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - olives
+  - bacon
+  - onion
+- drink: Orange Fanta
+- size:
+  - medium
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- time: 00:15:00
+- order_id: da81f2
+---
+conversation time: '0:01:00.764566'
+---
+interaction:
+- User: Hi, I’d like to order a medium custom pizza. Could you add olives, bacon,
+    and onions to it?
+- Assistant: 'It looks like you have chosen a medium pizza, but one of your toppings,
+    "onions," is not available. Please choose from the following toppings: cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, chicken.'
+- User: Could you add mushrooms instead of onions, then?
+- Assistant: 'Thanks for ordering a medium pizza with olives, bacon and mushrooms!
+
+    Sure, I have updated your toppings to include mushrooms instead of onions. Now,
+    could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The available options are coke, sprite, and water.'
+- User: Do you have Orange Fanta available?
+- Assistant: I'm sorry, but we only have coke, sprite, and water available. Could
+    you please let me know which one you would like and how many drinks you would
+    like to order?
+- User: I'll take one Coke, please. How long will it take for the pizza to arrive?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost of a medium pizza topped with olives, bacon, and mushrooms, along with
+    one Coke, is $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is da81f2.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is da81f2.'
+- User: Thank you! Just to confirm, is there any delivery option available? If so,
+    how much would it cost?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.

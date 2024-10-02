@@ -1,0 +1,37 @@
+serial: '20241002120449871'
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- opening and closing time
+- an appointment for {{date}} at {{time}}
+- time:
+  - sausage
+- date:
+  - yesterday
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- date: 2023-10-07
+- time: '10:00:00'
+- opening_and_closing: We are open every weekday from 9am to 6pm
+---
+conversation time: '0:00:37.316779'
+---
+interaction:
+- User: Hi! I'd like to know your opening and closing times, please.
+- Assistant: We are open every weekday from 9am to 6pm.
+- User: 'User: Thank you! Can I book an appointment for yesterday for my dog, Tommy?'
+- Assistant: I'm sorry, but it's not possible to book an appointment for a past date.
+    Could you please provide a future date and time for the appointment?
+- User: Can I book an appointment for Tommy for this coming Saturday at 10am?
+- Assistant: exit
+- User: 'User: Can I book an appointment for Tommy for this coming Saturday at 10am?'
+- Assistant: Of course, I can help you with that. Could you please specify the service
+    you would like to book for Tommy? We offer Physical examination, Vaccination,
+    Dental health and cleaning, and Lab or diagnostic testing.

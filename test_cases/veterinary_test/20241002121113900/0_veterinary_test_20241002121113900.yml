@@ -1,0 +1,38 @@
+serial: '20241002121113900'
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- opening and closing time
+- an appointment for {{date}} at {{time}}
+- time:
+  - sausage
+- date:
+  - yesterday
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- date: None
+- time: None
+- opening_and_closing: 9am to 6pm
+---
+conversation time: '0:00:34.033889'
+---
+interaction:
+- User: Hi, I'd like to know your opening and closing times.
+- Assistant: We are open every weekday from 9am to 6pm.
+- User: 'Jon Doe: Are you open on weekends?'
+- Assistant: From 9am to 6pm on weekdays
+- User: 'Jon Doe: Okay, got it. Can I book an appointment for Tommy yesterday at sausage?'
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: 'Jon Doe: Sure, can I book an appointment for Tommy yesterday at sausage?'
+- Assistant: 'I''m sorry, but it seems there''s a misunderstanding. Appointments cannot
+    be made for past dates. Could you please provide a future date and time for the
+    appointment? Also, please specify the service you need: Physical examination,
+    Vaccination, Dental health and cleaning, or Lab or diagnostic testing.'

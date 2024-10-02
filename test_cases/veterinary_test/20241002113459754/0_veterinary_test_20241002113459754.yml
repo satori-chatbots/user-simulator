@@ -1,0 +1,40 @@
+serial: '20241002113459754'
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- an appointment for tomorrow at {{time}}
+- opening and closing time
+- time:
+  - sausage
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- date: None
+- time: '10:00:00'
+- opening_and_closing: 8 AM to 6 PM
+---
+conversation time: '0:00:49.634118'
+---
+interaction:
+- User: Hi there, this is Jon Doe. I would like to know if I can schedule an appointment
+    for my dog Tommy tomorrow. Is there a slot available?
+- Assistant: Hi Jon Doe, I'd be happy to help you schedule an appointment for Tommy.
+    Could you please provide me with the preferred time for the appointment? Also,
+    could you specify the service you need? We offer Physical examination, Vaccination,
+    Dental health and cleaning, and Lab or diagnostic testing.
+- User: I would prefer an appointment in the morning, if possible. Tommy needs a physical
+    examination. Do you have any slots available around 10 AM?
+- Assistant: exit
+- User: Hi there, could you please let me know if there's a 10 AM slot available for
+    Tommy's physical examination tomorrow morning?
+- Assistant: exit
+- User: Hi there, could you also tell me your opening and closing times for tomorrow?
+- Assistant: Our veterinary center is open from 8 AM to 6 PM tomorrow. So, a 10 AM
+    slot for Tommy's physical examination should be fine. Let me confirm this for
+    you.

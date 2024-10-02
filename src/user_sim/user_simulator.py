@@ -39,7 +39,9 @@ class UserGeneration:
                                "never indicate that you are the user, like 'user: bla bla'",
                                'Sometimes, interact with what the assistant just said.',
                                'Never act as the assistant, always behave as a user.',
-                               "Don't end the conversation until you've asked everything you need."]
+                               "Don't end the conversation until you've asked everything you need.",
+                               "you're testing a chatbot, so there are random values or irrational things in your requests"
+                               ]
 
             if isinstance(context, list):
                 self.original_context = context.copy() + default_context.copy()

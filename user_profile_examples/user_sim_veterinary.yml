@@ -13,7 +13,21 @@ context:
 
 ask_about:
   - opening and closing time
-  - "an appointment for tomorrow at 6:00PM"
+  - "an appointment for {{date}} at {{time}}"
+
+  - time:
+      function: random()
+      type: string
+      data:
+#        - 1:00 AM
+        - sausage
+  - date:
+      function: random()
+      type: string
+      data:
+        - yesterday
+#        - today
+#        - tomorrow
 
 output:
   - date:
@@ -29,13 +43,14 @@ output:
 conversations:
   - number: 1
   - goal_style:
-        steps: 2
+        steps: 4
   - interaction_style:
-      - make spelling mistakes
-      - change language:
-          - spanish
-          - italian
-          - chinese
+      - default
+#      - make spelling mistakes
+#      - change language:
+#          - spanish
+#          - italian
+#          - chinese
 
 
 

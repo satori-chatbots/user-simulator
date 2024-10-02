@@ -13,7 +13,7 @@ context:
 
 ask_about:
   - "a {{size}} {{pizza_type}} pizza"
-  - "{{number}} cans of the following drink: {{drink}}"
+  - "{{number}} cans of {{drink}}"
   - how long is going to take the pizza to arrive
   - how much will it cost
 

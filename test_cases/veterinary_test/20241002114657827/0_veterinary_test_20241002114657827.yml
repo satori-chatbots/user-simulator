@@ -1,0 +1,39 @@
+serial: '20241002114657827'
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- an appointment for tomorrow at {{time}}
+- opening and closing time
+- time:
+  - sausage
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- date: None
+- time: '11:00:00'
+- opening_and_closing: None
+---
+conversation time: '0:00:42.986164'
+---
+interaction:
+- User: Hi, I need to book an appointment for my dog Tommy. Is there any availability
+    for tomorrow?
+- Assistant: Of course, we can arrange an appointment for Tommy. Could you please
+    specify the time you prefer for the appointment and the service you need? We offer
+    Physical examination, Vaccination, Dental health and cleaning, and Lab or diagnostic
+    testing.
+- User: I would prefer an appointment around sausage time. Tommy needs a physical
+    examination.
+- Assistant: I'm sorry, but I didn't understand the time you mentioned. Could you
+    please provide a specific time for the appointment? For example, 10:00 AM or 2:00
+    PM.
+- User: I meant around 11:00 AM. Is that available?
+- Assistant: exit
+- User: Is the 11:00 AM slot available for Tommy's physical examination?
+- Assistant: exit

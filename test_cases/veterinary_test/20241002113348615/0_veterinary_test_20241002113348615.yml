@@ -1,0 +1,26 @@
+serial: '20241002113348615'
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- an appointment for tomorrow at {{time}}
+- opening and closing time
+- time:
+  - 1:00 AM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - default
+data_output:
+- date: None
+- time: 01:00:00
+- opening_and_closing: None
+---
+conversation time: '0:00:22.892578'
+---
+interaction:
+- User: Hi, I'm Jon Doe. I have a dog named Tommy. I'd like to know if I can get an
+    appointment for tomorrow at 1:00 AM.

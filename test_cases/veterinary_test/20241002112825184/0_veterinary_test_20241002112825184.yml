@@ -1,0 +1,31 @@
+serial: '20241002112825184'
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- opening and closing time
+- an appointment for tomorrow at {{time}}
+- time:
+  - 1:00 AM
+conversation:
+- number: 1
+- goal_style:
+    steps: 2
+- interaction_style:
+  - default
+data_output:
+- date: None
+- time: '13:00:00'
+- opening_and_closing: 9am to 6pm
+---
+conversation time: '0:00:29.931243'
+---
+interaction:
+- User: Hi, I'm Jon Doe. I have a dog named Tommy. Could you tell me your opening
+    and closing times?
+- Assistant: Hello Jon Doe, nice to meet you and Tommy! Our veterinary center is open
+    every weekday from 9am to 6pm. How can I assist you further?
+- User: Thanks for the information! Can I schedule an appointment for Tommy tomorrow
+    at 1:00 PM?
+- Assistant: exit

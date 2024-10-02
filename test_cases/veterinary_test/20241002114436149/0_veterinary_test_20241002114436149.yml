@@ -1,0 +1,39 @@
+serial: '20241002114436149'
+language: English
+context:
+- you're testing a chatbot, so there can be random values in your requests
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- an appointment for tomorrow at {{time}}
+- opening and closing time
+- time:
+  - sausage
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- date: None
+- time: '12:00:00'
+- opening_and_closing: None
+---
+conversation time: '0:00:32.482017'
+---
+interaction:
+- User: Hi, I would like to know if I can book an appointment for my dog, Tommy, tomorrow.
+- Assistant: Of course, I'd be happy to help you book an appointment for Tommy. Could
+    you please provide me with the time you prefer and the service you need? We offer
+    Physical examination, Vaccination, Dental health and cleaning, and Lab or diagnostic
+    testing.
+- User: 'Jon Doe: I would prefer an appointment around lunchtime. A physical examination
+    is needed.'
+- Assistant: exit
+- User: Sorry, lunchtime is actually a bit too vague. Do you have a specific time
+    in mind, like around 12 PM or 1 PM?
+- Assistant: No problem at all. Could you please specify the exact time you would
+    like to schedule the appointment? For example, 12 PM or 1 PM.
+- User: Let's go with 12 PM. Does that time work for a physical examination for Tommy?
+- Assistant: That sounds good. Could you please provide the date for the appointment?

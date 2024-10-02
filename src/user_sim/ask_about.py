@@ -90,8 +90,8 @@ class VarGenerators:
                     yield [sample]
 
         def get_generator_list(self):
-
             function_map = {function['name']: function['data'] for function in self.forward_function_list}
+
             independent_generators = [
                 {'name': i, 'generator': self.forward_generator(function_map[i])} for i in self.independent_list if i in function_map
             ]
@@ -99,9 +99,6 @@ class VarGenerators:
             dependent_generators = [
                 {'name': val, 'generator': self.combination_generator(self.dependence_matrix[index])} for index, val in enumerate(self.dependent_list)
             ]
-            # dependent_generators = {
-            #     'name': self.dependent_list, 'generator': self.combination_generator(self.dependence_matrix)
-            # }
 
             return independent_generators + dependent_generators
 
@@ -231,8 +228,9 @@ def dependency_error_check(variable_list):
                 if function != 'forward':
                     raise InvalidDependence(f"the following function doesn't admit dependence: {function}()")
 
+
 def check_circular_dependency(items):
-    # Construir un mapeo de nombre a dependencia
+    # Building a name-to-dependency mapping
     dependencies = {}
     for item in items:
         name = item['name']
@@ -258,6 +256,7 @@ def check_circular_dependency(items):
     for node in dependencies.keys():
         if node not in visited:
             visit(node, visited, [])
+
 
 class AskAboutClass:
 
@@ -372,18 +371,6 @@ class AskAboutClass:
             if isinstance(item, str):
                 str_content.append(item)
         return str_content
-
-    @staticmethod
-    def random_handler(values, count=''):
-        if count == '':
-            return [random.choice(values)]
-        elif count.isdigit():
-            count = int(count)
-            return random.sample(values, min(count, len(values)))
-        elif count == 'rand':
-            count = random.randint(1, len(values))
-            return random.sample(values, count)
-        return values  # TODO: exception for .random(xxx) invalid parameter
 
     @staticmethod
     def variable_generator(variables):

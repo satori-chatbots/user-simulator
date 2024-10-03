@@ -4,22 +4,13 @@ from user_sim.role_structure import *
 from user_sim.utils.utilities import *
 from user_sim.user_simulator import UserGeneration
 from user_sim.data_extraction import DataExtraction
-import logging
+from user_sim.utils.show_logs import *
 from argparse import ArgumentParser
 import timeit
 from datetime import timedelta
 
-# Define new level "verbose"
-VERBOSE_LEVEL_NUM = 15
-logging.addLevelName(VERBOSE_LEVEL_NUM, "VERBOSE")
 
 
-def verbose(self, message, *args, **kwargs):
-    if self.isEnabledFor(VERBOSE_LEVEL_NUM):
-        self._log(VERBOSE_LEVEL_NUM, message, args, **kwargs)
-
-
-logging.Logger.verbose = verbose
 
 
 class Chatbot:
@@ -202,7 +193,7 @@ def generate(technology, chatbot, user, extract):
 
                     response = the_chatbot.execute_with_input(user_msg)
                     if response == 'exit':
-                        logging.getLogger().verbose('The server cut the conversation. End.')
+                        # logging.getLogger().verbose('The server cut the conversation. End.')
                         break
                     print_chatbot(response)
 
@@ -211,7 +202,7 @@ def generate(technology, chatbot, user, extract):
                 user_msg = the_user.get_response(response)
 
                 if user_msg == "exit":
-                    logging.getLogger().verbose('exit')
+                    # logging.getLogger().verbose('exit')
                     break
 
                 else:
@@ -251,12 +242,15 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     # logging_level = VERBOSE_LEVEL_NUM if args.verbose else logging.INFO
-    if args.verbose:
-        logging_level = VERBOSE_LEVEL_NUM
-        logging.basicConfig(level=logging_level, format='%(asc_time)s - %(level_name)s - %(message)s')
+    # if args.verbose:
+    #     logging_level = VERBOSE_LEVEL_NUM
+    #     logging.basicConfig(level=logging_level, format='%(asc_time)s - %(level_name)s - %(message)s')
+    #
+    # logging.debug(f"Received arguments: {args}")
+    # logging.getLogger().verbose('verbose enabled')
 
-    logging.debug(f"Received arguments: {args}")
-    logging.getLogger().verbose('verbose enabled')
+    logger = create_logger(args.verbose, 'my_app_logger')
+    logger.info('Logs enabled!')
 
     check_keys(["OPENAI_API_KEY"])
     generate(args.technology, args.chatbot, args.user, args.extract)

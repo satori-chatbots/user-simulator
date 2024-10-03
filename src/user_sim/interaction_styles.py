@@ -1,6 +1,6 @@
-import logging
 import random
-
+import logging
+logger = logging.getLogger('my_app_logger')
 
 def find_instance(instances, i_class):
     for instance in instances:
@@ -78,12 +78,14 @@ class ChangeLanguage(InteractionStyle):
         rand_number = random.randint(1, 100)
         if rand_number <= chance:
             lang = random.choice(self.languages_options)
-            logging.getLogger().verbose(f'the language is: {lang}')
+            # logging.getLogger().verbose(f'the language is: {lang}')
+            logger.info(f'Language was set to {lang}')
             self.languages_list.append(lang)
             return lang
         else:
             self.languages_list.append(self.default_language)
-            logging.getLogger().verbose(f'the language was set to main language.')
+            logger.info(f'Language was set to default ({self.default_language})')
+            # logging.getLogger().verbose(f'the language was set to main language.')
             return self.default_language
 
     def reset_language_list(self):

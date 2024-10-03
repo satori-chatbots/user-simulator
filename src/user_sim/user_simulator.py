@@ -1,9 +1,13 @@
 from .utils.utilities import *
 from .data_gathering import *
 
-from langchain import PromptTemplate, LLMChain
-from langchain.chat_models import ChatOpenAI
+from langchain_core.prompts import PromptTemplate
+from langchain.chains import LLMChain
+# from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 
+import logging
+logger = logging.getLogger('my_app_logger')
 
 class UserGeneration:
 
@@ -40,7 +44,8 @@ class UserGeneration:
                                'Sometimes, interact with what the assistant just said.',
                                'Never act as the assistant, always behave as a user.',
                                "Don't end the conversation until you've asked everything you need.",
-                               "you're testing a chatbot, so there are random values or irrational things in your requests"
+                               "you're testing a chatbot, so there are random values or irrational things "
+                               "in your requests"
                                ]
 
             if isinstance(context, list):
@@ -70,20 +75,20 @@ class UserGeneration:
         role_prompt = self.user_profile.role + reminder + history
         return role_prompt
 
-    # def save_data_gathering(self, path):
-    #     self.data_gathering.extract_dataframe(path, self.test_name)
 
     def repetition_track(self, response, reps=3):
 
         self.my_context.reset_context()
-        logging.getLogger().verbose(f'Context list: {self.my_context.context_list}')
+        # logging.getLogger().verbose(f'Context list: {self.my_context.context_list}')
+        logger.info(f'Context list: {self.my_context.context_list}')
 
         if nlp_processor(response, self.chatbot.fallback, 0.6):
 
             self.repeat_count += 1
             self.loop_count += 1
-            logging.getLogger().verbose(f"is fallback. Repeat_count: {self.repeat_count}. "
-                                        f"Loop count: {self.loop_count}")
+            # logging.getLogger().verbose(f"is fallback. Repeat_count: {self.repeat_count}. "
+            #                             f"Loop count: {self.loop_count}")
+            logger.info(f"is fallback. Repeat_count: {self.repeat_count}. Loop count: {self.loop_count}")
 
             if self.repeat_count >= reps:
                 self.repeat_count = 0
@@ -124,16 +129,19 @@ class UserGeneration:
 
         if self.goal_style[0] == 'steps' or self.goal_style[0] == 'random steps':
             if self.interaction_count >= self.goal_style[1]:
-                logging.getLogger().verbose("is end")
+                # logging.getLogger().verbose("is end")
+                logger.info('is end')
                 return True
 
         elif self.conversation_ending(input_msg) or self.loop_count >= 9:
-            logging.getLogger().verbose("is end")
+            # logging.getLogger().verbose("is end")
+            logger.info('is end')
             return True
 
         elif (self.data_gathering.gathering_register["verification"].all()
               and ('all answered' in self.goal_style[0] or 'default' in self.goal_style[0])):
-            logging.getLogger().verbose("is end")
+            # logging.getLogger().verbose("is end")
+            logger.info('is end')
             return True
 
         else:
@@ -194,7 +202,6 @@ class UserGeneration:
 
         self.update_history("User", user_response)
 
-        # self.request_register.get_request(user_response)
         self.data_gathering.add_message(self.conversation_history)
         self.interaction_count += 1
         return user_response

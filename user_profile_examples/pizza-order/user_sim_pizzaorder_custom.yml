@@ -63,15 +63,15 @@ conversations:
   - goal_style:
         steps: 5
   - interaction_style:
-      - default
-#      - random:
-#        - make spelling mistakes
-#        - all questions
-#        - long phrases
-#        - change language:
-#            - italian
-#            - portuguese
-#            - chinese
+#      - default
+      - random:
+        - make spelling mistakes
+        - all questions
+        - long phrases
+        - change language:
+            - italian
+            - portuguese
+            - chinese
 
 
 language:

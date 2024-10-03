@@ -1,8 +1,11 @@
-from langchain import PromptTemplate, LLMChain
-from langchain.chat_models import ChatOpenAI
+from langchain_core.prompts import PromptTemplate
+from langchain.chains import LLMChain
+# from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 import re
 from dateutil import parser
 import logging
+logger = logging.getLogger('my_app_logger')
 
 
 class DataExtraction:
@@ -34,7 +37,8 @@ class DataExtraction:
 
     @staticmethod
     def data_process(text, dtype):
-        logging.getLogger().verbose(f'input text on data process for casting: {text}')
+        # logging.getLogger().verbose(f'input text on data process for casting: {text}')
+        logger.info(f'input text on data process for casting: {text}')
         if text == 'None':
             return text
         try:
@@ -56,7 +60,8 @@ class DataExtraction:
                 raise ValueError(f"Unsupported data type: {dtype}")
 
         except ValueError as e:
-            logging.getLogger().verbose(f"Error in casting: {e}")
+            # logging.getLogger().verbose(f"Error in casting: {e}")
+            logger.info(f"Error in casting: {e}")
             return None
 
     def get_data_prompt(self):
@@ -76,7 +81,8 @@ class DataExtraction:
         llm_output = self.chain.run(conversation=self.conversation,
                                     description=self.description,
                                     data_type=self.get_data_prompt())
-        logging.getLogger().verbose(f'llm output for data extraction: {llm_output}')
+        # logging.getLogger().verbose(f'llm output for data extraction: {llm_output}')
+        logger.info(f'LLM output for data extraction: {llm_output}')
         text_process = self.regex_data(llm_output)
         data = self.data_process(text_process, self.dtype)
 

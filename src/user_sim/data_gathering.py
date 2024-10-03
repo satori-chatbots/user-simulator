@@ -1,16 +1,17 @@
-import os
-import logging
+
 import ast
 import pandas as pd
-import numpy as np
+
 import re
 from .utils.exceptions import *
-from datetime import datetime
-from langchain import PromptTemplate, LLMChain
-from langchain.chat_models import ChatOpenAI
+
 import json
+
 from openai import OpenAI
 client = OpenAI()
+
+import logging
+logger = logging.getLogger('my_app_logger')
 
 
 def extract_dict(in_val):
@@ -27,8 +28,9 @@ def to_dict(in_val):
     try:
         dictionary = ast.literal_eval(extract_dict(in_val))
     except (BadDictionaryGeneration, ValueError) as e:
-        logging.getLogger().verbose(f'Bad dictionary generation for user assistant: {e}. '
-                                    f'Setting empty dictionary value.')
+        # logging.getLogger().verbose(f'Bad dictionary generation for user assistant: {e}. '
+        #                             f'Setting empty dictionary value.')
+        logger.error(f"Bad dictionary generation: {e}. Setting empty dictionary value.")
         dictionary = {}
     return dictionary
 

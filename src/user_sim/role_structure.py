@@ -5,6 +5,9 @@ from .ask_about import *
 from .utils.exceptions import *
 from .utils.languages import Languages
 from pathlib import Path
+import logging
+logger = logging.getLogger('my_app_logger')
+
 
 goal_styles = {
     'all answered': '',
@@ -53,14 +56,15 @@ def replace_placeholders(phrase, variables):
 
 def set_language(lang):
     if isinstance(lang, type(None)):
+        logger.info("Language parameter empty. Setting language to Default (English)")
         return "English"
     try:
         if lang in Languages:
+            logger.info(f"Language set to {lang}")
             return lang
         else:
             raise InvalidLanguageException(f'Invalid language input: {lang}. Setting language to default (English)')
     except InvalidLanguageException as e:
-        logging.getLogger().verbose(f'Error: {e}')
         return "English"
 
 
@@ -71,7 +75,7 @@ def list_to_str(list_of_strings):
         single_string = ' '.join(list_of_strings)
         return single_string
     except Exception as e:
-        logging.getLogger().verbose(f'Error: {e}')
+        # logging.getLogger().verbose(f'Error: {e}')
         return ''
 
 
@@ -192,7 +196,8 @@ class RoleData:
         def choice_styles(interaction_styles):
             count = random.randint(1, len(interaction_styles))
             random_list = random.sample(interaction_styles, count)
-            logging.getLogger().verbose(f'interaction style amount: {count} style(s): {random_list}')
+            # logging.getLogger().verbose(f'interaction style amount: {count} style(s): {random_list}')
+            logger.info(f'interaction style count: {count}; style(s): {random_list}')
             return random_list
 
         def get_styles(interact):

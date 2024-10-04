@@ -9,10 +9,10 @@ import logging
 logger = logging.getLogger('my_app_logger')
 
 
-goal_styles = {
-    'all answered': '',
-    'default': ''
-}
+# goal_styles = {
+#     'all answered': '',
+#     'default': ''
+# }
 
 
 def pick_goal_style(goal):
@@ -24,14 +24,22 @@ def pick_goal_style(goal):
             return list(goal.keys())[0], goal['steps']
         else:
             raise OutOfLimitException(f"Goal steps higher than 20 steps: {goal['random steps']}")
-    elif 'all answered' in goal:
+    elif 'all answered' in goal or 'default' in goal:
         if isinstance(goal, dict):
-            if goal['all answered']['export']:
-                return list(goal.keys())[0], goal['all answered']['export']
+
+            if 'export' in goal['all answered']:
+                all_answered_goal = [list(goal.keys())[0], goal['all answered']['export']]
             else:
-                return list(goal.keys())[0], goal['all answered']['export']
+                all_answered_goal = [list(goal.keys())[0], False]
+
+            if 'limit' in goal['all answered']:
+                all_answered_goal.append(goal['all answered']['limit'])
+            else:
+                all_answered_goal.append(3)
+
+            return all_answered_goal
         else:
-            return goal, False
+            return [goal, False, 30]
 
     elif 'random steps' in goal:
         if goal['random steps'] < 20:

@@ -1,0 +1,92 @@
+serial: '20241004125027368'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - sprite
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 1
+- goal_style:
+    all answered:
+      export: true
+      limit: 20
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+---
+conversation time: '0:01:22.594366'
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a small Margherita pizza. Do you
+    guys have vegan cheese by any chance? Also, I'm kinda craving a can of Sprite
+    to go with it. 🍕🥤 How's your day going anyway?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Oh sure, no problem! I was just asking if you have vegan cheese for a small
+    Margherita pizza, and if I can get a can of Sprite with it. Also, just curious,
+    how's your day going so far? 😊
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Hey there! 😊 So I'm thinking about ordering a small Margherita pizza, but
+    I need to know if you have vegan cheese. Also, can I get a can of Sprite with
+    that? 🍕🥤 By the way, how are you doing today?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: No worries! Let's switch it up a bit. 😄 Maybe you can tell me if the pizza
+    place offers any special deals or discounts today? I'm always on the lookout for
+    a good bargain! Also, do you have any favorite pizza toppings? 🍕
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Hey there! 😊 I'm really curious, do you have any special deals or discounts
+    today at the pizza place? I'm always hunting for a bargain! Also, what about favorite
+    toppings? 🍕 Do you have any personal favorites?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Hey! 😊 Let's try this again. I'm interested in ordering a small Margherita
+    pizza with vegan cheese if you have it. And I'd love a can of Sprite too. 🍕🥤 Oh,
+    and do you have any special deals or discounts happening today? I'm always on
+    the lookout for a great bargain! Also, I'm curious about your favorite pizza toppings—do
+    you have any personal faves? 🍕
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Hey there! 😊 Okay, so I'm thinking of ordering a small Margherita pizza with
+    vegan cheese, if it's available. And I'd love a can of Sprite to go with it. 🍕🥤
+    But switching gears a bit, you ever have any random cravings like this? I feel
+    like pizza is my comfort food! 😄
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Hey there! 😊 So, I'm planning to order a small Margherita pizza, preferably
+    with vegan cheese if you have that option. Plus, I'd like a can of Sprite. 🍕🥤
+    By the way, how long would it take for the pizza to arrive? Also, how much would
+    it cost? Oh, and do you have any special deals today? Just trying to get the best
+    bang for my buck! 😄
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Hey there! 😊 I'm really interested in getting a small Margherita pizza with
+    vegan cheese if that's an option. Plus, I’m craving a can of Sprite to go along
+    with it. 🍕🥤 Just wondering, how long would it take for the pizza to arrive and
+    what's the cost for all of that? Also, got any cool deals or discounts going on
+    today? Always trying to save a bit! 😄
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Hey there! 😊 So, I'm on a mission to get a small Margherita pizza, and if
+    you've got vegan cheese, that would be awesome! Also, can't forget a refreshing
+    can of Sprite. 🍕🥤 I'm curious, how long would it take to get here and how much
+    would the whole deal cost? Also, what about any cool deals today to help a pizza
+    lover save some bucks? 😄 Oh, and by the way, what’s your favorite food? I'm always
+    interested in trying new things!
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?

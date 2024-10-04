@@ -138,11 +138,13 @@ class UserGeneration:
             logger.info('is end')
             return True
 
-        elif (self.data_gathering.gathering_register["verification"].all()
-              and ('all answered' in self.goal_style[0] or 'default' in self.goal_style[0])):
-            # logging.getLogger().verbose("is end")
-            logger.info('is end')
-            return True
+        elif 'all answered' in self.goal_style[0] or 'default' in self.goal_style[0]:
+            if (self.data_gathering.gathering_register["verification"].all()
+                    or self.goal_style[2] <= self.interaction_count):
+                logger.info('is end.')
+                return True
+            else:
+                return False
 
         else:
             return False

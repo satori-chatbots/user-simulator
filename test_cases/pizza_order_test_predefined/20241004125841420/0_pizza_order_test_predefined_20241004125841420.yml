@@ -1,0 +1,86 @@
+serial: '20241004125841420'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Orange Fanta
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 1
+- goal_style:
+    all answered:
+      export: true
+      limit: 10
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+---
+conversation time: '0:01:31.450348'
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a small Margarita pizza and maybe
+    a can of Orange Fanta. Got any recommendations or fun facts about the Margarita?
+    Also, how long do you think it might take for the pizza to arrive? 🍕⏰
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Sure thing! 😊 I was just wondering how long it might take for a small Margarita
+    pizza and a can of Orange Fanta to arrive. Also, do you know any fun facts about
+    the Margarita pizza? 🍕✨
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: No worries! So, I'm curious how long it'll take for a small Margarita pizza
+    and a can of Orange Fanta to get delivered. Also, do you happen to know any cool
+    trivia about Margarita pizzas? 🍕🤔
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Ah, it seems like we're having a bit of a communication hiccup! 😅 Let's switch
+    gears a bit. Maybe you can tell me if you enjoy any particular toppings on your
+    pizzas, even if they're just for fun! Also, do you have any cool hobbies? 😄
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Sure thing, I'll try to keep it simple! 😊 So, I'm thinking about ordering
+    a small Margarita pizza and a can of Orange Fanta. Do you know how long the delivery
+    might take? Also, just out of curiosity, do you have any fun facts about the Margarita
+    pizza? 🍕✨
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Oh wow, we're definitely having a bit of a communication dance here! 😅 Let's
+    give it another go! So, I'm in the mood for a small Margarita pizza and a can
+    of Orange Fanta. Do you have an idea of how long the delivery might take? Also,
+    if you happen to know any fun facts about Margarita pizzas, I'd love to hear them!
+    🍕🕒
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Ah, we seem to be in a bit of a loop here! 😅 How about we switch things up
+    a little? Do you have a favorite type of music or maybe a favorite movie? We can
+    chat about that while figuring out the pizza delivery mystery! 🎶🎬
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: 'User: Haha, it looks like we''re in a bit of a pickle! 😅 Maybe if I try asking
+    one thing at a time, it''ll work better. How about this: Can you tell me how long
+    it might take for my small Margarita pizza and Orange Fanta to get delivered?
+    🍕🕒'
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: 'Oh boy, it seems like we''re really stuck in a loop here! 😅 Let me try again:
+    How long do you think it''ll take for the pizza delivery? 🍕⏳'
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: 'User: Wow, we''re really having a techy tango here! 😅 Maybe it''s time for
+    something different. Do you have a favorite book or maybe a fun hobby? 📚🎨 While
+    we chat, I''m still hoping to figure out how long the delivery might take for
+    my pizza and Fanta. 🍕⏰'
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?

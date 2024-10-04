@@ -66,6 +66,7 @@ conversations:
   - goal_style:
       all answered:
         export: True
+        limit: 12
   - interaction_style:
       - default
 #      - random:

@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 import re
 from dateutil import parser
 import logging
-logger = logging.getLogger('my_app_logger')
+logger = logging.getLogger('Info Logger')
 
 
 class DataExtraction:

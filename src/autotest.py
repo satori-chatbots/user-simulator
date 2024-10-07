@@ -249,7 +249,7 @@ if __name__ == '__main__':
     # logging.debug(f"Received arguments: {args}")
     # logging.getLogger().verbose('verbose enabled')
 
-    logger = create_logger(args.verbose, 'my_app_logger')
+    logger = create_logger(args.verbose, 'Info Logger')
     logger.info('Logs enabled!')
 
     check_keys(["OPENAI_API_KEY"])

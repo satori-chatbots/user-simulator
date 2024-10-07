@@ -1,6 +1,6 @@
 import random
 import logging
-logger = logging.getLogger('my_app_logger')
+logger = logging.getLogger('Info Logger')
 
 def find_instance(instances, i_class):
     for instance in instances:

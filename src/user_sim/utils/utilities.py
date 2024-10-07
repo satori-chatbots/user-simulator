@@ -7,6 +7,9 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import logging
+import importlib.util
+from .exceptions import *
+
 logger = logging.getLogger('my_app_logger')
 
 
@@ -26,24 +29,37 @@ def str_to_bool(s):
         raise ValueError(f"Cannot convert {s} to boolean")
 
 
-# def set_language(lang_yml):
-#     if lang_yml is None:
-#         # logging.getLogger().verbose()
-#         logger.info("Empty. Setting language to Default (English)")
-#         language = "English"
-#         language = f". Please, always talk in {language}. "
-#         return language
-#     else:
-#         # logging.getLogger().verbose(f"Main language set to {lang_yml}")
-#         logger.info(f"Main language set to {lang_yml}")
-#         language = lang_yml
-#         language = f". Please, always talk in {language}. "
-#         return language
+def execute_list_function(path, function_name, arguments=None):
+    spec = importlib.util.spec_from_file_location("my_module", path)
+    my_module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(my_module)
+
+    function_to_execute = getattr(my_module, function_name)
+
+    if arguments:
+
+        if not isinstance(arguments, list):
+            arguments = [arguments]
+
+        args = [item for item in arguments if not isinstance(item, dict)]
+        dict_list = [item for item in arguments if isinstance(item, dict)]
+        kwargs = {k: v for dic in dict_list for k, v in dic.items()}
+
+        try:
+            result = function_to_execute(*args, **kwargs)
+        except TypeError as e:
+            raise InvalidFormat(f"No arguments needed for this function: {e}")
+
+    else:
+        try:
+            result = function_to_execute()
+        except TypeError as e:
+            raise InvalidFormat(f"Arguments are needed for this function: {e}")
+
+    return result
 
 
-
-
-def list_to_phrase(s_list: list, prompted=False): #todo: cambiar a list_to_askabout
+def list_to_phrase(s_list: list, prompted=False):  #todo: cambiar a list_to_askabout
     #s_list: list of strings
     #l_string: string values extracted from s_list in string format
     l_string = s_list[0]
@@ -73,6 +89,7 @@ def generate_serial():
     now = datetime.now()
     serial = datetime.now().strftime("%Y%m%d%H%M%S") + f"{now.microsecond // 1000:03d}"
     return serial
+
 
 class MyDumper(yaml.Dumper):
     def write_line_break(self, data=None):

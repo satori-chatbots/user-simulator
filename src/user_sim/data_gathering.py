@@ -11,7 +11,7 @@ from openai import OpenAI
 client = OpenAI()
 
 import logging
-logger = logging.getLogger('my_app_logger')
+logger = logging.getLogger('Info Logger')
 
 
 def extract_dict(in_val):

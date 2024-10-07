@@ -7,7 +7,7 @@ from langchain.chains import LLMChain
 from langchain_openai import ChatOpenAI
 
 import logging
-logger = logging.getLogger('my_app_logger')
+logger = logging.getLogger('Info Logger')
 
 class UserGeneration:
 
@@ -161,7 +161,6 @@ class UserGeneration:
         # Generate user response
         user_response = self.user_chain.run(history=history,
                                             reminder=self.my_context.get_context())
-
 
         self.update_history("User", user_response)
 

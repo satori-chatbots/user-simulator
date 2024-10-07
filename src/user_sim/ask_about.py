@@ -31,7 +31,8 @@ class VarGenerators:
                         if variable == forward['name']:
                             self.dependence_matrix[index].append(forward['data'])
 
-        def add_forward(self, forward_variable): # 'name': var_name, 'data': data_list,'function': content['function'],'dependence': dependence}
+        def add_forward(self,
+                        forward_variable):  # 'name': var_name, 'data': data_list,'function': content['function'],'dependence': dependence}
             self.forward_function_list.append(forward_variable)
 
             if forward_variable['dependence']:
@@ -93,11 +94,13 @@ class VarGenerators:
             function_map = {function['name']: function['data'] for function in self.forward_function_list}
 
             independent_generators = [
-                {'name': i, 'generator': self.forward_generator(function_map[i])} for i in self.independent_list if i in function_map
+                {'name': i, 'generator': self.forward_generator(function_map[i])} for i in self.independent_list if
+                i in function_map
             ]
 
             dependent_generators = [
-                {'name': val, 'generator': self.combination_generator(self.dependence_matrix[index])} for index, val in enumerate(self.dependent_list)
+                {'name': val, 'generator': self.combination_generator(self.dependence_matrix[index])} for index, val in
+                enumerate(self.dependent_list)
             ]
 
             return independent_generators + dependent_generators
@@ -139,7 +142,6 @@ class VarGenerators:
                         raise InvalidGenerator(f'Invalid generator function: {handler_name}')
                 else:
                     raise InvalidFormat(f"an invalid function format was used: {variable['function']}")
-
 
         return generator_list + my_forward.get_generator_list()
 
@@ -276,63 +278,77 @@ class AskAboutClass:
             if isinstance(item, dict):
                 var_name = list(item.keys())[0]
                 content = item[var_name]
-                if content['type'] == 'string':
-                    for i in content['data']:
-                        if type(i) is not str:
-                            raise InvalidDataType(f'The following item is not a string: {i}')
 
+                if isinstance(content['data'], dict) and 'file' in content['data']:
+                    path = content['data']['file']
+                    function = content['data']['function_name']
+                    if 'args' in content['data']:
+                        function_arguments = content['data']['args']
+                        data_list = execute_list_function(path, function, function_arguments)
+                    else:
+                        data_list = execute_list_function(path, function)
+                else:
                     if content['data']:
                         data_list = content['data']
                     else:
                         raise EmptyListExcept(f'Data list is empty.')
 
+                if content['type'] == 'string':
+                    for i in data_list:
+                        if type(i) is not str:
+                            raise InvalidDataType(f'The following item is not a string: {i}')
+                    if data_list:
+                        output_data_list = data_list
+                    else:
+                        raise EmptyListExcept(f'Data list is empty.')
+
                 elif content['type'] == 'int':
-                    if isinstance(content['data'], list):
-                        for i in content['data']:
+                    if isinstance(data_list, list):
+                        for i in data_list:
                             if type(i) is not int:
                                 raise InvalidDataType(f'The following item is not an integer: {i}')
-                        if content['data']:
-                            data_list = content['data']
+                        if data_list:
+                            output_data_list = data_list
                         else:
                             raise EmptyListExcept(f'Data list is empty.')
-                    elif isinstance(content['data'], dict):
-                        keys = list(content['data'].keys())
-                        data = content['data']
+                    elif isinstance(data_list, dict) and 'min' in data_list:
+                        keys = list(data_list.keys())
+                        data = data_list
                         if 'step' in keys:
                             if isinstance(data['min'], int) and isinstance(data['max'], int) and isinstance(
                                     data['step'], int):
-                                data_list = np.arange(data['min'], data['max'], data['step'])
-                                data_list = data_list.tolist()
+                                output_data_list = np.arange(data['min'], data['max'], data['step'])
+                                output_data_list = output_data_list.tolist()
 
                             else:
                                 raise InvalidDataType(f'Some of the range function parameters are not integers.')
                         else:
                             if isinstance(data['min'], int) and isinstance(data['max'], int):
-                                data_list = np.arange(data['min'], data['max'])
-                                data_list = data_list.tolist()
+                                output_data_list = np.arange(data['min'], data['max'])
+                                output_data_list = output_data_list.tolist()
                             else:
                                 raise InvalidDataType(f'Some of the range function parameters are not integers.')
                     else:
                         raise InvalidFormat(f'Data follows an invalid format.')
 
                 elif content['type'] == 'float':
-                    if isinstance(content['data'], list):
-                        for i in content['data']:
+                    if isinstance(data_list, list):
+                        for i in data_list:
                             if not isinstance(i, (int, float)):
                                 raise InvalidDataType(f'The following item is not a number: {i}')
-                        if content['data']:
-                            data_list = content['data']
+                        if data_list:
+                            output_data_list = data_list
                         else:
                             raise EmptyListExcept(f'Data list is empty.')
-                    elif isinstance(content['data'], dict):
-                        keys = list(content['data'].keys())
+                    elif isinstance(data_list, dict) and 'min' in data_list:
+                        keys = list(data_list.keys())
                         data = content['data']
                         if 'step' in keys:
-                            data_list = np.arange(data['min'], data['max'], data['step'])
-                            data_list = data_list.tolist()
+                            output_data_list = np.arange(data['min'], data['max'], data['step'])
+                            output_data_list = output_data_list.tolist()
                         elif 'linspace' in keys:
-                            data_list = np.linspace(data['min'], data['max'], data['linspace'])
-                            data_list = data_list.tolist()
+                            output_data_list = np.linspace(data['min'], data['max'], data['linspace'])
+                            output_data_list = output_data_list.tolist()
                         else:
                             raise MissingStepDefinition(
                                 f'"step" or "lisnpace" parameter missing. A step separation must be defined.')
@@ -355,7 +371,7 @@ class AskAboutClass:
                 else:
                     dependence = None
 
-                dictionary = {'name': var_name, 'data': data_list,
+                dictionary = {'name': var_name, 'data': output_data_list,
                               'function': content['function'],
                               'dependence': dependence}  # (size, [small, medium], random(), toppings)
                 variables.append(dictionary)
@@ -391,11 +407,12 @@ class AskAboutClass:
                 def replace_variable(match):
                     variable = match.group(1)
                     return mapped_combinations.get(variable, match.group(0))
+
                 replaced_phrase = re.sub(r'\{\{(\w+)\}\}', replace_variable, phrase)
                 replaced_phrases.append(replaced_phrase)
             self.phrases = replaced_phrases
 
-        else:                                                   # this is for everything else
+        else:  # this is for everything else
             value = next(generator['generator'])
             name = generator['name']
 

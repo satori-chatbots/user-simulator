@@ -21,9 +21,12 @@ ask_about:
       function: forward()
       type: int
       data:
-        step: 2
-        min: 1
-        max: 6
+        file: list_functions/number_list.py
+        function_name: number_list
+        args:
+          - 1
+          - 6
+          - 2
 
   - size:
       function: forward(pizza_type)
@@ -37,9 +40,9 @@ ask_about:
       function: forward()
       type: string
       data:
-        - margarita
-        - cuattro stagioni
-        - marinera
+        file: list_functions/number_list.py
+        function_name: shuffle_list
+        args: list_functions/list_of_things.yml
 
   - drink:
       function: another()

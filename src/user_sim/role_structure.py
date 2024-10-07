@@ -6,13 +6,7 @@ from .utils.exceptions import *
 from .utils.languages import Languages
 from pathlib import Path
 import logging
-logger = logging.getLogger('my_app_logger')
-
-
-# goal_styles = {
-#     'all answered': '',
-#     'default': ''
-# }
+logger = logging.getLogger('Info Logger')
 
 
 def pick_goal_style(goal):

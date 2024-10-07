@@ -146,7 +146,6 @@ class UserGeneration:
 
     def get_response(self, input_msg):
 
-        # self.data_gathering.response(input_msg, self.request_register)
         self.update_history("Assistant", input_msg)
         self.data_gathering.add_message(self.conversation_history)
 
@@ -163,7 +162,6 @@ class UserGeneration:
         user_response = self.user_chain.run(history=history,
                                             reminder=self.my_context.get_context())
 
-        # self.request_register.get_request(user_response)
 
         self.update_history("User", user_response)
 

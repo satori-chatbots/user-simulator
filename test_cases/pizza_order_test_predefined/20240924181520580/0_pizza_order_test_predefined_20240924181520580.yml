@@ -1,6 +1,0 @@
-;verification;data
-a_small_margarita_pizza;True;Assistant confirmed the availability of a small Margarita pizza on the menu.
-1_cans_of_the_following_drink:_sprite;True;"User: Thank you for your diligent service. I would appreciate having one can of Sprite, if available. Could you kindly confirm the estimated time it will take for the pizza and beverage to arrive at my address?
-Assistant: Thank you for confirming your order. You have requested one can of Sprite."
-how_long_is_going_to_take_the_pizza_to_arrive;True;Assistant provided the estimated delivery time for the small Margarita pizza and one can of Sprite: approximately 30-45 minutes.
-how_much_will_it_cost;True;Assistant provided the total cost for the small Margarita pizza and one can of Sprite, inclusive of applicable taxes and delivery charges: $15.

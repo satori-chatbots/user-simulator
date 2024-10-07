@@ -1,7 +1,0 @@
-;verification;data
-a_small_margarita_pizza;True;"Assistant: It looks like you have ordered a small Margherita pizza. Is that correct?
-User: Indeed, that is correct."
-1_cans_of_the_following_drink:_Orange_Fanta;True;"User: Indeed, that is correct. I would also like to inquire if you have a can of Orange Fanta available for purchase.
-Assistant: I'm sorry, but we only have coke, sprite, and water available as drink options. Could you please let me know how many drinks you would like and which type you prefer?"
-how_long_is_going_to_take_the_pizza_to_arrive;True;Assistant: Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street, NY. Your order ID is 36ced3.
-how_much_will_it_cost;True;Assistant: The cost of a small margarita pizza and one Sprite is $11.50.

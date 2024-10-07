@@ -79,15 +79,12 @@ class UserGeneration:
     def repetition_track(self, response, reps=3):
 
         self.my_context.reset_context()
-        # logging.getLogger().verbose(f'Context list: {self.my_context.context_list}')
         logger.info(f'Context list: {self.my_context.context_list}')
 
         if nlp_processor(response, self.chatbot.fallback, 0.6):
 
             self.repeat_count += 1
             self.loop_count += 1
-            # logging.getLogger().verbose(f"is fallback. Repeat_count: {self.repeat_count}. "
-            #                             f"Loop count: {self.loop_count}")
             logger.info(f"is fallback. Repeat_count: {self.repeat_count}. Loop count: {self.loop_count}")
 
             if self.repeat_count >= reps:
@@ -129,19 +126,17 @@ class UserGeneration:
 
         if self.goal_style[0] == 'steps' or self.goal_style[0] == 'random steps':
             if self.interaction_count >= self.goal_style[1]:
-                # logging.getLogger().verbose("is end")
                 logger.info('is end')
                 return True
 
         elif self.conversation_ending(input_msg) or self.loop_count >= 9:
-            # logging.getLogger().verbose("is end")
-            logger.info('is end')
+            logger.info('Loop count surpassed 9 interactions. Ending conversation.')
             return True
 
         elif 'all answered' in self.goal_style[0] or 'default' in self.goal_style[0]:
             if (self.data_gathering.gathering_register["verification"].all()
                     or self.goal_style[2] <= self.interaction_count):
-                logger.info('is end.')
+                logger.info(f'limit amount of interactions achieved: {self.goal_style[2]}. Ending conversation.')
                 return True
             else:
                 return False

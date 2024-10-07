@@ -60,7 +60,8 @@ class ChatbotAssistant:
                     },
                     "data": {
                         "type": ["string", "null"],
-                        "description": f"the piece of the conversation where the following has been answered or confirmed by the chatbot: {ab} "
+                        "description": f"the piece of the conversation where the following has been answered "
+                                       f"or confirmed by the assistant. Don't consider the user's interactions: {ab} "
                     }
                 },
                 "required": ["verification", "data"],

@@ -1,5 +1,0 @@
-;verification;data
-a_small_margarita_pizza;True;Assistant: Thank you for your order of a small Margarita pizza.
-1_cans_of_the_following_drink:_Orange_Fanta;True;Assistant: Thank you for your order of a small Margarita pizza and one can of Sprite.
-how_long_is_going_to_take_the_pizza_to_arrive;True;Assistant: The estimated delivery time for your pizza and beverage is approximately 30-45 minutes.
-how_much_will_it_cost;True;Assistant: The total cost for your order, which includes a small Margarita pizza and one can of Sprite, is $12.99.

@@ -1,0 +1,54 @@
+serial: '20241007103204449'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Orange Fanta
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 1
+- goal_style:
+    all answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+---
+conversation time: '0:00:41.371162'
+---
+interaction:
+- User: Hey there! 😊 I’m really craving some pizza right now. Could I get a small
+    Margarita pizza, please? 🍕 Also, I'm vegan, so I hope that's something you can
+    accommodate! Oh, and can I add a can of Orange Fanta to that? Thanks! 🍊
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Sure thing! I was saying I’d like to order a small Margarita pizza, and since
+    I’m vegan, I hope that's doable. Also, could you add a can of Orange Fanta to
+    my order? 🍕🍊 Thanks a bunch!
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: Of course! I'd love to have a small Margarita pizza, and since I'm vegan,
+    I hope that's okay. 😊 Also, could you pop a can of Orange Fanta in there for me?
+    🍊 Thanks so much! By the way, do you know how long it'll take for the pizza to
+    arrive? ⏰
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: No worries, let's give it another go! 😄 So, I'm looking to order a small Margarita
+    pizza, keeping it vegan-friendly. Oh, and I've got a craving for a can of Orange
+    Fanta too! 🍕🍊 Any idea how much this will set me back? Also, how long do you think
+    it'll take to arrive? ⏰ By the way, do you have any favorite pizza toppings? 🍄
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?

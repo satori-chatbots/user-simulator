@@ -22,7 +22,7 @@ ask_about:
       type: int
       data:
         file: list_functions/number_list.py
-        function_name: number_list
+        function_name:
         args:
           - 1
           - 6
@@ -42,7 +42,7 @@ ask_about:
       data:
         file: list_functions/number_list.py
         function_name: shuffle_list
-        args: list_functions/list_of_things.yml
+        args: list_functions/data/list_of_things.yml
 
   - drink:
       function: another()

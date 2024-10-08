@@ -29,7 +29,7 @@ def pick_goal_style(goal):
             if 'limit' in goal['all answered']:
                 all_answered_goal.append(goal['all answered']['limit'])
             else:
-                all_answered_goal.append(3)
+                all_answered_goal.append(30)
 
             return all_answered_goal
         else:

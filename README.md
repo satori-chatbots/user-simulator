@@ -182,6 +182,35 @@ ask_about:
   and step refers to the separation steps between samples. When working with float data, it can also be used the "linspace" 
   parameter instead of step, where samples will be listed with a linear separation step between them.
 
+  Other option available in this field is the possibility to add personalized list functions to create data lists.
+
+```
+  - number:
+      function: forward()
+      type: int
+      data:
+        file: list_functions/number_list.py
+        function_name: 
+        args:
+          - 1
+          - 6
+          - 2
+
+  - pizza_type:
+      function: forward()
+      type: string
+      data:
+        file: list_functions/number_list.py
+        function_name: shuffle_list
+        args: list_functions/list_of_things.yml
+```
+  In these two examples, a personalized list function is implemented in "data". The structure consist in three parameters:
+ - file: The path to the .py file where the function is created
+ - function_name: the name of the function to run inside the .py file
+ - args: the required input args for the function.
+
+  List functions are fully personalized by the user. 
+
   ### function
   Functions are useful to determine how data will be added to the prompt.
 
@@ -265,10 +294,16 @@ The tester defines some certain values to obtain from the conversation to valida
   This option creates an internal data frame that verifies if all "ask_about" queries are being responded or confirmed, and it is possible to export this
   dataframe once the conversation ended by setting the "export" field as True, as shown in the following example. This field is not mandatory, thus if only
   "all answered" is defined, the export field is set as False by default.
+    When all answered is set, conversations are regulated with a loop break based on the chatbot's fallback message in order to avoid infinite loops when the chatbot does 
+  not know how to answer to several questions made by the user. But, in some cases, this loop break can be dodged due to hallucinations from the chatbot, leading to
+  irrelevant and extremely long conversations. To avoid this, a "limit" parameter is implemented in order to give the tester the possibility to stop the conversation
+  after a specific amount of interactions in case the loop break was not triggered before or all queries were not answered. This parameter is not mandatory neither and will
+  be set to 30 interactions by default.
   ```
   goal_style:
     all answered:
       export: True
+      limit: 20
   ```
   - default: the default mode enables "all answered" mode with export set as False, since no steps are defined.
 - interaction_style: this indicates how the user simulator should carry out the conversation. There are 7 options in this update

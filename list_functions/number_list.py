@@ -2,6 +2,7 @@ import numpy as np
 import yaml
 import random
 
+# these are only examples of functions to create lists.
 
 def number_list(min, max, step):
     numberlist = np.arange(min, max, step)
@@ -11,6 +12,7 @@ def number_list(min, max, step):
 def random_list():
     randomlist = np.random.randint(0, 10, 3)
     return randomlist.tolist()
+
 
 def shuffle_list(file):
     with open(file, 'r', encoding="UTF-8") as f:

@@ -1,25 +1,28 @@
-import requests
-from colorama import Fore, Style
-from user_sim.role_structure import *
-from user_sim.utils.utilities import *
-from user_sim.user_simulator import UserGeneration
-from user_sim.data_extraction import DataExtraction
-from user_sim.utils.show_logs import *
-from argparse import ArgumentParser
 import timeit
+from abc import abstractmethod
+from argparse import ArgumentParser
 from datetime import timedelta
 
+import requests
+from colorama import Fore, Style
 
-
-
+from user_sim.data_extraction import DataExtraction
+from user_sim.role_structure import *
+from user_sim.user_simulator import UserGeneration
+from user_sim.utils.show_logs import *
+from user_sim.utils.utilities import *
 
 class Chatbot:
     def __init__(self, url):
         self.url = url
         self.fallback = 'I do not understand you'
 
+    @abstractmethod
     def execute_with_input(self, user_msg):
-        return ''
+        """Returns a pair [bool, str] in which the first element is True if the chatbot returned normally,
+           and the second is the message.
+           Otherwise, False means that there is an error in the chatbot."""
+        raise NotImplementedError()
 
 
 class ChatbotRasa(Chatbot):
@@ -31,9 +34,9 @@ class ChatbotRasa(Chatbot):
         post_response = requests.post(self.url, json=new_data)
         post_response_json = post_response.json()
         if len(post_response_json) > 0:
-            return post_response_json[0].get('text')
+            return True, post_response_json[0].get('text')
         else:
-            return ''
+            return True, ''
 
 
 class ChatbotTaskyto(Chatbot):
@@ -55,12 +58,16 @@ class ChatbotTaskyto(Chatbot):
             try:
                 post_response = requests.post(self.url + '/conversation/user_message', json=new_data)
                 post_response_json = post_response.json()
-                return post_response_json.get('message')
+                if post_response.status_code == 200:
+                    return True, post_response_json.get('message')
+                else:
+                    # There is an error, but it is an internal error
+                    return False, post_response_json.get('error')
             except requests.exceptions.JSONDecodeError as e:
-                logging.getLogger().verbose(f"Couldn't get response from the server: {e}")
-                return 'exit'
+                logging.getLogger().log(f"Couldn't get response from the server: {e}")
+                return False, 'chatbot internal error'
 
-        return ''
+        return True, ''
 
 
 def print_user(msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
@@ -186,13 +193,12 @@ def generate(technology, chatbot, user, extract):
             starter = user_profile.is_starter
 
             while True:
-
                 if starter:
                     user_msg = the_user.open_conversation()
                     print_user(user_msg)
 
-                    response = the_chatbot.execute_with_input(user_msg)
-                    if response == 'exit':
+                    is_ok, response = the_chatbot.execute_with_input(user_msg)
+                    if not is_ok:
                         # logging.getLogger().verbose('The server cut the conversation. End.')
                         break
                     print_chatbot(response)
@@ -208,8 +214,13 @@ def generate(technology, chatbot, user, extract):
                 else:
                     # configure parameter "user starts?"
                     print_user(user_msg)
-                    response = the_chatbot.execute_with_input(user_msg)
+                    is_ok, response = the_chatbot.execute_with_input(user_msg)
                     print_chatbot(response)
+
+                    if not is_ok:
+                        the_user.update_history("Assistant", "Error: " + response)
+                        break
+
 
             if extract:
                 history = the_user.conversation_history

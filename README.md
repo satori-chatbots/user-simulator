@@ -305,7 +305,7 @@ The tester defines some certain values to obtain from the conversation to valida
       export: True
       limit: 20
   ```
-  - default: the default mode enables "all answered" mode with export set as False, since no steps are defined.
+  - default: the default mode enables "all answered" mode with 'export' set as False and 'limit' set to 30, since no steps are defined.
 - interaction_style: this indicates how the user simulator should carry out the conversation. There are 7 options in this update
   - long phrase: the user will use very long phrases to write any query.
   - change your mind: the user will change its mind eventually. Useful in conversations when the user has to

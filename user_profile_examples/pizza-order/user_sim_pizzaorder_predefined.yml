@@ -22,7 +22,7 @@ ask_about:
       type: int
       data:
         file: list_functions/number_list.py
-        function_name:
+        function_name: number_list
         args:
           - 1
           - 6
@@ -48,9 +48,8 @@ ask_about:
       function: another()
       type: string
       data:
-        - sprite
-        - coke
-        - Orange Fanta
+        -
+        - any(3 soda drinks)
 
 output:
   - price:
@@ -67,9 +66,10 @@ output:
 conversations:
   - number: 1
   - goal_style:
-      all answered:
-        export: True
-        limit: 12
+      steps: 3
+#      all answered:
+#        export: True
+#        limit: 12
   - interaction_style:
       - default
 #      - random:

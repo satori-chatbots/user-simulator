@@ -2,9 +2,9 @@ from .utils.utilities import *
 from .data_gathering import *
 
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import LLMChain
-# from langchain_community.chat_models import ChatOpenAI
 from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
+parser = StrOutputParser()
 
 import logging
 logger = logging.getLogger('Info Logger')
@@ -29,7 +29,8 @@ class UserGeneration:
         self.repeat_count = 0
         self.loop_count = 0
         self.interaction_count = 0
-        self.user_chain = LLMChain(llm=self.user_llm, prompt=self.user_role_prompt)
+        # self.user_chain = LLMChain(llm=self.user_llm, prompt=self.user_role_prompt)
+        self.user_chain = self.user_role_prompt | self.user_llm | parser
         self.my_context = self.InitialContext()
 
     class InitialContext:
@@ -158,9 +159,7 @@ class UserGeneration:
 
         history = self.get_history()
 
-        # Generate user response
-        user_response = self.user_chain.run(history=history,
-                                            reminder=self.my_context.get_context())
+        user_response = self.user_chain.invoke({'history': history, 'reminder': self.my_context.get_context()})
 
         self.update_history("User", user_response)
 
@@ -191,8 +190,9 @@ class UserGeneration:
         language_context = self.user_profile.get_language()
         self.my_context.add_context(language_context)
         history = self.get_history()
-        user_response = self.user_chain.run(history=history,
-                                            reminder=self.my_context.get_context())  # generation of user message
+        # user_response = self.user_chain.run(history=history,
+        #                                     reminder=self.my_context.get_context())  # generation of user message
+        user_response = self.user_chain.invoke({'history': history, 'reminder': self.my_context.get_context()})
 
         self.update_history("User", user_response)
 

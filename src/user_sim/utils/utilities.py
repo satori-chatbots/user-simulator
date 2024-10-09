@@ -229,11 +229,10 @@ def get_any_items(data):
                     },
                     "required": ["answer"],
                     "additionalProperties": False
-
-
                 }
             }
         }
     )
-    data = json.loads(response.choices[0].message.content)
+    raw_data = json.loads(response.choices[0].message.content)
+    data = raw_data["answer"]
     return data

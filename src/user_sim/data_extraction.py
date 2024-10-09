@@ -61,7 +61,7 @@ class DataExtraction:
 
         except ValueError as e:
             # logging.getLogger().verbose(f"Error in casting: {e}")
-            logger.info(f"Error in casting: {e}")
+            logger.warning(f"Error in casting: {e}")
             return None
 
     def get_data_prompt(self):

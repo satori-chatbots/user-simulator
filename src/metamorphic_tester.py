@@ -16,7 +16,8 @@ def __get_object_from_yaml_files(file_or_dir, operation, name):
     if os.path.isfile(file_or_dir):
         yaml_files = [file_or_dir]
     else:
-        yaml_files = glob.glob(os.path.join(file_or_dir, '*.yaml')) + glob.glob(os.path.join(file_or_dir, '*.yml'))
+        yaml_files = (glob.glob(os.path.join(file_or_dir, '**/*.yaml'), recursive=True) +
+                      glob.glob(os.path.join(file_or_dir, '**/*.yml'), recursive=True))
 
     for file_path in yaml_files:
         with open(file_path, 'r') as file:

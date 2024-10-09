@@ -1,0 +1,54 @@
+serial: '20241009160358633'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 1
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+---
+conversation time: '0:00:45.926649'
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza tonight, and I'm curious
+    about your BBQ options. Do you have a small BBQ pizza available? 🍕 And oh, I could
+    really use a can of Coca-Cola too! How's your day going, by the way?
+- Assistant: I'm sorry, we don't have a BBQ pizza as a predefined option. However,
+    you can choose from our predefined pizzas like margarita, carbonara, marinera,
+    hawaiian, four cheese, and vegetarian. Alternatively, you can create a custom
+    pizza with your choice of toppings. Would you like to choose one of these options
+    or create a custom pizza?
+- User: Oh, bummer! I was really craving some BBQ flavors. 🤔 Maybe I can create a
+    custom pizza with some BBQ sauce and my favorite veggies. That could be fun! How
+    about I go with a vegetarian pizza and add some BBQ sauce to it? Also, I still
+    want that can of Coca-Cola to wash it down. 😋 How long would it take for my pizza
+    to arrive once I place the order?
+- Assistant: It looks like I need some more information to help you with your order.
+    Could you please let me know the size of the pizza you'd like (small, medium,
+    or large) and the toppings you want (choose from cheese, mushrooms, pepper, ham,
+    bacon, pepperoni, olives, corn, chicken)?
+- User: Sure thing! I'd love a small pizza with BBQ sauce, mushrooms, olives, and
+    corn. 🍕 Just thinking about it is making me hungry! How about you, what's your
+    favorite pizza topping? 😄 And don't forget my can of Coca-Cola! Also, could you
+    let me know how much the total cost would be?
+- Assistant: 'Thanks for ordering a small pizza with mushrooms, olives and corn!
+
+    Could you please let me know how many drinks you would like to order? '

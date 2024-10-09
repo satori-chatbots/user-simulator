@@ -9,6 +9,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 import logging
 import importlib.util
 from .exceptions import *
+from openai import OpenAI
+
+client = OpenAI()
 
 logger = logging.getLogger('my_app_logger')
 
@@ -198,3 +201,47 @@ def build_sequence(pairs):
     if not sequences:
         raise ValueError("Cannot determine a unique starting point.")
     return sequences
+
+
+def get_any_items(any_list, item_list):
+    response_format = {
+        "type": "json_schema",
+        "json_schema": {
+            "name": "List_of_values",
+            "strict": True,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "answer": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": ["answer"],
+                "additionalProperties": False
+            }
+        }
+    }
+    output_list = item_list.copy()
+
+    for data in any_list:
+        content = re.findall(r'any\((.*?)\)', data)
+        message = [{"role": "system",
+                    "content": "You are a helpful assistant that creates a list of whatever the user asks."},
+                   {"role": "user",
+                    "content": f"A list of any of these: {content}. Avoid putting any of these: {output_list}"}]
+
+        response = client.chat.completions.create(
+            model="gpt-4o-2024-08-06",
+            messages=message,
+            response_format=response_format
+        )
+
+        raw_data = json.loads(response.choices[0].message.content)
+        output_data = raw_data["answer"]
+
+        output_list += output_data
+
+    return output_list

@@ -3,7 +3,8 @@ import copy
 from .utils.exceptions import *
 from .utils.utilities import *
 import numpy as np
-
+import logging
+logger = logging.getLogger('Info Logger')
 
 class VarGenerators:
 
@@ -278,20 +279,37 @@ class AskAboutClass:
             if isinstance(item, dict):
                 var_name = list(item.keys())[0]
                 content = item[var_name]
-
-                if isinstance(content['data'], dict) and 'file' in content['data']:
-                    path = content['data']['file']
-                    function = content['data']['function_name']
-                    if 'args' in content['data']:
-                        function_arguments = content['data']['args']
+                content_data = content['data'].copy()
+                if isinstance(content_data, dict) and 'file' in content_data:  # check for personalized functions
+                    path = content_data['file']
+                    function = content_data['function_name']
+                    if 'args' in content_data:
+                        function_arguments = content_data['args']
                         data_list = execute_list_function(path, function, function_arguments)
                     else:
                         data_list = execute_list_function(path, function)
                 else:
-                    if content['data']:
-                        data_list = content['data']
+                    if content_data:
+                        data_list = content_data
                     else:
                         raise EmptyListExcept(f'Data list is empty.')
+
+                if isinstance(content_data, list):  # check for any() in data list
+                    any_list = []
+                    item_list = []
+                    for index, value in enumerate(data_list):
+                        if isinstance(value, str):
+                            if 'any(' in value:
+                                any_list.append(value)
+                            else:
+                                item_list.append(value)
+                        else:
+                            item_list.append(value)
+
+                    if any_list:
+                        data_list = get_any_items(any_list, item_list)
+                    else:
+                        data_list = item_list
 
                 if content['type'] == 'string':
                     for i in data_list:
@@ -370,6 +388,8 @@ class AskAboutClass:
                         dependence = None
                 else:
                     dependence = None
+
+                logger.info(f"{var_name}: {output_data_list}")
 
                 dictionary = {'name': var_name, 'data': output_data_list,
                               'function': content['function'],

@@ -1,0 +1,49 @@
+serial: '20241009123255217'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 1
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 1
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: '12.00'
+- time: 00:15:00
+- order_id: None
+---
+conversation time: '0:00:50.792825'
+---
+interaction:
+- User: Hey there! 😊 I'm craving some pizza right now, and I'm thinking of going for
+    a small marinara pizza. What do you think, is it a good choice? Oh, and do you
+    have any idea how much it might cost? I'm also feeling thirsty and was wondering
+    if they have Sprite. Have you ever tried the combination? 🍕🥤
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Oh, that's some helpful info! So, it looks like my small marinara pizza should
+    be around $12, right? 🤔 And yay, they have Sprite! I always love that fizzy combo
+    with pizza. Do you know how much a can of Sprite would cost there? Also, I'm curious—how
+    long do you think it'll take for my pizza to arrive once I order it? 🍕⏰
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: Got it, so the Sprite will add $1.50 to my order. I can already imagine the
+    refreshing taste! 😋 Do you usually know how long it takes for deliveries? I'm
+    hoping I won't be waiting too long—I can't wait to dig in! 🍕⏳
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.

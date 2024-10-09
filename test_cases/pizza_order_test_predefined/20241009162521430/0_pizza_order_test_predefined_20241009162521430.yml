@@ -1,0 +1,36 @@
+serial: '20241009162521430'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Martini
+- number:
+  - 1
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+---
+conversation time: '0:00:30.900487'
+---
+interaction:
+- User: Hey there! 😊 I’m feeling a bit hungry and thinking about ordering a small
+    marinara pizza. What do you recommend? Also, do you guys have any drinks like
+    Martini by any chance? 🍸 How's your day going so far?
+- Assistant: "Welcome to Fast Pizza! I'm a chatbot assistant that can help you order\
+    \ pizzas and drinks. \n\nFor a small marinara pizza, that's a great choice! As\
+    \ for drinks, let me check if we have Martini available."

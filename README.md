@@ -173,14 +173,33 @@ ask_about:
   The types available for this version are int, float and string, and must be stated as written here.
 
   ### data
-  Here, the data list to use will be defined. In general, the data list must be defined manually by the user, but there 
-  are some cases where it can be created automatically, as long as it consists of integers or floats. 
+  Here, the data list to use will be defined. In general, data lists must be defined manually by the user, but there 
+  are some cases where it can be created automatically. 
 
   As shown in the example above, instead of defining a list of the amount of artworks, 
   it is possible to automatically create an integer or float list based on range instructions using a 'min, max, step' structure, 
   where min refers to the minimum value of the list, max refers to the maximum value of the list, 
   and step refers to the separation steps between samples. When working with float data, it can also be used the "linspace" 
   parameter instead of step, where samples will be listed with a linear separation step between them.
+
+  This field also allows the user to create data lists based in prompts by using the function "any()".
+```
+  - drink:
+      function: another()
+      type: string
+      data:
+        - Sprite
+        - Coca-Cola
+        - Pepsi
+        - any(3 soda drinks)
+        - any(alcoholic drinks)
+```
+  By using this function, an LLM creates a list following the instructions provided by the user inside the parenthesis. 
+  This function can be used alone in the list or accompanied by other items added by the user. When used with other items,
+  the "any()" function will exclude these items from the list generation in case they're related to the instruction. Multiple
+  "any()" functions can be used inside the list.
+  Note that if any amount is specified in the prompt, the "any()" function will create a list with an unpredictable amount of items.
+
 
   Other option available in this field is the possibility to add personalized list functions to create data lists.
 

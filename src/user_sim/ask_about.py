@@ -294,19 +294,6 @@ class AskAboutClass:
                     else:
                         raise EmptyListExcept(f'Data list is empty.')
 
-                # if isinstance(content_data, list):  # check for any() in data list
-                #     any_list = []
-                #     index_list = []
-                #     for index, value in enumerate(data_list):
-                #         if isinstance(value, str):
-                #             if 'any(' in value:
-                #                 any_items = get_any_items(value)
-                #                 any_list += any_items
-                #                 index_list.append(index)
-                #     if any_list and index_list:
-                #         data_list = [item for i, item in enumerate(data_list) if i not in index_list]
-                #         data_list += any_list
-
                 if isinstance(content_data, list):  # check for any() in data list
                     any_list = []
                     item_list = []
@@ -323,11 +310,6 @@ class AskAboutClass:
                         data_list = get_any_items(any_list, item_list)
                     else:
                         data_list = item_list
-
-                    # if any_list and index_list:
-                    #     data_list = [item for i, item in enumerate(data_list) if i not in index_list]
-                    #     data_list += any_list
-
 
                 if content['type'] == 'string':
                     for i in data_list:

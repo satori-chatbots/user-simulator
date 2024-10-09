@@ -1,6 +1,4 @@
 from langchain_core.prompts import PromptTemplate
-from langchain.chains import LLMChain
-# from langchain_community.chat_models import ChatOpenAI
 from langchain_openai import ChatOpenAI
 import re
 from dateutil import parser
@@ -27,7 +25,8 @@ class DataExtraction:
             input_variables=["conversation", "description", "data_type"],
             template=self.prompt)
         self.llm = ChatOpenAI(model="gpt-4o")
-        self.chain = LLMChain(llm=self.llm, prompt=self.assistant_role_prompt)
+        self.chain = self.assistant_role_prompt | self.llm
+
 
     @staticmethod
     def regex_data(text):
@@ -78,12 +77,15 @@ class DataExtraction:
 
     def get_data_extraction(self):
 
-        llm_output = self.chain.run(conversation=self.conversation,
-                                    description=self.description,
-                                    data_type=self.get_data_prompt())
-        # logging.getLogger().verbose(f'llm output for data extraction: {llm_output}')
-        logger.info(f'LLM output for data extraction: {llm_output}')
-        text_process = self.regex_data(llm_output)
+        # llm_output = self.chain.run(conversation=self.conversation,
+        #                             description=self.description,
+        #                             data_type=self.get_data_prompt())
+        llm_output = self.chain.invoke({'conversation': self.conversation,
+                                        'description': self.description,
+                                        'data_type': self.get_data_prompt()})
+
+        logger.info(f'LLM output for data extraction: {llm_output.content}')
+        text_process = self.regex_data(llm_output.content)
         data = self.data_process(text_process, self.dtype)
 
         return {self.variable: data}

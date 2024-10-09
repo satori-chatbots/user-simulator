@@ -48,8 +48,11 @@ ask_about:
       function: another()
       type: string
       data:
-        -
+        - Sprite
+        - Coca-Cola
+        - Pepsi
         - any(3 soda drinks)
+        - any(3 alcoholic drinks)
 
 output:
   - price:

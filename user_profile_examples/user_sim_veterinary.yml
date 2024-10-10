@@ -6,8 +6,7 @@ is_starter: True
 
 fallback: I'm sorry, I can help you to set an appointment for a session, provide price estimates, and answer on issues related to our shop
 
-role:
-  you have to act as a user contacting a veterinary
+role: you have to act as a user contacting a veterinary
 
 context:
   - your name is Jon Doe
@@ -21,15 +20,24 @@ ask_about:
       function: random()
       type: string
       data:
-#        - 1:00 AM
-        - sausage
+        - 1:00 AM
+#        - sausage
   - date:
       function: random()
       type: string
       data:
-        - yesterday
-#        - today
-#        - tomorrow
+        date:
+#          random(3)
+#          set: ">today(4)"
+#          set: "<today(6)"
+          range:
+              min: 04/07/2024
+              max: 08/11/2040
+#              step: linspace(5) #(day(7), month(1), year(2), linspace(3))
+              random: 7
+          #fake: 5
+          custom: 31/02/2024 #añadir custom para poder crear listas compuestas con funciones y fechas personalizadas
+
 
 output:
   - date:

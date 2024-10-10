@@ -2,8 +2,9 @@ import yaml
 import os
 import json
 import configparser
-from datetime import datetime
+from datetime import datetime, timedelta
 import re
+import random
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import logging
@@ -201,6 +202,115 @@ def build_sequence(pairs):
     if not sequences:
         raise ValueError("Cannot determine a unique starting point.")
     return sequences
+
+
+def get_random_date():
+    year = random.randint(0, 3000)
+    month = random.randint(1, 12)
+
+    if month in [1, 3, 5, 7, 8, 10, 12]:
+        day = random.randint(1, 31)
+    elif month == 2:
+        if year % 4 == 0:
+            day = random.randint(1, 29)
+        else:
+            day = random.randint(1, 28)
+    else:
+        day = random.randint(1, 30)
+
+    return f"{day}/{month}/{year}"
+
+
+def get_date_range(start, end, step, date_type):
+
+    if 'linspace' in date_type:
+        total_seconds = (end - start).total_seconds()
+        interval_seconds = total_seconds / (step - 1) if step > 1 else 0
+        range_date_list = [(start + timedelta(seconds=interval_seconds * i)).strftime('%d/%m/%Y') for i in range(step)]
+
+    elif date_type in ['day', 'month', 'year']:
+        if 'month' in date_type:
+            step = 30*step
+        elif 'year' in date_type:
+            step = 365*step
+
+        range_date_list = [start.strftime('%d/%m/%Y')]
+        while end > start:
+            start = start + timedelta(days=step)
+            range_date_list.append(start.strftime('%d/%m/%Y'))
+
+    elif 'random' in date_type:
+        delta = end - start
+        random_dates = [
+            (start + timedelta(days=random.randint(0, delta.days))).strftime('%d/%m/%Y') for _ in range(step)
+        ]
+        return random_dates
+
+    else:
+        raise InvalidFormat(f"The following parameter does not belong to date range field: {date_type}")
+
+    return range_date_list
+
+
+def get_date_list(date):
+    if isinstance(date, str) and 'random' in date:
+        value = int(re.findall(r'random\((.*?)\)', date)[0])
+        random_dates = []
+        for i in range(value):
+            str_date = get_random_date()
+            random_dates.append(str_date)
+        return random_dates
+
+    elif isinstance(date, dict):
+        if 'set' in date:
+            value = int(re.findall(r'today\((.*?)\)', date['set'])[0])
+
+            if '>today' in date['set']:
+                today = datetime.now()
+                next_dates = [
+                    (today + timedelta(days=random.randint(1, 365))).strftime('%d/%m/%Y') for _ in range(value)
+                ]
+                return next_dates
+
+            elif '<today' in date['set']:
+                today = datetime.now()
+                previous_dates = [
+                    (today - timedelta(days=random.randint(1, 365))).strftime('%d/%m/%Y') for _ in range(value)
+                ]
+                return previous_dates
+
+        elif 'range' in date:
+            start = datetime.strptime(date['range']['min'], '%d/%m/%Y')
+            end = datetime.strptime(date['range']['max'], '%d/%m/%Y')
+            if 'step' in date['range']:
+                step_value = int(re.findall(r'\((.*?)\)', date['range']['step'])[0])
+
+                if 'linspace' in date['range']['step']:
+                    list_of_dates = get_date_range(start, end, step_value, 'linspace')
+                    return list_of_dates
+
+                elif 'day' in date['range']['step']:
+                    list_of_dates = get_date_range(start, end, step_value, 'day')
+                    return list_of_dates
+
+                elif 'month' in date['range']['step']:
+                    list_of_dates = get_date_range(start, end, step_value, 'month')
+                    return list_of_dates
+
+                elif 'year' in date['range']['step']:
+                    list_of_dates = get_date_range(start, end, step_value, 'year')
+                    return list_of_dates
+                else:
+                    raise InvalidFormat(f"The following parameter does not belong "
+                                        f"to date range field: {date['range']['step']}")
+
+            elif 'random' in date['range']:
+                value = date['range']['random']
+                list_of_dates = get_date_range(start, end, value, 'random')
+                return list_of_dates
+
+        # elif 'custom' in date:
+        #     pass
 
 
 def get_any_items(any_list, item_list):

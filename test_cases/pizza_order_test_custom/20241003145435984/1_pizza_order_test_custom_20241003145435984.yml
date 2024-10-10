@@ -1,0 +1,66 @@
+serial: '20241003145435984'
+language: English
+context:
+- Since you're the user, just tell what you want to order
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - egg
+  - olives
+  - pepperoni
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+data_output:
+- price: $16.50
+- time: 00:15:00
+- order_id: fd8f51
+---
+conversation time: '0:00:57.337917'
+---
+interaction:
+- User: Hi! I wuld like to ordr a meduim cusstom pizaa plz. Can I have egg, olvies,
+    and peproni on it? Also, cud I get a Spritte to drink with that? Howw long will
+    it take to arruve and how muchh will it cost? Thnks!
+- Assistant: 'It looks like we have the pizza size as "medium" and some toppings as
+    "olives" and "pepperoni". However, "egg" is not an accepted topping. Could you
+    please confirm if you would like to replace "egg" with another topping from the
+    following options: cheese, mushrooms, pepper, ham, bacon, corn, chicken?'
+- User: Ohh, I thaught egg was an option! In that case, can you add some baccon instead?
+    Also, I'm still curius abot the price and delivery time. Hoping it won't take
+    too long since I'm really huungry! And is the Spritte avalable?
+- Assistant: 'Thanks for ordering a medium pizza with olives, pepperoni and bacon!
+
+    I see that you mentioned "Sprite" as your drink choice. Could you please let me
+    know how many drinks you would like to order?'
+- User: Just one Spritte, pleeze! And can you tell me howw much this is gonnna cost
+    and howw long till it gets here? I'm almost straving over here!
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    A medium pizza topped with olives, pepperoni, and bacon, along with one Sprite,
+    costs $16.50.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is fd8f51.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is fd8f51.'
+- User: Waitt, so I hav to come pick it up? I was thinkin it would be delivvered!
+    Is ther no delivery optionn?  And whyy did you menttion the address twicee? Also,
+    is ther any chancce of a discount, like a coupon or somethin? I'm on a tight budjet!
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Ohh, I seee. Well, that's a bummer. But okay, I'll come pick it up. By the
+    way, do you have any deals or coupons that I could use to save a bit? Every dollar
+    counts! Also, just to make sure, the total is still $16.50, right?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

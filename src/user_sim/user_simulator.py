@@ -16,7 +16,8 @@ class UserGeneration:
         self.user_profile = user_profile
         self.chatbot = chatbot
         self.temp = user_profile.temperature
-        self.user_llm = ChatOpenAI(model="gpt-4o", temperature=self.temp)
+        self.model = user_profile.model
+        self.user_llm = ChatOpenAI(model=self.model, temperature=self.temp)
         self.conversation_history = {'interaction': []}
         self.ask_about = user_profile.ask_about.prompt()
         self.data_gathering = ChatbotAssistant(user_profile.ask_about.phrases)

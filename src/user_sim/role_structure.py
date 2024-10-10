@@ -80,10 +80,14 @@ def list_to_str(list_of_strings):
         # logging.getLogger().verbose(f'Error: {e}')
         return ''
 
+class LLM(BaseModel):
+    model: Optional[str] = "gpt-4o"
+    temperature: Optional[float] = 0.8
 
 class RoleDataModel(BaseModel):
+
     fallback: str
-    temperature: float
+    llm: Optional[LLM] = LLM()
     is_starter: Optional[bool] = True
     role: str
     context: Union[List[Union[str, Dict]], Dict, None]
@@ -106,7 +110,9 @@ class RoleData:
             raise
 
         self.fallback = self.validated_data.fallback
-        self.temperature = self.validated_data.temperature
+
+        self.temperature = self.validated_data.llm.temperature
+        self.model = self.validated_data.llm.model
         self.is_starter = self.validated_data.is_starter
         self.role = self.validated_data.role
         self.raw_context = self.validated_data.context
@@ -124,7 +130,8 @@ class RoleData:
 
     def reset_attributes(self):
         self.fallback = self.validated_data.fallback
-        self.temperature = self.validated_data.temperature
+        self.temperature = self.validated_data.llm.temperature
+        self.model = self.validated_data.llm.model
         self.is_starter = self.validated_data.is_starter
         self.role = self.validated_data.role
         self.context = self.context_processor(self.validated_data.context)  # list

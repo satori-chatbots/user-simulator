@@ -1,4 +1,6 @@
-temperature: 0.8
+llm:
+  temperature: 0.8
+  model: gpt-4o
 
 is_starter: True
 

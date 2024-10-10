@@ -3,6 +3,7 @@ from abc import abstractmethod
 from argparse import ArgumentParser
 from datetime import timedelta
 
+import uuid
 import requests
 from colorama import Fore, Style
 
@@ -26,9 +27,16 @@ class Chatbot:
 
 
 class ChatbotRasa(Chatbot):
+    def __init__(self, url):
+        Chatbot.__init__(self, url)
+        self.id = None
+
     def execute_with_input(self, user_msg):
+        if self.id is None:
+            self.id = str(uuid.uuid4())
+
         new_data = {
-            "sender": "user",
+            "sender": self.id,
             "message": user_msg
         }
         post_response = requests.post(self.url, json=new_data)

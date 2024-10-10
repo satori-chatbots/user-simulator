@@ -111,7 +111,7 @@ conversations:
           - chinese
 
 # (str) Main language of the conversation
-language: Engish
+language: English
 
 # (str) Name of the test suit
 test_name: "pizza_order_test"

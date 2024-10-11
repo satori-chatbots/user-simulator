@@ -288,6 +288,8 @@ class AskAboutClass:
                         data_list = execute_list_function(path, function, function_arguments)
                     else:
                         data_list = execute_list_function(path, function)
+                elif isinstance(content_data, dict) and 'date' in content_data:
+                    data_list = get_date_list(content_data['date'])
                 else:
                     if content_data:
                         data_list = content_data

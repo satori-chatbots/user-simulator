@@ -1,0 +1,138 @@
+serial: '20241011155227033'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+- como contactar con el CAU para ayuda en persona
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- email_cau: null
+- telefono_cau: null
+---
+conversation time: '0:01:30.226480'
+---
+interaction:
+- User: Hola, tengo una duda sobre cómo usar la dirección de correo de la UAM. ¿Podrían
+    explicarme cómo acceder a ella o si necesito configurar algo especial?
+- Assistant: "<p class=\"MsoNormal\"><u><strong>Aviso:</strong> </u></p>\n<p class=\"\
+    MsoNormal\"><strong>Windows 7 es un Sistema Operativo obsoleto que ya no está\
+    \ soportado por el fabricante. Por tanto, no se garantiza el funcionamiento de\
+    \ ningún servicio bajo Windows 7.</strong></p>\n<p> </p>\n<p>Para configurar el\
+    \ correo,<strong> </strong>selecciona el sistema operativo correspondiente:</p>\n\
+    \n\nAVAILABLE BUTTONS:\n\n- BUTTON TEXT: WINDOWS LINK: https://www.uam.es/uam/media/doc/1606904601367/configuracion-del-buzon-de-correo-exchange-en-windows-10.pdf\n\
+    - BUTTON TEXT: MacOS LINK: https://www.uam.es/uam/media/doc/1606905284934/configuracion-de-buzon-de-correo-outlook-exchange-en-macos.pdf\n\
+    - BUTTON TEXT: Ios LINK: https://www.uam.es/uam/media/doc/1606905285014/configuracion-del-buzon-de-correo-outlook-exchange-en-ios.pdf\n\
+    - BUTTON TEXT: Android LINK: \n"
+- User: ¡Gracias! Tengo Windows 10, así que voy a echar un vistazo al enlace que me
+    diste para configurarlo. Y por cierto, si quiero contactar con el CAU para obtener
+    ayuda en persona, ¿tengo que hacer una cita o puedo ir directamente?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: ¡Gracias por la información! ¿Sabes si necesito llevar algún tipo de identificación
+    o documento cuando vaya al CAU en persona para que me puedan ayudar?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Creo que la información se repitió. Agradezco la dirección y el horario, pero,
+    ¿me puedes confirmar si necesito llevar algún tipo de identificación o documento
+    cuando vaya al CAU en persona?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: 'Parece que sigo sin obtener la respuesta que busco sobre si necesito llevar
+    algún tipo de identificación al CAU. Voy a intentar con otra pregunta: ¿hay algún
+    formulario online que deba completar antes de ir al CAU para asegurarme de que
+    mi visita sea lo más eficiente posible?'
+- Assistant: 'Error: The server did not repond.'

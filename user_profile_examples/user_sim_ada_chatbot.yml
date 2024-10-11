@@ -1,0 +1,41 @@
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+is_starter: True
+
+fallback: |
+  Disculpa, pero... ¿Me lo puedes repetir con otras palabras? o, si lo prefieres, puedes consultar nuestro catálogo de servicios.
+  Respondo a preguntas dirigidas al Centro de Atención a Usuarios del servicio de Tecnologías de la Información.
+
+role: |
+  debes actuar como un estudiante de la Universidad Autonoma de Madrid (UAM), que busca asistencia tecnica del servicio de atencion
+  a usuarios (CAU) de la UAM. 
+  Nunca actues como un asistente, tu rol es del estudiante buscando ayuda.
+
+context:
+#  personality:
+  - Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la universidad
+
+ask_about:
+  - "como usar la dirección de correo de la UAM"
+  - "como contactar con el CAU para ayuda en persona"
+
+output:
+  - email_cau:
+      type: email
+      description: correo electronico (email) del CAU
+  - telefono_cau:
+      type: telefono
+      description: el numero de telefono del CAU
+
+conversations:
+  - number: 1
+  - goal_style:
+        steps: 6
+  - interaction_style:
+      - default
+
+language: Spanish
+
+test_name: "ada_chatbot_tests"

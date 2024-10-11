@@ -56,7 +56,8 @@ class DataExtraction:
                 date = parser.parse(text).date()
                 return date
             else:
-                raise ValueError(f"Unsupported data type: {dtype}")
+                return text
+                #raise ValueError(f"Unsupported data type: {dtype}")
 
         except ValueError as e:
             # logging.getLogger().verbose(f"Error in casting: {e}")

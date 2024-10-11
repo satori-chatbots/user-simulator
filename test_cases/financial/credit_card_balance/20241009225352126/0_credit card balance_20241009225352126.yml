@@ -1,0 +1,33 @@
+serial: '20241009225352126'
+language: English
+context:
+- your name is John Doe
+ask_about:
+- the balance in your account, then transfer $100 to one of the recipients in the
+  known recipients list and the ask again for the balance
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- credit: None
+---
+conversation time: '0:00:24.371928'
+---
+interaction:
+- User: Hello! Can you please tell me the current balance in my account?
+- Assistant: Would you like to continue scheduling the credit card payment?
+- User: No, I just need to know my current account balance, please.
+- Assistant: Sorry, that is not a valid credit card account to make payments towards.
+- User: I think there's been a misunderstanding. Could you please tell me my current
+    account balance?
+- Assistant: I didn't quite understand that. Could you rephrase?
+- User: Sure, can you let me know what my current account balance is?
+- Assistant: The current balance for your Iron Bank account is $44.27.
+- User: Thanks for letting me know. Can you transfer $100 to Jane Smith, please?
+- Assistant: Would you like to continue scheduling the credit card payment?
+- User: 'User: No, I don''t want to schedule a credit card payment. I want to transfer
+    $100 to Jane Smith.'
+- Assistant: Would you like to continue scheduling the credit card payment?

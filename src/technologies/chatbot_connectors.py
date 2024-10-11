@@ -80,6 +80,8 @@ class ChatbotAdaUam(Chatbot):
                                             text_response += f"- BUTTON TEXT: {button['text']}"
                                         if 'value' in button:
                                             text_response += f" LINK: {button['value']}\n"
+                                        else:
+                                            text_response += f" LINK: <empty>\n"
                 return True, text_response
             else:
                 # There is an error, but it is an internal error

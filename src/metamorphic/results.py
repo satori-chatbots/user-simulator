@@ -43,7 +43,7 @@ class Result:
                 'pass': sat,
                 'fail': fail,
                 'not_applicable':  not_applic,
-                'fail_rate': fail_rate
+                'fail_rate': f"{fail_rate:.2f}%"
             }
         return stats_dict
 

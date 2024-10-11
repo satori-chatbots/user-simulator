@@ -1,4 +1,6 @@
 import glob
+from pathlib import Path
+
 import yaml
 import sys
 
@@ -13,9 +15,11 @@ from user_sim.utils.utilities import check_keys
 
 def __get_object_from_yaml_files(directory, operation, name):
     objects = []
-    yaml_files = glob.glob(os.path.join(directory, '*.yaml')) + glob.glob(os.path.join(directory, '*.yml'))
+    #yaml_files = glob.glob(os.path.join(directory, '*.yaml')) + glob.glob(os.path.join(directory, '*.yml'))
+    directory = Path(directory)
+    yaml_files = list(directory.rglob('*.yaml')) + list(directory.rglob('*.yml'))
     for file_path in yaml_files:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             if name=='rule':
                 yaml_data = yaml.safe_load(file.read())
             else:

@@ -72,7 +72,7 @@ conversations:
   - number: 1
   - goal_style:
       steps: 1
-#      all answered:
+#      all_answered:
 #        export: True
 #        limit: 12
   - interaction_style:

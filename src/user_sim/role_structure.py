@@ -18,16 +18,16 @@ def pick_goal_style(goal):
             return list(goal.keys())[0], goal['steps']
         else:
             raise OutOfLimitException(f"Goal steps higher than 20 steps: {goal['random steps']}")
-    elif 'all answered' in goal or 'default' in goal:
+    elif 'all_answered' in goal or 'default' in goal:
         if isinstance(goal, dict):
 
-            if 'export' in goal['all answered']:
-                all_answered_goal = [list(goal.keys())[0], goal['all answered']['export']]
+            if 'export' in goal['all_answered']:
+                all_answered_goal = [list(goal.keys())[0], goal['all_answered']['export']]
             else:
                 all_answered_goal = [list(goal.keys())[0], False]
 
-            if 'limit' in goal['all answered']:
-                all_answered_goal.append(goal['all answered']['limit'])
+            if 'limit' in goal['all_answered']:
+                all_answered_goal.append(goal['all_answered']['limit'])
             else:
                 all_answered_goal.append(30)
 

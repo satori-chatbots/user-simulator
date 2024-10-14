@@ -51,8 +51,9 @@ class MillionBot(Chatbot):
 
     def execute_with_input(self, user_msg):
         self.payload['message']["text"] = user_msg
+        timeout = 10
         try:
-            response = requests.post(self.url, headers=self.headers, json=self.payload)
+            response = requests.post(self.url, headers=self.headers, json=self.payload, timeout=timeout)
             response_json = response.json()
             if response.status_code == 200:
                 text_response = ""
@@ -76,11 +77,17 @@ class MillionBot(Chatbot):
             else:
                 # There is an error, but it is an internal error
                 print (f"Server error {response_json.get('error')}")
+                errors.append({500: f"Couldn't get response from the server"})
                 return False, response_json.get('error')
         except requests.exceptions.JSONDecodeError as e:
             logger = logging.getLogger('my_app_logger')
             logger.log(f"Couldn't get response from the server: {e}")
             return False, 'chatbot internal error'
+        except requests.Timeout:
+            logger = logging.getLogger('my_app_logger')
+            logger.error(f"No response was received from the server in less than {timeout}")
+            errors.append({504: f"No response was received from the server in less than {timeout}"})
+            return False, 'timeout'
 
 ##############################################################################################################
 # ADA-UAM

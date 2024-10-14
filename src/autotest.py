@@ -128,12 +128,11 @@ def build_chatbot(technology, chatbot) -> Chatbot:
     else:
         return default(chatbot)
 
-
-def generate(technology, chatbot, user, extract):
+def generate(technology, chatbot, user, personality, extract):
     profiles = parse_profiles(user)
 
     for profile in profiles:
-        user_profile = RoleData(profile)
+        user_profile = RoleData(profile, personality)
         serial = generate_serial()
 
         start_time_test = timeit.default_timer()
@@ -220,6 +219,7 @@ if __name__ == '__main__':
                         help='Technology the chatbot is implemented in')
     parser.add_argument('--chatbot', required=True, help='URL where the chatbot is deployed')
     parser.add_argument('--user', required=True, help='User profile to test the chatbot')
+    parser.add_argument('--personality', required=False, help='Personality file')
     parser.add_argument("--extract", default=False, help='Path to store conversation user-chatbot')
     parser.add_argument('--verbose', action='store_true', help='Shows debug prints')
     args = parser.parse_args()
@@ -236,4 +236,4 @@ if __name__ == '__main__':
     logger.info('Logs enabled!')
 
     check_keys(["OPENAI_API_KEY"])
-    generate(args.technology, args.chatbot, args.user, args.extract)
+    generate(args.technology, args.chatbot, args.user, args.personality, args.extract)

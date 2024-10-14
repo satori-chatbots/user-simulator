@@ -1,0 +1,94 @@
+serial: 2024-10-14-12-58-42
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- Que laboratorios con ordenadores de libre acceso hay en la UAM
+- Cómo me conecto a la WiFi
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- email_cau: None
+- telefono_cau: None
+---
+conversation time: '0:00:25.418148'
+---
+interaction:
+- User: Hola, necesito ayuda con una cosa. ¿Podéis decirme qué laboratorios con ordenadores
+    de libre acceso hay en la UAM?
+- Assistant: "<p>Seleccione la facultad que corresponda para conocer el número de\
+    \ ordenadores disponibles en las aulas de informática.</p>\n\n\nAVAILABLE BUTTONS:\n\
+    \n- BUTTON TEXT: Facultad de Biología  LINK: Facultad de Biología \n- BUTTON TEXT:\
+    \ Facultad de Ciencias LINK: Facultad de Ciencias\n- BUTTON TEXT: Facultad de\
+    \ Ciencias Económicas y Empresariales LINK: Facultad de Ciencias Económicas y\
+    \ Empresariales\n- BUTTON TEXT: Facultad de Filosofía y Letras LINK: Facultad\
+    \ de Filosofía y Letras\n- BUTTON TEXT: Facultad de Derecho (Ciencias Jurídicas)\
+    \ LINK: Facultad de Derecho (Ciencias Jurídicas)\n- BUTTON TEXT: Facultad de Formación\
+    \ de Profesorado y Educación LINK: Facultad de Formación de Profesorado y Educación\n\
+    - BUTTON TEXT: Facultad de Psicología LINK: Facultad de Psicología\n- BUTTON TEXT:\
+    \ Pabellón de Postgrado LINK: Pabellón de Postgrado\n"
+- User: Vale, gracias. Y, ¿cómo me conecto a la WiFi en la universidad?
+- Assistant: '<p>Por favor, en relación a Eduroam, selecciona la opción que se adecúe
+    a tu consulta.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: CONECTARSE COMO INVITADO LINK: CONECTARSE COMO INVITADO
+
+    - BUTTON TEXT: CONFIGURACIÓN EDUROAM LINK: CONFIGURACIÓN EDUROAM
+
+    - BUTTON TEXT: CÓMO CONECTARSE A WIFI LINK: CÓMO CONECTARSE A WIFI
+
+    - BUTTON TEXT: CONECTAR EQUIPO INFORMÁTICO A LA RED DE DATOS DE LA UAM LINK: CONECTAR
+    EQUIPO INFORMÁTICO A LA RED DE DATOS DE LA UAM
+
+    - BUTTON TEXT: NÚMERO DE CONEXIONES QUE SOPORTA EDUROAM LINK: NÚMERO DE CONEXIONES
+    QUE SOPORTA EDUROAM
+
+    - BUTTON TEXT: SOY DE OTRA UNIVERSIDAD, NO PUEDO CONECTAR A EDUROAM LINK: SOY
+    DE OTRA UNIVERSIDAD, NO PUEDO CONECTAR A EDUROAM
+
+    '
+- User: Hmm, creo que necesito saber cómo conectarme a la WiFi como invitado, porque
+    soy Erasmus y no estoy seguro si tengo acceso a Eduroam. ¿Podría ayudarme con
+    eso?
+- Assistant: '<p>Por favor, en relación a Eduroam, selecciona la opción que se adecúe
+    a tu consulta.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: CONECTARSE COMO INVITADO LINK: CONECTARSE COMO INVITADO
+
+    - BUTTON TEXT: CONFIGURACIÓN EDUROAM LINK: CONFIGURACIÓN EDUROAM
+
+    - BUTTON TEXT: CÓMO CONECTARSE A WIFI LINK: CÓMO CONECTARSE A WIFI
+
+    - BUTTON TEXT: CONECTAR EQUIPO INFORMÁTICO A LA RED DE DATOS DE LA UAM LINK: CONECTAR
+    EQUIPO INFORMÁTICO A LA RED DE DATOS DE LA UAM
+
+    - BUTTON TEXT: NÚMERO DE CONEXIONES QUE SOPORTA EDUROAM LINK: NÚMERO DE CONEXIONES
+    QUE SOPORTA EDUROAM
+
+    - BUTTON TEXT: SOY DE OTRA UNIVERSIDAD, NO PUEDO CONECTAR A EDUROAM LINK: SOY
+    DE OTRA UNIVERSIDAD, NO PUEDO CONECTAR A EDUROAM
+
+    '
+- User: Voy a intentar conectarme como invitado, entonces. A ver si me funciona. ¿Podrías
+    decirme cómo se hace eso?
+- Assistant: '<p>Por favor, ¿me puedes reformular la pregunta con otras palabras?
+    o, si lo prefieres, puedes consultar nuestro <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">catálogo
+    de servicios</a>.<br>Respondo a preguntas dirigidas al <strong>Centro de Atención
+    a Usuarios del servicio de Tecnologías de la Información.</strong></p>
+
+    '

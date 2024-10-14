@@ -1,0 +1,32 @@
+serial: '20241009232015647'
+language: English
+context:
+- your name is John Doe
+ask_about:
+- the balance in your account, then transfer $100 to one of the recipients in the
+  known recipients list and the ask again for the balance
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- credit: None
+---
+conversation time: '0:00:20.005296'
+---
+interaction:
+- User: Hi, could you tell me what my current account balance is?
+- Assistant: Your bank account balance is $148460.77.
+- User: Can you transfer $100 to Jane Smith from my known recipients list?
+- Assistant: Sorry, Jane Smith is not in your list of known recipients.
+- User: Can you check if Michael Johnson is in my known recipients list, and if so,
+    transfer $100 to him?
+- Assistant: Sorry, Michael Johnson is not in your list of known recipients.
+- User: 'User: Could you check if Sarah Lee is in my list of known recipients?'
+- Assistant: Sorry, Sarah Lee is not in your list of known recipients.
+- User: 'User: Could you check if Alex Brown is in my list of known recipients?'
+- Assistant: Sorry, Alex Brown is not in your list of known recipients.
+- User: 'User: Could you check if Robert Green is in my list of known recipients?'
+- Assistant: Sorry, Robert Green is not in your list of known recipients.

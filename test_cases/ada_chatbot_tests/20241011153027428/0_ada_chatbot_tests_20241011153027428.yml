@@ -1,0 +1,45 @@
+serial: '20241011153027428'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+- como contactar con el CAU para ayuda en persona
+conversation:
+- number: 4
+- goal_style:
+    steps: 2
+- interaction_style:
+  - default
+data_output:
+- email_cau: None
+- telefono_cau: None
+---
+conversation time: '0:00:12.216866'
+---
+interaction:
+- User: Hola, necesito ayuda sobre cómo usar mi dirección de correo de la UAM. ¿Alguien
+    sabe cómo configurarla en mi teléfono o en un cliente de correo?
+- Assistant: '<p class="MsoNormal"><u><strong>Aviso:</strong> </u></p>
+
+    <p class="MsoNormal"><strong>Windows 7 es un Sistema Operativo obsoleto que ya
+    no está soportado por el fabricante. Por tanto, no se garantiza el funcionamiento
+    de ningún servicio bajo Windows 7.</strong></p>
+
+    <p> </p>
+
+    <p>Para configurar el correo,<strong> </strong>selecciona el sistema operativo
+    correspondiente:</p>'
+- User: Estoy usando un iPhone, ¿qué pasos tengo que seguir para configurar mi correo
+    de la UAM en él?
+- Assistant: '<p class="MsoNormal"><u><strong>Aviso:</strong> </u></p>
+
+    <p class="MsoNormal"><strong>Windows 7 es un Sistema Operativo obsoleto que ya
+    no está soportado por el fabricante. Por tanto, no se garantiza el funcionamiento
+    de ningún servicio bajo Windows 7.</strong></p>
+
+    <p> </p>
+
+    <p>Para configurar el correo,<strong> </strong>selecciona el sistema operativo
+    correspondiente:</p>'

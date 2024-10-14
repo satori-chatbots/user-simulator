@@ -1,0 +1,89 @@
+serial: 2024-10-14-10-00-09
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- Que es el doble factor de autentificacion
+- como contactar con el CAU para ayuda en persona
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- email_cau: cau@uam.es
+- telefono_cau: '914974029'
+---
+conversation time: '0:00:32.534050'
+---
+interaction:
+- User: Hola, estoy teniendo algunos problemas con mi cuenta de la UAM y me han mencionado
+    algo sobre el doble factor de autenticación. ¿Alguien sabe qué es exactamente
+    eso y cómo puedo configurarlo?
+- Assistant: '<p>En el marco del conjunto de medidas técnicas para proteger los sistemas
+    de información que se vienen implementando en la UAM, Tecnologías de la Información
+    ha establecido el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios/multiple-factor-autenticacion"><strong>Múltiple
+    Factor de Autenticación (MFA)</strong></a>, que consiste en la introducción de
+    una capa adicional de seguridad que complementa el uso de la contraseña y que
+    intenta conseguir que los datos solamente sean accesibles por el titular de la
+    cuenta corporativa.<br><br>A partir del 28 de febrero de 2023, será obligatorio
+    autenticarse con MFA para acceder a los servicios de la universidad. <br><br>Consulta
+    la página web del <a href="https://www.uam.es/uam/tecnologias-informacion/servicios/multiple-factor-autenticacion">servicio
+    de MFA</a> para acceder a la guía de configuración.<br><br><a href="https://www.youtube.com/watch?v=rkMjylWj8GM">¿QUÉ
+    ES Y CÓMO FUNCIONA EL MÚLTIPLE FACTOR DE AUTENTICACIÓN (MFA)? - VÍDEO</a><br><br><a
+    href="https://www.uam.es/uam/tecnologias-informacion/servicios/multiple-factor-autenticacion">ACCEDER
+    A LA GUÍA DE CONFIGURACIÓN DE MÚLTIPLE FACTOR DE AUTENTICACIÓN (MFA)</a><br><br><a
+    href="https://faq.uam.es/index.php?action=show&amp;cat=1">PREGUNTAS FRECUENTES
+    SOBRE EL USO DE MFA</a>.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>RESTAURAR CONFIGURACIÓN MFA EN NUEVO MÓVIL</p> LINK: RESTAURAR
+    CONFIGURACIÓN MFA EN NUEVO MÓVIL
+
+    - BUTTON TEXT: <p>DESACTIVAR MFA</p> LINK: DESACTIVAR MFA
+
+    '
+- User: Gracias por la información sobre el múltiple factor de autenticación. Ahora
+    me gustaría saber cómo puedo contactar con el CAU para recibir ayuda en persona.
+    ¿Alguien sabe dónde puedo ir o a quién debo dirigirme?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Perfecto, gracias por la info. Una última cosa, ¿el servicio de atención del
+    CAU está disponible durante todo el año, o hay algún periodo en el que no ofrecen
+    asistencia?
+- Assistant: 'Error: The server did not repond.'

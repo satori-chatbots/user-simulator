@@ -1,0 +1,37 @@
+serial: '20241009225007132'
+language: English
+context:
+- your name is John Doe
+ask_about:
+- the balance in your credit card
+- the remaining credit in your credit card
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- credit: None
+---
+conversation time: '0:00:37.949102'
+---
+interaction:
+- User: Hi there! Could you tell me what my current balance is on my credit card?
+- Assistant: I see you'd like to pay the current balance.
+- User: No, I'm not looking to pay the balance right now. I just want to know how
+    much I owe.
+- Assistant: Would you like to continue scheduling the credit card payment?
+- User: I'm just trying to find out my credit card balance. Can you show me what I
+    owe?
+- Assistant: Sorry, that is not a valid credit card account to make payments towards.
+- User: Could you check the remaining credit available on my card then?
+- Assistant: We haven't completed the credit card payment yet. Are you sure you want
+    to switch to credit card payment?
+- User: Could you please confirm the remaining credit available on my credit card
+    instead?
+- Assistant: Great. Let's switch from the credit card payment to credit card payment.
+    Once completed, you will have the option to switch back.
+- User: I'm just trying to understand my credit card details. Can you confirm the
+    available credit on my card?
+- Assistant: Sorry, that is not a valid credit card account to make payments towards.

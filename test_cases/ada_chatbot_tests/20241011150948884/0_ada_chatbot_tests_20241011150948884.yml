@@ -1,0 +1,31 @@
+serial: '20241011150948884'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca informacion academica
+ask_about:
+- el coste de matricula del grado en {{grado}} en la UAM
+- grado:
+  - ingenieria informatica
+conversation:
+- number: 2
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - english
+  - long phrases
+data_output:
+- price: None
+---
+conversation time: '0:00:53.774362'
+---
+interaction:
+- User: Hi there! So, I'm trying to figure out how much it would cost me to study
+    computer engineering at the Autonomous University of Madrid, but like, I have
+    no clue where to start looking for this information, you know? I mean, I've heard
+    it's a great university and all that, but I just need to get an idea about the
+    tuition fees or anything related to the costs, so I can start planning ahead and
+    maybe even save up some cash, cause, you know, university isn't exactly cheap
+    these days. If anyone can help out with some details or point me in the right
+    direction, that would be super awesome!

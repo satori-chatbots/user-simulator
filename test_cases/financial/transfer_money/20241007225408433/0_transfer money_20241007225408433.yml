@@ -1,0 +1,42 @@
+serial: '20241007225408433'
+language: English
+context:
+- your name is John Doe
+ask_about:
+- transfer $100 to Jane Joe, whose account number is 234-234234-222
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- confirmation: None
+---
+conversation time: '0:00:16.861795'
+---
+interaction:
+- User: Hello! Can you help me transfer $100 to Jane Joe? Her account number is 234-234234-222.
+- Assistant: We haven't completed the transaction search yet. Are you sure you want
+    to switch to money transfer?
+- User: Yes, I want to transfer $100 to Jane Joe. Can you confirm the details for
+    me?
+- Assistant: Sorry, Jane Joe is not in your list of known recipients.
+- User: Can you guide me on how to add Jane Joe as a recipient?
+- Assistant: Sorry, Jane Joe is not in your list of known recipients.
+- User: How can I add a new recipient to my account?
+- Assistant: 'These are your known recpients to whom you can send money:
+
+    - William Baker
+
+    - John Jacob
+
+    - Kyle Gardner
+
+    - Evan Oslo'
+- User: Can you tell me how to add a new recipient to my account so I can transfer
+    money to Jane Joe?
+- Assistant: Sorry, Jane Joe is not in your list of known recipients.
+- User: Is there a specific form or section in the app where I can add Jane Joe as
+    a recipient?
+- Assistant: Sorry, Jane Joe is not in your list of known recipients.

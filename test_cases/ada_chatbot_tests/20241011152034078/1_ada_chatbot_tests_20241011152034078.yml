@@ -1,0 +1,47 @@
+serial: '20241011152034078'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+conversation:
+- number: 2
+- goal_style:
+    steps: 2
+- interaction_style: []
+data_output:
+- instrucciones: None
+---
+conversation time: '0:00:08.689217'
+---
+interaction:
+- User: Hola, necesito ayuda con mi correo de la UAM. Estoy intentando acceder pero
+    no estoy seguro de cómo configurarlo en mi móvil. ¿Alguien podría explicarme cómo
+    hacerlo?
+- Assistant: ''
+- User: ¡Hola! Claro, te ayudo con eso. ¿Qué tipo de móvil tienes, Android o iPhone?
+    Así puedo darte instrucciones más específicas. Además, ¿estás teniendo problemas
+    con la contraseña o ya la tienes y solo necesitas configurarlo?
+- Assistant: '<p><strong>TELEFONÍA FIJA</strong></p>
+
+    <p> </p>
+
+    <p><a href="https://faq.uam.es/index.php?action=artikel&amp;cat=31&amp;id=135&amp;artlang=es">Accede
+    a los formularios para hacer solicitudes del sistema telefónico</a>.</p>
+
+    <p> </p>
+
+    <p><span class="ui-provider uw b c d e f g h i j k l m n o p q r s t u v w x y
+    z ab ac ae af ag ah ai aj ak" dir="ltr">Recuerda que para acceder a los formularios
+    deberás establecer la conexión desde un IP de la UAM, desde la wifi de la UAM
+    o, en remoto, vía VPN. </span></p>
+
+    <p> </p>
+
+    <p><strong>TELEFONÍA MÓVIL</strong></p>
+
+    <p> </p>
+
+    <p>Si tienes relación contractual con la UAM, puedes enviar la solicitud de una
+    línea móvil y/o terminal, clicando en el botón inferior. </p>'

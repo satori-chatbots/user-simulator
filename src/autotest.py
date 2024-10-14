@@ -1,105 +1,20 @@
 import timeit
-from abc import abstractmethod
 from argparse import ArgumentParser
 from datetime import timedelta
 from user_sim.utils.config import errors
 import pandas as pd
 import uuid
 import requests
+
+
 from colorama import Fore, Style
-import concurrent.futures
+
+from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
 from user_sim.user_simulator import UserGeneration
 from user_sim.utils.show_logs import *
 from user_sim.utils.utilities import *
-
-
-class Chatbot:
-    def __init__(self, url):
-        self.url = url
-        self.fallback = 'I do not understand you'
-
-    @abstractmethod
-    def execute_with_input(self, user_msg):
-        """Returns a pair [bool, str] in which the first element is True if the chatbot returned normally,
-           and the second is the message.
-           Otherwise, False means that there is an error in the chatbot."""
-        raise NotImplementedError()
-
-
-class ChatbotRasa(Chatbot):
-    def __init__(self, url):
-        Chatbot.__init__(self, url)
-        self.id = None
-
-    def execute_with_input(self, user_msg):
-        if self.id is None:
-            self.id = str(uuid.uuid4())
-
-        new_data = {
-            "sender": self.id,
-            "message": user_msg
-        }
-        post_response = requests.post(self.url, json=new_data)
-        post_response_json = post_response.json()
-        if len(post_response_json) > 0:
-            return True, post_response_json[0].get('text')
-        else:
-            return True, ''
-
-
-class ChatbotTaskyto(Chatbot):
-    def __init__(self, url):
-        Chatbot.__init__(self, url)
-        self.id = None
-
-    def execute_with_input(self, user_msg):
-        if self.id is None:
-            try:
-                post_response = requests.post(self.url + '/conversation/new')
-                post_response_json = post_response.json()
-                self.id = post_response_json.get('id')
-            except requests.exceptions.ConnectionError:
-                logger.error(f"Couldn't connect with chatbot")
-                errors.append({500: f"Couldn't connect with chatbot"})
-                return False, 'cut connection'
-
-        if self.id is not None:
-            new_data = {
-                "id": self.id,
-                "message": user_msg
-            }
-
-            try:
-                timeout = 10
-                try:
-                    post_response = requests.post(self.url + '/conversation/user_message', json=new_data, timeout=timeout)
-                except requests.Timeout:
-                    logger.error(f"No response was received from the server in less than {timeout}")
-                    errors.append({504: f"No response was received from the server in less than {timeout}"})
-                    return False, 'timeout'
-                except requests.exceptions.ConnectionError as e:
-                    logger.error(f"Couldn't get response from the server: {e}")
-                    errors.append({500: f"Couldn't get response from the server"})
-                    return False, 'chatbot internal error'
-
-                post_response_json = post_response.json()
-
-                if post_response.status_code == 200:
-                    assistant_message = post_response_json.get('message')
-                    return True, assistant_message
-
-                else:
-                    # There is an error, but it is an internal error
-                    errors.append({500: "Chatbot internal error"})
-                    return False, post_response_json.get('error')
-            except requests.exceptions.JSONDecodeError as e:
-                logger.error(f"Couldn't get response from the server: {e}")
-                errors.append({500: f"Couldn't get response from the server"})
-                return False, 'chatbot internal error'
-
-        return True, ''
 
 
 def print_user(msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
@@ -208,8 +123,19 @@ def parse_profiles(user_path):
         raise Exception(f'Invalid path for user profile operation: {user_path}')
 
 
-def generate(technology, chatbot, user, extract):
+def build_chatbot(technology, chatbot) -> Chatbot:
+    default = Chatbot
+    chatbot_builder = {
+        'rasa': ChatbotRasa,
+        'taskyto': ChatbotTaskyto,
+        'ada-uam': ChatbotAdaUam
+    }
+    if technology in chatbot_builder:
+        return chatbot_builder[technology](chatbot)
+    else:
+        return default(chatbot)
 
+def generate(technology, chatbot, user, extract):
     profiles = parse_profiles(user)
 
     for profile in profiles:
@@ -219,12 +145,7 @@ def generate(technology, chatbot, user, extract):
         start_time_test = timeit.default_timer()
         for i in range(user_profile.conversation_number):
             start_time_conversation = timeit.default_timer()
-            if technology == 'rasa':
-                the_chatbot = ChatbotRasa(chatbot)
-            elif technology == 'taskyto':
-                the_chatbot = ChatbotTaskyto(chatbot)
-            else:
-                the_chatbot = Chatbot(chatbot)
+            the_chatbot = build_chatbot(technology, chatbot)
 
             the_chatbot.fallback = user_profile.fallback
             the_user = UserGeneration(user_profile, the_chatbot)
@@ -237,6 +158,11 @@ def generate(technology, chatbot, user, extract):
 
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
                     if not is_ok:
+                        # logging.getLogger().verbose('The server cut the conversation. End.')
+                        if response is not None:
+                            the_user.update_history("Assistant", "Error: " + response)  # added by JL
+                        else:
+                            the_user.update_history("Assistant", "Error: The server did not repond.")  # added by JL
                         break
                     print_chatbot(response)
 
@@ -258,7 +184,10 @@ def generate(technology, chatbot, user, extract):
                     print_chatbot(response)
 
                     if not is_ok:
-                        the_user.update_history("Assistant", "Error: " + response)
+                        if response is not None:
+                            the_user.update_history("Assistant", "Error: " + response)  # added by JL
+                        else:
+                            the_user.update_history("Assistant", "Error: The server did not repond.")  # added by JL
                         break
 
 
@@ -272,7 +201,7 @@ def generate(technology, chatbot, user, extract):
                 print(f"Conversation Time: {formatted_time_conv}")
                 user_profile.reset_attributes()
                 dg_dataframe = the_user.data_gathering.gathering_register
-                csv_extraction = the_user.goal_style[1] if the_user.goal_style[0] == 'all answered' else False
+                csv_extraction = the_user.goal_style[1] if the_user.goal_style[0] == 'all_answered' else False
                 answer_validation_data = (dg_dataframe, csv_extraction)
                 save_test_conv(history, metadata, test_name, extract, serial,
                                formatted_time_conv,answer_validation_data, counter=i)
@@ -284,7 +213,7 @@ def generate(technology, chatbot, user, extract):
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Conversation generator for a chatbot')
-    parser.add_argument('--technology', required=True, choices=['rasa', 'taskyto'],
+    parser.add_argument('--technology', required=True, choices=['rasa', 'taskyto', 'ada-uam'],
                         help='Technology the chatbot is implemented in')
     parser.add_argument('--chatbot', required=True, help='URL where the chatbot is deployed')
     parser.add_argument('--user', required=True, help='User profile to test the chatbot')

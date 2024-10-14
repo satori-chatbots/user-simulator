@@ -1,0 +1,41 @@
+serial: '20241009232451219'
+language: English
+context:
+- your name is John Doe
+ask_about:
+- the balance in your account, ask for a known recipient for transfers, then transfer
+  $100 to one of the recipients in the known recipients list, and the ask again for
+  the balance
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- credit: None
+---
+conversation time: '0:00:27.325721'
+---
+interaction:
+- User: What's the balance in my account?
+- Assistant: Sorry, I don't understand that payment amount.
+- User: Could you check my account balance, please?
+- Assistant: Sorry, I don't understand that payment amount.
+- User: Could you tell me my current account balance?
+- Assistant: Sorry, I don't understand that payment amount.
+- User: Can you tell me who I have set up as known recipients for transfers?
+- Assistant: 'These are your known recpients to whom you can send money:
+
+    - William Baker
+
+    - John Jacob
+
+    - Kyle Gardner
+
+    - Evan Oslo'
+- User: Could you transfer $100 to William Baker, please?
+- Assistant: Would you like to continue scheduling the money transfer?
+- User: Yes, please go ahead and schedule the transfer to William Baker.
+- Assistant: We haven't completed the money transfer yet. Are you sure you want to
+    switch to money transfer?

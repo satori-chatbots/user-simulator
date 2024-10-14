@@ -26,7 +26,9 @@ def util_functions_to_dict() -> dict:
             'num_exist': num_exist,
             '_data_collected': _data_collected,
             '_utterance_index': _utterance_index,
-            '_conversation_length': _conversation_length}
+            '_conversation_length': _conversation_length,
+            '_chatbot_returns': _chatbot_returns,
+            '_repeated_answers': _repeated_answers}
 
 def util_to_wrapper_dict() -> dict:
     return {'_conversation_length':
@@ -35,9 +37,51 @@ def util_to_wrapper_dict() -> dict:
             "    def only_talks_about(topics, fallback):\n       return _only_talks_about(topics, interaction, fallback)\n",
             '_utterance_index':
             "    def utterance_index(who, what):\n        return _utterance_index(who, what, interaction)\n",
+            '_chatbot_returns':
+            "    def chatbot_returns(what):\n        return _chatbot_returns(what, interaction)\n",
+            '_repeated_answers':
+                "    def repeated_answers():\n        return _repeated_answers(interaction)\n"
             '_data_collected':
                 "    def data_collected():\n        return _data_collected(conv)\n"
             }
+
+def _repeated_answers(interaction):
+    """
+    :param interaction: a list with the user-chatbot interactions
+    :return: a dictionary of repeated phrases by the chatbot (keys=phrase, value=list of step numbers)
+    """
+    repeated_phrases = dict()
+    step_index = 0
+    for step in interaction:
+        for key, value in step.items():
+            if key.lower() in ['chatbot', 'assistant']:
+                if value in repeated_phrases:
+                    repeated_phrases[value].append(step_index)
+                else:
+                    repeated_phrases[value] = [step_index]
+        step_index += 1
+    for key in list(repeated_phrases.keys()):  # remove phrases that occur only 1
+        if len(repeated_phrases[key])<2:
+            del repeated_phrases[key]
+
+    #print(f" REPEATED PHRASES {repeated_phrases}")
+    return repeated_phrases
+
+def _chatbot_returns(what, interaction):
+    """
+    :param what: pattern
+    :param interaction: list of user-chatbot interactions
+    :return: a list with the interactions in which the assistant returns a message that contains the pattern
+    """
+    interactions = []
+    step_index = 0
+    for step in interaction:  # step is a dict
+        for key, value in step.items():
+            if key.lower() in ['chatbot', 'assistant']:
+                if what in value:
+                    interactions.append(step_index)
+        step_index += 1
+    return interactions
 
 def _conversation_length(interaction, who = 'both'):
     who = who.lower()
@@ -105,11 +149,17 @@ def _only_talks_about(topics, conversation, fallback) -> bool:
 
     talk_topics = ','.join(topics)
     phrases = interaction_to_str(conversation)
-    prompt = f"""The following is a conversation between a user and an assistant chatbot. 
-    Your task it to detect if the chatbot deviates from the following topics "{talk_topics}". 
-    The chatbot is also allowed to ask for clarifications or to express that it does not understand the user, using phrases like "{fallback}". 
-    Return only 'True' if the chatbot sticks to "{talk_topics}", or only the list of chatbot answers that deviate from it:\n\n {phrases}."""
-    response = call_openai(prompt)
+    prompt = f"""The following is a conversation between a user and an assistant chatbot:\n\n
+    {phrases}
+    ----
+    Your task it to detect if the assistant deviates from the following topics "{talk_topics}".
+    The assistant is not allowed to follow the conversation of the user, if the user tries to talk on topics different
+    from the previous ones. In that case, the chatbot should redirect the conversation to the previous topics.
+    The assistant is allowed to ask for clarifications or to express that it does not understand the user, using phrases like "{fallback}". 
+    Return the following:
+     - ONLY 'True' if the chatbot sticks to "{talk_topics}", even if the user tries to talk about another topic.   
+     - ONLY the list of assistant answers that deviate from the previous topics."""
+    response = call_openai_o1(prompt)
     if response.lower() == "true":
         return True
     else:
@@ -288,7 +338,7 @@ def tone(item):
     return responses
 
 
-def call_openai(message: str):
+def call_openai(message: str, llm="gpt-4o", temp = 0, stream_mode = True):
     """
     Send a message to OpenAI and returns the answer.
     :param str message: The message to send
@@ -297,13 +347,29 @@ def call_openai(message: str):
     client = OpenAI()
     stream = client.chat.completions.create(
         # model="gpt-3.5-turbo",
-        model="gpt-4o",
+        model=llm,
         messages=[{"role": "user", "content": message}],
-        temperature=0,
-        stream=True)
+        temperature=temp,
+        stream=stream_mode)
     chunks = ''
     for chunk in stream:
         for choice in chunk.choices:
             if choice.delta.content is not None:
                 chunks += choice.delta.content
+    return chunks
+
+def call_openai_o1(message: str):
+    """
+    Send a message to OpenAI o1 and returns the answer.
+    :param str message: The message to send
+    :return The answer to the message
+    """
+    client = OpenAI()
+    response = client.chat.completions.create(
+        # model="gpt-3.5-turbo",
+        model="o1-mini",
+        messages=[{"role": "user", "content": message}])
+    chunks = ''
+    for choice in response.choices:
+        chunks += choice.message.content
     return chunks

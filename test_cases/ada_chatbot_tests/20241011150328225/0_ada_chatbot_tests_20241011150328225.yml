@@ -1,0 +1,44 @@
+serial: '20241011150328225'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca informacion academica
+ask_about:
+- el coste de matricula del grado en {{grado}} en la UAM
+- grado:
+  - ingenieria informatica
+conversation:
+- number: 2
+- goal_style:
+    steps: 2
+- interaction_style:
+  - change languages:
+    - Spanish
+    - english
+  - long phrases
+data_output:
+- price: None
+---
+conversation time: '0:00:08.882908'
+---
+interaction:
+- User: Hola, estoy buscando información sobre el coste de matrícula del grado en
+    Ingeniería Informática en la Universidad Autónoma de Madrid. He oído que los precios
+    pueden variar mucho dependiendo de varios factores, como si eres residente o no,
+    o si tienes alguna beca. También me gustaría saber si hay alguna opción de financiación
+    o becas que la universidad ofrezca específicamente para este programa. ¿Alguien
+    sabe dónde puedo encontrar esos detalles o tiene alguna experiencia personal que
+    compartir? Además, me interesa muchísimo conocer cualquier dato sobre los laboratorios
+    o instalaciones que tienen para estudiantes de informática.
+- Assistant: ¡Hola!
+- User: Hello! It's great that you're interested in studying Computer Engineering
+    at the Universidad Autónoma de Madrid. Regarding the tuition fees, they can indeed
+    vary based on factors like your residency status and whether you qualify for any
+    scholarships or financial aid. Generally, public universities in Spain have different
+    rates for EU and non-EU students, and there are often additional fees for registration
+    and course materials. To get the most accurate and current information, it's best
+    to check the official UAM website or contact their admissions office directly.
+    They might also have specific scholarships or financial aid options available
+    for computer engineering students. Have you checked if there are any open days
+    or virtual tours where you could learn more about the facilities and labs? They
+    usually have cutting-edge technology and resources for students.
+- Assistant: ¡Buenas!

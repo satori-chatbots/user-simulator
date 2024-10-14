@@ -1,4 +1,6 @@
 import glob
+from pathlib import Path
+
 import yaml
 import sys
 
@@ -20,7 +22,7 @@ def __get_object_from_yaml_files(file_or_dir, operation, name):
                       glob.glob(os.path.join(file_or_dir, '**/*.yml'), recursive=True))
 
     for file_path in yaml_files:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             if name=='rule':
                 yaml_data = yaml.safe_load(file.read())
             else:

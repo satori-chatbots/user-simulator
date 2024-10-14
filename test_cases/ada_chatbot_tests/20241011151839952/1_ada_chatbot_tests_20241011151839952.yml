@@ -1,0 +1,31 @@
+serial: '20241011151839952'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+conversation:
+- number: 2
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+  - long phrases
+  - change languages:
+    - english
+data_output:
+- instrucciones: None
+---
+conversation time: '0:00:05.189683'
+---
+interaction:
+- User: Hi there! So, like, I'm not sure if I'm doing this right, but I need some
+    help with my UAM email account because it seems like I'm having trouble accessing
+    it, and I don't know if it's a password issue or something else, and I've tried
+    resetting it but I'm not even sure if I'm using the right email address since
+    there are so many different things to remember already and it's getting kind of
+    confusing with all the different platforms and logins and stuff, so I was wondering
+    if there's like a guide or something that can show me how to properly use the
+    email address from UAM because I really need to access it for my classes and assignments
+    and all that stuff, you know?

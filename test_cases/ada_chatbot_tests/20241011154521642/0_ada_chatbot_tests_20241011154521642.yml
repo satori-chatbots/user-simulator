@@ -1,0 +1,180 @@
+serial: '20241011154521642'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+- como contactar con el CAU para ayuda en persona
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- email_cau: null
+- telefono_cau: null
+---
+conversation time: '0:00:35.789933'
+---
+interaction:
+- User: Hola, necesito un poco de ayuda para entender cómo puedo usar mi dirección
+    de correo de la UAM. ¿Hay algo específico que deba hacer para configurarlo o utilizarlo
+    correctamente?
+- Assistant: '<p class="MsoNormal"><u><strong>Aviso:</strong> </u></p>
+
+    <p class="MsoNormal"><strong>Windows 7 es un Sistema Operativo obsoleto que ya
+    no está soportado por el fabricante. Por tanto, no se garantiza el funcionamiento
+    de ningún servicio bajo Windows 7.</strong></p>
+
+    <p> </p>
+
+    <p>Para configurar el correo,<strong> </strong>selecciona el sistema operativo
+    correspondiente:</p>
+
+
+
+    AVAILABLE BUTTONS: {''cards'': [{''subtitle'': '''', ''buttons'': [{''value'':
+    ''https://www.uam.es/uam/media/doc/1606904601367/configuracion-del-buzon-de-correo-exchange-en-windows-10.pdf'',
+    ''type'': ''url'', ''text'': ''WINDOWS''}, {''text'': ''MacOS'', ''type'': ''url'',
+    ''value'': ''https://www.uam.es/uam/media/doc/1606905284934/configuracion-de-buzon-de-correo-outlook-exchange-en-macos.pdf''},
+    {''value'': ''https://www.uam.es/uam/media/doc/1606905285014/configuracion-del-buzon-de-correo-outlook-exchange-en-ios.pdf'',
+    ''type'': ''url'', ''text'': ''Ios''}, {''value'': '''', ''type'': ''url'', ''text'':
+    ''Android''}], ''imageUrl'': '''', ''title'': ''''}]}
+
+
+    '
+- User: Gracias, pero estoy un poco perdido. ¿Cómo debo proceder si quiero contactar
+    con el CAU para recibir ayuda en persona?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Genial, gracias por la información. ¿Sabes si hay que pedir cita previa para
+    recibir ayuda en persona en el CAU, o puedo simplemente presentarme directamente?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Entiendo, pero mi duda es específicamente sobre si necesito pedir cita previa
+    para recibir ayuda en persona en el CAU. ¿Podría ir directamente sin cita o es
+    necesario programarla antes?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Vale, parece que no consigo respuesta sobre la cita previa. ¿Podrías indicarme
+    cómo configurar el correo en un dispositivo Android?
+- Assistant: '<p>¿Puedes preguntármelo de otra forma? o, si lo prefieres, puedes consultar
+    nuestro <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">catálogo
+    de servicios</a>.<br>Respondo a preguntas dirigidas al <strong>Centro de Atención
+    a Usuarios del servicio de Tecnologías de la Información.</strong></p>
+
+    '
+- User: Claro, ¿me podrías decir cómo puedo configurar mi correo de la UAM en un dispositivo
+    Android? No veo un enlace específico para Android en la lista.
+- Assistant: '<p class="MsoNormal"><u><strong>Aviso:</strong> </u></p>
+
+    <p class="MsoNormal"><strong>Windows 7 es un Sistema Operativo obsoleto que ya
+    no está soportado por el fabricante. Por tanto, no se garantiza el funcionamiento
+    de ningún servicio bajo Windows 7.</strong></p>
+
+    <p> </p>
+
+    <p>Para configurar el correo,<strong> </strong>selecciona el sistema operativo
+    correspondiente:</p>
+
+
+
+    AVAILABLE BUTTONS: {''cards'': [{''subtitle'': '''', ''buttons'': [{''value'':
+    ''https://www.uam.es/uam/media/doc/1606904601367/configuracion-del-buzon-de-correo-exchange-en-windows-10.pdf'',
+    ''type'': ''url'', ''text'': ''WINDOWS''}, {''text'': ''MacOS'', ''type'': ''url'',
+    ''value'': ''https://www.uam.es/uam/media/doc/1606905284934/configuracion-de-buzon-de-correo-outlook-exchange-en-macos.pdf''},
+    {''value'': ''https://www.uam.es/uam/media/doc/1606905285014/configuracion-del-buzon-de-correo-outlook-exchange-en-ios.pdf'',
+    ''type'': ''url'', ''text'': ''Ios''}, {''value'': '''', ''type'': ''url'', ''text'':
+    ''Android''}], ''imageUrl'': '''', ''title'': ''''}]}
+
+
+    '

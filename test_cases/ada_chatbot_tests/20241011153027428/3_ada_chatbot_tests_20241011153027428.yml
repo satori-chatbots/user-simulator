@@ -1,0 +1,77 @@
+serial: '20241011153027428'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+- como contactar con el CAU para ayuda en persona
+conversation:
+- number: 4
+- goal_style:
+    steps: 2
+- interaction_style:
+  - default
+data_output:
+- email_cau: null
+- telefono_cau: null
+---
+conversation time: '0:00:09.585715'
+---
+interaction:
+- User: Hola, necesito ayuda con algo. ¿Podrías decirme cómo puedo usar mi dirección
+    de correo de la UAM? No estoy muy seguro de cómo acceder o si necesito configurar
+    algo antes. ¡Gracias!
+- Assistant: '<p>Si has olvidado tu identificador de usuario, <strong><a href="https://id.uam.es/id/mi-id-uam.html">busca
+    tu identificador por DNI</a> </strong>o contacta con el CAU en <a href="mailto:cau@uam.es">cau@uam.es</a><strong><br><br></strong>Si
+    necesitas cambiar la contraseña,<strong> </strong>accede a <strong><a href="https://autoservicio.uam.es/xlWebApp/"
+    target="_blank" rel="noopener">https://autoservicio.uam.es</a></strong>  y haz
+    clic sobre<strong> "Generar código de activación"</strong> del menú de opciones
+    del lado izquierdo. <br><br>Si necesitas cambiar la contraseña y ya tienes el
+    código de activación, accede a <strong><a href="https://autoservicio.uam.es/xlWebApp/"
+    target="_blank" rel="noopener">https://autoservicio.uam.es</a></strong>  y haz
+    clic en "<strong>Tengo Código de Activación</strong>" del menú de opciones del
+    lado izquierdo.</p>
+
+    <p> </p>
+
+    <p>Si tienes alguna duda, ponte en contacto con el Centro de Atención a Usuarios
+    (CAU) en <a href="mailto:cau@uam.es">cau@uam.es</a> </p>
+
+    <p> </p>
+
+    <p><u><strong>Recuerda cambiar la contraseña periódicamente, como mínimo una vez
+    al año, para evitar que se bloquee la cuenta.</strong></u><br><br>Haz clic en
+    el botón inferior si necesitas más instrucciones o seguir los pasos descritos
+    de manera más detallada.</p>'
+- User: ¿Y cómo puedo contactar con el CAU para obtener ayuda en persona? ¿Tienen
+    algún lugar específico donde pueda ir?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>'

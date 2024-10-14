@@ -1,5 +1,6 @@
-import yaml
 import os
+
+import yaml
 import json
 import configparser
 from datetime import datetime, timedelta
@@ -12,10 +13,26 @@ import importlib.util
 from .exceptions import *
 from openai import OpenAI
 
+def check_keys(key_list: list):
+    if os.path.exists("keys.properties"):
+        #logging.getLogger().verbose("properties found!")
+        logging.info("properties found!")
+        config = configparser.ConfigParser()
+        config.read('keys.properties')
+
+        # Loop over all keys and values
+        for key in config['keys']:
+            key = key.upper()
+            os.environ[key] = config['keys'][key]
+
+    for k in key_list:
+        if not os.environ.get(k):
+            raise Exception(f"{k} not found")
+
+check_keys(["OPENAI_API_KEY"])
 client = OpenAI()
 
 logger = logging.getLogger('my_app_logger')
-
 
 def save_json(msg, test_name, path):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -160,23 +177,6 @@ def nlp_processor(msg, patterns=None, threshold=0.5):
     # Definir un umbral de similitud para detectar fallback
 
     return max_sim >= threshold
-
-
-def check_keys(key_list: list):
-    if os.path.exists("keys.properties"):
-        #logging.getLogger().verbose("properties found!")
-        logging.info("properties found!")
-        config = configparser.ConfigParser()
-        config.read('keys.properties')
-
-        # Loop over all keys and values
-        for key in config['keys']:
-            key = key.upper()
-            os.environ[key] = config['keys'][key]
-
-    for k in key_list:
-        if not os.environ.get(k):
-            raise Exception(f"{k} not found")
 
 
 def build_sequence(pairs):

@@ -6,7 +6,9 @@ from . import get_filtered_tests, empty_filtered_tests
 from .rule_utils import *
 
 # Do not remove this import, it is used to dynamically import the functions
-from .rule_utils import filtered_tests, _conversation_length, extract_float, _only_talks_about, _utterance_index, _data_collected
+from .rule_utils import filtered_tests, _conversation_length, extract_float, _only_talks_about
+from .rule_utils import _utterance_index, _chatbot_returns, _repeated_answers, _data_collected
+
 from metamorphic.tests import Test
 
 
@@ -18,6 +20,7 @@ class Rule(BaseModel):
     when: Optional[str] = "True"
     if_: Optional[str] = Field("True", alias="if")
     then: str
+    yields: Optional[str] = None
 
     @model_validator(mode='before')
     @classmethod
@@ -80,7 +83,7 @@ class Rule(BaseModel):
                     if return_value == True:  # can be a boolean or another value to signal an error
                         self.__handle_pass(verbose, results, test)
                     else:
-                        self.__handle_fail(verbose, results, return_value, test)
+                        self.__handle_fail(verbose, results, return_value, test_dict, test)
                 else:
                     self.__handle_not_applicable(verbose, results, test)
             else:
@@ -103,16 +106,19 @@ class Rule(BaseModel):
         if verbose:
             print(f"     -> Satisfied!")
 
-    def __handle_fail(self, verbose, results, return_value, *tests):
+    def __handle_fail(self, verbose, results, return_value, test_dict, *tests):
         if len(tests)==1:
             results['fail'].append(tests[0].file_name)
         else:
             results['fail'].append(tuple(test.file_name for test in tests))
         if verbose:
+            message = ""
+            if self.yields is not None:
+                message = ". "+self.yield_eval(test_dict)
             if return_value != False:   # return_value can be a boolean or something else
-                print(f"     -> NOT Satisfied!. Reason: {return_value}")
+                print(f"     -> NOT Satisfied!. Reason: {return_value}{message}.")
             else:
-                print(f"     -> NOT Satisfied!. Reason: oracle violated.")
+                print(f"     -> NOT Satisfied!. Reason: oracle violated{message}.")
 
     def __metamorphic_test(self, tests: List[Test], verbose: bool) -> dict:
         results = {'pass': [], 'fail': [], 'not_applicable': []}
@@ -135,7 +141,7 @@ class Rule(BaseModel):
                         if return_value == True:
                             self.__handle_pass(verbose, results, test1, test2)
                         else:
-                            self.__handle_fail(verbose, results, return_value, test1, test2)
+                            self.__handle_fail(verbose, results, return_value, test_dict, test1, test2)
                     else:
                         self.__handle_not_applicable(verbose, results, test1, test2)
                 else:
@@ -166,6 +172,25 @@ def _eval(**kwargs):
         self._eval = local_namespace['_eval']
         return self._eval(**test_dict)
         #return eval(self.then, test_dict)
+
+    def yield_eval(self, test_dict: dict):
+        code = f"""        
+def _eval(**kwargs):
+    # unpack parameters
+    interaction = kwargs['interaction']
+    conv = kwargs['conv']
+{self.__unpack_dict(test_dict)}
+
+    #wrappers for functions with implicit parameters
+{self.__wrapper_functions()}
+
+    return {self.yields}
+            """
+        local_namespace = {}
+
+        exec(code, globals(), local_namespace)
+        self._eval = local_namespace['_eval']
+        return str(self._eval(**test_dict))
 
     def __wrapper_functions(self):
         result = "\n".join(func for func in util_to_wrapper_dict().values())

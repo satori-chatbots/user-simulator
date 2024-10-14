@@ -1,0 +1,33 @@
+serial: '20241009225232679'
+language: English
+context:
+- your name is John Doe
+ask_about:
+- the balance in your credit card and then the remaining credit in your credit card
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- credit: None
+---
+conversation time: '0:00:18.821171'
+---
+interaction:
+- User: What’s the current balance on my credit card?
+- Assistant: The current balance for your Iron Bank account is $44.27.
+- User: Hmm, that seems really low. Can you tell me what my remaining credit is on
+    the card?
+- Assistant: I didn't quite understand that. Could you rephrase?
+- User: Sure, how much credit do I have left on my card?
+- Assistant: The current balance for your Iron Bank account is $44.27.
+- User: That doesn't seem right. I asked for my remaining credit, not the balance.
+    Can you check again?
+- Assistant: I didn't quite understand that. Could you rephrase?
+- User: 'User: What''s my available credit on the card, not the balance?'
+- Assistant: The current balance for your Iron Bank account is $44.27.
+- User: 'User: This is getting frustrating. Can you just give me the amount of credit
+    I have available to spend on my card?'
+- Assistant: Sorry, that is not a valid credit card account to make payments towards.

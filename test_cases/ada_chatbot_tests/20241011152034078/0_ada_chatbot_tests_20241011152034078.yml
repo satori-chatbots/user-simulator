@@ -1,0 +1,49 @@
+serial: '20241011152034078'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+conversation:
+- number: 2
+- goal_style:
+    steps: 2
+- interaction_style: []
+data_output:
+- instrucciones: None
+---
+conversation time: '0:00:11.501051'
+---
+interaction:
+- User: Hola, necesito ayuda con mi cuenta de correo de la UAM. No estoy seguro de
+    cómo acceder a mi correo institucional y necesito asegurarlo para recibir notificaciones
+    importantes. ¿Podrían guiarme en cómo hacerlo?
+- Assistant: '<p>Si has olvidado tu identificador de usuario, <strong><a href="https://id.uam.es/id/mi-id-uam.html">busca
+    tu identificador por DNI</a> </strong>o contacta con el CAU en <a href="mailto:cau@uam.es">cau@uam.es</a><strong><br><br></strong>Si
+    necesitas cambiar la contraseña,<strong> </strong>accede a <strong><a href="https://autoservicio.uam.es/xlWebApp/"
+    target="_blank" rel="noopener">https://autoservicio.uam.es</a></strong>  y haz
+    clic sobre<strong> "Generar código de activación"</strong> del menú de opciones
+    del lado izquierdo. <br><br>Si necesitas cambiar la contraseña y ya tienes el
+    código de activación, accede a <strong><a href="https://autoservicio.uam.es/xlWebApp/"
+    target="_blank" rel="noopener">https://autoservicio.uam.es</a></strong>  y haz
+    clic en "<strong>Tengo Código de Activación</strong>" del menú de opciones del
+    lado izquierdo.</p>
+
+    <p> </p>
+
+    <p>Si tienes alguna duda, ponte en contacto con el Centro de Atención a Usuarios
+    (CAU) en <a href="mailto:cau@uam.es">cau@uam.es</a> </p>
+
+    <p> </p>
+
+    <p><u><strong>Recuerda cambiar la contraseña periódicamente, como mínimo una vez
+    al año, para evitar que se bloquee la cuenta.</strong></u><br><br>Haz clic en
+    el botón inferior si necesitas más instrucciones o seguir los pasos descritos
+    de manera más detallada.</p>'
+- User: Entiendo, pero mi problema es que cuando intento acceder al autoservicio,
+    me sale un error que dice que el sitio no está disponible. ¿Hay alguna otra manera
+    de generar el código de activación o algún paso adicional que deba seguir?
+- Assistant: <p>Por favor, para ofrecerte la mejor solución posible, abre un ticket
+    en el CAU escribiendo a <a href="mailto:cau@uam.es">cau@uam.es</a>, explicándonos
+    detalladamente tu petición o incidencia.</p>

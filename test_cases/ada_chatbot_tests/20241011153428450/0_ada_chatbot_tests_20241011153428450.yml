@@ -1,0 +1,90 @@
+serial: '20241011153428450'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+- como contactar con el CAU para ayuda en persona
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- email_cau: null
+- telefono_cau: null
+---
+conversation time: '0:00:27.728247'
+---
+interaction:
+- User: Hola, tengo una pregunta sobre cómo usar mi dirección de correo de la UAM.
+    ¿Hay alguna guía o algo que me puedas mandar para configurarlo en mi móvil?
+- Assistant: '<p class="MsoNormal"><u><strong>Aviso:</strong> </u></p>
+
+    <p class="MsoNormal"><strong>Windows 7 es un Sistema Operativo obsoleto que ya
+    no está soportado por el fabricante. Por tanto, no se garantiza el funcionamiento
+    de ningún servicio bajo Windows 7.</strong></p>
+
+    <p> </p>
+
+    <p>Para configurar el correo,<strong> </strong>selecciona el sistema operativo
+    correspondiente:</p>'
+- User: ¿Podrías decirme dónde encontrar esa guía específica para configurar el correo
+    en un móvil Android?
+- Assistant: '<p class="MsoNormal"><u><strong>Aviso:</strong> </u></p>
+
+    <p class="MsoNormal"><strong>Windows 7 es un Sistema Operativo obsoleto que ya
+    no está soportado por el fabricante. Por tanto, no se garantiza el funcionamiento
+    de ningún servicio bajo Windows 7.</strong></p>
+
+    <p> </p>
+
+    <p>Para configurar el correo,<strong> </strong>selecciona el sistema operativo
+    correspondiente:</p>'
+- User: ¿Hay algún enlace directo o algún apartado específico en la web de la UAM
+    donde pueda encontrar la guía para Android? No uso Windows 7, así que eso no me
+    sirve mucho.
+- Assistant: <b>Por favor, selecciona la opción que sea de tu interés:</b>
+- User: No veo opciones aquí, pero quizás pueda buscar en la web de la UAM directamente.
+    ¿Sabes si hay algún enlace en la página principal o alguna sección específica
+    donde suelan estar estas guías?
+- Assistant: <p>Por favor, para ofrecerte la mejor solución posible, abre un ticket
+    en el CAU escribiendo a <a href="mailto:cau@uam.es">cau@uam.es</a>, explicándonos
+    detalladamente tu petición o incidencia.</p>
+- User: ¿Y cómo puedo contactar con el CAU para recibir ayuda en persona? ¿Tienen
+    algún horario en particular o necesito hacer una cita previa?
+- Assistant: ''
+- User: ¿Alguien sabe si se puede recibir asistencia en persona del CAU sin cita?
+    O si hay algún horario específico para ir, porque me vendría bien tener una idea
+    antes de acercarme.
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>'

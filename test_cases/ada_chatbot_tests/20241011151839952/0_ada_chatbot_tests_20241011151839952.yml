@@ -1,0 +1,23 @@
+serial: '20241011151839952'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+conversation:
+- number: 2
+- goal_style:
+    steps: 2
+- interaction_style:
+  - make spelling mistakes
+data_output:
+- instrucciones: None
+---
+conversation time: '0:00:06.160359'
+---
+interaction:
+- User: Hola, ¿qué tal? Tengo un lio tremendo con el correo de la UAM. No sé muy bien
+    cómo usarlo. 😅 ¿Me podrias ayudar a configurarlo o algo? Es que no entiendo ni
+    jota de esto... Siempre me sale error cuando intento entrar, y ya no sé si es
+    mi compu o qué pasa. Porfa, necesito algo de orientacion. 🙏

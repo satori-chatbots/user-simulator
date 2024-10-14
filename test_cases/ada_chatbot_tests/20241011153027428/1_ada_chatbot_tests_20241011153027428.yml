@@ -1,0 +1,69 @@
+serial: '20241011153027428'
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- como usar la dirección de correo de la UAM
+- como contactar con el CAU para ayuda en persona
+conversation:
+- number: 4
+- goal_style:
+    steps: 2
+- interaction_style:
+  - default
+data_output:
+- email_cau: null
+- telefono_cau: null
+---
+conversation time: '0:00:15.790160'
+---
+interaction:
+- User: Hola, estaba intentando acceder a mi correo de la UAM y no sé muy bien cómo
+    usarlo. ¿Me podrías indicar cómo puedo configurarlo o acceder a él correctamente?
+- Assistant: '<p>Puedes acceder al correo electrónico web a través de la URL: <a href="https://correoweb.uam.es">https://correoweb.uam.es</a><strong><br><br></strong>Recuerda
+    que para acceder al correo web necesitarás introducir tu ID-UAM y contraseña,
+    y también deberás tener configurado el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios/multiple-factor-autenticacion">Multiple
+    Factor de Autenticación (MFA)</a><strong><br><br></strong>Se recomienda <strong><u>no
+    redireccionar el correo institucional.</u></strong></p>
+
+    <p> </p>
+
+    <p>También puedes consultar el <a style="text-decoration: var(--link-text-decoration);
+    background-color: rgb(255, 255, 255); font-size: 15px; font-style: normal; font-weight:
+    400;" href="https://www.uam.es/uam/tecnologias-informacion/servicios/correo-electronico">servicio
+    de correo electrónico</a> <span style="color: var(--text-basic-color); font-family:
+    var(--text-paragraph-font-family); font-size: var(--text-paragraph-font-size);
+    font-weight: var(--text-paragraph-font-weight);">en el Catálogo de Servicios de
+    Tecnologías de la Información.</span><br><br>Selecciona la opción que te interese:</p>'
+- User: Gracias por la info. Pero, si tengo algún problema con el correo, ¿cómo puedo
+    contactar con el CAU para que me ayuden en persona?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;">Presencialmente:  </span>Escuela Politécnica Superior.
+    Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049
+    Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>'

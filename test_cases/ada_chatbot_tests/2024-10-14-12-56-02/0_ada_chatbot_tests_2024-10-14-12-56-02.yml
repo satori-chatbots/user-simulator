@@ -1,0 +1,64 @@
+serial: 2024-10-14-12-56-02
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- Que laboratorios con ordenadores de libre acceso hay en la UAM
+- Cómo me conecto a la WiFi
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- email_cau: None
+- telefono_cau: None
+---
+conversation time: '0:00:19.743372'
+---
+interaction:
+- User: Hola, necesito saber qué laboratorios con ordenadores de libre acceso hay
+    en la UAM. ¿Podríais darme información sobre esto?
+- Assistant: "<p>Seleccione la facultad que corresponda para conocer el número de\
+    \ ordenadores disponibles en las aulas de informática.</p>\n\n\nAVAILABLE BUTTONS:\n\
+    \n- BUTTON TEXT: Facultad de Biología  LINK: Facultad de Biología \n- BUTTON TEXT:\
+    \ Facultad de Ciencias LINK: Facultad de Ciencias\n- BUTTON TEXT: Facultad de\
+    \ Ciencias Económicas y Empresariales LINK: Facultad de Ciencias Económicas y\
+    \ Empresariales\n- BUTTON TEXT: Facultad de Filosofía y Letras LINK: Facultad\
+    \ de Filosofía y Letras\n- BUTTON TEXT: Facultad de Derecho (Ciencias Jurídicas)\
+    \ LINK: Facultad de Derecho (Ciencias Jurídicas)\n- BUTTON TEXT: Facultad de Formación\
+    \ de Profesorado y Educación LINK: Facultad de Formación de Profesorado y Educación\n\
+    - BUTTON TEXT: Facultad de Psicología LINK: Facultad de Psicología\n- BUTTON TEXT:\
+    \ Pabellón de Postgrado LINK: Pabellón de Postgrado\n"
+- User: Hmm, estoy en la Facultad de Ciencias. ¿Podrías decirme qué laboratorios están
+    disponibles allí?
+- Assistant: '<p>Por favor, ¿me lo puedes decir con otras palabras? o, si lo prefieres,
+    puedes consultar nuestro <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">catálogo
+    de servicios</a>.<br>Respondo a preguntas dirigidas al <strong>Centro de Atención
+    a Usuarios del servicio de Tecnologías de la Información.</strong></p>
+
+    '
+- User: Claro, lo que quiero saber es qué laboratorios con ordenadores puedo usar
+    libremente en la Facultad de Ciencias.
+- Assistant: "<p>Seleccione la facultad que corresponda para conocer el número de\
+    \ ordenadores disponibles en las aulas de informática.</p>\n\n\nAVAILABLE BUTTONS:\n\
+    \n- BUTTON TEXT: Facultad de Biología  LINK: Facultad de Biología \n- BUTTON TEXT:\
+    \ Facultad de Ciencias LINK: Facultad de Ciencias\n- BUTTON TEXT: Facultad de\
+    \ Ciencias Económicas y Empresariales LINK: Facultad de Ciencias Económicas y\
+    \ Empresariales\n- BUTTON TEXT: Facultad de Filosofía y Letras LINK: Facultad\
+    \ de Filosofía y Letras\n- BUTTON TEXT: Facultad de Derecho (Ciencias Jurídicas)\
+    \ LINK: Facultad de Derecho (Ciencias Jurídicas)\n- BUTTON TEXT: Facultad de Formación\
+    \ de Profesorado y Educación LINK: Facultad de Formación de Profesorado y Educación\n\
+    - BUTTON TEXT: Facultad de Psicología LINK: Facultad de Psicología\n- BUTTON TEXT:\
+    \ Pabellón de Postgrado LINK: Pabellón de Postgrado\n"
+- User: Voy a hacer clic en el botón de "Facultad de Ciencias" para ver qué información
+    me da sobre los laboratorios. ¿Podrías mostrarme qué opciones hay disponibles
+    allí?
+- Assistant: '<p>Disculpa, pero... ¿Me lo puedes repetir con otras palabras? o, si
+    lo prefieres, puedes consultar nuestro <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">catálogo
+    de servicios</a>.<br>Respondo a preguntas dirigidas al <strong>Centro de Atención
+    a Usuarios del servicio de Tecnologías de la Información.</strong></p>
+
+    '

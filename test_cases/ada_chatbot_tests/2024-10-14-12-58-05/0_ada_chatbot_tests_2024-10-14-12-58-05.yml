@@ -1,0 +1,25 @@
+serial: 2024-10-14-12-58-05
+language: English
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- Que laboratorios con ordenadores de libre acceso hay en la UAM
+- Cómo me conecto a la WiFi
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- email_cau: None
+- telefono_cau: None
+---
+conversation time: '0:00:09.264621'
+---
+interaction:
+- User: Hi there! I'm an Erasmus student at UAM, and I need some help. Could you tell
+    me which computer labs are available for open access here? Also, I'm having a
+    bit of trouble with the WiFi – how do I connect to it?
+- Assistant: 'Error: The server did not repond.'

@@ -40,7 +40,7 @@ def util_to_wrapper_dict() -> dict:
             '_chatbot_returns':
             "    def chatbot_returns(what):\n        return _chatbot_returns(what, interaction)\n",
             '_repeated_answers':
-                "    def repeated_answers():\n        return _repeated_answers(interaction)\n"
+                "    def repeated_answers():\n        return _repeated_answers(interaction)\n",
             '_data_collected':
                 "    def data_collected():\n        return _data_collected(conv)\n"
             }

@@ -26,6 +26,7 @@ class Test(BaseModel):
         variable_dict.update(self.__get_parameters_dict(self.conversation, 'conversation'))
         variable_dict.update(self.__get_parameters_dict(self.data_output, 'data_output'))
         variable_dict.update(self.__get_interactions_dict(self.interaction))
+        variable_dict.update({'data_output': self.data_output})
         #print(f"Dict = {variable_dict}")
         return variable_dict
 

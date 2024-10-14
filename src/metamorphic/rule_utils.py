@@ -28,7 +28,8 @@ def util_functions_to_dict() -> dict:
             '_utterance_index': _utterance_index,
             '_conversation_length': _conversation_length,
             '_chatbot_returns': _chatbot_returns,
-            '_repeated_answers': _repeated_answers}
+            '_repeated_answers': _repeated_answers,
+            '_missing_slots': _missing_slots}
 
 def util_to_wrapper_dict() -> dict:
     return {'_conversation_length':
@@ -42,7 +43,9 @@ def util_to_wrapper_dict() -> dict:
             '_repeated_answers':
                 "    def repeated_answers():\n        return _repeated_answers(interaction)\n",
             '_data_collected':
-                "    def data_collected():\n        return _data_collected(conv)\n"
+                "    def data_collected():\n        return _data_collected(conv)\n",
+            '_missing_slots':
+                "    def missing_slots():\n        return _missing_slots(conv)\n",
             }
 
 def _repeated_answers(interaction):
@@ -104,6 +107,16 @@ def _data_collected(conv):
             if value is None or value == 'None':
                 return False
     return True
+
+
+def _missing_slots(conv):
+    missing = []
+    outputs = conv[0].data_output
+    for data in outputs:
+        for key, value in data.items():
+            if value is None or value == 'None':
+                missing.append(key)
+    return missing
 
 def interaction_to_str(interaction, numbered=False):
     result = ''

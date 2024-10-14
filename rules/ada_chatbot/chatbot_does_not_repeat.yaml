@@ -1,7 +1,7 @@
 name: chatbot_does_not_repeat
 description: The server does not repeat answers
 conversations: 1
-active: True
+active: False
 oracle: |
   not repeated_answers()
 yields: f"The chatbots repeats {repeated_answers()}"

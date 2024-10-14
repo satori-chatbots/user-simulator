@@ -7,7 +7,7 @@ from .rule_utils import *
 
 # Do not remove this import, it is used to dynamically import the functions
 from .rule_utils import filtered_tests, _conversation_length, extract_float, _only_talks_about
-from .rule_utils import _utterance_index, _chatbot_returns, _repeated_answers, _data_collected
+from .rule_utils import _utterance_index, _chatbot_returns, _repeated_answers, _data_collected, _missing_slots
 
 from metamorphic.tests import Test
 

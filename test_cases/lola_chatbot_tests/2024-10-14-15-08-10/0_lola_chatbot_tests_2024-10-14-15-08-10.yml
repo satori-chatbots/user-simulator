@@ -1,0 +1,90 @@
+serial: 2024-10-14-15-08-10
+language: Spanish
+context:
+- Debes actuar como un joven actual, Erasmus, que busca ayuda para su preincripción
+ask_about:
+- ¿Cómo me matriculo en el grado de informática?
+- ¿Cuánto cuesta la matricula?
+- ¿Con quien contacto para que me ayude?
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- precio_matricula: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: '0:00:31.013528'
+---
+interaction:
+- User: ¡Hola! Soy estudiante Erasmus en la Universidad de Murcia. Quiero estudiar
+    el grado de informática. ¿Cómo me matriculo?
+- Assistant: 'No sé mucho sobre los Erasmus, pero aquí te dejo el siguiente enlace
+    con algo de información:
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    '
+- User: Hola de nuevo. Gracias, pero no entiendo mucho enlace. ¿Cuánto cuesta la matrícula
+    para grado de informática?
+- Assistant: '<p>El precio del crédito varía en función del grado de experimentalidad
+    que tenga el grado universitario y del número de créditos.</p>
+
+    <p>A continuación te facilito un enlace a nuestra calculadora de matrícula, y
+    otro de los precios públicos del curso 2023/2024, para que puedas hacerte una
+    idea.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>Calculadora de matrícula</p> LINK: https://www.um.es/web/estudios/calculadora-matricula
+
+    - BUTTON TEXT: <p>Precios públicos 23/24</p> LINK: https://www.um.es/documents/1083928/40671729/Orden_precios_publicos_2023-2024.pdf/a53add0f-525f-10e2-957d-74a6846a5539?t=1707822773896
+
+    '
+- User: Gracias, pero no entiendo bien los cálculos. ¿Con quién puedo contactar para
+    que me ayude con esto?
+- Assistant: 'Si yo no te he podido ayudar con tus dudas, te ruego que te pongas en
+    contacto con el SIU en este número: <strong>868 88 8888</strong>; ahí sabrán cómo
+    ayudarte.<br /><br /><strong>Horario de atención telefónica</strong>: lunes y
+    miércoles, de 9:00 a 18:30 horas; martes, jueves y viernes, de 9:00 a 14:00 horas.
+
+    '
+- User: Gracias. Llamo a número SIU. Pero... si no entiendo español por teléfono,
+    ¿puedo visitar oficina en persona? ¿Dónde está?
+- Assistant: 'Si yo no te he podido ayudar con tus dudas, te ruego que te pongas en
+    contacto con el SIU en este número: <strong>868 88 8888</strong>; ahí sabrán cómo
+    ayudarte.<br /><br /><strong>Horario de atención telefónica</strong>: lunes y
+    miércoles, de 9:00 a 18:30 horas; martes, jueves y viernes, de 9:00 a 14:00 horas.
+
+    '
+- User: Gracias, pero necesito saber si puedo ir a la oficina en persona. ¿Dónde está
+    la oficina del SIU?
+- Assistant: 'Es el Servicio de Información Universitario. En el siguiente enlace
+    encontrarás toda la información necesaria:
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    '
+- User: Disculpa, no entiendo bien el enlace. ¿Puedes decirme la dirección para ir
+    a la oficina del SIU en persona?
+- Assistant: 'Es el Servicio de Información Universitario. En el siguiente enlace
+    encontrarás toda la información necesaria:
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    '

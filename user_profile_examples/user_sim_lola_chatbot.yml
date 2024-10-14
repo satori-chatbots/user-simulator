@@ -1,0 +1,39 @@
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+is_starter: True
+
+fallback: |
+  Disculpa, no entiendo bien a qué te refieres. Recuerda que estoy aquí, única y exclusivamente, para resolver tus dudas 
+  sobre el nuevo ingreso a grados de la universidad.
+
+role: |
+  debes actuar como un estudiante de la Universidad de Murcia (UMU), que busca asistencia sobre tu matrícula o 
+  preinscripción de primer curso de estudios de grado.  
+  Nunca actues como un asistente, tu rol es del estudiante buscando ayuda.
+
+context:
+#  personality:
+  - Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+
+ask_about:
+  - "¿Qué grados hay relacionados con la ingeniería en la UMU?"
+  - "¿Cuánto cuesta la matricula en el grado de telecomunicación?"
+  - "¿Se puede empezar el curso en el segundo cuatrimestre?"
+
+output:
+  - precio_matricula:
+      type: money
+      description: el precio de la matrícula
+
+conversations:
+  - number: 1
+  - goal_style:
+        steps: 6
+  - interaction_style:
+      - default
+
+language: Spanish
+
+test_name: "lola_chatbot_tests"

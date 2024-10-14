@@ -1,0 +1,2 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+conversation_lengths,3,3,0,0,0.0

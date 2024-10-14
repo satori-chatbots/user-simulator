@@ -66,13 +66,10 @@ class MillionBot(Chatbot):
                         if 'cards' in answer['payload']:
                             for card in answer['payload']['cards']:
                                 if 'buttons' in card:
-                                    for button in card['buttons']:
-                                        if 'text' in button:
-                                            text_response += f"- BUTTON TEXT: {button['text']}"
-                                        if 'value' in button:
-                                            text_response += f" LINK: {button['value']}\n"
-                                        else:
-                                            text_response += f" LINK: <empty>\n"
+                                    text_response += self.__translate_buttons(card['buttons'])
+                        elif 'buttons' in answer['payload']:
+                            text_response += self.__translate_buttons(answer['payload']['buttons'])
+
                 return True, text_response
             else:
                 # There is an error, but it is an internal error
@@ -88,6 +85,18 @@ class MillionBot(Chatbot):
             logger.error(f"No response was received from the server in less than {timeout}")
             errors.append({504: f"No response was received from the server in less than {timeout}"})
             return False, 'timeout'
+
+    def __translate_buttons(self, buttons_list) -> str:
+        text_response = ''
+        for button in buttons_list:
+            if 'text' in button:
+                text_response += f"- BUTTON TEXT: {button['text']}"
+            if 'value' in button:
+                text_response += f" LINK: {button['value']}\n"
+            else:
+                text_response += f" LINK: <empty>\n"
+        return text_response
+
 
 ##############################################################################################################
 # ADA-UAM
@@ -125,6 +134,24 @@ class ChatbotMillionBot(MillionBot):
                         "language":"es",
                         "url":"https://1millionbot.com/",
                         "message":{"text":"Hola, ¿qué es un chatbot?"}}
+
+class ChatbotLolaUMU(MillionBot):
+    def __init__(self, url):
+        MillionBot.__init__(self, url)
+        self.id = None
+        self.url = "https://api.1millionbot.com/api/public/messages"
+        self.headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'API-KEY 60553d58c41f5dfa095b34b5'
+        }
+
+        self.payload = {"conversation":"670d14d95771b0aa274c97fa",
+                        "sender_type":"User",
+                        "sender":"670d14d97516491d1c7109c1",
+                        "bot":"5af00c50f9639920a0e4769b",
+                        "language":"es",
+                        "url":"https://www.um.es/web/estudios/acceso/estudiantes-bachillerato-y-ciclos-formativos",
+                        "message":{"text":"Hola"}}
 
 ##############################################################################################################
 # Taskyto

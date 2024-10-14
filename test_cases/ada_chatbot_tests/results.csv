@@ -1,0 +1,2 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+chatbot_fills_all_slots,15,2,13,0,86.67%

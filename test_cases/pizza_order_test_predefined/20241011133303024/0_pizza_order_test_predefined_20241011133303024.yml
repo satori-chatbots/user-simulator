@@ -1,0 +1,39 @@
+serial: '20241011133303024'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+errors:
+- 500: Couldn't connect with chatbot
+---
+conversation time: '0:00:12.850052'
+---
+interaction:
+- User: 'Hey there! 😊 I''m in the mood for some pizza, but I''m vegan, so I''m curious
+    about your options. Do you have a small BBQ pizza that''s vegan-friendly by any
+    chance? Also, could I add a can of Coca-Cola to that? 🍕🥤
+
+
+    Oh, by the way, how long would it usually take for the pizza to arrive? I''m kind
+    of starving! 😂'

@@ -27,18 +27,20 @@ class DataExtraction:
         self.llm = ChatOpenAI(model="gpt-4o")
         self.chain = self.assistant_role_prompt | self.llm
 
-
     @staticmethod
     def regex_data(text):
         patron = re.compile(r'%%(.*?)%%')
         coincidence = patron.findall(text)
-        return coincidence[0]
+        if coincidence[0] == 'None':
+            return None
+        else:
+            return coincidence[0]
 
     @staticmethod
     def data_process(text, dtype):
         # logging.getLogger().verbose(f'input text on data process for casting: {text}')
         logger.info(f'input text on data process for casting: {text}')
-        if text == 'None':
+        if text is None:
             return text
         try:
             if dtype == 'int':
@@ -87,5 +89,4 @@ class DataExtraction:
         logger.info(f'LLM output for data extraction: {llm_output.content}')
         text_process = self.regex_data(llm_output.content)
         data = self.data_process(text_process, self.dtype)
-
         return {self.variable: data}

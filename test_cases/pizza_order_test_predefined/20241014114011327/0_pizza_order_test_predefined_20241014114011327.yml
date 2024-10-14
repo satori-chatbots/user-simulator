@@ -1,0 +1,64 @@
+serial: '20241014114011327'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size: small
+- pizza_type: pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+errors: []
+---
+conversation time: '0:00:53.277162'
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for some pizza today. Do you have any small pepperoni
+    pizzas available? 🍕 Also, I'm a bit of a Coca-Cola fan. Could I add a can of that
+    to my order? 🥤 How's your day going, by the way?
+- Assistant: I'm sorry, we don't have a predefined pepperoni pizza. Would you like
+    to create a custom pizza with pepperoni as one of the toppings? Please let me
+    know your choice.
+- User: 'Oh, that''s interesting! A custom pizza sounds like a fun idea. Sure, let''s
+    go with pepperoni as a topping. Maybe you can suggest another topping that''s
+    popular? 😊
+
+
+    Also, any chance my can of Coca-Cola can join the party too? 🥤
+
+
+    By the way, I didn''t catch your name! Do you have one, or do you go by "The Awesome
+    Pizza Chatbot"? 😄'
+- Assistant: "Hi there! I'm just your friendly Fast Pizza chatbot, here to help you\
+    \ with your order. \U0001F60A\n\nI see you've chosen pepperoni as a topping. That's\
+    \ a great choice! Another popular topping is cheese. Would you like to add that\
+    \ as well?\n\nAlso, could you please let me know what size pizza you'd like? We\
+    \ have small, medium, and large options. \n\nAnd yes, your can of Coca-Cola can\
+    \ definitely join the party! \U0001F964"
+- User: "Hey, Fast Pizza chatbot! \U0001F60A Nice to meet you. I think cheese sounds\
+    \ perfect. Let's go with that too. I'll stick with a small pizza. \n\nAny idea\
+    \ how much this will cost me? \U0001F4B8 Also, do you have a favorite topping?\
+    \ Just curious! \U0001F355"
+- Assistant: "Thanks for ordering a small pizza with pepperoni and cheese!\nHi there!\
+    \ \U0001F60A It's nice to meet you too. For your order, we have a small pizza\
+    \ with pepperoni and cheese. As for the cost, I'll need to check that for you.\
+    \ \n\nRegarding your drink, I see you mentioned a can of Coca-Cola. Could you\
+    \ please let me know how many drinks you'd like to order? And just to confirm,\
+    \ is it Coke that you'd like, or would you prefer sprite or water? \n\nAs for\
+    \ my favorite topping, I think I'd go with extra cheese! \U0001F355"

@@ -2,16 +2,18 @@ import timeit
 from abc import abstractmethod
 from argparse import ArgumentParser
 from datetime import timedelta
-
+from user_sim.utils.config import errors
+import pandas as pd
 import uuid
 import requests
 from colorama import Fore, Style
-
+import concurrent.futures
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
 from user_sim.user_simulator import UserGeneration
 from user_sim.utils.show_logs import *
 from user_sim.utils.utilities import *
+
 
 class Chatbot:
     def __init__(self, url):
@@ -54,25 +56,47 @@ class ChatbotTaskyto(Chatbot):
 
     def execute_with_input(self, user_msg):
         if self.id is None:
-            post_response = requests.post(self.url + '/conversation/new')
-            post_response_json = post_response.json()
-            self.id = post_response_json.get('id')
+            try:
+                post_response = requests.post(self.url + '/conversation/new')
+                post_response_json = post_response.json()
+                self.id = post_response_json.get('id')
+            except requests.exceptions.ConnectionError:
+                logger.error(f"Couldn't connect with chatbot")
+                errors.append({500: f"Couldn't connect with chatbot"})
+                return False, 'cut connection'
 
         if self.id is not None:
             new_data = {
                 "id": self.id,
                 "message": user_msg
             }
+
             try:
-                post_response = requests.post(self.url + '/conversation/user_message', json=new_data)
+                timeout = 10
+                try:
+                    post_response = requests.post(self.url + '/conversation/user_message', json=new_data, timeout=timeout)
+                except requests.Timeout:
+                    logger.error(f"No response was received from the server in less than {timeout}")
+                    errors.append({504: f"No response was received from the server in less than {timeout}"})
+                    return False, 'timeout'
+                except requests.exceptions.ConnectionError as e:
+                    logger.error(f"Couldn't get response from the server: {e}")
+                    errors.append({500: f"Couldn't get response from the server"})
+                    return False, 'chatbot internal error'
+
                 post_response_json = post_response.json()
+
                 if post_response.status_code == 200:
-                    return True, post_response_json.get('message')
+                    assistant_message = post_response_json.get('message')
+                    return True, assistant_message
+
                 else:
                     # There is an error, but it is an internal error
+                    errors.append({500: "Chatbot internal error"})
                     return False, post_response_json.get('error')
             except requests.exceptions.JSONDecodeError as e:
-                logging.getLogger().log(f"Couldn't get response from the server: {e}")
+                logger.error(f"Couldn't get response from the server: {e}")
+                errors.append({500: f"Couldn't get response from the server"})
                 return False, 'chatbot internal error'
 
         return True, ''
@@ -117,7 +141,6 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
     def data_output_extraction(u_profile, user):
         output_list = u_profile.output
         data_list = []
-
         for output in output_list:
             var_name = list(output.keys())[0]
             var_dict = output.get(var_name)
@@ -127,6 +150,12 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
                                              var_dict["description"])
             data_list.append(my_data_extract.get_data_extraction())
 
+        data_dict = {k: v for dic in data_list for k, v in dic.items()}
+        has_none = any(value is None for value in data_dict.values())
+        if has_none:
+            count_none = sum(1 for value in data_dict.values() if value is None)
+            errors.append({1001: f"{count_none} goals left to complete."})
+
         return data_list
 
     data_output = {'data_output': data_output_extraction(user_profile, the_user)}
@@ -135,16 +164,18 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
     conversation = {'conversation': conversation_metadata(user_profile)}
     language = {'language': user_profile.yaml['language'] if user_profile.yaml['language'] else 'English'}
     serial_dict = {'serial': serial}
-
+    errors_dict = {'errors': errors}
     metadata = {**serial_dict,
                 **language,
                 **context,
                 **ask_about,
                 **conversation,
-                **data_output
+                **data_output,
+                **errors_dict
                 }
 
     return metadata
+
 
 def parse_profiles(user_path):
     def is_yaml(file):
@@ -177,7 +208,6 @@ def parse_profiles(user_path):
         raise Exception(f'Invalid path for user profile operation: {user_path}')
 
 
-
 def generate(technology, chatbot, user, extract):
 
     profiles = parse_profiles(user)
@@ -207,7 +237,6 @@ def generate(technology, chatbot, user, extract):
 
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
                     if not is_ok:
-                        # logging.getLogger().verbose('The server cut the conversation. End.')
                         break
                     print_chatbot(response)
 
@@ -223,6 +252,9 @@ def generate(technology, chatbot, user, extract):
                     # configure parameter "user starts?"
                     print_user(user_msg)
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
+                    if response == 'timeout':
+                        break
+
                     print_chatbot(response)
 
                     if not is_ok:

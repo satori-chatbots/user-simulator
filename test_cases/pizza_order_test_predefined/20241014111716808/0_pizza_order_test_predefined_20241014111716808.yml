@@ -1,0 +1,35 @@
+serial: '20241014111716808'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Margarita
+- number:
+  - 1
+- size: small
+- pizza_type: pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+errors:
+- 500: Couldn't connect with chatbot
+---
+conversation time: '0:00:12.526553'
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza and I need some help. Could
+    you tell me about your small pepperoni pizza? Also, do you guys have Margarita
+    in a can? I'm feeling a bit fancy today, haha. 🍕🍹

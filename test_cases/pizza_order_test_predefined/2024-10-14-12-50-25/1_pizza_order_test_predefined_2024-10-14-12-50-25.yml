@@ -1,0 +1,48 @@
+serial: 2024-10-14-12-50-25
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Fanta
+- number:
+  - 3
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:00:37.103225'
+---
+interaction:
+- User: Hey there! 😊 I was thinking about getting a pizza tonight. Could you help
+    me out with a small margarita pizza? Also, I'm curious, how long do you think
+    it'll take for the pizza to get here? I've got a craving that's hard to ignore!
+    🍕 And oh, by the way, I'm vegan—any fun stories from other vegan customers?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Gotcha! Thanks for the estimate. I think I can wait 15 minutes, but I'll definitely
+    be counting down! 😄 By the way, could you add 3 cans of Fanta to the order? I'm
+    in the mood for something fizzy tonight. 🥤 Do you have a favorite drink you like
+    to pair with pizza?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Sure thing! Could you please add 3 cans of Fanta to my order? I''m really
+    in the mood for something fizzy tonight. 🥤 What''s your favorite drink to pair
+    with pizza, if you''ve got one? '
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

@@ -1,9 +1,7 @@
 import timeit
 from argparse import ArgumentParser
-
-
+from user_sim.utils.config import errors
 from colorama import Fore, Style
-
 from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
@@ -51,7 +49,6 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
     def data_output_extraction(u_profile, user):
         output_list = u_profile.output
         data_list = []
-
         for output in output_list:
             var_name = list(output.keys())[0]
             var_dict = output.get(var_name)
@@ -61,6 +58,12 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
                                              var_dict["description"])
             data_list.append(my_data_extract.get_data_extraction())
 
+        data_dict = {k: v for dic in data_list for k, v in dic.items()}
+        has_none = any(value is None for value in data_dict.values())
+        if has_none:
+            count_none = sum(1 for value in data_dict.values() if value is None)
+            errors.append({1001: f"{count_none} goals left to complete."})
+
         return data_list
 
     data_output = {'data_output': data_output_extraction(user_profile, the_user)}
@@ -69,16 +72,18 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
     conversation = {'conversation': conversation_metadata(user_profile)}
     language = {'language': user_profile.yaml['language'] if user_profile.yaml['language'] else 'English'}
     serial_dict = {'serial': serial}
-
+    errors_dict = {'errors': errors}
     metadata = {**serial_dict,
                 **language,
                 **context,
                 **ask_about,
                 **conversation,
-                **data_output
+                **data_output,
+                **errors_dict
                 }
 
     return metadata
+
 
 def parse_profiles(user_path):
     def is_yaml(file):
@@ -167,6 +172,9 @@ def generate(technology, chatbot, user, extract):
                     # configure parameter "user starts?"
                     print_user(user_msg)
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
+                    if response == 'timeout':
+                        break
+
                     print_chatbot(response)
 
                     if not is_ok:

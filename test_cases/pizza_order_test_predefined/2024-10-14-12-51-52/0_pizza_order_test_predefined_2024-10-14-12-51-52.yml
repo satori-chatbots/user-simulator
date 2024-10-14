@@ -1,0 +1,51 @@
+serial: 2024-10-14-12-51-52
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Root Beer
+- number:
+  - 1
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:00:38.174749'
+---
+interaction:
+- User: Hey there! 😊 I’m thinking about ordering a small marinara pizza. Do you have
+    any recommendations for a good drink to go with it? Maybe something like Root
+    Beer? 🍕🥤
+- Assistant: Welcome to Fast Pizza! I'm a chatbot assistant that can help you order
+    pizzas and drinks. While I can assist you with ordering a pizza, I currently don't
+    have specific drink recommendations. However, Root Beer sounds like a great choice
+    to go with a marinara pizza! What can I do for you?
+- User: Thanks! Yeah, Root Beer and pizza just seem like a perfect combo! 😊 How long
+    do you think it’ll take for the pizza to arrive? I’m pretty hungry, haha! 🍕⏰
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Gotcha! I’m hoping it’s one of those less busy times then. 😅 By the way, do
+    you think the pizza will cost much? I’m trying to keep an eye on my budget today.
+    💸 Also, do you have a favorite pizza topping?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

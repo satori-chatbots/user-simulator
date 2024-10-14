@@ -12,6 +12,8 @@ import logging
 import importlib.util
 from .exceptions import *
 from openai import OpenAI
+from user_sim.utils.config import errors
+
 
 def check_keys(key_list: list):
     if os.path.exists("keys.properties"):
@@ -142,6 +144,7 @@ def save_test_conv(history, metadata, test_name, path, serial, conversation_time
 
     print(f"Conversation saved in {path}")
     print('------------------------------')
+    errors.clear()
 
 
 def preprocess_text(text):

@@ -1,8 +1,9 @@
-import logging
 import uuid
 from abc import abstractmethod
 import requests
-
+from user_sim.utils.config import errors
+import logging
+logger = logging.getLogger('Info Logger')
 class Chatbot:
     def __init__(self, url):
         self.url = url
@@ -127,26 +128,47 @@ class ChatbotTaskyto(Chatbot):
 
     def execute_with_input(self, user_msg):
         if self.id is None:
-            post_response = requests.post(self.url + '/conversation/new')
-            post_response_json = post_response.json()
-            self.id = post_response_json.get('id')
+            try:
+                post_response = requests.post(self.url + '/conversation/new')
+                post_response_json = post_response.json()
+                self.id = post_response_json.get('id')
+            except requests.exceptions.ConnectionError:
+                logger.error(f"Couldn't connect with chatbot")
+                errors.append({500: f"Couldn't connect with chatbot"})
+                return False, 'cut connection'
 
         if self.id is not None:
             new_data = {
                 "id": self.id,
                 "message": user_msg
             }
+
             try:
-                post_response = requests.post(self.url + '/conversation/user_message', json=new_data)
+                timeout = 10
+                try:
+                    post_response = requests.post(self.url + '/conversation/user_message', json=new_data, timeout=timeout)
+                except requests.Timeout:
+                    logger.error(f"No response was received from the server in less than {timeout}")
+                    errors.append({504: f"No response was received from the server in less than {timeout}"})
+                    return False, 'timeout'
+                except requests.exceptions.ConnectionError as e:
+                    logger.error(f"Couldn't get response from the server: {e}")
+                    errors.append({500: f"Couldn't get response from the server"})
+                    return False, 'chatbot internal error'
+
                 post_response_json = post_response.json()
+
                 if post_response.status_code == 200:
-                    return True, post_response_json.get('message')
+                    assistant_message = post_response_json.get('message')
+                    return True, assistant_message
+
                 else:
                     # There is an error, but it is an internal error
+                    errors.append({500: "Chatbot internal error"})
                     return False, post_response_json.get('error')
             except requests.exceptions.JSONDecodeError as e:
-                logger = logging.getLogger('my_app_logger')
-                logger.log(f"Couldn't get response from the server: {e}")
+                logger.error(f"Couldn't get response from the server: {e}")
+                errors.append({500: f"Couldn't get response from the server"})
                 return False, 'chatbot internal error'
 
         return True, ''

@@ -1,0 +1,35 @@
+serial: '20241014113033236'
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Pepsi
+- number:
+  - 1
+- size: small
+- pizza_type: pepperoni
+conversation:
+- number: 1
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: None
+- time: None
+- order_id: None
+errors:
+- 500: Couldn't connect with chatbot
+---
+conversation time: '0:00:12.196275'
+---
+interaction:
+- User: Hey there! 😊 I'm craving some pizza today. Could you hook me up with a small
+    pepperoni pizza, please? Also, I'm curious—do you like pizza as much as I do?
+    🍕

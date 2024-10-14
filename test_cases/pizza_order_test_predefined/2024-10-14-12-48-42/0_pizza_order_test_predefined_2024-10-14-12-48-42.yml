@@ -1,0 +1,36 @@
+serial: 2024-10-14-12-48-42
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 1
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:28.674143'
+---
+interaction:
+- User: Hey there! 😊 I'm thinking of ordering a pizza tonight. Could you tell me a
+    bit about your BBQ pizzas? I'm vegan, so I'm curious about what options you might
+    have. Also, what do you think about adding a can of Sprite to that? 🍕🥤
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

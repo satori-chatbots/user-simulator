@@ -1,0 +1,37 @@
+serial: 2024-10-14-12-58-19
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Mojito
+- number:
+  - 3
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Couldn't connect with chatbot
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:19.470145'
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for some pizza and maybe a little drink to go
+    with it. Could you tell me about your small carbonara pizza? And oh, do you guys
+    have Mojito in cans? 🤔
+- Assistant: 'Error: cut connection'

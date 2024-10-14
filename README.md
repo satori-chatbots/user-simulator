@@ -318,22 +318,22 @@ The tester defines some certain values to obtain from the conversation to valida
 - goal_style: this defines how the conversation should end. There are 3 options in this update
   - steps: the tester should input the number of interactions to be done before the conversation ends.
   - random steps: a random number of interactions will be done between 1 and an amount defined by the user. This amount can't exceed 20.
-  - all answered: the conversation will end as long as all the queries in "ask_about" have been asked by the user and answered by the chatbot. 
+  - all_answered: the conversation will end as long as all the queries in "ask_about" have been asked by the user and answered by the chatbot. 
   This option creates an internal data frame that verifies if all "ask_about" queries are being responded or confirmed, and it is possible to export this
   dataframe once the conversation ended by setting the "export" field as True, as shown in the following example. This field is not mandatory, thus if only
-  "all answered" is defined, the export field is set as False by default.
-    When all answered is set, conversations are regulated with a loop break based on the chatbot's fallback message in order to avoid infinite loops when the chatbot does 
+  "all_answered" is defined, the export field is set as False by default.
+    When all_answered is set, conversations are regulated with a loop break based on the chatbot's fallback message in order to avoid infinite loops when the chatbot does 
   not know how to answer to several questions made by the user. But, in some cases, this loop break can be dodged due to hallucinations from the chatbot, leading to
   irrelevant and extremely long conversations. To avoid this, a "limit" parameter is implemented in order to give the tester the possibility to stop the conversation
   after a specific amount of interactions in case the loop break was not triggered before or all queries were not answered. This parameter is not mandatory neither and will
   be set to 30 interactions by default.
   ```
   goal_style:
-    all answered:
+    all_answered:
       export: True
       limit: 20
   ```
-  - default: the default mode enables "all answered" mode with 'export' set as False and 'limit' set to 30, since no steps are defined.
+  - default: the default mode enables "all_answered" mode with 'export' set as False and 'limit' set to 30, since no steps are defined.
 - interaction_style: this indicates how the user simulator should carry out the conversation. There are 7 options in this update
   - long phrase: the user will use very long phrases to write any query.
   - change your mind: the user will change its mind eventually. Useful in conversations when the user has to

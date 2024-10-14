@@ -91,7 +91,8 @@ def read_yaml(file):
 
 def generate_serial():
     now = datetime.now()
-    serial = datetime.now().strftime("%Y%m%d%H%M%S") + f"{now.microsecond // 1000:03d}"
+    # serial = datetime.now().strftime("%Y%m%d%H%M%S") + f"{now.microsecond // 1000:03d}"
+    serial = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     return serial
 
 

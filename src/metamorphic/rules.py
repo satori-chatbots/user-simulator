@@ -5,7 +5,8 @@ from types import SimpleNamespace
 from . import get_filtered_tests, empty_filtered_tests
 from .rule_utils import *
 
-from .rule_utils import filtered_tests, _conversation_length, extract_float, _only_talks_about, _utterance_index
+# Do not remove this import, it is used to dynamically import the functions
+from .rule_utils import filtered_tests, _conversation_length, extract_float, _only_talks_about, _utterance_index, _data_collected
 from metamorphic.tests import Test
 
 
@@ -161,7 +162,6 @@ def _eval(**kwargs):
     return {self.then}
         """
         local_namespace = {}
-
         exec(code, globals(), local_namespace)
         self._eval = local_namespace['_eval']
         return self._eval(**test_dict)

@@ -135,7 +135,7 @@ class UserGeneration:
             logger.info('Loop count surpassed 9 interactions. Ending conversation.')
             return True
 
-        elif 'all answered' in self.goal_style[0] or 'default' in self.goal_style[0]:
+        elif 'all_answered' in self.goal_style[0] or 'default' in self.goal_style[0]:
             if (self.data_gathering.gathering_register["verification"].all()
                     or self.goal_style[2] <= self.interaction_count):
                 logger.info(f'limit amount of interactions achieved: {self.goal_style[2]}. Ending conversation.')

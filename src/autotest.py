@@ -1,14 +1,7 @@
 import timeit
 from argparse import ArgumentParser
-from datetime import timedelta
 from user_sim.utils.config import errors
-import pandas as pd
-import uuid
-import requests
-
-
 from colorama import Fore, Style
-
 from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *

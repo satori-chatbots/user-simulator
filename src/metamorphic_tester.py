@@ -13,11 +13,14 @@ from metamorphic.tests import Test
 from user_sim.utils.utilities import check_keys
 
 
-def __get_object_from_yaml_files(directory, operation, name):
+def __get_object_from_yaml_files(file_or_dir, operation, name):
     objects = []
-    #yaml_files = glob.glob(os.path.join(directory, '*.yaml')) + glob.glob(os.path.join(directory, '*.yml'))
-    directory = Path(directory)
-    yaml_files = list(directory.rglob('*.yaml')) + list(directory.rglob('*.yml'))
+    if os.path.isfile(file_or_dir):
+        yaml_files = [file_or_dir]
+    else:
+        yaml_files = (glob.glob(os.path.join(file_or_dir, '**/*.yaml'), recursive=True) +
+                      glob.glob(os.path.join(file_or_dir, '**/*.yml'), recursive=True))
+
     for file_path in yaml_files:
         with open(file_path, 'r', encoding='utf-8') as file:
             if name=='rule':
@@ -48,8 +51,9 @@ def check_rules(rules, conversations, verbose, csv_file):
     :raises ValueError when paths rules or conversations do not exist
     """
     for folder in [rules, conversations]:
-        if not os.path.isdir(folder):
-            raise ValueError(f"Folder {folder} does not exist.")
+        if not os.path.exists(folder):
+            raise ValueError(f"Invalid path: {folder}.")
+
     print(f"Testing rules at {rules} into conversations at {conversations}")
     rules = get_rules_from_yaml_files(rules)
     rules = [rule for rule in rules if rule.active] # filter the inactive rules

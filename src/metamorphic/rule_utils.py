@@ -24,6 +24,7 @@ def util_functions_to_dict() -> dict:
             'is_unique': is_unique,
             'exists': exists,
             'num_exist': num_exist,
+            '_data_collected': _data_collected,
             '_utterance_index': _utterance_index,
             '_conversation_length': _conversation_length,
             '_chatbot_returns': _chatbot_returns,
@@ -40,6 +41,8 @@ def util_to_wrapper_dict() -> dict:
             "    def chatbot_returns(what):\n        return _chatbot_returns(what, interaction)\n",
             '_repeated_answers':
                 "    def repeated_answers():\n        return _repeated_answers(interaction)\n"
+            '_data_collected':
+                "    def data_collected():\n        return _data_collected(conv)\n"
             }
 
 def _repeated_answers(interaction):
@@ -93,6 +96,14 @@ def _conversation_length(interaction, who = 'both'):
                 if key.lower() == who:
                     number += 1
         return number
+
+def _data_collected(conv):
+    outputs = conv[0].data_output
+    for data in outputs:
+        for key, value in data.items():
+            if value is None or value == 'None':
+                return False
+    return True
 
 def interaction_to_str(interaction, numbered=False):
     result = ''

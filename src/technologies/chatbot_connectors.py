@@ -35,7 +35,8 @@ class ChatbotRasa(Chatbot):
         post_response = requests.post(self.url, json=new_data)
         post_response_json = post_response.json()
         if len(post_response_json) > 0:
-            return True, post_response_json[0].get('text')
+            message = '\n'.join([r.get('text') for r in post_response_json])
+            return True, message
         else:
             return True, ''
 

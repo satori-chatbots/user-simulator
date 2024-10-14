@@ -18,7 +18,7 @@ context:
   - Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la universidad
 
 ask_about:
-  - "como usar la dirección de correo de la UAM"
+  - "Que es el doble factor de autentificacion"
   - "como contactar con el CAU para ayuda en persona"
 
 output:

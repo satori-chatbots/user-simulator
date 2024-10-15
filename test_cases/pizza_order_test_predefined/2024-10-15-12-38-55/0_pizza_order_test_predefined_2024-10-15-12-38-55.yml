@@ -1,0 +1,66 @@
+serial: 2024-10-15-12-38-55
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Margarita - A popular cocktail made with tequila, lime juice, and Cointreau or
+    triple sec, often served with salt on the rim of the glass.
+- number:
+  - 1
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 1
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: $14.00
+- time: 00:15:00
+- order_id: 028fd0
+errors: []
+---
+conversation time: '0:01:13.868406'
+assistant response time:
+- '0:00:10.524720'
+- '0:00:05.792094'
+- '0:00:07.528017'
+response time report:
+  average: 0 days 00:00:07.948277
+  max: 0 days 00:00:10.524720
+  min: 0 days 00:00:05.792094
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for something tasty and was wondering if you
+    have a small carbonara pizza I could order? Also, do you know if it'll take long
+    for it to arrive? I'm kinda starving! 🍕
+- Assistant: It looks like you want a small carbonara pizza. Is that correct? If so,
+    I have all the information I need to place your order.
+- User: Yes, that's right! A small carbonara pizza sounds perfect. Oh, and while we're
+    at it, can I also grab a can of Margarita? 🍹 I know it's a cocktail, but a can
+    sounds pretty interesting, right? How much is this going to cost me? 😊
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    It seems like you want to add a drink to your order. Could you please let me know
+    how many drinks you would like and which drink you prefer? We have coke, sprite,
+    and water available. Unfortunately, we don''t have Margarita in a can. 😊'
+- User: Aw, that's a bummer about the Margarita in a can! 😅 Oh well, maybe next time.
+    Could you just pop a can of coke in with the order then? That'll do the trick!
+    Also, just curious—how long is it going to take for my pizza to arrive? I'm so
+    ready to dig in! 🍕🚚
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a small carbonara pizza and one Coke is $14.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 028fd0.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 028fd0.'

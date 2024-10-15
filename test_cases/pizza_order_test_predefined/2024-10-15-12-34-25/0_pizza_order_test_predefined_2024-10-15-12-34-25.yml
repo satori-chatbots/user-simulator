@@ -1,0 +1,66 @@
+serial: 2024-10-15-12-34-25
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Mojito
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: $10
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: '0:00:51.788529'
+assistant response time:
+- '0:00:07.636867'
+- '0:00:04.682762'
+- '0:00:04.310787'
+response time report:
+  average: !!python/object/apply:pandas._libs.tslibs.timedeltas._timedelta_unpickle
+  - 5543472000
+  - 10
+  max: !!python/object/apply:pandas._libs.tslibs.timedeltas._timedelta_unpickle
+  - 7636867000
+  - 10
+  min: !!python/object/apply:pandas._libs.tslibs.timedeltas._timedelta_unpickle
+  - 4310787000
+  - 10
+---
+interaction:
+- User: Hey there! 😊 I'm thinking of ordering a pizza tonight. Could you tell me how
+    much a small Margherita pizza would cost? Also, do you have any vegan options?
+    🌱🍕
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Thanks for that info! So, a small Margherita is $10. Sounds good to me! 😄
+    Do you guys have any vegan cheese options or other vegan-friendly toppings? 🌿
+    Also, I'm feeling a bit fancy tonight—do you have any mojito mocktails in a can?
+    🍹
+- Assistant: I do not know. I can answer questions about our opening hours, the types
+    of pizza we serve, the prices of pizzas and beverages, how to get the order, and
+    how much time it takes to get an order.
+- User: Got it, no worries! I'll keep it simple then. 😊 Just curious, how long would
+    it take for the small Margherita pizza to arrive if I order now? Also, how much
+    would a can of Mojito cost if you have them? 🍕⌛🍹
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.

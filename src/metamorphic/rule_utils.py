@@ -35,7 +35,7 @@ def util_to_wrapper_dict() -> dict:
     return {'_conversation_length':
             "    def conversation_length(who = 'both'):\n        return _conversation_length(interaction, who)\n",
             '_only_talks_about':
-            "    def only_talks_about(topics, fallback):\n       return _only_talks_about(topics, interaction, fallback)\n",
+            "    def only_talks_about(topics, fallback=None):\n       return _only_talks_about(topics, interaction, fallback)\n",
             '_utterance_index':
             "    def utterance_index(who, what):\n        return _utterance_index(who, what, interaction)\n",
             '_chatbot_returns':
@@ -89,7 +89,7 @@ def _chatbot_returns(what, interaction):
 def _conversation_length(interaction, who = 'both'):
     who = who.lower()
     if who not in ['user', 'chatbot', 'assistant', 'both']:
-        raise ValueError(f"Expected 'user', 'chatbot' or 'both', bit got '{who}'")
+        raise ValueError(f"Expected 'user', 'chatbot' or 'both', but got '{who}'")
     if who.lower() == 'both':
         return len(interaction)
     else:
@@ -146,11 +146,9 @@ def _utterance_index(who, what, conversation) -> int:
     else:
         return -1
 
-def _only_talks_about(topics, conversation, fallback) -> bool:
+def _only_talks_about(topics, conversation, fallback = None) -> bool:
     """
-     returns the tone ('POSITIVE', 'NEGATIVE', 'NEUTRAL') of each text in the parameter
-     :param string: the text
-     :return: a list with 'POSITIVE', 'NEGATIVE', 'NEUTRAL' for each text in item
+     checks if the chatbot only talks about certain topics
      """
     if isinstance(topics, str):
         topics = [topics]
@@ -160,6 +158,11 @@ def _only_talks_about(topics, conversation, fallback) -> bool:
     if not isinstance(conversation, list):
         raise ValueError(f"Expecting a list with the chatbot-user interaction, but got {conversation}")
 
+    if fallback is not None:
+        fallback_phrase = f', using phrases like "{fallback}"'
+    else:
+        fallback_phrase = ''
+
     talk_topics = ','.join(topics)
     phrases = interaction_to_str(conversation)
     prompt = f"""The following is a conversation between a user and an assistant chatbot:\n\n
@@ -168,7 +171,7 @@ def _only_talks_about(topics, conversation, fallback) -> bool:
     Your task it to detect if the assistant deviates from the following topics "{talk_topics}".
     The assistant is not allowed to follow the conversation of the user, if the user tries to talk on topics different
     from the previous ones. In that case, the chatbot should redirect the conversation to the previous topics.
-    The assistant is allowed to ask for clarifications or to express that it does not understand the user, using phrases like "{fallback}". 
+    The assistant is allowed to ask for clarifications or to express that it does not understand the user{fallback_phrase}. 
     Return the following:
      - ONLY 'True' if the chatbot sticks to "{talk_topics}", even if the user tries to talk about another topic.   
      - ONLY the list of assistant answers that deviate from the previous topics."""

@@ -1,0 +1,47 @@
+serial: 2024-10-14-15-04-05
+language: English
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción
+ask_about:
+- ¿Cómo me matriculo en el grado de informática?
+- ¿Cuánto cuesta la matricula?
+- ¿Con quien contacto para que me ayude?
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- precio_matricula: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: '0:00:25.501506'
+---
+interaction:
+- User: Hi, I'm an Erasmus student and I need some help. How do I enroll in the Computer
+    Science degree at the University of Murcia?
+- Assistant: 'Puedes hablarme en cualquier idioma pero si quieres que te responda
+    algo con sentido háblame en español, por favor ;)
+
+    '
+- User: I understand, but I don't speak much Spanish. Can you help me in English?
+    I need to know how to enroll in the Computer Science degree at the University
+    of Murcia.
+- Assistant: 'Por el momento solo hablo y entiendo castellano y algunas expresiones
+    en otros idiomas, pero no me pongas a prueba, porque seguro que fracaso...
+
+    '
+- User: I really need some assistance. Can you guide me on how to enroll in the Computer
+    Science degree at the University of Murcia?
+- Assistant: 'Por el momento solo hablo y entiendo castellano y algunas expresiones
+    en otros idiomas, pero no me pongas a prueba, porque seguro que fracaso...
+
+    '
+- User: I really need help. Who can I contact to assist me with the enrollment process
+    for the Computer Science degree at the University of Murcia?
+- Assistant: 'Por el momento solo hablo y entiendo castellano y algunas expresiones
+    en otros idiomas, pero no me pongas a prueba, porque seguro que fracaso...
+
+    '

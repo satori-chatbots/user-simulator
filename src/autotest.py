@@ -2,7 +2,8 @@ import time
 import timeit
 from argparse import ArgumentParser
 from colorama import Fore, Style
-from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam
+from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot, \
+    ChatbotLolaUMU
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
 from user_sim.user_simulator import UserGeneration
@@ -121,7 +122,9 @@ def build_chatbot(technology, chatbot) -> Chatbot:
     chatbot_builder = {
         'rasa': ChatbotRasa,
         'taskyto': ChatbotTaskyto,
-        'ada-uam': ChatbotAdaUam
+        'ada-uam': ChatbotAdaUam,
+        'millionbot': ChatbotMillionBot,
+        'lola': ChatbotLolaUMU
     }
     if technology in chatbot_builder:
         return chatbot_builder[technology](chatbot)
@@ -215,7 +218,7 @@ def generate(technology, chatbot, user, personality, extract):
 
 if __name__ == '__main__':
     parser = ArgumentParser(description='Conversation generator for a chatbot')
-    parser.add_argument('--technology', required=True, choices=['rasa', 'taskyto', 'ada-uam'],
+    parser.add_argument('--technology', required=True, choices=['rasa', 'taskyto', 'ada-uam', 'millionbot', 'lola'],
                         help='Technology the chatbot is implemented in')
     parser.add_argument('--chatbot', required=True, help='URL where the chatbot is deployed')
     parser.add_argument('--user', required=True, help='User profile to test the chatbot')

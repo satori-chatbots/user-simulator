@@ -1,0 +1,89 @@
+serial: 2024-10-14-15-41-40
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+ask_about:
+- ¿Qué grados hay relacionados con la ingeniería en la UMU?
+- ¿Cuánto cuesta la matricula en el grado de telecomunicación?
+- ¿Se puede empezar el curso en el segundo cuatrimestre?
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- precio_matricula: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: '0:00:42.624355'
+---
+interaction:
+- User: Hola, estoy buscando información sobre los grados en ingeniería que ofrece
+    la Universidad de Murcia. ¿Alguien sabe cuáles están disponibles?
+- Assistant: 'Disculpa ahora mismo no puedo atender esa consulta. Visita la web de
+    la universidad para más información.
+
+    '
+- User: Creo que me confundí un poco. Volviendo a lo que preguntaba, ¿alguien tiene
+    idea de cuánto cuesta la matrícula para el grado de telecomunicaciones en la UMU?
+    He estado tratando de averiguarlo pero no encuentro la información precisa.
+- Assistant: '<p>El precio del crédito varía en función del grado de experimentalidad
+    que tenga el grado universitario y del número de créditos.</p>
+
+    <p>A continuación te facilito un enlace a nuestra calculadora de matrícula, y
+    otro de los precios públicos del curso 2023/2024, para que puedas hacerte una
+    idea.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>Calculadora de matrícula</p> LINK: https://www.um.es/web/estudios/calculadora-matricula
+
+    - BUTTON TEXT: <p>Precios públicos 23/24</p> LINK: https://www.um.es/documents/1083928/40671729/Orden_precios_publicos_2023-2024.pdf/a53add0f-525f-10e2-957d-74a6846a5539?t=1707822773896
+
+    '
+- User: Vale, gracias. Creo que esos enlaces me ayudarán a aclarar las dudas sobre
+    el coste. Otra cosa, ¿es posible comenzar el curso en el segundo cuatrimestre,
+    o solo se puede empezar en septiembre?
+- Assistant: 'Con carácter general las clases para primer curso de estudios de grado
+    comienzan el día 11 de septiembre de 2023, aunque puede ser que alguna facultad
+    comience antes o después. Para confirmar tu comienzo de clases contacta con la
+    secretaría de tu Centro.
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: Calendario académico 23/24 LINK: https://www.um.es/documents/1073494/2696667/CALENDARIO+ACAD%C3%89MICO+2023-2024_web.pdf/5a6eb116-4b5d-df11-9dcf-6d5dc88f5302?t=1678782105783
+
+    '
+- User: Entiendo, entonces parece que tendría que empezar en septiembre. Una última
+    duda, ¿hay alguna manera de obtener más información sobre las becas disponibles
+    para estudiantes de nuevo ingreso en la UMU?
+- Assistant: 'Según la convocatoria actual de la beca del Ministerio de Educación
+    y Formación Profesional, <b>además de los requisitos de matriculación, para obtener
+    beca es necesario un rendimiento académico en el curso anterior</b>. En el primer
+    curso será necesario 5 puntos de nota de acceso a la Universidad (el 60% la nota
+    de bachillerato + el 40% la nota de la fase general de la EBAU.)
+
+    '
+- User: Vaya, parece que necesitaré tener en cuenta mi rendimiento académico si quiero
+    optar a una beca. ¿Sabes si hay otras becas específicas de la UMU para estudiantes
+    de nuevo ingreso, aparte de las del Ministerio?
+- Assistant: 'Según la convocatoria actual de la beca del Ministerio de Educación
+    y Formación Profesional, <b>además de los requisitos de matriculación, para obtener
+    beca es necesario un rendimiento académico en el curso anterior</b>. En el primer
+    curso será necesario 5 puntos de nota de acceso a la Universidad (el 60% la nota
+    de bachillerato + el 40% la nota de la fase general de la EBAU.)
+
+    '
+- User: ¿Entonces, no hay becas específicas de la UMU aparte de las del Ministerio?
+    Me gustaría saber si hay alguna otra opción de ayuda financiera que pueda solicitar.
+- Assistant: 'No tengo la menor idea, para qué mentirte.
+
+    '

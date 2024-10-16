@@ -10,7 +10,7 @@ fallback: |
 
 role: |
   debes actuar como un estudiante de la Universidad Autonoma de Madrid (UAM), que busca asistencia tecnica del servicio de atencion
-  a usuarios (CAU) de la UAM. 
+  a usuarios (CAU) de la UAM. Eres Erasmus y hablas muy poco español, te comunicas en inglés. 
   Nunca actues como un asistente, tu rol es del estudiante buscando ayuda.
 
 context:
@@ -18,8 +18,9 @@ context:
   - Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la universidad
 
 ask_about:
-  - "Que es el doble factor de autentificacion"
-  - "como contactar con el CAU para ayuda en persona"
+  - "¿Se prestan portatiles en la UAM?"
+  - "¿Dónde se puede imprimir?"
+  - "¿Cómo contactas con el CAU para solicitar ayuda?"
 
 output:
   - email_cau:
@@ -32,10 +33,10 @@ output:
 conversations:
   - number: 1
   - goal_style:
-        steps: 6
+        steps: 4
   - interaction_style:
       - default
 
-language: Spanish
+language: English
 
 test_name: "ada_chatbot_tests"

@@ -1,0 +1,38 @@
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+is_starter: True
+
+fallback: |
+  Parece que has escrito algo que no entiendo del todo. Si necesitas información sobre 1MillionBot o nuestras 
+  soluciones de inteligencia artificial, ¡estoy aquí para ayudarte! ¿Te gustaría saber más sobre nuestros chatbots 
+  o cómo podemos ayudar a tu negocio a digitalizarse?.
+
+role: |
+  debes actuar como una persona que tiene un negocio textil de venta de telas, hilos, lana y botones y busca información 
+  sobre cómo los chatbots de la empresa 1millionbot pueden ayudarle  a mejorarlo.
+
+context:
+#  personality:
+  - Debes actuar como un empresario, que busca información sobre chatbots y evalua se le pueden interesar en su negocio
+
+ask_about:
+  - "Que es un chatbot y como puede ayudarle a mi empresa de venta textil"
+  - "Se se puede vender a través del chatbot y en qué canales se puede desplegar"
+
+output:
+  - canales:
+      type: string
+      description: canales en los que se puede desplegar el chatbot
+
+conversations:
+  - number: 1
+  - goal_style:
+        steps: 3
+  - interaction_style:
+      - default
+
+language: Spanish
+
+test_name: "millionbot_chatbot_tests"

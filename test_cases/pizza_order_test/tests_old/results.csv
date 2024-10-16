@@ -1,2 +1,2 @@
 rule,checks,pass,fail,not_applicable,fail_rate
-only_talks_about_pizzas,4,4,0,0,0.00%
+conversation_lengths,3,3,0,0,0.0

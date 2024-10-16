@@ -1,6 +1,9 @@
 import time
 import timeit
 from argparse import ArgumentParser
+
+import pandas as pd
+import yaml
 from colorama import Fore, Style
 from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot, \
     ChatbotLolaUMU
@@ -131,13 +134,14 @@ def build_chatbot(technology, chatbot) -> Chatbot:
     else:
         return default(chatbot)
 
+
 def generate(technology, chatbot, user, personality, extract):
     profiles = parse_profiles(user)
 
     for profile in profiles:
         user_profile = RoleData(profile, personality)
         serial = generate_serial()
-
+        test_name = user_profile.test_name
         start_time_test = timeit.default_timer()
         for i in range(user_profile.conversation_number):
             start_time_conversation = timeit.default_timer()
@@ -155,7 +159,7 @@ def generate(technology, chatbot, user, personality, extract):
                     start_response_time = timeit.default_timer()
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
                     end_response_time = timeit.default_timer()
-                    response_time.append(str(timedelta(seconds=end_response_time-start_response_time)))
+                    response_time.append(str(timedelta(seconds=end_response_time - start_response_time)))
 
                     if not is_ok:
                         # logging.getLogger().verbose('The server cut the conversation. End.')
@@ -178,7 +182,7 @@ def generate(technology, chatbot, user, personality, extract):
                     start_response_time = timeit.default_timer()
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
                     end_response_time = timeit.default_timer()
-                    response_time.append(str(timedelta(seconds=end_response_time-start_response_time)))
+                    response_time.append(str(timedelta(seconds=end_response_time - start_response_time)))
 
                     if response == 'timeout':
                         break
@@ -195,14 +199,12 @@ def generate(technology, chatbot, user, personality, extract):
             if extract:
                 history = the_user.conversation_history
                 metadata = get_conversation_metadata(user_profile, the_user, serial)
-                test_name = user_profile.test_name
+
 
                 end_time_conversation = timeit.default_timer()
                 conversation_time = end_time_conversation - start_time_conversation
                 formatted_time_conv = str(timedelta(seconds=conversation_time))
                 print(f"Conversation Time: {formatted_time_conv}")
-
-
 
                 user_profile.reset_attributes()
                 dg_dataframe = the_user.data_gathering.gathering_register
@@ -216,6 +218,9 @@ def generate(technology, chatbot, user, personality, extract):
         formatted_time = str(timedelta(seconds=execution_time))
         print(f"Execution Time: {formatted_time}")
 
+        show_stats(extract,test_name, serial)
+
+
 if __name__ == '__main__':
     parser = ArgumentParser(description='Conversation generator for a chatbot')
     parser.add_argument('--technology', required=True, choices=['rasa', 'taskyto', 'ada-uam', 'millionbot', 'lola'],
@@ -226,14 +231,6 @@ if __name__ == '__main__':
     parser.add_argument("--extract", default=False, help='Path to store conversation user-chatbot')
     parser.add_argument('--verbose', action='store_true', help='Shows debug prints')
     args = parser.parse_args()
-
-    # logging_level = VERBOSE_LEVEL_NUM if args.verbose else logging.INFO
-    # if args.verbose:
-    #     logging_level = VERBOSE_LEVEL_NUM
-    #     logging.basicConfig(level=logging_level, format='%(asc_time)s - %(level_name)s - %(message)s')
-    #
-    # logging.debug(f"Received arguments: {args}")
-    # logging.getLogger().verbose('verbose enabled')
 
     logger = create_logger(args.verbose, 'Info Logger')
     logger.info('Logs enabled!')

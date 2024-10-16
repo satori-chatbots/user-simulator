@@ -1,0 +1,103 @@
+serial: 2024-10-16-12-50-58
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 3
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: 00:30:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:01:03.071471'
+assistant response time:
+- '0:00:07.415988'
+- '0:00:04.214560'
+- '0:00:04.340572'
+- '0:00:04.946817'
+- '0:00:04.777729'
+response time report:
+  average: 5.139133
+  max: 7.4159880000000005
+  min: 4.21456
+---
+interaction:
+- User: Hi there! 😊 I'm feeling a bit peckish and I was wondering if I could get a
+    small marinara pizza. It's hard finding good vegan options sometimes, you know?
+    Also, I'm in the mood for something fizzy, so could I add 3 cans of Sprite to
+    my order? Oh, and I’m curious, how long do you think it’ll take for the pizza
+    to arrive? Would love to know what I'm in for! 🍕🚀
+- Assistant: Thank you for providing the pizza size and type. You have ordered a small
+    marinara pizza. If you need anything else, feel free to let me know!
+- User: Sounds good! 😊 Just curious, do you guys have any favorite menu items? Maybe
+    there's something else vegan I should try next time? And oh, I'm still wondering
+    about how much the whole order will cost. Could you help me with that? 💸
+- Assistant: 'At Fast Pizza, our vegetarian pizza is a popular choice among our vegan
+    customers. It''s loaded with fresh veggies and is a delicious option to try next
+    time! 😊
+
+
+    Regarding the cost of your order, I currently don''t have access to pricing information.
+    I recommend checking our website or contacting the store directly for the most
+    accurate pricing details. If you have any other questions or need further assistance,
+    feel free to ask!'
+- User: Thanks for the recommendation! I'll definitely keep the vegetarian pizza in
+    mind for next time. 🌱 By the way, do you have a personal favorite pizza topping
+    combo? I'm always on the lookout for new ideas to spice things up! Oh, and about
+    the delivery time, do you happen to know how long it'll take for my order to arrive?
+    Just trying to plan my evening a bit. 😊⏰
+- Assistant: 'I''m glad you''re considering the vegetarian pizza for next time! As
+    for my personal favorite topping combo, I think a mix of mushrooms, olives, and
+    bell peppers can really add a nice touch to any pizza. 🍄🫒🌶️
+
+
+    Regarding the delivery time, it usually takes about 30 to 45 minutes for orders
+    to arrive, depending on your location and the current demand. If you have any
+    more questions or need further assistance, feel free to ask! 😊'
+- User: 'Mushrooms, olives, and bell peppers sound like a tasty combo! I might just
+    try that next time. 🍕✨ And 30 to 45 minutes isn''t too bad at all—plenty of time
+    to catch up on a show or two while I wait! 📺
+
+
+    By the way, do you have any go-to movie or TV show recommendations for a cozy
+    night in with pizza? 🍿 I''m always looking for something new to watch!'
+- Assistant: Mushrooms, olives, and bell peppers do make a delicious combo! For a
+    cozy night in with pizza, I'd recommend watching a classic like "The Princess
+    Bride" for some light-hearted fun, or if you're in the mood for a series, "Stranger
+    Things" is always a thrilling choice. Enjoy your pizza and your show! 🍕📺 If you
+    have any more questions or need further assistance, feel free to ask!
+- User: 'Thanks for the recommendations! "The Princess Bride" is such a classic, and
+    I''ve been meaning to catch up on "Stranger Things." Perfect choices for a pizza
+    night in. 😄🍕
+
+
+    Oh, just out of curiosity, do you guys have any interesting stories or fun facts
+    about the pizza-making process? I''m always fascinated by what goes on behind
+    the scenes! 🍕👀'
+- Assistant: 'Sure! Here''s a fun fact about the pizza-making process: Did you know
+    that the art of tossing pizza dough isn''t just for show? It actually helps to
+    evenly distribute the dough and create a perfect crust. The spinning motion uses
+    centrifugal force to stretch the dough, making it thin in the center and thicker
+    at the edges, which is ideal for holding all those delicious toppings. Plus, it
+    looks pretty impressive too! 🍕👨‍🍳
+
+
+    If you have any more questions or need further assistance, feel free to ask! 😊'

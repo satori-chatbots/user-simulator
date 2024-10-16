@@ -1,0 +1,84 @@
+serial: 2024-10-16-12-39-24
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Pepsi
+- number:
+  - 1
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:01:11.423111'
+assistant response time:
+- '0:00:08.376335'
+- '0:00:05.210349'
+- '0:00:03.864720'
+- '0:00:04.004416'
+- '0:00:05.674998'
+response time report:
+  average: 5.426163
+  max: 8.376335
+  min: 3.86472
+---
+interaction:
+- User: Hey there! 😊 I'm feeling a bit peckish today. Thinking about ordering a small
+    marinara pizza. Do you guys have that on the menu? 🍕 Also, do you have any Pepsi
+    cans? I'm craving some fizzy goodness! 🥤
+- Assistant: Thank you for providing the pizza size and type. You have ordered a small
+    marinara pizza. If you need anything else, feel free to let me know!
+- User: Oh, awesome! 😊 I'm glad you have the small marinara pizza. How about the Pepsi?
+    Do you have cans of that fizzy goodness? 🥤 Also, just curious, how long will it
+    take for the pizza to arrive? I'm pretty hungry, haha! 🍕
+- Assistant: I'm glad you're excited about the small marinara pizza! 😊 Unfortunately,
+    I can only assist with pizza orders at the moment, so I can't provide information
+    about drinks like Pepsi. As for the delivery time, it typically takes about 30-45
+    minutes for the pizza to arrive, depending on your location and current demand.
+    If you have any other questions or need further assistance, feel free to ask!
+    🍕
+- User: Bummer about the Pepsi, but that delivery time sounds pretty reasonable! 🍕⏰
+    I can hardly wait. Do you know how much the pizza is going to cost? I've got to
+    make sure my wallet's ready for the deliciousness. 😂 Also, do you guys have any
+    interesting toppings I could add to the marinara, just to spice things up a bit?
+    🌶️
+- Assistant: I'm here to help with your pizza order, but I don't have information
+    on the cost or additional toppings. I recommend checking with the shop directly
+    for pricing and available toppings. If you have any other questions or need further
+    assistance, feel free to ask!
+- User: No worries, I'll check with the shop about the toppings and price. 😄 Maybe
+    they'll have some fun options to jazz up the marinara! Do you have any favorite
+    toppings, by the way? I'm always curious about what people like on their pizza.
+    🍕✨
+- Assistant: I'm here to assist with your pizza order, but I don't have personal preferences
+    or favorite toppings. However, some popular toppings people enjoy include pepperoni,
+    mushrooms, olives, and bell peppers. Feel free to get creative with your choices!
+    If you have any other questions or need further assistance, just let me know.
+    Enjoy your pizza! 🍕
+- User: Thanks! I'll definitely consider those options—maybe some mushrooms or olives
+    could be a fun twist! 🍄🫒 Speaking of favorites, do you have any go-to food combos
+    or fun facts about pizza that you can share? I'm always up for learning something
+    new or hearing quirky stories! 😄🍕
+- Assistant: I'm glad you're considering mushrooms and olives; they can definitely
+    add a nice twist to your pizza! As for fun facts, did you know that the world's
+    largest pizza was made in Rome, Italy, in 2012? It was gluten-free and measured
+    over 13,500 square feet! 🍕😲 As for food combos, a classic favorite is pairing
+    pizza with a nice salad or some garlic bread. If you have any other questions
+    or need more pizza fun facts, feel free to ask!

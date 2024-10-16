@@ -1,0 +1,62 @@
+serial: 2024-10-16-13-02-24
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Fanta
+- number:
+  - 5
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:47.956014'
+assistant response time:
+- '0:00:06.202946'
+- '0:00:03.278486'
+- '0:00:03.140369'
+- '0:00:03.299988'
+- '0:00:03.239907'
+response time report:
+  average: 3.832339
+  max: 6.202946
+  min: 3.140369
+---
+interaction:
+- User: Hey there! 👋 I'm craving something delicious today. Could you tell me about
+    your small BBQ pizza? 🍕 What's on it? Also, any chance you guys have Fanta? I'm
+    thinking about grabbing a few cans. 😄
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey there! 😊 So, I'm really in the mood for a small BBQ pizza, and I'm curious
+    about what toppings you guys put on it. Also, I'm a huge fan of Fanta – do you
+    have any in stock? Maybe like five cans? 😋
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey! 😊 I'm trying to order a small BBQ pizza, and I'm super curious about
+    the toppings you guys have on it. Also, I'm a Fanta fanatic—do you have five cans
+    available? 🥤😄
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey again! 😅 I'm really eager to order a small BBQ pizza. Could you share
+    what's on it? Also, I'm totally craving some Fanta. Do you guys have like five
+    cans? Just checking! 🥤😄
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey there! So, I'm on a mission to get a small BBQ pizza today. I just need
+    to know what kind of toppings you guys put on it. 🍕 Also, Fanta is like my go-to
+    drink! Do you have five cans available? 🥤😅
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

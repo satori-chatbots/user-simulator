@@ -1,0 +1,78 @@
+serial: 2024-10-16-12-50-58
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Mai Tai
+- number:
+  - 5
+- size: small
+- pizza_type: four cheese
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $19.50
+- time: 00:15:00
+- order_id: c9518d
+errors: []
+---
+conversation time: '0:00:58.737462'
+assistant response time:
+- '0:00:08.201993'
+- '0:00:05.603729'
+- '0:00:05.833459'
+- '0:00:03.245233'
+- '0:00:03.234481'
+response time report:
+  average: 5.223779
+  max: 8.201993
+  min: 3.234481
+---
+interaction:
+- User: Hey there! 😊 I'm thinking of ordering a small four cheese pizza. Do you guys
+    have that? Also, what kind of drinks do you have? I'm in the mood for something
+    fun like a Mai Tai. 🍹
+- Assistant: It looks like you've already chosen a small four cheese pizza. Is there
+    anything else I can assist you with?
+- User: Hey again! 😊 Yep, a small four cheese pizza sounds perfect. I was also wondering
+    if I could get 5 cans of Mai Tai with that? How long do you think it'll take for
+    the pizza to arrive? And how much will it all cost? Just trying to plan my chill
+    night in! 🍕🍹 Oh, by the way, are you a fan of pizza too?
+- Assistant: 'Thanks for ordering a small four cheese pizza!
+
+    It seems like you want to order some drinks with your pizza. However, we only
+    offer coke, sprite, and water. Could you please let me know which drink you''d
+    like and how many? 😊'
+- User: Oh, bummer! 😅 I was really looking forward to those Mai Tais. I guess I’ll
+    go with 5 cans of Sprite then. How long do you think it'll take for the pizza
+    to arrive? Just trying to plan my cozy night in. Also, out of curiosity, what's
+    your favorite pizza topping? 🍕
+- Assistant: 'Alright, I have received your order for 5 Sprite.
+
+    The cost for a small four-cheese pizza and five Sprites is $19.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c9518d.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c9518d.'
+- User: Oh, cool! I'll head over to pick it up soon. 😊 Thanks for letting me know.
+    By the way, do you have any favorite pizza toppings? I'm always curious about
+    people's tastes! 🍕 Also, do you ever get to try different food combos, like pineapple
+    on pizza? 🍍 Just wondering!
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Sure thing! 😊 I was just curious about your favorite pizza toppings. Do you
+    have any particular ones you like? Also, have you ever tried any interesting or
+    unusual food combos, like pineapple on pizza? 🍍 Just curious about your taste
+    buds!
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

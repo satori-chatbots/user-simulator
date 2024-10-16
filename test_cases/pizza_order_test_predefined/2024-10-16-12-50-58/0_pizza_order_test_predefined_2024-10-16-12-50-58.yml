@@ -1,0 +1,63 @@
+serial: 2024-10-16-12-50-58
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Pepsi
+- number:
+  - 1
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:41.054794'
+assistant response time:
+- '0:00:06.200091'
+- '0:00:03.225874'
+- '0:00:03.033131'
+- '0:00:03.089508'
+- '0:00:03.208790'
+response time report:
+  average: 3.751478
+  max: 6.200091
+  min: 3.033131
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a small BBQ pizza. Do you guys have
+    something like that on the menu? Also, I could really go for a can of Pepsi right
+    now. How’s your day going, by the way?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey there! 😊 I was just wondering if you have a small BBQ pizza on the menu?
+    Oh, and I'd love a can of Pepsi too. How’s your day going, by the way?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey again! 😊 Just checking if you have a small BBQ pizza on the menu. And
+    I could really use a can of Pepsi to go with it. Also, just curious, how long
+    do you think it would take for the pizza to arrive? How's your day treating you?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey! 😊 Hope you’re doing well. So, I’ve got a craving for a small BBQ pizza.
+    Do you have that? And a can of Pepsi would be perfect to wash it down! Any idea
+    how long it would take to get that delivered? Also, just curious, what’s your
+    favorite pizza? 🍕
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey there! 😊 I’m really in the mood for a small BBQ pizza today. Do you guys
+    have that on the menu? And could I grab a can of Pepsi with it too? By the way,
+    how long do you think it would take for the pizza to arrive? Also, just for fun,
+    what’s your favorite pizza? 🍕
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

@@ -1,0 +1,75 @@
+serial: 2024-10-16-13-02-24
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 3
+- size: small
+- pizza_type: pepperoni
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $14.50
+- time: 00:15:00
+- order_id: d7907b
+errors: []
+---
+conversation time: '0:00:56.650583'
+assistant response time:
+- '0:00:08.318825'
+- '0:00:05.991233'
+- '0:00:04.516492'
+- '0:00:03.410884'
+- '0:00:03.396844'
+response time report:
+  average: 5.126855
+  max: 8.318825
+  min: 3.3968439999999998
+---
+interaction:
+- User: Hey there! 😊 I was just wondering if I could order a small pepperoni pizza
+    from you guys. Oh, and do you have Sprite? I could really go for a few cans! 🍕🥤
+- Assistant: 'Thanks for ordering a small pizza with pepperoni!
+
+    Could you please let me know how many drinks you would like to order and confirm
+    if you would like Sprite or another drink option (coke, sprite, water)?'
+- User: Hey again! 😄 Yep, Sprite it is! Could I get three cans of that fizzy goodness,
+    please? 🥤 By the way, how long do you think the pizza will take to arrive? I’m
+    getting pretty hungry just thinking about it! 🍕⏰
+- Assistant: 'Sure, I''ve received your order for three Sprites.
+
+    The cost for a small pepperoni pizza and three Sprites is $14.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is d7907b.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is d7907b.'
+- User: Oh, 23 Main Street, huh? That's not too far! 🚶‍♂️ I might just take a little
+    walk to pick it up. By the way, do you guys have any vegan options? I'm trying
+    to balance out my pizza cravings with some plant-based goodness. 🌱 Also, do you
+    have any fun toppings people usually go for on their pizzas? I'm curious!
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: Nice, a little stroll sounds perfect! 🚶‍♂️ Ah, a Vegetarian option could be
+    my go-to then! Do you have any cool veggies or toppings that people seem to love
+    adding on their pizzas? Maybe something I haven’t tried before? 🍄🌶️ Also, just
+    wondering, do you have any plant-based cheese options? That would make it even
+    better! 🧀✨
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Oops, looks like my question got a bit jumbled there! 😅 I was just curious
+    if you have any unique veggies or toppings that people love on their pizzas. Plus,
+    do you offer any plant-based cheese options? That would be awesome! 🍆🧄🌿
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

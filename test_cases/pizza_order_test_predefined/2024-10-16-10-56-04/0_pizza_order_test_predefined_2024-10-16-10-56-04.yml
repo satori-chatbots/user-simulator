@@ -1,0 +1,44 @@
+serial: 2024-10-16-10-56-04
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Mountain Dew
+- number:
+  - 1
+- size: small
+- pizza_type: four cheese
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:25.286802'
+assistant response time:
+- '0:00:06.653446'
+response time report:
+  average: 6.653446
+  max: '00:00:06.653446'
+  min: '00:00:06.653446'
+---
+interaction:
+- User: Hey there! 😊 I'm thinking of ordering a small four cheese pizza. Do you guys
+    offer vegan cheese options by any chance? 🌱 Oh, and I'm really craving a can of
+    Mountain Dew to go with it. How does that sound?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.

@@ -1,5 +1,4 @@
 import os
-
 import pandas as pd
 import yaml
 import json
@@ -14,6 +13,7 @@ from .exceptions import *
 from openai import OpenAI
 from user_sim.utils.config import errors
 import logging
+
 logger = logging.getLogger('Info Logger')
 
 
@@ -122,14 +122,27 @@ class MyDumper(yaml.Dumper):
         super().write_line_break(data)
 
 
-def get_time_stats(response_time):
+def get_error_stats(error_df):
+    error_list = error_df['error_code'].unique()
 
+    error_report = []
+    for error in error_list:
+        error_report.append({'error': error,
+                             'count': error_df[error_df['error_code'] == error].shape[0],
+                             'conversations': list(error_df[error_df['error_code'] == error]['conversation'])
+                             })
+
+    return error_report
+
+
+def get_time_stats(response_time):
     times = pd.to_timedelta(response_time)
 
     time_report = {
-        'average': str(times.mean()).split("days")[-1].strip(),
-        'max': str(times.max()).split("days")[-1].strip(),
-        'min': str(times.min()).split("days")[-1].strip()
+        # 'average': str(times.mean()).split("days")[-1].strip(),
+        'average': times.mean().total_seconds(),
+        'max': times.max().total_seconds(),
+        'min': times.min().total_seconds()
     }
     return time_report
 
@@ -162,6 +175,46 @@ def save_test_conv(history, metadata, test_name, path, serial, conversation_time
     print(f"Conversation saved in {path}")
     print('------------------------------')
     errors.clear()
+
+
+def show_stats(path, test_name, serial):
+    path_folder = path + f"/{test_name}" + f"/{serial}"
+
+    assistant_response_times = []
+    error_df = pd.DataFrame(columns=["conversation", "error_code"])
+
+    for file in os.listdir(path_folder):
+        if file.endswith(('.yaml', '.yml')):
+            file_path = os.path.join(path_folder, file)
+            file_name = file
+            with open(file_path, 'r', encoding='utf-8') as yaml_file:
+                try:
+                    yaml_content = list(yaml.safe_load_all(yaml_file))
+                    if "assistant response time" in yaml_content[1]:
+                        assistant_response_times += yaml_content[1]['assistant response time']
+
+                    if "errors" in yaml_content[0] and 'serial' in yaml_content[0]:
+                        for error in yaml_content[0]['errors']:
+
+                            error_df = pd.concat(
+                                [error_df, pd.DataFrame({'conversation': [file_name],
+                                                         'error_code': list(error.keys())})],
+                                ignore_index=True
+                            )
+                except yaml.YAMLError as e:
+                    print(f'error while processing the file {yaml_file}: {e}')
+
+    time_stats = get_time_stats(assistant_response_times)
+    print(f"Average assistant response time: {time_stats['average']} (s)")
+    print(f"Maximum assistant response time: {time_stats['max']} (s)")
+    print(f"Mínimum assistant response time: {time_stats['min']} (s)")
+
+    error_stats = get_error_stats(error_df)
+
+    for error in error_stats:
+        print(f"Found error {error['error']}: \n "
+              f"- Count: {error['count']} \n "
+              f"- Conversations: {error['conversations']}")
 
 
 def preprocess_text(text):
@@ -243,7 +296,6 @@ def get_random_date():
 
 
 def get_date_range(start, end, step, date_type):
-
     if 'linspace' in date_type:
         total_seconds = (end - start).total_seconds()
         interval_seconds = total_seconds / (step - 1) if step > 1 else 0
@@ -251,9 +303,9 @@ def get_date_range(start, end, step, date_type):
 
     elif date_type in ['day', 'month', 'year']:
         if 'month' in date_type:
-            step = 30*step
+            step = 30 * step
         elif 'year' in date_type:
-            step = 365*step
+            step = 365 * step
 
         range_date_list = [start.strftime('%d/%m/%Y')]
         while end > start:

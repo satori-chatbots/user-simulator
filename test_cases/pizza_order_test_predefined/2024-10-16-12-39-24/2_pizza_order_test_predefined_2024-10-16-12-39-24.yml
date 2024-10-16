@@ -1,0 +1,82 @@
+serial: 2024-10-16-12-39-24
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Dr Pepper
+- number:
+  - 5
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $17.50
+- time: 00:15:00
+- order_id: 0fbe1c
+errors: []
+---
+conversation time: '0:01:06.438460'
+assistant response time:
+- '0:00:08.181251'
+- '0:00:04.328610'
+- '0:00:03.637461'
+- '0:00:05.342727'
+- '0:00:10.455993'
+response time report:
+  average: 6.389208
+  max: 10.455993
+  min: 3.637461
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a small margarita pizza. Could you
+    help me with that? Also, just curious, do you have any favorite pizza toppings?
+    🍕
+- Assistant: It looks like you've already provided the information for a small margarita
+    pizza. Is there anything else I can assist you with?
+- User: Oh, awesome! Thanks for helping with the pizza. I was also thinking about
+    grabbing 5 cans of Dr Pepper. Do you think they'd go well with the pizza? 😋 By
+    the way, do you have a favorite drink to pair with pizza?
+- Assistant: Dr Pepper is a great choice to pair with a pizza, especially a margarita!
+    It's a classic combination of flavors. As for me, I think a nice cold lemonade
+    or a refreshing iced tea pairs wonderfully with pizza. If you need help with anything
+    else, feel free to ask!
+- User: I'm glad you think Dr Pepper is a good match! 🍕🥤 So, how long do you think
+    it'll take for my pizza and drinks to arrive? 😄 Oh, and do you ever get to try
+    any of these pairings yourself? Just wondering!
+- Assistant: I'm here to assist with your pizza order, but I don't have information
+    on delivery times or personal experiences. For delivery times, it's best to contact
+    the shop directly. If you have any more questions about your order or need further
+    assistance, feel free to ask!
+- User: No worries, I'll check with the shop about delivery times! 🚚⏰ By the way,
+    speaking of pairings, I love experimenting with different vegan toppings on my
+    pizzas. Have you ever tried anything like that, or do you stick to the classics?
+    🍅🌿
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    It seems like we haven''t collected the specific drink type and the number of
+    drinks you''d like to order. Could you please let me know how many drinks you
+    would like and if you prefer coke, sprite, or water? Thank you!'
+- User: Oh, I think there's a little mix-up! 😅 I actually wanted 5 cans of Dr Pepper
+    to go with my pizza. 🥤 How much do you think all of this will cost? And by the
+    way, do you ever get feedback from people who try new vegan toppings? It's always
+    fun to hear what others are enjoying! 🌿🍕
+- Assistant: 'Sure, I''ve received your order for five Cokes.
+
+    The cost for a small margarita pizza and five Cokes is $17.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0fbe1c.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0fbe1c.'

@@ -1,0 +1,79 @@
+serial: 2024-10-16-13-02-24
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Mountain Dew
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+- order_id: 0eeeee
+errors: []
+---
+conversation time: '0:00:57.469869'
+assistant response time:
+- '0:00:06.996459'
+- '0:00:05.865164'
+- '0:00:05.921598'
+- '0:00:05.603319'
+- '0:00:03.278225'
+response time report:
+  average: 5.532953
+  max: 6.996459
+  min: 3.278225
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for a yummy pizza. Can I grab a small margarita
+    pizza, please? Oh, and I'm vegan, so make sure there's no cheese or any animal
+    products. Do you think you could do that? 🍕🌱
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Hey there! 😊 I'm looking to order a small margarita pizza, but with a vegan
+    twist—no cheese or any animal products, please. Think you can help me out with
+    that? 🍕🌱 Also, I'm curious, do you have any favorite pizza toppings?
+- Assistant: Hi! It looks like you want a small pizza, but I need to confirm the toppings
+    you'd like. We offer cheese, mushrooms, pepper, ham, bacon, pepperoni, olives,
+    corn, and chicken. Could you let me know which of these toppings you'd like on
+    your pizza? 😊
+- User: Hey again! 😊 I'd love to have some mushrooms and olives on that vegan pizza—those
+    are my go-to toppings! 🍄🫒 By the way, do you have any recommendations for a good
+    drink to go with it? I'm thinking maybe a Mountain Dew, but I'm open to suggestions!
+    🥤 What do you think?
+- Assistant: 'Thanks for ordering a small pizza with mushrooms and olives!
+
+    It looks like we still need to finalize your drink order. We offer coke, sprite,
+    and water. Could you let me know which drink you''d like and how many you''d like
+    to order? Unfortunately, we don''t have Mountain Dew, but I''d be happy to help
+    you choose from our available options! 😊'
+- User: Oh no, no Mountain Dew? 😢 That's a bummer! Okay, let's go with a can of Sprite
+    then. It's always refreshing! 🥤 By the way, how long do you think it’ll take for
+    the pizza to arrive? I'm getting hungry just thinking about it! Also, do you have
+    a favorite drink or something you’d recommend? 🍕⏳
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    A small pizza topped with mushrooms and olives, along with one Sprite, costs $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0eeeee.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0eeeee.'
+- User: No way, only 15 minutes? That's super quick! 😄 I'll definitely swing by soon.
+    So, do you have any favorite drinks, or maybe a recommendation for next time?
+    Always curious to know what the experts like! 🍹✨
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

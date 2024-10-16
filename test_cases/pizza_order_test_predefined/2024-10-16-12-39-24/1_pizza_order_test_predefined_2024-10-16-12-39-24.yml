@@ -1,0 +1,85 @@
+serial: 2024-10-16-12-39-24
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 3
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 3
+- goal_style:
+    steps: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: 00:30:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:01:04.778452'
+assistant response time:
+- '0:00:09.281617'
+- '0:00:06.087854'
+- '0:00:05.761300'
+- '0:00:05.111863'
+- '0:00:04.730249'
+response time report:
+  average: 6.194576
+  max: 9.281617
+  min: 4.730249
+---
+interaction:
+- User: Hey there! 😊 I’m in the mood for some pizza today. What’s up? Can you help
+    me with something yummy and vegan? Oh, and I’d love a small BBQ pizza, if that’s
+    possible. You guys do that, right? 🍕 Also, got any cold drinks, like Coca-Cola?
+    How many cans do you usually have?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase? We have predefined
+    options like margarita, carbonara, marinera, hawaiian, four cheese, and vegetarian.
+    Alternatively, you can create a custom pizza with your choice of toppings. Please
+    let me know which option you prefer.
+- User: Oh, bummer! I was hoping for something BBQ-ish, but a vegetarian pizza sounds
+    great too! 🍃 Could you tell me more about the toppings on that one? And about
+    those cold drinks—do you have Coca-Cola, and how many cans can I order? Also,
+    how long does it usually take for the pizza to arrive once I order? 😊
+- Assistant: Our vegetarian pizza comes with a variety of fresh vegetables, including
+    bell peppers, onions, mushrooms, olives, and tomatoes. As for cold drinks, yes,
+    we do have Coca-Cola available. You can order as many cans as you like, depending
+    on our stock availability. Typically, once you place your order, it takes about
+    30 to 45 minutes for the pizza to arrive. Would you like to proceed with the vegetarian
+    pizza and some Coca-Cola? 😊
+- User: That sounds pretty tasty! 🍄 I think I'll go with the vegetarian pizza then.
+    Could I get three cans of Coca-Cola with that? Just curious, how much will it
+    all cost? Also, do you guys ever have any special deals or discounts? 🤔 Always
+    on the lookout for a good bargain!
+- Assistant: Could you please let me know what size of vegetarian pizza you would
+    like to order? We have small, medium, and large options available.
+- User: I think I'd go with a small vegetarian pizza. 🍕 Perfect size for a cozy meal!
+    So, with three cans of Coca-Cola, how much will it all add up to? And seriously,
+    any chance of a special deal or discount? 😄 I'm always up for saving a bit if
+    I can!
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    Thank you for providing the information about the drinks. You mentioned you''d
+    like three cans of Coca-Cola. Let me check on any special deals or discounts for
+    you. As for the total cost, I''ll need to calculate that based on your order.
+    Please hold on for a moment while I do that.'
+- User: Sure thing! While you're checking, I was just wondering, do you guys have
+    any cool stories or fun facts about the pizzas you make? I love hearing about
+    that kind of stuff. 🍕 And hey, do you ever get to try new recipes or flavors?
+    Sounds like a fun job! 😄
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    It looks like we have the information about the drinks already. You mentioned
+    you''d like three cans of Coca-Cola. If there''s anything else you need or if
+    you have any more questions, feel free to ask! 😊'

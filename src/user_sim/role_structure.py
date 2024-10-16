@@ -100,8 +100,9 @@ class RoleDataModel(BaseModel):
 
 class RoleData:
 
-    def __init__(self, yaml_file):
+    def __init__(self, yaml_file, personality_file):
         self.yaml = yaml_file
+        self.personality_file = personality_file
 
         try:
             self.validated_data = RoleDataModel(**self.yaml)
@@ -169,7 +170,12 @@ class RoleData:
         if res > 1:
             raise InvalidFormat(f"Too many keys in context list.")
         elif res <= 0 and not isinstance(context, dict):
-            return list_to_str(context)
+            phrases = list_to_str(context)
+            if self.personality_file is not None:
+                personality = read_yaml(self.personality_file)
+                personality_phrases = personality['context']
+                phrases = phrases + list_to_str(personality_phrases)
+            return phrases
         else:
             custom_phrases = []
             personality_phrases = []
@@ -180,6 +186,12 @@ class RoleData:
                     personality_phrases = personality_phrases + self.personality_extraction(item)
                 else:
                     raise InvalidDataType(f'Invalid data type in context list: {type(item)}:{item}')
+
+            # If no personality is given, we use the one specified as input in the command line
+            if len(personality_phrases) == 0 and self.personality_file is not None:
+                personality = read_yaml(self.personality_file)
+                personality_phrases = personality['context']
+
             total_phrases =  personality_phrases + custom_phrases
             return list_to_str(total_phrases)
 

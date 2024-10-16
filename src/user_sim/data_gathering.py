@@ -40,8 +40,8 @@ class ChatbotAssistant:
 
         self.properties = self.process_ask_about(ask_about)
         self.system_message = {"role": "system",
-                          "content": "You are a helpful assistant that detects when a query in a conversation "
-                                     "has been answered or confirmed by the chatbot."}
+                               "content": "You are a helpful assistant that detects when a query in a conversation "
+                                          "has been answered or confirmed by the chatbot."}
         self.messages = [self.system_message]
         self.gathering_register = []
 
@@ -69,7 +69,7 @@ class ChatbotAssistant:
             }
         return properties
 
-    def add_message(self, history):      # add directly the chat history from user_simulator "self.conversation_history"
+    def add_message(self, history):     # adds directly the chat history from user_simulator "self.conversation_history"
         text = ""
         for entry in history['interaction']:
             for speaker, message in entry.items():

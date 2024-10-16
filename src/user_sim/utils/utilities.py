@@ -1,5 +1,6 @@
 import os
 
+import pandas as pd
 import yaml
 import json
 import configparser
@@ -8,17 +9,17 @@ import re
 import random
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-import logging
 import importlib.util
 from .exceptions import *
 from openai import OpenAI
 from user_sim.utils.config import errors
+import logging
+logger = logging.getLogger('Info Logger')
 
 
 def check_keys(key_list: list):
     if os.path.exists("keys.properties"):
-        #logging.getLogger().verbose("properties found!")
-        logging.info("properties found!")
+        logger.info("properties found!")
         config = configparser.ConfigParser()
         config.read('keys.properties')
 
@@ -31,10 +32,10 @@ def check_keys(key_list: list):
         if not os.environ.get(k):
             raise Exception(f"{k} not found")
 
+
 check_keys(["OPENAI_API_KEY"])
 client = OpenAI()
 
-logger = logging.getLogger('my_app_logger')
 
 def save_json(msg, test_name, path):
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -82,9 +83,9 @@ def execute_list_function(path, function_name, arguments=None):
     return result
 
 
-def list_to_phrase(s_list: list, prompted=False):  #todo: cambiar a list_to_askabout
-    #s_list: list of strings
-    #l_string: string values extracted from s_list in string format
+def list_to_phrase(s_list: list, prompted=False):  # todo: cambiar a list_to_askabout
+    # s_list: list of strings
+    # l_string: string values extracted from s_list in string format
     l_string = s_list[0]
 
     if len(s_list) <= 1:
@@ -121,14 +122,30 @@ class MyDumper(yaml.Dumper):
         super().write_line_break(data)
 
 
-def save_test_conv(history, metadata, test_name, path, serial, conversation_time, av_data, counter):
+def get_time_stats(response_time):
+
+    times = pd.to_timedelta(response_time)
+
+    time_report = {
+        'average': str(times.mean()).split("days")[-1].strip(),
+        'max': str(times.max()).split("days")[-1].strip(),
+        'min': str(times.min()).split("days")[-1].strip()
+    }
+    return time_report
+
+
+def save_test_conv(history, metadata, test_name, path, serial, conversation_time, response_time, av_data, counter):
     print("Saving conversation...")
-    c_time = {'conversation time': conversation_time}
+
+    cr_time = {'conversation time': conversation_time,
+               'assistant response time': response_time,
+               "response time report": get_time_stats(response_time)}
+
     path_folder = path + f"/{test_name}"
     if not os.path.exists(path_folder):
         os.makedirs(path_folder)
 
-    data = [metadata, c_time, history]
+    data = [metadata, cr_time, history]
     test_folder = path_folder + f"/{serial}"
 
     if not os.path.exists(test_folder):

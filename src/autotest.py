@@ -1,6 +1,6 @@
+import time
 import timeit
 from argparse import ArgumentParser
-from user_sim.utils.config import errors
 from colorama import Fore, Style
 from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot, \
     ChatbotLolaUMU
@@ -131,11 +131,11 @@ def build_chatbot(technology, chatbot) -> Chatbot:
     else:
         return default(chatbot)
 
-def generate(technology, chatbot, user, extract):
+def generate(technology, chatbot, user, personality, extract):
     profiles = parse_profiles(user)
 
     for profile in profiles:
-        user_profile = RoleData(profile)
+        user_profile = RoleData(profile, personality)
         serial = generate_serial()
 
         start_time_test = timeit.default_timer()
@@ -146,13 +146,17 @@ def generate(technology, chatbot, user, extract):
             the_chatbot.fallback = user_profile.fallback
             the_user = UserGeneration(user_profile, the_chatbot)
             starter = user_profile.is_starter
-
+            response_time = []
             while True:
                 if starter:
                     user_msg = the_user.open_conversation()
                     print_user(user_msg)
 
+                    start_response_time = timeit.default_timer()
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
+                    end_response_time = timeit.default_timer()
+                    response_time.append(str(timedelta(seconds=end_response_time-start_response_time)))
+
                     if not is_ok:
                         # logging.getLogger().verbose('The server cut the conversation. End.')
                         if response is not None:
@@ -164,16 +168,18 @@ def generate(technology, chatbot, user, extract):
 
                     starter = False
 
-                user_msg = the_user.get_response(response)
+                user_msg = the_user.get_response(response)  # todo: how to get messages from starter chatbots
 
                 if user_msg == "exit":
-                    # logging.getLogger().verbose('exit')
                     break
-
                 else:
-                    # configure parameter "user starts?"
                     print_user(user_msg)
+
+                    start_response_time = timeit.default_timer()
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
+                    end_response_time = timeit.default_timer()
+                    response_time.append(str(timedelta(seconds=end_response_time-start_response_time)))
+
                     if response == 'timeout':
                         break
 
@@ -186,21 +192,24 @@ def generate(technology, chatbot, user, extract):
                             the_user.update_history("Assistant", "Error: The server did not repond.")  # added by JL
                         break
 
-
             if extract:
                 history = the_user.conversation_history
                 metadata = get_conversation_metadata(user_profile, the_user, serial)
                 test_name = user_profile.test_name
+
                 end_time_conversation = timeit.default_timer()
                 conversation_time = end_time_conversation - start_time_conversation
                 formatted_time_conv = str(timedelta(seconds=conversation_time))
                 print(f"Conversation Time: {formatted_time_conv}")
+
+
+
                 user_profile.reset_attributes()
                 dg_dataframe = the_user.data_gathering.gathering_register
                 csv_extraction = the_user.goal_style[1] if the_user.goal_style[0] == 'all_answered' else False
                 answer_validation_data = (dg_dataframe, csv_extraction)
                 save_test_conv(history, metadata, test_name, extract, serial,
-                               formatted_time_conv,answer_validation_data, counter=i)
+                               formatted_time_conv, response_time, answer_validation_data, counter=i)
 
         end_time_test = timeit.default_timer()
         execution_time = end_time_test - start_time_test
@@ -213,6 +222,7 @@ if __name__ == '__main__':
                         help='Technology the chatbot is implemented in')
     parser.add_argument('--chatbot', required=True, help='URL where the chatbot is deployed')
     parser.add_argument('--user', required=True, help='User profile to test the chatbot')
+    parser.add_argument('--personality', required=False, help='Personality file')
     parser.add_argument("--extract", default=False, help='Path to store conversation user-chatbot')
     parser.add_argument('--verbose', action='store_true', help='Shows debug prints')
     args = parser.parse_args()
@@ -229,4 +239,4 @@ if __name__ == '__main__':
     logger.info('Logs enabled!')
 
     check_keys(["OPENAI_API_KEY"])
-    generate(args.technology, args.chatbot, args.user, args.extract)
+    generate(args.technology, args.chatbot, args.user, args.personality, args.extract)

@@ -4,11 +4,12 @@ from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
+
 parser = StrOutputParser()
 
 import logging
-logger = logging.getLogger('Info Logger')
 
+logger = logging.getLogger('Info Logger')
 
 
 class UserGeneration:
@@ -79,7 +80,6 @@ class UserGeneration:
         history = """History of the conversation so far: {history}"""
         role_prompt = self.user_profile.role + reminder + history
         return role_prompt
-
 
     def repetition_track(self, response, reps=3):
 
@@ -196,8 +196,7 @@ class UserGeneration:
         language_context = self.user_profile.get_language()
         self.my_context.add_context(language_context)
         history = self.get_history()
-        # user_response = self.user_chain.run(history=history,
-        #                                     reminder=self.my_context.get_context())  # generation of user message
+
         user_response = self.user_chain.invoke({'history': history, 'reminder': self.my_context.get_context()})
 
         self.update_history("User", user_response)

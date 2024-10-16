@@ -1,0 +1,42 @@
+serial: 2024-10-15-12-53-06
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 1
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 504: No response was received from the server in less than 10
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:23.070023'
+assistant response time:
+- '0:00:14.036698'
+response time report:
+  average: '00:00:14.036698'
+  max: '00:00:14.036698'
+  min: '00:00:14.036698'
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a small marinara pizza. What's that
+    like here? Any good? 🍕
+- Assistant: 'Error: timeout'

@@ -1,0 +1,76 @@
+serial: 2024-10-15-12-34-25
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Dr Pepper
+- number:
+  - 3
+- size: small
+- pizza_type: four cheese
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- time: 00:15:00
+- order_id: e1e8b1
+errors: []
+---
+conversation time: '0:00:59.231709'
+assistant response time:
+- '0:00:08.100543'
+- '0:00:04.686833'
+- '0:00:07.731562'
+response time report:
+  average: !!python/object/apply:pandas._libs.tslibs.timedeltas._timedelta_unpickle
+  - 6839646000
+  - 10
+  max: !!python/object/apply:pandas._libs.tslibs.timedeltas._timedelta_unpickle
+  - 8100543000
+  - 10
+  min: !!python/object/apply:pandas._libs.tslibs.timedeltas._timedelta_unpickle
+  - 4686833000
+  - 10
+---
+interaction:
+- User: Hey there! 😊 I'm looking to order a small four cheese pizza. Could you tell
+    me a bit about the toppings or how delicious it is? Also, I'm super curious if
+    it’s as cheesy as my friends say! 🍕 Also, do you know if you guys have Dr Pepper?
+    I'm thinking about getting 3 cans.
+- Assistant: It looks like you've already provided the pizza size as "small" and the
+    pizza type as "four cheese." Is there anything else you would like to add or change
+    to your order?
+- User: Oh, I’m definitely sticking with the small four cheese pizza! But I'm curious,
+    do you think I should add extra toppings, or is the cheese-liciousness just perfect
+    as it is? And about those three cans of Dr Pepper, I hope they're as refreshing
+    as I remember! 😄 By the way, how long do you think it'll take for the pizza to
+    arrive? I'm already getting hungry just thinking about it! 🍕🥤
+- Assistant: 'Thanks for ordering a small four cheese pizza!
+
+    It looks like you mentioned three cans of Dr Pepper, but unfortunately, we only
+    offer coke, sprite, or water. Could you please let me know which of these drinks
+    you''d like and how many? Thank you!'
+- User: Oh, bummer about the Dr Pepper! 🤔 I guess I'll go with three cans of Coke
+    then. Gotta have something fizzy with my pizza, right? 😄 Do you think I should
+    add some veggies on top of the pizza, or is it cheesy goodness enough on its own?
+    And hey, how long do you think it'll take for my order to get here? I'm so ready
+    to dig in! 🍕🥤
+- Assistant: 'Sure, I''ve received your order for three Cokes.
+
+    The cost for a small four-cheese pizza and three Cokes is $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e1e8b1.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e1e8b1.'

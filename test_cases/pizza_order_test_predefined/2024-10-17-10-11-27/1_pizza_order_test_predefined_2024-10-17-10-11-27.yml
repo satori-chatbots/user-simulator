@@ -1,0 +1,62 @@
+serial: 2024-10-17-10-11-27
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Dr. Pepper
+- number:
+  - 3
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 3
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: 12$
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: '0:00:40.048080'
+assistant response time:
+- '0:00:06.405051'
+- '0:00:04.669357'
+- '0:00:05.157156'
+response time report:
+  average: 5.410521
+  max: 6.405051
+  min: 4.669357
+---
+interaction:
+- User: Hey there! 👋 I'm thinking about ordering some pizza tonight. You guys have
+    a small marinara pizza, right? 🍕 Also, I heard you have Dr. Pepper? I might need
+    a couple of cans, or maybe three... 😋 How's your day going?
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: Oh, awesome! A small marinara pizza sounds perfect for tonight. 🌟 And I definitely
+    want to grab three cans of Dr. Pepper. 😄 How long do you think it’ll take for
+    the pizza to arrive? Also, just out of curiosity, do you think pizza delivery
+    folks get to snag a slice every now and then, or is that totally off-limits? 🤔
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Ah, gotcha! So, if I’m just ordering one small pizza, it might be here in
+    15 minutes-ish? That’s pretty quick! 🚀 I hope they don’t have to wait too long
+    before they can grab a slice themselves, haha. 😄 By the way, how much is it going
+    to cost for the pizza and the Dr. Pepper? Just trying to make sure I have enough
+    for a tip! 💸 Also, do you have a favorite pizza? I always think it’s fun to know
+    what people in the pizza biz love to eat! 🍕
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

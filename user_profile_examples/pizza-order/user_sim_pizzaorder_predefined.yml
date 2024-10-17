@@ -69,9 +69,9 @@ output:
 
 
 conversations:
-  - number: 3
+  - number: 1
   - goal_style:
-      steps: 5
+      steps: 1
 #      all_answered:
 #        export: True
 #        limit: 12

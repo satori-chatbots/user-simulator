@@ -1,0 +1,64 @@
+serial: 2024-10-17-10-11-27
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Fanta
+- number:
+  - 5
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 3
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:42.363700'
+assistant response time:
+- '0:00:08.396631'
+- '0:00:04.755907'
+- '0:00:04.715554'
+response time report:
+  average: 5.95603
+  max: 8.396631
+  min: 4.715554
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza and I was wondering, do you
+    guys have a small margarita pizza on the menu? Also, I'm in the mood for something
+    fizzy—do you have Fanta? Maybe, like, five cans? 😄
+- Assistant: I see that you are interested in a small margarita pizza. Would you like
+    to proceed with ordering it, or is there anything else you'd like to add or change?
+- User: Oh yes, that small margarita pizza sounds perfect! 🍕 How long do you think
+    it would take for the pizza to arrive? I'm getting hungry just thinking about
+    it! 😋 And hey, how much will it cost altogether with the Fanta, by the way?
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    It looks like I need some additional information to complete your order. Could
+    you please let me know how many drinks you''d like and which type of drink you
+    prefer? We have coke, sprite, and water available. Unfortunately, we don''t have
+    Fanta. Thank you!'
+- User: Oh no, no Fanta? 😅 That's a bummer, but no worries! Let's go with five cans
+    of Sprite instead. I'm really curious about how much all of this will cost now.
+    And back to that delivery time—any idea when I can expect my delicious pizza to
+    arrive? 🍕⏰
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    Thank you for providing the information! You have ordered five cans of Sprite.
+    I''ll pass this information along with your pizza order. As for the delivery time,
+    it typically takes about 30-45 minutes for the pizza to arrive. If you have any
+    other questions or need further assistance, feel free to ask!'

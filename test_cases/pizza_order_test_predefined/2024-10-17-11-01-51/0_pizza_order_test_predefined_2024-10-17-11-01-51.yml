@@ -1,0 +1,43 @@
+serial: 2024-10-17-11-01-51
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Fanta
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:28.121469'
+assistant response time:
+- '0:00:08.598420'
+response time report:
+  average: 8.59842
+  max: 8.59842
+  min: 8.59842
+---
+interaction:
+- User: Hey there! 😊 Just wondering if I could order a small margarita pizza? 🍕 Also,
+    do you have Fanta? I could really go for a can right now! 😋
+- Assistant: It seems we have the pizza type as "margarita" and the size as "small"
+    from the previous conversation. Is there anything else you would like to add or
+    change to your order?

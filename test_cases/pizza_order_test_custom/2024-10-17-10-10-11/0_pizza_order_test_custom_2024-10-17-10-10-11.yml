@@ -1,0 +1,62 @@
+serial: 2024-10-17-10-10-11
+language: English
+context:
+- Since you're the user, just tell what you want to order
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - pepperoni
+  - egg
+  - ham
+- drink:
+  - sprite
+- size:
+  - small
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - make spelling mistakes
+  - long phrases
+data_output:
+- price: null
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:00:36.452246'
+assistant response time:
+- '0:00:06.663831'
+- '0:00:03.422144'
+- '0:00:03.162479'
+response time report:
+  average: 4.416151
+  max: 6.663831
+  min: 3.162479
+---
+interaction:
+- User: Hey tehre, I'm lookig to order a smol custome pizza with peporoni, eg, and
+    hma. Could I also get a can of Spirte with that? How long do you think it will
+    take for the pizza to get here, and how much will it cosst? Also, do you have
+    any special deals or coupons I could use at the moment? I'm trying to save a few
+    bux if possible!
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Alright, that sounds good, thnaks for lettng me know how long it might take.
+    But could you pls tell me if there's any spesific cupons or dicounts that you
+    have avilable right now? I'm really tryng to keep things within a reasonable budget,
+    you know whut I mean? Also, just to check again, the pizza I want is with peporoni,
+    eg, and hma, and a can of Spirte on the side, right? Any idea on the total cost
+    for that ordder? Thanks a ton!
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Sure thing, let me try again! So, I'm orderring a smol pizza with peporoni,
+    eg, and hma, plus a can of Spirte for the drink. Can you pls tell me if there
+    are any currant dicounts or cupons I can use to save a bit of cash? Also, any
+    clues on hw much the whole order will cost? And just to remind, how long will
+    it take for the pizza to get delivered? I realy appreciate your help with this!
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

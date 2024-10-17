@@ -1,0 +1,42 @@
+serial: 2024-10-17-10-39-59
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:17.162062'
+assistant response time:
+- '0:00:08.111332'
+response time report:
+  average: 8.111332
+  max: 8.111332
+  min: 8.111332
+---
+interaction:
+- User: Hey there! 😊 I'm looking to order a small margarita pizza. How's your day
+    going? Do you have a favorite pizza topping yourself? 🍕
+- Assistant: It looks like you've already mentioned a small margarita pizza. Is there
+    anything else you would like to add or change to your order?

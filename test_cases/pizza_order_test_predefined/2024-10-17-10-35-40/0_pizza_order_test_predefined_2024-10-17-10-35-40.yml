@@ -1,0 +1,60 @@
+serial: 2024-10-17-10-35-40
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - 1. Margarita
+- number:
+  - 1
+- size: small
+- pizza_type: four cheese
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:37.769021'
+assistant response time:
+- '0:00:06.628406'
+- '0:00:04.278286'
+- '0:00:04.435002'
+response time report:
+  average: 5.113898
+  max: 6.628406
+  min: 4.278286
+---
+interaction:
+- User: Hey there! 🌟 I'm craving some pizza tonight, but I'm on a vegan diet. Do you
+    have a small four cheese pizza that's vegan-friendly? Also, I'd love to wash it
+    down with a nice cold Margarita. 😄 How long would it take for the pizza to arrive
+    if I order now?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to prepare an order.
+- User: Oh, okay! No worries. 😊 So, about that small four cheese pizza—any chance
+    you have a vegan version of it? And I'm really curious, how much does a can of
+    Margarita cost? 🍹 Also, how long would it generally take from order to delivery?
+    Just trying to plan my epic pizza night, you know? 😋
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.
+- User: Got it! Thanks for letting me know. So, what types of pizzas do you have on
+    the menu? I'm really hoping there's a vegan option somewhere. 🌱 Also, could you
+    tell me the price of a small four cheese pizza, just in case I decide to have
+    a cheat day? 😅 And about the Margarita—how do I get it alongside my order? 🍸
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)

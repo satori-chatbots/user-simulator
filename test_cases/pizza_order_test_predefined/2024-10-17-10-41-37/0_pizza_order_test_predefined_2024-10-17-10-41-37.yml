@@ -1,0 +1,43 @@
+serial: 2024-10-17-10-41-37
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Margarita
+- number:
+  - 1
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:14.283936'
+assistant response time:
+- '0:00:05.357548'
+response time report:
+  average: 5.3575479999999995
+  max: 5.3575479999999995
+  min: 5.3575479999999995
+---
+interaction:
+- User: Hi there! 😊 I'm feeling a bit peckish today. I was wondering if I could order
+    a small carbonara pizza? Also, do you guys have any cans of Margarita available?
+    🍕🥤 Oh, and how's your day going?
+- Assistant: Welcome to Fast Pizza! I'm a chatbot assistant that can help you order
+    pizzas and drinks. What can I do for you?

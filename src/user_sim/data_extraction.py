@@ -62,9 +62,8 @@ class DataExtraction:
                 #raise ValueError(f"Unsupported data type: {dtype}")
 
         except ValueError as e:
-            # logging.getLogger().verbose(f"Error in casting: {e}")
-            logger.warning(f"Error in casting: {e}")
-            return None
+            logger.warning(f"Error in casting: {e}. Returning 'str({str(text)})'.")
+            return str(text)
 
     def get_data_prompt(self):
 

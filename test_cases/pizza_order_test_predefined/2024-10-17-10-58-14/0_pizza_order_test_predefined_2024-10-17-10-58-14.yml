@@ -1,4 +1,4 @@
-serial: 2024-10-15-12-53-06
+serial: 2024-10-17-10-58-14
 language: English
 context:
 - personality: personalities/conversational-user.yml
@@ -9,11 +9,11 @@ ask_about:
 - how long is going to take the pizza to arrive
 - how much will it cost
 - drink:
-  - Sprite
+  - Old Fashioned
 - number:
   - 1
 - size: small
-- pizza_type: marinara
+- pizza_type: four cheese
 conversation:
 - number: 1
 - goal_style:
@@ -25,18 +25,18 @@ data_output:
 - time: null
 - order_id: null
 errors:
-- 504: No response was received from the server in less than 10
 - 1001: 3 goals left to complete.
 ---
-conversation time: '0:00:23.070023'
+conversation time: '0:00:19.026343'
 assistant response time:
-- '0:00:14.036698'
+- '0:00:07.975107'
 response time report:
-  average: '00:00:14.036698'
-  max: '00:00:14.036698'
-  min: '00:00:14.036698'
+  average: 7.9751069999999995
+  max: 7.9751069999999995
+  min: 7.9751069999999995
 ---
 interaction:
-- User: Hey there! 😊 I'm thinking about ordering a small marinara pizza. What's that
-    like here? Any good? 🍕
-- Assistant: 'Error: timeout'
+- User: Hey there! 🌟 I'm thinking about ordering a small four cheese pizza. Do you
+    guys have that? 🍕 Also, I'm curious... What's your favorite type of pizza? 😄
+- Assistant: I see that you are interested in a small four cheese pizza. Is there
+    anything else you would like to add to your order?

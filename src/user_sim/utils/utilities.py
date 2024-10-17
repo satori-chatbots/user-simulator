@@ -139,10 +139,9 @@ def get_time_stats(response_time):
     times = pd.to_timedelta(response_time)
 
     time_report = {
-        # 'average': str(times.mean()).split("days")[-1].strip(),
-        'average': times.mean().total_seconds(),
-        'max': times.max().total_seconds(),
-        'min': times.min().total_seconds()
+        'average': round(times.mean().total_seconds(), 6),
+        'max': round(times.max().total_seconds(), 6),
+        'min': round(times.min().total_seconds(), 6)
     }
     return time_report
 
@@ -176,45 +175,137 @@ def save_test_conv(history, metadata, test_name, path, serial, conversation_time
     print('------------------------------')
     errors.clear()
 
+class ExecutionStats:
+    def __init__(self, test_cases_folder, serial):
 
-def show_stats(path, test_name, serial):
-    path_folder = path + f"/{test_name}" + f"/{serial}"
+        self.path = test_cases_folder
+        self.test_names = []
+        self.serial = serial
+        self.export = False
+        self.profile_art = []
+        self.profile_edf = []
+        self.global_time_stats = []
+        self.global_error_stats = None
 
-    assistant_response_times = []
-    error_df = pd.DataFrame(columns=["conversation", "error_code"])
+    def add_test_name(self, test_name):
+        if isinstance(test_name, str):
+            self.test_names.append(test_name)
+        elif isinstance(test_name, list):
+            self.test_names += test_name
 
-    for file in os.listdir(path_folder):
-        if file.endswith(('.yaml', '.yml')):
-            file_path = os.path.join(path_folder, file)
-            file_name = file
-            with open(file_path, 'r', encoding='utf-8') as yaml_file:
-                try:
-                    yaml_content = list(yaml.safe_load_all(yaml_file))
-                    if "assistant response time" in yaml_content[1]:
-                        assistant_response_times += yaml_content[1]['assistant response time']
+    def reset(self):
+        self.test_names = []
+        self.export = False
 
-                    if "errors" in yaml_content[0] and 'serial' in yaml_content[0]:
-                        for error in yaml_content[0]['errors']:
 
-                            error_df = pd.concat(
-                                [error_df, pd.DataFrame({'conversation': [file_name],
-                                                         'error_code': list(error.keys())})],
-                                ignore_index=True
-                            )
-                except yaml.YAMLError as e:
-                    print(f'error while processing the file {yaml_file}: {e}')
+    def get_stats(self):
 
-    time_stats = get_time_stats(assistant_response_times)
-    print(f"Average assistant response time: {time_stats['average']} (s)")
-    print(f"Maximum assistant response time: {time_stats['max']} (s)")
-    print(f"Mínimum assistant response time: {time_stats['min']} (s)")
+        path_folder = self.path + f"/{self.test_names[-1]}" + f"/{self.serial}" # todo: except for empty test_names list
 
-    error_stats = get_error_stats(error_df)
+        assistant_response_times = []
+        error_df = pd.DataFrame(columns=["conversation", "error_code"])
 
-    for error in error_stats:
-        print(f"Found error {error['error']}: \n "
-              f"- Count: {error['count']} \n "
-              f"- Conversations: {error['conversations']}")
+        for file in os.listdir(path_folder):
+            if file.endswith(('.yaml', '.yml')):
+                file_path = os.path.join(path_folder, file)
+                file_name = file
+                with open(file_path, 'r', encoding='utf-8') as yaml_file:
+                    try:
+                        yaml_content = list(yaml.safe_load_all(yaml_file))
+                        if "assistant response time" in yaml_content[1]:
+                            assistant_response_times += yaml_content[1]['assistant response time']
+
+                        if "errors" in yaml_content[0] and 'serial' in yaml_content[0]:
+                            for error in yaml_content[0]['errors']:
+
+                                error_df = pd.concat(
+                                    [error_df, pd.DataFrame({'conversation': [file_name],
+                                                             'error_code': list(error.keys())})],
+                                    ignore_index=True
+                                )
+                    except yaml.YAMLError as e:
+                        print(f'error while processing the file {yaml_file}: {e}')
+
+            self.profile_art.append(assistant_response_times)
+            self.profile_edf.append(error_df)
+
+    def show_last_stats(self):
+
+        self.get_stats()
+
+        time_stats = get_time_stats(self.profile_art[-1])
+        print(f"Average assistant response time: {time_stats['average']} (s)")
+        print(f"Maximum assistant response time: {time_stats['max']} (s)")
+        print(f"Mínimum assistant response time: {time_stats['min']} (s)")
+
+        error_stats = get_error_stats(self.profile_edf[-1])
+        for error in error_stats:
+            print(f"Found error {error['error']}: \n "
+                  f"- Count: {error['count']} \n "
+                  f"- Conversations: {error['conversations']}")
+
+        print('------------------------------\n'
+              '------------------------------')
+
+    def show_global_stats(self):
+
+        self.global_time_stats = [time for profile in self.profile_art for time in profile]
+        self.global_error_stats = pd.concat(self.profile_edf, ignore_index=True)
+
+        time_stats = get_time_stats(self.global_time_stats)
+        print(f"Average assistant response time: {time_stats['average']} (s)")
+        print(f"Maximum assistant response time: {time_stats['max']} (s)")
+        print(f"Mínimum assistant response time: {time_stats['min']} (s)")
+
+        error_stats = get_error_stats(self.global_error_stats)
+        for error in error_stats:
+            print(f"Found error {error['error']}: \n "
+                  f"- Count: {error['count']} \n "
+                  f"- Conversations: {error['conversations']}")
+
+        print('------------------------------\n'
+              '------------------------------')
+
+    def export_stats(self):
+        export_path = self.path + f"/__report__"
+
+        if not os.path.exists(export_path):
+            os.makedirs(export_path)
+
+
+        single_reports = []
+        for index, name in enumerate(self.test_names):
+            time_stats = get_time_stats(self.profile_art[index])
+            error_stats = get_error_stats(self.profile_edf[index])
+
+            single_reports.append({
+                "Test name": name,
+                "Average assistant response time": time_stats['average'],
+                "Maximum assistant response time": time_stats['max'],
+                "Mínimum assistant response time": time_stats['min'],
+                "Errors":  error_stats
+            })
+
+        glb_time_stats = get_time_stats(self.global_time_stats)
+        glb_error_stats = get_error_stats(self.global_error_stats)
+
+        global_reports = {
+            "Global report": {
+                "Average assistant response time": glb_time_stats['average'],
+                "Maximum assistant response time": glb_time_stats['max'],
+                "Mínimum assistant response time": glb_time_stats['min'],
+                "Errors": glb_error_stats
+            }
+        }
+
+        export_file_name = export_path + f"/report_{self.serial}.yml"
+        data = [global_reports] + single_reports
+
+        with open(export_file_name, "w", encoding="UTF-8") as archivo:
+            yaml.dump_all(data, archivo, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+
+
 
 
 def preprocess_text(text):

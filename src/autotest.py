@@ -1,6 +1,7 @@
 import time
 import timeit
 from argparse import ArgumentParser
+from user_sim.utils.config import errors
 
 import pandas as pd
 import yaml
@@ -137,14 +138,19 @@ def build_chatbot(technology, chatbot) -> Chatbot:
 
 def generate(technology, chatbot, user, personality, extract):
     profiles = parse_profiles(user)
+    test_names = []
+    # serial_list = []
+    serial = generate_serial()
 
+    my_execution_stat = ExecutionStats(extract, serial)
     for profile in profiles:
         user_profile = RoleData(profile, personality)
-        serial = generate_serial()
         test_name = user_profile.test_name
         start_time_test = timeit.default_timer()
+
         for i in range(user_profile.conversation_number):
             start_time_conversation = timeit.default_timer()
+
             the_chatbot = build_chatbot(technology, chatbot)
 
             the_chatbot.fallback = user_profile.fallback
@@ -162,7 +168,6 @@ def generate(technology, chatbot, user, personality, extract):
                     response_time.append(str(timedelta(seconds=end_response_time - start_response_time)))
 
                     if not is_ok:
-                        # logging.getLogger().verbose('The server cut the conversation. End.')
                         if response is not None:
                             the_user.update_history("Assistant", "Error: " + response)  # added by JL
                         else:
@@ -197,28 +202,36 @@ def generate(technology, chatbot, user, personality, extract):
                         break
 
             if extract:
-                history = the_user.conversation_history
-                metadata = get_conversation_metadata(user_profile, the_user, serial)
-
-
                 end_time_conversation = timeit.default_timer()
                 conversation_time = end_time_conversation - start_time_conversation
                 formatted_time_conv = str(timedelta(seconds=conversation_time))
                 print(f"Conversation Time: {formatted_time_conv}")
 
-                user_profile.reset_attributes()
+                history = the_user.conversation_history
+                metadata = get_conversation_metadata(user_profile, the_user, serial)
                 dg_dataframe = the_user.data_gathering.gathering_register
                 csv_extraction = the_user.goal_style[1] if the_user.goal_style[0] == 'all_answered' else False
                 answer_validation_data = (dg_dataframe, csv_extraction)
                 save_test_conv(history, metadata, test_name, extract, serial,
                                formatted_time_conv, response_time, answer_validation_data, counter=i)
 
+            user_profile.reset_attributes()
+
         end_time_test = timeit.default_timer()
         execution_time = end_time_test - start_time_test
         formatted_time = str(timedelta(seconds=execution_time))
         print(f"Execution Time: {formatted_time}")
+        print('------------------------------')
 
-        show_stats(extract,test_name, serial)
+        my_execution_stat.add_test_name(test_name)
+        my_execution_stat.show_last_stats()
+
+        # test_names.append(test_name)
+        # serial_list.append(serial)
+
+    if extract:
+        my_execution_stat.show_global_stats()
+        my_execution_stat.export_stats()
 
 
 if __name__ == '__main__':

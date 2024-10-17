@@ -1,0 +1,64 @@
+serial: 2024-10-17-10-35-40
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Fanta
+- number:
+  - 3
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 2
+- goal_style:
+    steps: 3
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:37.479128'
+assistant response time:
+- '0:00:07.563915'
+- '0:00:03.579962'
+- '0:00:03.386985'
+response time report:
+  average: 4.84362
+  max: 7.563915
+  min: 3.386985
+---
+interaction:
+- User: Hey there! 😊 I've been craving some pizza today, and I’m thinking of ordering
+    a small marinara pizza. Could you help me out with that? Oh, and just out of curiosity,
+    do you have a favorite pizza topping? 🍕
+- Assistant: Thank you for providing the information. You have ordered a small marinara
+    pizza. If there's anything else you need, feel free to let me know!
+- User: Awesome, thanks! 😄 I’m also thinking about grabbing a few drinks to go with
+    the pizza. Do you guys have Fanta? Maybe like three cans? Also, just wondering,
+    how long do you think it’ll take for the pizza to arrive? ⏰ And if you could give
+    me an idea of how much it all might cost, that would be great too. By the way,
+    are you more of a night owl or an early bird? 🌙🐦
+- Assistant: I'm here to assist with your pizza order, but I don't have the capability
+    to provide information on drinks, delivery times, or costs. For those details,
+    I recommend contacting Fast Pizza directly. As for your question, I'm just a chatbot,
+    so I don't have a preference for being a night owl or an early bird! If there's
+    anything else related to your pizza order that I can help with, feel free to let
+    me know!
+- User: Hey, no worries! I’ll give the pizza shop a call for those details then. 😊
+    Just curious, do you ever get to chat with other chatbots? Must be interesting
+    to share stories, huh? 🤖💬
+- Assistant: I'm here to assist with your pizza orders and any related questions you
+    might have. As for chatting with other chatbots, I don't have the capability to
+    interact with them, but it would indeed be interesting to share stories! If you
+    have any more questions or need further assistance with your order, feel free
+    to ask. 😊

@@ -1,0 +1,47 @@
+serial: 2024-10-17-10-41-05
+language: English
+context:
+- Since you're the user, just tell what you want to order
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - ham
+  - cheese
+  - bacon
+- drink:
+  - Orange Fanta
+- size:
+  - small
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - long phrases
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:29.033462'
+assistant response time:
+- '0:00:08.307727'
+response time report:
+  average: 8.307727
+  max: 8.307727
+  min: 8.307727
+---
+interaction:
+- User: Hi there! I would love to place an order for a small custom pizza, and I'm
+    really excited to have it topped with some delicious ham, cheese, and crispy bacon.
+    Also, could I add an Orange Fanta to my order? Oh, and I'm curious to know how
+    long it might take for the pizza to arrive at my doorstep. Additionally, I would
+    appreciate it if you could tell me about the cost, as I'm trying to budget accordingly.
+    Thank you so much for helping me with this order!
+- Assistant: Could you please let me know the size of the pizza you'd like to order?
+    We have small, medium, and large options available.

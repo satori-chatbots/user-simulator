@@ -1,0 +1,42 @@
+serial: 2024-10-17-09-29-04
+language: English
+context:
+- personality: personalities/skeptical-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 2
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - change languages:
+    - spanish
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:13.000078'
+assistant response time:
+- '0:00:00.859501'
+response time report:
+  average: '00:00:00.859501'
+  max: '00:00:00.859501'
+  min: '00:00:00.859501'
+---
+interaction:
+- User: Lo siento, parece que no tengo acceso al historial de la conversación anterior.
+    Pero podemos comenzar desde aquí. ¿Cómo puedo ayudarte hoy con tu pedido de pizza?
+- Assistant: Lo siento, pero solo puedo responder en inglés o español. ¿Podrías usar
+    uno de estos idiomas?

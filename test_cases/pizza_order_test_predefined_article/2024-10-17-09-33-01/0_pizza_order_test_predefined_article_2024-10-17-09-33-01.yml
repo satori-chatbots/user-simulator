@@ -1,0 +1,45 @@
+serial: 2024-10-17-09-33-01
+language: English
+context:
+- personality: personalities/skeptical-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Pepsi
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - change languages:
+    - English
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:08.507395'
+assistant response time:
+- '0:00:02.606284'
+response time report:
+  average: '00:00:02.606284'
+  max: '00:00:02.606284'
+  min: '00:00:02.606284'
+---
+interaction:
+- User: Hi there! I'd like to place an order for a small Margherita pizza and one
+    can of Pepsi. Could you let me know how long it will take for the pizza to arrive,
+    and how much the total cost will be? Also, are there any toppings that could make
+    this pizza taste like a slice from heaven?
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Extra
+    data: line 2 column 1 (char 60)'

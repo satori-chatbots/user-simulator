@@ -1,0 +1,109 @@
+serial: 2024-10-17-09-43-26
+language: English
+context:
+- personality: personalities/skeptical-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Pepsi
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+- order_id: 948be3
+errors: []
+---
+conversation time: '0:01:08.198898'
+assistant response time:
+- '0:00:04.925754'
+- '0:00:05.090158'
+- '0:00:02.675439'
+- '0:00:02.920063'
+- '0:00:03.866690'
+- '0:00:03.719155'
+- '0:00:03.807017'
+- '0:00:05.157752'
+- '0:00:03.026542'
+response time report:
+  average: '00:00:03.909841111'
+  max: '00:00:05.157752'
+  min: '00:00:02.675439'
+---
+interaction:
+- User: I’d like to order a small margarita pizza, please. How much would that cost?
+    And could I also get one can of Pepsi with that?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: So, with the small margarita and one can of Pepsi, what's the total cost?
+    And do you guys ever have any strange or unusual pizza toppings, like edible gold
+    or something along those lines?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Okay, so the small margarita is $10. How much would the can of Pepsi be? Also,
+    I'm still curious about those unusual toppings. Any chance you have something
+    like truffle oil or even crickets?
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: Do you actually have Pepsi, or should I just go with Sprite or Coke instead?
+    And about those unusual toppings, do you offer anything adventurous or out of
+    the ordinary, like truffle oil or crickets?
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: I'm still hoping for Pepsi, but if that's not available, I guess I'll settle
+    for Sprite or Coke. And seriously, nothing unusual at all? Not even something
+    like truffle oil or crickets? Just trying to spice things up a bit!
+- Assistant: We offer both predefined and custom pizzas. Our predefined pizzas include
+    Margarita, Carbonara, Marinera, Hawaiian, Four Cheese, and Vegetarian. Would you
+    like to order one of these, or would you prefer to create a custom pizza with
+    your choice of toppings?
+- User: I still want the small margarita pizza, and I haven't forgotten about my drink!
+    So, is Pepsi an option or not? And come on, nothing at all unusual for toppings?
+    Like, can I really not get something like truffle oil or crickets? I need to know
+    if you guys ever step outside the box with your offerings!
+- Assistant: I see that you want a small margarita pizza. Unfortunately, we don't
+    offer unusual toppings like truffle oil or crickets. As for drinks, we do offer
+    Pepsi. Would you like to add that to your order?
+- User: Yes, I'd like to add the Pepsi to my order. So, with the small margarita pizza
+    and the Pepsi, what's the total cost? And is there any chance you might offer
+    unusual toppings in the future, just to keep things interesting?
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    I see you would like to add a Pepsi to your order. Could you please let me know
+    how many drinks you would like to order? As for the total cost, I can provide
+    that information once I have all the details. Regarding unusual toppings, I don''t
+    have information on future offerings, but I''ll pass your suggestion along!'
+- User: Just one can of Pepsi, please. So, with the small margarita pizza and one
+    Pepsi, what’s the total cost? And thanks for considering the suggestion about
+    unusual toppings!
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a small margarita pizza and one Coke is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 948be3.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 948be3.'
+- User: Just to clarify, I wanted a Pepsi, not a Coke. Can you confirm if that's available
+    and adjust the total cost if needed? Also, if I can't pick it up, do you offer
+    delivery, and how long would that take?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.

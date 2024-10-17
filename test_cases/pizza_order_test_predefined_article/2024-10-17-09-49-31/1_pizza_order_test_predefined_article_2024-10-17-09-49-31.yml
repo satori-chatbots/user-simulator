@@ -1,0 +1,54 @@
+serial: 2024-10-17-09-49-31
+language: English
+context:
+- personality: personalities/conversational-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- drink:
+  - Sprite
+- number:
+  - 2
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:00:16.320969'
+assistant response time:
+- '0:00:04.540040'
+- '0:00:02.623844'
+response time report:
+  average: '00:00:03.581942'
+  max: '00:00:04.540040'
+  min: '00:00:02.623844'
+---
+interaction:
+- User: 'Hey there! 😊 I''m craving some pizza right now, and I was wondering if you
+    guys have a small carbonara pizza? 🍕 Also, do you have 2 cans of Sprite to go
+    with that? Just trying to make the perfect meal combo here! '
+- Assistant: I see that you want a small carbonara pizza. Could you please confirm
+    if you would like to order any drinks or if there's anything else you'd like to
+    add to your order?
+- User: Oh, definitely! I mentioned those 2 cans of Sprite already. 🥤 Can't have pizza
+    without a fizzy drink, right? By the way, do you guys have any crazy pizza topping
+    combinations you've seen people order? I'm always up for trying something wild!
+    😄
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    Thank you for confirming the 2 cans of Sprite. Just to make sure, could you please
+    confirm the number of drinks you would like to order? Also, regarding crazy pizza
+    topping combinations, we''ve seen some interesting ones like pineapple with jalapeños
+    or even a dessert pizza with chocolate and marshmallows! Let me know if you''d
+    like to try something unique. 😄'

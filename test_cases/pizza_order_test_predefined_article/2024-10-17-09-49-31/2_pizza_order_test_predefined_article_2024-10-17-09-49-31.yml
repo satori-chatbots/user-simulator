@@ -1,0 +1,63 @@
+serial: 2024-10-17-09-49-31
+language: English
+context:
+- personality: personalities/conversational-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- drink:
+  - Water
+- number:
+  - 1
+- size: small
+- pizza_type: marinera
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- price: $13
+- order_id: b0a36a
+errors: []
+---
+conversation time: '0:00:22.155979'
+assistant response time:
+- '0:00:03.582969'
+- '0:00:02.565741'
+- '0:00:03.659311'
+response time report:
+  average: '00:00:03.269340333'
+  max: '00:00:03.659311'
+  min: '00:00:02.565741'
+---
+interaction:
+- User: Hey there! 😊 I'm craving something yummy today. Could you tell me if you have
+    a small marinera pizza? Also, do you have any cans of water? I could really use
+    a refreshing drink right now!
+- Assistant: I see you mentioned a small marinera pizza. Could you please confirm
+    if this is correct or if you need to make any changes? Also, would you like to
+    add any drinks to your order?
+- User: Yep, you got it right! A small marinera pizza sounds perfect. 😋 And about
+    the drinks, do you have any cans of water? I'm trying to stay hydrated! By the
+    way, what's your favorite pizza topping? Just curious! 🍕
+- Assistant: 'Thanks for ordering a small marinera pizza!
+
+    Could you please let me know how many cans of water you would like to order? Once
+    I have that information, I can proceed with your order. As for my favorite pizza
+    topping, I think a classic pepperoni is always a great choice! 🍕'
+- User: Great choice on the pepperoni! 😄 Could I get just one can of water, please?
+    By the way, do you have any hobbies or things you like to do when you're not helping
+    people order pizza? Just curious! 😊
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a small marinera pizza and one water is $13.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is b0a36a.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is b0a36a.'

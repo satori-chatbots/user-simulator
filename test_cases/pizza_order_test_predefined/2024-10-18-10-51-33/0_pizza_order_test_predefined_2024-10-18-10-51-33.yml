@@ -1,0 +1,46 @@
+serial: 2024-10-18-10-51-33
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Dr Pepper
+- number:
+  - 1
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 1
+- goal_style:
+    steps: 1
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:13.814095'
+assistant response time:
+- '0:00:06.586108'
+response time report:
+  average: 6.586108
+  max: 6.586108
+  min: 6.586108
+---
+interaction:
+- User: 'Hey there! 😊 I''m craving some pizza right now. Do you guys have a small
+    BBQ pizza? Also, how about a can of Dr Pepper to go with that? I heard it''s a
+    great combo! 🍕🥤
+
+
+    By the way, how long do you think the delivery might take? I''m super hungry!
+    😋'
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?

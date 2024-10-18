@@ -130,6 +130,7 @@ class RoleData:
         self.test_name = self.validated_data.test_name  # str
 
     def reset_attributes(self):
+        logger.info(f"Preparing attributes for next conversation...")
         self.fallback = self.validated_data.fallback
         self.temperature = self.validated_data.llm.temperature
         self.model = self.validated_data.llm.model

@@ -136,7 +136,7 @@ def get_error_stats(error_df):
 
 
 def get_time_stats(response_time):
-    times = pd.to_timedelta(response_time)
+    times = pd.to_timedelta(response_time, unit='s')
 
     time_report = {
         'average': round(times.mean().total_seconds(), 6),
@@ -175,6 +175,7 @@ def save_test_conv(history, metadata, test_name, path, serial, conversation_time
     print('------------------------------')
     errors.clear()
 
+
 class ExecutionStats:
     def __init__(self, test_cases_folder, serial):
 
@@ -196,7 +197,6 @@ class ExecutionStats:
     def reset(self):
         self.test_names = []
         self.export = False
-
 
     def get_stats(self):
 
@@ -271,7 +271,6 @@ class ExecutionStats:
 
         if not os.path.exists(export_path):
             os.makedirs(export_path)
-
 
         single_reports = []
         for index, name in enumerate(self.test_names):

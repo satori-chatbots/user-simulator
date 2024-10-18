@@ -138,25 +138,23 @@ def build_chatbot(technology, chatbot) -> Chatbot:
 
 def generate(technology, chatbot, user, personality, extract):
     profiles = parse_profiles(user)
-    test_names = []
-    # serial_list = []
     serial = generate_serial()
-
     my_execution_stat = ExecutionStats(extract, serial)
+
     for profile in profiles:
         user_profile = RoleData(profile, personality)
         test_name = user_profile.test_name
         start_time_test = timeit.default_timer()
 
         for i in range(user_profile.conversation_number):
-            start_time_conversation = timeit.default_timer()
-
             the_chatbot = build_chatbot(technology, chatbot)
 
             the_chatbot.fallback = user_profile.fallback
             the_user = UserGeneration(user_profile, the_chatbot)
             starter = user_profile.is_starter
             response_time = []
+
+            start_time_conversation = timeit.default_timer()
             while True:
                 if starter:
                     user_msg = the_user.open_conversation()
@@ -165,7 +163,7 @@ def generate(technology, chatbot, user, personality, extract):
                     start_response_time = timeit.default_timer()
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
                     end_response_time = timeit.default_timer()
-                    response_time.append(str(timedelta(seconds=end_response_time - start_response_time)))
+                    response_time.append(timedelta(seconds=end_response_time - start_response_time).total_seconds())
 
                     if not is_ok:
                         if response is not None:
@@ -187,7 +185,8 @@ def generate(technology, chatbot, user, personality, extract):
                     start_response_time = timeit.default_timer()
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
                     end_response_time = timeit.default_timer()
-                    response_time.append(str(timedelta(seconds=end_response_time - start_response_time)))
+                    time_sec = timedelta(seconds=end_response_time - start_response_time).total_seconds()
+                    response_time.append(time_sec)
 
                     if response == 'timeout':
                         break
@@ -198,14 +197,14 @@ def generate(technology, chatbot, user, personality, extract):
                         if response is not None:
                             the_user.update_history("Assistant", "Error: " + response)  # added by JL
                         else:
-                            the_user.update_history("Assistant", "Error: The server did not repond.")  # added by JL
+                            the_user.update_history("Assistant", "Error: The server did not respond.")  # added by JL
                         break
 
             if extract:
                 end_time_conversation = timeit.default_timer()
                 conversation_time = end_time_conversation - start_time_conversation
-                formatted_time_conv = str(timedelta(seconds=conversation_time))
-                print(f"Conversation Time: {formatted_time_conv}")
+                formatted_time_conv = timedelta(seconds=conversation_time).total_seconds()
+                print(f"Conversation Time: {formatted_time_conv} (s)")
 
                 history = the_user.conversation_history
                 metadata = get_conversation_metadata(user_profile, the_user, serial)
@@ -219,8 +218,8 @@ def generate(technology, chatbot, user, personality, extract):
 
         end_time_test = timeit.default_timer()
         execution_time = end_time_test - start_time_test
-        formatted_time = str(timedelta(seconds=execution_time))
-        print(f"Execution Time: {formatted_time}")
+        formatted_time = timedelta(seconds=execution_time).total_seconds()
+        print(f"Execution Time: {formatted_time} (s)")
         print('------------------------------')
 
         my_execution_stat.add_test_name(test_name)

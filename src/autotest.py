@@ -225,9 +225,6 @@ def generate(technology, chatbot, user, personality, extract):
         my_execution_stat.add_test_name(test_name)
         my_execution_stat.show_last_stats()
 
-        # test_names.append(test_name)
-        # serial_list.append(serial)
-
     if extract:
         my_execution_stat.show_global_stats()
         my_execution_stat.export_stats()

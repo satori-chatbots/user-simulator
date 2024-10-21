@@ -1,0 +1,64 @@
+serial: 2024-10-17-09-49-31
+language: English
+context:
+- personality: personalities/conversational-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- order_id: c3d60f
+errors: []
+---
+conversation time: '0:00:24.472280'
+assistant response time:
+- '0:00:04.002878'
+- '0:00:02.252357'
+- '0:00:03.846679'
+response time report:
+  average: '00:00:03.367304666'
+  max: '00:00:04.002878'
+  min: '00:00:02.252357'
+---
+interaction:
+- User: 'Hey there! 😊 I''ve got a hankering for some yummy pizza. Can you tell me
+    about your small Margherita pizza? Also, do you have Coke in cans? 🍕🥤
+
+
+    By the way, how''s your day going? I hope you''re not too swamped with orders!'
+- Assistant: It seems like you mentioned a "small Margherita pizza" in the previous
+    conversation. However, the correct spelling for the pizza type is "margarita".
+    Could you please confirm if you would like a small margarita pizza?
+- User: Oh, my bad! I totally meant a Margherita pizza. 😅 So, what's on the small
+    Margherita pizza, and do you guys offer Coca-Cola in cans? Also, what's your favorite
+    pizza topping? I bet you have some pizza secrets to spill! 🍕🥤
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    Could you please let me know how many drinks you would like to order and confirm
+    if you would like Coca-Cola (coke) or another drink option like sprite or water?'
+- User: I think I'll just stick with one can of Coca-Cola for now, keep it simple!
+    🥤 So, what's your favorite pizza topping? I feel like everyone's got a secret
+    pizza combo they love. Also, do you have any fun pizza stories to share? 🍕
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a small margarita pizza and one Coke is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c3d60f.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c3d60f.'

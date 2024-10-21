@@ -1,0 +1,47 @@
+serial: 2024-10-17-09-33-01
+language: English
+context:
+- personality: personalities/skeptical-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - change languages:
+    - English
+data_output:
+- price: 12.5$
+- time: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:00:16.688544'
+assistant response time:
+- '0:00:04.535738'
+response time report:
+  average: '00:00:04.535738'
+  max: '00:00:04.535738'
+  min: '00:00:04.535738'
+---
+interaction:
+- User: Hello! I'd like to order a small carbonara pizza and 2 cans of Coca-Cola.
+    Could you tell me how much that would cost and how long the delivery might take?
+    Also, do you have any unusual pizza options, like with pineapple or maybe something
+    even stranger? I'm feeling adventurous!
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

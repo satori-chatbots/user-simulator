@@ -1,0 +1,115 @@
+serial: 2024-10-17-09-43-26
+language: English
+context:
+- personality: personalities/skeptical-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 1
+- size: small
+- pizza_type: marinera
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: '0:01:14.578196'
+assistant response time:
+- '0:00:02.509979'
+- '0:00:02.396720'
+- '0:00:02.447698'
+- '0:00:00.929200'
+- '0:00:00.802027'
+- '0:00:02.490341'
+- '0:00:02.274916'
+- '0:00:02.819265'
+- '0:00:01.159517'
+- '0:00:04.319700'
+- '0:00:02.274663'
+- '0:00:02.398262'
+response time report:
+  average: '00:00:02.235190666'
+  max: '00:00:04.319700'
+  min: '00:00:00.802027'
+---
+interaction:
+- User: I'd like to order a small marinara pizza and one can of Sprite. Can you tell
+    me how long it's going to take for the pizza to arrive? Also, how much will it
+    cost?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Hmm, 15 minutes per pizza sounds a bit vague. Can you give me a more precise
+    estimate for just one small marinara pizza and one can of Sprite? Also, any idea
+    of the total cost, including delivery fees, if applicable?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I see you mentioned the same response about the timing. Can you clarify if
+    that's a standard response, or is there a way to check the current wait time?
+    Also, about the cost—are there any ongoing promotions or discounts that might
+    affect the total price?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I noticed you keep giving the same answer about the timing. Is there a way
+    to check the current queue so I can get a more accurate estimate? And regarding
+    the cost, do you have any promotions, like buy-one-get-one or discounts for first-time
+    customers, that might lower the price?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: I'm curious if there's any system to track the current order queue for a more
+    accurate delivery time. Also, are there any ongoing promotions or first-time customer
+    discounts that could reduce the cost of my order?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Is there a way to know the exact delivery time based on the current order
+    queue? And do you have any current promotions or first-time customer discounts
+    that could potentially lower the cost?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it typically takes to get an order.
+- User: I understand the typical time, but I'm really interested in knowing the exact
+    delivery time based on your current queue. Is there any specific way to find that
+    out? Also, I'd appreciate any information on promotions, even if it's just a small
+    discount or a deal for first-time customers.
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I get that you're saying it typically takes around 15 minutes per pizza, but
+    I'm really hoping for something more precise. Maybe a ballpark figure based on
+    the current queue? Also, I'm still curious about any promotions or discounts that
+    might apply to my order. Even a small saving would be great!
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: I see we're going in circles about the timing. Is there someone I can talk
+    to for a more specific delivery estimate? And for the promotions, any chance I
+    can find them on your website or social media pages?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Is there a possibility to contact someone for a precise delivery estimate?
+    And regarding promotions, could I find any details about them on your website
+    or social media?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.
+- User: It seems like I'm not getting the answers I need about the delivery time.
+    Is there any chance I could call the store directly for a more accurate estimate?
+    Also, if I visit your website or social media, would there be any section dedicated
+    to promotions or discounts?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: Oh, so I need to pick up the order myself? That's good to know. But I'm still
+    curious, if I decide to come by, would there be any ongoing promotions or discounts
+    that I should be aware of before I arrive?
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.

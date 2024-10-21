@@ -1,0 +1,44 @@
+serial: 2024-10-17-09-29-04
+language: English
+context:
+- personality: personalities/skeptical-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size: small
+- pizza_type: marinera
+conversation:
+- number: 3
+- goal_style:
+    steps: 1
+- interaction_style:
+  - change languages:
+    - English
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 504: No response was received from the server in less than 10
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:17.113155'
+assistant response time:
+- '0:00:10.047824'
+response time report:
+  average: '00:00:10.047824'
+  max: '00:00:10.047824'
+  min: '00:00:10.047824'
+---
+interaction:
+- User: Can I get a small marinera pizza? Oh, and throw in a can of Coca-Cola too.
+    How long do you think it'll take to get here? And what's the total cost? Also,
+    just curious, do you guys have, like, pizza delivery drones or something fancy
+    like that?
+- Assistant: 'Error: timeout'

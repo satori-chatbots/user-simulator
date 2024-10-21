@@ -1,0 +1,60 @@
+serial: 2024-10-17-09-43-26
+language: English
+context:
+- personality: personalities/skeptical-user.yml
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: '0:00:22.378533'
+assistant response time:
+- '0:00:04.260616'
+- '0:00:01.520256'
+- '0:00:01.258542'
+response time report:
+  average: '00:00:02.346471333'
+  max: '00:00:04.260616'
+  min: '00:00:01.258542'
+---
+interaction:
+- User: I'd like to order a small carbonara pizza, please. And do you have any deals
+    if I order two cans of Coca-Cola with it? Also, how long would it take for the
+    pizza to arrive?
+- Assistant: I have the information for a small carbonara pizza. Would you like to
+    proceed with ordering two cans of Coca-Cola as well? Unfortunately, I don't have
+    information on deals, but I can add the drinks to your order if you'd like.
+- User: Could you tell me how much the total cost would be if I add the two cans of
+    Coca-Cola? Also, is there a way to get the delivery time estimate, maybe a range
+    rather than an exact time?
+- Assistant: I'm sorry, but I don't have the capability to provide pricing or delivery
+    time estimates. I recommend contacting the store directly for the most accurate
+    information regarding costs and delivery times. Would you like to proceed with
+    the order for the small carbonara pizza and two cans of Coca-Cola?
+- User: I understand. But before proceeding, can you confirm if there's an option
+    to choose between different crust types for the small carbonara pizza? And if
+    so, what are the available options?
+- Assistant: At Fast Pizza, we currently do not offer options for different crust
+    types for our predefined pizzas. Would you like to proceed with the order for
+    the small carbonara pizza?

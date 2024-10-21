@@ -28,8 +28,6 @@ def to_dict(in_val):
     try:
         dictionary = ast.literal_eval(extract_dict(in_val))
     except (BadDictionaryGeneration, ValueError) as e:
-        # logging.getLogger().verbose(f'Bad dictionary generation for user assistant: {e}. '
-        #                             f'Setting empty dictionary value.')
         logger.error(f"Bad dictionary generation: {e}. Setting empty dictionary value.")
         dictionary = {}
     return dictionary

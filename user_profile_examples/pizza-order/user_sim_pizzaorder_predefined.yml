@@ -1,5 +1,5 @@
 llm:
-  temperature: 0.8
+  temperature: 0.0
   model: gpt-4o
 
 is_starter: True

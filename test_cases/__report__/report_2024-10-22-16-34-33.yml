@@ -1,0 +1,19 @@
+Global report:
+  Average assistant response time: 5.940125
+  Maximum assistant response time: 7.035758
+  Mínimum assistant response time: 4.900891
+  Errors:
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_serviceform_chatbot_tests_2024-10-22-16-34-33.yml
+---
+Test name: serviceform_chatbot_tests
+Average assistant response time: 5.940125
+Maximum assistant response time: 7.035758
+Mínimum assistant response time: 4.900891
+Errors:
+- error: 1001
+  count: 1
+  conversations:
+  - 0_serviceform_chatbot_tests_2024-10-22-16-34-33.yml

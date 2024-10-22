@@ -14,21 +14,28 @@ role: |
 context:
 #  personality:
   - You should act as a business woman, looking for information about chatbots, and to evaluate if they may be useful to your business
+  - You have a small website with only dozens of visits per day
 
 ask_about:
   - "What is a chatbot and how can it help in your business"
-  - "You have a small website with only dozens of visits per day"
   - "Can you sell through the chatbot and in which channels can it be deployed"
+  - "The most appropriate plan and its price"
 
 output:
   - channels:
       type: string
       description: channels in which the chatbot can be deployed
+  - most_appropriate_plan:
+      type: string
+      description: the most appropriate plan to contract
+  - plan_price:
+      type: money
+      description: the price of the offered plan
 
 conversations:
   - number: 1
   - goal_style:
-        steps: 5
+        steps: 6
   - interaction_style:
       - default
 

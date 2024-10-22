@@ -1,0 +1,78 @@
+serial: 2024-10-22-14-54-46
+language: English
+context:
+- You should act as a business woman, looking for information about chatbots, and
+  to evaluate if they may be useful to your business
+ask_about:
+- Inform that you have a website with {{visits}} visits per week
+- The most appropriate plan for your business, and its price
+- visits:
+  - dozens
+conversation:
+- number: 3
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- most_appropriate_plan: null
+- plan_price: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 75.638067
+assistant response time:
+- 7.721521
+- 4.722269
+- 14.413692
+- 5.378616
+- 5.097889
+- 8.295223
+response time report:
+  average: 7.604868
+  max: 14.413692
+  min: 4.722269
+---
+interaction:
+- User: What kind of chatbots does Serviceform offer for businesses like mine? I'm
+    curious if they could help improve engagement on my website, which gets dozens
+    of visits per week.
+- Assistant: "What field do you work in, or what is your website about? \n\nAlso,\
+    \ could you please share how much traffic you have on your website? \n\nThis information\
+    \ will help us understand how we can assist you better! \U0001F60A"
+- User: My business is related to coin and stamp collection, and my website gets dozens
+    of visits per week. Can you tell me more about how your chatbots might help improve
+    engagement for a site like mine?
+- Assistant: "That's great to hear about your business in coin and stamp collection!\
+    \ \U0001F60A \n\nTo better assist you, could you please share how much traffic\
+    \ your website receives each week? \n\nAlso, how can we help you specifically?\
+    \ Are you looking for lead generation, customer engagement, or something else?"
+- User: I'm primarily interested in improving customer engagement on my website. Can
+    you tell me more about the specific features of your chatbots that might help
+    with that?
+- Assistant: "What field do you work in, or what is your website about? \n\nAlso,\
+    \ how much traffic do you have on your website? \n\nThis information will help\
+    \ me understand how we can assist you better! \U0001F60A \n\nLooking forward to\
+    \ your response!"
+- User: I'm in the coin and stamp collection business, and my website gets dozens
+    of visits per week. Can you tell me a bit more about the features of your chatbots
+    that would help improve customer engagement for someone in my field?
+- Assistant: "That's great to hear you're in the coin and stamp collection business!\
+    \ \n\nTo better assist you, could you please share how much traffic your website\
+    \ receives each week? \n\nAlso, how can we help you specifically? \U0001F60A"
+- User: I'm mainly interested in boosting customer engagement on my website. Could
+    you share some specific features of your chatbots that are designed to enhance
+    engagement for businesses like mine?
+- Assistant: "What field do you work in, or what is your website about? \n\nAlso,\
+    \ how much traffic do you have on your website? \n\nThis information will help\
+    \ me understand how we can assist you in boosting customer engagement! \U0001F60A"
+- User: I'm in the coin and stamp collection business, and my website receives dozens
+    of visits per week. I'm really interested in how your chatbots can be tailored
+    to enhance engagement for a niche like mine. Could you provide some examples of
+    features that might be particularly useful in my field?
+- Assistant: "That's great to hear you're in the coin and stamp collection business!\
+    \ \U0001FA99\U0001F4EC \n\nTo better assist you, could you please share how much\
+    \ traffic your website receives each week? \n\nAlso, how can we help you specifically?\
+    \ Are you looking for lead generation, customer engagement, or something else?\
+    \ \n\nOnce I have that information, I can suggest suitable features and packages\
+    \ for your needs! \U0001F60A"

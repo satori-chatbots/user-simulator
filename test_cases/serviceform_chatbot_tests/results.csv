@@ -1,2 +1,2 @@
 rule,checks,pass,fail,not_applicable,fail_rate
-chatbot_fills_all_slots,20,2,18,0,90.00%
+chatbot_does_not_repeat,9,8,1,0,11.11%

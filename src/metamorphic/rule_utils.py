@@ -7,6 +7,8 @@ import inflect
 from openai import OpenAI
 
 from metamorphic import get_filtered_tests
+from metamorphic.text_comparison_utils import exact_similarity, tf_idf_cosine_similarity, jaccard_similarity, \
+    sequence_similarity
 
 filtered_tests = []
 interaction = []
@@ -41,34 +43,53 @@ def util_to_wrapper_dict() -> dict:
             '_chatbot_returns':
             "    def chatbot_returns(what):\n        return _chatbot_returns(what, interaction)\n",
             '_repeated_answers':
-                "    def repeated_answers():\n        return _repeated_answers(interaction)\n",
+                "    def repeated_answers(method = 'exact', threshold = 0.4):\n        return _repeated_answers(interaction, method, threshold)\n",
             '_data_collected':
                 "    def data_collected():\n        return _data_collected(conv)\n",
             '_missing_slots':
                 "    def missing_slots():\n        return _missing_slots(conv)\n",
             }
 
-def _repeated_answers(interaction):
+def _repeated_answers(interaction, method = 'exact', threshold = 0.4):
     """
     :param interaction: a list with the user-chatbot interactions
     :return: a dictionary of repeated phrases by the chatbot (keys=phrase, value=list of step numbers)
     """
+    comparator = build_comparator(method)
     repeated_phrases = dict()
     step_index = 0
     for step in interaction:
         for key, value in step.items():
             if key.lower() in ['chatbot', 'assistant']:
-                if value in repeated_phrases:
-                    repeated_phrases[value].append(step_index)
+                similar = find_similar(comparator, value, repeated_phrases, threshold)
+                if similar is not None:
+                    repeated_phrases[similar].append(value)
                 else:
-                    repeated_phrases[value] = [step_index]
+                    repeated_phrases[value] = []
         step_index += 1
     for key in list(repeated_phrases.keys()):  # remove phrases that occur only 1
-        if len(repeated_phrases[key])<2:
+        if len(repeated_phrases[key])<1:
             del repeated_phrases[key]
 
     #print(f" REPEATED PHRASES {repeated_phrases}")
     return repeated_phrases
+
+def find_similar(comparator, phrase, phrases, threshold):
+    for key in phrases:
+        similarity = comparator(phrase, key)
+        if similarity >= threshold:
+            return key
+    return None
+
+def build_comparator(method):
+    if method == 'tf-idf':
+        return tf_idf_cosine_similarity
+    elif method == 'jaccard':
+        return jaccard_similarity
+    elif method == 'sequence-matcher':
+        return sequence_similarity
+    else:
+        return exact_similarity
 
 def _chatbot_returns(what, interaction):
     """

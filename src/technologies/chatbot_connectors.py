@@ -1,3 +1,4 @@
+import json
 import uuid
 from abc import abstractmethod
 import requests
@@ -210,3 +211,46 @@ class ChatbotTaskyto(Chatbot):
                 return False, 'chatbot internal error'
 
         return True, ''
+
+##############################################################################################################
+# Serviceform
+class ChatbotServiceform(Chatbot):
+    def __init__(self, url):
+        Chatbot.__init__(self, url)
+        self.url = "https://dash.serviceform.com/api/ai"
+        self.headers = {
+            'Content-Type': 'text/plain;charset=UTF-8'
+        }
+        self.payload = {"sid":"1729589460223tvzbcxe5zocgr5hs",
+                        "tid":"haGDRXUPY9tQOsOS44jY",
+                        "message":"Hello",
+                        "extraTraining":"",
+                        "assistant_id":"asst_PUNPPDAFOgHRLrlmHhDuQhCM"}
+
+    def execute_with_input(self, user_msg):
+        self.payload['message'] = user_msg
+        timeout = 10000
+        try:
+            response = requests.post(self.url, headers=self.headers, json=self.payload, timeout=timeout)
+            if response.status_code == 200:
+                data_bytes = response.content
+                data_str = data_bytes.decode('utf-8')
+                data_dict = json.loads(data_str)
+                return True, data_dict['response']
+            else:
+                # There is an error, but it is an internal error
+                print(f"Server error {response.status_code}")
+                errors.append({response.status_code: f"Couldn't get response from the server"})
+                return False, f"Something went wrong. Status Code: {response.status_code}"
+        except requests.exceptions.JSONDecodeError as e:
+            logger = logging.getLogger('my_app_logger')
+            logger.log(f"Couldn't get response from the server: {e}")
+            return False, 'chatbot internal error'
+        except requests.Timeout:
+            logger = logging.getLogger('my_app_logger')
+            logger.error(f"No response was received from the server in less than {timeout}")
+            errors.append({504: f"No response was received from the server in less than {timeout}"})
+            return False, 'timeout'
+
+
+

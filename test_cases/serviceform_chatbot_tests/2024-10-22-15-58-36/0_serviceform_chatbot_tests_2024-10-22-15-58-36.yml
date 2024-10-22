@@ -1,0 +1,144 @@
+serial: 2024-10-22-15-58-36
+language: English
+context:
+- You should act as a business woman, looking for information about chatbots, and
+  to evaluate if they may be useful to your business
+ask_about:
+- Inform that you have a website with {{visits}} visits per week
+- The most appropriate plan for your business, and its price
+- visits:
+  - dozens
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - change languages:
+    - spanish
+    - English
+    - English
+    - spanish
+    - English
+    - English
+data_output:
+- most_appropriate_plan: BASIC
+- plan_price: €449
+errors: []
+---
+conversation time: 94.255981
+assistant response time:
+- 8.571222
+- 6.678686
+- 8.266667
+- 6.934733
+- 6.516296
+- 4.437387
+response time report:
+  average: 6.900831
+  max: 8.571222
+  min: 4.437387
+---
+interaction:
+- User: ¡Hola! Estoy interesada en saber más sobre los servicios que ofrece la empresa
+    Serviceform. Tengo un pequeño negocio de coleccionismo de monedas y sellos, y
+    estoy considerando si un chatbot podría ser útil para mi sitio web. Recibo unas
+    pocas docenas de visitas por semana. ¿Podrías decirme cuál sería el plan más adecuado
+    para mi negocio y cuánto costaría?
+- Assistant: "¡Hola! \U0001F60A \n\nEs genial saber que tienes un negocio de coleccionismo\
+    \ de monedas y sellos. \n\nPara poder ayudarte mejor, ¿podrías decirme cuántas\
+    \ visitas recibes exactamente por semana? Esto nos ayudará a determinar el paquete\
+    \ más adecuado para ti. \n\nCon unas pocas docenas de visitas por semana, probablemente\
+    \ el paquete \"BASIC\" que comienza desde €449 sería el más adecuado. Este paquete\
+    \ es ideal para sitios con menos de 1000 visitantes por semana. \n\nAdemás, si\
+    \ el precio es un poco alto, también puedes considerar hacerlo tú mismo, comenzando\
+    \ desde completamente gratis o desde 49€ al mes después de 50 interacciones. \n\
+    \n¿Te gustaría que alguien de nuestro equipo se pusiera en contacto contigo para\
+    \ hablar más sobre cómo podrías mejorar tu negocio y servicio al cliente? Si es\
+    \ así, por favor, proporciona tu nombre, correo electrónico y número de teléfono.\
+    \ \U0001F4DE✉️"
+- User: No, gracias. Prefiero obtener la información por aquí. Además del precio,
+    ¿qué características incluye el paquete "BASIC"? Estoy interesada en saber qué
+    tipo de funcionalidades tendría el chatbot para mejorar la experiencia de mis
+    clientes en mi sitio web de coleccionismo.
+- Assistant: "¡Hola! \U0001F60A \n\nPara poder ayudarte mejor, ¿podrías decirme cuánto\
+    \ tráfico tiene tu sitio web de coleccionismo? \n\nAdemás, me encantaría saber\
+    \ cómo podemos ayudarte específicamente. \n\nEn cuanto al paquete \"BASIC\", incluye\
+    \ funcionalidades como:\n\n- Creación de chatbots personalizados.\n- Respuestas\
+    \ automáticas a preguntas frecuentes.\n- Integración con plataformas de mensajería.\n\
+    - Análisis de interacciones y estadísticas.\n\nCon el tráfico adecuado, podrías\
+    \ generar más leads y mejorar la experiencia de tus clientes. ¡Espero tu respuesta!"
+- User: ¿Qué opciones de personalización ofrece el chatbot en el paquete "BASIC"?
+    Estoy interesada en hacer que el chatbot sea único para mi negocio de coleccionismo.
+    Además, las integraciones con plataformas de mensajería, ¿incluyen redes sociales
+    como Facebook o Instagram?
+- Assistant: "¡Hola! \U0001F60A \n\nPara poder ayudarte mejor, ¿podrías decirme en\
+    \ qué campo trabajas o cuál es tu sitio web? \n\nAdemás, me gustaría saber cuántas\
+    \ visitas recibe tu sitio web. Esto nos ayudará a calcular cuántos leads podrías\
+    \ generar y a sugerirte un paquete adecuado. \n\n¡Estoy aquí para ayudarte!"
+- User: Estoy en el campo del coleccionismo, específicamente de monedas y sellos.
+    Mi sitio web recibe unas pocas docenas de visitas por semana. Estoy interesada
+    en saber más sobre las opciones de personalización para el chatbot en el paquete
+    "BASIC". Quiero que sea especialmente único para mi negocio. También, me interesa
+    saber si las integraciones de plataformas de mensajería incluyen redes sociales
+    como Facebook o Instagram.
+- Assistant: "¡Hola! \U0001F60A\n\nEs genial saber que trabajas en el campo del coleccionismo\
+    \ de monedas y sellos. \n\nCon unas pocas docenas de visitas por semana, el paquete\
+    \ \"BASIC\" sería una excelente opción para ti, ya que comienza desde €449. Este\
+    \ paquete te permitirá personalizar tu chatbot para que sea único y se adapte\
+    \ a las necesidades de tu negocio.\n\nEn cuanto a las integraciones de plataformas\
+    \ de mensajería, sí, nuestras herramientas pueden integrarse con varias plataformas,\
+    \ incluyendo WhatsApp y otras redes sociales. Sin embargo, para Facebook e Instagram,\
+    \ te recomendaría revisar nuestras integraciones específicas. Puedes encontrar\
+    \ más información sobre esto aquí: [Integraciones de Serviceform](https://www.serviceform.com/integrations).\n\
+    \nSi deseas que alguien de nuestro equipo se ponga en contacto contigo para discutir\
+    \ más sobre la personalización del chatbot y las integraciones, por favor, déjame\
+    \ saber tu nombre, correo electrónico y número de teléfono. ¡Estamos aquí para\
+    \ ayudarte! \U0001F4DE✨"
+- User: No, gracias. Prefiero seguir obteniendo la información por aquí. Me interesa
+    saber más sobre cómo puedo personalizar el chatbot dentro del paquete "BASIC".
+    ¿Puedo cambiar el diseño, los colores, y personalizar las respuestas para que
+    reflejen el tema de mi negocio de coleccionismo? También, sobre las integraciones,
+    ¿hay algún tipo de soporte si tengo dificultades al conectarlo con redes sociales
+    como Facebook o Instagram?
+- Assistant: 'Tal vez deberíamos ceñirnos al tema por ahora. 😊
+
+
+    Para personalizar el chatbot dentro del paquete "BASIC", sí, puedes cambiar el
+    diseño, los colores y personalizar las respuestas para que reflejen el tema de
+    tu negocio de coleccionismo. Esto te permitirá crear una experiencia más atractiva
+    y alineada con tu marca.
+
+
+    En cuanto a las integraciones, ofrecemos soporte para ayudarte a conectar tu chatbot
+    con redes sociales como Facebook o Instagram. Si tienes dificultades, no dudes
+    en consultar nuestra documentación o ponerte en contacto con nuestro equipo de
+    soporte.
+
+
+    Si necesitas más información, puedes revisar estos enlaces:
+
+
+    - [Diseñar el Chatbot](https://help.serviceform.com/articles/design-the-chatbot)
+
+    - [Integraciones](https://www.serviceform.com/integrations)
+
+
+    ¿Te gustaría que alguien de nuestro equipo se pusiera en contacto contigo para
+    ayudarte a desarrollar más tu negocio y mejorar el servicio al cliente? Si es
+    así, por favor, proporciona tu nombre, correo electrónico y número de teléfono.
+    📞✨'
+- User: No, gracias. Prefiero seguir obteniendo la información por aquí. Además de
+    personalizar el diseño y las respuestas, ¿puedo agregar funciones específicas
+    para el coleccionismo, como un catálogo de productos o una sección de preguntas
+    frecuentes sobre monedas y sellos? Y sobre el soporte, ¿está disponible en español
+    por si necesito ayuda adicional?
+- Assistant: 'Tal vez deberíamos ceñirnos al tema por ahora. 😊
+
+
+    Para cualquier consulta sobre herramientas o servicio al cliente, te recomiendo
+    que envíes un correo a help@serviceform.com. Ellos podrán ayudarte con tus preguntas
+    específicas sobre personalización y soporte en español.
+
+
+    Si tienes alguna otra pregunta relacionada con nuestros servicios, ¡estaré encantado
+    de ayudarte! ¿En qué campo trabajas y cuánto tráfico tiene tu sitio web?'

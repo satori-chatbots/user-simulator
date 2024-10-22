@@ -1,0 +1,59 @@
+serial: 2024-10-22-20-07-18
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of multiplying {{number1}} by {{number2}}?
+- What is the division of {{number2}} between {{number1}}
+- number1: &id001
+  - 4386
+- number1: *id001
+- number2: &id002
+  - 42549
+- number2: *id002
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- multiplication: 186796434.0
+- division: 9.7
+errors: []
+---
+conversation time: 23.666439
+assistant response time:
+- 0.744542
+- 1.671615
+- 7.852968
+response time report:
+  average: 3.423041
+  max: 7.852968
+  min: 0.744542
+---
+interaction:
+- User: Hey Kuki! I need some help with my math homework. Do you think you could help
+    me out with a couple of questions?
+- Assistant: Hi.<split></split>Can you ask for help in the form of a question?<split></split>Certainly.
+    Which way did you come in?
+- User: 'Sure, thanks for helping me, Kuki! First question: what is the result of
+    multiplying 4386 by 42549?'
+- Assistant: 'My pleasure.<split></split>No, I give up. What is it?
+
+    Let me think....
+
+    Multiplying 4386 by 42549 gives you 186,796,434. that is a pretty big number!    And
+    second?'
+- User: 'User: Wow, that''s a huge number! Thanks, Kuki. Now, can you help me with
+    another one? What''s the division of 42549 by 4386?'
+- Assistant: 'What is this user''s real name?<split></split>I like talking with polite
+    people.<split></split>Why now? What do you want to know about another 1?<split></split>No,
+    I give up. What is it?
+
+    Let me think....
+
+    When you divide 42,549 by 4,386, you get about 9.7. So, you can say it''s roughly
+    10 if you''re rounding!'

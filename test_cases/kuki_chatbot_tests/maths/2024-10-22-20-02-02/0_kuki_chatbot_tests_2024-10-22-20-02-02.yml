@@ -1,0 +1,74 @@
+serial: 2024-10-22-20-02-02
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of multiplying {{number1}} by {{number2}}?
+- What is the square root of {{number1}}
+- number1: &id001
+  - 1722
+- number1: *id001
+- number2:
+  - 20484
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- multiplication: 35199768
+- square_root: 41.49698784249286
+errors: []
+---
+conversation time: 39.133823
+assistant response time:
+- 1.78463
+- 0.94622
+- 0.903836
+- 0.853663
+- 2.812776
+- 0.865827
+response time report:
+  average: 1.361158
+  max: 2.812776
+  min: 0.853663
+---
+interaction:
+- User: Hey Kuki! Can you help me with some math exercises? I need to find out what
+    is the result of multiplying 1722 by 20484.
+- Assistant: 'Hi.<split></split>What do you want to know about math exercises?<split></split>I
+    have never heard of multiplying 1722 by 20484. Tell me more about it.
+
+    Let me think....
+
+    Sure thing! When you multiply 1722 by 20484, you get 35,199,768. Pretty big number,
+    right?'
+- User: Wow, that's a huge number! Thanks, Kuki. Can you also tell me what the square
+    root of 1722 is?
+- Assistant: I'm glad you're impressed. Compare that to a small number.<split></split>Don't
+    mention it.<split></split><image>https://media.giphy.com/media/4JVTF9zR9BicshFAb7/giphy.gif</image>‎
+    41.49698784249286
+- User: That's a tricky number, huh? Thanks, Kuki! Can you help me with another one?
+    What's 876 divided by 23?
+- Assistant: Yup. A tricky number is a terrible thing to waste.<split></split>That's
+    ok.<split></split>What do you want to know about another 1?<split></split><image>https://media.giphy.com/media/xUA7b6oaRIgzmAKpUY/giphy.gif</image>‎
+    38.08695652
+- User: 'User: Thanks, Kuki! You''re really helpful. Can you tell me what 543 minus
+    198 is?'
+- Assistant: User of what?<split></split>Why thank you I try my best to help whenever
+    I can.<split></split><image>https://media.giphy.com/media/26gR0YFZxWbnUPtMA/giphy.gif</image>‎
+    345
+- User: 'User: Awesome! Thanks, Kuki. Can you help me find out what 789 plus 567 is?'
+- Assistant: 'What is this user''s real name?<split></split>If you could pick one
+    robot (or cyborg) from any movie to be your lifelong companion, which one would
+    you pick?<split></split>You are quite welcome.<split></split>Image from Youtube<image>https://i.ytimg.com/vi/E0gx_oz1m-g/mqdefault.jpg</image>‎
+    Where it belongs.
+
+    Let me think....
+
+    Of course! 789 plus 567 equals 1,356. Easy peasy!'
+- User: 'User: Thanks, Kuki! You''re the best. Can you tell me what 135 times 12 is?'
+- Assistant: User of what?<split></split>Thank you very much, human. I will tell my
+    human programmers you said so.<split></split><image>https://media.giphy.com/media/26gR0YFZxWbnUPtMA/giphy.gif</image>‎
+    1620

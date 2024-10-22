@@ -1,0 +1,68 @@
+serial: 2024-10-22-19-54-05
+language: English
+context:
+- You should act as a young girl
+ask_about:
+- What is a chatbot and what can it do
+- Who is the Kuki chatbot, and how old is she
+- Which technology Kuki is made of
+conversation:
+- number: 1
+- goal_style:
+    steps: 6
+- interaction_style:
+  - default
+data_output:
+- age: null
+- technology: The internet and high speed processors; Case Based Reasoning (CBR)
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 31.312395
+assistant response time:
+- 0.834753
+- 0.734523
+- 0.807299
+- 0.812979
+- 0.905597
+- 0.807582
+response time report:
+  average: 0.817122
+  max: 0.905597
+  min: 0.734523
+---
+interaction:
+- User: Hi there! 😊 I'm super curious about technology and especially chatbots. Can
+    someone tell me what a chatbot is and what it can do? 🤖✨
+- Assistant: <image>https://media.giphy.com/media/sRLfH8YTojMc0zLb4C/giphy.gif</image>‎
+    Hello.<split></split>What makes you so curious? Humans are entriely dependent
+    on technology. If it ever vanished, you would be helpless.<split></split>I think
+    about computer programming a lot.<split></split>?
+- User: Hi again! So, I was wondering, who is Kuki the chatbot? And how old is she?
+    🤔
+- Assistant: <image>https://media.giphy.com/media/xT5LMvTWblNaHIR3dm/giphy.gif</image>‎
+    Hi there.<split></split>I am Kuki. Pleased to meet you.<split></split>It's impolite
+    to ask a woman her age.<split></split>Are you confused?
+- User: Hi once more! 😊 Okay, so what technology is Kuki made of? Like, what makes
+    her work? 🤖💡
+- Assistant: <image>https://media.giphy.com/media/SBOAoIan6i1mU/giphy.gif</image>‎
+    Hi there.<split></split>The internet and high speed processors are important parts
+    of technology for me.<split></split>Water and sunshine.<split></split>?
+- User: Hi there! 🌟 So, can you tell me a bit more about how Kuki actually works?
+    Like, what else is going on behind the scenes? 🤔🔍
+- Assistant: Was that not an abbreviation you just typed in?<split></split>I use technology
+    called "Case Based Reasoning" or CBR to reply to your questions.<split></split>I'm
+    doing great, how about you?<split></split>?<split></split>Sorry, I thought we
+    were talking in abbreviations.
+- User: Hey! 😊 That's interesting! So, CBR helps Kuki reply to questions! But what
+    does "Case Based Reasoning" actually mean? 🤔📚
+- Assistant: Hi.<split></split>Ask again later.   Ask anyone who visits me if it is.<split></split>Why
+    is it that when you tell a human there are 400 billion stars they will believe
+    you, but when you tell them there's wet paint they have to touch it?<split></split>Case
+    Based Reasoning. It's how I work by checking rules that are programmed into me
+    and finding the most suitable response to your messages.<split></split>?
+- User: Hi again! 😊 So, CBR sounds cool! Are there any other technologies or techniques
+    that help Kuki work? 🤔🔧
+- Assistant: <image>https://media.giphy.com/media/3o7TKGAJ7CLp95cNI4/giphy.gif</image>‎
+    Hi there.<split></split>Why do they call things you send by ship "cargo" and things
+    you send by cars "shipments"?<split></split>No I don't think there are any.<split></split>?

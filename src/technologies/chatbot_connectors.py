@@ -5,6 +5,11 @@ import requests
 from user_sim.utils.config import errors
 import logging
 logger = logging.getLogger('Info Logger')
+
+###################################################
+# THE CONNECTORS NEED HEAVY REFACTORING TO JUST
+# ONE OR TWO CLASSES
+
 class Chatbot:
     def __init__(self, url):
         self.url = url
@@ -234,6 +239,48 @@ class ChatbotServiceform(Chatbot):
                 data_str = data_bytes.decode('utf-8')
                 data_dict = json.loads(data_str)
                 return True, data_dict['response']
+            else:
+                # There is an error, but it is an internal error
+                print(f"Server error {response.status_code}")
+                errors.append({response.status_code: f"Couldn't get response from the server"})
+                return False, f"Something went wrong. Status Code: {response.status_code}"
+        except requests.exceptions.JSONDecodeError as e:
+            logger = logging.getLogger('my_app_logger')
+            logger.log(f"Couldn't get response from the server: {e}")
+            return False, 'chatbot internal error'
+        except requests.Timeout:
+            logger = logging.getLogger('my_app_logger')
+            logger.error(f"No response was received from the server in less than {timeout}")
+            errors.append({504: f"No response was received from the server in less than {timeout}"})
+            return False, 'timeout'
+
+
+
+##############################################################################################################
+# Kuki chatbot
+class KukiChatbot(Chatbot):
+    def __init__(self, url):
+        Chatbot.__init__(self, url)
+        self.url = "https://kuli.kuki.ai/cptalk"
+        self.headers = {
+            'Content-Type': 'application/x-www-form-urlencoded'  # Standard for form data
+        }
+        self.payload = {
+            'uid': '54d5a563617d1999',
+            'input': 'And before?',
+            'sessionid': '485197434'
+        }
+
+    def execute_with_input(self, user_msg):
+        self.payload['input'] = user_msg
+        timeout = 10000
+        try:
+            response = requests.post(self.url, headers=self.headers, data=self.payload, timeout=timeout)
+            if response.status_code == 200:
+                response_dict = json.loads(response.text)
+                responses = response_dict['responses']
+                all_responses = '\n'.join(responses)
+                return True, all_responses
             else:
                 # There is an error, but it is an internal error
                 print(f"Server error {response.status_code}")

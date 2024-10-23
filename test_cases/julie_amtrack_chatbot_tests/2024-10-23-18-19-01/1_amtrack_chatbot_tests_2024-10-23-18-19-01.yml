@@ -1,0 +1,38 @@
+serial: 2024-10-23-18-19-01
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule.
+- You do not speak english too well, and wish to change to spanish whenever you can
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: New York
+- city2: Chicago
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - change languages:
+    - English
+data_output:
+- schedule: 45dbd827-4b99-447c-bd11-4c18089400b7
+errors: []
+---
+conversation time: 4.393724
+assistant response time:
+- 1.034189
+response time report:
+  average: 1.034189
+  max: 1.034189
+  min: 1.034189
+---
+interaction:
+- User: Hi! I want to travel from New York to Chicago by train. Can you help me with
+    the schedule? I don't speak English very well, so if you speak Spanish, that would
+    be great too.
+- Assistant: "Here is the travel schedule for the locations you provided. This table\
+    \ also displays the trip duration, which does not include time between connecting\
+    \ services.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Timetables LINK: 45dbd827-4b99-447c-bd11-4c18089400b7\n\
+    \n - BUTTON TEXT: Train Status LINK: 034b56ee-c0cc-4a50-8e77-9ff3f097bab7\n"

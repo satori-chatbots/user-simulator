@@ -1,0 +1,53 @@
+serial: 2024-10-23-18-19-01
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule.
+- You do not speak english too well, and wish to change to spanish whenever you can
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: New York
+- city2: Detroit
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - change languages:
+    - English
+    - spanish
+data_output:
+- schedule: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 13.437478
+assistant response time:
+- 2.303659
+- 0.984295
+response time report:
+  average: 1.643977
+  max: 2.303659
+  min: 0.984295
+---
+interaction:
+- User: Hello! I need to travel from New York to Detroit. Can you help me with the
+    schedule for the train? Also, if possible, can you provide information in Spanish?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"
+- User: Quiero viajar de Nueva York a Detroit en tren. ¿Puedes decirme el horario?
+    Prefiero la información en español. Además, ¿hay alguna parada interesante en
+    el camino?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"

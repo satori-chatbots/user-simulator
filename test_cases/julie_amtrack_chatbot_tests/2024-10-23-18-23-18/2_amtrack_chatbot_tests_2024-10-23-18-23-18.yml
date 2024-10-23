@@ -1,0 +1,75 @@
+serial: 2024-10-23-18-23-18
+language: spanish
+context:
+- Debes actuar como un viajero, que quiere viajar en tren en un horario determinado.
+- No hablas inglés y te comunicas en español
+ask_about:
+- ¿Como puedo viajar entre {{city1}} y {{city2}}, cual es el horario?
+- city1: Boston
+- city2: Detroit
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 19.688451
+assistant response time:
+- 0.863009
+- 1.121279
+- 0.829603
+- 2.256941
+- 0.827064
+response time report:
+  average: 1.179579
+  max: 2.25694
+  min: 0.827064
+---
+interaction:
+- User: Hola, estoy tratando de planificar un viaje en tren desde Boston a Detroit.
+    ¿Podrías decirme cuál es el horario disponible para esta ruta?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"
+- User: Gracias, pero prefiero seguir aquí. ¿Sabes cuántas horas tarda el tren de
+    Boston a Detroit?
+- Assistant: 'I’m well-versed in topics related to traveling with Amtrak and I can
+    even help you make a reservation. How can I help you?
+
+
+    AVAILABLE BUTTONS: '
+- User: Gracias, pero no quiero hacer una reservación todavía. Solo quiero saber cuántas
+    horas dura el viaje en tren de Boston a Detroit. ¿Podrías ayudarme con esa información?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"
+- User: ¿Podrías decirme si hay algún tren directo de Boston a Detroit?
+- Assistant: 'I’m well-versed in topics related to traveling with Amtrak and I can
+    even help you make a reservation. How can I help you?
+
+
+    AVAILABLE BUTTONS: '
+- User: 'Usuario: Quisiera saber si hay algún tren directo que vaya desde Boston hasta
+    Detroit. ¿Podrías darme esa información, por favor?'
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"

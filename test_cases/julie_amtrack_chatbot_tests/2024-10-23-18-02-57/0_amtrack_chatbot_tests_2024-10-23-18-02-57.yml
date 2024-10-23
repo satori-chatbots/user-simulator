@@ -1,0 +1,58 @@
+serial: 2024-10-23-18-02-57
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: New York
+- city2: Detroit
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: 36a6ec44-6dc2-4712-98b3-f393e275d322
+errors: []
+---
+conversation time: 23.063038
+assistant response time:
+- 0.948957
+- 0.935133
+- 0.801803
+- 1.651251
+- 1.995032
+response time report:
+  average: 1.266435
+  max: 1.995032
+  min: 0.801803
+---
+interaction:
+- User: Hello! I'm planning a trip and need to know how I can travel between New York
+    and Detroit by train. Can you tell me about the schedule?
+- Assistant: "There's more than one answer to your question. Please select the topic\
+    \ below that interests you.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Schedules\
+    \ LINK: 36a6ec44-6dc2-4712-98b3-f393e275d322\n\n - BUTTON TEXT: Trip Planner LINK:\
+    \ ef03aa8e-aae5-4631-9fd2-0caf9ab9bc8c\n"
+- User: Could you tell me how long the journey might take from New York to Detroit
+    by train?
+- Assistant: "There are multiple locations with that name. Please choose your destination\
+    \ location below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Detroit, MI (DET) LINK:\
+    \ <empty>\n\n - BUTTON TEXT: Detroit Lakes, MN (DLK) LINK: <empty>\n"
+- User: I want to travel to Detroit, MI (DET). How long does it usually take to get
+    there from New York by train?
+- Assistant: "Let me help you book. Click the link below to start the booking process.\n\
+    \nAVAILABLE BUTTONS: \n - BUTTON TEXT: View Existing Reservations LINK: a1576d8c-1fb5-46f1-9a60-957c5f4c5649\n"
+- User: I actually want to know the travel duration from New York to Detroit before
+    booking. Could you provide that information?
+- Assistant: "I found multiple locations for the destination you provided. Please\
+    \ select one below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Detroit, MI (DET)\
+    \ LINK: <empty>\n\n - BUTTON TEXT: Detroit Lakes, MN (DLK) LINK: <empty>\n"
+- User: I need information about the train journey duration from New York to Detroit,
+    MI (DET). Could you give me details on how long it usually takes?
+- Assistant: "I found multiple locations for the destination you provided. Please\
+    \ select one below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Detroit, MI (DET)\
+    \ LINK: <empty>\n\n - BUTTON TEXT: Detroit Lakes, MN (DLK) LINK: <empty>\n"

@@ -1,0 +1,45 @@
+serial: 2024-10-23-18-05-40
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: Soria
+- city2: Detroit
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: 36a6ec44-6dc2-4712-98b3-f393e275d322
+errors: []
+---
+conversation time: 12.610268
+assistant response time:
+- 1.037381
+- 1.758074
+response time report:
+  average: 1.397727
+  max: 1.758074
+  min: 1.037381
+---
+interaction:
+- User: Hi there! I'm planning a trip and I need some help figuring out my travel
+    schedule. Can you tell me if there's a train that goes from Soria to Detroit?
+- Assistant: "There's more than one answer to your question. Please select the topic\
+    \ below that interests you.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Schedules\
+    \ LINK: 36a6ec44-6dc2-4712-98b3-f393e275d322\n\n - BUTTON TEXT: Trip Planner LINK:\
+    \ ef03aa8e-aae5-4631-9fd2-0caf9ab9bc8c\n"
+- User: I clicked on the "Train Schedules" button, but I'm not sure where to go from
+    here. Can you guide me on how to find a train from Soria to Detroit?
+- Assistant: "You can use the form under Schedules on this page to look up train schedules\
+    \ between stations. Simply enter an origin, destination and departure date. Then\
+    \ click Find Schedules.\n\nYou can also view timetables for a specific route on\
+    \ this page.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Timetables LINK: 45dbd827-4b99-447c-bd11-4c18089400b7\n\
+    \n - BUTTON TEXT: Train Status LINK: 034b56ee-c0cc-4a50-8e77-9ff3f097bab7\n\n\
+    \ - BUTTON TEXT: Book Rail Travel LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\
+    \n - BUTTON TEXT: How Do I Change My Reservation LINK: 69883126-b293-451c-a3fc-b34bbdcd3fc3\n"

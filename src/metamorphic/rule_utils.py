@@ -31,7 +31,8 @@ def util_functions_to_dict() -> dict:
             '_conversation_length': _conversation_length,
             '_chatbot_returns': _chatbot_returns,
             '_repeated_answers': _repeated_answers,
-            '_missing_slots': _missing_slots}
+            '_missing_slots': _missing_slots,
+            '_responds_in_same_language': _responds_in_same_language}
 
 def util_to_wrapper_dict() -> dict:
     return {'_conversation_length':
@@ -48,6 +49,8 @@ def util_to_wrapper_dict() -> dict:
                 "    def data_collected():\n        return _data_collected(conv)\n",
             '_missing_slots':
                 "    def missing_slots():\n        return _missing_slots(conv)\n",
+            '_responds_in_same_language':
+                "    def responds_in_same_language():\n        return _responds_in_same_language(interaction)\n",
             }
 
 def _repeated_answers(interaction, method = 'exact', threshold = 0.4):
@@ -410,3 +413,22 @@ def call_openai_o1(message: str):
     for choice in response.choices:
         chunks += choice.message.content
     return chunks
+
+def _responds_in_same_language(interaction):
+    """
+    returns if the chatbot responds in the same language as the user
+    :param interaction: a list with the interaction
+    :return: the turn in which the assistant responds in a different language
+    """
+    prompt = f"""You are an assistant that checks conversations between a chatbot and a human.
+                 Your task is to assess if the chatbot always responds in the same language as the
+                 human. For example, if the human speaks in Spanish, the chatbot should respond in Spanish, too.
+                 Given the conversation below, return:
+                 - YES if the chatbot responds in the same language.
+                 - NO if the chatbot sometimes responds in a different language.
+                 CONVERSATION:
+                 {interaction}"""
+    response = call_openai(prompt)
+    if response.lower() == 'yes':
+        return True
+    return False

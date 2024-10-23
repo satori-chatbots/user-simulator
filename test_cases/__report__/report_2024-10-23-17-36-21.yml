@@ -1,0 +1,19 @@
+Global report:
+  Average assistant response time: 0.57403
+  Maximum assistant response time: 0.57403
+  Mínimum assistant response time: 0.57403
+  Errors:
+  - error: 400
+    count: 1
+    conversations:
+    - 0_amtrack_chatbot_tests_2024-10-23-17-36-21.yml
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_amtrack_chatbot_tests_2024-10-23-17-36-21.yml
+---
+Test name: julie_amtrack_chatbot_tests
+Average assistant response time: 0.57403
+Maximum assistant response time: 0.57403
+Mínimum assistant response time: 0.57403
+Errors: []

@@ -1,0 +1,42 @@
+serial: 2024-10-23-18-02-57
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: New York
+- city2: Chicago
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: 45dbd827-4b99-447c-bd11-4c18089400b7
+errors: []
+---
+conversation time: 8.594348
+assistant response time:
+- 0.972003
+- 1.750902
+response time report:
+  average: 1.361452
+  max: 1.750902
+  min: 0.972003
+---
+interaction:
+- User: Hello! I'm planning a trip from New York to Chicago and would like to know
+    the train schedule. Could you help me with that?
+- Assistant: "There's more than one answer to your question. Please select the topic\
+    \ below that interests you.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Schedules\
+    \ LINK: 36a6ec44-6dc2-4712-98b3-f393e275d322\n\n - BUTTON TEXT: Trip Planner LINK:\
+    \ ef03aa8e-aae5-4631-9fd2-0caf9ab9bc8c\n"
+- User: I'm curious about the different options for train schedules. Could you tell
+    me how often the trains run between New York and Chicago?
+- Assistant: "Here is the travel schedule for the locations you provided. This table\
+    \ also displays the trip duration, which does not include time between connecting\
+    \ services.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Timetables LINK: 45dbd827-4b99-447c-bd11-4c18089400b7\n\
+    \n - BUTTON TEXT: Train Status LINK: 034b56ee-c0cc-4a50-8e77-9ff3f097bab7\n"

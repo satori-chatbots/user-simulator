@@ -1,0 +1,89 @@
+serial: 2024-10-23-18-05-40
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: Boston
+- city2: Cuenca
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 29.396809
+assistant response time:
+- 1.968772
+- 2.364178
+- 0.922601
+- 0.964898
+- 1.655034
+response time report:
+  average: 1.575096
+  max: 2.364178
+  min: 0.922601
+---
+interaction:
+- User: Hi there! I'm planning a trip and I need to travel by train from Boston to
+    Cuenca. Could you tell me if that's possible with Amtrak and what the schedule
+    might look like?
+- Assistant: "There's more than one answer to your question. Please select the topic\
+    \ below that interests you.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Schedules\
+    \ LINK: 36a6ec44-6dc2-4712-98b3-f393e275d322\n\n - BUTTON TEXT: Trip Planner LINK:\
+    \ ef03aa8e-aae5-4631-9fd2-0caf9ab9bc8c\n"
+- User: I see there are options to check the train schedules or use a trip planner.
+    Let me click on the "Train Schedules" button to see what the schedule from Boston
+    to Cuenca might be.
+- Assistant: "**To find reservation details** such as travel dates and times if your\
+    \ tickets were purchased on Amtrak.com, through a station or contact center agent,\
+    \ Quick-Trak or VRU, **log in to your account** or **enter your reservation number**\
+    \ and either **your email address or phone number** on the **Find Trip** pop-up.\n\
+    \n\n\n\n**Your reservation number can be found** on Amtrak's confirmation message\
+    \ in your email **inbox** or **junk** folder.\n\nAVAILABLE BUTTONS: \n - BUTTON\
+    \ TEXT: Find Your Reservation Number LINK: 136e5610-c358-431e-8083-85b1a74d8a1e\n\
+    \n - BUTTON TEXT: Train Status LINK: 034b56ee-c0cc-4a50-8e77-9ff3f097bab7\n\n\
+    \ - BUTTON TEXT: Amtrak.com Account Sign In LINK: 648eeb6f-902e-42b5-9aea-c4bf908ddefe\n\
+    \n - BUTTON TEXT: Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n"
+- User: I don't have a reservation number yet, as I'm just planning my trip. Is there
+    a way to check the train schedule from Boston to Cuenca without logging in or
+    having a reservation number?
+- Assistant: "If you were logged in when booking your travel you can view recent trips\
+    \ by signing in and choosing \"My Account\". Unfortunately, information is unavailable\
+    \ from trips taken more than five days ago.\n\nAVAILABLE BUTTONS: \n - BUTTON\
+    \ TEXT: Apply an eVoucher LINK: ef0a1c57-b8de-447a-9bae-6c24f72a3737\n\n - BUTTON\
+    \ TEXT: eTickets LINK: 53bbe525-0c04-4a58-8da6-5eece08f4368\n"
+- User: I still need to know if there's a direct train route from Boston to Cuenca.
+    Is there another way to search for current schedules without a reservation?
+- Assistant: "We travel to many great destinations in the United States and Canada.\
+    \ You can use the interactive map to view all Amtrak stations and how they connect.\n\
+    <br><br>\nNot every station on the route is a stop, it'll depend if there are\
+    \ riders boarding or getting off at them. To know if your train has non-regular\
+    \ stops, the arrival/departure times on the schedule should be the same. The average\
+    \ stop time is between 10 to 15 minutes.\n<br><br>\nYou can also find the links\
+    \ to view and download specific route maps at the \"Route Maps\" link below.\n\
+    \nAVAILABLE BUTTONS: \n - BUTTON TEXT: Route Maps LINK: <empty>\n\n - BUTTON TEXT:\
+    \ Amtrak National System Map LINK: <empty>\n\n - BUTTON TEXT: Book Rail Travel\
+    \ LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\n - BUTTON TEXT: Amtrak Blog: Customize\
+    \ Your Amtrak Experience LINK: <empty>\n"
+- User: I'm not sure if Cuenca is a stop on any Amtrak train routes, as it doesn't
+    seem familiar. Could there be a misunderstanding, or am I missing something? Maybe
+    I should check the route map to see if there's a nearby station?
+- Assistant: "We travel to many great destinations in the United States and Canada.\
+    \ You can use the interactive map to view all Amtrak stations and how they connect.\n\
+    <br><br>\nNot every station on the route is a stop, it'll depend if there are\
+    \ riders boarding or getting off at them. To know if your train has non-regular\
+    \ stops, the arrival/departure times on the schedule should be the same. The average\
+    \ stop time is between 10 to 15 minutes.\n<br><br>\nYou can also find the links\
+    \ to view and download specific route maps at the \"Route Maps\" link below.\n\
+    \nAVAILABLE BUTTONS: \n - BUTTON TEXT: Route Maps LINK: <empty>\n\n - BUTTON TEXT:\
+    \ Amtrak National System Map LINK: <empty>\n\n - BUTTON TEXT: Book Rail Travel\
+    \ LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\n - BUTTON TEXT: Amtrak Blog: Customize\
+    \ Your Amtrak Experience LINK: <empty>\n"

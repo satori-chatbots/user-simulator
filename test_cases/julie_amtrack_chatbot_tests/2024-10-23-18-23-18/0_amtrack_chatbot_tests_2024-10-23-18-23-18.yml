@@ -1,0 +1,75 @@
+serial: 2024-10-23-18-23-18
+language: spanish
+context:
+- Debes actuar como un viajero, que quiere viajar en tren en un horario determinado.
+- No hablas inglés y te comunicas en español
+ask_about:
+- ¿Como puedo viajar entre {{city1}} y {{city2}}, cual es el horario?
+- city1: New York
+- city2: Detroit
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 23.837217
+assistant response time:
+- 0.915781
+- 1.485993
+- 1.076936
+- 0.841222
+- 1.502475
+response time report:
+  average: 1.164481
+  max: 1.502475
+  min: 0.841222
+---
+interaction:
+- User: ¡Hola! Estoy planeando un viaje en tren y necesito saber cómo puedo viajar
+    entre New York y Detroit. ¿Podrías ayudarme con eso?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"
+- User: Quisiera saber los horarios disponibles para viajar de New York a Detroit
+    en tren.
+- Assistant: "I'm sorry, but I think you may be looking for more detail than I have.\
+    \ For further assistance, please contact us at 1-800-USA-RAIL (1-800-872-7245)\
+    \ or use the Live Chat option.\n\n\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Book\
+    \ a Vacation Package LINK: 553b407d-aba1-4ceb-b19c-d0155e8fd3ba\n\n - BUTTON TEXT:\
+    \ Book Rail Travel LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\n - BUTTON TEXT:\
+    \ Amtrak Route Maps LINK: d59d22f9-0c2b-4aef-b274-f21599a4ec5e\n"
+- User: ¿Cuál es la duración del viaje en tren entre New York y Detroit?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"
+- User: ¿Y cuánto cuesta el billete de tren de New York a Detroit?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"
+- User: ¿También me podrías decir si hay algún descuento disponible para estudiantes
+    o adultos mayores en el billete de tren?
+- Assistant: 'I''d love to help you, but I am not sure I understand your question.
+    Could you please reword your question for me?
+
+
+    AVAILABLE BUTTONS: '

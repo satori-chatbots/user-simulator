@@ -1,0 +1,59 @@
+serial: 2024-10-23-18-19-01
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule.
+- You do not speak english too well, and wish to change to spanish whenever you can
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: Boston
+- city2: Detroit
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - change languages:
+    - English
+    - English
+    - English
+    - spanish
+data_output:
+- schedule: 45dbd827-4b99-447c-bd11-4c18089400b7
+errors: []
+---
+conversation time: 16.34258
+assistant response time:
+- 0.84908
+- 1.997418
+- 1.9334
+- 1.00634
+response time report:
+  average: 1.446559
+  max: 1.997418
+  min: 0.84908
+---
+interaction:
+- User: Hello, I need help with train travel from Boston to Detroit. Can you tell
+    me the schedule for this route?
+- Assistant: "I found multiple locations for the origin you provided. Please select\
+    \ one below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Boston, MA - Back Bay Station\
+    \ (BBY) LINK: <empty>\n\n - BUTTON TEXT: Boston, MA - North Station (BON) LINK:\
+    \ <empty>\n\n - BUTTON TEXT: Boston, MA - South Station (BOS) LINK: <empty>\n"
+- User: I choose Boston, MA - South Station (BOS). Can you tell me the schedule from
+    there to Detroit?
+- Assistant: "I found multiple locations for the destination you provided. Please\
+    \ select one below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Detroit, MI (DET)\
+    \ LINK: <empty>\n\n - BUTTON TEXT: Detroit Lakes, MN (DLK) LINK: <empty>\n"
+- User: I choose Detroit, MI (DET). Can you show me the schedule from Boston, MA -
+    South Station (BOS) to Detroit, MI (DET)?
+- Assistant: "I found multiple locations for the destination you provided. Please\
+    \ select one below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Detroit, MI (DET)\
+    \ LINK: <empty>\n\n - BUTTON TEXT: Detroit Lakes, MN (DLK) LINK: <empty>\n"
+- User: Elijo Detroit, MI (DET). ¿Me puedes mostrar el horario de Boston, MA - South
+    Station (BOS) a Detroit, MI (DET), por favor?
+- Assistant: "Here is the travel schedule for the locations you provided. This table\
+    \ also displays the trip duration, which does not include time between connecting\
+    \ services.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Timetables LINK: 45dbd827-4b99-447c-bd11-4c18089400b7\n\
+    \n - BUTTON TEXT: Train Status LINK: 034b56ee-c0cc-4a50-8e77-9ff3f097bab7\n"

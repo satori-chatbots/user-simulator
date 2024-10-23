@@ -1,0 +1,49 @@
+serial: 2024-10-23-18-23-18
+language: spanish
+context:
+- Debes actuar como un viajero, que quiere viajar en tren en un horario determinado.
+- No hablas inglés y te comunicas en español
+ask_about:
+- ¿Como puedo viajar entre {{city1}} y {{city2}}, cual es el horario?
+- city1: Boston
+- city2: Chicago
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 13.495412
+assistant response time:
+- 0.936403
+- 1.042109
+response time report:
+  average: 0.989256
+  max: 1.042109
+  min: 0.936403
+---
+interaction:
+- User: Hola, estoy tratando de planificar mi viaje en tren por Amtrak. ¿Cómo puedo
+    viajar entre Boston y Chicago? ¿Qué opciones de tren hay disponibles?
+- Assistant: "Amtrak.com is available in English, Spanish, French, and Chinese. Change\
+    \ languages in the dropdown menu at the top of the page. For more help, please\
+    \ contact us by clicking the link below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT:\
+    \ Contact Us LINK: cf95a849-afe2-4fbf-b444-300e58046988\n\n - BUTTON TEXT: Spanish\
+    \ Site LINK: a9b095e3-4f9d-48fb-a208-648d79adaaa3\n\n - BUTTON TEXT: Chinese Site\
+    \ LINK: 9053897d-ba75-4b64-bed0-9d6074563985\n\n - BUTTON TEXT: French Site LINK:\
+    \ 0c5c5eed-ae1e-4311-8ffa-86cb767f26ce\n"
+- User: Quisiera saber los horarios para viajar entre Boston y Chicago. ¿Hay trenes
+    directos o tengo que hacer transbordo?
+- Assistant: "I'm sorry, but I think you may be looking for more detail than I have.\
+    \ For further assistance, please contact us at 1-800-USA-RAIL (1-800-872-7245)\
+    \ or use the Live Chat option.\n\n\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Book\
+    \ a Vacation Package LINK: 553b407d-aba1-4ceb-b19c-d0155e8fd3ba\n\n - BUTTON TEXT:\
+    \ Book Rail Travel LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\n - BUTTON TEXT:\
+    \ Amtrak Route Maps LINK: d59d22f9-0c2b-4aef-b274-f21599a4ec5e\n"

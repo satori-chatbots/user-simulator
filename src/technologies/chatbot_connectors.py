@@ -297,5 +297,82 @@ class KukiChatbot(Chatbot):
             errors.append({504: f"No response was received from the server in less than {timeout}"})
             return False, 'timeout'
 
+##############################################################################################################
+# Julie chatbot
+class JulieChatbot(Chatbot):
+    def __init__(self, url):
+        Chatbot.__init__(self, url)
+        self.url = 'https://askjulie2.nextit.com/AlmeAPI/api/Conversation/Converse'
+        self.headers = headers = {
+            'Content-Type': 'application/json',
+        }
+        self.payload = {"userId":"4b62a896-85f0-45dd-b94c-a6496f831107",
+           "sessionId":"724e371e-9917-4ab2-9da4-6809199366eb",
+           "question":"How are you?",
+           "origin":"Typed",
+           "displayText":"How are you?",
+           "parameters":{
+               "Context":{
+                   "CurrentUrl":
+                       {
+                           "AbsolutePath":"https://www.amtrak.com/home.html",
+                           "Protocol":"https:",
+                           "Host":"www.amtrak.com",
+                           "HostName":"www.amtrak.com",
+                           "Port":"",
+                           "Uri":"/home.html",
+                           "Query":"",
+                           "Fragment":"",
+                           "Origin":"https://www.amtrak.com",
+                           "Type":"embedded",
+                           "PageName":"Amtrak Tickets, Schedules and Train Routes"
+                       }
+                },
+               "UiVersion":"1.33.17"
+           },
+           "channel":"Web",
+           "language":"en-US",
+           "accessKey":"00000000-0000-0000-0000-000000000000"
+        }
 
+    def execute_with_input(self, user_msg):
+        self.payload['question'] = user_msg
+        self.payload['displayText'] = user_msg
+        timeout = 10000
+        try:
+            response = requests.post(self.url, headers=self.headers, json=self.payload, timeout=timeout)
+            if response.status_code == 200:
+                response_dict = json.loads(response.text)
+                chat_response = response_dict['text']
+                if 'displayLinkCollection' in response_dict and response_dict['displayLinkCollection']:
+                    buttons = self.__translate_buttons(response_dict['displayLinkCollection'])
+                    chat_response += f"\n\n{buttons}"
+                return True, chat_response
+            else:
+                # There is an error, but it is an internal error
+                print(f"Server error {response.status_code}")
+                errors.append({response.status_code: f"Couldn't get response from the server"})
+                return False, f"Something went wrong. Status Code: {response.status_code}"
+        except requests.exceptions.JSONDecodeError as e:
+            logger = logging.getLogger('my_app_logger')
+            logger.log(f"Couldn't get response from the server: {e}")
+            return False, 'chatbot internal error'
+        except requests.Timeout:
+            logger = logging.getLogger('my_app_logger')
+            logger.error(f"No response was received from the server in less than {timeout}")
+            errors.append({504: f"No response was received from the server in less than {timeout}"})
+            return False, 'timeout'
 
+    def __translate_buttons(self, buttons_dict) -> str:
+        button_description = 'AVAILABLE BUTTONS: '
+        for section in buttons_dict['Sections']:
+            for button in section["Links"]:
+                button_text = ""
+                if 'DisplayText' in button:
+                    button_text += f"- BUTTON TEXT: {button['DisplayText']}"
+                if 'Metadata' in button and 'UnitUID' in button['Metadata']:
+                    button_text += f" LINK: {button['Metadata']["UnitUID"]}\n"
+                else:
+                    button_text += f" LINK: <empty>\n"
+                button_description += f'\n {button_text}'
+        return button_description

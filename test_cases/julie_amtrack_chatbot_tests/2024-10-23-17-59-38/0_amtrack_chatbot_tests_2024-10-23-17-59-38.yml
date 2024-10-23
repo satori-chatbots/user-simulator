@@ -1,0 +1,40 @@
+serial: 2024-10-23-17-59-38
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: New York
+- city2: Detroit
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- schedule: 45dbd827-4b99-447c-bd11-4c18089400b7
+errors: []
+---
+conversation time: 10.381936
+assistant response time:
+- 1.127739
+- 0.899142
+response time report:
+  average: 1.01344
+  max: 1.127738
+  min: 0.899142
+---
+interaction:
+- User: What are the train options available for traveling from New York to Detroit?
+- Assistant: "There are multiple locations with that name. Please choose your destination\
+    \ location below.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Detroit, MI (DET) LINK:\
+    \ <empty>\n\n - BUTTON TEXT: Detroit Lakes, MN (DLK) LINK: <empty>\n"
+- User: I'll select "Detroit, MI (DET)." What's the schedule like for traveling from
+    New York to Detroit on a weekend?
+- Assistant: "Here is the travel schedule for the locations you provided. This table\
+    \ also displays the trip duration, which does not include time between connecting\
+    \ services.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Timetables LINK: 45dbd827-4b99-447c-bd11-4c18089400b7\n\
+    \n - BUTTON TEXT: Train Status LINK: 034b56ee-c0cc-4a50-8e77-9ff3f097bab7\n"

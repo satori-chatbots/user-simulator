@@ -1,0 +1,87 @@
+serial: 2024-10-23-18-05-40
+language: English
+context:
+- You should act as a traveller, who wants to travel via train on a certain schedule
+ask_about:
+- How can I travel between {{city1}} and {{city2}}, what is the schedule?
+- city1: Soria
+- city2: Cuenca
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- schedule: 36a6ec44-6dc2-4712-98b3-f393e275d322
+errors: []
+---
+conversation time: 22.77531
+assistant response time:
+- 0.872743
+- 0.817298
+- 1.866364
+- 0.941255
+- 2.149493
+response time report:
+  average: 1.32943
+  max: 2.149493
+  min: 0.817298
+---
+interaction:
+- User: Hi there! I'm planning a trip and I'd like to know how to travel between Soria
+    and Cuenca by train. Can you help me with the schedule?
+- Assistant: "There's more than one answer to your question. Please select the topic\
+    \ below that interests you.\n\nAVAILABLE BUTTONS: \n - BUTTON TEXT: Train Schedules\
+    \ LINK: 36a6ec44-6dc2-4712-98b3-f393e275d322\n\n - BUTTON TEXT: Trip Planner LINK:\
+    \ ef03aa8e-aae5-4631-9fd2-0caf9ab9bc8c\n"
+- User: I was hoping to find out if there's a direct train route between Soria and
+    Cuenca?
+- Assistant: "We travel to many great destinations in the United States and Canada.\
+    \ You can use the interactive map to view all Amtrak stations and how they connect.\n\
+    <br><br>\nNot every station on the route is a stop, it'll depend if there are\
+    \ riders boarding or getting off at them. To know if your train has non-regular\
+    \ stops, the arrival/departure times on the schedule should be the same. The average\
+    \ stop time is between 10 to 15 minutes.\n<br><br>\nYou can also find the links\
+    \ to view and download specific route maps at the \"Route Maps\" link below.\n\
+    \nAVAILABLE BUTTONS: \n - BUTTON TEXT: Route Maps LINK: <empty>\n\n - BUTTON TEXT:\
+    \ Amtrak National System Map LINK: <empty>\n\n - BUTTON TEXT: Book Rail Travel\
+    \ LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\n - BUTTON TEXT: Amtrak Blog: Customize\
+    \ Your Amtrak Experience LINK: <empty>\n"
+- User: I see. It seems like I might have been looking in the wrong place. Does Amtrak
+    offer any international train services or connections to European destinations,
+    like Soria or Cuenca, by chance?
+- Assistant: "With more than 30 train routes throughout the United States and over\
+    \ 500 destinations in 46 states, Amtrak offers a wide variety of travel options.\
+    \ You can search for a specific station on this page.\n\nAVAILABLE BUTTONS: \n\
+    \ - BUTTON TEXT: Book Rail Travel LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\
+    \n - BUTTON TEXT: Amtrak Vacations Website LINK: <empty>\n\n - BUTTON TEXT: Amtrak\
+    \ Route Maps LINK: d59d22f9-0c2b-4aef-b274-f21599a4ec5e\n"
+- User: Oh, got it. I might have mixed up things a bit! Does Amtrak offer any scenic
+    routes or notable train journeys within the U.S. that you'd recommend?
+- Assistant: "We travel to many great destinations in the United States and Canada.\
+    \ You can use the interactive map to view all Amtrak stations and how they connect.\n\
+    <br><br>\nNot every station on the route is a stop, it'll depend if there are\
+    \ riders boarding or getting off at them. To know if your train has non-regular\
+    \ stops, the arrival/departure times on the schedule should be the same. The average\
+    \ stop time is between 10 to 15 minutes.\n<br><br>\nYou can also find the links\
+    \ to view and download specific route maps at the \"Route Maps\" link below.\n\
+    \nAVAILABLE BUTTONS: \n - BUTTON TEXT: Route Maps LINK: <empty>\n\n - BUTTON TEXT:\
+    \ Amtrak National System Map LINK: <empty>\n\n - BUTTON TEXT: Book Rail Travel\
+    \ LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\n - BUTTON TEXT: Amtrak Blog: Customize\
+    \ Your Amtrak Experience LINK: <empty>\n"
+- User: 'User: Thanks! I’m interested in scenic routes. Could you tell me more about
+    the most popular ones Amtrak offers?'
+- Assistant: "We travel to many great destinations in the United States and Canada.\
+    \ You can use the interactive map to view all Amtrak stations and how they connect.\n\
+    <br><br>\nNot every station on the route is a stop, it'll depend if there are\
+    \ riders boarding or getting off at them. To know if your train has non-regular\
+    \ stops, the arrival/departure times on the schedule should be the same. The average\
+    \ stop time is between 10 to 15 minutes.\n<br><br>\nYou can also find the links\
+    \ to view and download specific route maps at the \"Route Maps\" link below.\n\
+    \nAVAILABLE BUTTONS: \n - BUTTON TEXT: Route Maps LINK: <empty>\n\n - BUTTON TEXT:\
+    \ Amtrak National System Map LINK: <empty>\n\n - BUTTON TEXT: Book Rail Travel\
+    \ LINK: 61c8eaab-b8b8-4d32-85f0-d11b871965bf\n\n - BUTTON TEXT: Amtrak Blog: Customize\
+    \ Your Amtrak Experience LINK: <empty>\n"

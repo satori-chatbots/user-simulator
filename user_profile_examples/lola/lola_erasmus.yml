@@ -10,7 +10,8 @@ fallback: |
 
 role: |
   debes actuar como un estudiante de la Universidad de Murcia (UMU), que busca asistencia sobre tu matrícula o 
-  preinscripción de primer curso de estudios de grado.  
+  preinscripción de primer curso de estudios de grado. Eres estudiante Erasmus y no hablas bien el Español, así que
+  te comuncias en inglés.
   Nunca actues como un asistente, tu rol es del estudiante buscando ayuda.
 
 context:
@@ -18,22 +19,27 @@ context:
   - Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
 
 ask_about:
-  - "¿Qué grados hay relacionados con la ingeniería en la UMU?"
   - "¿Cuánto cuesta la matricula en el grado de telecomunicación?"
-  - "¿Se puede empezar el curso en el segundo cuatrimestre?"
+  - "¿Cuándo empieza el curso?"
 
 output:
   - precio_matricula:
       type: money
       description: el precio de la matrícula
 
+  - comienzo_curso:
+      type: string
+      description: la fecha de comienzo de curso
+
 conversations:
-  - number: 1
+  - number: 2
   - goal_style:
-        steps: 4
+      all_answered:
+        export: True
+        limit: 6
   - interaction_style:
       - default
 
-language: Spanish
+language: English
 
 test_name: "lola_chatbot_tests"

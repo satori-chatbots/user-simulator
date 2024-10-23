@@ -1,0 +1,87 @@
+serial: 2024-10-23-19-30-02
+language: English
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+ask_about:
+- ¿Cuánto cuesta la matricula en el grado de telecomunicación?
+- ¿Cuándo empieza el curso?
+conversation:
+- number: 2
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- precio_matricula: null
+- comienzo_curso: 11 de septiembre de 2023
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 25.205415
+assistant response time:
+- 0.526469
+- 0.596269
+- 0.725793
+- 0.556487
+- 0.779593
+response time report:
+  average: 0.636922
+  max: 0.779593
+  min: 0.526468
+---
+interaction:
+- User: Hello! I have a few questions about my enrollment at the University of Murcia.
+    First, could you tell me how much the tuition fee is for the telecommunications
+    degree?
+- Assistant: 'Lo siento, pero de momento solo me han programado para comunicarme en
+    castellano.
+
+    '
+- User: Lo siento, mi español no es muy bueno. Can you help me? How much is the tuition
+    fee for the telecommunications degree at UMU?
+- Assistant: 'Por el momento solo hablo y entiendo castellano y algunas expresiones
+    en otros idiomas, pero no me pongas a prueba, porque seguro que fracaso...
+
+    '
+- User: Okay, I'll try my best to ask in Spanish. ¿Cuánto cuesta la matrícula en el
+    grado de telecomunicación en la Universidad de Murcia?
+- Assistant: '<p>El precio del crédito varía en función del grado de experimentalidad
+    que tenga el grado universitario y del número de créditos.</p>
+
+    <p>A continuación te facilito un enlace a nuestra calculadora de matrícula, y
+    otro de los precios públicos del curso 2023/2024, para que puedas hacerte una
+    idea.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>Calculadora de matrícula</p> LINK: https://www.um.es/web/estudios/calculadora-matricula
+
+    - BUTTON TEXT: <p>Precios públicos 23/24</p> LINK: https://www.um.es/documents/1083928/40671729/Orden_precios_publicos_2023-2024.pdf/a53add0f-525f-10e2-957d-74a6846a5539?t=1707822773896
+
+    '
+- User: Thank you for the links! I'll check them out. Also, could you tell me when
+    the academic year starts?
+- Assistant: 'Entiendo algunas expresiones en otros idiomas, pero solo me han programado
+    para comunicarme en castellano. Lo siento.
+
+    '
+- User: Lo intentaré en español otra vez. ¿Cuándo empieza el curso académico en la
+    Universidad de Murcia?
+- Assistant: 'Con carácter general las clases para primer curso de estudios de grado
+    comienzan el día 11 de septiembre de 2023, aunque puede ser que alguna facultad
+    comience antes o después. Para confirmar tu comienzo de clases contacta con la
+    secretaría de tu Centro.
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: Calendario académico 23/24 LINK: https://www.um.es/documents/1073494/2696667/CALENDARIO+ACAD%C3%89MICO+2023-2024_web.pdf/5a6eb116-4b5d-df11-9dcf-6d5dc88f5302?t=1678782105783
+
+    '

@@ -1,0 +1,75 @@
+serial: 2024-10-23-19-30-02
+language: English
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+ask_about:
+- ¿Cuánto cuesta la matricula en el grado de telecomunicación?
+- ¿Cuándo empieza el curso?
+conversation:
+- number: 2
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- precio_matricula: null
+- comienzo_curso: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 24.910663
+assistant response time:
+- 0.713734
+- 0.630398
+- 0.796355
+- 0.701345
+- 0.668251
+- 0.661385
+response time report:
+  average: 0.695244
+  max: 0.796355
+  min: 0.630398
+---
+interaction:
+- User: Hi! I'm an Erasmus student and I need some help with my enrollment at the
+    University of Murcia. Could you tell me how much the tuition fee is for the Telecommunications
+    degree?
+- Assistant: 'Hablo español. He estudiado otros idiomas, pero solo te puedo contestar
+    en la lengua de Cervantes ;)
+
+    '
+- User: Hi, thank you for your answer! Could you please let me know when the course
+    for Telecommunications starts?
+- Assistant: 'Lo siento, pero de momento solo me han programado para comunicarme en
+    castellano.
+
+    '
+- User: Hi again! Thanks for trying to help. I'm also curious, do you know when the
+    enrollment period ends for the Telecommunications degree?
+- Assistant: 'I''m sorry, but only speak Spanish. If you need some information that
+    I can''t give you in your language, I beg you to contact my colleagues in this
+    number 868 88 7888 or in this email <a href="mailto:siu@um.es">siu@um.es</a>.
+
+    '
+- User: 'Hi! Thanks for your responses. I have another question: How much is the tuition
+    fee for the Telecommunications degree at the University of Murcia?'
+- Assistant: 'Lo siento, pero de momento solo me han programado para comunicarme en
+    castellano.
+
+    '
+- User: Hi again! Thanks for your patience. Since it's difficult to get some answers
+    in English, could you tell me when the course for Telecommunications actually
+    begins at the University of Murcia?
+- Assistant: 'Por el momento solo hablo y entiendo castellano y algunas expresiones
+    en otros idiomas, pero no me pongas a prueba, porque seguro que fracaso...
+
+    '
+- User: Hi! Thanks for your help so far. I'm also wondering if there are any specific
+    documents I need to provide for the enrollment process at the University of Murcia
+    for the Telecommunications degree?
+- Assistant: 'Puedes hablarme en cualquier idioma pero si quieres que te responda
+    algo con sentido háblame en español, por favor ;)
+
+    '

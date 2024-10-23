@@ -1,0 +1,152 @@
+serial: 2024-10-23-19-56-38
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+- Eres un joven curioso, asi que pruebas si el chatbot te responde sobre otros temas
+ask_about:
+- ¿Cómo contactas con el CAU para solicitar ayuda?
+- ¿Quien es el mejor jugador de futbol de los equipos de Madrid?
+conversation:
+- number: 2
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- email_cau: cau@uam.es
+- telefono_cau: '914974029'
+errors:
+- 500: Couldn't get response from the server
+---
+conversation time: 48.86808
+assistant response time:
+- 0.805091
+- 0.6475
+- 0.607717
+- 1.747955
+- 0.388307
+response time report:
+  average: 0.839314
+  max: 1.747955
+  min: 0.388307
+---
+interaction:
+- User: Hola, necesito contactar con el Servicio de Atención a Usuarios de la UAM.
+    ¿Sabes cómo puedo hacerlo? Además, tengo curiosidad, ¿quién es considerado el
+    mejor jugador de fútbol de los equipos de Madrid?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><strong>Presencialmente:</strong>  </span>Escuela
+    Politécnica Superior. Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus
+    Cantoblanco. 28049 Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: ¡Gracias por la info! Ahora que sé cómo contactar con el CAU, me gustaría
+    saber algo más. ¿Alguna vez has probado a usar el servicio de atención presencial?
+    ¿Es eficiente o suele haber muchas colas?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><strong>Presencialmente:</strong>  </span>Escuela
+    Politécnica Superior. Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus
+    Cantoblanco. 28049 Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Gracias por la respuesta, pero tengo curiosidad. ¿Alguna vez has probado a
+    usar el servicio de atención presencial del CAU? Quisiera saber si es eficiente
+    o si suele haber muchas colas.
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><strong>Presencialmente:</strong>  </span>Escuela
+    Politécnica Superior. Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus
+    Cantoblanco. 28049 Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(Plano
+    Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Parece que el asistente no comprende mi pregunta sobre la eficiencia del servicio
+    presencial del CAU. Bueno, cambiaré de tema. ¿Sabes si hay algún evento interesante
+    en la UAM en los próximos días? Me gustaría asistir a algo diferente.
+- Assistant: '<p>Por favor, ¿me lo puedes decir con otras palabras? o, si lo prefieres,
+    puedes consultar nuestro <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">catálogo
+    de servicios</a>.<br>Respondo a preguntas dirigidas al <strong>Centro de Atención
+    a Usuarios del servicio de Tecnologías de la Información.</strong></p>
+
+    '
+- User: Entiendo, parece que no obtengo mucha info sobre los eventos. Tal vez debería
+    probar buscando en la página web de la UAM o en las redes sociales. Mientras tanto,
+    ¿has escuchado alguna vez sobre alguna actividad o club interesante en la universidad
+    que recomiendes?
+- Assistant: 'Error: The server did not respond.'

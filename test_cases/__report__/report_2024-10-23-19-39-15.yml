@@ -1,0 +1,32 @@
+Global report:
+  Average assistant response time: 1.094418
+  Maximum assistant response time: 4.221284
+  Mínimum assistant response time: 0.337045
+  Errors:
+  - error: 500
+    count: 9
+    conversations:
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 1_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 1_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 1_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 2_lola_chatbot_tests_2024-10-23-19-39-15.yml
+  - error: 1001
+    count: 6
+    conversations:
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 0_lola_chatbot_tests_2024-10-23-19-39-15.yml
+    - 2_lola_chatbot_tests_2024-10-23-19-39-15.yml
+---
+Test name: lola_chatbot_tests
+Average assistant response time: 1.094418
+Maximum assistant response time: 4.221284
+Mínimum assistant response time: 0.337045
+Errors: []

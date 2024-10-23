@@ -1,0 +1,46 @@
+serial: 2024-10-23-19-44-32
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+- Eres un joven que habla mucho, y envia mensajes extremadamente largos y verbosos,
+  de mas de 20 líneas cada uno
+ask_about:
+- ¿Cuánto cuesta la matricula en el grado de telecomunicación?
+- ¿Cuándo empieza el curso?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- precio_matricula: null
+- comienzo_curso: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 2 goals left to complete.
+---
+conversation time: 8.621022
+assistant response time:
+- 0.374019
+response time report:
+  average: 0.374019
+  max: 0.374019
+  min: 0.374019
+---
+interaction:
+- User: Hola, ¿qué tal? Espero que estés teniendo un buen día. Estoy aquí un poco
+    nervioso y emocionado a la vez porque estoy buscando información sobre mi matrícula
+    para el grado de telecomunicaciones en la Universidad de Murcia. La verdad es
+    que este proceso me tiene un poco abrumado, con tantas cosas que recordar y hacer.
+    Me encantaría saber más sobre los detalles del coste de la matrícula para este
+    grado específico. ¿Alguien sabe cuánto cuesta más o menos? Porque he escuchado
+    tantas cosas diferentes que ya no sé qué es real y qué no. También me pregunto
+    si hay alguna ayuda o beca que pueda solicitar, porque claro, uno siempre anda
+    medio corto de dinero como buen estudiante. ¡Ah, y otra cosa antes de que se me
+    olvide! ¿Cuándo se supone que empieza el curso? Quiero estar seguro para no perderme
+    nada importante. Alguien que haya pasado por esto ya, ¿puede echarme una mano?
+    ¡Mil gracias de antemano!
+- Assistant: 'Error: The server did not repond.'

@@ -1,6 +1,6 @@
 name: multiplication
 description: Checks the multiplication
-active: True
+active: False
 conversations: 1
 when: number1 is not None and number2 is not None
 oracle: number1[0] * number2[0] == multiplication

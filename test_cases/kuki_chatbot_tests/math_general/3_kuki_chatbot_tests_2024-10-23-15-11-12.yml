@@ -1,0 +1,43 @@
+serial: 2024-10-23-15-11-12
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of {{operation}} {{number1}} and {{number2}}?
+- number1:
+  - 4830
+- number2:
+  - 40771
+- operation:
+  - dividing
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: 0.118
+errors: []
+---
+conversation time: 17.023689
+assistant response time:
+- 2.019751
+response time report:
+  average: 2.019751
+  max: 2.019751
+  min: 2.019751
+---
+interaction:
+- User: Hi Kuki! I need some help with my math homework. Can you tell me what the
+    result of dividing 4830 by 40771 is?
+- Assistant: '<image>https://media.giphy.com/media/3o7TKGAJ7CLp95cNI4/giphy.gif</image>‎
+    Hi there.<split></split>Can you ask for help in the form of a question?<split></split>Do
+    I look like Google?
+
+    Let me think....
+
+    Sure! When you divide 4830 by 40771, you get about 0.118. So, it''s a tiny bit
+    over 0!'

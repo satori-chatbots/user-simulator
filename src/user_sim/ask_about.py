@@ -416,6 +416,11 @@ class AskAboutClass:
         generators_list = generators.generator_list
         return generators_list
 
+    def picked_element_already_in_list(self, match, value):
+        element_list = [list(element.keys())[0] for element in self.picked_elements]
+        if match.group(1) not in element_list:
+            self.picked_elements.append({match.group(1): value})
+
     def replace_variables(self, generator):
         pattern = re.compile(r'\{\{(.*?)\}\}')
         if isinstance(generator['name'], list) and len(generator['name']) > 1:  # this is for nested forwards
@@ -442,13 +447,17 @@ class AskAboutClass:
                 matches = re.finditer(pattern, text)
                 for match in matches:
                     if match.group(1) == name:
-                        self.picked_elements.append({match.group(1): value})
+                        self.picked_element_already_in_list(match, value)
+                        # self.picked_elements.append({match.group(1): value})
                         replacement = ', '.join([str(v) for v in value])
                         text = text.replace(match.group(0), replacement)
                         self.phrases[index] = text
                         break
                 else:
                     self.phrases[index] = text
+
+
+
 
     def ask_about_processor(self):
         for generator in self.var_generators:

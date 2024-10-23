@@ -19,18 +19,11 @@ class DataExtraction:
         self.variable = variable_name
         self.description = description
         self.prompt = f"""
-        You're an assistant that extracts some specific information from a conversation.
+        You're an assistant that analyzes a conversation between a user and a chatbot.
+        Your objective is to test the chatbot's capabilities by extract the information only if the chatbot provides it 
+        or verifying it.
         """
-        # Please, output
-        # this
-        # data
-        # between
-        # double
-        # percentage
-        # symbol
-        # like
-        # this: %%data %%.
-        # {data_type}
+
         self.system_message = [
             {"role": "system",
              "content": self.prompt},
@@ -54,6 +47,8 @@ class DataExtraction:
 
     @staticmethod
     def data_process(text, dtype):
+
+
         logger.info(f'input text on data process for casting: {text}')
         if text is None or text == 'null':
             return text
@@ -97,19 +92,20 @@ class DataExtraction:
     def get_data_prompt(self):
 
         data_type = {'int': 'integer',
-                        'float': 'number',
-                        'money': 'string',
-                        'str': "string",
-                        'time': 'string',
-                        'bool': 'boolean',
-                        'date': 'string'}
+                     'float': 'number',
+                     'money': 'string',
+                     'str': "string",
+                     'time': 'string',
+                     'bool': 'boolean',
+                     'date': 'string'}
+
         data_format = {'int': '',
-                        'float': '',
-                        'money': 'Output the data as money with the currency used in the conversation',
-                        'str': "Extract and  display concisely only the requested information "
-                               "without including additional context",
-                        'time': 'Output the data in a "hh:mm:ss" format',
-                        'date': 'Output the data in a date format understandable for Python'}
+                       'float': '',
+                       'money': 'Output the data as money with the currency used in the conversation',
+                       'str': "Extract and  display concisely only the requested information "
+                              "without including additional context",
+                       'time': 'Output the data in a "hh:mm:ss" format',
+                       'date': 'Output the data in a date format understandable for Python'}
 
         type = data_type.get(self.dtype)
         d_format = data_format.get(self.dtype)
@@ -118,7 +114,7 @@ class DataExtraction:
     def get_data_extraction(self):
 
         dtype = self.get_data_prompt()[0]
-        format = self.get_data_prompt()[1]
+        dformat = self.get_data_prompt()[1]
         response_format = {
             "type": "json_schema",
             "json_schema": {
@@ -131,7 +127,7 @@ class DataExtraction:
                     "properties": {
                         "answer": {
                             "type": [dtype, 'null'],
-                            "description": f"{self.description}. {format}"
+                            "description": f"{self.description}. {dformat}"
                         }
                     }
                 }
@@ -151,5 +147,6 @@ class DataExtraction:
 
         logger.info(f'LLM output for data extraction: {llm_output}')
         # text_process = self.regex_data(llm_output.content)
-        data = self.data_process(llm_output, self.dtype)
+        text = llm_output['answer']
+        data = self.data_process(text, self.dtype)
         return {self.variable: data}

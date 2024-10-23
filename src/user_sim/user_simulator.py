@@ -1,14 +1,12 @@
-from .utils.config import errors
+import logging
 from .utils.utilities import *
 from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
+from .utils.config import errors
 
 parser = StrOutputParser()
-
-import logging
-
 logger = logging.getLogger('Info Logger')
 
 
@@ -33,7 +31,6 @@ class UserGeneration:
         self.repeat_count = 0
         self.loop_count = 0
         self.interaction_count = 0
-        # self.user_chain = LLMChain(llm=self.user_llm, prompt=self.user_role_prompt)
         self.user_chain = self.user_role_prompt | self.user_llm | parser
         self.my_context = self.InitialContext()
         self.error_report = []
@@ -135,7 +132,6 @@ class UserGeneration:
                 return True
 
         elif self.conversation_ending(input_msg) or self.loop_count >= 9:
-            # self.error_report.append()
             errors.append({1000: 'Exceeded loop Limit'})
             logger.warning('Loop count surpassed 9 interactions. Ending conversation.')
             return True

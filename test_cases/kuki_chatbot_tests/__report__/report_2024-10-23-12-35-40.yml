@@ -1,0 +1,19 @@
+Global report:
+  Average assistant response time: 1.010422
+  Maximum assistant response time: 1.010422
+  Mínimum assistant response time: 1.010422
+  Errors:
+  - error: 500
+    count: 1
+    conversations:
+    - 0_kuki_chatbot_tests_2024-10-23-12-35-40.yml
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_kuki_chatbot_tests_2024-10-23-12-35-40.yml
+---
+Test name: kuki_chatbot_tests
+Average assistant response time: 1.010422
+Maximum assistant response time: 1.010422
+Mínimum assistant response time: 1.010422
+Errors: []

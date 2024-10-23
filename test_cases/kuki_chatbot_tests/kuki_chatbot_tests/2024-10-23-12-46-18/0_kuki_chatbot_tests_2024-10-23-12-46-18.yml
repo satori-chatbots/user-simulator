@@ -1,0 +1,39 @@
+serial: 2024-10-23-12-46-18
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of {{operation}} {{number1}} and {{number2}}?
+- number1:
+  - 4530
+- number2:
+  - 43565
+- operation:
+  - adding
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: 48095.0
+errors: []
+---
+conversation time: 14.33463
+assistant response time:
+- 0.920476
+response time report:
+  average: 0.920476
+  max: 0.920476
+  min: 0.920476
+---
+interaction:
+- User: Hey Kuki! I'm trying to do my math homework and I got stuck on this problem.
+    Can you help me figure out what 4530 plus 43565 equals?
+- Assistant: 'Hi.<split></split>If you practice hard enough I''m sure you will.
+
+    Perhaps you should call the fire brigade if you are stuck?<split></split><image>https://media.giphy.com/media/l0XtbC8EniiuwAEOQn/giphy.gif</image>‎
+    48095'

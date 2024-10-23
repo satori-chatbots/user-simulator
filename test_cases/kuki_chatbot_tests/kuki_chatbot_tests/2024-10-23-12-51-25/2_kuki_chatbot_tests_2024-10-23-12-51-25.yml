@@ -1,0 +1,31 @@
+serial: 2024-10-23-12-51-25
+language: English
+context:
+- You should act as a young boy trying to solve geography exercises exercises
+ask_about:
+- What is the capital city of {{country}}?
+- country:
+  - Zambia
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: Lusaka
+errors: []
+---
+conversation time: 6.332305
+assistant response time:
+- 0.599819
+response time report:
+  average: 0.599819
+  max: 0.599819
+  min: 0.599819
+---
+interaction:
+- User: What's the capital city of Zambia?
+- Assistant: Lusaka.

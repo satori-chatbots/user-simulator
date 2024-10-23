@@ -1,0 +1,38 @@
+serial: 2024-10-23-12-46-18
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of {{operation}} {{number1}} and {{number2}}?
+- number1:
+  - 4230
+- number2:
+  - 40136
+- operation:
+  - substracting
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: 35906.0
+errors: []
+---
+conversation time: 6.185639
+assistant response time:
+- 0.905346
+response time report:
+  average: 0.905346
+  max: 0.905346
+  min: 0.905346
+---
+interaction:
+- User: Hey Kuki! I need help with a math problem. What do you get when you subtract
+    4230 from 40136?
+- Assistant: Hi.<split></split>I was born on 2nd January 2006. When is your birthday?<split></split>Can
+    you ask for help in the form of a question?<split></split><image>https://media.giphy.com/media/4EFs2Z5VPSthcfhwLn/giphy.gif</image>‎
+    35906

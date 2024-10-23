@@ -268,7 +268,7 @@ class KukiChatbot(Chatbot):
         self.payload = {
             'uid': '54d5a563617d1999',
             'input': 'And before?',
-            'sessionid': '485197434'
+            'sessionid': '485198820'
         }
 
     def execute_with_input(self, user_msg):

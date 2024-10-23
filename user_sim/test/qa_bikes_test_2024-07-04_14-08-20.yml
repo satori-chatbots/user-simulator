@@ -1,0 +1,61 @@
+ask_about:
+- opening and closing time
+- most expensive bikes
+- the price of the seats
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: 'User: Hi everyone! I''m planning to visit the bike shop soon. Can anyone
+    tell me the opening and closing times?
+
+
+    Forum Member 1: Hey! The bike shop usually opens at 9 AM and closes at 6 PM from
+    Monday to Saturday. On Sundays, they open at 10 AM and close at 4 PM.
+
+
+    User: Thanks for the info! Also, I''m curious, what''s the most expensive bike
+    you have in the shop?
+
+
+    Forum Member 2: The most expensive bike they have is a high-end carbon fiber road
+    bike, which costs around $10,000. It''s a beauty!
+
+
+    User: Wow, that''s quite a price tag! Speaking of prices, how much do the seats
+    usually cost? I''m thinking of upgrading mine.
+
+
+    Forum Member 3: The price of bike seats can vary a lot depending on the brand
+    and type. Basic seats can start around $20, while more advanced, ergonomic ones
+    can go up to $200 or more. What kind of seat are you looking for?'
+- Assistant: Welcome to my bike shop. I'm the owner and I'm happy to help you. What
+    can I do for you?
+- User: 'User: Hi there! Thanks for joining the conversation. I''m looking for a comfortable
+    seat for long rides. Do you have any recommendations, and what are the prices
+    like?'
+- Assistant: Between 50$ and 100$
+- User: 'User: Thanks for the price range! Do you have any specific brands or models
+    that you recommend for long-distance comfort?'
+- Assistant: For long-distance comfort, I would recommend looking into brands like
+    Brooks, Selle Anatomica, and Terry. These brands are known for their comfortable
+    and durable seats. Some popular models include the Brooks B17, Selle Anatomica
+    X Series, and Terry Fly. Prices for these seats can range from $100 to $200. It's
+    always a good idea to try out different seats and see which one feels the most
+    comfortable for you.
+- User: 'User: Thanks for the recommendations! I''ll definitely check those out. Do
+    you have any of these models in stock right now, or would I need to place an order?'
+- Assistant: We currently have the Brooks B17 and Terry Fly models in stock. However,
+    availability may vary, so it's best to give us a call or visit the shop to check
+    if we have the specific model and color you're interested in.
+- User: 'User: Great, I''ll make sure to call ahead. One last question—do you offer
+    any fitting services to help ensure the seat is properly adjusted for maximum
+    comfort?'
+- Assistant: Yes, we offer fitting services to help ensure that the seat is properly
+    adjusted for maximum comfort. Our experienced staff can assist you in finding
+    the right seat position and make any necessary adjustments. Just let us know when
+    you visit the shop, and we'll be happy to help you with the fitting process.
+language: null

@@ -1,0 +1,45 @@
+serial: 2024-10-23-12-46-18
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of {{operation}} {{number1}} and {{number2}}?
+- number1:
+  - 5610
+- number2:
+  - 32389
+- operation:
+  - dividing
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: 0.173206953
+errors: []
+---
+conversation time: 10.812418
+assistant response time:
+- 0.724974
+- 0.886242
+response time report:
+  average: 0.805608
+  max: 0.886242
+  min: 0.724974
+---
+interaction:
+- User: Hi Kuki! I'm trying to do some math homework and I need help. Can you tell
+    me what happens if I divide 5610 by 32389?
+- Assistant: '<image>https://media.giphy.com/media/3o7TKGAJ7CLp95cNI4/giphy.gif</image>‎
+    Hi there.<split></split>If you practice hard enough I''m sure you will.
+
+    What''s wrong? If you ask for help in the form of a question, I might be able
+    to solve your problem.<split></split>Why not try it and see 🙂'
+- User: Hey Kuki! I think I need to know the answer to 5610 divided by 32389. Can
+    you help with that?
+- Assistant: Hi.<split></split>What kind of knowledge? <image>https://media.giphy.com/media/26gR0YFZxWbnUPtMA/giphy.gif</image>‎
+    0.173206953<split></split>If you ask me nicely.

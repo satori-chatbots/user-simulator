@@ -1,0 +1,58 @@
+ask_about:
+- opening and closing time
+- most expensive bikes
+- the price of the seats
+conversation:
+- number: 2
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+interaction:
+- User: 'User: Hi, can anyone tell me the opening and closing times of the bike shop?
+
+
+    Assistant: Sure! The bike shop is open from 9 AM to 7 PM on weekdays and from
+    10 AM to 5 PM on weekends.
+
+
+    User: Thanks! Also, I''m curious, what''s the most expensive bike you have in
+    the shop?
+
+
+    Assistant: The most expensive bike we currently have is a high-end carbon fiber
+    road bike that costs around $10,000. It''s designed for professional racing and
+    comes with top-of-the-line components.
+
+
+    User: Wow, that''s quite a price tag! What about the seats? How much do they usually
+    cost?'
+- Assistant: The price of seats can vary depending on the type and brand. On average,
+    a good quality seat can cost anywhere from $30 to $150. It's best to visit the
+    shop and check out the different options available.
+- User: 'User: Thanks for the info on the seats! Do you have any recommendations for
+    a comfortable seat for long-distance rides?'
+- Assistant: Absolutely! For long-distance rides, I would recommend looking for a
+    seat that has extra padding and ergonomic design to provide maximum comfort. Some
+    popular options include the Brooks B17, Selle Anatomica X Series, and Terry Fly
+    saddles. It's always a good idea to try out different seats and see which one
+    feels the most comfortable for you.
+- User: 'User: Great recommendations, thanks! Do you also offer fitting services to
+    help find the right seat and adjust it properly?'
+- Assistant: Yes, we offer fitting services to help you find the right seat and adjust
+    it properly. Our experienced staff can assist you in selecting the right seat
+    based on your riding style, body measurements, and preferences. They will also
+    ensure that the seat is properly positioned and adjusted for optimal comfort and
+    performance. Just let us know when you visit the shop, and we'll be happy to help
+    you with the fitting process.
+- User: 'User: That''s awesome to hear! Do I need to make an appointment for the fitting
+    service, or can I just walk in?'
+- Assistant: You can just walk in for the fitting service. Our staff will be available
+    to assist you during our opening hours.
+- User: 'User: Perfect, I''ll definitely drop by then. One last question—do you guys
+    offer any discounts or promotions on accessories like seats or other gear?'
+- Assistant: I'm sorry, but we currently do not have any discounts or promotions on
+    accessories like seats or other gear. However, we do offer competitive prices
+    on all our products. If you have any specific items in mind, feel free to let
+    us know and we can provide you with the pricing information.
+language: null

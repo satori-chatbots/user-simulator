@@ -1,0 +1,27 @@
+;verification;data
+¿Cómo_activar_el_correo_de_la_UAM?;True;"<p><strong>1. Obtención de cuenta de estudiante para efectuar la primera matrícula:</strong></p>
+<p>Para matricularte por primera vez necesitarás un NIA (Número de Identificación Académica) y una contraseña.</p>
+<p> </p>
+<p><a href=""https://www.uam.es/uam/estudios/eres-primer-curso"">Sigue los pasos para obtener la cuenta para realizar la matrícula.</a></p>
+<p> </p>
+<p>En caso de que tengas problemas para generar la contraseña, puedes contactar con el CAU en <a href=""mailto:cau@uam.es"">cau@uam.es</a> o en el teléfono 914974029.</p>
+<p> </p>
+<p><strong>2. Obtención de cuenta para estudiantes  que ya han formalizado la matrícula </strong><span style=""font-weight: bolder; color: var(--list-item-text-color); font-family: var(--list-item-font-family); font-size: var(--list-item-font-size); background-color: var(--card-background-color);"">(cuentas <em>@estudiante.uam.es</em>) </span><strong style=""color: var(--text-basic-color); font-family: var(--text-paragraph-font-family); font-size: var(--text-paragraph-font-size); background-color: var(--card-background-color);"">o personal UAM de nueva incorporación </strong><span style=""background-color: var(--card-background-color); color: var(--text-basic-color); font-family: var(--text-paragraph-font-family); font-size: var(--text-paragraph-font-size); font-weight: bolder;"">(cuentas <em>@uam.es</em>)</span><strong style=""color: var(--text-basic-color); font-family: var(--text-paragraph-font-family); font-size: var(--text-paragraph-font-size); background-color: var(--card-background-color);"">:</strong></p>
+<p>Si te incorporas a la universidad por primera vez, ya sea como personal de la UAM o como estudiante, recibirás por e-mail o SMS<strong> <u>en el plazo de 24/48 horas</u></strong> tras la incorporación, o tras la formalización de la matrícula si eres estudiante, un mensaje de bienvenida con tu<strong> Identificador de usuario UAM (ID-UAM) </strong>y un<strong> código de activación para establecer una contraseña</strong>.<br><br></p>
+<p>En caso de que no hayas recibido el mensaje de alta en el plazo indicado, o tienes alguna duda, ponte en contacto con el Centro de Atención a Usuarios (CAU) en <a href=""mailto:cau@uam.es"">cau@uam.es</a> </p>
+<p> </p>
+<p><strong>3. Obtención de otras cuentas:</strong></p>
+<p>Si eres personal investigador no UAM, invitado, colaborador, personal externo, personal de la Fundación, etc., consultalo en CAU escribiendo a <a href=""mailto:cau@uam.es"">cau@uam.es</a> o llamando al teléfono 914974029.</p>"
+¿Cómo_cambiar_la_contraseña?;True;"<p>Si has olvidado tu identificador de usuario, <strong><a href=""https://id.uam.es/id/mi-id-uam.html"">busca tu identificador por DNI</a> </strong>o contacta con el CAU en <a href=""mailto:cau@uam.es"">cau@uam.es</a><strong><br><br></strong>Si necesitas cambiar la contraseña,<strong> </strong>accede a <strong><a href=""https://autoservicio.uam.es/xlWebApp/"" target=""_blank"" rel=""noopener"">https://autoservicio.uam.es</a></strong>  y haz clic sobre<strong> ""Generar código de activación""</strong> del menú de opciones del lado izquierdo. <br><br>Si necesitas cambiar la contraseña y ya tienes el código de activación, accede a <strong><a href=""https://autoservicio.uam.es/xlWebApp/"" target=""_blank"" rel=""noopener"">https://autoservicio.uam.es</a></strong>  y haz clic en ""<strong>Tengo Código de Activación</strong>"" del menú de opciones del lado izquierdo.</p>
+<p> </p>
+<p>Si tienes alguna duda, ponte en contacto con el Centro de Atención a Usuarios (CAU) en <a href=""mailto:cau@uam.es"">cau@uam.es</a> </p>
+<p> </p>
+<p><u><strong>Recuerda cambiar la contraseña periódicamente, como mínimo una vez al año, para evitar que se bloquee la cuenta.</strong></u><br><br>Haz clic en el botón inferior si necesitas más instrucciones o seguir los pasos descritos de manera más detallada.</p>"
+¿Cómo_contactas_con_el_CAU_para_solicitar_ayuda?;True;"<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico: <a href=""mailto:cau@uam.es"">cau@uam.es</a><br></strong></p>
+<p> </p>
+<p><strong>Por teléfono 📞:</strong> 914974029.</p>
+<p> </p>
+<p style=""color: rgb(34, 43, 69); font-family: 'Open Sans', sans-serif; font-size: 15px; font-weight: 400; line-height: var(--text-paragraph-line-height);""><span style=""font-weight: bolder;""><strong>Presencialmente:</strong>  </span>Escuela Politécnica Superior. Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus Cantoblanco. 28049 Madrid</p>
+<p style=""color: rgb(34, 43, 69); font-family: 'Open Sans', sans-serif; font-size: 15px; font-weight: 400; line-height: var(--text-paragraph-line-height);""><span style=""font-weight: bolder;""><a style=""text-decoration: var(--link-text-decoration);"" href=""https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf"">(Plano Campus)</a></span></p>
+<p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+<p><strong><br>Consultar el <a href=""https://www.uam.es/uam/tecnologias-informacion/servicios-ti"">CATÁLOGO DE SERVICIOS OFRECIDOS</a></strong></p>"

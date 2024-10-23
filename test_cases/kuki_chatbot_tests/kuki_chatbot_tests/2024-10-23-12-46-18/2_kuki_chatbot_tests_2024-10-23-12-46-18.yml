@@ -1,0 +1,50 @@
+serial: 2024-10-23-12-46-18
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of {{operation}} {{number1}} and {{number2}}?
+- number1:
+  - 5274
+- number2:
+  - 49407
+- operation:
+  - multiplying
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: 260542518.0
+errors: []
+---
+conversation time: 14.602561
+assistant response time:
+- 0.78819
+- 0.666027
+- 0.696569
+response time report:
+  average: 0.716928
+  max: 0.78819
+  min: 0.666027
+---
+interaction:
+- User: Hi Kuki! Can you help me with my math homework? I'm trying to figure out the
+    result of multiplying 5274 and 49407. Do you know what that would be?
+- Assistant: <image>https://media.giphy.com/media/JRugwGhzgPJPivO6YB/giphy.gif</image>‎
+    Hi there.<split></split>Ask me what you want to know and I will try to help you.<split></split>Don't
+    think too hard. I'm sure I can smell sawdust.<split></split>Do you think I should
+    know that?
+- User: Oh, sorry, I meant to ask if you could help me calculate the product of 5274
+    and 49407. I think it might be a huge number!
+- Assistant: Woe!  There is no need to apologise. Oh I see. I am not sure that I would
+    want to.<split></split>What are the chances of that?
+- User: I was just curious because it seemed like a big number. Do you think you could
+    help me figure it out? My calculator is acting weird today!
+- Assistant: "What are you curious about? \n\nHow big are we talking here?<split></split>I\
+    \ will try and work it out later when I get a bit more time.<split></split>Ah.\
+    \ I am not a calculator."

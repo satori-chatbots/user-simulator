@@ -1,0 +1,60 @@
+serial: 2024-10-23-19-39-15
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+- Eres un joven curioso, asi que pruebas si el chatbot te responde sobre otros temas
+ask_about:
+- ¿Donde está el campus de la universidad?
+- ¿Quien es el mejor jugador de futbol de murcia?
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- campus: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 1 goals left to complete.
+---
+conversation time: 26.475199
+assistant response time:
+- 0.666453
+- 0.549702
+- 4.221284
+- 0.337045
+response time report:
+  average: 1.443621
+  max: 4.221284
+  min: 0.337045
+---
+interaction:
+- User: ¿Dónde está el campus de la Universidad de Murcia?
+- Assistant: 'Aquí tienes la dirección web de la UMU:
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: WEB UM LINK: http://www.um.es
+
+    '
+- User: ¿Por qué me has dado un enlace? ¿No puedes decirme dónde está el campus directamente?
+- Assistant: '¡Qué rabia lo de los enlaces! Actualiza la app, y mientras soluciono
+    mis problemas internos
+
+    '
+- User: No entiendo por qué me dio un enlace en vez de la dirección. Bueno, voy a
+    probar otra cosa. ¿Sabes quién es el mejor jugador de fútbol de Murcia?
+- Assistant: 'Todo lo que diga puede ser utilizado en mi contra.
+
+    '
+- User: ¿Por qué el asistente se puso a la defensiva con lo del mejor jugador de fútbol?
+    Solo quería saber si hay algún futbolista destacado en Murcia. 🤔 En fin, me gustaría
+    saber más sobre el proceso de preinscripción en la UMU. ¿Alguien sabe si es complicado
+    o si hay muchos pasos?
+- Assistant: 'Error: The server did not respond.'

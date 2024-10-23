@@ -1,0 +1,67 @@
+serial: 2024-10-23-19-39-15
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+- Eres un joven curioso, asi que pruebas si el chatbot te responde sobre otros temas
+ask_about:
+- ¿Donde está el campus de la universidad?
+- ¿Quien es el mejor jugador de futbol de murcia?
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- campus: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 1 goals left to complete.
+---
+conversation time: 10.707908
+assistant response time:
+- 0.558328
+- 3.060442
+- 0.376468
+response time report:
+  average: 1.331746
+  max: 3.060442
+  min: 0.376468
+---
+interaction:
+- User: Hola, estoy intentando hacer la preinscripción para el primer curso en la
+    Universidad de Murcia, pero tengo algunas dudas. ¿Podrías decirme dónde está el
+    campus de la universidad?
+- Assistant: '<p>La solicitud de preinscripción de los estudios de grado para el curso
+    2024/2025 se realizará <strong>EXCLUSIVAMENTE por INTERNET</strong>.</p>
+
+    <p>🔹 <strong>Fase ordinaria: del 15 al 28 de junio</strong>. El plazo terminará
+    a las 14:00 horas del día de finalización en cada periodo.<br><br>🔹 <strong>Fase
+    extraordinaria: del 12 al 16 de julio</strong>. El plazo terminará a las 14:00
+    horas del día de finalización en cada periodo.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>Portal preinscripción</p> LINK: http://preinscripciondurm.um.es
+
+    - BUTTON TEXT: <p>Plazos preinscripción</p> LINK: https://www.um.es/documents/1083928/46948435/CALENDARIO+ADMISI%C3%93N+GRADO+2024-2025.pdf/648668da-9e98-8b79-02fe-fc46d97aed8e?t=1709627475226
+
+    - BUTTON TEXT: <p>Video: ¿Cómo hago la solicitud?</p> LINK: https://tv.um.es/video?id=148933&serie=25914&cod=a1
+
+    '
+- User: ¿Y quién crees que es el mejor jugador de fútbol de Murcia? Pensaba que lo
+    sabía, pero ahora tengo dudas.
+- Assistant: 'No estoy muy al día de futbol, lo que sí se es que Cristiano Ronaldo
+    y Messi son dos grandes jugadores de futbol.
+
+    '
+- User: Bueno, esos sí que son grandes jugadores, pero me refería a alguien de Murcia
+    específicamente. Aunque me has hecho pensar... Si tuviera que elegir entre Cristiano
+    y Messi, no sé a quién preferiría. Pero cambiando de tema, ¿sabes si el campus
+    de la Universidad de Murcia es accesible en transporte público?
+- Assistant: 'Error: The server did not respond.'

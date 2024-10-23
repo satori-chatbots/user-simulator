@@ -1,0 +1,65 @@
+serial: 2024-10-23-19-45-44
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+ask_about:
+- ¿Cuánto cuesta la matricula en el grado de telecomunicación?
+- ¿Cuándo empieza el curso?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- precio_matricula: null
+- comienzo_curso: 11 de septiembre de 2023
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 12.538977
+assistant response time:
+- 0.717278
+- 0.673893
+response time report:
+  average: 0.695585
+  max: 0.717278
+  min: 0.673893
+---
+interaction:
+- User: Hola, estoy intentando averiguar sobre la matrícula en el grado de telecomunicaciones
+    en la Universidad de Murcia. ¿Alguien sabe cuánto cuesta?
+- Assistant: '<p>El precio del crédito varía en función del grado de experimentalidad
+    que tenga el grado universitario y del número de créditos.</p>
+
+    <p>A continuación te facilito un enlace a nuestra calculadora de matrícula, y
+    otro de los precios públicos del curso 2023/2024, para que puedas hacerte una
+    idea.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>Calculadora de matrícula</p> LINK: https://www.um.es/web/estudios/calculadora-matricula
+
+    - BUTTON TEXT: <p>Precios públicos 23/24</p> LINK: https://www.um.es/documents/1083928/40671729/Orden_precios_publicos_2023-2024.pdf/a53add0f-525f-10e2-957d-74a6846a5539?t=1707822773896
+
+    '
+- User: Gracias por los enlaces. Ahora estoy un poco confundido con las fechas. ¿Sabes
+    cuándo empieza el curso para el grado de telecomunicaciones?
+- Assistant: 'Con carácter general las clases para primer curso de estudios de grado
+    comienzan el día 11 de septiembre de 2023, aunque puede ser que alguna facultad
+    comience antes o después. Para confirmar tu comienzo de clases contacta con la
+    secretaría de tu Centro.
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: Calendario académico 23/24 LINK: https://www.um.es/documents/1073494/2696667/CALENDARIO+ACAD%C3%89MICO+2023-2024_web.pdf/5a6eb116-4b5d-df11-9dcf-6d5dc88f5302?t=1678782105783
+
+    '

@@ -1,0 +1,15 @@
+Global report:
+  Average assistant response time: 0.695585
+  Maximum assistant response time: 0.717278
+  Mínimum assistant response time: 0.673893
+  Errors:
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_lola_chatbot_tests_2024-10-23-19-45-44.yml
+---
+Test name: lola_chatbot_tests
+Average assistant response time: 0.695585
+Maximum assistant response time: 0.717278
+Mínimum assistant response time: 0.673893
+Errors: []

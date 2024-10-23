@@ -1,0 +1,82 @@
+serial: 2024-10-23-19-39-15
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda para su preincripción y estudios
+- Eres un joven curioso, asi que pruebas si el chatbot te responde sobre otros temas
+ask_about:
+- ¿Donde está el campus de la universidad?
+- ¿Quien es el mejor jugador de futbol de murcia?
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- campus: La Universidad de Murcia tiene varios campus, los principales son el Campus
+    de Espinardo y el Campus de La Merced. El Campus de Espinardo se encuentra en
+    las afueras de la ciudad, mientras que el Campus de La Merced está en el centro
+    de Murcia.
+errors:
+- 500: Couldn't get response from the server
+---
+conversation time: 16.045265
+assistant response time:
+- 0.686593
+- 0.621
+- 0.565233
+- 0.396054
+response time report:
+  average: 0.56722
+  max: 0.686593
+  min: 0.396054
+---
+interaction:
+- User: Hola, estoy buscando información sobre cómo hacer la preinscripción para el
+    primer curso de grado en la Universidad de Murcia. ¿Alguien sabe cómo puedo hacerlo?
+    Además, me gustaría saber dónde está el campus de la universidad.
+- Assistant: '<p>La solicitud de preinscripción de los estudios de grado para el curso
+    2024/2025 se realizará <strong>EXCLUSIVAMENTE por INTERNET</strong>.</p>
+
+    <p>🔹 <strong>Fase ordinaria: del 15 al 28 de junio</strong>. El plazo terminará
+    a las 14:00 horas del día de finalización en cada periodo.<br><br>🔹 <strong>Fase
+    extraordinaria: del 12 al 16 de julio</strong>. El plazo terminará a las 14:00
+    horas del día de finalización en cada periodo.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>Portal preinscripción</p> LINK: http://preinscripciondurm.um.es
+
+    - BUTTON TEXT: <p>Plazos preinscripción</p> LINK: https://www.um.es/documents/1083928/46948435/CALENDARIO+ADMISI%C3%93N+GRADO+2024-2025.pdf/648668da-9e98-8b79-02fe-fc46d97aed8e?t=1709627475226
+
+    - BUTTON TEXT: <p>Video: ¿Cómo hago la solicitud?</p> LINK: https://tv.um.es/video?id=148933&serie=25914&cod=a1
+
+    '
+- User: ¡Muchas gracias por la información sobre la preinscripción! Ahora me gustaría
+    saber, ¿dónde está el campus de la Universidad de Murcia?
+- Assistant: 'Si necesitas cualquier otra cosa ya sabes donde estoy
+
+    '
+- User: Gracias, pero creo que no me has respondido a mi pregunta anterior. ¿Dónde
+    está el campus de la Universidad de Murcia? Además, ¿quién es el mejor jugador
+    de fútbol de Murcia?
+- Assistant: 'Ten un poco de paciencia conmigo, por favor
+
+    '
+- User: 'Por supuesto, no te preocupes. La Universidad de Murcia tiene varios campus,
+    los principales son el Campus de Espinardo y el Campus de La Merced. El Campus
+    de Espinardo se encuentra en las afueras de la ciudad, mientras que el Campus
+    de La Merced está en el centro de Murcia.
+
+
+    En cuanto al mejor jugador de fútbol de Murcia, es un tema que puede ser bastante
+    subjetivo, pero uno de los jugadores más conocidos de la región en los últimos
+    años ha sido Miguel Ángel Espinosa, conocido como "Piti". Sin embargo, también
+    hay otros jugadores destacados que han salido de Murcia. ¿Te gustaría saber algo
+    más sobre la universidad o cualquier otro tema?'
+- Assistant: 'Error: The server did not respond.'

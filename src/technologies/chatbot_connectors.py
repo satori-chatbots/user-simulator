@@ -298,3 +298,64 @@ class KukiChatbot(Chatbot):
 
 
 
+class SprinklChatbot(Chatbot):
+    def __init__(self, url):
+        Chatbot.__init__(self, url)
+
+        self.headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',  # Standard for form data
+        }
+        self.payload = {
+            'uid': '54d5a563617d1999',
+            'input': 'And before?',
+            'sessionid': '485197434'
+        }
+
+        self.url = "https://prod2-live-chat-champagne.sprinklr.com/api/livechat"
+        self.conversation = None
+
+    def execute_with_input(self, user_msg):
+        if self.conversation is None:
+            try:
+                payload = {"p": {"createCase": False,
+                           "startedByContext":{},
+                           "pageTitle":"Sprinklr: Unified AI-Powered Customer Experience Management Platform",
+                           "pageUrl":"https://www.sprinklr.com/",
+                           "userAgent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0",
+                           "timeZone":"Europe/Madrid","locale":"en"},
+
+                "x-chat-referer":"https://www.sprinklr.com/",
+                "x-chat-origin":"https://www.sprinklr.com",
+                "x-chat-page-title": "Sprinklr: Unified AI-Powered Customer Experience Management Platform",
+                "x-chat-version":	"WgRhbCFIj",
+                "x-chat-sdk":	"Web",
+                "x-chat-token":	"eyJhbGciOiJSUzI1NiJ9.eyJ2aXNpdFNlc3Npb25JZCI6IjY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZSIsInN1YiI6IkFjY2VzcyBUb2tlbiBHZW5lcmF0ZWQgQnkgU3ByaW5rbHIiLCJjaGF0TG9jYWxlIjoiZW4iLCJjaGF0VXNlckhhc0NvbnZlcnNhdGlvblN0YXJ0ZWQiOmZhbHNlLCJpc3MiOiJTUFJJTktMUiIsInZpc2l0U2Vzc2lvbklkRXhwaXJlQXQiOjE3Mjk2NzQ1ODAzOTIsInR5cCI6IkpXVCIsImlzRGVmbGVjdGlvblRva2VuIjpmYWxzZSwidXNlclNlc3Npb25Mb2dpbk1ldGhvZCI6IntcInR5cGVcIjpcIkFOT05ZTU9VU1wifSIsImNoYXRVc2VySWQiOiJBXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZCIsImFwcElkIjoiYXBwXzEwMDQzODM0NSIsInNjb3BlIjpbIl…wOWExZjYyODVjYjZhODVkXCIsXCJpbmJveC9BXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZFwiXX0iLCJjaGF0VXNlclR5cGUiOiJBTk9OWU1PVVMiLCJwYXJ0bmVySWQiOjUwNDAwLCJ0b2tlblR5cGUiOiJBQ0NFU1MifQ.N_QacSq9KeMVxIs7XbOmvSvF4ihD8-V_Zr0iZ6iixc7cB3ElPwtGkjIy0hU_PYKvBTlIXHkwvQqbSdnrET0xRYznWDP5hsRvCU3EBscLofqM6HaAvuVRYaMNAVWmnb6-Mp8uxtD8ZYXw9L48Lt5uGlPpxfKgDYY4nT4meG-WjxDIpO99k4CrquGmyg2YbD9dprdL_hywxxP38XZbPyQAmPq87EdSxOqbrUvNmp2UAnvyoTwU8HyBrzfXjiwbxk7U-cYzLO3HWkah-GTXFO6ryfvnYcgXBaAza4snQLHFWjm88TBc6U1D5c2yv--M_B3LB8o8TULVkiQJ8V2BvQn-RQ",
+                "x-user-id":	"A_671808ee09a1f6285cb6a85d",
+                "x-client-id":	"c9954e36-4928-4645-85cf-ab180c5aa911_1_1",
+                "x-chat-appId":	"62fe5a7833099a5ea6705eb6_app_100438345"
+                           }
+
+                payload['p'] = {"conversationId":"6718124d09a1f6285cb9f6e0",
+                                "messagePayload":{"text":"hi","textEntities":[],"messageType":313,"disableManualResponse":False},"sender":"A_671808ee09a1f6285cb6a85d","clientMessageId":"2c4b39b5-cbf6-4ee5-a3bd-ba85279f1b30","inReplyToChatMessageId":"6718124d09a1f6285cb9f6e1"}
+
+
+                # , timeout=timeout
+                "/api/livechat/conversation/send"
+                # post_response = requests.post(self.url + '/conversation/new', data=payload, headers=self.headers)
+                post_response = requests.post(self.url + '/conversation/send', data=payload, headers=self.headers)
+
+                # 'https://prod2-live-chat-champagne.sprinklr.com/api/livechat/conversation/new'
+                post_response_json = post_response.json()
+                print(post_response_json)
+                #self.conversation = post_response_json.get('id')
+            except requests.exceptions.ConnectionError:
+                logger.error(f"Couldn't connect with chatbot")
+                errors.append({500: f"Couldn't connect with chatbot"})
+                return False, 'cut connection'
+
+        # https://prod2-live-chat-champagne.sprinklr.com/api/livechat/conversation/new
+
+        #{"conversationId": "6718124d09a1f6285cb9f6e0",
+        # "messagePayload": {"text": "hi", "textEntities": [], "messageType": 313, "disableManualResponse": false},
+        # "sender": "A_671808ee09a1f6285cb6a85d", "clientMessageId": "2c4b39b5-cbf6-4ee5-a3bd-ba85279f1b30",
+        # "inReplyToChatMessageId": "6718124d09a1f6285cb9f6e1"}

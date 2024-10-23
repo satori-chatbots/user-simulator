@@ -42,7 +42,7 @@ class Rule(BaseModel):
 
     def __global_test(self, tests: List[Test], verbose: bool) -> dict:
         results = {'pass': [], 'fail': [], 'not_applicable': []}
-        # filter the tests, to select only those satisfying when and if
+        # filter the conversations, to select only those satisfying when and if
         empty_filtered_tests()
         filtered = get_filtered_tests()
         for test in tests:

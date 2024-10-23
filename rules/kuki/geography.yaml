@@ -1,6 +1,6 @@
 name: geography
 description: Check the capital
-active: True
+active: False
 conversations: 1
 oracle: |
   {"Spain": "Madrid", "Canada": "Ottawa", "Zambia": "Lusaka"}[country[0]] == result

@@ -31,9 +31,11 @@ output:
       description: el numero de telefono del CAU
 
 conversations:
-  - number: 1
+  - number: 3
   - goal_style:
-        steps: 4
+      all_answered:
+        export: True
+        limit: 6
   - interaction_style:
       - default
 

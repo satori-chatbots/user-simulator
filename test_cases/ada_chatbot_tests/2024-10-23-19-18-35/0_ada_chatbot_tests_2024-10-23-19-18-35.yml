@@ -1,0 +1,124 @@
+serial: 2024-10-23-19-18-35
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- ¿Cómo activar el correo de la UAM?
+- ¿Cómo cambiar la contraseña?
+- ¿Cómo contactas con el CAU para solicitar ayuda?
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- email_cau: cau@uam.es
+- telefono_cau: '914974029'
+errors: []
+---
+conversation time: 15.535811
+assistant response time:
+- 0.621181
+- 0.554582
+response time report:
+  average: 0.587881
+  max: 0.621181
+  min: 0.554582
+---
+interaction:
+- User: Hola, necesito ayuda para activar mi correo de la UAM. ¿Alguien sabe cómo
+    se hace eso?
+- Assistant: '<p><strong>1. Obtención de cuenta de estudiante para efectuar la primera
+    matrícula:</strong></p>
+
+    <p>Para matricularte por primera vez necesitarás un NIA (Número de Identificación
+    Académica) y una contraseña.</p>
+
+    <p> </p>
+
+    <p><a href="https://www.uam.es/uam/estudios/eres-primer-curso">Sigue los pasos
+    para obtener la cuenta para realizar la matrícula.</a></p>
+
+    <p> </p>
+
+    <p>En caso de que tengas problemas para generar la contraseña, puedes contactar
+    con el CAU en <a href="mailto:cau@uam.es">cau@uam.es</a> o en el teléfono 914974029.</p>
+
+    <p> </p>
+
+    <p><strong>2. Obtención de cuenta para estudiantes  que ya han formalizado la
+    matrícula </strong><span style="font-weight: bolder; color: var(--list-item-text-color);
+    font-family: var(--list-item-font-family); font-size: var(--list-item-font-size);
+    background-color: var(--card-background-color);">(cuentas <em>@estudiante.uam.es</em>) </span><strong
+    style="color: var(--text-basic-color); font-family: var(--text-paragraph-font-family);
+    font-size: var(--text-paragraph-font-size); background-color: var(--card-background-color);">o
+    personal UAM de nueva incorporación </strong><span style="background-color: var(--card-background-color);
+    color: var(--text-basic-color); font-family: var(--text-paragraph-font-family);
+    font-size: var(--text-paragraph-font-size); font-weight: bolder;">(cuentas <em>@uam.es</em>)</span><strong
+    style="color: var(--text-basic-color); font-family: var(--text-paragraph-font-family);
+    font-size: var(--text-paragraph-font-size); background-color: var(--card-background-color);">:</strong></p>
+
+    <p>Si te incorporas a la universidad por primera vez, ya sea como personal de
+    la UAM o como estudiante, recibirás por e-mail o SMS<strong> <u>en el plazo de
+    24/48 horas</u></strong> tras la incorporación, o tras la formalización de la
+    matrícula si eres estudiante, un mensaje de bienvenida con tu<strong> Identificador
+    de usuario UAM (ID-UAM) </strong>y un<strong> código de activación para establecer
+    una contraseña</strong>.<br><br></p>
+
+    <p>En caso de que no hayas recibido el mensaje de alta en el plazo indicado, o
+    tienes alguna duda, ponte en contacto con el Centro de Atención a Usuarios (CAU)
+    en <a href="mailto:cau@uam.es">cau@uam.es</a> </p>
+
+    <p> </p>
+
+    <p><strong>3. Obtención de otras cuentas:</strong></p>
+
+    <p>Si eres personal investigador no UAM, invitado, colaborador, personal externo,
+    personal de la Fundación, etc., consultalo en CAU escribiendo a <a href="mailto:cau@uam.es">cau@uam.es</a>
+    o llamando al teléfono 914974029.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>MÁS INFORMACIÓN EN FAQ</p> LINK: https://faq.uam.es/index.php?action=artikel&cat=12&id=37&artlang=es
+
+    '
+- User: Gracias por la información. ¿Y cómo puedo cambiar la contraseña de mi cuenta
+    de la UAM?
+- Assistant: '<p>Si has olvidado tu identificador de usuario, <strong><a href="https://id.uam.es/id/mi-id-uam.html">busca
+    tu identificador por DNI</a> </strong>o contacta con el CAU en <a href="mailto:cau@uam.es">cau@uam.es</a><strong><br><br></strong>Si
+    necesitas cambiar la contraseña,<strong> </strong>accede a <strong><a href="https://autoservicio.uam.es/xlWebApp/"
+    target="_blank" rel="noopener">https://autoservicio.uam.es</a></strong>  y haz
+    clic sobre<strong> "Generar código de activación"</strong> del menú de opciones
+    del lado izquierdo. <br><br>Si necesitas cambiar la contraseña y ya tienes el
+    código de activación, accede a <strong><a href="https://autoservicio.uam.es/xlWebApp/"
+    target="_blank" rel="noopener">https://autoservicio.uam.es</a></strong>  y haz
+    clic en "<strong>Tengo Código de Activación</strong>" del menú de opciones del
+    lado izquierdo.</p>
+
+    <p> </p>
+
+    <p>Si tienes alguna duda, ponte en contacto con el Centro de Atención a Usuarios
+    (CAU) en <a href="mailto:cau@uam.es">cau@uam.es</a> </p>
+
+    <p> </p>
+
+    <p><u><strong>Recuerda cambiar la contraseña periódicamente, como mínimo una vez
+    al año, para evitar que se bloquee la cuenta.</strong></u><br><br>Haz clic en
+    el botón inferior si necesitas más instrucciones o seguir los pasos descritos
+    de manera más detallada.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>MÁS INFORMACIÓN EN FAQ</p> LINK: https://faq.uam.es/index.php?action=artikel&cat=12&id=34&artlang=es
+
+    '

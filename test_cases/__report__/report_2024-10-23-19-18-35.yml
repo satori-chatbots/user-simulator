@@ -1,0 +1,11 @@
+Global report:
+  Average assistant response time: 0.658308
+  Maximum assistant response time: 0.757592
+  Mínimum assistant response time: 0.514325
+  Errors: []
+---
+Test name: ada_chatbot_tests
+Average assistant response time: 0.658308
+Maximum assistant response time: 0.757592
+Mínimum assistant response time: 0.514325
+Errors: []

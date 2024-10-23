@@ -1,0 +1,4 @@
+;verification;data
+¿Cómo_activar_el_correo_de_la_UAM?;False;
+¿Cómo_cambiar_la_contraseña?;True;"<p>Si necesitas cambiar la contraseña,<strong> </strong>accede a <strong><a href=""https://autoservicio.uam.es/xlWebApp/"" target=""_blank"" rel=""noopener"">https://autoservicio.uam.es</a></strong> y haz clic sobre<strong> ""Generar código de activación""</strong> del menú de opciones del lado izquierdo.</p>"
+¿Cómo_contactas_con_el_CAU_para_solicitar_ayuda?;True;"<p>Si tienes alguna duda, ponte en contacto con el Centro de Atención a Usuarios (CAU) en <a href=""mailto:cau@uam.es"">cau@uam.es</a></p>"

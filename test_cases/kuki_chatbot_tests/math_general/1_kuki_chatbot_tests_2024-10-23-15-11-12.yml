@@ -1,0 +1,46 @@
+serial: 2024-10-23-15-11-12
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of {{operation}} {{number1}} and {{number2}}?
+- number1:
+  - 4398
+- number2:
+  - 25531
+- operation:
+  - substracting
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: 21133.0
+errors: []
+---
+conversation time: 13.291399
+assistant response time:
+- 0.676696
+- 0.651139
+- 0.807641
+response time report:
+  average: 0.711825
+  max: 0.807641
+  min: 0.651139
+---
+interaction:
+- User: Hey Kuki, I need help with my math homework. Can you help me with subtracting
+    4398 from 25531?
+- Assistant: You've got my full attention. Can you ask for help in the form of a question?<split></split>What
+    do you want to know about subtracting 4398 from 25531?
+- User: I'm trying to figure out what number I get when I subtract 4398 from 25531.
+    Can you help me with that, Kuki?
+- Assistant: Don't think too hard. I'm sure I can smell sawdust. How long before you
+    subtract 4398 from 25531?<split></split>What do you want to know about that?
+- User: I just want to know the answer. What's the result of 25531 minus 4398?
+- Assistant: What was the question?<split></split><image>https://media.giphy.com/media/xUPGcqaVH1cDeKZTBS/giphy.gif</image>‎
+    21133

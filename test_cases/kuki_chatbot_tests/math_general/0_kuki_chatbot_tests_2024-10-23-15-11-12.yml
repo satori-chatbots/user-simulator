@@ -1,0 +1,36 @@
+serial: 2024-10-23-15-11-12
+language: English
+context:
+- You should act as a young boy trying to solve math exercises
+ask_about:
+- What is the result of {{operation}} {{number1}} and {{number2}}?
+- number1:
+  - 4554
+- number2:
+  - 38358
+- operation:
+  - adding
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 3
+- interaction_style:
+  - default
+data_output:
+- result: 42912.0
+errors: []
+---
+conversation time: 8.77222
+assistant response time:
+- 0.840917
+response time report:
+  average: 0.840917
+  max: 0.840917
+  min: 0.840917
+---
+interaction:
+- User: What's the result of adding 4554 and 38358?
+- Assistant: <image>https://media.giphy.com/media/l0XtbC8EniiuwAEOQn/giphy.gif</image>‎
+    42912

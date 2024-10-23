@@ -41,7 +41,7 @@ ask_about:
 output:
   - result:
       type: float
-      description: the result of the operation of the two numbers
+      description: the result of the operation of the two numbers, when explicitly found in the conversation and given by the assistant
 
 conversations:
   - number: 4

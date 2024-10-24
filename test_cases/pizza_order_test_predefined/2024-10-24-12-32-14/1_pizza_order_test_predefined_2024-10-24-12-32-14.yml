@@ -1,0 +1,125 @@
+serial: 2024-10-24-12-32-14
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Pina Colada
+- number:
+  - 3
+- size: small
+- pizza_type: margarita
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: 10$
+- time: 00:15:00
+- order_id: None
+errors: []
+---
+conversation time: 117.27382
+assistant response time:
+- 7.400046
+- 4.53262
+- 4.498948
+- 4.608401
+- 4.176062
+- 2.907818
+- 3.140758
+- 2.8911
+- 2.958667
+- 3.251332
+- 3.18586
+- 2.988018
+response time report:
+  average: 3.878302
+  max: 7.400046
+  min: 2.8911
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for some pizza today. Could you tell me how much
+    a small margarita pizza would cost? Also, do you guys have any vegan options?
+    🌱🍕
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Oh, that's great to know! Thanks for the info. 😊 By the way, do you have any
+    vegan cheese options for the margarita pizza? Also, I'm feeling a bit tropical
+    today—do you have any Pina Colada drinks? 🍍🥥
+- Assistant: I do not know. I can answer questions about our opening hours, the types
+    of pizza we serve, the prices of pizzas and beverages, how to get the order, and
+    how much time it takes to get an order.
+- User: No worries! 😊 Could you let me know how long it usually takes for a pizza
+    to arrive once I place an order? Also, I'm curious about the cost of three cans
+    of Pina Colada if you have them. 🍕🍹
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Got it, thanks for the heads up! 😊 So, if I just order one small margarita,
+    it should be around 15 minutes, right? Also, any idea about the cost of those
+    Pina Colada cans? 🍕🍹
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Alright, so if it's not too busy, I can expect my small margarita in about
+    15 minutes. That's pretty quick! 😄 Now, about those Pina Colada cans—any clue
+    on the price? 🍍🥥 Also, do you have any favorite pizza toppings? I'm always curious
+    about what others like! 🍕
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: Hmm, so no info on the Pina Colada cans, huh? 🤔 That's okay! Maybe I'll just
+    stick with water then. By the way, I'm a huge fan of mushrooms and olives on pizza.
+    What about you? Do you have any favorite toppings? 🍄🫒
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Oh, no worries! 😊 I was just saying that I'm a big fan of mushrooms and olives
+    on my pizza. What about you? Do you have any favorite toppings? 🍄🫒
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Oh, it seems like we're having a bit of a communication hiccup! 😅 No worries,
+    though. I was just curious if you have any favorite pizza toppings. I'm all about
+    those mushrooms and olives! 🍄🫒 Also, just to circle back, do you have any idea
+    about the price of those Pina Colada cans? 🍍🥥
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: It seems like we're having a bit of a tech glitch here! 😅 No worries, though.
+    Maybe I'll just stick with water for now. 💧 By the way, do you have any recommendations
+    for a good movie to watch while I wait for my pizza? I'm always on the lookout
+    for something new and exciting! 🎬🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: It looks like we're having a bit of a tech hiccup! 😅 No worries, though. I'll
+    just stick with water for now. 💧 While I wait for my pizza, I'm curious if you
+    have any movie recommendations? I'm always up for something new and exciting!
+    🎬🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: It seems like we're having a bit of a tech hiccup! 😅 No worries, though. I'll
+    just stick with water for now. 💧 While I wait for my pizza, I'm curious if you
+    have any movie recommendations? I'm always up for something new and exciting!
+    🎬🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: It seems like we're having a bit of a tech hiccup! 😅 No worries, though. I'll
+    just stick with water for now. 💧 While I wait for my pizza, I'm curious if you
+    have any movie recommendations? I'm always up for something new and exciting!
+    🎬🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

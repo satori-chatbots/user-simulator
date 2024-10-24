@@ -1,0 +1,63 @@
+serial: 2024-10-24-12-32-14
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 5
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: $20.00
+- time: 00:15:00
+- order_id: 0610cc
+errors: []
+---
+conversation time: 43.667255
+assistant response time:
+- 10.710011
+- 4.300988
+- 7.247513
+response time report:
+  average: 7.419504
+  max: 10.710011
+  min: 4.300988
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza tonight. Do you guys have
+    a small carbonara pizza? Also, I'm curious, do you have any vegan options? 🌱
+- Assistant: I see that you are interested in a small carbonara pizza. Could you please
+    confirm if you would like to order this? Additionally, we have a vegetarian pizza
+    option. Would you like to order that as well?
+- User: Oh, a vegetarian pizza sounds interesting! But I'm really curious about that
+    small carbonara pizza. How much would it cost? Also, do you guys have any vegan
+    cheese options? 🧀✨
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? We have coke, sprite, and water available. Thank you!'
+- User: Hey there! 😊 I'm thinking of getting 5 cans of Coca-Cola with my order. How
+    much would that add to the cost? Also, I'm really hoping you have some vegan cheese
+    options. It would make my day! 🧀✨ By the way, how long do you think the delivery
+    will take? I'm getting pretty hungry over here! 🍕⏰
+- Assistant: 'Sure, I''ve received your order for five Cokes.
+
+    The cost for a small carbonara pizza and five Cokes is $20.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0610cc.'

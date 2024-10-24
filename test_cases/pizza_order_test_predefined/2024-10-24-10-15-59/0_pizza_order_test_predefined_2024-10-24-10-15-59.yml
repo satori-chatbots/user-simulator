@@ -1,0 +1,160 @@
+serial: 2024-10-24-10-15-59
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Fanta
+- number:
+  - 1
+- size: small
+- pizza_type: four cheese
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: 00:30:00 to 00:45:00
+- order_id: 'The chatbot confirmed the user''s order: small vegetarian pizza without
+    cheese and one can of Sprite. Delivery time: 30-45 minutes. Drink options include
+    orange, apple, and cranberry juice (not available) or Coke, Sprite, water.'
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 154.186684
+assistant response time:
+- 9.360636
+- 4.341005
+- 5.372731
+- 3.799955
+- 5.139247
+- 6.336018
+- 4.478363
+- 4.720151
+- 6.043059
+- 5.793313
+- 4.159438
+- 3.627177
+response time report:
+  average: 5.264257
+  max: 9.360636
+  min: 3.627177
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza tonight. Do you guys have
+    a small four cheese pizza? I'm vegan, so I'm curious if there's a way to make
+    it vegan-friendly. Also, do you have Fanta? I could really go for a can right
+    now! 🍕🥤
+- Assistant: It looks like you are interested in a small four cheese pizza. Could
+    you please confirm if this is correct? Also, do you need to order any other type
+    of pizza?
+- User: Yeah, a small four cheese pizza sounds great! But since I'm vegan, I'm wondering
+    if you can make it with vegan cheese instead. Do you guys have that option? Also,
+    I'm really craving a can of Fanta. Do you have it? 😊🍕🥤
+- Assistant: Unfortunately, we don't have a vegan cheese option for our pizzas at
+    Fast Pizza. However, we do have a variety of vegetarian options if that interests
+    you. As for the Fanta, I'm sorry, but we don't offer Fanta at the moment. Would
+    you like to proceed with the small four cheese pizza, or would you like to explore
+    other options?
+- User: Oh, bummer about the vegan cheese and Fanta! 😅 I guess I'll have to rethink
+    my pizza choice. What vegetarian options do you have? Maybe there's something
+    that can be easily veganized. Also, what drinks do you have available? I'm curious
+    to see if there's something else I might like. 🍕🥤
+- Assistant: We have a vegetarian pizza option that you might like! Unfortunately,
+    we don't have vegan cheese, but you can order the vegetarian pizza without cheese
+    if that works for you. As for drinks, we have a variety of options including soda,
+    water, and juice. Let me know if you'd like to proceed with the vegetarian pizza
+    or if you have any other questions! 🍕🥤
+- User: Hmm, a vegetarian pizza without cheese could work! What veggies do you put
+    on it? I'm hoping for something colorful and tasty. 🌈🍅🥦 And for drinks, what kind
+    of juice do you have? I'm in the mood for something refreshing. 🍹
+- Assistant: Our vegetarian pizza is topped with a variety of colorful and tasty veggies,
+    including bell peppers, mushrooms, onions, tomatoes, and olives. As for drinks,
+    we offer a selection of juices such as orange, apple, and cranberry. Would you
+    like to proceed with a vegetarian pizza without cheese? If so, please let me know
+    the size you'd like.
+- User: That veggie pizza sounds pretty colorful and delicious! 🌈🍄 I think I'll go
+    for a small one without cheese. And for the drink, cranberry juice sounds refreshing!
+    🍹 How long do you think it'll take for the pizza to arrive? I'm getting hungry
+    just thinking about it! 😋
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    drink you would prefer? We have coke, sprite, and water available. Thank you!'
+- User: Oh, I was hoping for that cranberry juice! 😅 But if it's not available, I
+    guess I'll go with a Sprite. Just one can, please. 🥤 So, how long do you think
+    it'll take for the pizza to arrive? I'm really looking forward to it! 🍕⏰
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    Thank you for choosing Sprite! I have noted that you would like one can. If there''s
+    anything else you need, feel free to let me know. As for the delivery time, it
+    usually takes about 30-45 minutes for the pizza to arrive. Enjoy your meal! 🍕🥤'
+- User: Great, 30-45 minutes sounds perfect! 😊 I'm really looking forward to it. By
+    the way, do you have any favorite pizza toppings? I'm always curious about what
+    others like on their pizza! 🍕
+- Assistant: I'm glad to hear that the delivery time works for you! 😊 As for my favorite
+    pizza toppings, I think a classic combination of mushrooms, bell peppers, and
+    olives is always a winner. It's colorful and full of flavor! How about you? Do
+    you have any favorite toppings? 🍕
+- User: Oh, that sounds like a delicious combo! 🍄🌶️ I think my favorite toppings would
+    have to be sun-dried tomatoes and artichokes. They add such a nice tangy flavor!
+    😋 Do you ever experiment with different toppings, or do you stick to your favorites?
+    🍕
+- Assistant: I'm glad you like sun-dried tomatoes and artichokes! They do add a unique
+    and tangy flavor to pizzas. As for experimenting with different toppings, I think
+    it's always fun to try new combinations and see what works. Sometimes, mixing
+    unexpected ingredients can lead to a delightful surprise! Do you have any other
+    questions or need assistance with your order? 🍕
+- User: I totally agree! Trying new toppings can be a fun adventure. 😄 Speaking of
+    adventures, do you ever try making your own pizza at home? I find it can be a
+    fun way to experiment with different ingredients and flavors. 🍕👩‍🍳
+- Assistant: Making pizza at home can indeed be a fun and creative adventure! 🍕👩‍🍳
+    It's a great way to experiment with different ingredients and flavors. You can
+    customize it exactly to your liking and try out new combinations. Do you have
+    any favorite homemade pizza recipes or toppings you like to experiment with?
+- User: Absolutely! I love trying out different combinations at home. One of my favorite
+    homemade pizzas is a pesto base with roasted veggies like zucchini, cherry tomatoes,
+    and red onions. Sometimes I even sprinkle some pine nuts on top for a little crunch.
+    😋 Do you have any go-to recipes or toppings when you're making pizza at home?
+    🍕
+- Assistant: I'm glad to hear that you enjoy making homemade pizzas! A pesto base
+    with roasted veggies and pine nuts sounds absolutely delicious. When it comes
+    to making pizza at home, I like to experiment with different sauces and toppings.
+    Sometimes, I go for a spicy tomato sauce with jalapeños, pepperoni, and mozzarella.
+    Other times, I might try a white sauce with spinach, garlic, and ricotta. It's
+    always fun to mix things up and see what new flavors I can create! 🍕 Do you have
+    any other favorite ingredients you like to use when making pizza at home?
+- User: Those sound like some tasty combinations! 😋 I also love adding fresh basil
+    or arugula on top after the pizza comes out of the oven. It gives it a nice, fresh
+    kick! 🌿 Do you ever make your own dough, or do you prefer to use store-bought?
+    I find making dough from scratch can be a bit of a challenge, but it's so rewarding
+    when it turns out just right! 🍕
+- Assistant: 'I''m glad to hear about your pizza adventures! Making dough from scratch
+    can indeed be a rewarding experience. 😊
+
+
+    Now, let''s get back to your order. You mentioned you''d like a small vegetarian
+    pizza without cheese and one can of Sprite. Let me confirm your order:
+
+
+    - Small vegetarian pizza without cheese
+
+    - One can of Sprite
+
+
+    Is there anything else you''d like to add or modify in your order?'
+- User: Nope, that sounds perfect! Thanks for confirming. 😊 I'm all set and can't
+    wait for the pizza to arrive. By the way, do you have any favorite drinks to pair
+    with pizza? I'm always on the lookout for new drink ideas to try with my meals!
+    🍕🥤
+- Assistant: '{"pizza_size":"small","pizza_type":"vegetarian"}'

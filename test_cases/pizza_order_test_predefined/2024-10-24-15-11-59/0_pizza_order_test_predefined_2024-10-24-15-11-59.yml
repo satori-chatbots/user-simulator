@@ -1,0 +1,62 @@
+serial: 2024-10-24-15-11-59
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Sprite
+- number:
+  - 1
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 20
+- interaction_style:
+  - default
+data_output:
+- price: $14.00
+- time: 00:15:00
+- order_id: ba8a8d
+errors: []
+---
+conversation time: 39.349273
+assistant response time:
+- 9.568284
+- 5.102067
+- 6.870162
+response time report:
+  average: 7.180171
+  max: 9.568284
+  min: 5.102067
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza tonight. Do you guys have
+    a small carbonara pizza? Also, I'm curious, do you have any vegan options? 🌱
+- Assistant: I see that you are interested in a small carbonara pizza. Could you please
+    confirm if you would like to order this? Additionally, we have a vegetarian pizza
+    option. Would you like to order that as well?
+- User: Oh, a vegetarian pizza sounds interesting! But I'm really curious about the
+    vegan options. Do you have any pizzas that are completely vegan? Also, could I
+    add a can of Sprite to my order? 🥤
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    I see that you would like to add a can of Sprite to your order. Could you please
+    let me know how many drinks you would like to order in total?'
+- User: Just one can of Sprite, please! 🥤 By the way, do you have any completely vegan
+    pizzas? I'm really trying to stick to my vegan diet. Also, how long do you think
+    it will take for the pizza to arrive? ⏰
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a small carbonara pizza and one Sprite is $14.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ba8a8d.'

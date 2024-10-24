@@ -1,0 +1,15 @@
+Global report:
+  Average assistant response time: 4.968122
+  Maximum assistant response time: 6.886144
+  Mínimum assistant response time: 4.080743
+  Errors:
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_pizza_order_test_predefined_2024-10-24-10-03-57.yml
+---
+Test name: pizza_order_test_predefined
+Average assistant response time: 4.968122
+Maximum assistant response time: 6.886144
+Mínimum assistant response time: 4.080743
+Errors: []

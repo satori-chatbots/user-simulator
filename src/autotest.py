@@ -2,13 +2,12 @@ import time
 import timeit
 from argparse import ArgumentParser
 from user_sim.utils.config import errors
-
 import pandas as pd
 import yaml
 from colorama import Fore, Style
 from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot, \
     ChatbotLolaUMU
-from user_sim.data_extraction_v2 import DataExtraction
+from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
 from user_sim.user_simulator import UserGeneration
 from user_sim.utils.show_logs import *

@@ -1,9 +1,12 @@
 import uuid
 from abc import abstractmethod
 import requests
-from user_sim.utils.config import errors
+from src.user_sim.utils.config import errors
 import logging
+
 logger = logging.getLogger('Info Logger')
+
+
 class Chatbot:
     def __init__(self, url):
         self.url = url

@@ -1,0 +1,78 @@
+serial: 2024-10-24-12-32-14
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Dr Pepper
+- number:
+  - 1
+- size: small
+- pizza_type: bbq
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- time: 00:15:00
+- order_id: 65c278
+errors: []
+---
+conversation time: 53.899674
+assistant response time:
+- 10.066758
+- 5.893979
+- 5.541943
+- 8.043402
+response time report:
+  average: 7.38652
+  max: 10.066758
+  min: 5.541943
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza tonight. Do you guys have
+    a small BBQ pizza? Also, I'm curious, do you have any vegan options? 🌱
+- Assistant: I'm sorry, we don't have a predefined BBQ pizza. However, you can create
+    a custom pizza with BBQ sauce and your choice of toppings. We also have a vegetarian
+    pizza as a predefined option, which can be made vegan by removing cheese. Would
+    you like to order a custom pizza or choose from our predefined options?
+- User: Oh, I see! Custom pizza sounds fun. 😄 Can I get a small one with BBQ sauce,
+    maybe some veggies like bell peppers and onions? And could you make it vegan,
+    please? Also, do you have Dr Pepper? I could really use a can of that right now!
+    🥤
+- Assistant: 'It looks like we need to adjust your order a bit. For the pizza, we
+    offer the following toppings: cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, and chicken. Could you please choose from these options? Also, we
+    don''t have Dr Pepper, but we do offer a variety of other drinks. Let me know
+    if you''d like to hear about them!'
+- User: Oh, bummer about the Dr Pepper! 😅 No worries, though. What other drinks do
+    you have? Maybe there's something else that will hit the spot. As for the pizza,
+    let's go with mushrooms, peppers, and olives. And of course, make it vegan with
+    that BBQ sauce! 🍕 How long do you think it'll take for the pizza to arrive? I'm
+    getting pretty hungry over here! 😋
+- Assistant: 'Thanks for ordering a small pizza with mushrooms, pepper and olives!
+
+    We offer coke, sprite, and water as drink options. Could you please let me know
+    how many drinks you would like and which ones you prefer? Once I have that information,
+    I can give you an estimated delivery time for your order. Thank you!'
+- User: Hmm, I think I'll go with a can of Coke then. 🥤 Just one should do the trick!
+    So, with the pizza and the Coke, how long do you think it'll take for everything
+    to get here? I'm really looking forward to it! 😄 Also, do you have any idea how
+    much this will cost? Just trying to plan my evening a bit. 😊
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    A small pizza topped with mushrooms, peppers, and olives, along with one Coke,
+    costs $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 65c278.'

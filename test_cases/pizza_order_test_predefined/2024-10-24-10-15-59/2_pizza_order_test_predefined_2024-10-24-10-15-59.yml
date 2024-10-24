@@ -1,0 +1,87 @@
+serial: 2024-10-24-10-15-59
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Whiskey Sour
+- number:
+  - 5
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: $12
+- time: 00:30:00 to 00:45:00
+- order_id: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 67.97398
+assistant response time:
+- 8.975552
+- 6.367904
+- 3.305993
+- 7.452279
+- 5.539756
+response time report:
+  average: 6.328296
+  max: 8.975552
+  min: 3.305993
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for some pizza tonight. Could you tell me if
+    you have a small carbonara pizza? Also, I'm curious, do you guys have any vegan
+    options? 🌱
+- Assistant: 'I see that you are interested in a small carbonara pizza. Could you
+    please let me know if you would like to order any other pizza type from the following
+    options: margarita, marinera, hawaiian, four cheese, or vegetarian?'
+- User: Oh, thanks for the options! 😊 I think I'll stick with the small carbonara
+    pizza for now. But hey, do you guys have any vegan cheese or toppings? I'm trying
+    to keep it plant-based as much as possible. Also, do you have any drinks like
+    Whiskey Sour in cans? 🍹 Just curious!
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    It looks like I still need some information from you. Could you please let me
+    know how many drinks you would like to order and which type of drink you prefer?
+    We have coke, sprite, and water available. Unfortunately, we don''t have Whiskey
+    Sour in cans. Thank you!'
+- User: Oh, bummer about the Whiskey Sour! 😅 No worries, I'll skip the drinks for
+    now. But hey, how long do you think the pizza will take to arrive? I'm getting
+    pretty hungry over here! 🍕 Also, just out of curiosity, do you have any vegan
+    cheese or toppings for future orders? 🌱
+- Assistant: "json\n{\n  \"pizza_size\": \"small\",\n  \"pizza_type\": \"carbonara\"\
+    \n}\n"
+- User: Hey, thanks for confirming the small carbonara pizza! 😊 So, any idea how long
+    it'll take to get here? My stomach's starting to grumble! Also, I'm still curious
+    about those vegan options for future orders. Got any vegan cheese or toppings?
+    🌱
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    It seems like you decided to skip the drinks for now, so there''s no need to collect
+    that information. Regarding your questions, the delivery time for the pizza usually
+    takes about 30-45 minutes, depending on your location. As for vegan options, we
+    do offer vegan cheese and a variety of plant-based toppings for future orders.
+    If you have any other questions or need further assistance, feel free to ask!
+    😊'
+- User: Awesome, thanks for the info! 😊 30-45 minutes sounds perfect. I'm definitely
+    going to try those vegan options next time. By the way, how much is the small
+    carbonara pizza going to cost me? Just want to make sure I have enough cash on
+    hand. 💸 Also, do you have any favorite pizza toppings? I'm always looking for
+    new ideas! 🍕
+- Assistant: The cost of a small carbonara pizza is $12. As for favorite pizza toppings,
+    I personally enjoy a mix of classic options like mushrooms, olives, and bell peppers.
+    They add a nice flavor and texture to the pizza! If you have any other questions
+    or need further assistance, feel free to ask. 😊

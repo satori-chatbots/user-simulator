@@ -1,0 +1,75 @@
+serial: 2024-10-24-10-03-57
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Fanta
+- number:
+  - 1
+- size: small
+- pizza_type: four cheese
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: $12.00
+- time: null
+- order_id: The chatbot does not provide information regarding vegan cheese options
+    or the price of Fanta.
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 56.718483
+assistant response time:
+- 6.886144
+- 4.678518
+- 4.847777
+- 4.34743
+- 4.080743
+response time report:
+  average: 4.968122
+  max: 6.886144
+  min: 4.080743
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza tonight. Could you tell me
+    about your small four cheese pizza? I'm a vegan, so I'm curious if you have any
+    vegan cheese options. Also, do you have Fanta? 🍊
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: Oh, nice! The Four Cheese sounds tempting, but since I'm vegan, I'm really
+    hoping you have some vegan cheese options. Do you offer that? Also, I'm really
+    craving a Fanta. Do you have it in stock? 🍕🥤
+- Assistant: I do not know. I can answer questions about our opening hours, the types
+    of pizza we serve, the prices of pizzas and beverages, how to get the order, and
+    how much time it takes to get an order.
+- User: Got it! So, how much would a small four cheese pizza cost if you have vegan
+    cheese? And how much is a can of Fanta? Also, how long would it take for the pizza
+    to arrive? I'm getting hungry just thinking about it! 😋
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Thanks for the info! So, if I go for the small Four Cheese with vegan cheese,
+    it would be $12, right? And what about the Fanta? How much is a can? Also, any
+    idea how long it might take for the delivery? I'm getting super excited for this
+    pizza night! 🍕😄
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: No worries, I'll just assume the Fanta might be around the same price as the
+    Sprite and Coke, maybe $1.50? 🤔 And I'm still curious about the delivery time.
+    How long do you think it'll take for the pizza to arrive? I'm really looking forward
+    to it! 🍕⏰
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.

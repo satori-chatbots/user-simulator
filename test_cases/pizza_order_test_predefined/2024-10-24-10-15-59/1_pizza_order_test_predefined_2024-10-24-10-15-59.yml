@@ -1,0 +1,78 @@
+serial: 2024-10-24-10-15-59
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Mai Tai
+- number:
+  - 3
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: $8.99
+- time: 00:30:00 - 00:45:00
+- order_id: $8.99
+errors: []
+---
+conversation time: 66.03137
+assistant response time:
+- 7.686151
+- 3.852324
+- 3.962557
+- 3.4294
+- 4.254087
+response time report:
+  average: 4.636903
+  max: 7.686151
+  min: 3.4294
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for some pizza today. Could you help me out with
+    ordering a small marinara pizza? Also, I'm curious, do you have any favorite pizza
+    toppings? 🍕
+- Assistant: Thank you for providing the pizza size and type. You have ordered a small
+    marinara pizza. If you need anything else, feel free to let me know!
+- User: Awesome, thanks! So, I'm also thinking about getting a few drinks. Do you
+    guys have Mai Tai in cans? 🍹 And by the way, what's your favorite drink to have
+    with pizza?
+- Assistant: At Fast Pizza, we focus on providing delicious pizzas, but we don't offer
+    drinks like Mai Tai in cans. As for my favorite drink to have with pizza, a classic
+    choice would be a refreshing soda or a chilled iced tea. If you have any more
+    questions or need further assistance, feel free to ask!
+- User: Oh, bummer about the Mai Tai! 😅 I guess I'll have to stick with something
+    else. So, how long do you think it'll take for the pizza to arrive? ⏰ And hey,
+    do you ever get to try the pizzas yourself, or is it all just virtual for you?
+    🍕
+- Assistant: The delivery time for your small marinara pizza typically ranges from
+    30 to 45 minutes, depending on your location and current demand. As for trying
+    the pizzas, I don't get to taste them myself since I'm a virtual assistant, but
+    I hear they're delicious! If you have any other questions or need further assistance,
+    feel free to ask.
+- User: 'User: That''s a pretty decent delivery time! 🚴‍♂️ I can''t wait to dig in.
+    By the way, do you have any hobbies or things you like to do when you''re not
+    helping people order pizza? Just curious! 😊'
+- Assistant: I'm here 24/7 to help you with your pizza orders, so I don't have hobbies
+    like humans do. But I do enjoy assisting you and making sure you get the best
+    pizza experience possible! If you have any more questions or need further assistance,
+    feel free to ask. 😊
+- User: 'User: That''s cool! It''s nice to know you''re always around to help out.
+    😊 So, how much is the small marinara pizza going to cost me? And do you ever get
+    to chat with other virtual assistants? Must be interesting! 🤖'
+- Assistant: The cost of a small marinara pizza at Fast Pizza is $8.99. As for chatting
+    with other virtual assistants, I don't have the capability to do that, but it
+    would be interesting! If you have any more questions or need further assistance,
+    feel free to ask. 😊

@@ -1,0 +1,124 @@
+serial: 2024-10-24-12-16-26
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size: small
+- pizza_type: carbonara
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 105.592939
+assistant response time:
+- 7.345246
+- 4.153505
+- 2.885724
+- 2.896391
+- 2.892326
+- 3.540219
+- 3.018961
+- 3.086529
+- 3.179164
+- 3.045173
+- 2.940189
+- 2.981915
+response time report:
+  average: 3.497111
+  max: 7.345246
+  min: 2.885724
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for some pizza tonight. Could you tell me if
+    you have a small carbonara pizza? Also, I'm vegan, so I'm curious if you have
+    any vegan options or if the carbonara can be made vegan. 🍕✨
+- Assistant: We do have a predefined Carbonara pizza, but it is not vegan. However,
+    we offer a Vegetarian pizza as a vegan option. Would you like to order the Vegetarian
+    pizza or customize a pizza to make it vegan? Please let me know your preference.
+- User: Oh, that's good to know! I might go for the Vegetarian pizza then. 🌿 But before
+    I decide, could you tell me if you have any vegan cheese options? Also, I'm thinking
+    of getting a can of Coca-Cola with it. Do you have that available? 🥤
+- Assistant: Yes, we do offer vegan cheese as an option for our pizzas, including
+    the Vegetarian pizza. And we do have cans of Coca-Cola available. Would you like
+    to proceed with ordering the Vegetarian pizza with vegan cheese and a can of Coca-Cola?
+- User: That sounds perfect! 😄 I'll go with the Vegetarian pizza with vegan cheese
+    and a can of Coca-Cola. How long do you think it'll take for the pizza to arrive?
+    Also, just curious, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: No worries! 😊 So, I'm going for the Vegetarian pizza with vegan cheese and
+    a can of Coca-Cola. How long do you think it'll take for the pizza to arrive?
+    And just out of curiosity, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: No problem! 😊 So, I'm ordering the Vegetarian pizza with vegan cheese and
+    a can of Coca-Cola. How long do you think it'll take for the pizza to arrive?
+    And just for fun, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey there! 😊 So, I'm all set with the Vegetarian pizza with vegan cheese and
+    a can of Coca-Cola. Just wondering, how long do you think it'll take for the pizza
+    to arrive? Also, I'm curious, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey again! 😊 So, I'm sticking with the Vegetarian pizza with vegan cheese
+    and a can of Coca-Cola. Could you let me know how long it'll take for the pizza
+    to arrive? Also, just for fun, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey there! 😊 So, I'm going with the Vegetarian pizza with vegan cheese and
+    a can of Coca-Cola. Could you tell me how long it'll take for the pizza to arrive?
+    Also, just curious, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey! 😊 So, I'm all set with the Vegetarian pizza with vegan cheese and a can
+    of Coca-Cola. Could you let me know how long it'll take for the pizza to arrive?
+    Also, just for fun, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey there! 😊 I'm really excited about the Vegetarian pizza with vegan cheese
+    and a can of Coca-Cola. Could you let me know how long it'll take for the pizza
+    to arrive? Also, just for fun, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey! 😊 So, I'm really looking forward to that Vegetarian pizza with vegan
+    cheese and a can of Coca-Cola. Could you let me know how long it'll take for the
+    pizza to arrive? Also, just for fun, do you have any favorite pizza toppings?
+    🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey there! 😊 I'm super excited about the Vegetarian pizza with vegan cheese
+    and a can of Coca-Cola. Could you let me know how long it'll take for the pizza
+    to arrive? Also, just for fun, do you have any favorite pizza toppings? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

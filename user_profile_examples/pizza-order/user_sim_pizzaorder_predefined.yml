@@ -4,7 +4,7 @@ llm:
 
 is_starter: True
 
-fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
+fallback: I'm sorry, I did not get what you said. Can you rephrase?
 
 role:
   you must act as a user ordering a pizza to a pizza shop.
@@ -62,7 +62,7 @@ output:
       description: The price of the pizza order
   - time:
       type: time
-      description: how long is going to take the pizza to be ready
+      description: how long is going to take the pizza to be ready more or less
   - order_id:
       type: str
       description: my order ID
@@ -71,10 +71,10 @@ output:
 conversations:
   - number: 1
   - goal_style:
-      steps: 5
-#      all_answered:
-#        export: True
-#        limit: 12
+#      steps: 5
+      all_answered:
+        export: True
+        limit: 20
   - interaction_style:
       - default
 #      - random:

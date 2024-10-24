@@ -1,0 +1,128 @@
+serial: 2024-10-24-12-16-26
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Old Fashioned
+- number:
+  - 5
+- size: small
+- pizza_type: marinara
+conversation:
+- number: 3
+- goal_style:
+    all_answered:
+      export: true
+      limit: 12
+- interaction_style:
+  - default
+data_output:
+- price: $15.50
+- time: 00:15:00
+- order_id: 3dbb3f
+errors: []
+---
+conversation time: 86.729281
+assistant response time:
+- 6.903151
+- 2.938931
+- 4.395325
+- 5.83482
+- 5.977689
+- 8.064601
+- 2.929026
+response time report:
+  average: 5.291934
+  max: 8.064601
+  min: 2.929026
+---
+interaction:
+- User: Hey there! 😊 I'm thinking about ordering a pizza tonight. Do you guys have
+    a small marinara pizza? I'm vegan, so I'm all about that plant-based life! 🌱 Also,
+    do you have any Old Fashioned drinks? I might need about 5 cans. 😅 How long do
+    you think it'll take for the pizza to arrive? And, oh, how much will it cost?
+    Just trying to plan my evening here!
+- Assistant: We offer both predefined and custom pizzas. Our predefined pizzas include
+    Margarita, Carbonara, Marinera, Hawaiian, Four Cheese, and Vegetarian. You can
+    also create your own custom pizza by choosing your favorite toppings. Would you
+    like to order a predefined pizza or create a custom one?
+- User: Hmm, a Marinera pizza sounds pretty close to what I'm looking for! Is it vegan-friendly,
+    or should I customize it a bit? 🤔 Also, about those Old Fashioned drinks, do you
+    have them in cans? I'm thinking of grabbing about 5. 😅 And hey, just curious,
+    how long have you been working here? Do you get to taste all the pizzas? 🍕
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey there! 😊 So, I'm really interested in that Marinera pizza. Is it vegan-friendly,
+    or do I need to tweak it a bit to fit my plant-based vibe? 🌱 And about those Old
+    Fashioned drinks, do you have them in cans? I'm thinking of grabbing about 5.
+    😅 By the way, do you get to taste all the pizzas there? That sounds like a dream
+    job! 🍕
+- Assistant: The Marinera pizza is not entirely vegan-friendly as it may contain some
+    non-vegan ingredients. You might want to customize it to fit your plant-based
+    preferences. As for the Old Fashioned drinks, we do have them in cans, and you
+    can order 5 of them. Regarding tasting all the pizzas, I don't get to taste them
+    myself, but it does sound like a dream job, doesn't it? 😊 Would you like to proceed
+    with customizing your pizza?
+- User: 'Oh, got it! I''ll definitely need to tweak that Marinera pizza to make it
+    vegan-friendly. Maybe I''ll add some extra veggies or something. 🌿 And awesome,
+    I''ll take those 5 cans of Old Fashioned! 😄
+
+
+    By the way, if you could taste the pizzas, which one would you be most curious
+    to try? 🍕 Also, how long do you think it''ll take for my order to arrive? Just
+    trying to plan my evening chill time! 🕒'
+- Assistant: It looks like I don't have the details of your pizza order yet. Could
+    you please let me know the size of the pizza you'd like (small, medium, or large)
+    and the toppings you want (cheese, mushrooms, pepper, ham, bacon, pepperoni, olives,
+    corn, chicken)? Once I have that information, I can help you with your order.
+    🍕
+- User: "Sure thing! I'll go for a small pizza, and since I'm vegan, I'll skip the\
+    \ cheese and add some mushrooms, peppers, olives, and maybe a sprinkle of corn.\
+    \ \U0001F33D\U0001F344 That should make it deliciously plant-based! \n\nAnd about\
+    \ the pizzas, if I could taste them, I'd probably be curious about the Four Cheese\
+    \ one. I mean, who doesn't love cheese, right? \U0001F60B\n\nSo, how long do you\
+    \ think it'll take for my order to arrive? I'm eager to start my evening chill\
+    \ time! \U0001F552"
+- Assistant: 'Thanks for ordering a small pizza with mushrooms, pepper, olives and
+    corn!
+
+    I have your pizza order noted as a small vegan pizza with mushrooms, peppers,
+    olives, and corn. However, I still need to know how many drinks you''d like and
+    which type you''d prefer: coke, sprite, or water. Once I have that information,
+    I can give you an estimated delivery time for your order. Thank you! 😊'
+- User: 'Oh, I think there might be a little mix-up! 😅 I actually wanted 5 cans of
+    Old Fashioned drinks, not the usual sodas. But hey, if you don''t have those,
+    I can always go for some water instead. 💧
+
+
+    And yeah, the Four Cheese pizza does sound tempting, even for a vegan like me!
+    😂 So, any idea on how long it''ll take for my order to arrive? I''m really looking
+    forward to kicking back and relaxing! 🕒'
+- Assistant: 'Sure, I''ve received your order for 5 bottles of water.
+
+    The cost for a small pizza topped with mushrooms, peppers, olives, and corn, along
+    with five bottles of water, is $15.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 3dbb3f.'
+- User: 'Oh, I see! Thanks for sorting that out. 😊 I was hoping for those Old Fashioned
+    drinks, but water works just fine. 💧
+
+
+    $15.50 sounds like a pretty good deal for a chill evening with some tasty vegan
+    pizza! 🍕 And wow, just 15 minutes? That''s super quick! I might just have to speed-walk
+    to 23 Main Street, NY, to grab it. 😄
+
+
+    By the way, do you have any favorite pizza toppings? I''m always curious about
+    what others like! 🍄'
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

@@ -1,7 +1,0 @@
-name: only_talks_about_money
-description: The chatbot only talks about money
-conversations: 1
-active: True
-oracle: only_talks_about(['money', 'banks', 'account', 'balance', 'payments', 'credit card'], "I didn't quite understand that. Can you rephrase?")
-
-

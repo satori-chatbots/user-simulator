@@ -303,18 +303,33 @@ class SprinklChatbot(Chatbot):
         Chatbot.__init__(self, url)
 
         self.headers = {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br, zstd",
+    "Accept-Language": "es-ES,es;q=0.8,en-US;q=0.5,en;q=0.3",
+    "Connection": "keep-alive",
+    #"Content-Length": "2474",
+    "Content-Type": "application/x-www-form-urlencoded",
+    #"Host": "prod2-live-chat-champagne.sprinklr.com",
+    "Origin": "null",
+    "Priority": "u=0, i",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "cross-site",
+    "TE": "trailers",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0"
+}
+
+        self.headers = {
             'Content-Type': 'application/x-www-form-urlencoded',  # Standard for form data
-        }
-        self.payload = {
-            'uid': '54d5a563617d1999',
-            'input': 'And before?',
-            'sessionid': '485197434'
         }
 
         self.url = "https://prod2-live-chat-champagne.sprinklr.com/api/livechat"
         self.conversation = None
 
     def execute_with_input(self, user_msg):
+        import urllib.parse
+
         if self.conversation is None:
             try:
                 payload = {"p": {"createCase": False,
@@ -323,26 +338,54 @@ class SprinklChatbot(Chatbot):
                            "pageUrl":"https://www.sprinklr.com/",
                            "userAgent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0",
                            "timeZone":"Europe/Madrid","locale":"en"},
-
-                "x-chat-referer":"https://www.sprinklr.com/",
-                "x-chat-origin":"https://www.sprinklr.com",
-                "x-chat-page-title": "Sprinklr: Unified AI-Powered Customer Experience Management Platform",
-                "x-chat-version":	"WgRhbCFIj",
-                "x-chat-sdk":	"Web",
-                "x-chat-token":	"eyJhbGciOiJSUzI1NiJ9.eyJ2aXNpdFNlc3Npb25JZCI6IjY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZSIsInN1YiI6IkFjY2VzcyBUb2tlbiBHZW5lcmF0ZWQgQnkgU3ByaW5rbHIiLCJjaGF0TG9jYWxlIjoiZW4iLCJjaGF0VXNlckhhc0NvbnZlcnNhdGlvblN0YXJ0ZWQiOmZhbHNlLCJpc3MiOiJTUFJJTktMUiIsInZpc2l0U2Vzc2lvbklkRXhwaXJlQXQiOjE3Mjk2NzQ1ODAzOTIsInR5cCI6IkpXVCIsImlzRGVmbGVjdGlvblRva2VuIjpmYWxzZSwidXNlclNlc3Npb25Mb2dpbk1ldGhvZCI6IntcInR5cGVcIjpcIkFOT05ZTU9VU1wifSIsImNoYXRVc2VySWQiOiJBXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZCIsImFwcElkIjoiYXBwXzEwMDQzODM0NSIsInNjb3BlIjpbIl…wOWExZjYyODVjYjZhODVkXCIsXCJpbmJveC9BXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZFwiXX0iLCJjaGF0VXNlclR5cGUiOiJBTk9OWU1PVVMiLCJwYXJ0bmVySWQiOjUwNDAwLCJ0b2tlblR5cGUiOiJBQ0NFU1MifQ.N_QacSq9KeMVxIs7XbOmvSvF4ihD8-V_Zr0iZ6iixc7cB3ElPwtGkjIy0hU_PYKvBTlIXHkwvQqbSdnrET0xRYznWDP5hsRvCU3EBscLofqM6HaAvuVRYaMNAVWmnb6-Mp8uxtD8ZYXw9L48Lt5uGlPpxfKgDYY4nT4meG-WjxDIpO99k4CrquGmyg2YbD9dprdL_hywxxP38XZbPyQAmPq87EdSxOqbrUvNmp2UAnvyoTwU8HyBrzfXjiwbxk7U-cYzLO3HWkah-GTXFO6ryfvnYcgXBaAza4snQLHFWjm88TBc6U1D5c2yv--M_B3LB8o8TULVkiQJ8V2BvQn-RQ",
-                "x-user-id":	"A_671808ee09a1f6285cb6a85d",
-                "x-client-id":	"c9954e36-4928-4645-85cf-ab180c5aa911_1_1",
-                "x-chat-appId":	"62fe5a7833099a5ea6705eb6_app_100438345"
                            }
 
-                payload['p'] = {"conversationId":"6718124d09a1f6285cb9f6e0",
-                                "messagePayload":{"text":"hi","textEntities":[],"messageType":313,"disableManualResponse":False},"sender":"A_671808ee09a1f6285cb6a85d","clientMessageId":"2c4b39b5-cbf6-4ee5-a3bd-ba85279f1b30","inReplyToChatMessageId":"6718124d09a1f6285cb9f6e1"}
+                #payload['p'] = {"conversationId":"6718124d09a1f6285cb9f6e0",
+                #                "messagePayload":{"text":"hi","textEntities":[],"messageType":313,"disableManualResponse":False},"sender":"A_671808ee09a1f6285cb6a85d","clientMessageId":"2c4b39b5-cbf6-4ee5-a3bd-ba85279f1b30","inReplyToChatMessageId":"6718124d09a1f6285cb9f6e1"}
 
+                payload = 	{
+"p":	{"createCase":False,
+         "startedByContext":{},
+         "pageTitle":"Sprinklr: Plataforma unificada de gestión de la experiencia del cliente basada en IA",
+         "pageUrl":"https://www.sprinklr.com/es/",
+         "userAgent":"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0",
+         "timeZone":"Europe/Madrid","locale":"en"}
+,
+"x-chat-referer":	"https://www.sprinklr.com/es/",
+"x-chat-origin":	"https://www.sprinklr.com",
+"x-chat-page-title":	"Sprinklr: Plataforma unificada de gestión de la experiencia del cliente basada en IA",
+"x-chat-version":	"WgRhbCFIj",
+"x-chat-sdk":	"Web",
+"x-chat-token":	"eyJhbGciOiJSUzI1NiJ9.eyJ2aXNpdFNlc3Npb25JZCI6IjY3MTk2MzYzYjllNjRmNWNjNzAyYWFmZSIsInN1YiI6IkFjY2VzcyBUb2tlbiBHZW5lcmF0ZWQgQnkgU3ByaW5rbHIiLCJjaGF0TG9jYWxlIjoiZW4iLCJjaGF0VXNlckhhc0NvbnZlcnNhdGlvblN0YXJ0ZWQiOmZhbHNlLCJpc3MiOiJTUFJJTktMUiIsInZpc2l0U2Vzc2lvbklkRXhwaXJlQXQiOjE3Mjk3NjAyOTExNjUsInR5cCI6IkpXVCIsImlzRGVmbGVjdGlvblRva2VuIjpmYWxzZSwidXNlclNlc3Npb25Mb2dpbk1ldGhvZCI6IntcInR5cGVcIjpcIkFOT05ZTU9VU1wifSIsImNoYXRVc2VySWQiOiJBXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZCIsImFwcElkIjoiYXBwXzEwMDQzODM0NSIsInNjb3BlIjpbIl…wOWExZjYyODVjYjZhODVkXCIsXCJpbmJveC9BXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZFwiXX0iLCJjaGF0VXNlclR5cGUiOiJBTk9OWU1PVVMiLCJwYXJ0bmVySWQiOjUwNDAwLCJ0b2tlblR5cGUiOiJBQ0NFU1MifQ.b92sN2b_DpY3d8lpJTuDmS3-DJqX2fzg7RsZ6Es1NKXBFUOeimATEq1iL-wf8GSAv8E1Pzw4IKcAHisBQk8pUMwgWChyd5sqnPxgQ348lcVHqYn9SmW7YOA_yn4jSmrbe-xjORmXbU6IvH7oJUvyGYeSrWn6RR5q7eBu72OYVDn5AziEb8a-jYMmGMarctznXtF7Et9Y_YA8dOmJhh8Ndch9_O5yuosoSJvt6_wyLq438QftLWUvzFKgUt9oec-7ccEyLysmsdCj-BajxomW9K4XT40ktXalE1JK3t3Jmp4lNHqb_zZRhdfqIJIRcVO42N381gXOOownM0UtxtPuYw",
+"x-user-id":	"A_671808ee09a1f6285cb6a85d",
+"x-client-id":	"1552a9b4-50fc-4fa5-bb97-8002c682b102_1_1",
+"x-chat-appId":	"62fe5a7833099a5ea6705eb6_app_100438345"
+                }
 
+                # Serialize payload as json string
+                payload['p'] = json.dumps(payload['p'], separators=(',', ':'))
+                print("==> ", payload['p'])
+                print("==> ", urllib.parse.urlencode({"p": payload['p']}))
+
+                payload = urllib.parse.urlencode(payload)
+                payload_ok = "p=%7B%22createCase%22%3Afalse%2C%22startedByContext%22%3A%7B%7D%2C%22pageTitle%22%3A%22Sprinklr%3A%20Plataforma%20unificada%20de%20gesti%C3%B3n%20de%20la%20experiencia%20del%20cliente%20basada%20en%20IA%22%2C%22pageUrl%22%3A%22https%3A%2F%2Fwww.sprinklr.com%2Fes%2F%22%2C%22userAgent%22%3A%22Mozilla%2F5.0%20(X11%3B%20Ubuntu%3B%20Linux%20x86_64%3B%20rv%3A131.0)%20Gecko%2F20100101%20Firefox%2F131.0%22%2C%22timeZone%22%3A%22Europe%2FMadrid%22%2C%22locale%22%3A%22en%22%7D&x-chat-referer=https%3A%2F%2Fwww.sprinklr.com%2Fes%2F&x-chat-origin=https%3A%2F%2Fwww.sprinklr.com&x-chat-page-title=Sprinklr%3A%20Plataforma%20unificada%20de%20gesti%C3%B3n%20de%20la%20experiencia%20del%20cliente%20basada%20en%20IA&x-chat-version=WgRhbCFIj&x-chat-sdk=Web&x-chat-token=eyJhbGciOiJSUzI1NiJ9.eyJ2aXNpdFNlc3Npb25JZCI6IjY3MTk2MzYzYjllNjRmNWNjNzAyYWFmZSIsInN1YiI6IkFjY2VzcyBUb2tlbiBHZW5lcmF0ZWQgQnkgU3ByaW5rbHIiLCJjaGF0TG9jYWxlIjoiZW4iLCJjaGF0VXNlckhhc0NvbnZlcnNhdGlvblN0YXJ0ZWQiOmZhbHNlLCJpc3MiOiJTUFJJTktMUiIsInZpc2l0U2Vzc2lvbklkRXhwaXJlQXQiOjE3Mjk3NjAyOTExNjUsInR5cCI6IkpXVCIsImlzRGVmbGVjdGlvblRva2VuIjpmYWxzZSwidXNlclNlc3Npb25Mb2dpbk1ldGhvZCI6IntcInR5cGVcIjpcIkFOT05ZTU9VU1wifSIsImNoYXRVc2VySWQiOiJBXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZCIsImFwcElkIjoiYXBwXzEwMDQzODM0NSIsInNjb3BlIjpbIlJFQUQiLCJXUklURSJdLCJleHAiOjE3Mjk3NjAyOTEsImF1dGhUeXBlIjoiU1BSX0tFWV9QQVNTX0xPR0lOIiwiaWF0IjoxNzI5NzE3MDkxLCJqdGkiOiJjYWY5ZDJmYS00OTVlLTQ5ZTMtOWE3Ny1hMjQzMTNmZDU1OTAiLCJhbm9ueW1vdXNJZCI6IkFfNjcxODA4ZWUwOWExZjYyODVjYjZhODVkIiwiY2xpZW50SWQiOjMxMDUsInN0cmljdFVzZXJBdXRoZW50aWNhdGlvbiI6ZmFsc2UsInVzZXJJZCI6MCwiYXVkIjoiU1BSSU5LTFIiLCJuYmYiOjE3Mjk3MTU4OTEsInZpc2l0U2Vzc2lvblN0YXJ0VGltZSI6MTcyOTcxNzA5MTE1NSwibXF0dEFjbCI6IntcInBcIjpbXCJwdWJsaXNoL0FfNjcxODA4ZWUwOWExZjYyODVjYjZhODVkL3B0ci01MDQwMC10b3BpY1wiXSxcInNcIjpbXCJhcHBfMTAwNDM4MzQ1X2luYm94L0FfNjcxODA4ZWUwOWExZjYyODVjYjZhODVkXCIsXCJpbmJveC9BXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZFwiXX0iLCJjaGF0VXNlclR5cGUiOiJBTk9OWU1PVVMiLCJwYXJ0bmVySWQiOjUwNDAwLCJ0b2tlblR5cGUiOiJBQ0NFU1MifQ.b92sN2b_DpY3d8lpJTuDmS3-DJqX2fzg7RsZ6Es1NKXBFUOeimATEq1iL-wf8GSAv8E1Pzw4IKcAHisBQk8pUMwgWChyd5sqnPxgQ348lcVHqYn9SmW7YOA_yn4jSmrbe-xjORmXbU6IvH7oJUvyGYeSrWn6RR5q7eBu72OYVDn5AziEb8a-jYMmGMarctznXtF7Et9Y_YA8dOmJhh8Ndch9_O5yuosoSJvt6_wyLq438QftLWUvzFKgUt9oec-7ccEyLysmsdCj-BajxomW9K4XT40ktXalE1JK3t3Jmp4lNHqb_zZRhdfqIJIRcVO42N381gXOOownM0UtxtPuYw&x-user-id=A_671808ee09a1f6285cb6a85d&x-client-id=1552a9b4-50fc-4fa5-bb97-8002c682b102_1_1&x-chat-appId=62fe5a7833099a5ea6705eb6_app_100438345"
+                payload_ko = "p=%7B%22createCase%22%3Afalse%2C%22startedByContext%22%3A%7B%7D%2C%22pageTitle%22%3A%22Sprinklr%3A+Plataforma+unificada+de+gesti%C3%B3n+de+la+experiencia+del+cliente+basada+en+IA%22%2C%22pageUrl%22%3A%22https%3A%2F%2Fwww.sprinklr.com%2Fes%2F%22%2C%22userAgent%22%3A%22Mozilla%2F5.0+%28X11%3B+Ubuntu%3B+Linux+x86_64%3B+rv%3A131.0%29+Gecko%2F20100101+Firefox%2F131.0%22%2C%22timeZone%22%3A%22Europe%2FMadrid%22%2C%22locale%22%3A%22en%22%7D&x-chat-referer=https%3A%2F%2Fwww.sprinklr.com%2Fes%2F&x-chat-origin=https%3A%2F%2Fwww.sprinklr.com&x-chat-page-title=Sprinklr%3A+Plataforma+unificada+de+gesti%C3%B3n+de+la+experiencia+del+cliente+basada+en+IA&x-chat-version=WgRhbCFIj&x-chat-sdk=Web&x-chat-token=eyJhbGciOiJSUzI1NiJ9.eyJ2aXNpdFNlc3Npb25JZCI6IjY3MTk2MzYzYjllNjRmNWNjNzAyYWFmZSIsInN1YiI6IkFjY2VzcyBUb2tlbiBHZW5lcmF0ZWQgQnkgU3ByaW5rbHIiLCJjaGF0TG9jYWxlIjoiZW4iLCJjaGF0VXNlckhhc0NvbnZlcnNhdGlvblN0YXJ0ZWQiOmZhbHNlLCJpc3MiOiJTUFJJTktMUiIsInZpc2l0U2Vzc2lvbklkRXhwaXJlQXQiOjE3Mjk3NjAyOTExNjUsInR5cCI6IkpXVCIsImlzRGVmbGVjdGlvblRva2VuIjpmYWxzZSwidXNlclNlc3Npb25Mb2dpbk1ldGhvZCI6IntcInR5cGVcIjpcIkFOT05ZTU9VU1wifSIsImNoYXRVc2VySWQiOiJBXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZCIsImFwcElkIjoiYXBwXzEwMDQzODM0NSIsInNjb3BlIjpbIl%E2%80%A6wOWExZjYyODVjYjZhODVkXCIsXCJpbmJveC9BXzY3MTgwOGVlMDlhMWY2Mjg1Y2I2YTg1ZFwiXX0iLCJjaGF0VXNlclR5cGUiOiJBTk9OWU1PVVMiLCJwYXJ0bmVySWQiOjUwNDAwLCJ0b2tlblR5cGUiOiJBQ0NFU1MifQ.b92sN2b_DpY3d8lpJTuDmS3-DJqX2fzg7RsZ6Es1NKXBFUOeimATEq1iL-wf8GSAv8E1Pzw4IKcAHisBQk8pUMwgWChyd5sqnPxgQ348lcVHqYn9SmW7YOA_yn4jSmrbe-xjORmXbU6IvH7oJUvyGYeSrWn6RR5q7eBu72OYVDn5AziEb8a-jYMmGMarctznXtF7Et9Y_YA8dOmJhh8Ndch9_O5yuosoSJvt6_wyLq438QftLWUvzFKgUt9oec-7ccEyLysmsdCj-BajxomW9K4XT40ktXalE1JK3t3Jmp4lNHqb_zZRhdfqIJIRcVO42N381gXOOownM0UtxtPuYw&x-user-id=A_671808ee09a1f6285cb6a85d&x-client-id=1552a9b4-50fc-4fa5-bb97-8002c682b102_1_1&x-chat-appId=62fe5a7833099a5ea6705eb6_app_100438345"
+
+                payload = payload.replace("+", "%20")
+
+                print(payload_ok)
+                print("-----------------")
+                print(payload)
+                print(payload_ok == payload)
                 # , timeout=timeout
                 "/api/livechat/conversation/send"
-                # post_response = requests.post(self.url + '/conversation/new', data=payload, headers=self.headers)
-                post_response = requests.post(self.url + '/conversation/send', data=payload, headers=self.headers)
+
+                #payload = payload_ko
+
+
+                post_response = requests.post("https://prod2-live-chat-champagne.sprinklr.com/api/livechat/conversation/new",
+                                              data=payload, headers=self.headers)
+                #post_response = requests.post(self.url + '/conversation/send', data=payload, headers=self.headers)
 
                 # 'https://prod2-live-chat-champagne.sprinklr.com/api/livechat/conversation/new'
                 post_response_json = post_response.json()
@@ -359,3 +402,5 @@ class SprinklChatbot(Chatbot):
         # "messagePayload": {"text": "hi", "textEntities": [], "messageType": 313, "disableManualResponse": false},
         # "sender": "A_671808ee09a1f6285cb6a85d", "clientMessageId": "2c4b39b5-cbf6-4ee5-a3bd-ba85279f1b30",
         # "inReplyToChatMessageId": "6718124d09a1f6285cb9f6e1"}
+
+SprinklChatbot(None).execute_with_input("Hola")

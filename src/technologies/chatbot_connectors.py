@@ -56,7 +56,16 @@ class MillionBot(Chatbot):
         self.payload = {}
         self.id = None
 
+        self.reset_url = None
+        self.reset_payload = None
+
     def execute_with_input(self, user_msg):
+        if self.reset_payload is not None:
+            response = requests.post(self.reset_url, headers=self.headers, json=self.reset_payload)
+            print(response)
+            assert response.status_code == 200
+            self.reset_payload = None
+
         self.payload['message']["text"] = user_msg
         timeout = 10
         try:
@@ -159,6 +168,41 @@ class ChatbotLolaUMU(MillionBot):
                         "language":"es",
                         "url":"https://www.um.es/web/estudios/acceso/estudiantes-bachillerato-y-ciclos-formativos",
                         "message":{"text":"Hola"}}
+
+class ChatbotCatalinaRivas(MillionBot):
+    def __init__(self, url):
+        MillionBot.__init__(self, url)
+        self.id = None
+        self.url = "https://api.1millionbot.com/api/public/messages"
+        self.headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'API-KEY 60553d58c41f5dfa095b34b5'
+        }
+
+        bot_id = "639324ddd7a900eb516c4b13"
+        conversation_id = "671ab293167d72734b1b8a55"
+        url = "https://www.rivasciudad.es/"
+
+
+        self.payload = {"conversation": conversation_id,
+                        "sender_type":"User",
+                        "sender":"671ab2931382d56e5140f023",
+                        "bot": bot_id,
+                        "language":"es",
+                        "url":url,
+                        "message":{"text":"Hola"}}
+
+        self.reset_url = "https://api.1millionbot.com/api/public/live/status"
+        self.reset_payload = {"bot": bot_id,
+                             "conversation": conversation_id,
+                              "status": {
+                                  "origin": url,
+                                  "online":False,
+                                  "typing":False,
+                                  "deleted":True,
+                                  "attended":{},
+                                  "userName":""}
+                              }
 
 ##############################################################################################################
 # Taskyto

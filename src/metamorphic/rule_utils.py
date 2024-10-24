@@ -42,7 +42,7 @@ def util_to_wrapper_dict() -> dict:
             '_utterance_index':
             "    def utterance_index(who, what):\n        return _utterance_index(who, what, interaction)\n",
             '_chatbot_returns':
-            "    def chatbot_returns(what):\n        return _chatbot_returns(what, interaction)\n",
+            "    def chatbot_returns(what, and_not=None):\n        return _chatbot_returns(what, and_not, interaction)\n",
             '_repeated_answers':
                 "    def repeated_answers(method = 'exact', threshold = 0.4):\n        return _repeated_answers(interaction, method, threshold)\n",
             '_data_collected':
@@ -94,19 +94,35 @@ def build_comparator(method):
     else:
         return exact_similarity
 
-def _chatbot_returns(what, interaction):
+def _chatbot_returns(what, and_not=None, interaction=None):
     """
     :param what: pattern
+    :param and_not: additional pattern that must not be found after what
     :param interaction: list of user-chatbot interactions
     :return: a list with the interactions in which the assistant returns a message that contains the pattern
+    To-Do: we could add additional parameters, like and_then, etc
     """
+
+    def contains_first_and_not_second(string, X, Y):
+        pos_X = string.find(X)
+
+        if pos_X != -1:
+            pos_Y = string.find(Y, pos_X + len(X))
+            if pos_Y == -1:
+                return True
+
+        return False
+
     interactions = []
     step_index = 0
     for step in interaction:  # step is a dict
         for key, value in step.items():
             if key.lower() in ['chatbot', 'assistant']:
                 if what in value:
-                    interactions.append(step_index)
+                    if and_not is None:
+                        interactions.append(step_index)
+                    elif contains_first_and_not_second(value, what, and_not):
+                        interactions.append(step_index)
         step_index += 1
     return interactions
 

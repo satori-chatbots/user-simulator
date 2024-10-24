@@ -436,6 +436,18 @@ def _responds_in_same_language(interaction):
     :param interaction: a list with the interaction
     :return: the turn in which the assistant responds in a different language
     """
+    def filter_errors(interaction):
+        for step in interaction[:]:  # step is a dict, we iterate over copu
+            for key, value in step.items():
+                if key.lower() in ['chatbot', 'assistant']:
+                    if value.startswith('Error: The server'):
+                        interaction.remove(step)
+        return interaction
+
+    # filter the errrors of the chatbot, which always are shown as English text
+    filtered_interaction = filter_errors(interaction)
+    if len(filtered_interaction) == 1: # nothing to do
+        return True
     prompt = f"""You are an assistant that checks conversations between a chatbot and a human.
                  Your task is to assess if the chatbot always responds in the same language as the
                  human. For example, if the human speaks in Spanish, the chatbot should respond in Spanish, too.
@@ -443,7 +455,7 @@ def _responds_in_same_language(interaction):
                  - YES if the chatbot responds in the same language.
                  - NO if the chatbot sometimes responds in a different language.
                  CONVERSATION:
-                 {interaction}"""
+                 {filtered_interaction}"""
     response = call_openai(prompt)
     if response.lower() == 'yes':
         return True

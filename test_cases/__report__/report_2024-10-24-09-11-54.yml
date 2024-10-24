@@ -16,7 +16,7 @@ Global report:
     - 0_millionbot_chatbot_tests_2024-10-24-09-11-54.yml
     - 0_millionbot_chatbot_tests_2024-10-24-09-11-54.yml
 ---
-Test name: millionbot_chatbot_tests
+Test name: millie_chatbot_tests
 Average assistant response time: 5.330152
 Maximum assistant response time: 8.919473
 Mínimum assistant response time: 0.384042

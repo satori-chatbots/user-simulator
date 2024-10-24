@@ -1,0 +1,11 @@
+Global report:
+  Average assistant response time: 5.312497
+  Maximum assistant response time: 6.285134
+  Mínimum assistant response time: 4.071929
+  Errors: []
+---
+Test name: millionbot_chatbot_tests
+Average assistant response time: 5.312497
+Maximum assistant response time: 6.285134
+Mínimum assistant response time: 4.071929
+Errors: []

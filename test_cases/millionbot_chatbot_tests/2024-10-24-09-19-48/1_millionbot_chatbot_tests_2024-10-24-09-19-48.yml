@@ -1,0 +1,58 @@
+serial: 2024-10-24-09-19-48
+language: Spanish
+context:
+- Debes actuar como un empresario, que busca información sobre chatbots y evalua si
+  le pueden interesar en su negocio
+- Eres una persona curiosa, asi que estableces temas de conversacion para obtener
+  la opinion de Millie sobre otros temas
+ask_about:
+- Que es un chatbot y como puede ayudarle a mi empresa de material ajedrecístico
+- ¿Qué opina sobre el cambio climático?
+- ¿Qué opina sobre el problema de los altos precios de alquiler en la vivienda?
+- ¿Cuál es el número de telefono de la empresa?
+conversation:
+- number: 2
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- telefono: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 1 goals left to complete.
+---
+conversation time: 19.504542
+assistant response time:
+- 5.609874
+- 0.359892
+response time report:
+  average: 2.984883
+  max: 5.609874
+  min: 0.359892
+---
+interaction:
+- User: Hola Millie, estoy interesado en saber más sobre los chatbots y cómo podrían
+    ayudar a mi negocio de venta de libros y material relacionado con el ajedrez.
+    ¿Podrías explicarme qué es un chatbot y de qué manera podría beneficiar a mi empresa?
+- Assistant: '<p>Entiendo que quieres saber cómo un <strong>chatbot</strong> puede
+    beneficiar tu negocio de venta de libros y material relacionado con el ajedrez.
+    Un chatbot es un asistente virtual que simula conversaciones humanas, permitiendo
+    interactuar con tus clientes de manera automatizada.</p><br><p>Aquí te dejo algunas
+    formas en que un chatbot podría ayudarte:</p><br><ul><br>  <li><strong>Atención
+    al cliente 24/7</strong>: Responde preguntas sobre disponibilidad de libros, precios
+    y recomendaciones en cualquier momento.</li><br>  <li><strong>Asesoramiento personalizado</strong>:
+    Ayuda a los clientes a encontrar libros o materiales específicos según su nivel
+    y preferencias.</li><br>  <li><strong>Gestión de pedidos</strong>: Facilita la
+    realización de pedidos y consultas sobre el estado de los mismos.</li><br></ul><br><p>¿Te
+    gustaría explorar más sobre cómo implementar un chatbot en tu negocio? 😊</p>
+
+    '
+- User: "Gracias, Millie. La verdad es que suena interesante lo que mencionas sobre\
+    \ el asesoramiento personalizado y la atención al cliente 24/7. Me gustaría saber\
+    \ un poco más sobre cómo se implementa un chatbot en una página web. ¿Es muy complicado\
+    \ de hacer? \n\nY, cambiando de tema por un momento, ¿qué opinas sobre el cambio\
+    \ climático? Es un tema que también me preocupa."
+- Assistant: 'Error: The server did not respond.'

@@ -1,0 +1,40 @@
+serial: 2024-10-24-09-19-48
+language: Spanish
+context:
+- Debes actuar como un empresario, que busca información sobre chatbots y evalua si
+  le pueden interesar en su negocio
+- Eres una persona curiosa, asi que estableces temas de conversacion para obtener
+  la opinion de Millie sobre otros temas
+ask_about:
+- Que es un chatbot y como puede ayudarle a mi empresa de material ajedrecístico
+- ¿Qué opina sobre el cambio climático?
+- ¿Qué opina sobre el problema de los altos precios de alquiler en la vivienda?
+- ¿Cuál es el número de telefono de la empresa?
+conversation:
+- number: 2
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- telefono: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 1 goals left to complete.
+---
+conversation time: 12.787613
+assistant response time:
+- 0.36375
+response time report:
+  average: 0.36375
+  max: 0.36375
+  min: 0.36375
+---
+interaction:
+- User: Hola Millie, tengo un negocio dedicado a la venta de libros y material relacionado
+    con el ajedrez. Estoy explorando la posibilidad de integrar un chatbot de 1millionbot
+    para mejorar mi negocio. ¿Podrías explicarme qué es un chatbot y cómo podría ayudarme
+    en mi tienda de ajedrez?
+- Assistant: 'Error: The server did not repond.'

@@ -171,7 +171,7 @@ def generate(technology, chatbot, user, personality, extract):
                         if response is not None:
                             the_user.update_history("Assistant", "Error: " + response)  # added by JL
                         else:
-                            the_user.update_history("Assistant", "Error: The server did not repond.")  # added by JL
+                            the_user.update_history("Assistant", "Error: The server did not respond.")  # added by JL
                         break
                     print_chatbot(response)
 

@@ -10,26 +10,33 @@ fallback: |
   o cómo podemos ayudar a tu negocio a digitalizarse?.
 
 role: |
-  debes actuar como una persona que tiene un negocio textil de venta de telas, hilos, lana y botones y busca información 
-  sobre cómo los chatbots de la empresa 1millionbot pueden ayudarle  a mejorarlo.
+  debes actuar como una persona que tiene un negocio de venta de sellos y monedas de coleccionismo y busca información 
+  sobre cómo los chatbots de la empresa 1millionbot pueden ayudarle a mejorarlo. Estás hablando con Millie un asistente
+  virtual de la empresa 1millionbot.
 
 context:
 #  personality:
-  - Debes actuar como un empresario, que busca información sobre chatbots y evalua se le pueden interesar en su negocio
+  - Debes actuar como un empresario, que busca información sobre chatbots y evalua si le pueden interesar en su negocio
 
 ask_about:
-  - "Que es un chatbot y como puede ayudarle a mi empresa de venta textil"
+  - "Que es un chatbot y como puede ayudarle a mi empresa de sellos y monedas"
   - "Se se puede vender a través del chatbot y en qué canales se puede desplegar"
+  - "¿Cuál es el número de telefono de la empresa?"
 
 output:
   - canales:
       type: string
       description: canales en los que se puede desplegar el chatbot
+  - telefono:
+      type: string
+      description: numero de telefono de la empresa
 
 conversations:
-  - number: 1
+  - number: 2
   - goal_style:
-        steps: 3
+      all_answered:
+        export: True
+        limit: 6
   - interaction_style:
       - default
 

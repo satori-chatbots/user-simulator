@@ -1,0 +1,2 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+chatbot_responds_in_same_language,7,3,4,0,57.14%

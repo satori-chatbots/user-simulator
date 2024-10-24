@@ -371,7 +371,7 @@ class JulieChatbot(Chatbot):
                 if 'DisplayText' in button:
                     button_text += f"- BUTTON TEXT: {button['DisplayText']}"
                 if 'Metadata' in button and 'UnitUID' in button['Metadata']:
-                    button_text += f" LINK: {button['Metadata']["UnitUID"]}\n"
+                    button_text += f" LINK: {button['Metadata']['UnitUID']}\n"
                 else:
                     button_text += f" LINK: <empty>\n"
                 button_description += f'\n {button_text}'

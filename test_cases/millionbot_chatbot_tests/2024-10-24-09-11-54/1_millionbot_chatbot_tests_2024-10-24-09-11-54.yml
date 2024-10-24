@@ -1,0 +1,96 @@
+serial: 2024-10-24-09-11-54
+language: Spanish
+context:
+- Debes actuar como un empresario, que busca información sobre chatbots y evalua si
+  le pueden interesar en su negocio
+ask_about:
+- Que es un chatbot y como puede ayudarle a mi empresa de sellos y monedas
+- Se se puede vender a través del chatbot y en qué canales se puede desplegar
+- ¿Cuál es el número de telefono de la empresa?
+conversation:
+- number: 2
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- canales: tu sitio web, WhatsApp, Facebook Messenger
+- telefono: (+34) 623 02 57 67
+errors: []
+---
+conversation time: 57.866537
+assistant response time:
+- 5.731808
+- 6.958251
+- 8.919473
+- 0.630096
+response time report:
+  average: 5.559907
+  max: 8.919473
+  min: 0.630096
+---
+interaction:
+- User: ¿Qué es exactamente un chatbot y cómo podría ayudar a mejorar mi negocio de
+    venta de sellos y monedas de coleccionismo?
+- Assistant: '<p>Un <strong>chatbot</strong> es un asistente virtual que simula conversaciones
+    humanas, permitiendo interactuar con tus clientes de manera automatizada. Aquí
+    te explico cómo puede beneficiar tu negocio de sellos y monedas de coleccionismo:<br><br>-
+    <strong>Atención al cliente 24/7</strong>: Responde preguntas sobre disponibilidad,
+    precios y características de los productos en cualquier momento.<br>- <strong>Asesoramiento
+    personalizado</strong>: Ayuda a los clientes a encontrar sellos o monedas específicas
+    según sus intereses.<br>- <strong>Gestión de pedidos</strong>: Facilita la realización
+    de pedidos y consultas sobre el estado de los mismos.<br><br>¿Te gustaría saber
+    más sobre cómo implementar un chatbot en tu negocio? 😊</p>
+
+
+    '
+- User: Sí, me interesa saber si puedo vender directamente a través del chatbot. ¿Es
+    posible eso y en qué canales podría desplegarlo para mi negocio de sellos y monedas?
+- Assistant: '<p>¡Sí, definitivamente puedes vender directamente a través de un chatbot!
+    Aquí te explico cómo funciona y en qué canales puedes desplegarlo para tu negocio
+    de sellos y monedas:</p><br><ul><br>  <li><strong>Procesamiento de pedidos</strong>:
+    Los clientes pueden realizar compras, consultar precios y disponibilidad, y gestionar
+    sus pedidos a través del chatbot.</li><br>  <li><strong>Canales de despliegue</strong>:
+    Puedes integrar el chatbot en tu sitio web, así como en plataformas de mensajería
+    como <strong>WhatsApp</strong> y <strong>Facebook Messenger</strong>, donde tus
+    clientes pueden interactuar fácilmente.</li><br></ul><br><p>¿Te gustaría saber
+    más sobre cómo implementar esto en tu negocio? 😊</p>
+
+    '
+- User: Me interesa mucho. ¿Podrías darme más información sobre cómo podría implementar
+    un chatbot en mi sitio web y en WhatsApp?
+- Assistant: '<p>¡Claro! Implementar un <strong>chatbot</strong> en tu sitio web y
+    en WhatsApp es un proceso sencillo y muy beneficioso. Aquí te explico cómo hacerlo:</p><br><strong>1.
+    En tu sitio web:</strong><br><ul><li><strong>Indexar tu web</strong>: Primero,
+    se indexa toda la información de tu sitio como lo haría Google.</li><li><strong>Personalización</strong>:
+    Elige un avatar y un nombre para tu chatbot.</li><li><strong>Configuración de
+    saludos</strong>: Define un saludo y una despedida para las interacciones.</li><li><strong>Integración</strong>:
+    Copia y pega el código del chatbot en tu web.</li></ul><br><strong>2. En WhatsApp:</strong><br><ul><li><strong>API
+    de WhatsApp Business</strong>: Conéctate a la API para permitir interacciones
+    directas con tus clientes.</li><li><strong>Configuración</strong>: Personaliza
+    las respuestas y funciones del chatbot para que maneje consultas específicas.</li></ul><br><p>Si
+    te gustaría más detalles o una guía personalizada, podríamos programar una llamada.
+    ¿Te gustaría que te contactáramos?</p>
+
+    '
+- User: Gracias por la información. Antes de considerar una llamada, me gustaría saber
+    cuál es el número de teléfono de la empresa para contactarlos directamente si
+    necesito más ayuda.
+- Assistant: '<p>Si quieres ponerte en contacto con nuestra empresa, puedes hacerlo
+    de las siguientes maneras:</p>
+
+    <p>📞 Llámanos al <strong>(+34) 623 02 57 67</strong> o escríbenos a 📧 <em><strong>info@1millionbot.com</strong></em>.</p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>Contacta con nosotros 📩</p> LINK: Contacta con nosotros 📩
+
+    <p>No dudes en contactarnos por el canal que más te convenga, ¡estamos aquí para
+    ayudarte en todo lo que necesites! 💡🚀</p>
+
+    '

@@ -37,7 +37,16 @@ class UserGeneration:
         # self.user_chain = LLMChain(llm=self.user_llm, prompt=self.user_role_prompt)
         self.user_chain = self.user_role_prompt | self.user_llm | parser
         self.my_context = self.InitialContext()
+        self.output_slots = self.__build_slot_dict()
         self.error_report = []
+
+    def __build_slot_dict(self):
+        slot_dict = {}
+        output_list = self.user_profile.output
+        for output in output_list:
+            var_name = list(output.keys())[0]
+            slot_dict[var_name] = None
+        return slot_dict
 
     class InitialContext:
         def __init__(self):
@@ -158,6 +167,8 @@ class UserGeneration:
         for output in output_list:
             var_name = list(output.keys())[0]
             var_dict = output.get(var_name)
+            if var_name in self.output_slots and self.output_slots[var_name] is not None:
+                continue
             my_data_extract = DataExtraction(self.conversation_history,
                                              var_name,
                                              var_dict["type"],
@@ -165,6 +176,8 @@ class UserGeneration:
             value = my_data_extract.get_data_extraction()
             if value[var_name] is None:
                 return False
+            else:
+                self.output_slots[var_name] = value[var_name]
         return True
 
     def get_response(self, input_msg):

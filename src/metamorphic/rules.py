@@ -149,10 +149,16 @@ class Rule(BaseModel):
         return results
 
     def applies(self, test_dict: dict):
-        return eval(self.when, test_dict)
+        try:
+            return eval(self.when, test_dict)
+        except Exception:
+            return False
 
     def if_eval(self, test_dict: dict):
-        return eval(self.if_, test_dict)
+        try:
+            return eval(self.if_, test_dict)
+        except Exception:
+            return False
 
     def then_eval(self, test_dict: dict):
         code = f"""        
@@ -170,7 +176,10 @@ def _eval(**kwargs):
         local_namespace = {}
         exec(code, globals(), local_namespace)
         self._eval = local_namespace['_eval']
-        return self._eval(**test_dict)
+        try:
+            return self._eval(**test_dict)
+        except Exception:
+            return False
         #return eval(self.then, test_dict)
 
     def yield_eval(self, test_dict: dict):
@@ -190,7 +199,10 @@ def _eval(**kwargs):
 
         exec(code, globals(), local_namespace)
         self._eval = local_namespace['_eval']
-        return str(self._eval(**test_dict))
+        try:
+            return str(self._eval(**test_dict))
+        except Exception:
+            return ""
 
     def __wrapper_functions(self):
         result = "\n".join(func for func in util_to_wrapper_dict().values())

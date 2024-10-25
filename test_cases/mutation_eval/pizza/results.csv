@@ -1,0 +1,2 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+small_pizza_price,13,4,0,9,0.00%

@@ -58,7 +58,7 @@ output:
 
 
 conversations:
-  - number: 6
+  - number: 1
   - goal_style:
       all_answered:
         export: True

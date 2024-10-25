@@ -60,10 +60,36 @@ class MillionBot(Chatbot):
         self.reset_url = None
         self.reset_payload = None
 
+    def init_chatbot(self, bot_id, conversation_id, url, sender = "671ab2931382d56e5140f023"):
+        self.url = "https://api.1millionbot.com/api/public/messages"
+        self.headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'API-KEY 60553d58c41f5dfa095b34b5'
+        }
+
+        self.payload = {"conversation": conversation_id,
+                        "sender_type": "User",
+                        "sender": sender,
+                        "bot": bot_id,
+                        "language": "es",
+                        "url": url,
+                        "message": {"text": "Hola"}}
+
+        self.reset_url = "https://api.1millionbot.com/api/public/live/status"
+        self.reset_payload = {"bot": bot_id,
+                              "conversation": conversation_id,
+                              "status": {
+                                  "origin": url,
+                                  "online": False,
+                                  "typing": False,
+                                  "deleted": True,
+                                  "attended": {},
+                                  "userName": "UAM/UMU"}
+                              }
+
     def execute_with_input(self, user_msg):
         if self.reset_payload is not None:
             response = requests.post(self.reset_url, headers=self.headers, json=self.reset_payload)
-            print(response)
             assert response.status_code == 200
             self.reset_payload = None
 
@@ -120,90 +146,35 @@ class MillionBot(Chatbot):
 class ChatbotAdaUam(MillionBot):
     def __init__(self, url):
         MillionBot.__init__(self, url)
-        self.id = None
-        self.url = "https://api.1millionbot.com/api/public/messages"
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'API-KEY 60a3bee2e3987316fed3218f'
-        }
-
-        self.payload = {"conversation": "670577afe0d59bbc894897b2",
-                   "sender_type": "User", "sender": "670577af4e61b2bc9462703f",
-                   "bot": "60a3be81f9a6b98f7659a6f9", "language": "es",
-                   "url": "https://www.uam.es/uam/tecnologias-informacion",
-                   "message": {"text": "Hola"}}
-
+        self.init_chatbot(bot_id = "60a3be81f9a6b98f7659a6f9",
+                          conversation_id="670577afe0d59bbc894897b2",
+                          url="https://www.uam.es/uam/tecnologias-informacion",
+                          sender="670577af4e61b2bc9462703f")
 
 class ChatbotMillionBot(MillionBot):
     def __init__(self, url):
         MillionBot.__init__(self, url)
-        self.id = None
-        self.url = "https://api.1millionbot.com/api/public/messages"
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'API-KEY 6465e8319de7b94a9cf0138a'
-        }
-
-        self.payload = {"conversation":"670cf272ddbe1af483229440",
-                        "sender_type":"User",
-                        "sender":"670cf2727516491d1c6f69a5",
-                        "bot":"6465e8319de7b94a9cf01387",
-                        "language":"es",
-                        "url":"https://1millionbot.com/",
-                        "message":{"text":"Hola, ¿qué es un chatbot?"}}
+        self.init_chatbot(bot_id = "6465e8319de7b94a9cf01387",
+                          conversation_id="670cf272ddbe1af483229440",
+                          url="https://1millionbot.com/",
+                          sender="670cf2727516491d1c6f69a5")
 
 class ChatbotLolaUMU(MillionBot):
     def __init__(self, url):
         MillionBot.__init__(self, url)
-        self.id = None
-        self.url = "https://api.1millionbot.com/api/public/messages"
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'API-KEY 60553d58c41f5dfa095b34b5'
-        }
-
-        self.payload = {"conversation":"670d14d95771b0aa274c97fa",
-                        "sender_type":"User",
-                        "sender":"670d14d97516491d1c7109c1",
-                        "bot":"5af00c50f9639920a0e4769b",
-                        "language":"es",
-                        "url":"https://www.um.es/web/estudios/acceso/estudiantes-bachillerato-y-ciclos-formativos",
-                        "message":{"text":"Hola"}}
+        self.init_chatbot(bot_id = "5af00c50f9639920a0e4769b",
+                          conversation_id="670d14d95771b0aa274c97fa",
+                          url="https://www.um.es/web/estudios/acceso/estudiantes-bachillerato-y-ciclos-formativos",
+                          sender="670d14d97516491d1c7109c1")
 
 class ChatbotCatalinaRivas(MillionBot):
     def __init__(self, url):
         MillionBot.__init__(self, url)
-        self.id = None
-        self.url = "https://api.1millionbot.com/api/public/messages"
-        self.headers = {
-            'Content-Type': 'application/json',
-            'Authorization': 'API-KEY 60553d58c41f5dfa095b34b5'
-        }
+        self.init_chatbot(bot_id = "639324ddd7a900eb516c4b13",
+                          conversation_id="671ab293167d72734b1b8a55",
+                          url="https://www.rivasciudad.es/",
+                          sender="671ab2931382d56e5140f023")
 
-        bot_id = "639324ddd7a900eb516c4b13"
-        conversation_id = "671ab293167d72734b1b8a55"
-        url = "https://www.rivasciudad.es/"
-
-
-        self.payload = {"conversation": conversation_id,
-                        "sender_type":"User",
-                        "sender":"671ab2931382d56e5140f023",
-                        "bot": bot_id,
-                        "language":"es",
-                        "url":url,
-                        "message":{"text":"Hola"}}
-
-        self.reset_url = "https://api.1millionbot.com/api/public/live/status"
-        self.reset_payload = {"bot": bot_id,
-                             "conversation": conversation_id,
-                              "status": {
-                                  "origin": url,
-                                  "online":False,
-                                  "typing":False,
-                                  "deleted":True,
-                                  "attended":{},
-                                  "userName":""}
-                              }
 
 ##############################################################################################################
 # Taskyto

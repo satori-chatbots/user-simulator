@@ -1,5 +1,5 @@
 name: check_opening_hours
 description: Checks opening hours
-active: False
+active: True
 conversations: 1
-oracle: semantic_content(opening_hours, 'every day from 1pm to 1:30pm')
+oracle: semantic_content(opening_hours, 'every day from 1pm to 11:30pm')

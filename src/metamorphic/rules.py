@@ -59,7 +59,7 @@ class Rule(BaseModel):
                     print(f"     -> Does not apply.")
 
         if self.then_eval(test_dict):
-            self.results['pass'].append(filtered)
+            results['pass'].append(filtered)
             if verbose:
                 print(f"   - On files {', '.join([test.file_name for test in filtered])}")
                 print(f"     -> Satisfied!")

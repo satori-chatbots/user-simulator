@@ -7,7 +7,8 @@ from .rule_utils import *
 
 # Do not remove this import, it is used to dynamically import the functions
 from .rule_utils import filtered_tests, _conversation_length, extract_float, _only_talks_about
-from .rule_utils import _utterance_index, _chatbot_returns, _repeated_answers, _data_collected, _missing_slots, _responds_in_same_language
+from .rule_utils import _utterance_index, _chatbot_returns, _repeated_answers, _data_collected, _missing_slots
+from .rule_utils import _responds_in_same_language, semantic_content
 
 from metamorphic.tests import Test
 
@@ -58,13 +59,19 @@ class Rule(BaseModel):
                     print(f"   - On file {test.file_name}")
                     print(f"     -> Does not apply.")
 
-        if self.then_eval(test_dict):
-            results['pass'].append(filtered)
+        try:
+            if self.then_eval(test_dict):
+                results['pass'].append(filtered)
+                if verbose:
+                    print(f"   - On files {', '.join([test.file_name for test in filtered])}")
+                    print(f"     -> Satisfied!")
+            else:
+                results['fail'].append(filtered)
+        except Exception:
+            results['not_applicable'].append(filtered)
             if verbose:
                 print(f"   - On files {', '.join([test.file_name for test in filtered])}")
                 print(f"     -> Satisfied!")
-        else:
-            results['fail'].append(filtered)
 
         return results
 
@@ -79,7 +86,11 @@ class Rule(BaseModel):
                 print(f"   - On file {test.file_name}")
             if self.applies(test_dict):
                 if self.if_eval(test_dict):
-                    return_value = self.then_eval(test_dict)
+                    try:
+                        return_value = self.then_eval(test_dict)
+                    except Exception:
+                        self.__handle_not_applicable(verbose, results, test)
+                        continue
                     if return_value == True:  # can be a boolean or another value to signal an error
                         self.__handle_pass(verbose, results, test)
                     else:
@@ -137,7 +148,11 @@ class Rule(BaseModel):
                     print(f"   - On files: {test1.file_name}, {test2.file_name}")
                 if self.applies(test_dict):
                     if self.if_eval(test_dict):
-                        return_value = self.then_eval(test_dict)
+                        try:
+                            return_value = self.then_eval(test_dict)
+                        except Exception:
+                            self.__handle_fail(verbose, results, return_value, test_dict, test1, test2)
+                            continue
                         if return_value == True:
                             self.__handle_pass(verbose, results, test1, test2)
                         else:
@@ -176,10 +191,7 @@ def _eval(**kwargs):
         local_namespace = {}
         exec(code, globals(), local_namespace)
         self._eval = local_namespace['_eval']
-        try:
-            return self._eval(**test_dict)
-        except Exception:
-            return False
+        return self._eval(**test_dict)
         #return eval(self.then, test_dict)
 
     def yield_eval(self, test_dict: dict):

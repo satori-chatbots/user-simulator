@@ -1,6 +1,6 @@
 name: small_pizza_price
 description: Checks the prices of small pizzas (>=10$)
-active: True
+active: False
 conversations: 1
 when: size[0] == 'small'
 oracle: extract_float(price)>=10

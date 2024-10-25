@@ -32,7 +32,8 @@ def util_functions_to_dict() -> dict:
             '_chatbot_returns': _chatbot_returns,
             '_repeated_answers': _repeated_answers,
             '_missing_slots': _missing_slots,
-            '_responds_in_same_language': _responds_in_same_language}
+            '_responds_in_same_language': _responds_in_same_language,
+            'semantic_content': semantic_content}
 
 def util_to_wrapper_dict() -> dict:
     return {'_conversation_length':
@@ -52,6 +53,22 @@ def util_to_wrapper_dict() -> dict:
             '_responds_in_same_language':
                 "    def responds_in_same_language():\n        return _responds_in_same_language(interaction)\n",
             }
+
+def semantic_content(variable, content) -> bool:
+    """
+    checks if variable contents semantically the content
+    :param variable:
+    :param content:
+    :return:
+    """
+    prompt = f"""Your task it to detect if the text below has the following semantic content: {content}.
+            TEXT: {variable} 
+            Return only YES or NO"""
+    response = call_openai(prompt)
+    if response.lower() == 'yes':
+        return True
+    else:
+        return False
 
 def _repeated_answers(interaction, method = 'exact', threshold = 0.4):
     """
@@ -85,11 +102,11 @@ def find_similar(comparator, phrase, phrases, threshold):
     return None
 
 def build_comparator(method):
-    if method == 'tf-idf':
+    if method.lower() == 'tf-idf':
         return tf_idf_cosine_similarity
-    elif method == 'jaccard':
+    elif method.lower() == 'jaccard':
         return jaccard_similarity
-    elif method == 'sequence-matcher':
+    elif method.lower() == 'sequence-matcher':
         return sequence_similarity
     else:
         return exact_similarity

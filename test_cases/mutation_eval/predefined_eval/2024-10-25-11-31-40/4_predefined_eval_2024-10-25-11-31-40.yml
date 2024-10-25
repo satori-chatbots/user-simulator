@@ -1,0 +1,63 @@
+serial: 2024-10-25-11-31-40
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, or discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.50
+- order_id: '844885'
+errors: []
+---
+conversation time: 31.996392
+assistant response time:
+- 1.433633
+- 4.625563
+- 1.199876
+- 2.522845
+- 3.382222
+response time report:
+  average: 2.632827
+  max: 4.625563
+  min: 1.199876
+---
+interaction:
+- User: I'd like to order a medium four cheese pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I order a medium four cheese pizza, please?
+- Assistant: I see that you would like to order a medium four cheese pizza. Is there
+    anything else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: Great! I've added one can of Coca-Cola to your order. To confirm, you
+    have a medium four cheese pizza and a can of Coca-Cola. Is there anything else
+    you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a medium four cheese pizza!
+
+    I see that you would like to add one can of Coca-Cola to your order. Just to confirm,
+    is the number of drinks one, and the drink is Coke?'
+- User: Yes, that's correct. Just one can of Coca-Cola, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium four-cheese pizza and one Coke is $18.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 844885.'

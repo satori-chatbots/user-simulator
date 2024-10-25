@@ -1,0 +1,11 @@
+Global report:
+  Average assistant response time: 3.263014
+  Maximum assistant response time: 5.778111
+  Mínimum assistant response time: 0.942197
+  Errors: []
+---
+Test name: custom_eval
+Average assistant response time: 3.263014
+Maximum assistant response time: 5.778111
+Mínimum assistant response time: 0.942197
+Errors: []

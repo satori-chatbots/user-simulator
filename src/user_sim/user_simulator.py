@@ -1,3 +1,4 @@
+from .data_extraction import DataExtraction
 from .utils.config import errors
 from .utils.utilities import *
 from .data_gathering import *
@@ -142,6 +143,7 @@ class UserGeneration:
 
         elif 'all_answered' in self.goal_style[0] or 'default' in self.goal_style[0]:
             if (self.data_gathering.gathering_register["verification"].all()
+                and self.all_data_collected()
                     or self.goal_style[2] <= self.interaction_count):
                 logger.info(f'limit amount of interactions achieved: {self.goal_style[2]}. Ending conversation.')
                 return True
@@ -150,6 +152,20 @@ class UserGeneration:
 
         else:
             return False
+
+    def all_data_collected(self):
+        output_list = self.user_profile.output
+        for output in output_list:
+            var_name = list(output.keys())[0]
+            var_dict = output.get(var_name)
+            my_data_extract = DataExtraction(self.conversation_history,
+                                             var_name,
+                                             var_dict["type"],
+                                             var_dict["description"])
+            value = my_data_extract.get_data_extraction()
+            if value[var_name] is None:
+                return False
+        return True
 
     def get_response(self, input_msg):
 

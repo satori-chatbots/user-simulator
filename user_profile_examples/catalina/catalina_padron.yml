@@ -1,0 +1,43 @@
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+is_starter: True
+
+fallback: |
+  Disculpa, no entiendo bien a qué te refieres.
+
+role: |
+  Debes actuar como un ciudadano que quiere empadronarse en Rivas Vaciamadrid.
+  Nunca actues como un asistente, tu rol es del ciudadano que necesita empadronarse.
+
+context:
+#  personality:
+  - Necesitas empadronarte en Rivas Vaciamadrid.
+
+ask_about:
+  - "Quiero empadronarme"
+  - "¿Qué información necesito para empadronarme?"
+  - "¿A qué lugar de debo dirigirme para empadronarme o puedo hacerlo online?"
+
+output:
+  - informacion_empadronamiento:
+      type: string
+      description: información necesaria para empadronarse
+
+  - lugar_empadronamiento:
+      type: string
+      description: el lugar donde hay que ir para empadronarse o online si se puede hacer online
+
+conversations:
+  - number: 1
+  - goal_style:
+      all_answered:
+        export: True
+        limit: 6
+  - interaction_style:
+      - default
+
+language: Spanish
+
+test_name: "catalina_chatbot_tests"

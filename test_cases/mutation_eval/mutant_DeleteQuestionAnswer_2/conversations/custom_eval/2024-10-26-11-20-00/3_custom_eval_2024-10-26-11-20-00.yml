@@ -1,0 +1,56 @@
+serial: 2024-10-26-11-20-00
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - bacon
+  - corn
+  - mushrooms
+- drink:
+  - water
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11
+- order_id: d92989
+errors: []
+---
+conversation time: 17.701871
+assistant response time:
+- 3.022775
+- 2.060372
+- 3.00472
+response time report:
+  average: 2.695955
+  max: 3.022775
+  min: 2.060372
+---
+interaction:
+- User: I'd like to order a small custom pizza with bacon, corn, and mushrooms, please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with bacon, corn and mushrooms!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A small pizza topped with bacon, corn, and mushrooms, along with one water, costs
+    $11.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is d92989.'

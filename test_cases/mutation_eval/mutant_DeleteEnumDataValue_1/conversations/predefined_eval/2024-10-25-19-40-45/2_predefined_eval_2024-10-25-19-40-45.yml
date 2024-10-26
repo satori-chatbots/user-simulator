@@ -1,0 +1,64 @@
+serial: 2024-10-25-19-40-45
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $24.00
+- order_id: 57d553
+errors: []
+---
+conversation time: 28.712066
+assistant response time:
+- 3.330816
+- 1.12742
+- 2.039248
+- 3.873211
+response time report:
+  average: 2.592673
+  max: 3.873211
+  min: 1.12742
+---
+interaction:
+- User: Hi, I'd like to order a large Carbonara pizza, please.
+- Assistant: It seems like you have already provided the pizza type as "Carbonara"
+    and the size as "large". Is there anything else you would like to add to your
+    order, such as drinks?
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: Great choice! I've added one can of Coca-Cola to your order. Your order
+    now includes a large Carbonara pizza and a can of Coca-Cola. Is there anything
+    else you'd like to add or modify?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large carbonara pizza!
+
+    It seems like you mentioned wanting to add one can of Coca-Cola. Could you please
+    confirm the number of drinks you''d like to order? Also, just to clarify, we have
+    coke, sprite, and water available. Please let me know if you''d like to make any
+    changes. Thank you!'
+- User: I would like to confirm that I want just one can of Coca-Cola, please. No
+    changes needed.
+- Assistant: 'Sure, I''ve got your order for one Coke.
+
+    The cost for a large carbonara pizza and one Coke is $24.00.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is 57d553.'

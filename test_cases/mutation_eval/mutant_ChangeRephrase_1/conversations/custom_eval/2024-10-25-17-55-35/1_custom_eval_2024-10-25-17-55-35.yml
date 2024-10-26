@@ -1,0 +1,56 @@
+serial: 2024-10-25-17-55-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - chicken
+  - pepperoni
+  - bacon
+- drink:
+  - coke
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: 16.5$
+- order_id: a976a5
+errors: []
+---
+conversation time: 22.143473
+assistant response time:
+- 4.336971
+- 2.535696
+- 2.272288
+response time report:
+  average: 3.048318
+  max: 4.336971
+  min: 2.272288
+---
+interaction:
+- User: I'd like to order a medium custom pizza with chicken, pepperoni, and bacon,
+    please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? We have small, medium, and large options available.
+- User: I'd like a medium custom pizza with chicken, pepperoni, and bacon, please.
+- Assistant: 'Thanks for ordering a medium pizza with chicken, pepperoni and bacon!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? We have coke, sprite, and water available.'
+- User: I'd like to order one Coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The price of a medium pizza with chicken, pepperoni and bacon, and 1 coke is 16.5$
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is a976a5.'

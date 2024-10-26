@@ -1,0 +1,62 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $23.50
+- order_id: '526158'
+errors: []
+---
+conversation time: 30.641282
+assistant response time:
+- 3.563371
+- 1.154623
+- 2.263563
+- 3.880904
+response time report:
+  average: 2.715615
+  max: 3.880904
+  min: 1.154623
+---
+interaction:
+- User: I'd like to order a large four cheese pizza, please.
+- Assistant: 'It looks like we already have the information from the previous conversation:
+    a large four cheese pizza. Is there anything else you would like to add to your
+    order, such as drinks?'
+- User: Yes, I'd like to add 1 can of Coca-Cola, please.
+- Assistant: Great! I've added 1 can of Coca-Cola to your order. You have a large
+    four cheese pizza and a can of Coca-Cola. Is there anything else you would like
+    to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large four cheese pizza!
+
+    It seems like you mentioned adding 1 can of Coca-Cola to your order. Just to confirm,
+    is "Coca-Cola" the drink you would like to add, or would you prefer to choose
+    from coke, sprite, or water? Please let me know if you need to make any changes.'
+- User: Yes, Coca-Cola is the drink I'd like to add. Thank you!
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a large four-cheese pizza and one Coke is $23.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 526158.'

@@ -1,0 +1,63 @@
+serial: 2024-10-26-11-35-54
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - olives
+  - pepper
+  - mushrooms
+- drink:
+  - coke
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: b8e83f
+errors: []
+---
+conversation time: 32.63229
+assistant response time:
+- 3.719923
+- 0.893411
+- 1.778258
+- 3.701005
+response time report:
+  average: 2.523149
+  max: 3.719923
+  min: 0.893411
+---
+interaction:
+- User: I'd like to order a big custom pizza with olives, peppers, and mushrooms,
+    please. Can you confirm that?
+- Assistant: It seems like we need to confirm the size of the pizza you'd like to
+    order. Could you please specify if you want a small, medium, or large pizza?
+- User: I'd like a big custom pizza, please. Can you confirm that?
+- Assistant: It seems like there is a misunderstanding. We offer pizza sizes in small,
+    medium, or large. Could you please specify which size you would like for your
+    custom pizza?
+- User: I'd like a large custom pizza with olives, peppers, and mushrooms, please.
+    Can you confirm that?
+- Assistant: 'Thanks for ordering a large pizza with olives, pepper and mushrooms!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one coke, please. Can you confirm that?
+- Assistant: 'Alright, I''ve received your order for one Coke.
+
+    A large pizza topped with olives, peppers, and mushrooms, along with one Coke,
+    costs $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is b8e83f.'

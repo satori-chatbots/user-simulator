@@ -1,0 +1,57 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - cheese
+  - bacon
+  - chicken
+- drink:
+  - sprite
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- order_id: 8eecde
+errors: []
+---
+conversation time: 29.838475
+assistant response time:
+- 8.396602
+- 1.623072
+- 2.814727
+response time report:
+  average: 4.278133
+  max: 8.396602
+  min: 1.623072
+---
+interaction:
+- User: I'd like to order a small custom pizza with cheese, bacon, and chicken, please.
+- Assistant: It looks like we have your toppings as cheese, bacon, and chicken. Could
+    you please let me know the size of the pizza you would like? The options are small,
+    medium, or large.
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with cheese, bacon and chicken!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    A small pizza topped with cheese, bacon, and chicken, along with one Sprite, costs
+    $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 8eecde.'

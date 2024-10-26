@@ -1,0 +1,58 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13.50
+- order_id: 13d6e7
+errors: []
+---
+conversation time: 19.465899
+assistant response time:
+- 1.547659
+- 3.06273
+- 2.235066
+- 3.304925
+response time report:
+  average: 2.537594
+  max: 3.304925
+  min: 1.547659
+---
+interaction:
+- User: I'd like to order a small carbonara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a small carbonara pizza, please?
+- Assistant: Could you please confirm the size of the pizza you'd like? I have the
+    type as carbonara, but I need to know if you want a small, medium, or large pizza.
+- User: Small, please.
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    Could you please let me know how many drinks you would like and which type you
+    prefer? We have coke, sprite, and water available. '
+- User: I'd like one can of water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a small carbonara pizza and one water is $13.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 13d6e7.'

@@ -1,0 +1,67 @@
+serial: 2024-10-26-11-35-54
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $22
+- order_id: 93b82b
+errors: []
+---
+conversation time: 35.728545
+assistant response time:
+- 2.148156
+- 1.668884
+- 1.278941
+- 1.615224
+- 0.968079
+- 2.534627
+response time report:
+  average: 1.702318
+  max: 2.534626
+  min: 0.968079
+---
+interaction:
+- User: I'd like to order a large margarita pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I order a large margarita pizza, please?
+- Assistant: I see that you would like to order a large margarita pizza. Is there
+    anything else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of water, please.
+- Assistant: Great! I've added 2 cans of water to your order. To confirm, you have
+    a large margarita pizza and 2 cans of water. Is there anything else you would
+    like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large margarita pizza!
+
+    Thank you for your order! You have ordered 2 cans of water. If there''s anything
+    else you need, feel free to let me know!'
+- User: Can you confirm my order one more time, please?
+- Assistant: Certainly! Your order includes a large margarita pizza and 2 cans of
+    water. If there's anything else you need, feel free to let me know!
+- User: Thank you for confirming my order. That's all I need for now!
+- Assistant: 'Sure, I''ve received your order for two bottles of water.
+
+    The cost for a large margarita pizza and two waters is $22.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 93b82b.'

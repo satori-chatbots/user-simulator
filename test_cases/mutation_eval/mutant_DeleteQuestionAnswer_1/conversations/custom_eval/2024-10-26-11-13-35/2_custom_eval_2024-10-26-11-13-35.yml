@@ -1,0 +1,59 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepperoni
+  - ham
+  - pepper
+- drink:
+  - water
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21
+- order_id: b38e95
+errors: []
+---
+conversation time: 19.677947
+assistant response time:
+- 3.143253
+- 1.637754
+- 2.840972
+response time report:
+  average: 2.540659
+  max: 3.143253
+  min: 1.637754
+---
+interaction:
+- User: I'd like to order a big custom pizza with pepperoni, ham, and pepper, please.
+    Can you confirm that for me?
+- Assistant: It seems like there was an error with the previous order. The pizza size
+    "big" is not available. Could you please choose a size from small, medium, or
+    large? Also, the topping "pepper" is not available. Please choose from cheese,
+    mushrooms, pepper, ham, bacon, pepperoni, olives, corn, or chicken.
+- User: I'll go with a large custom pizza with pepperoni and ham, please. Can you
+    confirm that?
+- Assistant: 'Thanks for ordering a large pizza with pepperoni and ham!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? You can choose from coke, sprite, or water.'
+- User: I'd like to order a water, please. Can you confirm that?
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A large pizza topped with pepperoni and ham, along with one water, costs $21.
+
+    Your order will be ready in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is b38e95.'

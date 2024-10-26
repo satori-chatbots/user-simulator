@@ -1,0 +1,65 @@
+serial: 2024-10-25-19-30-26
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: 86cd63
+errors: []
+---
+conversation time: 27.744221
+assistant response time:
+- 3.610734
+- 1.169448
+- 2.563902
+- 3.510209
+response time report:
+  average: 2.713573
+  max: 3.610734
+  min: 1.169448
+---
+interaction:
+- User: Hi, I'd like to order a medium margarita pizza, please.
+- Assistant: 'It looks like we already have the information from the previous conversation:
+    a medium margarita pizza. Is there anything else you would like to add to your
+    order, such as drinks?'
+- User: Yes, I'd like to add one can of Sprite, please.
+- Assistant: Great choice! I've added one can of Sprite to your order. Your current
+    order is a medium margarita pizza and one can of Sprite. Would you like to add
+    anything else or proceed to checkout?
+- User: No, that's all for now. Let's proceed to checkout.
+- Assistant: 'Thanks for ordering a medium margarita pizza!
+
+    It seems we have the information from the previous conversation: one can of Sprite.
+    If you need to make any changes or add more drinks, please let me know. Otherwise,
+    we can proceed to checkout.'
+- User: Let's proceed to checkout, please.
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    Alright, I''ve received your order for one Sprite.
+
+    The cost for a medium margarita pizza and one Sprite is $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 86cd63.'

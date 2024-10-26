@@ -1,0 +1,59 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.50
+- order_id: 537de6
+errors: []
+---
+conversation time: 17.159671
+assistant response time:
+- 2.991036
+- 2.186436
+- 0.917463
+- 1.909827
+response time report:
+  average: 2.00119
+  max: 2.991036
+  min: 0.917463
+---
+interaction:
+- User: I'd like to order a medium marinara pizza, please.
+- Assistant: Could you please let me know how many drinks you would like to order
+    and which type of drink you prefer? We have coke, sprite, and water available.
+- User: I'll take one can of Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    Thank you for your order! You have ordered a medium marinara pizza and one can
+    of Sprite. If there''s anything else you need, feel free to let me know!'
+- User: That's all for now, thank you!
+- Assistant: You're welcome! If you need anything else in the future, feel free to
+    reach out. Enjoy your meal!
+- User: I'd like to order a medium marinara pizza, please.
+- Assistant: 'Thanks for ordering a medium marinera pizza!
+
+    The cost for a medium marinera pizza and one Sprite is $18.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 537de6.'

@@ -1,0 +1,61 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - bacon
+  - chicken
+  - mushrooms
+- drink:
+  - water
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21
+- order_id: a98dc3
+errors: []
+---
+conversation time: 26.480247
+assistant response time:
+- 1.721897
+- 2.22773
+- 1.815625
+- 2.846785
+response time report:
+  average: 2.153009
+  max: 2.846785
+  min: 1.721897
+---
+interaction:
+- User: I'd like to order a big custom pizza with bacon, chicken, and mushrooms, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: I'd like to order a large custom pizza with bacon, chicken, and mushrooms,
+    please.
+- Assistant: I see you've chosen bacon, chicken, and mushrooms as your toppings. Could
+    you please confirm the size of the pizza you'd like to order? The options are
+    small, medium, or large.
+- User: I'd like a large pizza, please.
+- Assistant: 'Thanks for ordering a large pizza with bacon, chicken and mushrooms!
+
+    Could you please let me know how many drinks you''d like to order and which type
+    of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A large pizza topped with bacon, chicken, and mushrooms, along with one water,
+    costs $21.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is a98dc3.'

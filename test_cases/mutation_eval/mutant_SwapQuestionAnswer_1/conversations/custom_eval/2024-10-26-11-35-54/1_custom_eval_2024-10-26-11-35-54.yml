@@ -1,0 +1,43 @@
+serial: 2024-10-26-11-35-54
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - olives
+  - ham
+  - mushrooms
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 504: No response was received from the server in less than 10
+- 1001: 2 goals left to complete.
+---
+conversation time: 15.245403
+assistant response time:
+- 10.037997
+response time report:
+  average: 10.037997
+  max: 10.037997
+  min: 10.037997
+---
+interaction:
+- User: I'd like to order a medium custom pizza with olives, ham, and mushrooms, please.
+    Can you confirm that?
+- Assistant: 'Error: timeout'

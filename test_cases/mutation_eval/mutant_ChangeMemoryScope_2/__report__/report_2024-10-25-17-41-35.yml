@@ -1,0 +1,89 @@
+Global report:
+  Average assistant response time: 2.61237
+  Maximum assistant response time: 3.990079
+  Mínimum assistant response time: 1.166556
+  Errors:
+  - error: 500
+    count: 36
+    conversations:
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 4_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 4_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 4_custom_eval_2024-10-25-17-41-35.yml
+    - 5_custom_eval_2024-10-25-17-41-35.yml
+  - error: 1001
+    count: 36
+    conversations:
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 4_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 4_custom_eval_2024-10-25-17-41-35.yml
+    - 0_custom_eval_2024-10-25-17-41-35.yml
+    - 1_custom_eval_2024-10-25-17-41-35.yml
+    - 2_custom_eval_2024-10-25-17-41-35.yml
+    - 3_custom_eval_2024-10-25-17-41-35.yml
+    - 4_custom_eval_2024-10-25-17-41-35.yml
+    - 5_custom_eval_2024-10-25-17-41-35.yml
+---
+Test name: custom_eval
+Average assistant response time: 2.61237
+Maximum assistant response time: 3.990079
+Mínimum assistant response time: 1.166556
+Errors: []

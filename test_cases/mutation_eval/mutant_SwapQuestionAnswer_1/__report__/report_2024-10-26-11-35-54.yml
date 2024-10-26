@@ -1,0 +1,68 @@
+Global report:
+  Average assistant response time: 2.686604
+  Maximum assistant response time: 10.051357
+  Mínimum assistant response time: 0.812856
+  Errors:
+  - error: 504
+    count: 19
+    conversations:
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 5_custom_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+  - error: 1001
+    count: 20
+    conversations:
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 1_custom_eval_2024-10-26-11-35-54.yml
+    - 5_custom_eval_2024-10-26-11-35-54.yml
+    - 0_qa_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+    - 1_predefined_eval_2024-10-26-11-35-54.yml
+---
+Test name: custom_eval
+Average assistant response time: 3.523482
+Maximum assistant response time: 10.051357
+Mínimum assistant response time: 0.893411
+Errors: []
+---
+Test name: qa_eval
+Average assistant response time: 3.523482
+Maximum assistant response time: 10.051357
+Mínimum assistant response time: 0.893411
+Errors: []
+---
+Test name: predefined_eval
+Average assistant response time: 3.523482
+Maximum assistant response time: 10.051357
+Mínimum assistant response time: 0.893411
+Errors: []

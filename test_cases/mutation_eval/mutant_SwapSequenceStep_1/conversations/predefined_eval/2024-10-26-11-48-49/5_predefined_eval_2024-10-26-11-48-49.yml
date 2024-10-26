@@ -1,0 +1,50 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 12.51518
+assistant response time:
+- 1.453107
+- 0.794994
+- 1.559362
+response time report:
+  average: 1.269154
+  max: 1.559362
+  min: 0.794994
+---
+interaction:
+- User: I'd like to order a large carbonara pizza, please.
+- Assistant: '{"type": "carbonara", "size": "large"}'
+- User: That sounds great! Can I also get 2 cans of Coca-Cola, please?
+- Assistant: '{"type": "carbonara", "size": "large", "drinks": [{"name": "Coca-Cola",
+    "quantity": 2}]}'
+- User: Perfect, thank you!
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: ''dict''
+    object has no attribute ''lower'''

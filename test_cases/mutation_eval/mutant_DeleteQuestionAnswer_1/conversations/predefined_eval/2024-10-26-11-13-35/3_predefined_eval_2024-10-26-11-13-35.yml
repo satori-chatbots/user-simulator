@@ -1,0 +1,67 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 21.683925
+assistant response time:
+- 1.334825
+- 0.510684
+- 1.824152
+- 0.901609
+- 1.013497
+- 1.601567
+- 1.056013
+response time report:
+  average: 1.177478
+  max: 1.824152
+  min: 0.510684
+---
+interaction:
+- User: Hi, I'd like to order a small Hawaiian pizza, please.
+- Assistant: '{"type": "Hawaiian", "size": "small"}'
+- User: That sounds great! Can you confirm the order for the small Hawaiian pizza?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could you confirm my order for the small Hawaiian pizza, please?
+- Assistant: I can confirm that you have ordered a small Hawaiian pizza. Is there
+    anything else you would like to add to your order?
+- User: Yes, I'd like to add 2 cans of Sprite to my order, please.
+- Assistant: I've added 2 cans of Sprite to your order. Is there anything else you
+    would like to add or modify?
+- User: No, that's all for now. Thank you!
+- Assistant: You're welcome! Your order for a small Hawaiian pizza and 2 cans of Sprite
+    has been confirmed. If you need anything else, feel free to ask. Have a great
+    day!
+- User: I'd like to order a small Hawaiian pizza, please.
+- Assistant: 'Thanks for ordering a small hawaiian pizza!
+
+    I see that you would like to order a small Hawaiian pizza. Could you please let
+    me know how many drinks you would like to add and which type of drink you prefer:
+    coke, sprite, or water?'
+- User: I'd like to add 2 cans of Sprite to my order, please.
+- Assistant: "json\n{\n  \"num_drinks\": 2,\n  \"drinks\": \"sprite\"\n}\n"

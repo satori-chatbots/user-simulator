@@ -272,7 +272,7 @@ def is_unique(property: str) -> bool:
         if var_dict[property] in values:
             print(f"   Tests: {test.file_name} and {values[var_dict[property]]} have value {var_dict[property]} for {property}.")
             return False
-        else:
+        elif var_dict[property] is not None:
             values[var_dict[property]] = test.file_name
     return True
 

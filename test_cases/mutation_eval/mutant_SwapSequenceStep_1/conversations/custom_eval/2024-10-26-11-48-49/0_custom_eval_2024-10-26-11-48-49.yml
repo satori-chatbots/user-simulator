@@ -1,0 +1,57 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - cheese
+  - olives
+  - mushrooms
+- drink:
+  - sprite
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- order_id: 8bd0af
+errors: []
+---
+conversation time: 20.03816
+assistant response time:
+- 3.422146
+- 2.386324
+- 3.428235
+response time report:
+  average: 3.078901
+  max: 3.428235
+  min: 2.386324
+---
+interaction:
+- User: I'd like to order a small custom pizza with cheese, olives, and mushrooms,
+    please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with cheese, olives and mushrooms!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    A small pizza topped with cheese, olives, and mushrooms, along with one Sprite,
+    costs $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 8bd0af.'

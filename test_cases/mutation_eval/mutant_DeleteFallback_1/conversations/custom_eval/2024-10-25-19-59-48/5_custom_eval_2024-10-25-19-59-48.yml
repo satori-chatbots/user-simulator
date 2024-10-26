@@ -1,0 +1,56 @@
+serial: 2024-10-25-19-59-48
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepper
+  - corn
+  - mushrooms
+- drink:
+  - water
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21
+- order_id: 2f7613
+errors: []
+---
+conversation time: 24.639037
+assistant response time:
+- 3.697367
+- 2.462283
+- 5.404571
+response time report:
+  average: 3.85474
+  max: 5.404571
+  min: 2.462283
+---
+interaction:
+- User: I'd like to order a big custom pizza with pepper, corn, and mushrooms, please.
+- Assistant: It seems like we need to confirm the pizza size for your order. Could
+    you please specify if you would like a small, medium, or large pizza?
+- User: I'd like a large custom pizza, please.
+- Assistant: 'Thanks for ordering a large pizza with pepper, corn and mushrooms!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order a water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A large pizza topped with peppers, corn, and mushrooms, along with one water,
+    costs $21.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 2f7613.'

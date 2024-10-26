@@ -1,0 +1,59 @@
+serial: 2024-10-25-17-34-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - bacon
+  - ham
+  - cheese
+- drink:
+  - coke
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: 31fb1b
+errors: []
+---
+conversation time: 24.12976
+assistant response time:
+- 4.757858
+- 1.194364
+- 2.47305
+- 3.563299
+response time report:
+  average: 2.997142
+  max: 4.757858
+  min: 1.194364
+---
+interaction:
+- User: I'd like to order a big custom pizza with bacon, ham, and cheese, please.
+- Assistant: It seems like we need to confirm the pizza size for your order. Could
+    you please let me know if you would like a small, medium, or large pizza?
+- User: I'd like a big pizza, please.
+- Assistant: Unfortunately, we don't have a "big" size option. Could you please choose
+    between small, medium, or large for your pizza size?
+- User: I'd like a large pizza, please.
+- Assistant: 'Thanks for ordering a large pizza with bacon, ham and cheese!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? We have coke, sprite, and water available.'
+- User: I'd like to order one coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    A large pizza topped with bacon, ham, and cheese, along with one Coke, costs $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 31fb1b.'

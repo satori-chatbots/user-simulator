@@ -1,0 +1,75 @@
+serial: 2024-10-25-19-59-48
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - bacon
+  - ham
+  - cheese
+- drink:
+  - water
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 47.687697
+assistant response time:
+- 3.445008
+- 2.62341
+- 1.085584
+- 1.648973
+- 1.66629
+- 1.538966
+- 1.700751
+response time report:
+  average: 1.958426
+  max: 3.445008
+  min: 1.085584
+---
+interaction:
+- User: I'd like to order a small custom pizza with bacon, ham, and cheese, please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with bacon, ham and cheese!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one water, please.
+- Assistant: "json\n{\n  \"num_drinks\": 1,\n  \"drinks\": \"water\"\n}\n"
+- User: Great! So, to confirm, you have ordered a small pizza with bacon, ham, and
+    cheese, and one water. Is that correct?
+- Assistant: I'm sorry, but I can only assist with predefined pizza types and drinks.
+    Could you please let me know if you would like to order a predefined pizza type
+    such as margarita, carbonara, marinera, hawaiian, four cheese, or vegetarian?
+    Also, I have noted that you would like one water.
+- User: I'd like to order a small custom pizza with bacon, ham, and cheese, please.
+- Assistant: 'It seems like you want to order a small custom pizza with bacon, ham,
+    and cheese. Unfortunately, I can only assist with predefined pizza types. Would
+    you like to choose from our predefined options: margarita, carbonara, marinera,
+    hawaiian, four cheese, or vegetarian?'
+- User: I'd like to order a small pizza with bacon, please.
+- Assistant: 'It seems like you want to order a small custom pizza with bacon. However,
+    I can only assist with predefined pizzas. Would you like to choose from our predefined
+    options: margarita, carbonara, marinera, hawaiian, four cheese, or vegetarian?'
+- User: I'd like to order a small pizza with ham, please.
+- Assistant: 'It seems like you want to order a small pizza with ham. However, we
+    only offer predefined pizza types. Would you like to choose from our predefined
+    options: margarita, carbonara, marinera, hawaiian, four cheese, or vegetarian?
+    Let me know which one you''d like and the size.'

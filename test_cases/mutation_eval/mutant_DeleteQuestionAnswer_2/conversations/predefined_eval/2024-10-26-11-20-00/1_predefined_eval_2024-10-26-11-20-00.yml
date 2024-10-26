@@ -1,0 +1,68 @@
+serial: 2024-10-26-11-20-00
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.50
+- order_id: 1f94bd
+errors: []
+---
+conversation time: 24.564224
+assistant response time:
+- 1.756246
+- 1.624694
+- 1.046557
+- 1.572377
+- 1.02703
+- 2.810322
+response time report:
+  average: 1.639537
+  max: 2.810322
+  min: 1.02703
+---
+interaction:
+- User: I'd like to order a medium carbonara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a medium carbonara pizza, please?
+- Assistant: I see that you would like a medium carbonara pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of Coca-Cola, please.
+- Assistant: Great! I've added 2 cans of Coca-Cola to your order. So, your order now
+    includes a medium carbonara pizza and 2 cans of Coca-Cola. Would you like to add
+    anything else or proceed to checkout?
+- User: No, that's all for now. Let's proceed to checkout.
+- Assistant: 'Thanks for ordering a medium carbonara pizza!
+
+    I see that you would like to add 2 cans of Coca-Cola to your order. Thank you
+    for providing the information. Let''s proceed to checkout.'
+- User: Can you confirm the total amount for my order?
+- Assistant: I'm sorry, but I don't have the capability to confirm the total amount
+    for your order. Please contact the store directly for billing inquiries. Is there
+    anything else I can assist you with?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a medium carbonara pizza and two Cokes is $20.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 1f94bd.'

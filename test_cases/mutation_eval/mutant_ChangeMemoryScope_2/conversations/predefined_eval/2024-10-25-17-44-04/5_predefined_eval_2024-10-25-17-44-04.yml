@@ -1,0 +1,70 @@
+serial: 2024-10-25-17-44-04
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $24
+- order_id: dcf8eb
+errors: []
+---
+conversation time: 30.518656
+assistant response time:
+- 1.514526
+- 1.84959
+- 1.055144
+- 2.531932
+- 2.449538
+- 4.38404
+response time report:
+  average: 2.297461
+  max: 4.38404
+  min: 1.055144
+---
+interaction:
+- User: I'd like to order a large vegetarian pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large vegetarian pizza, please?
+- Assistant: Thank you for your order! You have requested a large vegetarian pizza.
+    Is there anything else you would like to add to your order, such as drinks?
+- User: Yes, could I also get 2 cans of water, please?
+- Assistant: Thank you for your order! You have requested a large vegetarian pizza
+    and 2 cans of water. Is there anything else you would like to add to your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large vegetarian pizza!
+
+    Thank you for your order! You have requested a large vegetarian pizza and 2 cans
+    of water. Your order is complete. If you need anything else, feel free to ask.
+    Have a great day!'
+- User: I'd like to order a large vegetarian pizza, please.
+- Assistant: 'Thanks for ordering a large vegetarian pizza!
+
+    Thank you for your order! You have requested a large vegetarian pizza. Would you
+    like to add any drinks to your order? If so, please let me know the type of drink
+    (coke, sprite, or water) and the quantity.'
+- User: Could I get 2 cans of water, please?
+- Assistant: 'Alright, I''ve received your order for two bottles of water.
+
+    The cost for a large vegetarian pizza and two bottles of water is $24.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is dcf8eb.'

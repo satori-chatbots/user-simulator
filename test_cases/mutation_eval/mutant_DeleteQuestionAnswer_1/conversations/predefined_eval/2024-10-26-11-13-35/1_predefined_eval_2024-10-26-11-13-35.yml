@@ -1,0 +1,59 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.00
+- order_id: 88b639
+errors: []
+---
+conversation time: 15.199874
+assistant response time:
+- 1.485467
+- 1.773017
+- 2.256684
+- 2.848863
+response time report:
+  average: 2.091007
+  max: 2.848863
+  min: 1.485467
+---
+interaction:
+- User: I'd like to order a medium four cheese pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a medium four cheese pizza, please?
+- Assistant: Could you please confirm the size of the pizza you'd like? I have the
+    type as four cheese, but I need to know if you want a small, medium, or large
+    pizza.
+- User: Medium, please.
+- Assistant: 'Thanks for ordering a medium four cheese pizza!
+
+    Could you please let me know how many drinks you would like and which type you
+    prefer? The options are coke, sprite, or water.'
+- User: I'd like to order 2 cans of Coca-Cola, please.
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a medium four-cheese pizza and two Cokes is $20.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 88b639.'

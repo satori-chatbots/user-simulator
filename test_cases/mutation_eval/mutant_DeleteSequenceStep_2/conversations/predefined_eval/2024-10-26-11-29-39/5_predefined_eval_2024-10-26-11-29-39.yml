@@ -1,0 +1,55 @@
+serial: 2024-10-26-11-29-39
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 12.901474
+assistant response time:
+- 2.402845
+- 1.876926
+- 1.171486
+- 0.812088
+response time report:
+  average: 1.565836
+  max: 2.402845
+  min: 0.812088
+---
+interaction:
+- User: I'd like to order a large margarita pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a large margarita pizza, please?
+- Assistant: I see that you would like a large margarita pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of Sprite, please.
+- Assistant: Great! I've added 2 cans of Sprite to your order. To confirm, you have
+    a large margarita pizza and 2 cans of Sprite. Is there anything else you would
+    like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property num_drinks'

@@ -1,0 +1,62 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $15.00
+- order_id: b338c0
+errors: []
+---
+conversation time: 23.211686
+assistant response time:
+- 7.816784
+- 1.316897
+- 1.840374
+- 2.833889
+response time report:
+  average: 3.451986
+  max: 7.816784
+  min: 1.316897
+---
+interaction:
+- User: I'd like to order a small four cheese pizza, please.
+- Assistant: 'It looks like we already have the data from the previous conversation:
+    a small four cheese pizza. Is there anything else you would like to add to your
+    order, such as drinks?'
+- User: Yes, I'd like to add 2 cans of Sprite, please.
+- Assistant: Great! I've added 2 cans of Sprite to your order. You have a small four
+    cheese pizza and 2 cans of Sprite. Would you like to add anything else or proceed
+    to checkout?
+- User: No, that's all for now. Let's proceed to checkout.
+- Assistant: 'Thanks for ordering a small four cheese pizza!
+
+    It looks like we already have the data from the previous conversation: 2 cans
+    of Sprite. Is there anything else you would like to add to your order before we
+    proceed to checkout?'
+- User: No, that's all for now. Let's proceed to checkout.
+- Assistant: 'Alright, I''ve received your order for two Sprites.
+
+    The cost for a small four-cheese pizza and two Sprites is $15.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is b338c0.'

@@ -1,0 +1,57 @@
+serial: 2024-10-26-11-29-39
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 18.60985
+assistant response time:
+- 8.830983
+- 0.81059
+- 1.158477
+- 0.936946
+response time report:
+  average: 2.934249
+  max: 8.830983
+  min: 0.81059
+---
+interaction:
+- User: I'd like to order a medium Hawaiian pizza, please.
+- Assistant: 'It looks like we have already collected the data for your order: a medium
+    Hawaiian pizza. If there''s anything else you need or if you''d like to add drinks
+    to your order, please let me know!'
+- User: Could I also get 2 cans of Sprite with that order, please?
+- Assistant: Sure! I've added 2 cans of Sprite to your order. If there's anything
+    else you need, feel free to let me know!
+- User: That's all for now, thank you!
+- Assistant: You're welcome! Your order of a medium Hawaiian pizza and 2 cans of Sprite
+    has been noted. If you need anything else or have any questions, feel free to
+    ask. Enjoy your meal from Fast Pizza!
+- User: I'd like to order a medium Hawaiian pizza, please.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property num_drinks'

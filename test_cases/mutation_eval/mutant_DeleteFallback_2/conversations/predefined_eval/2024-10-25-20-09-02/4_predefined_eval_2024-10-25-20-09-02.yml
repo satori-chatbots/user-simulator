@@ -1,0 +1,73 @@
+serial: 2024-10-25-20-09-02
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 36.226931
+assistant response time:
+- 2.909723
+- 1.132501
+- 1.152597
+- 1.237805
+- 1.07235
+- 1.546569
+- 1.300874
+response time report:
+  average: 1.478917
+  max: 2.909723
+  min: 1.07235
+---
+interaction:
+- User: I'd like to order a medium marinara pizza, please.
+- Assistant: Thank you for providing the pizza type and size. You have ordered a medium
+    marinara pizza. If you need anything else, feel free to let me know!
+- User: Could I also get one can of Coca-Cola, please?
+- Assistant: Certainly! I've noted your request for one can of Coca-Cola. If there's
+    anything else you'd like to add to your order, just let me know!
+- User: That's all I need for now, thank you!
+- Assistant: You're welcome! Your order for a medium marinara pizza and a can of Coca-Cola
+    is noted. If you need anything else or have any questions, feel free to ask. Have
+    a great day!
+- User: Could you confirm the total cost for my order, please?
+- Assistant: I'm sorry, but I currently don't have access to pricing information or
+    the ability to confirm the total cost of your order. Please contact the Fast Pizza
+    shop directly for pricing details. If you have any other questions or need further
+    assistance, feel free to ask!
+- User: Could you remind me of the items in my order again?
+- Assistant: Certainly! Your order includes a medium marinara pizza and one can of
+    Coca-Cola. If you have any more questions or need further assistance, feel free
+    to ask!
+- User: Thank you for confirming my order. That's all I need for now!
+- Assistant: You're welcome! If you have any more questions or need further assistance
+    in the future, feel free to reach out. Enjoy your meal!
+- User: Could you tell me if there's a way to customize the crust on the marinara
+    pizza?
+- Assistant: At Fast Pizza, we currently offer predefined pizzas with standard crust
+    options. Unfortunately, we do not have the option to customize the crust on our
+    marinara pizza. If you have any other questions or need further assistance, feel
+    free to ask!

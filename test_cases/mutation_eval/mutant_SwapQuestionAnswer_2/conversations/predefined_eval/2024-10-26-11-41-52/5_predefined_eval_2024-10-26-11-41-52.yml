@@ -1,0 +1,63 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $24
+- order_id: 877bac
+errors: []
+---
+conversation time: 21.915442
+assistant response time:
+- 1.547182
+- 1.856396
+- 0.847203
+- 2.056111
+- 2.398286
+response time report:
+  average: 1.741035
+  max: 2.398286
+  min: 0.847203
+---
+interaction:
+- User: I'd like to order a large marinara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large marinara pizza, please?
+- Assistant: I see that you would like a large marinara pizza. Is there anything else
+    you would like to add to your order, such as drinks or another type of pizza?
+- User: Yes, could I also get 2 cans of water, please?
+- Assistant: Great! I've noted down a large marinara pizza and 2 cans of water for
+    your order. Is there anything else you would like to add or modify?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large marinera pizza!
+
+    I see that you would like 2 cans of water. Your order includes a large marinara
+    pizza and 2 cans of water. If everything looks correct, I''ll proceed with your
+    order. Thank you for choosing Fast Pizza!'
+- User: Yes, everything looks correct. Thank you!
+- Assistant: 'Sure, I''ve received your order for two bottles of water.
+
+    The cost for a large marinera pizza and two bottles of water is $24.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 877bac.'

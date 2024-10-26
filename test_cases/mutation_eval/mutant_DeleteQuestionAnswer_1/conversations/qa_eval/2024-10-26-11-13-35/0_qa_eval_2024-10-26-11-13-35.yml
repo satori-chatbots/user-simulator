@@ -1,0 +1,75 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just ask the questions you'd like to know
+ask_about:
+- What are the opening hours?
+- What types of pizza do you serve?
+- What are the prices of the pizzas? How much do they cost?
+- What are the prices of the beverages?
+- How do I get the order? Do you deliver orders?
+- How much time does it take to get an order?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 8
+- interaction_style:
+  - default
+data_output:
+- opening_hours: null
+- pizza_types: Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- pizza_prices: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big.
+    The other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- beverages_prices: Sprite and Coke are 1.50$. Water is 1$.
+- order_time: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 36.476528
+assistant response time:
+- 0.881437
+- 0.741988
+- 0.851361
+- 1.546182
+- 2.172196
+- 1.460946
+- 1.799911
+- 0.807484
+response time report:
+  average: 1.282688
+  max: 2.172196
+  min: 0.741988
+---
+interaction:
+- User: What are your opening hours?
+- Assistant: I'm sorry, I did not get what you said. I can help you ordering predefined
+    or custom pizzas, and then drinks.
+- User: What are your opening hours?
+- Assistant: I'm sorry, I did not get what you said. I can help you ordering predefined
+    or custom pizzas, and then drinks.
+- User: What are your opening hours?
+- Assistant: I'm sorry, I did not get what you said. I can help you ordering predefined
+    or custom pizzas, and then drinks.
+- User: What types of pizza do you serve?
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: What are the prices of the pizzas? How much do they cost?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: What are the prices of the beverages?
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: How do I get the order? Can I pick it up, or do you have delivery options?
+- Assistant: We do not do delivery, but customers need to get the shop for their orders.
+    We are located at 23 Main Street, New York.
+- User: What are your opening hours?
+- Assistant: I'm sorry, I did not get what you said. I can help you ordering predefined
+    or custom pizzas, and then drinks.

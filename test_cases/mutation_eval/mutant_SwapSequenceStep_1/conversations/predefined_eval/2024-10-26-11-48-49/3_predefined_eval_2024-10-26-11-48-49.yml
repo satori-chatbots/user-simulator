@@ -1,0 +1,59 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $14
+- order_id: '469427'
+errors: []
+---
+conversation time: 19.688267
+assistant response time:
+- 2.952307
+- 2.348102
+- 0.797698
+- 2.161212
+response time report:
+  average: 2.064829
+  max: 2.952307
+  min: 0.797698
+---
+interaction:
+- User: I'd like to order a small four cheese pizza, please.
+- Assistant: Could you please let me know how many drinks you would like to order
+    and which type of drink you prefer? We have coke, sprite, and water available.
+- User: I'll take 2 cans of water, please.
+- Assistant: 'Alright, I''ve received your order for two bottles of water.
+
+    Thank you for your order. You have ordered a small four cheese pizza and 2 cans
+    of water. If there''s anything else you need, feel free to let me know!'
+- User: That's all for now, thank you!
+- Assistant: You're welcome! If you need anything else in the future, feel free to
+    reach out. Have a great day!
+- User: I'd like to order a small four cheese pizza, please.
+- Assistant: 'Thanks for ordering a small four cheese pizza!
+
+    The cost for a small four-cheese pizza and two bottles of water is $14.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 469427.'

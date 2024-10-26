@@ -1,0 +1,58 @@
+serial: 2024-10-25-19-11-05
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $23.50
+- order_id: 62fd4d
+errors: []
+---
+conversation time: 16.838451
+assistant response time:
+- 3.245495
+- 1.951358
+- 4.638697
+response time report:
+  average: 3.278516
+  max: 4.638697
+  min: 1.951358
+---
+interaction:
+- User: Hi, I'd like to order a large four cheese pizza, please.
+- Assistant: It looks like you want a large four cheese pizza. Is there anything else
+    you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add a can of Sprite, please.
+- Assistant: 'Thanks for ordering a large four cheese pizza!
+
+    Could you please let me know how many cans of Sprite you would like to add to
+    your order?'
+- User: Just one can of Sprite, please.
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    Alright, I''ve received your order for one Sprite.
+
+    The cost for a large four-cheese pizza and one Sprite is $23.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 62fd4d.'

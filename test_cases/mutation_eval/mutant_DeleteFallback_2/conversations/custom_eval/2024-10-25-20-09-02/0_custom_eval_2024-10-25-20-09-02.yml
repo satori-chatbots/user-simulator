@@ -1,0 +1,57 @@
+serial: 2024-10-25-20-09-02
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - mushrooms
+  - pepperoni
+  - corn
+- drink:
+  - sprite
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- order_id: f7029a
+errors: []
+---
+conversation time: 21.435706
+assistant response time:
+- 3.743591
+- 3.193943
+- 3.574804
+response time report:
+  average: 3.504112
+  max: 3.743591
+  min: 3.193943
+---
+interaction:
+- User: I'd like to order a small custom pizza with mushrooms, pepperoni, and corn,
+    please.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    The options are small, medium, or large.
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with mushrooms, pepperoni and corn!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a small pizza topped with mushrooms, pepperoni, and corn, along with
+    one Sprite, is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is f7029a.'

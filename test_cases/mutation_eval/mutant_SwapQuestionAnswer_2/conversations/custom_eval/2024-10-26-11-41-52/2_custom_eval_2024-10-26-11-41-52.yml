@@ -1,0 +1,63 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepperoni
+  - chicken
+  - pepper
+- drink:
+  - sprite
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: e2760b
+errors: []
+---
+conversation time: 29.554919
+assistant response time:
+- 3.30843
+- 0.806457
+- 1.936052
+- 3.398225
+response time report:
+  average: 2.362291
+  max: 3.398225
+  min: 0.806457
+---
+interaction:
+- User: I'd like to order a big custom pizza with pepperoni, chicken, and pepper,
+    please. Can you confirm that for me?
+- Assistant: 'It seems like we need to confirm the pizza size for your order. Please
+    choose from the following options: small, medium, or large.'
+- User: I'd like a big custom pizza, please. Can you confirm that?
+- Assistant: It seems like there was a misunderstanding. We offer pizza sizes in small,
+    medium, or large. Could you please let me know which size you'd like for your
+    custom pizza?
+- User: I'd like a large custom pizza with pepperoni, chicken, and pepper, please.
+    Can you confirm that?
+- Assistant: 'Thanks for ordering a large pizza with pepperoni, chicken and pepper!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? We have coke, sprite, and water available.'
+- User: I'd like to order one Sprite, please. Can you confirm that?
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a large pizza topped with pepperoni, chicken, and peppers, along
+    with one Sprite, is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e2760b.'

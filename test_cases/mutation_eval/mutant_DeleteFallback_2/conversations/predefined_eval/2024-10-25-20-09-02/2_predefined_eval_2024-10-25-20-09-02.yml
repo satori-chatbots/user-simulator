@@ -1,0 +1,63 @@
+serial: 2024-10-25-20-09-02
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $23
+- order_id: febd6b
+errors: []
+---
+conversation time: 25.300287
+assistant response time:
+- 1.507485
+- 1.657475
+- 1.105463
+- 2.337263
+- 3.602533
+response time report:
+  average: 2.042043
+  max: 3.602533
+  min: 1.105463
+---
+interaction:
+- User: I'd like to order a large Hawaiian pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large Hawaiian pizza, please?
+- Assistant: I see that you would like a large Hawaiian pizza. Is there anything else
+    you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add a can of water, please.
+- Assistant: Great! I've added a can of water to your order. So, you have a large
+    Hawaiian pizza and a can of water. Is there anything else you would like to add
+    or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large hawaiian pizza!
+
+    I see that you would like to add a can of water to your order. Could you please
+    confirm the number of drinks you would like to order?'
+- User: Just one can of water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a large Hawaiian pizza and one water is $23.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is febd6b.'

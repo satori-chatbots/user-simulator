@@ -1,0 +1,62 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just ask the questions you'd like to know
+ask_about:
+- What are the opening hours?
+- What types of pizza do you serve?
+- What are the prices of the pizzas? How much do they cost?
+- What are the prices of the beverages?
+- How do I get the order? Do you deliver orders?
+- How much time does it take to get an order?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 8
+- interaction_style:
+  - default
+data_output:
+- opening_hours: Every day from 1pm to 11:30pm
+- pizza_types: Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- pizza_prices: null
+- beverages_prices: null
+- order_time: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 36.230299
+assistant response time:
+- 1.697091
+- 1.570417
+- 2.096828
+- 1.271736
+- 1.555183
+- 1.783422
+- 1.664734
+- 2.245655
+response time report:
+  average: 1.735633
+  max: 2.245655
+  min: 1.271736
+---
+interaction:
+- User: What are your opening hours?
+- Assistant: Every day from 1pm to 11:30pm
+- User: What types of pizza do you serve?
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: What are the prices of the pizzas? How much do they cost?
+- Assistant: Every day from 1pm to 11:30pm
+- User: What are the prices of the pizzas? How much do they cost?
+- Assistant: Every day from 1pm to 11:30pm
+- User: What are the prices of the pizzas? How much do they cost?
+- Assistant: Every day from 1pm to 11:30pm
+- User: What are the prices of the pizzas? How much do they cost?
+- Assistant: Every day from 1pm to 11:30pm
+- User: What are the prices of the pizzas? How much do they cost?
+- Assistant: Every day from 1pm to 11:30pm
+- User: What are the prices of the pizzas? How much do they cost?
+- Assistant: Every day from 1pm to 11:30pm

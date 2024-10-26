@@ -1,0 +1,63 @@
+serial: 2024-10-25-19-40-45
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.50
+- order_id: 8d484b
+errors: []
+---
+conversation time: 31.501226
+assistant response time:
+- 1.388261
+- 2.074913
+- 1.15052
+- 2.949031
+- 4.081891
+response time report:
+  average: 2.328923
+  max: 4.081891
+  min: 1.15052
+---
+interaction:
+- User: I'd like to order a medium marinara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a medium marinara pizza, please?
+- Assistant: I see that you would like a medium marinara pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add a can of Coca-Cola, please.
+- Assistant: Great! I've added a can of Coca-Cola to your order. So, you have a medium
+    marinara pizza and a can of Coca-Cola. Is there anything else you would like to
+    add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a medium marinera pizza!
+
+    Could you please confirm the number of drinks you would like to order? I have
+    noted that you would like a can of Coca-Cola. Thank you!'
+- User: Just one can of Coca-Cola, please.
+- Assistant: 'Alright, I''ve received your order for one Coke.
+
+    The cost for a medium marinera pizza and one Coke is $18.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 8d484b.'

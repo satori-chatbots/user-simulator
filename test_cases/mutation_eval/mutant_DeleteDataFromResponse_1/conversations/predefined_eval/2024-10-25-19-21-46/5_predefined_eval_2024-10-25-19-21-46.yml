@@ -1,0 +1,71 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 32.404486
+assistant response time:
+- 2.945528
+- 1.301862
+- 1.091986
+- 1.212149
+- 1.222077
+- 1.347533
+- 0.80523
+response time report:
+  average: 1.418052
+  max: 2.945528
+  min: 0.80523
+---
+interaction:
+- User: I'd like to order a large Hawaiian pizza, please.
+- Assistant: 'It looks like we have all the necessary information from the previous
+    conversation: a large Hawaiian pizza. If there''s anything else you need or if
+    you''d like to add drinks to your order, please let me know!'
+- User: Great, can I also get 2 cans of water with that order?
+- Assistant: Sure, I can add 2 cans of water to your order. So, you have a large Hawaiian
+    pizza and 2 cans of water. If there's anything else you'd like to add or modify,
+    just let me know!
+- User: That sounds perfect. Thank you!
+- Assistant: You're welcome! Your order for a large Hawaiian pizza and 2 cans of water
+    is all set. If you need anything else, feel free to ask. Enjoy your meal!
+- User: Can you confirm the total cost for the order?
+- Assistant: I'm sorry, but I currently don't have access to pricing information.
+    Please contact the shop directly for the total cost of your order. If there's
+    anything else I can assist you with, feel free to ask!
+- User: Alright, thanks for the help!
+- Assistant: I'm sorry, but I don't have the capability to provide the total cost
+    for the order. You might want to contact the shop directly for pricing details.
+    If there's anything else I can assist you with, feel free to let me know!
+- User: Can you remind me of the payment methods you accept?
+- Assistant: At Fast Pizza, we accept various payment methods including cash, credit/debit
+    cards, and mobile payment options like Apple Pay and Google Pay. If you have any
+    other questions or need further assistance, feel free to ask!
+- User: Thanks for the information! That's all I needed.
+- Assistant: I'm glad I could help! If you have any more questions or need assistance
+    in the future, feel free to reach out. Have a great day!

@@ -221,6 +221,10 @@ class ChatbotTaskyto(Chatbot):
                 logger.error(f"Couldn't connect with chatbot")
                 errors.append({500: f"Couldn't connect with chatbot"})
                 return False, 'cut connection'
+            except Exception:
+                logger.error(f"Server error: invalid payload")
+                errors.append({post_response.status_code: f"Server error"})
+                return False, 'chatbot server error'
 
         if self.id is not None:
             new_data = {

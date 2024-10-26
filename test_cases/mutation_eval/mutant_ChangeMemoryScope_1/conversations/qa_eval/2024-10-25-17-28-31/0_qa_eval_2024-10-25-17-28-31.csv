@@ -1,0 +1,7 @@
+;verification;data
+What_are_the_opening_hours?;True;Every day from 1pm to 11:30pm
+What_types_of_pizza_do_you_serve?;True;We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian, and Custom (you choose the ingredients)
+What_are_the_prices_of_the_pizzas?_How_much_do_they_cost?;True;Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara is 2.5$ more for each size. Custom pizzas with up to three ingredients are the same prices than predefined ones. Each additional ingredient has an increment of 50 cents.
+What_are_the_prices_of_the_beverages?;True;Sprite and Coke are 1.50$. Water is 1$.
+How_do_I_get_the_order?_Do_you_deliver_orders?;True;We do not do delivery, but customers need to get the shop for their orders. We are located at 23 Main Street, New York.
+How_much_time_does_it_take_to_get_an_order?;False;

@@ -1,0 +1,71 @@
+serial: 2024-10-25-17-44-04
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 32.83794
+assistant response time:
+- 3.254584
+- 1.32433
+- 2.41368
+- 0.89968
+- 1.924987
+- 0.827287
+- 0.805774
+response time report:
+  average: 1.63576
+  max: 3.254583
+  min: 0.805774
+---
+interaction:
+- User: Hi, I'd like to order a small carbonara pizza, please.
+- Assistant: I see that you have already mentioned a small carbonara pizza. Is there
+    anything else you would like to add to your order, such as drinks or another type
+    of pizza?
+- User: Could I also get one can of Sprite, please?
+- Assistant: I've noted your order for a small carbonara pizza and one can of Sprite.
+    Is there anything else you would like to add to your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    I see that you have already mentioned one can of Sprite. Could you please confirm
+    the total number of drinks you would like to order?'
+- User: Just one can of Sprite, please.
+- Assistant: "json\n{\n  \"num_drinks\": 1,\n  \"drinks\": \"sprite\"\n}\n"
+- User: 'User: Great, thank you! That''s all I need.'
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    Thank you for confirming. You have ordered one can of Sprite. If there''s anything
+    else you need, feel free to let me know!'
+- User: Great, thank you! That's all I need.
+- Assistant: The order has been successfully placed. You have ordered a small carbonara
+    pizza and one can of Sprite. If there's anything else you need, feel free to let
+    me know!
+- User: Great, thank you! That's all I need.
+- Assistant: You're welcome! If you need anything else in the future, feel free to
+    reach out. Have a great day!

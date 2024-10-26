@@ -1,0 +1,66 @@
+serial: 2024-10-25-19-59-48
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $25.00
+- order_id: bb36fc
+errors: []
+---
+conversation time: 33.406368
+assistant response time:
+- 3.466891
+- 1.150838
+- 1.20718
+- 5.941376
+- 3.364952
+response time report:
+  average: 3.026247
+  max: 5.941376
+  min: 1.150838
+---
+interaction:
+- User: Hi, I'd like to order a large vegetarian pizza, please.
+- Assistant: 'It looks like we have already collected the data for your order: a large
+    vegetarian pizza. If there''s anything else you need or if you''d like to add
+    drinks to your order, please let me know!'
+- User: Could I also get 2 cans of Coca-Cola with that order, please?
+- Assistant: Sure! I've added 2 cans of Coca-Cola to your order. If there's anything
+    else you need, feel free to let me know!
+- User: That's all for now, thank you!
+- Assistant: You're welcome! Your order for a large vegetarian pizza and 2 cans of
+    Coca-Cola has been noted. Thank you for choosing Fast Pizza. If you need anything
+    else, feel free to ask. Have a great day!
+- User: Hi, I'd like to order a large vegetarian pizza, please.
+- Assistant: 'Thanks for ordering a large vegetarian pizza!
+
+    It looks like you would like to add drinks to your order. Could you please confirm
+    the number of drinks and the type of drink you''d like? We have coke, sprite,
+    and water available.'
+- User: Could I get 2 cans of Coca-Cola with that order, please?
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a large vegetarian pizza and two Cokes is $25.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is bb36fc.'

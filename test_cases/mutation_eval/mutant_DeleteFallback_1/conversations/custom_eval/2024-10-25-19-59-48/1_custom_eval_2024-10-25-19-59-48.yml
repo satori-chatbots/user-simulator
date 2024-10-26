@@ -1,0 +1,60 @@
+serial: 2024-10-25-19-59-48
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepperoni
+  - pepper
+  - chicken
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: 2f1522
+errors: []
+---
+conversation time: 36.082579
+assistant response time:
+- 5.100244
+- 2.389523
+- 4.106772
+response time report:
+  average: 3.865513
+  max: 5.100244
+  min: 2.389523
+---
+interaction:
+- User: I'd like to order a medium custom pizza with pepperoni, peppers, and chicken,
+    please.
+- Assistant: 'It looks like we have the toppings as pepperoni and chicken, but "peppers"
+    is not an accepted topping. Could you please confirm if you would like to replace
+    "peppers" with another topping from the following options: cheese, mushrooms,
+    pepper, ham, bacon, olives, or corn? Also, could you please confirm the pizza
+    size as small, medium, or large?'
+- User: I'd like to keep the medium size and go with pepperoni and chicken, please.
+- Assistant: 'Thanks for ordering a medium pizza with pepperoni and chicken!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options available are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    A medium pizza topped with pepperoni and chicken, along with one Sprite, costs
+    $16.50.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is 2f1522.'

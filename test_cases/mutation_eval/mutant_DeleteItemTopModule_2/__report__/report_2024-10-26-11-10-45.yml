@@ -1,0 +1,191 @@
+Global report:
+  Average assistant response time: 0.019514
+  Maximum assistant response time: 0.104003
+  Mínimum assistant response time: 0.009964
+  Errors:
+  - error: 500
+    count: 73
+    conversations:
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 4_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 4_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 4_custom_eval_2024-10-26-11-10-45.yml
+    - 5_custom_eval_2024-10-26-11-10-45.yml
+    - 0_qa_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 4_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 4_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 4_predefined_eval_2024-10-26-11-10-45.yml
+    - 5_predefined_eval_2024-10-26-11-10-45.yml
+  - error: 1001
+    count: 73
+    conversations:
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 4_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 4_custom_eval_2024-10-26-11-10-45.yml
+    - 0_custom_eval_2024-10-26-11-10-45.yml
+    - 1_custom_eval_2024-10-26-11-10-45.yml
+    - 2_custom_eval_2024-10-26-11-10-45.yml
+    - 3_custom_eval_2024-10-26-11-10-45.yml
+    - 4_custom_eval_2024-10-26-11-10-45.yml
+    - 5_custom_eval_2024-10-26-11-10-45.yml
+    - 0_qa_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 4_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 4_predefined_eval_2024-10-26-11-10-45.yml
+    - 0_predefined_eval_2024-10-26-11-10-45.yml
+    - 1_predefined_eval_2024-10-26-11-10-45.yml
+    - 2_predefined_eval_2024-10-26-11-10-45.yml
+    - 3_predefined_eval_2024-10-26-11-10-45.yml
+    - 4_predefined_eval_2024-10-26-11-10-45.yml
+    - 5_predefined_eval_2024-10-26-11-10-45.yml
+---
+Test name: custom_eval
+Average assistant response time: 0.02792
+Maximum assistant response time: 0.104003
+Mínimum assistant response time: 0.012142
+Errors: []
+---
+Test name: qa_eval
+Average assistant response time: 0.02792
+Maximum assistant response time: 0.104003
+Mínimum assistant response time: 0.012142
+Errors:
+- error: 500
+  count: 1
+  conversations:
+  - 0_custom_eval_2024-10-26-11-10-45.yml
+- error: 1001
+  count: 1
+  conversations:
+  - 0_custom_eval_2024-10-26-11-10-45.yml
+---
+Test name: predefined_eval
+Average assistant response time: 0.02792
+Maximum assistant response time: 0.104003
+Mínimum assistant response time: 0.012142
+Errors:
+- error: 500
+  count: 1
+  conversations:
+  - 0_custom_eval_2024-10-26-11-10-45.yml
+- error: 1001
+  count: 1
+  conversations:
+  - 0_custom_eval_2024-10-26-11-10-45.yml

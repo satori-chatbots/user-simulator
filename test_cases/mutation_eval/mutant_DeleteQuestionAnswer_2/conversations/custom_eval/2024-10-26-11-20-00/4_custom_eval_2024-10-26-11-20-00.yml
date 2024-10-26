@@ -1,0 +1,64 @@
+serial: 2024-10-26-11-20-00
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - chicken
+  - bacon
+  - cheese
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: ec14f0
+errors: []
+---
+conversation time: 24.863273
+assistant response time:
+- 2.898248
+- 1.036826
+- 1.734848
+- 2.912254
+response time report:
+  average: 2.145544
+  max: 2.912254
+  min: 1.036826
+---
+interaction:
+- User: I'd like to order a medium custom pizza with chicken, bacon, and cheese, please.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    The available sizes are small, medium, and large.
+- User: I'd like a medium pizza, please.
+- Assistant: "json\n{\n  \"pizza_size\": \"medium\",\n  \"toppings\": [\"chicken\"\
+    , \"bacon\", \"cheese\"]\n}\n"
+- User: Great! Your medium custom pizza with chicken, bacon, and cheese is confirmed.
+    Would you like to order a drink now?
+- Assistant: 'Thanks for ordering a medium pizza with chicken, bacon and cheese!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The available options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    I have received your order for one Sprite.
+
+    A medium pizza topped with chicken, bacon, and cheese, along with one Sprite,
+    costs $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ec14f0.'

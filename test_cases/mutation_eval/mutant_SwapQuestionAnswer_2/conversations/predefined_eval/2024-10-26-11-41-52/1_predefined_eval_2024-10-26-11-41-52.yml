@@ -1,0 +1,64 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.50
+- order_id: 9038b0
+errors: []
+---
+conversation time: 27.223338
+assistant response time:
+- 2.58838
+- 1.021109
+- 1.103653
+- 2.99804
+- 3.309642
+response time report:
+  average: 2.204164
+  max: 3.309642
+  min: 1.021109
+---
+interaction:
+- User: Hi, I'd like to order a medium carbonara pizza, please.
+- Assistant: Thank you for providing the pizza size and type. You have ordered a medium
+    carbonara pizza. If you need anything else, feel free to let me know!
+- User: Great, can I also get 2 cans of Sprite, please?
+- Assistant: Sure! I've noted your order for 2 cans of Sprite along with your medium
+    carbonara pizza. If there's anything else you'd like to add, just let me know!
+- User: That's all for now, thank you!
+- Assistant: You're welcome! Your order for a medium carbonara pizza and 2 cans of
+    Sprite has been noted. If you have any more requests or need assistance in the
+    future, feel free to reach out. Have a great day!
+- User: Hi, I'd like to order a medium carbonara pizza, please.
+- Assistant: 'Thanks for ordering a medium carbonara pizza!
+
+    I see that you would like to order 2 cans of Sprite. If there''s anything else
+    you need, feel free to let me know!'
+- User: Can I actually get the 2 cans of Sprite now, please?
+- Assistant: 'Alright, I''ve received your order for two Sprites.
+
+    The cost for a medium carbonara pizza and two Sprites is $20.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 9038b0.'

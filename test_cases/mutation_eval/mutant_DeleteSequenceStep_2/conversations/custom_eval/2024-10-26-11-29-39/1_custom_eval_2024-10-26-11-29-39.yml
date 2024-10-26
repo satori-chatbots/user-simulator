@@ -1,0 +1,58 @@
+serial: 2024-10-26-11-29-39
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - bacon
+  - chicken
+  - olives
+- drink:
+  - coke
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: 643d56
+errors: []
+---
+conversation time: 18.541533
+assistant response time:
+- 3.468241
+- 2.16045
+- 2.77403
+response time report:
+  average: 2.800907
+  max: 3.468241
+  min: 2.16045
+---
+interaction:
+- User: I'd like to order a medium custom pizza with bacon, chicken, and olives, please.
+    Can you confirm that?
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: I'd like a medium custom pizza with bacon, chicken, and olives, please. Can
+    you confirm that?
+- Assistant: 'Thanks for ordering a medium pizza with bacon, chicken and olives!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one coke, please. Can you confirm that?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    A medium pizza topped with bacon, chicken, and olives, along with one Coke, costs
+    $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 643d56.'

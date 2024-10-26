@@ -1,0 +1,60 @@
+serial: 2024-10-25-19-40-45
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - bacon
+  - corn
+  - pepperoni
+- drink:
+  - sprite
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: 94e9da
+errors: []
+---
+conversation time: 25.073954
+assistant response time:
+- 4.697043
+- 2.152105
+- 3.764513
+response time report:
+  average: 3.537887
+  max: 4.697043
+  min: 2.152105
+---
+interaction:
+- User: I'd like to order a big custom pizza with bacon, corn, and pepperoni, please.
+- Assistant: It seems like we have the toppings you want, which are bacon, corn, and
+    pepperoni. However, I need to know the size of the pizza you'd like. Please choose
+    from small, medium, or large.
+- User: I'd like a large custom pizza, please.
+- Assistant: 'Thanks for ordering a large pizza with bacon, corn and pepperoni!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? You can choose from coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    Alright, I''ve received your order for one Sprite.
+
+    The cost for a large pizza topped with bacon, corn, and pepperoni, along with
+    one Sprite, is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 94e9da.'

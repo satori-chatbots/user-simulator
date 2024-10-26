@@ -1,0 +1,44 @@
+serial: 2024-10-26-11-35-54
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 504: No response was received from the server in less than 10
+- 1001: 2 goals left to complete.
+---
+conversation time: 14.725549
+assistant response time:
+- 2.039025
+- 10.019599
+response time report:
+  average: 6.029312
+  max: 10.019599
+  min: 2.039025
+---
+interaction:
+- User: Hi, I'd like to order a medium Hawaiian pizza, please.
+- Assistant: '{"type": "Hawaiian", "size": "medium"}'
+- User: That sounds great! Can you confirm the order for the medium Hawaiian pizza?

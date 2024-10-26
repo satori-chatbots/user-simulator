@@ -1,0 +1,56 @@
+serial: 2024-10-25-19-11-05
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - corn
+  - ham
+  - pepperoni
+- drink:
+  - coke
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: 21.5$
+- order_id: 671dd6
+errors: []
+---
+conversation time: 29.881603
+assistant response time:
+- 4.193623
+- 8.73025
+- 3.449606
+response time report:
+  average: 5.457826
+  max: 8.73025
+  min: 3.449606
+---
+interaction:
+- User: I'd like to order a big custom pizza with corn, ham, and pepperoni, please.
+- Assistant: 'It seems like we have the toppings you want: corn, ham, and pepperoni.
+    However, I need to know the size of the pizza you''d like to order. Please choose
+    from small, medium, or large.'
+- User: I'd like a large custom pizza, please.
+- Assistant: 'Thanks for ordering a large pizza with corn, ham and pepperoni!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? You can choose from coke, sprite, or water. Thank you!'
+- User: I'd like to order one coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The price of a large pizza with corn, ham and pepperoni, and 1 coke is 21.5$
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 671dd6.'

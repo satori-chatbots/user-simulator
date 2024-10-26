@@ -1,0 +1,69 @@
+serial: 2024-10-25-19-59-48
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13
+- order_id: 001dc1
+errors: []
+---
+conversation time: 35.577037
+assistant response time:
+- 4.116017
+- 1.009915
+- 2.398383
+- 0.917448
+- 1.210525
+- 3.505013
+response time report:
+  average: 2.192883
+  max: 4.116017
+  min: 0.917448
+---
+interaction:
+- User: I'd like to order a small marinara pizza, please.
+- Assistant: It seems like you have already provided the pizza type as "marinara"
+    and the size as "small". Is there anything else you would like to add to your
+    order, such as drinks?
+- User: Yes, I'd like to add 1 can of water, please.
+- Assistant: Great! I've added 1 can of water to your order. You have a small marinara
+    pizza and a can of water. Would you like to add anything else or proceed to checkout?
+- User: No, that's all for now. Let's proceed to checkout.
+- Assistant: 'Thanks for ordering a small marinera pizza!
+
+    It looks like you have already provided the information for 1 can of water. If
+    there''s anything else you need, feel free to let me know!'
+- User: Let's proceed to checkout.
+- Assistant: It looks like you have already provided all the necessary information
+    for your order. You have ordered a small marinara pizza and 1 can of water. Let's
+    proceed to checkout. Thank you for choosing Fast Pizza!
+- User: Let's proceed to checkout.
+- Assistant: It seems like you have already provided all the necessary information
+    for your order. Let's proceed to checkout. Thank you for choosing Fast Pizza!
+- User: Let's proceed to checkout.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a small marinera pizza and one water is $13.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 001dc1.'

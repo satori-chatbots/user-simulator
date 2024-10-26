@@ -1,0 +1,9 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+all_slots_set,13,6,7,0,53.85%
+check_beverage_prices,13,1,0,12,0.00%
+check_opening_hours,13,1,0,12,0.00%
+check_pizza_prices,13,1,0,12,0.00%
+check_pizza_types,13,1,0,12,0.00%
+check_times,13,0,1,12,100.00%
+small_pizza_price,13,2,0,11,0.00%
+unique_ids,1,0,1,0,100.00%

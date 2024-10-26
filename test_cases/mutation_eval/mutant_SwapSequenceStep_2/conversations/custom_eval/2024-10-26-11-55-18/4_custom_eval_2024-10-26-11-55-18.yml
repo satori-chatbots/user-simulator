@@ -1,0 +1,56 @@
+serial: 2024-10-26-11-55-18
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - corn
+  - ham
+  - pepper
+- drink:
+  - water
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16
+- order_id: bb68b4
+errors: []
+---
+conversation time: 19.659826
+assistant response time:
+- 3.118746
+- 1.56698
+- 2.972954
+response time report:
+  average: 2.552893
+  max: 3.118746
+  min: 1.56698
+---
+interaction:
+- User: I'd like to order a medium custom pizza with corn, ham, and pepper, please.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    We have small, medium, and large options available.
+- User: I'd like a medium custom pizza with corn, ham, and pepper, please.
+- Assistant: 'Thanks for ordering a medium pizza with corn, ham and pepper!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? We have coke, sprite, and water available.'
+- User: I'd like to order one water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A medium pizza topped with corn, ham, and pepper, along with one water, costs
+    $16.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is bb68b4.'

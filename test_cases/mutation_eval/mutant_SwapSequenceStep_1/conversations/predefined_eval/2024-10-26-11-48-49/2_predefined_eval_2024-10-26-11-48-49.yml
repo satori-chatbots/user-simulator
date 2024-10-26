@@ -1,0 +1,66 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $23.50
+- order_id: 6af92b
+errors: []
+---
+conversation time: 21.313097
+assistant response time:
+- 2.662333
+- 2.113866
+- 2.452887
+- 0.830123
+- 2.763464
+response time report:
+  average: 2.164534
+  max: 2.763464
+  min: 0.830123
+---
+interaction:
+- User: Hi, I'd like to order a large Hawaiian pizza, please.
+- Assistant: Could you please let me know how many drinks you would like to order
+    and which type of drinks you prefer? You can choose from coke, sprite, or water.
+- User: I'll have one can of Coca-Cola, please.
+- Assistant: 'Alright, I''ve received your order for one Coke.
+
+    It looks like we have already collected the pizza type as Hawaiian and the pizza
+    size as large. Is there anything else you would like to add to your order?'
+- User: No, that's all for now. Thank you!
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    It seems we have already collected the necessary information for your order: a
+    large Hawaiian pizza and one can of Coca-Cola. If there''s anything else you need,
+    feel free to let me know!'
+- User: Great, thank you! That's all I needed.
+- Assistant: You're welcome! If you have any more questions or need further assistance,
+    feel free to reach out. Enjoy your meal from Fast Pizza!
+- User: 'User: Hi, I''d like to order a large Hawaiian pizza, please.'
+- Assistant: 'Thanks for ordering a large hawaiian pizza!
+
+    The cost for a large Hawaiian pizza and one Coke is $23.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 6af92b.'

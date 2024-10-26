@@ -28,6 +28,9 @@ output:
   - pizza_types:
       type: str
       description: The types of pizzas served
+  - pizza_prices:
+      type: str
+      description: The prices of the pizzas
   - beverages_prices:
       type: str
       description: The prices of the beverages

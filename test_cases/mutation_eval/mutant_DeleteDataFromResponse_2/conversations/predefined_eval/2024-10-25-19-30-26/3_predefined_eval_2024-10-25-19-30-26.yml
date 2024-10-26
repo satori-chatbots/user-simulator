@@ -1,0 +1,66 @@
+serial: 2024-10-25-19-30-26
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $14
+- order_id: 126ffd
+errors: []
+---
+conversation time: 30.675872
+assistant response time:
+- 3.437101
+- 1.125216
+- 1.062371
+- 2.754315
+- 3.303114
+response time report:
+  average: 2.336423
+  max: 3.437101
+  min: 1.062371
+---
+interaction:
+- User: I'd like to order a small Hawaiian pizza, please.
+- Assistant: It looks like we have all the necessary information from the previous
+    conversation. You have ordered a small Hawaiian pizza. If you need anything else,
+    feel free to let me know!
+- User: Can I also get 2 cans of water, please?
+- Assistant: Sure! I can add 2 cans of water to your order. Is there anything else
+    you would like to add or any other assistance you need?
+- User: No, that's all for now. Thank you!
+- Assistant: You're welcome! If you need anything else in the future, feel free to
+    reach out. Have a great day!
+- User: I'd like to order a small Hawaiian pizza, please.
+- Assistant: 'Thanks for ordering a small hawaiian pizza!
+
+    It seems like you would like to order 2 cans of water along with your small Hawaiian
+    pizza. If this is correct, please confirm, or let me know if there are any changes.
+    Thank you!'
+- User: Yes, that's correct. I'd like to order 2 cans of water with the small Hawaiian
+    pizza.
+- Assistant: 'Alright, I''ve received your order for two bottles of water.
+
+    The cost for a small Hawaiian pizza and two waters is $14.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 126ffd.'

@@ -1,0 +1,61 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13
+- order_id: e006ec
+errors: []
+---
+conversation time: 19.568179
+assistant response time:
+- 3.104904
+- 0.874436
+- 2.256454
+- 3.277941
+response time report:
+  average: 2.378433
+  max: 3.277941
+  min: 0.874436
+---
+interaction:
+- User: Hi there! I'd like to order a small Hawaiian pizza, please.
+- Assistant: It looks like you have already provided the pizza type as "Hawaiian"
+    and the size as "small". Is there anything else you would like to add to your
+    order, such as drinks?
+- User: Yes, could I get one can of water, please?
+- Assistant: I've noted your order for a small Hawaiian pizza and one can of water.
+    Is there anything else you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a small hawaiian pizza!
+
+    It looks like you have already requested one can of water. Just to confirm, is
+    the number of drinks you want one? If there''s anything else you need, feel free
+    to let me know!'
+- User: Yes, just one can of water, please. That's all I need.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a small Hawaiian pizza and one water is $13.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e006ec.'

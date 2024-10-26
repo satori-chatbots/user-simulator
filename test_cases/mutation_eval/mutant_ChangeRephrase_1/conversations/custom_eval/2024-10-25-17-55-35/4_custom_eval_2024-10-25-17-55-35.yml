@@ -1,0 +1,62 @@
+serial: 2024-10-25-17-55-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepperoni
+  - mushrooms
+  - pepper
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: 16.5$
+- order_id: 1350a9
+errors: []
+---
+conversation time: 22.367882
+assistant response time:
+- 4.435357
+- 1.990099
+- 2.438973
+response time report:
+  average: 2.954809
+  max: 4.435357
+  min: 1.990099
+---
+interaction:
+- User: I'd like to order a medium custom pizza with pepperoni, mushrooms, and peppers,
+    please. Can you confirm that?
+- Assistant: 'It looks like we have the pizza size as "medium" from the previous conversation.
+    However, I noticed that "peppers" is not a valid topping option. Could you please
+    choose from the following toppings: cheese, mushrooms, pepper, ham, bacon, pepperoni,
+    olives, corn, chicken?'
+- User: I'd like to keep the medium custom pizza with pepperoni and mushrooms, please.
+    Can you confirm that?
+- Assistant: 'Thanks for ordering a medium pizza with pepperoni and mushrooms!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please. Can you confirm that?
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    Alright, I''ve received your order for one Sprite.
+
+    The price of a medium pizza with pepperoni and mushrooms, and 1 sprite is 16.5$
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 1350a9.'

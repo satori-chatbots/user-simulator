@@ -8,12 +8,12 @@ fallback: |
   Disculpa, no entiendo bien a qué te refieres.
 
 role: |
-  Debes actuar como un ciudadano que quiere empadronarse en Rivas Vaciamadrid.
+  Debes actuar como un ciudadano que quiere empadronarse en Málaga.
   Nunca actues como un asistente, tu rol es del ciudadano que necesita empadronarse.
 
 context:
 #  personality:
-  - Necesitas empadronarte en Rivas Vaciamadrid.
+  - Necesitas empadronarte en Málaga.
 
 ask_about:
   - "Quiero empadronarme"

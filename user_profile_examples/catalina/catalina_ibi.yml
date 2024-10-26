@@ -1,0 +1,38 @@
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+is_starter: True
+
+fallback: |
+  Disculpa, no entiendo bien a qué te refieres.
+
+role: |
+  Debes actuar como un ciudadano que necesita pagar impuestos municipales en Rivas Vaciamadrid.
+  Nunca actues como un asistente, tu rol es del ciudadano que necesita empadronarse.
+
+context:
+#  personality:
+  - Necesitas pagar el IBI (Impuesto de Bienes Inmuebles).
+
+ask_about:
+  - "Tengo una pregunta sobre el IBI"
+  - "¿Cómo puedo pagarlo?"
+
+output:
+  - forma_de_pago:
+      type: string
+      description: la forma de pago del IBI
+
+conversations:
+  - number: 2
+  - goal_style:
+      all_answered:
+        export: True
+        limit: 6
+  - interaction_style:
+      - default
+
+language: Spanish
+
+test_name: "catalina_ibi"

@@ -176,6 +176,16 @@ class ChatbotCatalinaRivas(MillionBot):
                           sender="671ab2931382d56e5140f023")
 
 
+class ChatbotSaicMalaga(MillionBot):
+    def __init__(self, url):
+        MillionBot.__init__(self, url)
+        self.init_chatbot(bot_id = "64e5d1af081211d24e2cfec8",
+                          conversation_id="671c0efd25d7e43ed46b0745",
+                          url="https://saic.malaga.eu/",
+                          sender="671c0efd167d72734b243bd4")
+
+
+
 ##############################################################################################################
 # Taskyto
 class ChatbotTaskyto(Chatbot):

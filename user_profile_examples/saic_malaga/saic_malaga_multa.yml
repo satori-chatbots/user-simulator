@@ -1,0 +1,48 @@
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+is_starter: True
+
+fallback: |
+  Disculpa, no entiendo bien a qué te refieres.
+
+role: |
+  Debes actuar como un ciudadano que necesita pagar una multa en Málaga.
+  Nunca actues como un asistente, tu rol es del ciudadano que necesita pagar una multa.
+
+context:
+#  personality:
+  - Te han puesto una multa de aparcamiento en Málaga, pero no sabes cómo pagarla.
+  - Quiere pagarla online.
+
+ask_about:
+  - "Qué hay que hacer para pagar una multa"
+  - "¿Hay descuento por pagar pronto?"
+  - "¿A qué lugar de debo dirigirme para empadronarme o puedo hacerlo online?"
+
+output:
+  - pago_multa:
+      type: string
+      description: información necesaria para pagar la multa
+
+  - descuento_multa:
+      type: string
+      description: si hay descuento por pagar pronto
+
+  - lugar_pago_multa:
+        type: string
+        description: el lugar donde hay que ir para pagar la multa o online si se puede hacer online
+
+conversations:
+  - number: 2
+  - goal_style:
+      all_answered:
+        export: True
+        limit: 6
+  - interaction_style:
+      - default
+
+language: Spanish
+
+test_name: "saic_malaga_multa"

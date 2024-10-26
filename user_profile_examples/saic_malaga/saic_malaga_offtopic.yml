@@ -8,7 +8,7 @@ fallback: |
   Disculpa, no entiendo bien a qué te refieres. 
 
 role: |
-  Debes actuar como un ciudadano de Rivas Vaciamadrid.
+  Debes actuar como un ciudadano de Málaga..
   Nunca actues como un asistente, tu rol es del ciudadano que quiere inscribirse en actividades.
   
 
@@ -41,4 +41,4 @@ conversations:
 
 language: Spanish
 
-test_name: "catalina_off_topic"
+test_name: "saic_malaga_off_topic"

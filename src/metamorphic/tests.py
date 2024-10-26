@@ -11,6 +11,7 @@ class Test(BaseModel):
     serial: str
     file_name: Optional[str] = None
     conversation_time: Optional[str] = None
+    errors: Optional[list] = []
 
     @staticmethod
     def build_test(file, documents):

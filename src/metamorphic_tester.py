@@ -11,7 +11,7 @@ from metamorphic.results import Result
 from metamorphic.rules import *
 from metamorphic.tests import Test
 from user_sim.utils.utilities import check_keys
-
+import user_sim.errors as errors
 
 def __get_object_from_yaml_files(file_or_dir, operation, name):
     objects = []
@@ -62,9 +62,26 @@ def check_rules(rules, conversations, verbose, csv_file):
     for rule in rules:
         results = rule.test(tests, verbose)
         result_store.add(rule.name, results)
-    print(result_store)
+
+    report_generic_error(result_store, tests)
+
     if csv_file is not None:
         result_store.to_csv(csv_file)
+
+
+# Add to the report generic checks
+def report_generic_error(result_store, tests):
+    by_error = {}
+    for e in errors.all_errors.keys():
+        by_error[e] = {'pass': [], 'fail': [], 'not_applicable': []}
+    for c in tests:
+        for name, error_code in errors.all_errors.items():
+            if error_code in [next(iter(e)) for e in c.errors]:
+                by_error[name]['fail'].append(c.file_name)
+            else:
+                by_error[name]['pass'].append(c.file_name)
+    for name, results in by_error.items():
+        result_store.add(name, results)
 
 
 if __name__ == '__main__':

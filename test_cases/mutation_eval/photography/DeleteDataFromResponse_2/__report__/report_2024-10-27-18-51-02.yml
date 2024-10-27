@@ -1,0 +1,46 @@
+Global report:
+  Average assistant response time: 2.219428
+  Maximum assistant response time: 5.213063
+  Mínimum assistant response time: 0.702495
+  Errors:
+  - error: 1001
+    count: 8
+    conversations:
+    - 2_set_photo_appointment_2024-10-27-18-51-02.yml
+    - 2_set_photo_appointment_2024-10-27-18-51-02.yml
+    - 2_set_photo_appointment_2024-10-27-18-51-02.yml
+    - 3_set_photo_appointment_2024-10-27-18-51-02.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-18-51-02.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-18-51-02.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-18-51-02.yml
+    - 3_set_photo_appointment_with_email_2024-10-27-18-51-02.yml
+---
+Test name: provide_estimates
+Average assistant response time: 2.419345
+Maximum assistant response time: 3.994094
+Mínimum assistant response time: 0.712387
+Errors: []
+---
+Test name: qa
+Average assistant response time: 2.419345
+Maximum assistant response time: 3.994094
+Mínimum assistant response time: 0.712387
+Errors: []
+---
+Test name: qa2
+Average assistant response time: 2.419345
+Maximum assistant response time: 3.994094
+Mínimum assistant response time: 0.712387
+Errors: []
+---
+Test name: set_photo_appointment
+Average assistant response time: 2.419345
+Maximum assistant response time: 3.994094
+Mínimum assistant response time: 0.712387
+Errors: []
+---
+Test name: set_photo_appointment_with_email
+Average assistant response time: 2.419345
+Maximum assistant response time: 3.994094
+Mínimum assistant response time: 0.712387
+Errors: []

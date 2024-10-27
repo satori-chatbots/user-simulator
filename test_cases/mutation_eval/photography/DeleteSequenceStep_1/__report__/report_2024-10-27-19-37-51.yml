@@ -1,0 +1,307 @@
+Global report:
+  Average assistant response time: 0.013019
+  Maximum assistant response time: 0.025778
+  Mínimum assistant response time: 0.009146
+  Errors:
+  - error: 500
+    count: 115
+    conversations:
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 7_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 7_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 7_provide_estimates_2024-10-27-19-37-51.yml
+    - 8_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_qa_2024-10-27-19-37-51.yml
+    - 0_qa2_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 3_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 3_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+  - error: 1001
+    count: 115
+    conversations:
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 7_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 7_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_provide_estimates_2024-10-27-19-37-51.yml
+    - 1_provide_estimates_2024-10-27-19-37-51.yml
+    - 2_provide_estimates_2024-10-27-19-37-51.yml
+    - 3_provide_estimates_2024-10-27-19-37-51.yml
+    - 4_provide_estimates_2024-10-27-19-37-51.yml
+    - 5_provide_estimates_2024-10-27-19-37-51.yml
+    - 6_provide_estimates_2024-10-27-19-37-51.yml
+    - 7_provide_estimates_2024-10-27-19-37-51.yml
+    - 8_provide_estimates_2024-10-27-19-37-51.yml
+    - 0_qa_2024-10-27-19-37-51.yml
+    - 0_qa2_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 3_set_photo_appointment_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 0_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 1_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 2_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+    - 3_set_photo_appointment_with_email_2024-10-27-19-37-51.yml
+---
+Test name: provide_estimates
+Average assistant response time: 0.013758
+Maximum assistant response time: 0.025778
+Mínimum assistant response time: 0.010579
+Errors: []
+---
+Test name: qa
+Average assistant response time: 0.013758
+Maximum assistant response time: 0.025778
+Mínimum assistant response time: 0.010579
+Errors:
+- error: 500
+  count: 1
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+- error: 1001
+  count: 1
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+---
+Test name: qa2
+Average assistant response time: 0.013758
+Maximum assistant response time: 0.025778
+Mínimum assistant response time: 0.010579
+Errors:
+- error: 500
+  count: 1
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+- error: 1001
+  count: 1
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+---
+Test name: set_photo_appointment
+Average assistant response time: 0.013758
+Maximum assistant response time: 0.025778
+Mínimum assistant response time: 0.010579
+Errors:
+- error: 500
+  count: 2
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+  - 1_provide_estimates_2024-10-27-19-37-51.yml
+- error: 1001
+  count: 2
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+  - 1_provide_estimates_2024-10-27-19-37-51.yml
+---
+Test name: set_photo_appointment_with_email
+Average assistant response time: 0.013758
+Maximum assistant response time: 0.025778
+Mínimum assistant response time: 0.010579
+Errors:
+- error: 500
+  count: 2
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+  - 1_provide_estimates_2024-10-27-19-37-51.yml
+- error: 1001
+  count: 2
+  conversations:
+  - 0_provide_estimates_2024-10-27-19-37-51.yml
+  - 1_provide_estimates_2024-10-27-19-37-51.yml

@@ -1,0 +1,67 @@
+serial: 2024-10-27-17-46-54
+language: English
+context:
+- You want to obtain some information about the photography shop
+ask_about:
+- When are you open?
+- Where is the shop?
+- Tell me about your portfolio, what important projects have you worked on?
+- Do you charge per hour or by number of photos?
+- What media do you work on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 8
+- interaction_style:
+  - default
+data_output:
+- opening_times: Monday through Friday, 9:00 AM to 5:00 PM
+- address: 14 Wooster Street in SoHo
+- portfolio: We have recently completed significant on-site digitization projects
+    for the Taller del Prado in Madrid, Spain, and the Centro Cultural Eduardo León
+    Jimenes Art Museum in Santiago, Dominican Republic.
+- charge: $200
+- media_work: Primarily focused on photographs, but also including video and virtual/3D
+    rendering.
+errors: []
+---
+conversation time: 64.10961
+assistant response time:
+- 2.94077
+- 3.02464
+- 2.227223
+- 4.866563
+- 3.582133
+- 2.110758
+- 2.160069
+response time report:
+  average: 2.98745
+  max: 4.866563
+  min: 2.110758
+---
+interaction:
+- User: What are your hours of operation? When are you open?
+- Assistant: We create art both on location and in our SoHo studio. Our hours are
+    Monday through Friday, 9:00 AM to 5:00 PM.
+- User: What is the exact location of your shop?
+- Assistant: The store is located at 14 Wooster Street in SoHo.
+- User: What kind of photography do you specialize in?
+- Assistant: I'm not sure about that. However, I can assist with inquiries regarding
+    our opening hours, location, portfolio projects, pricing structure, and the types
+    of media we handle.
+- User: What can you tell me about your portfolio?
+- Assistant: We have recently completed significant on-site digitization projects
+    for the Taller del Prado in Madrid, Spain, and the Centro Cultural Eduardo León
+    Jimenes Art Museum in Santiago, Dominican Republic.
+- User: 'User: That sounds impressive! What important projects have you worked on
+    recently?'
+- Assistant: We have recently completed major on-site digitization projects for the
+    Taller del Prado in Madrid, Spain, and the Centro Cultural Eduardo León Jimenes
+    Art Museum in Santiago, Dominican Republic.
+- User: What media do you work on?
+- Assistant: Primarily focused on photographs, but also including video and virtual/3D
+    rendering.
+- User: 'User: Do you charge by the hour or by the number of photos?'
+- Assistant: Our rate is $200 per hour.

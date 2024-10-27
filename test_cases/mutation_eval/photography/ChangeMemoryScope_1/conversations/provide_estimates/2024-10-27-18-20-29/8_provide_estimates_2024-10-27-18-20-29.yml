@@ -1,0 +1,52 @@
+serial: 2024-10-27-18-20-29
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 4
+- media: create 3D rendering of
+- artworks: ceramic objects
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+errors:
+- 500: Chatbot internal error
+- 1001: 1 goals left to complete.
+---
+conversation time: 11.249534
+assistant response time:
+- 2.133602
+- 1.312859
+- 1.644598
+response time report:
+  average: 1.697019
+  max: 2.133602
+  min: 1.312859
+---
+interaction:
+- User: Hi, I’m Maria Smith. I need an estimate for creating 3D renderings of 4 ceramic
+    objects for my gallery. What would that cost?
+- Assistant: Thank you for providing the details, Maria. I have noted that you need
+    3D renderings of 4 ceramic objects. Let me pass this information to the corresponding
+    tool to get an estimate for you.
+- User: 'Maria: Thank you. How long would it take to complete the 3D renderings once
+    I confirm the order?'
+- Assistant: The time required to complete 3D renderings can vary depending on the
+    complexity of the objects and the current workload. However, typically, it takes
+    about 1 to 2 weeks to complete 3D renderings for 4 ceramic objects. Once you confirm
+    the order, we can provide a more precise timeline.
+- User: 'Maria: That sounds reasonable. Can you give me an estimate for the cost of
+    creating 3D renderings for those 4 ceramic objects?'
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property media'

@@ -1,0 +1,65 @@
+serial: 2024-10-27-19-26-51
+language: English
+context:
+- You want to obtain some information about the photography shop
+ask_about:
+- When are you open?
+- Where is the shop?
+- Tell me about your portfolio, what important projects have you worked on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 8
+- interaction_style:
+  - default
+data_output:
+- opening_times: null
+- address: 14 Wooster Street in SoHo
+- portfolio: We have recently completed significant on-site digitization projects
+    for the Taller del Prado in Madrid, Spain, and the Centro Cultural Eduardo León
+    Jimenes Art Museum in Santiago, Dominican Republic.
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 31.940957
+assistant response time:
+- 0.887764
+- 0.840817
+- 1.178939
+- 2.00939
+- 3.724678
+- 3.590358
+- 0.693899
+- 0.912272
+response time report:
+  average: 1.729764
+  max: 3.724678
+  min: 0.693899
+---
+interaction:
+- User: What are your hours of operation? When are you open?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What are your hours of operation? When can I visit the shop?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What are your hours of operation? When can I come by the shop?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Could you tell me where the shop is located? I’d like to know the address.
+- Assistant: The store is located at 14 Wooster Street in SoHo.
+- User: What are some of the services you offer at the shop?
+- Assistant: Primarily in photographs, but also in video and virtual/3D renderings.
+- User: Could you tell me more about your portfolio? What important projects have
+    you worked on?
+- Assistant: We have recently completed significant on-site digitization projects
+    for the Taller del Prado in Madrid, Spain, and the Centro Cultural Eduardo León
+    Jimenes Art Museum in Santiago, Dominican Republic.
+- User: That's impressive! How long have you been working on projects like those?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Could you share how long your shop has been in business?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.

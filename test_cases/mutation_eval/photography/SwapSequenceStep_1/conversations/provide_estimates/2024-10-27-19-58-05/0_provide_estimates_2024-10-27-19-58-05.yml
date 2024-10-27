@@ -1,0 +1,47 @@
+serial: 2024-10-27-19-58-05
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 1
+- media: photograph
+- artworks: pictures
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+errors:
+- 500: Chatbot internal error
+- 1001: 1 goals left to complete.
+---
+conversation time: 5.684096
+assistant response time:
+- 1.073357
+- 1.119749
+response time report:
+  average: 1.096553
+  max: 1.119749
+  min: 1.073357
+---
+interaction:
+- User: Hi, I’m Maria Smith. I need an estimate for photographing one piece of artwork
+    in my gallery. What would that cost?
+- Assistant: 'Welcome to ArtClicks, we are specialized in photographs for art galleries.
+
+    What can I do for you?
+
+    '
+- User: I’d like to know the estimate for photographing one piece of artwork. What
+    would that be?
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property media'

@@ -1,0 +1,50 @@
+serial: 2024-10-27-19-26-51
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 2
+- media: create a video of
+- artworks: ceramic objects
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: $2000
+errors: []
+---
+conversation time: 11.773164
+assistant response time:
+- 0.67527
+- 2.914142
+- 1.938635
+response time report:
+  average: 1.842682
+  max: 2.914142
+  min: 0.67527
+---
+interaction:
+- User: Hi, I’m Maria Smith. I’d like to get an estimate for creating a video of two
+    ceramic objects for my gallery. What would that cost?
+- Assistant: Welcome to ArtClicks, we are specialized in photographs for art galleries.
+    What can I do for you?
+- User: I’d like to know the estimate for creating a video of two ceramic objects.
+    What would that cost?
+- Assistant: Thank you for providing some information. I have noted that you are interested
+    in creating a video of ceramic objects. Could you please confirm the number of
+    ceramic objects you would like to include in the video?
+- User: I already mentioned that I want a video of two ceramic objects. Can you provide
+    me with the estimate for that?
+- Assistant: 'Thanks for giving those details!.
+
+    The cost is approximately $2000, but it may vary based on factors such as the
+    size of the artworks.'

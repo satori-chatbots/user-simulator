@@ -1,0 +1,48 @@
+serial: 2024-10-27-19-45-49
+language: English
+context:
+- your name is Ann Clark, and you own an art gallery. Your email is ann@artgal.com
+ask_about:
+- Setting an appointment for {{ap_date}}, any time is fine, your phone number is {{phone_no}}
+- ap_date: November 8th, 2024
+- phone_no: (212) 555-1734
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- confirmed_appointment: 2024-11-08
+errors: []
+---
+conversation time: 20.348414
+assistant response time:
+- 2.75602
+- 3.801605
+- 2.306141
+- 2.481121
+response time report:
+  average: 2.836221
+  max: 3.801605
+  min: 2.306141
+---
+interaction:
+- User: Hi there! My name is Ann Clark, and I own an art gallery. I’m interested in
+    scheduling an appointment for November 8th, 2024. Do you have any available times?
+- Assistant: Thank you for providing your name and appointment date. Could you please
+    provide your phone number? Also, if you'd like, you can share your email address,
+    though it's optional.
+- User: Sure! My phone number is (212) 555-1734, and my email is ann@artgal.com. What
+    times do you have available on November 8th?
+- Assistant: Thanks Ann Clark! We'll contact you very soon for a session on 08/11/2024.
+- User: Could you let me know what services you offer for art galleries? I'm particularly
+    interested in photography for exhibitions.
+- Assistant: Primarily focused on photographs, but also including video and virtual/3D
+    rendering.
+- User: That sounds great! I'm particularly interested in photography for exhibitions.
+    Do you have any photographers who specialize in capturing artwork in galleries?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.

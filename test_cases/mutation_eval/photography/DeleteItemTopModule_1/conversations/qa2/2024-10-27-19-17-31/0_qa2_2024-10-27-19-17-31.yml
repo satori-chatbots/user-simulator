@@ -1,0 +1,58 @@
+serial: 2024-10-27-19-17-31
+language: English
+context:
+- You want to obtain some information about the photography shop (charge and media).
+  Only focus on those two items.
+ask_about:
+- Do you charge per hour or by number of photos?
+- What media do you work on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- charge: null
+- media_work: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 33.746919
+assistant response time:
+- 1.03335
+- 0.721322
+- 0.726613
+- 0.865945
+- 0.866047
+- 0.812009
+response time report:
+  average: 0.837547
+  max: 1.033349
+  min: 0.721322
+---
+interaction:
+- User: Do you charge per hour or by the number of photos taken?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Do you have a specific pricing structure based on the duration of the shoot
+    or the quantity of images delivered?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Do you have a pricing model that varies depending on how long the shoot lasts
+    or how many photos I receive?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Do you work with digital media, or do you also offer prints?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Do you provide both digital images and printed photos, or is it just one of
+    those options?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Do you offer both digital formats and physical prints, or is it limited to
+    just one type?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.

@@ -1,0 +1,11 @@
+Global report:
+  Average assistant response time: 2.308059
+  Maximum assistant response time: 3.045835
+  Mínimum assistant response time: 0.653945
+  Errors: []
+---
+Test name: mutation_eval_photography
+Average assistant response time: 2.308059
+Maximum assistant response time: 3.045835
+Mínimum assistant response time: 0.653945
+Errors: []

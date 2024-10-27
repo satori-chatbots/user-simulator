@@ -1,0 +1,70 @@
+serial: 2024-10-27-18-31-14
+language: English
+context:
+- your name is John Doe, and you own an art gallery. You do not have an email address
+ask_about:
+- Setting an appointment for {{ap_date}}, any time is fine, your phone number is {{phone_no}}
+- ap_date: November 6th, 2024
+- phone_no: (617) 545-1336
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- confirmed_appointment: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 33.009009
+assistant response time:
+- 2.251593
+- 2.970388
+- 3.168463
+- 4.334013
+- 0.785095
+- 0.756853
+- 2.503247
+response time report:
+  average: 2.395664
+  max: 4.334013
+  min: 0.756853
+---
+interaction:
+- User: Hi there! My name is John Doe, and I own an art gallery. I’d like to schedule
+    an appointment for November 6th, 2024. What times do you have available?
+- Assistant: Thank you for providing your name and the appointment date, John Doe.
+    Could you please provide your phone number? Also, if you'd like to share your
+    email, it's optional but can be helpful for communication.
+- User: I can provide my phone number. It's (617) 545-1336. What times do you have
+    available on November 6th?
+- Assistant: Thank you, John Doe! We will reach out to you shortly to arrange a session
+    on June 11, 2024.
+- User: I think there might have been a mix-up with the date. I wanted to schedule
+    for November 6th, 2024, not June. Can you confirm the available times for that
+    date?
+- Assistant: Thank you for providing your phone number, John Doe. Just to confirm,
+    your phone number is (617) 545-1336. If you'd like to share your email, it's optional
+    but can be helpful for communication. Regarding the available times on November
+    6th, 2024, let me check that for you.
+- User: I appreciate that! Could you let me know what times are available on November
+    6th, 2024? I'm looking forward to it.
+- Assistant: Thank you, John Doe! We will reach out to you shortly to arrange a session
+    on June 11, 2024.
+- User: I think there’s still a misunderstanding. I’m looking to schedule for November
+    6th, 2024. Can you please confirm the available times for that date?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Could you please check the available times for November 6th, 2024? I'm eager
+    to finalize the appointment.
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Could you please check the available times for November 6th, 2024? I'm eager
+    to finalize the appointment.
+- Assistant: Thank you for your patience, John Doe. I have your name and phone number
+    as (617) 545-1336, and the appointment date as November 6th, 2024. If you'd like
+    to share your email, it's optional but can be helpful for communication. Let me
+    check the available times for that date and get back to you shortly.

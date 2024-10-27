@@ -1,0 +1,46 @@
+serial: 2024-10-27-19-26-51
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 2
+- media: photograph
+- artworks: ceramic objects
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: $500.00
+errors: []
+---
+conversation time: 10.084106
+assistant response time:
+- 2.605667
+- 2.17389
+response time report:
+  average: 2.389778
+  max: 2.605667
+  min: 2.17389
+---
+interaction:
+- User: Hi, I’m Maria Smith. Can I get an estimate for photographing two ceramic objects
+    for my gallery?
+- Assistant: "Hi Maria! Based on our previous conversation, I have the following information:\
+    \ \n- Media: photography\n- Number of artworks: 2\n- Type of artworks: ceramic\n\
+    \nIs there anything else you would like to add or modify before I pass this information\
+    \ along for an estimate?"
+- User: Yes, could you provide an estimate for the photography of those two ceramic
+    objects?
+- Assistant: 'Thanks for giving those details!.
+
+    The cost is approximately $500.00, but it may vary based on factors such as the
+    size of the artworks.'

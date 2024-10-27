@@ -1,0 +1,57 @@
+serial: 2024-10-27-19-32-10
+language: English
+context:
+- You want to obtain some information about the photography shop
+ask_about:
+- When are you open?
+- Where is the shop?
+- Tell me about your portfolio, what important projects have you worked on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 8
+- interaction_style:
+  - default
+data_output:
+- opening_times: Monday through Friday, from 9:00 AM to 5:00 PM
+- address: null
+- portfolio: null
+errors:
+- 504: No response was received from the server in less than 10
+- 1001: 2 goals left to complete.
+---
+conversation time: 35.103154
+assistant response time:
+- 2.729883
+- 0.798583
+- 0.76316
+- 0.868086
+- 2.245589
+- 10.021697
+response time report:
+  average: 2.904499
+  max: 10.021697
+  min: 0.76316
+---
+interaction:
+- User: What are your hours of operation? When are you open?
+- Assistant: We create art both on location and in our SoHo studio. Our hours of operation
+    are Monday through Friday, from 9:00 AM to 5:00 PM.
+- User: What’s the address of your shop? I’d like to know how to get there.
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Could you please tell me the address of your photography shop? I want to know
+    how to get there.
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Could you share the location of your photography shop? I need to know how
+    to find it.
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What kind of photography services do you offer? Are you specialized in any
+    particular area?
+- Assistant: Primarily in photographs, but also in video and virtual/3D renderings.
+- User: What important projects have you worked on? I'd love to hear more about your
+    portfolio.

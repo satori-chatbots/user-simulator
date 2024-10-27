@@ -1,0 +1,50 @@
+serial: 2024-10-27-18-26-01
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 2
+- media: photograph
+- artworks: pictures
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: $100.00
+errors: []
+---
+conversation time: 12.225106
+assistant response time:
+- 1.138115
+- 2.241901
+- 2.544128
+response time report:
+  average: 1.974714
+  max: 2.544128
+  min: 1.138115
+---
+interaction:
+- User: Hi, I’m Maria Smith. I need an estimate for photographing two pieces of art
+    for my gallery. What would that cost?
+- Assistant: Welcome to ArtClicks, we are specialized in photographs for art galleries.
+    What can I do for you?
+- User: I’d like to know the estimate for photographing two pieces of art. What would
+    that be?
+- Assistant: I see that you are interested in photographing two pieces of art. Could
+    you please specify the type of artworks? The options are picture, sculpture, or
+    ceramic.
+- User: I have two paintings that I need photographed. Can you provide an estimate
+    for that?
+- Assistant: 'Thanks for giving those details!.
+
+    The cost is approximately $100.00, but it may vary based on factors such as the
+    size of the artworks.'

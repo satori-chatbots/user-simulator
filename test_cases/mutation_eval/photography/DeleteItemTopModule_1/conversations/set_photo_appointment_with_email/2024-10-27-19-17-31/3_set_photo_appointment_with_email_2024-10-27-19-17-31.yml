@@ -1,0 +1,34 @@
+serial: 2024-10-27-19-17-31
+language: English
+context:
+- your name is Ann Clark, and you own an art gallery. Your email is ann@artgal.com
+ask_about:
+- Setting an appointment for {{ap_date}}, any time is fine, your phone number is {{phone_no}}
+- ap_date: November 8th, 2024
+- phone_no: (617) 545-1356
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- confirmed_appointment: null
+errors:
+- 504: No response was received from the server in less than 10
+- 1001: 1 goals left to complete.
+---
+conversation time: 12.1047
+assistant response time:
+- 10.022664
+response time report:
+  average: 10.022664
+  max: 10.022664
+  min: 10.022664
+---
+interaction:
+- User: Hi there! My name is Ann Clark, and I own an art gallery. I’m interested in
+    scheduling an appointment for November 8th, 2024. Do you have any available times?
+- Assistant: 'Error: timeout'

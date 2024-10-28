@@ -12,13 +12,17 @@ class Test(BaseModel):
     file_name: Optional[str] = None
     conversation_time: Optional[str] = None
     errors: Optional[list] = []
+    assistant_times: Optional[list] = []
 
     @staticmethod
     def build_test(file, documents):
         test_metadata = next(documents)  # unpack the 1st YAML document: meta_data
         test = Test(**test_metadata)
         test.file_name = file
-        test.conversation_time = next(documents)['conversation time']    # 2nd YAML document is time
+        times_doc = next(documents)
+        test.conversation_time = times_doc['conversation time']    # 2nd YAML document is time
+        if 'assistant response time' in times_doc:
+            test.assistant_times = times_doc['assistant response time']
         test.interaction = next(documents)['interaction']         # 3rd YAML document is the conversation
         return test
 

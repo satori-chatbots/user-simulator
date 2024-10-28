@@ -1,0 +1,72 @@
+serial: 2024-10-28-17-22-23
+language: English
+context:
+- You are interested in asking the items below.
+- Just stick to asking opening times (weekdays and weekends), cost of visit, types
+  of animals accepted, care of pets. Do not ask anything else.
+ask_about:
+- When are you open on weekdays?
+- When are you open on weekends?
+- How much does a vet visit cost?
+- What kind of animals do you accept?
+- What can I do to take care of my pet?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 9
+- interaction_style:
+  - default
+data_output:
+- opening_and_closing_weekdays: 9am to 6pm
+- opening_and_closing_weekends: null
+- visit_cost: null
+- animal_kinds: null
+- care_pet: null
+errors:
+- 1001: 4 goals left to complete.
+---
+conversation time: 47.815022
+assistant response time:
+- 1.831009
+- 1.897268
+- 2.674973
+- 2.430948
+- 2.668671
+- 1.881314
+- 1.897152
+- 2.043021
+- 1.985193
+response time report:
+  average: 2.145505
+  max: 2.674973
+  min: 1.831009
+---
+interaction:
+- User: What are your opening times on weekdays?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm.
+- User: What are your opening times on weekends?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: What time do you open on weekends?
+- Assistant: I'm sorry for any confusion, but our veterinary center is only open on
+    weekdays from 9am to 6pm. We are closed on weekends.
+- User: How much does a vet visit cost?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: What is the cost of a vet visit?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: What is the price for a vet visit?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: 'User: What kind of animals do you accept?'
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: What types of animals do you accept at your veterinary center?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?
+- User: What animals can you treat at your veterinary center?
+- Assistant: I'm sorry, but I did not understand the last sentence, can you say that
+    again?

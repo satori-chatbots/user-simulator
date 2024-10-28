@@ -1,7 +1,7 @@
 import uuid
 from abc import abstractmethod
 import requests
-from src.user_sim.utils.config import errors
+from user_sim.utils.config import errors
 import logging
 
 logger = logging.getLogger('Info Logger')

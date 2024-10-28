@@ -1,5 +1,5 @@
 name: address
 description: Check address
-active: True
+active: False
 conversations: 1
 oracle: semantic_content(address, 'The shop is at SoHo, 14 Wooster Street')

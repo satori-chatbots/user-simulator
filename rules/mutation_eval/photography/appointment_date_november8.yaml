@@ -1,6 +1,6 @@
 name: appointment_date_november8
 description: Checks the appointment date in november
-active: True
+active: False
 conversations: 1
 when: ap_date=='November 8th, 2024'
 oracle: str(confirmed_appointment)=="2024-11-08"

@@ -1,5 +1,5 @@
 name: portfolio
 description: Check portfolio
-active: True
+active: False
 conversations: 1
 oracle: semantic_content(portfolio, 'large on-site digitization projects for the Taller del Prado, Madrid, Spain, and the Centro Cultural Eduardo Leon Jimenez Art Museum, Santiago, Dominican Republic')

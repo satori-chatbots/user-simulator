@@ -1,0 +1,62 @@
+serial: 2024-10-28-13-22-43
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '13:00'
+- ap_date: tomorrow
+- service: Lab or diagnostic testing
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: null
+- confirmed_time: '13:00:00'
+- confirmed_service: lab or diagnostic testing
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 55.348242
+assistant response time:
+- 3.306184
+- 2.61306
+- 6.222448
+- 7.430106
+- 5.728424
+response time report:
+  average: 5.060044
+  max: 7.430106
+  min: 2.61306
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for some lab or
+    diagnostic testing tomorrow at 13:00. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 13:00:00 for Lab or diagnostic testing. \nSee you then!    \n"
+- User: Great! Can you tell me what specific tests will be done during the lab or
+    diagnostic testing? Also, should I bring anything special for Tommy?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 13:00:00 for Lab or diagnostic testing. \nSee you then!    \n"
+- User: What specific tests will be done during the lab or diagnostic testing? Also,
+    should I bring anything special for Tommy?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, the price for a vet consultation, the variety of animals we cater to, and
+    offer basic guidance on pet care.
+- User: Could you please let me know what specific tests are typically included in
+    the lab or diagnostic testing? And do I need to bring any special items for Tommy,
+    like his medical records or anything?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, the price for a vet consultation, the variety of animals we cater to, and
+    offer basic guidance on pet care.
+- User: Could you at least tell me if I need to bring Tommy's medical records for
+    the appointment? That would be really helpful!
+- Assistant: Their fundamental needs such as food, water, shelter, exercise, and love
+    should be met by you.

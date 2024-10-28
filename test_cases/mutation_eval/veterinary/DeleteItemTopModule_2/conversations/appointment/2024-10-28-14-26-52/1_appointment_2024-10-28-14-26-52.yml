@@ -1,0 +1,39 @@
+serial: 2024-10-28-14-26-52
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '13:00'
+- ap_date: tomorrow
+- service: Vaccination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: null
+- confirmed_time: null
+- confirmed_service: vaccination
+errors:
+- 500: Server error
+- 1001: 2 goals left to complete.
+---
+conversation time: 1.953594
+assistant response time:
+- 0.012311
+response time report:
+  average: 0.012311
+  max: 0.012311
+  min: 0.012311
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for a vaccination
+    tomorrow at 13:00. Is that possible?
+- Assistant: 'Error: chatbot server error'

@@ -1,0 +1,41 @@
+serial: 2024-10-28-14-26-52
+language: English
+context:
+- You are interested in asking the items below.
+- Just stick to asking opening times (weekdays and weekends), cost of visit, types
+  of animals accepted, care of pets. Do not ask anything else.
+ask_about:
+- When are you open on weekdays?
+- When are you open on weekends?
+- How much does a vet visit cost?
+- What kind of animals do you accept?
+- What can I do to take care of my pet?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 9
+- interaction_style:
+  - default
+data_output:
+- opening_and_closing_weekdays: null
+- opening_and_closing_weekends: null
+- visit_cost: null
+- animal_kinds: null
+- care_pet: null
+errors:
+- 500: Server error
+- 1001: 5 goals left to complete.
+---
+conversation time: 2.309335
+assistant response time:
+- 0.011217
+response time report:
+  average: 0.011217
+  max: 0.011217
+  min: 0.011217
+---
+interaction:
+- User: When are you open on weekdays?
+- Assistant: 'Error: chatbot server error'

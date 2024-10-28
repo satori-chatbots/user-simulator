@@ -1,0 +1,11 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+all_slots_set,5,4,1,0,20.00%
+appointment_date_november,5,2,0,3,0.00%
+appointment_date_tomorrow,5,2,0,3,0.00%
+appointment_hour,5,4,0,1,0.00%
+appointment_service,5,4,0,1,0.00%
+care_bike,5,1,0,4,0.00%
+opening_times,5,1,0,4,0.00%
+seat_price,5,1,0,4,0.00%
+tire_price,5,1,0,4,0.00%
+tune_up,5,0,0,5,0.00%

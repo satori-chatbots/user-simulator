@@ -1,0 +1,65 @@
+Global report:
+  Average assistant response time: 0.021926
+  Maximum assistant response time: 0.052791
+  Mínimum assistant response time: 0.012009
+  Errors:
+  - error: 500
+    count: 17
+    conversations:
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 2_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 2_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 2_appointment_2024-10-28-12-33-30.yml
+    - 3_appointment_2024-10-28-12-33-30.yml
+    - 0_qa_2024-10-28-12-33-30.yml
+  - error: 1001
+    count: 17
+    conversations:
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 2_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 2_appointment_2024-10-28-12-33-30.yml
+    - 0_appointment_2024-10-28-12-33-30.yml
+    - 1_appointment_2024-10-28-12-33-30.yml
+    - 2_appointment_2024-10-28-12-33-30.yml
+    - 3_appointment_2024-10-28-12-33-30.yml
+    - 0_qa_2024-10-28-12-33-30.yml
+---
+Test name: appointment
+Average assistant response time: 0.022532
+Maximum assistant response time: 0.052791
+Mínimum assistant response time: 0.012009
+Errors: []
+---
+Test name: qa
+Average assistant response time: 0.022532
+Maximum assistant response time: 0.052791
+Mínimum assistant response time: 0.012009
+Errors:
+- error: 500
+  count: 1
+  conversations:
+  - 0_appointment_2024-10-28-12-33-30.yml
+- error: 1001
+  count: 1
+  conversations:
+  - 0_appointment_2024-10-28-12-33-30.yml

@@ -1,0 +1,59 @@
+serial: 2024-10-28-13-15-50
+language: English
+context:
+- You are interested in asking the items below.
+- Just stick to asking opening times (weekdays and weekends), cost of visit, types
+  of animals accepted, care of pets. Do not ask anything else.
+ask_about:
+- When are you open on weekdays?
+- When are you open on weekends?
+- How much does a vet visit cost?
+- What kind of animals do you accept?
+- What can I do to take care of my pet?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 9
+- interaction_style:
+  - default
+data_output:
+- opening_and_closing_weekdays: 9am to 6pm
+- opening_and_closing_weekends: null
+- visit_cost: Between $50 and $60
+- animal_kinds: dogs, cats and birds
+- care_pet: 'You should meet their basic needs: food, water, shelter, exercise, and
+    love.'
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 58.995911
+assistant response time:
+- 1.728256
+- 3.061148
+- 3.116885
+- 3.572423
+- 4.076082
+- 4.879291
+response time report:
+  average: 3.40568
+  max: 4.879291
+  min: 1.728256
+---
+interaction:
+- User: What are your opening hours on weekdays?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm.
+- User: What are your opening hours on weekends?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm. However,
+    I'm sorry, but I don't have the information about our weekend hours.
+- User: How much does a vet visit cost?
+- Assistant: Between $50 and $60
+- User: What kind of animals do you accept?
+- Assistant: We are specialized in dogs, cats and birds. For other animals, please
+    consult first.
+- User: What can I do to take care of my pet?
+- Assistant: 'You should meet their basic needs: food, water, shelter, exercise, and
+    love.'
+- User: What are your opening hours on weekends?
+- Assistant: We do not open on weekends

@@ -1,0 +1,6 @@
+;verification;data
+When_are_you_open_on_weekdays?;True;We are open every weekday from 9am to 6pm.
+When_are_you_open_on_weekends?;True;We are closed on weekends.
+How_much_does_a_vet_visit_cost?;True;From $50 to $60
+What_kind_of_animals_do_you_accept?;True;Our expertise lies in dealing with dogs, cats, and birds. For other animals, kindly seek consultation first.
+What_can_I_do_to_take_care_of_my_pet?;True;Their fundamental needs such as food, water, shelter, exercise, and love should be fulfilled by you.

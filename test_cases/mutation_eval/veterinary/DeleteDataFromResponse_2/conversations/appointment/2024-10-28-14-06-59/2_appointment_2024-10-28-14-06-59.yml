@@ -1,0 +1,55 @@
+serial: 2024-10-28-14-06-59
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '10:00'
+- ap_date: tomorrow
+- service: Dental health and cleaning
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: 2024-10-29
+- confirmed_time: null
+- confirmed_service: dental health and cleaning
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 34.063132
+assistant response time:
+- 2.931178
+- 5.221689
+- 6.491014
+- 6.755043
+response time report:
+  average: 5.349731
+  max: 6.755043
+  min: 2.931178
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for dental health
+    and cleaning tomorrow at 10:00. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for 29/10/2024\
+    \ at  for Dental health and cleaning. \nSee you then!    \n"
+- User: Is there anything specific I should do to prepare Tommy for the dental cleaning?
+- Assistant: Their fundamental needs such as food, water, shelter, exercise, and love
+    should be fulfilled by you.
+- User: Is there a specific time frame for when Tommy should stop eating before the
+    dental cleaning?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, weekend timetable, veterinary visit charges, the variety of animals we
+    cater to, and offer basic guidance on pet care.
+- User: Could you tell me what the recommended fasting period is for dogs before a
+    dental cleaning? I want to make sure I do it right for Tommy.
+- Assistant: I'm not certain about that. However, I can provide information on our
+    operating hours, the price for a vet consultation, the variety of animals we cater
+    to, and offer basic guidance on pet care.

@@ -1,0 +1,63 @@
+serial: 2024-10-28-14-06-59
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '14:00'
+- ap_date: tomorrow
+- service: Vaccination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: 2024-10-29
+- confirmed_time: '14:00:00'
+- confirmed_service: Vaccination
+errors: []
+---
+conversation time: 34.285818
+assistant response time:
+- 3.127358
+- 2.567632
+- 4.484609
+- 2.931024
+- 3.734953
+response time report:
+  average: 3.369115
+  max: 4.484609
+  min: 2.567632
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for a vaccination
+    tomorrow at 14:00. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for 29/10/2024\
+    \ at  for Vaccination. \nSee you then!    \n"
+- User: Can you confirm what type of vaccination Tommy will be receiving? Also, do
+    I need to bring anything specific for the appointment?
+- Assistant: "Ok, I have received your request to schedule an appointment for 29/10/2024\
+    \ at  for Vaccination. \nSee you then!    \n"
+- User: Is there a specific vaccination that Tommy needs, or is it just the standard
+    ones? And do I need to bring his vaccination records with me?
+- Assistant: "Ok, I have received your request to schedule an appointment for 29/10/2024\
+    \ at  for Vaccination. \nSee you then!    \n"
+- User: I see that the appointment is set, but can you tell me if there are any specific
+    vaccinations that Tommy needs? Also, should I bring his vaccination records with
+    me?
+- Assistant: It's always a good idea to bring your pet's vaccination records to the
+    appointment. As for the specific vaccinations, it depends on Tommy's age, health,
+    and vaccination history. The vet will be able to give you more detailed information
+    during the appointment.
+- User: Is there a way to find out what vaccinations Tommy might need before the appointment?
+    Also, how long does the vaccination process usually take?
+- Assistant: It's always a good idea to bring Tommy's vaccination records with you
+    to the appointment. This will help the vet determine which vaccinations Tommy
+    might need. As for the duration of the vaccination process, it typically takes
+    about 15-30 minutes, but this can vary depending on the specific circumstances.

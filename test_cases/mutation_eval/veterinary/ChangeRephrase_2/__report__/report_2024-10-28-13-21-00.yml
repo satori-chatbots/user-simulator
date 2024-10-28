@@ -1,0 +1,145 @@
+Global report:
+  Average assistant response time: 0.013915
+  Maximum assistant response time: 0.026382
+  Mínimum assistant response time: 0.010778
+  Errors:
+  - error: 500
+    count: 65
+    conversations:
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 4_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 4_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 4_appointment_2024-10-28-13-21-00.yml
+    - 5_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 4_appointment_2024-10-28-13-21-00.yml
+    - 5_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 4_appointment_2024-10-28-13-21-00.yml
+    - 5_appointment_2024-10-28-13-21-00.yml
+    - 6_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 4_appointment_2024-10-28-13-21-00.yml
+    - 5_appointment_2024-10-28-13-21-00.yml
+    - 6_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 4_appointment_2024-10-28-13-21-00.yml
+    - 5_appointment_2024-10-28-13-21-00.yml
+    - 6_appointment_2024-10-28-13-21-00.yml
+    - 7_appointment_2024-10-28-13-21-00.yml
+    - 0_qa_2024-10-28-13-21-00.yml
+  - error: 1001
+    count: 49
+    conversations:
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_appointment_2024-10-28-13-21-00.yml
+    - 1_appointment_2024-10-28-13-21-00.yml
+    - 2_appointment_2024-10-28-13-21-00.yml
+    - 3_appointment_2024-10-28-13-21-00.yml
+    - 0_qa_2024-10-28-13-21-00.yml
+---
+Test name: appointment
+Average assistant response time: 0.013945
+Maximum assistant response time: 0.026382
+Mínimum assistant response time: 0.010778
+Errors: []
+---
+Test name: qa
+Average assistant response time: 0.013945
+Maximum assistant response time: 0.026382
+Mínimum assistant response time: 0.010778
+Errors:
+- error: 500
+  count: 1
+  conversations:
+  - 0_appointment_2024-10-28-13-21-00.yml
+- error: 1001
+  count: 1
+  conversations:
+  - 0_appointment_2024-10-28-13-21-00.yml

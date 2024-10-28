@@ -1,0 +1,6 @@
+;verification;data
+opening_and_closing_time_of_the_bike_shop;True;The bike shop is open every weekday from 9am to 5:30pm.
+Which_is_the_price_of_a_new_tire?;True;"The response to the inquiry ""What is the cost of a new tire?"" is $20."
+Which_is_the_price_of_a_tune-up?;True;The cost of a tune-up is $150.
+Which_is_the_price_of_a_new_seat?;True;"The response to the question ""What is the cost of a new seat?"" is that it ranges from $50 to $100."
+What_can_I_do_to_take_care_of_my_bike?;True;To take care of your bike, you should clean it regularly, ensure the tire pressure is correct, and lubricate the chain.

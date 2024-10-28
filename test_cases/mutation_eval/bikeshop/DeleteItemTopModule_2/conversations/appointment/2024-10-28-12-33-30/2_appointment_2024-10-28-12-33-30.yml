@@ -1,0 +1,38 @@
+serial: 2024-10-28-12-33-30
+language: English
+context:
+- You are interested in setting an appointment for your bike
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my bike
+- hour:
+  - '15:30'
+- ap_date: November 6th, 2024
+- service: tune-up
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: null
+- confirmed_time: null
+- confirmed_service: null
+errors:
+- 500: Server error
+- 1001: 3 goals left to complete.
+---
+conversation time: 2.033646
+assistant response time:
+- 0.013075
+response time report:
+  average: 0.013075
+  max: 0.013075
+  min: 0.013075
+---
+interaction:
+- User: I'd like to set an appointment for a bike tune-up on November 6th, 2024, at
+    15:30. Is that available? Also, can you tell me what the tune-up includes?
+- Assistant: 'Error: chatbot server error'

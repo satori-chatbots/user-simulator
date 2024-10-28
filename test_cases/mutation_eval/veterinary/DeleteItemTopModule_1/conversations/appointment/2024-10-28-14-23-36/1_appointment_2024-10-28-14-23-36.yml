@@ -1,0 +1,38 @@
+serial: 2024-10-28-14-23-36
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '14:00'
+- ap_date: tomorrow
+- service: Vaccination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: 2024-10-29
+- confirmed_time: '14:00:00'
+- confirmed_service: Vaccination
+errors: []
+---
+conversation time: 10.836079
+assistant response time:
+- 2.718345
+response time report:
+  average: 2.718345
+  max: 2.718345
+  min: 2.718345
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for a vaccination
+    tomorrow at 14:00. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for 29/10/2024\
+    \ at 14:00:00 for Vaccination. \nSee you then!    \n"

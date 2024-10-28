@@ -1,0 +1,11 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+all_slots_set,9,8,1,0,11.11%
+animal_kinds,9,1,0,8,0.00%
+appointment_date_november,9,4,0,5,0.00%
+appointment_date_tomorrow,9,4,0,5,0.00%
+appointment_hour,9,8,0,1,0.00%
+appointment_service,9,8,0,1,0.00%
+care_pet,9,1,0,8,0.00%
+opening_times_weekdays,9,1,0,8,0.00%
+opening_times_weekends,9,0,1,8,100.00%
+visit_cost,9,0,1,8,100.00%

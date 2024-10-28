@@ -1,0 +1,55 @@
+serial: 2024-10-28-14-12-07
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '14:00'
+- ap_date: tomorrow
+- service: Physical examination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: 2024-10-29
+- confirmed_time: '14:00:00'
+- confirmed_service: physical examination
+errors: []
+---
+conversation time: 29.381061
+assistant response time:
+- 3.393539
+- 7.413575
+- 4.647781
+response time report:
+  average: 5.151631
+  max: 7.413575
+  min: 3.393539
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for a physical
+    examination tomorrow at 14:00. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for 29/10/2024\
+    \ at 14:00:00 for Lab or diagnostic testing. \nSee you then!    \n"
+- User: I think there might have been a mix-up. I wanted a physical examination, not
+    lab or diagnostic testing. Can you confirm if the physical examination is available
+    at that time?
+- Assistant: 'I''m sorry for the confusion, but at our veterinary center, we only
+    offer the following services: Vaccination, Dental health and cleaning, and Lab
+    or diagnostic testing. Could you please specify which of these services you would
+    like for Tommy?'
+- User: I really need a physical examination for Tommy. Is there any way to get that
+    done?
+- Assistant: I understand your concern, but unfortunately, we do not offer physical
+    examinations as a standalone service. However, a physical examination is typically
+    included as part of our other services. For instance, if you choose Vaccination,
+    Dental health and cleaning, or Lab or diagnostic testing, a physical examination
+    will be conducted as part of these services. Could you please specify which of
+    these services you would like for Tommy?

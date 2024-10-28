@@ -2,7 +2,7 @@ llm:
   temperature: 0.8
   model: gpt-4o
 
-is_starter: True
+is_starter: False
 
 fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
 
@@ -11,7 +11,7 @@ role:
 
 context:
 #  personality:
-  - Since you're the user, just tell what you want to order
+  - your name is Jon Doe
 
 ask_about:
   - "a {{size}} custom pizza with {{toppings}}"

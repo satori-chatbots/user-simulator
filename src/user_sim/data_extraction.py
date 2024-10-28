@@ -85,6 +85,14 @@ class DataExtraction:
         dtype = self.get_data_prompt()[0]
         dformat = self.get_data_prompt()[1]
 
+        if dtype is None:
+            logger.warning(f"Data type {self.dtype} is not supported. Using 'str' by default.")
+            dtype = 'string'
+
+        if dformat is None:
+            logger.warning(f"Data format for {self.dtype} is not supported. Using default format.")
+            dformat = "Extract and  display concisely only the requested information without including additional context"
+        
         response_format = {
             "type": "json_schema",
             "json_schema": {

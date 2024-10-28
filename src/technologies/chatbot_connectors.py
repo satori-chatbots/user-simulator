@@ -233,7 +233,7 @@ class ChatbotTaskyto(Chatbot):
             }
 
             try:
-                timeout = 10
+                timeout = 20
                 try:
                     post_response = requests.post(self.url + '/conversation/user_message', json=new_data, timeout=timeout)
                 except requests.Timeout:

@@ -19,6 +19,13 @@ class Chatbot:
            Otherwise, False means that there is an error in the chatbot."""
         raise NotImplementedError()
 
+    @abstractmethod
+    def execute_starter_chatbot(self):
+        """Returns a pair [bool, str] in which the first element is True if the chatbot returned normally,
+           and the second is the message.
+           Otherwise, False means that there is an error in the chatbot."""
+        raise NotImplementedError()
+
 
 ##############################################################################################################
 # RASA
@@ -77,12 +84,12 @@ class MillionBot(Chatbot):
                 return True, text_response
             else:
                 # There is an error, but it is an internal error
-                print (f"Server error {response_json.get('error')}")
+                print(f"Server error {response_json.get('error')}")
                 errors.append({500: f"Couldn't get response from the server"})
                 return False, response_json.get('error')
         except requests.exceptions.JSONDecodeError as e:
             logger = logging.getLogger('my_app_logger')
-            logger.log(f"Couldn't get response from the server: {e}")
+            logger.error(f"Couldn't get response from the server: {e}")
             return False, 'chatbot internal error'
         except requests.Timeout:
             logger = logging.getLogger('my_app_logger')
@@ -182,7 +189,7 @@ class ChatbotTaskyto(Chatbot):
             }
 
             try:
-                timeout = 10
+                timeout = 20
                 try:
                     post_response = requests.post(self.url + '/conversation/user_message', json=new_data, timeout=timeout)
                 except requests.Timeout:
@@ -210,3 +217,28 @@ class ChatbotTaskyto(Chatbot):
                 return False, 'chatbot internal error'
 
         return True, ''
+
+    def execute_starter_chatbot(self):
+        timeout = 20
+        try:
+            post_response = requests.post(self.url + '/conversation/new')
+            post_response_json = post_response.json()
+            self.id = post_response_json.get('id')
+            if post_response.status_code == 200:
+                assistant_message = post_response_json.get('message')
+                if assistant_message is None:
+                    return True, 'Hello'
+                else:
+                    return True, assistant_message
+            else:
+                # There is an error, but it is an internal error
+                errors.append({500: "Chatbot internal error"})
+                return False, post_response_json.get('error')
+        except requests.exceptions.ConnectionError:
+            logger.error(f"Couldn't connect with chatbot")
+            errors.append({500: f"Couldn't connect with chatbot"})
+            return False, 'cut connection'
+        except requests.Timeout:
+            logger.error(f"No response was received from the server in less than {timeout}")
+            errors.append({504: f"No response was received from the server in less than {timeout}"})
+            return False, 'timeout'

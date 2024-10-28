@@ -1,0 +1,72 @@
+serial: 2024-10-28-10-50-16
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - egg
+  - cheese
+  - pepperoni
+- drink:
+  - coke
+- size:
+  - small
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - change languages:
+    - English
+    - portuguese
+    - portuguese
+    - English
+    - italian
+  - long phrases
+  - all questions
+  - make spelling mistakes
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 57.764942
+assistant response time:
+- 6.258107
+- 5.261515
+- 3.823445
+- 8.046363
+- 3.531677
+response time report:
+  average: 5.384221
+  max: 8.046363
+  min: 3.531676
+---
+interaction:
+- Assistant: Hello
+- User: Hello! I'd like to place an order for a pizza, please.
+- Assistant: "Welcome to Fast Pizza!. I'm a chatbot assistant that can help you order\
+    \ pizzas and drinks. \nWhat can I do for you?"
+- User: 'Usuário: Gostaria de pedir uma pizza, por favor.'
+- Assistant: Lamento, mas só posso ajudar em inglês ou espanhol. Poderia mudar para
+    um desses idiomas, por favor?
+- User: 'Usuário: Desculpe, mas só posso falar em português. Gostaria de pedir uma
+    pizza, por favor.'
+- Assistant: 'I''m sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: 'User: Okay, sorry for the confusion. Can I order a pizza now, please?'
+- Assistant: Would you like to order a predefined pizza or create a custom one? Please
+    let me know your preference.
+- User: 'Utente: Vorrei creare una pizza personalizzata, per favore. Potrei avere
+    una pizza con mozzarella, pomodori freschi e basilico?'
+- Assistant: 'I''m sorry, could you please switch to English or Spanish?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

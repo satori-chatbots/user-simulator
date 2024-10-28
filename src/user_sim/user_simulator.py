@@ -1,10 +1,10 @@
-import logging
 from .utils.utilities import *
 from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from .utils.config import errors
+import logging
 
 parser = StrOutputParser()
 logger = logging.getLogger('Info Logger')
@@ -182,7 +182,7 @@ class UserGeneration:
                 interaction_style_prompt.append(instance.get_prompt())
         return ''.join(interaction_style_prompt)
 
-    def open_conversation(self):
+    def open_conversation(self, input_msg=None):
 
         interaction_style_prompt = self.get_interaction_styles_prompt()
         self.my_context.initiate_context([self.user_profile.context,
@@ -192,6 +192,13 @@ class UserGeneration:
         language_context = self.user_profile.get_language()
         self.my_context.add_context(language_context)
         history = self.get_history()
+
+        if input_msg:
+            self.update_history("Assistant", input_msg)
+            self.data_gathering.add_message(self.conversation_history)
+            if self.end_conversation(input_msg):
+                return "exit"
+            self.repetition_track(input_msg)
 
         user_response = self.user_chain.invoke({'history': history, 'reminder': self.my_context.get_context()})
 

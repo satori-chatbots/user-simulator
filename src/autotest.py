@@ -154,6 +154,7 @@ def generate(technology, chatbot, user, personality, extract):
             response_time = []
 
             start_time_conversation = timeit.default_timer()
+            response = ''
             while True:
                 if starter:
                     user_msg = the_user.open_conversation()
@@ -168,13 +169,21 @@ def generate(technology, chatbot, user, personality, extract):
                         if response is not None:
                             the_user.update_history("Assistant", "Error: " + response)  # added by JL
                         else:
-                            the_user.update_history("Assistant", "Error: The server did not repond.")  # added by JL
+                            the_user.update_history("Assistant", "Error: The server did not respond.")  # added by JL
                         break
-                    print_chatbot(response)
+                    else:
+                        if response is None:
+                            the_user.update_history("Assistant", "Error: The server did not respond.")
 
+                    print_chatbot(response)
                     starter = False
 
-                user_msg = the_user.get_response(response)  # todo: how to get messages from starter chatbots
+                elif not the_user.conversation_history['interaction']:
+                    is_ok, response = the_chatbot.execute_starter_chatbot()
+                    print_chatbot(response)
+                    user_msg = the_user.open_conversation(response)
+                else:
+                    user_msg = the_user.get_response(response)
 
                 if user_msg == "exit":
                     break

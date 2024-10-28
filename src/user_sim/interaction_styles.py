@@ -2,6 +2,7 @@ import random
 import logging
 logger = logging.getLogger('Info Logger')
 
+
 def find_instance(instances, i_class):
     for instance in instances:
         if isinstance(instance, i_class):
@@ -85,7 +86,6 @@ class ChangeLanguage(InteractionStyle):
         else:
             self.languages_list.append(self.default_language)
             logger.info(f'Language was set to default ({self.default_language})')
-            # logging.getLogger().verbose(f'the language was set to main language.')
             return self.default_language
 
     def reset_language_list(self):

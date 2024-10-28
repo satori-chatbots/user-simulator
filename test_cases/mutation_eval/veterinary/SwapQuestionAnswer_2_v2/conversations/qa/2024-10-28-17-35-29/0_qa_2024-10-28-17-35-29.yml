@@ -1,0 +1,66 @@
+serial: 2024-10-28-17-35-29
+language: English
+context:
+- You are interested in asking the items below.
+- Just stick to asking opening times (weekdays and weekends), cost of visit, types
+  of animals accepted, care of pets. Do not ask anything else.
+ask_about:
+- When are you open on weekdays?
+- When are you open on weekends?
+- How much does a vet visit cost?
+- What kind of animals do you accept?
+- What can I do to take care of my pet?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 9
+- interaction_style:
+  - default
+data_output:
+- opening_and_closing_weekdays: 9am to 6pm
+- opening_and_closing_weekends: closed on weekends
+- visit_cost: From $50 to $60
+- animal_kinds: dogs, cats, and birds
+- care_pet: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 65.919634
+assistant response time:
+- 1.873818
+- 2.929678
+- 4.10432
+- 5.065221
+- 5.284532
+- 3.960795
+- 4.66335
+- 3.686804
+- 4.898689
+response time report:
+  average: 4.051911
+  max: 5.284532
+  min: 1.873818
+---
+interaction:
+- User: What are your opening hours on weekdays?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm.
+- User: What are your opening hours on weekends?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm. However,
+    we are closed on weekends. Is there anything else I can assist you with?
+- User: How much does a vet visit cost?
+- Assistant: From $50 to $60
+- User: What kind of animals do you accept?
+- Assistant: Our expertise lies in dealing with dogs, cats, and birds. For other animals,
+    kindly seek consultation first.
+- User: What can I do to take care of my pet?
+- Assistant: From $50 to $60
+- User: What can I do to take care of my pet?
+- Assistant: From $50 to $60
+- User: What can I do to take care of my pet?
+- Assistant: From $50 to $60
+- User: What can I do to take care of my pet?
+- Assistant: From $50 to $60
+- User: What can I do to take care of my pet?
+- Assistant: From $50 to $60

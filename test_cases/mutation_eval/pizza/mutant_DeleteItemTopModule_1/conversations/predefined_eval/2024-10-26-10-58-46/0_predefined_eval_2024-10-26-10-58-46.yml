@@ -1,0 +1,42 @@
+serial: 2024-10-26-10-58-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 2 goals left to complete.
+---
+conversation time: 1.713005
+assistant response time:
+- 0.011327
+response time report:
+  average: 0.011327
+  max: 0.011327
+  min: 0.011327
+---
+interaction:
+- User: I'd like to order a small marinara pizza, please.
+- Assistant: 'Error: chatbot server error'

@@ -1,0 +1,10 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+address,18,1,0,17,0.00%
+appointment_date_november,18,2,0,16,0.00%
+appointment_date_november8,18,2,0,16,0.00%
+appointment_date_tomorrow,18,4,0,14,0.00%
+charge,18,1,0,17,0.00%
+cost_estimation,18,9,0,9,0.00%
+media,18,1,0,17,0.00%
+opening_times,18,1,0,17,0.00%
+portfolio,18,1,0,17,0.00%

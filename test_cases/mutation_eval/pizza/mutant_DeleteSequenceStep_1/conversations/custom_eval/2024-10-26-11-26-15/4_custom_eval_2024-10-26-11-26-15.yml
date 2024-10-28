@@ -1,0 +1,43 @@
+serial: 2024-10-26-11-26-15
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepperoni
+  - pepper
+  - mushrooms
+- drink:
+  - coke
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 2 goals left to complete.
+---
+conversation time: 3.479628
+assistant response time:
+- 0.010894
+response time report:
+  average: 0.010894
+  max: 0.010894
+  min: 0.010894
+---
+interaction:
+- User: I'd like to order a medium custom pizza with pepperoni, peppers, and mushrooms,
+    please.
+- Assistant: 'Error: chatbot server error'

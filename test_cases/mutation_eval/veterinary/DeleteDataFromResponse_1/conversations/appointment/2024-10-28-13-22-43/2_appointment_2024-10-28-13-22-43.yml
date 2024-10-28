@@ -1,0 +1,64 @@
+serial: 2024-10-28-13-22-43
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '14:00'
+- ap_date: tomorrow
+- service: Dental health and cleaning
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: null
+- confirmed_time: '14:00:00'
+- confirmed_service: dental health and cleaning
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 41.244155
+assistant response time:
+- 2.385253
+- 2.758
+- 7.045275
+- 6.091917
+- 4.403072
+response time report:
+  average: 4.536703
+  max: 7.045275
+  min: 2.385253
+---
+interaction:
+- User: Hi there! I’d like to schedule an appointment for my dog, Tommy, for dental
+    health and cleaning tomorrow at 14:00. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 14:00:00 for Dental health and cleaning. \nSee you then!    \n"
+- User: Great! Can you tell me what specific dental procedures will be included in
+    the cleaning? Also, should I bring anything special for Tommy?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 14:00:00 for Dental health and cleaning. \nSee you then!    \n"
+- User: Could you please clarify what specific dental procedures will be included
+    in the cleaning? And do I need to bring anything special for Tommy?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, the price for a vet consultation, the variety of animals we cater to, and
+    offer basic guidance on pet care.
+- User: Could you please provide me with the details of the specific dental procedures
+    that will be included in Tommy's cleaning? And do I need to bring anything special
+    for him?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, the price for a vet consultation, the variety of animals we cater to, and
+    offer basic guidance on pet care.
+- User: Could you at least tell me if there are any specific items I should bring
+    for Tommy's dental appointment? Like his favorite toy or something?
+- Assistant: For Tommy's dental health and cleaning appointment, it's a good idea
+    to bring any items that will make him feel more comfortable. This could include
+    his favorite toy, blanket, or treats. However, these are not mandatory. The most
+    important thing is to ensure Tommy is relaxed and comfortable for his appointment.

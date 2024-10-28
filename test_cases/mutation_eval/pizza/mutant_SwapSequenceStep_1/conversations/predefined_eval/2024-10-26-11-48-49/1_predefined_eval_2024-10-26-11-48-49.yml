@@ -1,0 +1,55 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.00
+- order_id: 1e616f
+errors: []
+---
+conversation time: 16.561605
+assistant response time:
+- 2.6617
+- 2.324388
+- 2.31204
+response time report:
+  average: 2.432709
+  max: 2.6617
+  min: 2.31204
+---
+interaction:
+- User: I'd like to order a medium vegetarian pizza, please.
+- Assistant: Could you please let me know how many drinks you would like to order
+    and which type of drink you prefer? We have coke, sprite, and water available.
+- User: I'll take 2 cans of Sprite, please.
+- Assistant: 'Alright, I''ve received your order for two Sprites.
+
+    Thank you for your order! You have ordered a medium vegetarian pizza and 2 cans
+    of Sprite. If there''s anything else you need, feel free to let me know!'
+- User: Can you confirm the order for the medium vegetarian pizza?
+- Assistant: 'Thanks for ordering a medium vegetarian pizza!
+
+    The cost for a medium vegetarian pizza and two Sprites is $20.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 1e616f.'

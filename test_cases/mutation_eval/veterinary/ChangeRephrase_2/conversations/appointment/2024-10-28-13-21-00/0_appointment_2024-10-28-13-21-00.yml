@@ -1,0 +1,39 @@
+serial: 2024-10-28-13-21-00
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '10:00'
+- ap_date: tomorrow
+- service: Physical examination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: null
+- confirmed_time: '10:00:00'
+- confirmed_service: physical examination
+errors:
+- 500: Server error
+- 1001: 1 goals left to complete.
+---
+conversation time: 7.083718
+assistant response time:
+- 0.026382
+response time report:
+  average: 0.026382
+  max: 0.026382
+  min: 0.026382
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for a physical
+    examination tomorrow at 10:00 AM. Is that available?
+- Assistant: 'Error: chatbot server error'

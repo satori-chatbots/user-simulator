@@ -1,0 +1,73 @@
+serial: 2024-10-25-19-11-05
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13.50
+- order_id: a54e4e
+errors: []
+---
+conversation time: 30.804176
+assistant response time:
+- 2.927988
+- 1.204678
+- 1.243117
+- 0.850867
+- 0.770001
+- 2.010776
+- 4.065057
+response time report:
+  average: 1.867497
+  max: 4.065057
+  min: 0.770001
+---
+interaction:
+- User: I'd like to order a small carbonara pizza, please.
+- Assistant: You have already ordered a small carbonara pizza. Is there anything else
+    you would like to add to your order?
+- User: Can I also get one can of water, please?
+- Assistant: We currently offer a selection of pizzas and drinks, but unfortunately,
+    we do not have water on our menu. Would you like to add a different drink or anything
+    else to your order?
+- User: Do you have any other non-soda drinks available?
+- Assistant: At Fast Pizza, we currently offer a selection of sodas and bottled water.
+    Unfortunately, we do not have other non-soda drinks available at the moment. Is
+    there anything else I can assist you with?
+- User: I'll take a bottled water, then.
+- Assistant: We have added a bottled water to your order. Is there anything else you
+    would like to add?
+- User: No, that's all for now. Thank you!
+- Assistant: You're welcome! If you need anything else or have any questions, feel
+    free to ask. Enjoy your meal!
+- User: I'd like to order a small carbonara pizza, please.
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    I see that you mentioned wanting a bottled water. Could you please confirm the
+    number of drinks you''d like to order?'
+- User: Just one bottled water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a small carbonara pizza and one water is $13.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is a54e4e.'

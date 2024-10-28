@@ -1,0 +1,45 @@
+serial: 2024-10-27-18-20-29
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 1
+- media: create 3D rendering of
+- artworks: pictures
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+errors:
+- 500: Chatbot internal error
+- 1001: 1 goals left to complete.
+---
+conversation time: 10.218459
+assistant response time:
+- 2.49584
+- 1.452143
+response time report:
+  average: 1.973991
+  max: 2.49584
+  min: 1.452143
+---
+interaction:
+- User: Hi, I’m Maria Smith. I’d like to get an estimate for creating a 3D rendering
+    of one picture for my art gallery. What would that cost?
+- Assistant: Hi Maria! I see that you're interested in a 3D rendering. I have noted
+    that you want to create a rendering for one artwork. Could you please confirm
+    the type of artwork? Is it a picture, sculpture, or ceramic?
+- User: I just need the estimate for the 3D rendering of one picture. What would that
+    cost?
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property media'

@@ -1,0 +1,61 @@
+serial: 2024-10-25-19-30-26
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $24.00
+- order_id: f6f36b
+errors: []
+---
+conversation time: 25.088955
+assistant response time:
+- 2.226585
+- 1.747501
+- 2.289299
+- 3.957804
+response time report:
+  average: 2.555297
+  max: 3.957804
+  min: 1.747501
+---
+interaction:
+- User: I'd like to order a large Carbonara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large Carbonara pizza, please?
+- Assistant: I see that you would like a large Carbonara pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, could I also get one can of Sprite, please?
+- Assistant: 'Thanks for ordering a large carbonara pizza!
+
+    I see that you would like one can of Sprite. Could you please confirm the number
+    of drinks you would like to order? '
+- User: Yes, just one can of Sprite, please.
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    Alright, I''ve received your order for one Sprite.
+
+    The cost for a large carbonara pizza and one Sprite is $24.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is f6f36b.'

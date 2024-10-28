@@ -1,0 +1,67 @@
+serial: 2024-10-25-19-11-05
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $24
+- order_id: 553b5d
+errors: []
+---
+conversation time: 31.113364
+assistant response time:
+- 1.642442
+- 4.563112
+- 1.113205
+- 1.72352
+- 1.541467
+- 3.497663
+response time report:
+  average: 2.346901
+  max: 4.563112
+  min: 1.113205
+---
+interaction:
+- User: I'd like to order a large marinara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a large marinara pizza, please?
+- Assistant: I see that you would like a large marinara pizza. Is there anything else
+    you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of water, please.
+- Assistant: Great! I've noted that you would like to add 2 cans of water to your
+    order. Your order now includes a large marinara pizza and 2 cans of water. Is
+    there anything else you would like to add or modify?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large marinera pizza!
+
+    Thank you for your order! You have ordered 2 cans of water. If there''s anything
+    else you need, feel free to let me know!'
+- User: I'd like to order a large marinara pizza, please.
+- Assistant: I see that you would like to order a large marinara pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of water, please.
+- Assistant: 'Sure, I''ve received your order for two bottles of water.
+
+    The cost for a large marinera pizza and two waters is $24.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 553b5d.'

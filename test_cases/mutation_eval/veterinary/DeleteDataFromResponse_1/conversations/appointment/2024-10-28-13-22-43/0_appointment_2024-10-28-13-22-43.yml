@@ -1,0 +1,62 @@
+serial: 2024-10-28-13-22-43
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '15:30'
+- ap_date: tomorrow
+- service: Physical examination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: null
+- confirmed_time: '15:30:00'
+- confirmed_service: Physical examination
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 44.150872
+assistant response time:
+- 2.811256
+- 2.906972
+- 6.511177
+- 7.270176
+- 7.14949
+response time report:
+  average: 5.329814
+  max: 7.270176
+  min: 2.811256
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for a physical
+    examination tomorrow at 15:30. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 15:30:00 for Physical examination. \nSee you then!    \n"
+- User: Great! Can you tell me what documents or information I need to bring for the
+    appointment?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 15:30:00 for Physical examination. \nSee you then!    \n"
+- User: What documents or information do I need to bring for the appointment? Also,
+    do you have any specific instructions for preparing Tommy before the examination?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, the price for a vet consultation, the variety of animals we cater to, and
+    offer basic guidance on pet care.
+- User: Could you please let me know what documents I should bring for Tommy's appointment?
+    And are there any specific instructions for preparing him before the examination?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, the price for a vet consultation, the variety of animals we cater to, and
+    offer basic guidance on pet care.
+- User: Could you please clarify what documents I should bring for Tommy's appointment?
+    And are there any specific instructions for preparing him before the examination?
+- Assistant: I'm unsure about that. However, I can provide information on our operating
+    hours, availability during weekends, the price for a vet consultation, the variety
+    of animals we cater to, and offer basic guidance on pet care.

@@ -1,0 +1,59 @@
+serial: 2024-10-25-19-49-17
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - corn
+  - cheese
+  - chicken
+- drink:
+  - water
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11
+- order_id: ed7d9a
+errors: []
+---
+conversation time: 26.663448
+assistant response time:
+- 4.441847
+- 2.913912
+- 3.491779
+response time report:
+  average: 3.615846
+  max: 4.441847
+  min: 2.913912
+---
+interaction:
+- User: I'd like to order a small custom pizza with corn, cheese, and chicken, please.
+- Assistant: 'It looks like we already have the data from the previous conversation:
+    a small pizza with corn, cheese, and chicken toppings. Is there anything else
+    you would like to add or change?'
+- User: Yes, that sounds good. Can you please confirm my order for the small custom
+    pizza with corn, cheese, and chicken?
+- Assistant: 'Thanks for ordering a small pizza with corn, cheese and chicken!
+
+    Certainly! I have confirmed your order for a small custom pizza with corn, cheese,
+    and chicken. Now, could you please let me know how many drinks you would like
+    and which type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order a water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A small pizza topped with corn, cheese, and chicken, along with a bottle of water,
+    costs $11.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ed7d9a.'

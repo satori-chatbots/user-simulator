@@ -1,0 +1,56 @@
+serial: 2024-10-27-18-57-57
+language: English
+context:
+- You want to obtain some information about the photography shop (charge and media).
+  Only focus on those two items.
+ask_about:
+- Do you charge per hour or by number of photos?
+- What media do you work on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- charge: $200 per hour
+- media_work: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 23.606381
+assistant response time:
+- 2.120023
+- 3.026991
+- 3.053219
+- 1.339062
+- 0.941381
+- 0.823543
+response time report:
+  average: 1.884036
+  max: 3.053219
+  min: 0.823543
+---
+interaction:
+- User: Do you charge per hour or by the number of photos?
+- Assistant: Our rate is $200 per hour.
+- User: Is there a minimum number of hours I need to book?
+- Assistant: I'm not sure about that. However, I can provide information on our opening
+    hours, location, portfolio projects, pricing structure, and the types of media
+    we handle.
+- User: Do you have a minimum booking time, or can I book just for one hour?
+- Assistant: I'm not sure about that. However, I can provide information on our opening
+    hours, location, portfolio projects, pricing structure, and the types of media
+    we handle.
+- User: Do you work with digital media, or do you also offer prints?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Do you offer prints in addition to digital media?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: Do you provide both digital and printed media options for your photography
+    services?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.

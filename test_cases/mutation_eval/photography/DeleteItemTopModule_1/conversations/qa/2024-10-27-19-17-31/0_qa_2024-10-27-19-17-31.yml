@@ -1,0 +1,65 @@
+serial: 2024-10-27-19-17-31
+language: English
+context:
+- You want to obtain some information about the photography shop
+ask_about:
+- When are you open?
+- Where is the shop?
+- Tell me about your portfolio, what important projects have you worked on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 8
+- interaction_style:
+  - default
+data_output:
+- opening_times: null
+- address: null
+- portfolio: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 20.901168
+assistant response time:
+- 0.832414
+- 0.867164
+- 0.683027
+- 0.866395
+- 0.765337
+- 0.772923
+- 0.953086
+- 0.862607
+response time report:
+  average: 0.825369
+  max: 0.953086
+  min: 0.683027
+---
+interaction:
+- User: What are your hours of operation? When are you open?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What are your hours of operation? When can I visit the shop?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What are your hours of operation? When can I come by the shop?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What is the address of your shop? Where can I find you in New York?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What is the address of your photography shop? Where exactly in New York are
+    you located?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What important projects have you worked on? Can you tell me about your portfolio?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What types of photography services do you offer? Do you specialize in any
+    particular area?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.
+- User: What types of photography services do you provide? Do you have any specialties?
+- Assistant: I'm sorry, I can help you to set an appointment for a session, provide
+    price estimates, and answer on issues related to our shop.

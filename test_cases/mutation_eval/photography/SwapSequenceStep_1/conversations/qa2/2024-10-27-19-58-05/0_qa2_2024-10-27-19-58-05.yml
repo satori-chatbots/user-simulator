@@ -1,0 +1,47 @@
+serial: 2024-10-27-19-58-05
+language: English
+context:
+- You want to obtain some information about the photography shop (charge and media).
+  Only focus on those two items.
+ask_about:
+- Do you charge per hour or by number of photos?
+- What media do you work on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- charge: $200 per hour
+- media_work: Primarily focused on photographs, but also including video and virtual/3D
+    rendering
+errors: []
+---
+conversation time: 19.713433
+assistant response time:
+- 2.175045
+- 2.068293
+- 2.921406
+- 2.251108
+response time report:
+  average: 2.353963
+  max: 2.921406
+  min: 2.068293
+---
+interaction:
+- User: Do you charge per hour or by the number of photos taken?
+- Assistant: Our rate is $200 per hour.
+- User: What if I want to book a session for a specific number of photos? Do you have
+    a package for that?
+- Assistant: Our rate is $200 per hour.
+- User: Is there a minimum number of hours I need to book for a session?
+- Assistant: I'm not sure about that. However, I can provide information on our opening
+    hours, location, portfolio projects, pricing structure, and the types of media
+    we handle.
+- User: What types of media do you work with? Do you offer prints, digital files,
+    or something else?
+- Assistant: Primarily focused on photographs, but also including video and virtual/3D
+    rendering.

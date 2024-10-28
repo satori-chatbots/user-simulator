@@ -1,0 +1,58 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepper
+  - chicken
+  - pepperoni
+- drink:
+  - water
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16
+- order_id: 37b8bd
+errors: []
+---
+conversation time: 28.103338
+assistant response time:
+- 3.229127
+- 6.644032
+- 4.562263
+response time report:
+  average: 4.811807
+  max: 6.644032
+  min: 3.229127
+---
+interaction:
+- User: I'd like to order a medium custom pizza with pepper, chicken, and pepperoni,
+    please.
+- Assistant: It looks like we have the toppings information, but we still need to
+    confirm the pizza size. Could you please let me know if you would like a small,
+    medium, or large pizza?
+- User: I'd like a medium pizza, please.
+- Assistant: 'Thanks for ordering a medium pizza with pepper, chicken and pepperoni!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? We have coke, sprite, and water available.'
+- User: I'd like to order one water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost of a pizza topped with peppers, chicken, and pepperoni, along with one
+    water, is $16.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 37b8bd.'

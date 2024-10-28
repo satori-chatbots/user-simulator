@@ -1,0 +1,27 @@
+Global report:
+  Average assistant response time: 3.890366
+  Maximum assistant response time: 7.413575
+  Mínimum assistant response time: 1.534184
+  Errors:
+  - error: 1001
+    count: 7
+    conversations:
+    - 4_appointment_2024-10-28-14-12-07.yml
+    - 4_appointment_2024-10-28-14-12-07.yml
+    - 4_appointment_2024-10-28-14-12-07.yml
+    - 4_appointment_2024-10-28-14-12-07.yml
+    - 4_appointment_2024-10-28-14-12-07.yml
+    - 4_appointment_2024-10-28-14-12-07.yml
+    - 4_appointment_2024-10-28-14-12-07.yml
+---
+Test name: appointment
+Average assistant response time: 3.863967
+Maximum assistant response time: 7.413575
+Mínimum assistant response time: 2.547681
+Errors: []
+---
+Test name: qa
+Average assistant response time: 3.863967
+Maximum assistant response time: 7.413575
+Mínimum assistant response time: 2.547681
+Errors: []

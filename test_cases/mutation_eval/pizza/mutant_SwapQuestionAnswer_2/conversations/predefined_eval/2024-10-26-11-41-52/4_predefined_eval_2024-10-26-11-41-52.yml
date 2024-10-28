@@ -1,0 +1,59 @@
+serial: 2024-10-26-11-41-52
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: 6c7647
+errors: []
+---
+conversation time: 19.01369
+assistant response time:
+- 1.647657
+- 2.812615
+- 1.59544
+- 2.822716
+response time report:
+  average: 2.219607
+  max: 2.822716
+  min: 1.59544
+---
+interaction:
+- User: I'd like to order a medium Margherita pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a medium Margherita pizza, please?
+- Assistant: 'It looks like you want a medium Margherita pizza. However, the pizza
+    type should be one of the following: margarita, carbonara, marinera, hawaiian,
+    four cheese, vegetarian. Could you please confirm if you meant "margarita"?'
+- User: Yes, I meant a medium Margarita pizza.
+- Assistant: 'Thanks for ordering a medium margarita pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one can of Coca-Cola, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium margarita pizza and one Coke is $16.50.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is 6c7647.'

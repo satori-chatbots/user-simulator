@@ -1,0 +1,58 @@
+serial: 2024-10-25-17-34-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepperoni
+  - olives
+  - chicken
+- drink:
+  - water
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21
+- order_id: 69d1aa
+errors: []
+---
+conversation time: 21.525605
+assistant response time:
+- 4.123646
+- 2.051807
+- 3.5462
+response time report:
+  average: 3.240551
+  max: 4.123646
+  min: 2.051807
+---
+interaction:
+- User: I'd like to order a big custom pizza with pepperoni, olives, and chicken,
+    please. Can you confirm that?
+- Assistant: It seems like we need to confirm the pizza size for your order. Could
+    you please let me know if you would like a small, medium, or large pizza?
+- User: I'd like a large pizza, please. Can you confirm that?
+- Assistant: 'Thanks for ordering a large pizza with pepperoni, olives and chicken!
+
+    Thank you for confirming the pizza size. Now, could you please let me know how
+    many drinks you would like to order and which type of drinks you prefer? We have
+    coke, sprite, and water available.'
+- User: I'd like to order one water, please. Can you confirm that?
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A large pizza topped with pepperoni, olives, and chicken, along with one water,
+    costs $21.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 69d1aa.'

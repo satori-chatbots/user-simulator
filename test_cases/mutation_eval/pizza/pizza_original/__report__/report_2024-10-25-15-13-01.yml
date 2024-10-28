@@ -1,0 +1,11 @@
+Global report:
+  Average assistant response time: 1.89721
+  Maximum assistant response time: 2.302934
+  Mínimum assistant response time: 1.490654
+  Errors: []
+---
+Test name: qa_eval
+Average assistant response time: 1.89721
+Maximum assistant response time: 2.302934
+Mínimum assistant response time: 1.490654
+Errors: []

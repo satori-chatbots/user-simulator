@@ -1,0 +1,58 @@
+serial: 2024-10-27-18-38-07
+language: English
+context:
+- You want to obtain some information about the photography shop (charge and media).
+  Only focus on those two items.
+ask_about:
+- Do you charge per hour or by number of photos?
+- What media do you work on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- charge: $200
+- media_work: Primarily focused on photographs, but also includes video and virtual/3D
+    rendering.
+errors: []
+---
+conversation time: 28.529074
+assistant response time:
+- 1.992566
+- 2.382432
+- 2.022557
+- 3.666092
+- 2.8149
+- 2.014162
+response time report:
+  average: 2.482118
+  max: 3.666092
+  min: 1.992566
+---
+interaction:
+- User: Do you charge per hour or by the number of photos taken?
+- Assistant: Our rate is $200 per hour.
+- User: Is there a minimum number of hours I need to book?
+- Assistant: I'm not sure about that. However, I can provide information on our opening
+    hours, location, portfolio projects, pricing structure, and the types of media
+    we handle.
+- User: Do you have a specific minimum number of hours for a booking, or is it flexible?
+    Also, what types of media do you work with?
+- Assistant: Our rate is $200 per hour.
+- User: Is there a specific minimum number of hours I need to book for a session?
+    And could you tell me more about the types of media you work with?
+- Assistant: I'm not sure about that. However, I can provide information on our opening
+    hours, location, key projects in our portfolio, our billing method, and the types
+    of media we handle.
+- User: Do you have a minimum booking time, or is it flexible? Also, what types of
+    media do you typically work with?
+- Assistant: I'm not sure about that. However, I can provide information on our opening
+    hours, location, key projects in our portfolio, our billing method, and the types
+    of media we handle.
+- User: What types of media do you typically work with?
+- Assistant: Primarily focused on photographs, but also includes video and virtual/3D
+    rendering.

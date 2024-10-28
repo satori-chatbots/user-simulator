@@ -1,0 +1,67 @@
+serial: 2024-10-25-19-40-45
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $15.00
+- order_id: 96bef9
+errors: []
+---
+conversation time: 35.753528
+assistant response time:
+- 3.159442
+- 1.103451
+- 1.310525
+- 2.536521
+- 3.820777
+response time report:
+  average: 2.386143
+  max: 3.820777
+  min: 1.103451
+---
+interaction:
+- User: Hi, I'd like to order a small Hawaiian pizza, please.
+- Assistant: 'It looks like we have all the necessary information from the previous
+    conversation: a small Hawaiian pizza. If you need anything else, feel free to
+    let me know!'
+- User: Great, can I also get 2 cans of Sprite with that order?
+- Assistant: Sure, I can add 2 cans of Sprite to your order. Your order now includes
+    a small Hawaiian pizza and 2 cans of Sprite. If there's anything else you need,
+    just let me know!
+- User: That's all I need for now, thank you!
+- Assistant: You're welcome! Your order for a small Hawaiian pizza and 2 cans of Sprite
+    is all set. If you need anything else or have any questions, feel free to ask.
+    Have a great day!
+- User: Hi, I'd like to order a small Hawaiian pizza, please.
+- Assistant: 'Thanks for ordering a small hawaiian pizza!
+
+    It looks like you would like to add 2 cans of Sprite to your order. Is that correct?
+    If so, I have all the information I need for your order. If there''s anything
+    else you need, just let me know!'
+- User: Yes, that's correct. Please add 2 cans of Sprite to my order.
+- Assistant: 'Alright, I''ve received your order for two Sprites.
+
+    The cost for a small Hawaiian pizza and two Sprites is $15.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 96bef9.'

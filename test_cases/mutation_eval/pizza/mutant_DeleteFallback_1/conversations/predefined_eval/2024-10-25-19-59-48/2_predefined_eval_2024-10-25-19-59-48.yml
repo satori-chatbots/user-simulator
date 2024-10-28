@@ -1,0 +1,65 @@
+serial: 2024-10-25-19-59-48
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: ff3355
+errors: []
+---
+conversation time: 31.289382
+assistant response time:
+- 4.61653
+- 1.440374
+- 2.77097
+- 1.036704
+- 6.031267
+response time report:
+  average: 3.179169
+  max: 6.031267
+  min: 1.036704
+---
+interaction:
+- User: Hi, I'd like to order a large margarita pizza, please.
+- Assistant: 'It looks like we already have the information from the previous conversation:
+    a large margarita pizza. Is there anything else you would like to add to your
+    order, such as drinks?'
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: Great! I've added one can of Coca-Cola to your order. You have a large
+    margarita pizza and a can of Coca-Cola. Would you like to add anything else to
+    your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large margarita pizza!
+
+    It seems like you mentioned adding one can of Coca-Cola to your order. Just to
+    confirm, is the number of drinks one, and the drink is Coke? If there''s anything
+    else or if I misunderstood, please let me know!'
+- User: Yes, that's correct. Just one can of Coca-Cola. Thank you!
+- Assistant: "json\n{\n  \"num_drinks\": 1,\n  \"drinks\": \"coke\"\n}\n"
+- User: Yes, that's correct. Just one can of Coca-Cola. Thank you!
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a large margarita pizza and one Coke is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ff3355.'

@@ -5,9 +5,9 @@ from user_sim.utils.config import errors
 import pandas as pd
 import yaml
 from colorama import Fore, Style
-from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot, \
-    ChatbotLolaUMU, ChatbotServiceform, KukiChatbot, JulieChatbot, ChatbotCatalinaRivas, ChatbotSaicMalaga, \
-    ChatbotGenion
+from technologies.chatbot_connectors import (Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot,
+                                             ChatbotLolaUMU, ChatbotServiceform, KukiChatbot, JulieChatbot, ChatbotCatalinaRivas, ChatbotSaicMalaga, \
+    ChatbotGenion)
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
 from user_sim.user_simulator import UserGeneration

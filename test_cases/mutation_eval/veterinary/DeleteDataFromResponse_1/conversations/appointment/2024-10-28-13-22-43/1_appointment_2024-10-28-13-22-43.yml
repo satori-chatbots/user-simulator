@@ -1,0 +1,62 @@
+serial: 2024-10-28-13-22-43
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '10:00'
+- ap_date: tomorrow
+- service: Vaccination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: null
+- confirmed_time: '10:00:00'
+- confirmed_service: Vaccination
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 37.018953
+assistant response time:
+- 2.75394
+- 4.348377
+- 2.31292
+- 2.879339
+- 5.287006
+response time report:
+  average: 3.516316
+  max: 5.287006
+  min: 2.31292
+---
+interaction:
+- User: Hi there! I’d like to set an appointment for my dog, Tommy, for a vaccination
+    tomorrow at 10:00. Is that possible?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 10:00:00 for Vaccination. \nSee you then!    \n"
+- User: Great! Can you tell me what type of vaccination Tommy will be getting?
+- Assistant: I'm sorry for the confusion, but our system doesn't require the specific
+    type of vaccination to book an appointment. We just need to know the service type,
+    which in this case is "Vaccination". Our vet will discuss the specific type of
+    vaccination Tommy needs when you come in. Shall I proceed with booking the appointment
+    for Tommy's vaccination tomorrow at 10:00?
+- User: Yes, please go ahead and book the appointment for Tommy's vaccination. Also,
+    can you let me know if there are any specific preparations I need to do before
+    the appointment?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 10:00:00 for Vaccination. \nSee you then!    \n"
+- User: Is there anything specific I should prepare for Tommy before the vaccination?
+    Like fasting or bringing any documents?
+- Assistant: "Ok, I have received your request to schedule an appointment for  at\
+    \ 10:00:00 for Vaccination. \nSee you then!    \n"
+- User: Is there a specific time I should arrive before the appointment? Also, do
+    I need to bring any medical records for Tommy?
+- Assistant: Their fundamental needs such as food, water, shelter, exercise, and love
+    should be fulfilled by you.

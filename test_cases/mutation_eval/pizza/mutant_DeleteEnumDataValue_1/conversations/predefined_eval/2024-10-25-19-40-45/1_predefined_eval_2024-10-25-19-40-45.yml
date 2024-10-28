@@ -1,0 +1,55 @@
+serial: 2024-10-25-19-40-45
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $17
+- order_id: ff94ab
+errors: []
+---
+conversation time: 25.824023
+assistant response time:
+- 3.081129
+- 2.217057
+- 3.27053
+response time report:
+  average: 2.856238
+  max: 3.27053
+  min: 2.217057
+---
+interaction:
+- User: I'd like to order a medium margarita pizza, please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: Medium, please.
+- Assistant: 'Thanks for ordering a medium margarita pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order 2 cans of water, please.
+- Assistant: 'Alright, I''ve received your order for two bottles of water.
+
+    The cost for a medium margarita pizza and two waters is $17.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ff94ab.'

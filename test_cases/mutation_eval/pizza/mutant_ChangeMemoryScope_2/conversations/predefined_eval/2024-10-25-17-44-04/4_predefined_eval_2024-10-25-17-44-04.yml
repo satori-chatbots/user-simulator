@@ -1,0 +1,64 @@
+serial: 2024-10-25-17-44-04
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.50
+- order_id: 474fbb
+errors: []
+---
+conversation time: 33.069458
+assistant response time:
+- 4.525882
+- 1.359064
+- 2.3849
+- 0.95317
+- 4.422957
+response time report:
+  average: 2.729194
+  max: 4.525881
+  min: 0.95317
+---
+interaction:
+- User: Hi there! I'd like to order a medium four cheese pizza, please.
+- Assistant: 'It looks like we have already collected the data for your order: a medium
+    four cheese pizza. If there''s anything else you need or if you''d like to add
+    drinks to your order, please let me know!'
+- User: Can I also get one can of Sprite, please?
+- Assistant: Sure! I've added one can of Sprite to your order. If there's anything
+    else you'd like to add or if you have any other requests, feel free to let me
+    know!
+- User: That's all for now, thank you!
+- Assistant: 'Thanks for ordering a medium four cheese pizza!
+
+    It seems like you would like to add one can of Sprite to your order. Just to confirm,
+    is the number of drinks one? If so, I have all the information I need. Thank you!'
+- User: Yes, just one can of Sprite, please. Thank you!
+- Assistant: "json\n{\n  \"num_drinks\": 1,\n  \"drinks\": \"sprite\"\n}\n"
+- User: Yes, just one can of Sprite, please. Thank you!
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a medium four-cheese pizza and one Sprite is $18.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 474fbb.'

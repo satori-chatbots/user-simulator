@@ -7,7 +7,7 @@ import logging
 
 logger = logging.getLogger('Info Logger')
 
-##################################################
+###################################################
 # THE CONNECTORS NEED HEAVY REFACTORING TO JUST
 # ONE OR TWO CLASSES
 
@@ -104,8 +104,8 @@ class MillionBot(Chatbot):
 
     def execute_with_input(self, user_msg):
         if self.reset_payload is not None:
-            # print(self.reset_payload)
             response = requests.post(self.reset_url, headers=self.headers, json=self.reset_payload)
+            # print(response)
             assert response.status_code == 200
             self.reset_payload = None
 
@@ -226,6 +226,10 @@ class ChatbotTaskyto(Chatbot):
                 logger.error(f"Couldn't connect with chatbot")
                 errors.append({500: f"Couldn't connect with chatbot"})
                 return False, 'cut connection'
+            except Exception:
+                logger.error(f"Server error: invalid payload")
+                errors.append({post_response.status_code: f"Server error"})
+                return False, 'chatbot server error'
 
         if self.id is not None:
             new_data = {
@@ -234,7 +238,7 @@ class ChatbotTaskyto(Chatbot):
             }
 
             try:
-                timeout = 10
+                timeout = 20
                 try:
                     post_response = requests.post(self.url + '/conversation/user_message', json=new_data, timeout=timeout)
                 except requests.Timeout:

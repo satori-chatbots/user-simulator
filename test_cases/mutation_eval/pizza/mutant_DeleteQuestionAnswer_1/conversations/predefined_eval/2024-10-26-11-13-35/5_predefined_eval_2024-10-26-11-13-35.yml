@@ -1,0 +1,69 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 24.86499
+assistant response time:
+- 1.60627
+- 1.720597
+- 1.298822
+- 2.182041
+- 1.238511
+- 1.170206
+- 0.928069
+response time report:
+  average: 1.449216
+  max: 2.182041
+  min: 0.928069
+---
+interaction:
+- User: Hi, I'd like to order a large marinara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large marinara pizza, please?
+- Assistant: I see that you would like a large marinara pizza. Is there anything else
+    you would like to add to your order, such as drinks?
+- User: Yes, could I also get 2 cans of Coca-Cola, please?
+- Assistant: Great! I've noted down your order for a large marinara pizza and 2 cans
+    of Coca-Cola. Is there anything else you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large marinera pizza!
+
+    I see that you have already ordered 2 cans of Coca-Cola. Your order includes a
+    large marinara pizza and 2 cans of Coca-Cola. If there''s anything else you need,
+    feel free to let me know!'
+- User: Could you confirm the order for me once more, please?
+- Assistant: Certainly! Your order includes a large marinara pizza and 2 cans of Coca-Cola.
+    If there's anything else you need, feel free to let me know!
+- User: Thank you for confirming the order. That's all I needed.
+- Assistant: You're welcome! Your order includes a large marinara pizza and 2 cans
+    of Coca-Cola. If you need any further assistance, feel free to ask. Have a great
+    day!
+- User: Thank you! Looking forward to enjoying my meal.
+- Assistant: You're welcome! Enjoy your meal, and if you need anything else, feel
+    free to reach out. Have a great day!

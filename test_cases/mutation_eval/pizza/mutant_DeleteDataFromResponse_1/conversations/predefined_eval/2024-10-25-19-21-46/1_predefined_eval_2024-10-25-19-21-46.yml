@@ -1,0 +1,55 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $19
+- order_id: ed4bf9
+errors: []
+---
+conversation time: 17.325979
+assistant response time:
+- 3.967726
+- 2.535663
+- 3.160038
+response time report:
+  average: 3.221142
+  max: 3.967726
+  min: 2.535663
+---
+interaction:
+- User: I'd like to order a medium marinera pizza, please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: I mentioned a medium marinera pizza, please.
+- Assistant: 'Thanks for ordering a medium marinera pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order 2 cans of water, please.
+- Assistant: 'Alright, I''ve received your order for two bottles of water.
+
+    The cost for a medium marinera pizza and two waters is $19.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ed4bf9.'

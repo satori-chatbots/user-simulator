@@ -1,0 +1,63 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - chicken
+  - bacon
+  - mushrooms
+- drink:
+  - sprite
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: a7c87b
+errors: []
+---
+conversation time: 27.61324
+assistant response time:
+- 3.3341
+- 0.755694
+- 1.803926
+- 2.589487
+response time report:
+  average: 2.120801
+  max: 3.3341
+  min: 0.755694
+---
+interaction:
+- User: I'd like to order a big custom pizza with chicken, bacon, and mushrooms, please.
+    Can you confirm that?
+- Assistant: 'It seems like we have the toppings you want: chicken, bacon, and mushrooms.
+    However, I need to know the size of the pizza you''d like to order. Please choose
+    from small, medium, or large.'
+- User: I'd like a big pizza, please. Can you confirm that?
+- Assistant: Unfortunately, we don't have a "big" size option. Could you please choose
+    from small, medium, or large for your pizza size?
+- User: I'd like a large pizza, please, with chicken, bacon, and mushrooms. Can you
+    confirm that?
+- Assistant: 'Thanks for ordering a large pizza with chicken, bacon and mushrooms!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? You can choose from coke, sprite, or water.'
+- User: I'd like to order one Sprite, please. Can you confirm that?
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    A large pizza topped with chicken, bacon, and mushrooms, along with one Sprite,
+    costs $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is a7c87b.'

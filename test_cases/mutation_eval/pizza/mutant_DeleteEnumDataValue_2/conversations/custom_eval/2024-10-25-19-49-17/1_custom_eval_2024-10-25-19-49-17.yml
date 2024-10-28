@@ -1,0 +1,58 @@
+serial: 2024-10-25-19-49-17
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - ham
+  - mushrooms
+  - corn
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: 7a9ff5
+errors: []
+---
+conversation time: 31.631834
+assistant response time:
+- 3.832106
+- 2.125502
+- 4.332095
+response time report:
+  average: 3.429901
+  max: 4.332095
+  min: 2.125502
+---
+interaction:
+- User: I'd like to order a medium custom pizza with ham, mushrooms, and corn, please.
+    Can you confirm that?
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: I'd like a medium custom pizza with ham, mushrooms, and corn, please. Can
+    you confirm that?
+- Assistant: 'Thanks for ordering a medium pizza with ham, mushrooms and corn!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    A medium pizza topped with ham, mushrooms, and corn, along with one Sprite, costs
+    $16.50.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is 7a9ff5.'

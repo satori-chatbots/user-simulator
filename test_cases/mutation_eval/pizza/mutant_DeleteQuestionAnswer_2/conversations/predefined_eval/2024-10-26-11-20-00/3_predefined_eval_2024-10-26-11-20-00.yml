@@ -1,0 +1,64 @@
+serial: 2024-10-26-11-20-00
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $15.00
+- order_id: 67b744
+errors: []
+---
+conversation time: 23.015332
+assistant response time:
+- 2.478687
+- 0.856899
+- 1.134344
+- 1.880841
+- 2.752011
+response time report:
+  average: 1.820556
+  max: 2.752011
+  min: 0.856899
+---
+interaction:
+- User: Hi, I'd like to order a small vegetarian pizza, please.
+- Assistant: It looks like you have already ordered a small vegetarian pizza. Is there
+    anything else you would like to add to your order, such as drinks or another pizza?
+- User: Yes, I'd like to add 2 cans of Coca-Cola, please.
+- Assistant: Great choice! I've added 2 cans of Coca-Cola to your order. Is there
+    anything else you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: Thank you for your order! You have a small vegetarian pizza and 2 cans
+    of Coca-Cola. If you need anything else, feel free to ask. Have a great day!
+- User: Hi, I'd like to order a small vegetarian pizza, please.
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    It seems like you want to add drinks to your order. Could you please confirm the
+    number of drinks and the type of drink you''d like? You mentioned Coca-Cola earlier,
+    but I need to confirm the exact number and type. Thank you!'
+- User: I'd like to add 2 cans of Coca-Cola, please.
+- Assistant: 'Sure, I''ve received your order for two Cokes.
+
+    The cost for a small vegetarian pizza and two Cokes is $15.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 67b744.'

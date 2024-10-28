@@ -1,0 +1,5 @@
+;verification;data
+a_big_custom_pizza_with_mushrooms,_ham,_cheese;True;"User: I'd like a large custom pizza with mushrooms, ham, and cheese, please. Can you confirm that?
+Assistant: Thanks for ordering a large pizza with mushrooms, ham and cheese!"
+the_following_drink:_coke;True;"User: I'd like to order one coke, please. Can you confirm that?
+Assistant: Sure, I've received your order for one Coke."

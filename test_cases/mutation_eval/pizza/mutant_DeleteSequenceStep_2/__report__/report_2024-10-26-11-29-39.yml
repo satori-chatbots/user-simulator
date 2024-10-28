@@ -1,0 +1,102 @@
+Global report:
+  Average assistant response time: 2.231018
+  Maximum assistant response time: 8.830983
+  Mínimum assistant response time: 0.720647
+  Errors:
+  - error: 1001
+    count: 37
+    conversations:
+    - 0_qa_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 4_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 4_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 4_predefined_eval_2024-10-26-11-29-39.yml
+    - 5_predefined_eval_2024-10-26-11-29-39.yml
+  - error: 500
+    count: 36
+    conversations:
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 4_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 4_predefined_eval_2024-10-26-11-29-39.yml
+    - 0_predefined_eval_2024-10-26-11-29-39.yml
+    - 1_predefined_eval_2024-10-26-11-29-39.yml
+    - 2_predefined_eval_2024-10-26-11-29-39.yml
+    - 3_predefined_eval_2024-10-26-11-29-39.yml
+    - 4_predefined_eval_2024-10-26-11-29-39.yml
+    - 5_predefined_eval_2024-10-26-11-29-39.yml
+---
+Test name: custom_eval
+Average assistant response time: 2.539769
+Maximum assistant response time: 3.479539
+Mínimum assistant response time: 0.891985
+Errors: []
+---
+Test name: qa_eval
+Average assistant response time: 2.539769
+Maximum assistant response time: 3.479539
+Mínimum assistant response time: 0.891985
+Errors: []
+---
+Test name: predefined_eval
+Average assistant response time: 2.539769
+Maximum assistant response time: 3.479539
+Mínimum assistant response time: 0.891985
+Errors: []

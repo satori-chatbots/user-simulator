@@ -1,0 +1,25 @@
+Global report:
+  Average assistant response time: 2.400453
+  Maximum assistant response time: 5.30572
+  Mínimum assistant response time: 0.805774
+  Errors:
+  - error: 1001
+    count: 11
+    conversations:
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+    - 0_predefined_eval_2024-10-25-17-44-04.yml
+---
+Test name: predefined_eval
+Average assistant response time: 2.400453
+Maximum assistant response time: 5.30572
+Mínimum assistant response time: 0.805774
+Errors: []

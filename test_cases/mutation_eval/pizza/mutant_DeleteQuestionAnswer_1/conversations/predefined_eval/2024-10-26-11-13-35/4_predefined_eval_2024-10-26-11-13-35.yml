@@ -1,0 +1,59 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18
+- order_id: c09d7a
+errors: []
+---
+conversation time: 16.089047
+assistant response time:
+- 1.452749
+- 1.851513
+- 1.734088
+- 3.813829
+response time report:
+  average: 2.213044
+  max: 3.813829
+  min: 1.452749
+---
+interaction:
+- User: Hi, I'd like to order a medium vegetarian pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Sure, I'd like to order a medium vegetarian pizza.
+- Assistant: Could you please confirm the size of the pizza you'd like to order? I
+    have the type as vegetarian, but I need to know if you'd like it small, medium,
+    or large.
+- User: Medium, please.
+- Assistant: 'Thanks for ordering a medium vegetarian pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one can of water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a medium vegetarian pizza and one water is $18.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is c09d7a.'

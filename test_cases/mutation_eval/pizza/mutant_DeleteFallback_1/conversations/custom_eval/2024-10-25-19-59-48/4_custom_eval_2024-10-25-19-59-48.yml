@@ -1,0 +1,57 @@
+serial: 2024-10-25-19-59-48
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - chicken
+  - olives
+  - mushrooms
+- drink:
+  - coke
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: e00b1e
+errors: []
+---
+conversation time: 20.88476
+assistant response time:
+- 3.475905
+- 2.634494
+- 3.570074
+response time report:
+  average: 3.226824
+  max: 3.570074
+  min: 2.634494
+---
+interaction:
+- User: I'd like to order a medium custom pizza with chicken, olives, and mushrooms,
+    please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The available sizes are small, medium, and large.
+- User: I'd like a medium custom pizza with chicken, olives, and mushrooms, please.
+- Assistant: 'Thanks for ordering a medium pizza with chicken, olives and mushrooms!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The available options are coke, sprite, and water.'
+- User: I'd like one coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    A medium pizza topped with chicken, olives, and mushrooms, along with one Coke,
+    costs $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e00b1e.'

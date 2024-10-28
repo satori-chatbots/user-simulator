@@ -1,0 +1,58 @@
+serial: 2024-10-26-11-35-54
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $15.00
+- order_id: c00e57
+errors: []
+---
+conversation time: 16.392583
+assistant response time:
+- 1.513318
+- 1.753077
+- 1.594254
+- 2.917398
+response time report:
+  average: 1.944511
+  max: 2.917398
+  min: 1.513318
+---
+interaction:
+- User: I'd like to order a small four cheese pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a small four cheese pizza, please?
+- Assistant: I see that you would like a small four cheese pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, could I also get 2 cans of Sprite, please?
+- Assistant: 'Thanks for ordering a small four cheese pizza!
+
+    Thank you for your order. I have noted that you would like 2 cans of Sprite. Is
+    there anything else you would like to add to your order?'
+- User: No, that's all for now. Thank you!
+- Assistant: 'Alright, I''ve received your order for two Sprites.
+
+    The cost for a small four-cheese pizza and two Sprites is $15.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c00e57.'

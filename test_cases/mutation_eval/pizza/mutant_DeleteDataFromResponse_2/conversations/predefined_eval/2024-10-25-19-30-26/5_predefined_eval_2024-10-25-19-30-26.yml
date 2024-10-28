@@ -1,0 +1,66 @@
+serial: 2024-10-25-19-30-26
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $25.00
+- order_id: c70ed3
+errors: []
+---
+conversation time: 36.644752
+assistant response time:
+- 2.633698
+- 2.032284
+- 1.882623
+- 2.762572
+- 1.05967
+- 3.356214
+response time report:
+  average: 2.287843
+  max: 3.356214
+  min: 1.05967
+---
+interaction:
+- User: Hi, I'd like to order a large marinara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large marinara pizza, please?
+- Assistant: I see that you would like a large marinara pizza. Is there anything else
+    you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of Coca-Cola, please.
+- Assistant: Great choice! I have added 2 cans of Coca-Cola to your order. Your order
+    now includes a large marinara pizza and 2 cans of Coca-Cola. Is there anything
+    else you would like to add or modify?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large marinera pizza!
+
+    I see that you would like to add 2 cans of Coca-Cola to your order. Just to confirm,
+    is "Coca-Cola" the same as "coke" for your drink choice?'
+- User: Yes, Coca-Cola is the same as Coke. That's perfect, thank you!
+- Assistant: "json\n{\n  \"num_drinks\": 2,\n  \"drinks\": \"coke\"\n}\n"
+- User: 'User: That''s correct, thank you!'
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a large marinera pizza and two Cokes is $25.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c70ed3.'

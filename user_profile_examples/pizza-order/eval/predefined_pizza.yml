@@ -1,16 +1,17 @@
 llm:
-  temperature: 0.8
+  temperature: 0.0
   model: gpt-4o
 
 is_starter: True
 
-fallback: I'm sorry, I did not get what you said. Can you rephrase?
+fallback: I'm sorry, I did not get what you said. I can help you ordering predefined or custom pizzas, and then drinks.
 
 role:
   you must act as a user ordering a pizza to a pizza shop virtual assistant.
+  Just order the pizza, once confirmed, then order the drink. Do not ask for extra toppings, or discounts, or delivery times or any other thing.
 
 context:
-  - personality: personalities/conversational-user.yml
+  - Just order the pizza, once confirmed, then order the drink. Do not ask for extra toppings, discounts, or delivery times or any other thing.
 
 ask_about:
   - "a {{size}} {{pizza_type}} pizza"
@@ -33,7 +34,7 @@ ask_about:
         - large
 
   - pizza_type:
-      function: random()
+      function: another()
       type: string
       data:
         - margarita
@@ -69,17 +70,6 @@ conversations:
         limit: 7
   - interaction_style:
       - default
-      #- change language:
-      #    - spanish
-#      - random:
-#        - make spelling mistakes
-#        - all questions
-#        - long phrases
-#        - change language:
-#            - italian
-#            - portuguese
-#            - chinese
-
 
 language: English
 

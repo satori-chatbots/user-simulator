@@ -1,0 +1,70 @@
+serial: 2024-10-25-19-11-05
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $15.00
+- order_id: bf8195
+errors: []
+---
+conversation time: 42.11225
+assistant response time:
+- 3.405602
+- 0.992907
+- 2.03456
+- 2.371946
+- 1.417229
+- 4.464646
+response time report:
+  average: 2.447815
+  max: 4.464646
+  min: 0.992907
+---
+interaction:
+- User: Hi, I'd like to order a small vegetarian pizza, please.
+- Assistant: 'It looks like we have already collected the data for your order: a small
+    vegetarian pizza. Is there anything else you would like to add to your order,
+    such as drinks?'
+- User: Yes, I'd like to add 2 cans of Sprite, please.
+- Assistant: Great! I've added 2 cans of Sprite to your order. Is there anything else
+    you would like to add or modify?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    It looks like we have already collected the data for your order: 2 cans of Sprite.
+    If there''s anything else you need, feel free to let me know!'
+- User: Can you confirm the total cost for my order?
+- Assistant: I'm sorry, but I currently don't have the capability to provide the total
+    cost for your order. However, you can contact the Fast Pizza shop directly for
+    pricing information. If there's anything else I can assist you with, please let
+    me know!
+- User: Hi, I'd like to order a small vegetarian pizza, please.
+- Assistant: It looks like you would like to order a small vegetarian pizza. Would
+    you like to add any drinks to your order?
+- User: Yes, I'd like to add 2 cans of Sprite, please.
+- Assistant: 'Alright, I''ve received your order for two Sprites.
+
+    The cost for a small vegetarian pizza and two Sprites is $15.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is bf8195.'

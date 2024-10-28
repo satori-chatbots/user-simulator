@@ -1,0 +1,62 @@
+serial: 2024-10-25-19-49-17
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $19.00
+- order_id: 0f143d
+errors: []
+---
+conversation time: 27.371691
+assistant response time:
+- 3.601625
+- 0.977663
+- 1.859908
+- 7.130487
+response time report:
+  average: 3.39242
+  max: 7.130486
+  min: 0.977663
+---
+interaction:
+- User: I'd like to order a medium Carbonara pizza, please.
+- Assistant: 'It seems like we have already collected the data for your order: a medium
+    Carbonara pizza. If there''s anything else you need or if you''d like to add drinks
+    to your order, please let me know!'
+- User: Can I also get one can of Coca-Cola, please?
+- Assistant: Sure! I've added one can of Coca-Cola to your order. If there's anything
+    else you'd like to add or if you have any other requests, feel free to let me
+    know!
+- User: That's all for now, thank you!
+- Assistant: 'Thanks for ordering a medium carbonara pizza!
+
+    It looks like you mentioned wanting one can of Coca-Cola. Could you please confirm
+    the number of drinks you''d like to order? Is it just one drink, or would you
+    like to add more? Thank you!'
+- User: Yes, just one can of Coca-Cola, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium carbonara pizza and one Coke is $19.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0f143d.'

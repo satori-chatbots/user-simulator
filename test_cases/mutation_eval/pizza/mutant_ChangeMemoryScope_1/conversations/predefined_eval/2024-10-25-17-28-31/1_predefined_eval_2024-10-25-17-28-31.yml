@@ -1,0 +1,57 @@
+serial: 2024-10-25-17-28-31
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 20.672459
+assistant response time:
+- 3.377177
+- 1.677929
+- 2.422544
+- 1.784118
+response time report:
+  average: 2.315442
+  max: 3.377177
+  min: 1.677929
+---
+interaction:
+- User: I'd like to order a medium vegetarian pizza, please.
+- Assistant: It looks like we have already collected the data for a medium vegetarian
+    pizza. Is there anything else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of water, please.
+- Assistant: Great! I've added 2 cans of water to your order. Is there anything else
+    you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a medium vegetarian pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I would like to order 2 cans of water, please.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property pizza_size'

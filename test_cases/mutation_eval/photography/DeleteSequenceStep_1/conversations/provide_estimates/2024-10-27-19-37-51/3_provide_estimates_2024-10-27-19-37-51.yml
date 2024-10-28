@@ -1,0 +1,38 @@
+serial: 2024-10-27-19-37-51
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 2
+- media: create a video of
+- artworks: pictures
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+errors:
+- 500: Server error
+- 1001: 1 goals left to complete.
+---
+conversation time: 2.953618
+assistant response time:
+- 0.012316
+response time report:
+  average: 0.012316
+  max: 0.012316
+  min: 0.012316
+---
+interaction:
+- User: Hi, I’m Maria Smith. I’d like to get an estimate for creating a video of two
+    pictures for my art gallery. What would that cost?
+- Assistant: 'Error: chatbot server error'

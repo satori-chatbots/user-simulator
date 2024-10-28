@@ -1,0 +1,40 @@
+Global report:
+  Average assistant response time: 3.684463
+  Maximum assistant response time: 6.755043
+  Mínimum assistant response time: 1.72417
+  Errors:
+  - error: 1001
+    count: 20
+    conversations:
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+    - 2_appointment_2024-10-28-14-06-59.yml
+    - 3_appointment_2024-10-28-14-06-59.yml
+---
+Test name: appointment
+Average assistant response time: 3.633979
+Maximum assistant response time: 6.755043
+Mínimum assistant response time: 2.320298
+Errors: []
+---
+Test name: qa
+Average assistant response time: 3.633979
+Maximum assistant response time: 6.755043
+Mínimum assistant response time: 2.320298
+Errors: []

@@ -1,0 +1,59 @@
+serial: 2024-10-25-19-30-26
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.00
+- order_id: c44e32
+errors: []
+---
+conversation time: 26.33432
+assistant response time:
+- 1.863797
+- 2.279368
+- 2.447611
+- 3.496763
+response time report:
+  average: 2.521884
+  max: 3.496763
+  min: 1.863797
+---
+interaction:
+- User: Hi, I'd like to order a medium vegetarian pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a medium vegetarian pizza, please?
+- Assistant: Could you please confirm the size of the pizza you would like? I have
+    noted that you want a vegetarian pizza, but I need to know if you would like it
+    in small, medium, or large.
+- User: Medium, please.
+- Assistant: 'Thanks for ordering a medium vegetarian pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? We have coke, sprite, and water available.'
+- User: I'd like to order 2 cans of Coca-Cola, please.
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a medium vegetarian pizza and two Cokes is $20.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c44e32.'

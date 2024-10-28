@@ -1,0 +1,58 @@
+serial: 2024-10-25-11-31-40
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, or discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $14
+- order_id: 44de7f
+errors: []
+---
+conversation time: 24.711708
+assistant response time:
+- 1.58371
+- 5.177116
+- 2.336197
+- 3.38426
+response time report:
+  average: 3.12032
+  max: 5.177116
+  min: 1.58371
+---
+interaction:
+- User: I'd like to order a small vegetarian pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a small vegetarian pizza, please?
+- Assistant: I see that you would like a small vegetarian pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of water, please.
+- Assistant: 'Thanks for ordering a small vegetarian pizza!
+
+    Thank you for providing the information. You have ordered 2 cans of water. Is
+    there anything else you would like to add to your order?'
+- User: No, that's all for now. Thank you!
+- Assistant: 'Sure, I''ve received your order for two bottles of water.
+
+    The cost for a small vegetarian pizza and two bottles of water is $14.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 44de7f.'

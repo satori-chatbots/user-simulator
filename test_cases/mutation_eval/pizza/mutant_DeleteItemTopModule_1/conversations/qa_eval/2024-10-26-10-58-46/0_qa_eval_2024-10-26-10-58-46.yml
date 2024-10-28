@@ -1,0 +1,40 @@
+serial: 2024-10-26-10-58-46
+language: English
+context:
+- Just ask the questions you'd like to know
+ask_about:
+- What are the opening hours?
+- What types of pizza do you serve?
+- What are the prices of the pizzas? How much do they cost?
+- What are the prices of the beverages?
+- How do I get the order? Do you deliver orders?
+- How much time does it take to get an order?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 8
+- interaction_style:
+  - default
+data_output:
+- opening_hours: null
+- pizza_types: null
+- pizza_prices: null
+- beverages_prices: null
+- order_time: null
+errors:
+- 500: Server error
+- 1001: 5 goals left to complete.
+---
+conversation time: 9.508189
+assistant response time:
+- 0.012468
+response time report:
+  average: 0.012468
+  max: 0.012468
+  min: 0.012468
+---
+interaction:
+- User: What are your opening hours?
+- Assistant: 'Error: chatbot server error'

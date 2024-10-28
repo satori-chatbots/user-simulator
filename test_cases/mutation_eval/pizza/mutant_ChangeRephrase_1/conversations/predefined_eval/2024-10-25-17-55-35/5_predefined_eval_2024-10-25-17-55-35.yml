@@ -1,0 +1,64 @@
+serial: 2024-10-25-17-55-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $24
+- order_id: 20934e
+errors: []
+---
+conversation time: 37.238549
+assistant response time:
+- 3.130724
+- 1.163706
+- 2.486915
+- 9.12513
+- 3.87774
+response time report:
+  average: 3.956842
+  max: 9.125129
+  min: 1.163706
+---
+interaction:
+- User: Hi, I'd like to order a large Hawaiian pizza, please.
+- Assistant: I see that you would like to order a large Hawaiian pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of water, please.
+- Assistant: 'Great! I''ve noted that you would like to add 2 cans of water to your
+    order. Let me confirm your order: a large Hawaiian pizza and 2 cans of water.
+    Is there anything else you would like to add or modify?'
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large hawaiian pizza!
+
+    Thank you for your order! You have ordered 2 cans of water. If there''s anything
+    else you need, feel free to let me know!'
+- User: Hi, I'd like to order a large Hawaiian pizza, please.
+- Assistant: I see that you would like to order a large Hawaiian pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add 2 cans of water, please.
+- Assistant: 'Alright, I''ve received your order for two bottles of water.
+
+    The cost for a large Hawaiian pizza and two bottles of water is $24.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 20934e.'

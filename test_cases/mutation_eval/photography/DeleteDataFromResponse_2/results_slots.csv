@@ -1,0 +1,2 @@
+rule,checks,pass,fail,not_applicable,fail_rate
+all_slots_set,19,15,4,0,21.05%

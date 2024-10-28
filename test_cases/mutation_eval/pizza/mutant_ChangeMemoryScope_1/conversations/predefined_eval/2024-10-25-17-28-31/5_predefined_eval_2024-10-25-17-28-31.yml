@@ -1,0 +1,55 @@
+serial: 2024-10-25-17-28-31
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 15.907289
+assistant response time:
+- 3.757271
+- 2.585821
+- 1.473833
+response time report:
+  average: 2.605641
+  max: 3.757271
+  min: 1.473833
+---
+interaction:
+- User: I'd like to order a large marinara pizza, please.
+- Assistant: It seems like you want a large pizza, but I noticed a small typo in the
+    pizza type. Could you please confirm if you meant "marinera" or if you would like
+    a different type? The available options are margarita, carbonara, marinera, hawaiian,
+    four cheese, and vegetarian.
+- User: Yes, I meant a large marinera pizza.
+- Assistant: 'Thanks for ordering a large marinera pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order 2 cans of water, please.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property pizza_size'

@@ -1,0 +1,65 @@
+serial: 2024-10-25-17-44-04
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.00
+- order_id: 55a6d0
+errors: []
+---
+conversation time: 43.104698
+assistant response time:
+- 4.201592
+- 5.30572
+- 1.185801
+- 4.149261
+- 3.195729
+response time report:
+  average: 3.60762
+  max: 5.30572
+  min: 1.185801
+---
+interaction:
+- User: I'd like to order a medium Hawaiian pizza, please.
+- Assistant: It looks like we have all the necessary information from the previous
+    conversation. You have ordered a medium Hawaiian pizza. If you need anything else,
+    feel free to let me know!
+- User: Can I also get 2 cans of Coca-Cola, please?
+- Assistant: Sure! I've noted your order for 2 cans of Coca-Cola along with your medium
+    Hawaiian pizza. If there's anything else you need, just let me know!
+- User: That's all for now, thank you!
+- Assistant: You're welcome! Your order for a medium Hawaiian pizza and 2 cans of
+    Coca-Cola has been noted. If you need anything else or have any questions, feel
+    free to ask. Have a great day!
+- User: I'd like to order a medium Hawaiian pizza, please.
+- Assistant: 'Thanks for ordering a medium hawaiian pizza!
+
+    It seems like you want to order 2 drinks, but could you please confirm the type
+    of drink? We have coke, sprite, and water available. Thank you!'
+- User: Can I get 2 cans of Coca-Cola, please?
+- Assistant: 'Sure, I''ve received your order for two Cokes.
+
+    The cost for a medium Hawaiian pizza and two Cokes is $20.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 55a6d0.'

@@ -1,0 +1,17 @@
+Global report:
+  Average assistant response time: 2.640008
+  Maximum assistant response time: 6.119104
+  Mínimum assistant response time: 1.863701
+  Errors: []
+---
+Test name: appointment
+Average assistant response time: 2.502719
+Maximum assistant response time: 2.840043
+Mínimum assistant response time: 2.260876
+Errors: []
+---
+Test name: qa
+Average assistant response time: 2.502719
+Maximum assistant response time: 2.840043
+Mínimum assistant response time: 2.260876
+Errors: []

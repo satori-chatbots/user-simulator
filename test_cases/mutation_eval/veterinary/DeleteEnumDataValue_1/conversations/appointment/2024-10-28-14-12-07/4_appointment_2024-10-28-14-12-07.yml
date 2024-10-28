@@ -1,0 +1,54 @@
+serial: 2024-10-28-14-12-07
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '13:00'
+- ap_date: November 6th, 2024
+- service: Physical examination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: 2024-11-06
+- confirmed_time: '13:00:00'
+- confirmed_service: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 30.378046
+assistant response time:
+- 3.054725
+- 6.993951
+- 4.241904
+response time report:
+  average: 4.763526
+  max: 6.993951
+  min: 3.054725
+---
+interaction:
+- User: Hi there! I’d like to schedule a physical examination for my dog, Tommy, on
+    November 6th, 2024, at 1:00 PM. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for 06/11/2024\
+    \ at 13:00:00 for Lab or diagnostic testing. \nSee you then!    \n"
+- User: I think there might have been a mix-up. I wanted to schedule a physical examination,
+    not lab testing. Can you confirm if the physical examination is available at that
+    time?
+- Assistant: I'm sorry for the confusion, but we only offer Vaccination, Dental health
+    and cleaning, and Lab or diagnostic testing services. Could you please specify
+    which of these services you would like to schedule for your dog, Tommy?
+- User: I really need to get a physical examination for Tommy. Is there any way to
+    make that happen on November 6th, 2024, at 1:00 PM?
+- Assistant: I understand your concern, but unfortunately, we do not offer physical
+    examinations as a standalone service. We can provide a Vaccination, Dental health
+    and cleaning, or Lab or diagnostic testing, all of which include a basic physical
+    examination as part of the service. Could you please specify which of these services
+    you would like to schedule for Tommy on November 6th, 2024, at 1:00 PM?

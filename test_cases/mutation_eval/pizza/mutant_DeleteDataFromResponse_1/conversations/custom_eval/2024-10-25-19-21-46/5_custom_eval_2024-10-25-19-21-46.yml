@@ -1,0 +1,58 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - olives
+  - corn
+  - pepper
+- drink:
+  - sprite
+- size:
+  - big
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: a24559
+errors: []
+---
+conversation time: 29.630019
+assistant response time:
+- 3.583944
+- 2.607157
+- 3.577525
+response time report:
+  average: 3.256208
+  max: 3.583944
+  min: 2.607157
+---
+interaction:
+- User: I'd like to order a big custom pizza with olives, corn, and pepper, please.
+    Can you confirm that?
+- Assistant: It seems like we still need to confirm the pizza size. Could you please
+    let me know if you would like a small, medium, or large pizza?
+- User: I'd like a large custom pizza with olives, corn, and pepper, please. Can you
+    confirm that?
+- Assistant: 'Thanks for ordering a large pizza with olives, corn and pepper!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one Sprite, please. Can you confirm that?
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost of a pizza topped with olives, corn, and pepper, along with one Sprite,
+    is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is a24559.'

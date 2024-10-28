@@ -1,0 +1,61 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - chicken
+  - mushrooms
+  - olives
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: ede3a0
+errors: []
+---
+conversation time: 28.895329
+assistant response time:
+- 3.253816
+- 3.011426
+- 2.732253
+response time report:
+  average: 2.999165
+  max: 3.253816
+  min: 2.732253
+---
+interaction:
+- User: I'd like to order a medium custom pizza with chicken, mushrooms, and olives,
+    please. Can you confirm that?
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The available sizes are small, medium, and large.
+- User: I'd like a medium custom pizza with chicken, mushrooms, and olives, please.
+    Can you confirm that?
+- Assistant: 'Thanks for ordering a medium pizza with chicken, mushrooms and olives!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The available options are coke, sprite, and water.'
+- User: Great! I’d like to order one Sprite, please. Can you confirm that?
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    I have received your order for one Sprite.
+
+    A medium pizza topped with chicken, mushrooms, and olives, along with one Sprite,
+    costs $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is ede3a0.'

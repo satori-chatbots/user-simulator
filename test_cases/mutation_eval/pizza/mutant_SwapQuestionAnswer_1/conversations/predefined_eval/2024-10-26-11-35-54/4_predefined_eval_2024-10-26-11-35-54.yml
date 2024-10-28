@@ -1,0 +1,61 @@
+serial: 2024-10-26-11-35-54
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.50
+- order_id: 177a03
+errors: []
+---
+conversation time: 21.921225
+assistant response time:
+- 2.75042
+- 0.900759
+- 1.733115
+- 3.188592
+response time report:
+  average: 2.143221
+  max: 3.188592
+  min: 0.900759
+---
+interaction:
+- User: I'd like to order a medium vegetarian pizza, please.
+- Assistant: It looks like we have already collected the data for a medium vegetarian
+    pizza. Is there anything else you would like to add to your order, such as drinks?
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: Great! I've added one can of Coca-Cola to your order. Your order now
+    includes a medium vegetarian pizza and a can of Coca-Cola. Would you like to add
+    anything else or proceed to checkout?
+- User: No, that's all for now. Let's proceed to checkout.
+- Assistant: 'Thanks for ordering a medium vegetarian pizza!
+
+    It seems like you mentioned wanting to add one can of Coca-Cola to your order.
+    Just to confirm, is that the only drink you''d like to add, and is the quantity
+    correct as one? If so, we can proceed to checkout.'
+- User: Yes, that's correct. Just one can of Coca-Cola, please. Let's proceed to checkout.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium vegetarian pizza and one Coke is $18.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 177a03.'

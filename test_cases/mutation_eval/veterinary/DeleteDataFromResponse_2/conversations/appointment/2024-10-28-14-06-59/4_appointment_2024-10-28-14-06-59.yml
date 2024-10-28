@@ -1,0 +1,38 @@
+serial: 2024-10-28-14-06-59
+language: English
+context:
+- your name is John Doe
+- you have a dog called Tommy
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my dog
+- hour:
+  - '14:00'
+- ap_date: November 6th, 2024
+- service: Physical examination
+conversation:
+- number: 8
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: 2024-11-06
+- confirmed_time: '14:00:00'
+- confirmed_service: physical examination
+errors: []
+---
+conversation time: 14.563888
+assistant response time:
+- 2.512815
+response time report:
+  average: 2.512815
+  max: 2.512815
+  min: 2.512815
+---
+interaction:
+- User: Hi there! I’d like to schedule a physical examination for my dog, Tommy, on
+    November 6th, 2024, at 14:00. Is that available?
+- Assistant: "Ok, I have received your request to schedule an appointment for 06/11/2024\
+    \ at  for Physical examination. \nSee you then!    \n"

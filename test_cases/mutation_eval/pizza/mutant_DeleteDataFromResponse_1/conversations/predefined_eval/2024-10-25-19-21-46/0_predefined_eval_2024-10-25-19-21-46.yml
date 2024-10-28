@@ -1,0 +1,64 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- order_id: 900b02
+errors: []
+---
+conversation time: 25.211366
+assistant response time:
+- 1.561532
+- 2.001976
+- 1.120671
+- 2.05864
+- 3.622179
+response time report:
+  average: 2.072999
+  max: 3.622179
+  min: 1.120671
+---
+interaction:
+- User: Hi there! I'd like to order a small margarita pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Sure, can I get a small margarita pizza?
+- Assistant: I see that you would like a small margarita pizza. Is there anything
+    else you would like to add to your order, such as drinks or another type of pizza?
+- User: Yes, could I also get a can of Sprite, please?
+- Assistant: I've noted your order for a small margarita pizza and a can of Sprite.
+    Is there anything else you would like to add to your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    Could you please let me know how many cans of Sprite you would like to order?'
+- User: Just one can of Sprite, please.
+- Assistant: 'Sure, here''s a rephrased version:
+
+
+    Alright, I''ve received your order for one Sprite.
+
+    The cost for a small margarita pizza and one Sprite is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 900b02.'

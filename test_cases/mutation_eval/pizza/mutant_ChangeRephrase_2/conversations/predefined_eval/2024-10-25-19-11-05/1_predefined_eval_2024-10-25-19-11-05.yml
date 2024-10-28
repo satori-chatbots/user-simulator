@@ -1,0 +1,62 @@
+serial: 2024-10-25-19-11-05
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.00
+- order_id: 7c9978
+errors: []
+---
+conversation time: 33.531845
+assistant response time:
+- 3.340128
+- 1.329366
+- 2.162966
+- 9.207411
+response time report:
+  average: 4.009967
+  max: 9.207411
+  min: 1.329366
+---
+interaction:
+- User: I'd like to order a medium margarita pizza, please.
+- Assistant: It looks like we already have the information for a medium margarita
+    pizza. Is there anything else you would like to add to your order, such as drinks
+    or another type of pizza?
+- User: Yes, I'd like to add 2 cans of Coca-Cola to my order, please.
+- Assistant: Great! I've added 2 cans of Coca-Cola to your order. You have a medium
+    margarita pizza and 2 cans of Coca-Cola. Is there anything else you would like
+    to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a medium margarita pizza!
+
+    It looks like we already have the information for 2 cans of Coca-Cola. Your order
+    now includes a medium margarita pizza and 2 cans of Coca-Cola. If there''s anything
+    else you need, feel free to let me know!'
+- User: That's all for now. Thank you!
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a medium margarita pizza and two Cokes is $18.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 7c9978.'

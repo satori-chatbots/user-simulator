@@ -1,0 +1,59 @@
+serial: 2024-10-25-19-49-17
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $19
+- order_id: a0a351
+errors: []
+---
+conversation time: 20.610737
+assistant response time:
+- 1.486865
+- 2.72779
+- 1.909962
+- 3.070102
+response time report:
+  average: 2.298679
+  max: 3.070102
+  min: 1.486865
+---
+interaction:
+- User: I'd like to order a medium Hawaiian pizza, please.
+- Assistant: '{"type": "Hawaiian", "size": "medium"}'
+- User: That sounds great! Can I also get 2 cans of water, please?
+- Assistant: Could you please let me know the size of the pizza you'd like (small,
+    medium, or large) and the type of pizza (margarita, carbonara, marinera, hawaiian,
+    four cheese, or vegetarian)?
+- User: I already mentioned I'd like a medium Hawaiian pizza. Can you confirm that?
+- Assistant: 'Thanks for ordering a medium hawaiian pizza!
+
+    Could you please confirm the number of drinks you''d like? I have noted that you
+    want water, but I need to know the quantity. Thank you!'
+- User: I would like 2 cans of water, please.
+- Assistant: 'Sure, I''ve received your order for two bottles of water.
+
+    The cost for a medium Hawaiian pizza and two waters is $19.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is a0a351.'

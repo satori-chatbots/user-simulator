@@ -1,0 +1,66 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11
+- order_id: eaafbb
+errors: []
+---
+conversation time: 26.435519
+assistant response time:
+- 3.20461
+- 5.087942
+- 3.998655
+- 0.830233
+- 2.200961
+response time report:
+  average: 3.06448
+  max: 5.087942
+  min: 0.830233
+---
+interaction:
+- User: Hi, I'd like to order a small margarita pizza, please.
+- Assistant: Could you please let me know how many drinks you would like to order
+    and which type of drink you prefer? We have coke, sprite, and water available.
+- User: I'll take one can of water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    I have the information that you would like a small margarita pizza. Is there anything
+    else you would like to add to your order?'
+- User: No, that's all for now. Thank you!
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    I have all the necessary information from the previous conversation. You ordered
+    a small margarita pizza and one can of water. If there''s anything else you need,
+    feel free to let me know!'
+- User: Great, thank you! That's all I need for now.
+- Assistant: You're welcome! If you need anything else in the future, feel free to
+    reach out. Enjoy your meal!
+- User: Hi, I'd like to order a small margarita pizza, please.
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    The cost for a small margarita pizza and one water is $11.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is eaafbb.'

@@ -1,0 +1,3 @@
+;verification;data
+a_large_hawaiian_pizza;True;{'Assistant': 'It looks like we have already collected the pizza type as Hawaiian and the pizza size as large.'}
+1_cans_of_Coca-Cola;True;{'Assistant': 'Alright, I've received your order for one Coke.'}

@@ -1,0 +1,56 @@
+serial: 2024-10-25-17-55-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - ham
+  - pepper
+  - corn
+- drink:
+  - coke
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: 11.5$
+- order_id: e7f4d1
+errors: []
+---
+conversation time: 23.077377
+assistant response time:
+- 3.457131
+- 3.578945
+- 4.314569
+response time report:
+  average: 3.783548
+  max: 4.314569
+  min: 3.457131
+---
+interaction:
+- User: I'd like to order a small custom pizza with ham, pepper, and corn, please.
+- Assistant: 'It looks like we have the toppings you want: ham, pepper, and corn.
+    Could you please let me know the size of the pizza you''d like? The options are
+    small, medium, or large.'
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with ham, pepper and corn!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The price of a small pizza with ham, pepper and corn, and 1 coke is 11.5$
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is e7f4d1.'

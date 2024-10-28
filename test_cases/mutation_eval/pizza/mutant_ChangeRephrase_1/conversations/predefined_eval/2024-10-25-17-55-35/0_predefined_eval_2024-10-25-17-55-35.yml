@@ -1,0 +1,73 @@
+serial: 2024-10-25-17-55-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13
+- order_id: 23e317
+errors: []
+---
+conversation time: 39.311808
+assistant response time:
+- 2.889274
+- 1.697025
+- 2.335789
+- 2.789906
+- 3.074767
+- 2.936033
+- 3.087798
+response time report:
+  average: 2.687227
+  max: 3.087798
+  min: 1.697025
+---
+interaction:
+- User: I'd like to order a small marinara pizza, please.
+- Assistant: Thank you for providing the pizza size and type. Your order is a small
+    marinara pizza. If you need anything else, feel free to let me know!
+- User: Can I also get a can of water, please?
+- Assistant: We currently only assist with pizza orders. However, you can request
+    a can of water when you pick up your order or when it's delivered. If you need
+    help with anything else, feel free to ask!
+- User: Is the small marinara pizza confirmed, then?
+- Assistant: Yes, your order for a small marinara pizza is confirmed. If you need
+    anything else, feel free to let me know!
+- User: Great, thanks! Can I add a can of water to my order, please?
+- Assistant: Yes, your small marinara pizza is confirmed. I will add a can of water
+    to your order. If there's anything else you need, just let me know!
+- User: Thank you! That's all I needed.
+- Assistant: You're welcome! Your order for a small marinara pizza is confirmed, and
+    I've noted your request for a can of water. If you need anything else, feel free
+    to ask. Have a great day!
+- User: I'd like to order a small marinara pizza, please.
+- Assistant: 'Thanks for ordering a small marinera pizza!
+
+    Could you please let me know how many drinks you would like to order and specify
+    if you would like coke, sprite, or water? Thank you!'
+- User: Just one can of water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a small marinera pizza and one water is $13.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 23e317.'

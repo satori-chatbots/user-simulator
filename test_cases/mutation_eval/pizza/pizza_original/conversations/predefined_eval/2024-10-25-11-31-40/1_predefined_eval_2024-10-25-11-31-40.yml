@@ -1,0 +1,65 @@
+serial: 2024-10-25-11-31-40
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, or discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.00
+- order_id: 6706ea
+errors: []
+---
+conversation time: 36.518314
+assistant response time:
+- 4.066571
+- 1.174697
+- 1.279513
+- 2.173156
+- 4.625581
+response time report:
+  average: 2.663903
+  max: 4.625581
+  min: 1.174697
+---
+interaction:
+- User: I'd like to order a medium marinera pizza, please.
+- Assistant: Thank you for providing the pizza type and size. You have ordered a medium
+    marinera pizza. If you need anything else, feel free to let me know!
+- User: Can I also get 2 cans of Coca-Cola, please?
+- Assistant: Sure! I've noted your order for 2 cans of Coca-Cola. If there's anything
+    else you'd like to add or modify, just let me know!
+- User: That's all for now, thank you!
+- Assistant: You're welcome! Your order for a medium marinera pizza and 2 cans of
+    Coca-Cola has been placed. If you need anything else, feel free to reach out.
+    Have a great day!
+- User: I'd like to order a medium marinera pizza, please.
+- Assistant: 'Thanks for ordering a medium marinera pizza!
+
+    Thank you for your order of a medium marinera pizza. Could you please let me know
+    how many drinks you would like and which type you prefer? We have coke, sprite,
+    and water available.'
+- User: Can I get 2 cans of Coca-Cola, please?
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a medium marinera pizza and two Cokes is $20.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 6706ea.'

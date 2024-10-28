@@ -1,0 +1,44 @@
+serial: 2024-10-27-19-26-51
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 1
+- media: create a video of
+- artworks: sculptures
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: $2000
+errors: []
+---
+conversation time: 7.886607
+assistant response time:
+- 1.976111
+- 2.148005
+response time report:
+  average: 2.062058
+  max: 2.148005
+  min: 1.976111
+---
+interaction:
+- User: Hi, I’m Maria Smith. Can I get an estimate for creating a video of one sculpture
+    in my gallery?
+- Assistant: 'Hi Maria! I see that you''re interested in creating a video. I have
+    the media type as video and the type of artwork as sculpture. Could you please
+    confirm the number of artworks you need the video for? '
+- User: I just need an estimate for one sculpture. What would that cost?
+- Assistant: 'Thanks for giving those details!.
+
+    The cost is approximately $2000, but it may vary based on factors such as the
+    size of the artworks.'

@@ -1,0 +1,68 @@
+serial: 2024-10-25-17-55-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13.00
+- order_id: 96ef49
+errors: []
+---
+conversation time: 40.925818
+assistant response time:
+- 3.944573
+- 2.084492
+- 1.779059
+- 1.598879
+- 2.41771
+- 4.152768
+response time report:
+  average: 2.662913
+  max: 4.152768
+  min: 1.598879
+---
+interaction:
+- User: Hi, I'd like to order a small margarita pizza, please.
+- Assistant: It looks like we already have the information for a small margarita pizza.
+    Is there anything else you would like to add to your order, such as drinks or
+    another type of pizza?
+- User: Yes, I'd like to add 2 cans of Sprite to my order, please.
+- Assistant: Great! I've added 2 cans of Sprite to your order. Is there anything else
+    you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: Great! Your order includes a small margarita pizza and 2 cans of Sprite.
+    Thank you for choosing Fast Pizza. Your order will be ready shortly!
+- User: Thank you! Looking forward to enjoying my meal.
+- Assistant: You're welcome! We're glad to serve you. Enjoy your meal and have a great
+    day! If you need anything else, feel free to reach out.
+- User: Hi, I'd like to order a small margarita pizza, please.
+- Assistant: 'Thanks for ordering a small margarita pizza!
+
+    It seems like you have already ordered a small margarita pizza and 2 cans of Sprite.
+    Is there anything else you would like to add to your order?'
+- User: No, that's all for now. Thank you!
+- Assistant: 'Alright, I''ve received your order for two Sprites.
+
+    The cost for a small margarita pizza and two Sprites is $13.00.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 96ef49.'

@@ -1,0 +1,56 @@
+serial: 2024-10-25-17-28-31
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 16.391072
+assistant response time:
+- 1.778991
+- 2.158093
+- 1.98057
+- 1.600135
+response time report:
+  average: 1.879447
+  max: 2.158093
+  min: 1.600135
+---
+interaction:
+- User: Hi, I'd like to order a small Carbonara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a small Carbonara pizza, please?
+- Assistant: I see that you would like a small Carbonara pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, I'd like one can of Sprite, please.
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I'd like one can of Sprite, please.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property pizza_size'

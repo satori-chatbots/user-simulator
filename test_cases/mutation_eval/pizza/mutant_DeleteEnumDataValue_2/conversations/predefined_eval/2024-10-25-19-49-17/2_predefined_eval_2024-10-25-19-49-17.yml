@@ -1,0 +1,63 @@
+serial: 2024-10-25-19-49-17
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21.50
+- order_id: 51aa27
+errors: []
+---
+conversation time: 26.164016
+assistant response time:
+- 1.687133
+- 3.052148
+- 1.185641
+- 1.816531
+- 3.623173
+response time report:
+  average: 2.272925
+  max: 3.623173
+  min: 1.185641
+---
+interaction:
+- User: Hi, I'd like to order a large margarita pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large margarita pizza, please?
+- Assistant: I have the information for a large margarita pizza. Is there anything
+    else you would like to add to your order, such as drinks or another type of pizza?
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: I've noted your order for a large margarita pizza and one can of Coca-Cola.
+    Is there anything else you would like to add to your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large margarita pizza!
+
+    I have noted that you would like to add one can of Coca-Cola to your order. Thank
+    you for providing the information!'
+- User: Could you confirm my order for a large margarita pizza and one can of Coca-Cola,
+    please?
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a large margarita pizza and one Coke is $21.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 51aa27.'

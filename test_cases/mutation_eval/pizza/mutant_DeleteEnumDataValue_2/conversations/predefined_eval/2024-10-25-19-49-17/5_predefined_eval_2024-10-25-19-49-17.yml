@@ -1,0 +1,72 @@
+serial: 2024-10-25-19-49-17
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Water
+- number:
+  - 2
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 38.950124
+assistant response time:
+- 3.400705
+- 1.031323
+- 1.159451
+- 1.283453
+- 1.0677
+- 0.884679
+- 1.167064
+response time report:
+  average: 1.427767
+  max: 3.400705
+  min: 0.884679
+---
+interaction:
+- User: I'd like to order a large four cheese pizza, please.
+- Assistant: 'It looks like we already have the information for your order: a large
+    four cheese pizza. If there''s anything else you need or if you''d like to add
+    drinks to your order, please let me know!'
+- User: Can I also get 2 cans of water with that, please?
+- Assistant: Sure, I can add 2 cans of water to your order. So, you have a large four
+    cheese pizza and 2 cans of water. If there's anything else you'd like to add or
+    change, just let me know!
+- User: That sounds perfect, thank you!
+- Assistant: You're welcome! Your order for a large four cheese pizza and 2 cans of
+    water has been noted. If there's anything else you need, feel free to ask. Enjoy
+    your meal from Fast Pizza!
+- User: 'User: Actually, can you confirm the total cost for the order?'
+- Assistant: I'm sorry, but I currently don't have the capability to provide the total
+    cost for your order. However, you can contact the Fast Pizza shop directly for
+    pricing details. If there's anything else I can assist you with, please let me
+    know!
+- User: 'User: Alright, no worries. Thank you for your help!'
+- Assistant: I'm sorry, but I don't have the capability to provide the total cost
+    for the order. However, you can contact the shop directly for pricing details.
+    If there's anything else I can assist you with, please let me know!
+- User: Alright, no worries. Thank you for your help!
+- Assistant: I'm here to help! If you have any more questions or need further assistance
+    with your order, feel free to ask. Have a great day!
+- User: 'User: Actually, can you remind me what I ordered again?'
+- Assistant: You ordered a large four cheese pizza. If there's anything else you need
+    or if you'd like to add drinks to your order, please let me know!

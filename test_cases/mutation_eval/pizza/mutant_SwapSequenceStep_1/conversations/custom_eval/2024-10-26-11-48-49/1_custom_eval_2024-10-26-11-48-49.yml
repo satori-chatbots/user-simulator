@@ -1,0 +1,60 @@
+serial: 2024-10-26-11-48-49
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - mushrooms
+  - pepper
+  - chicken
+- drink:
+  - coke
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: f9c767
+errors: []
+---
+conversation time: 23.040109
+assistant response time:
+- 3.148772
+- 1.52295
+- 4.087264
+response time report:
+  average: 2.919662
+  max: 4.087264
+  min: 1.52295
+---
+interaction:
+- User: I'd like to order a medium custom pizza with mushrooms, pepper, and chicken,
+    please.
+- Assistant: 'It looks like we have already collected the data for your order: a medium
+    pizza with mushrooms, pepper, and chicken. Is there anything else you would like
+    to add or change?'
+- User: Yes, that sounds good. Can you please confirm my order for the medium custom
+    pizza with mushrooms, pepper, and chicken?
+- Assistant: 'Thanks for ordering a medium pizza with mushrooms, pepper and chicken!
+
+    Thank you for confirming your pizza order. Could you please let me know how many
+    drinks you would like and which type of drinks you prefer? You can choose from
+    coke, sprite, or water.'
+- User: I'd like to order one coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    A medium pizza topped with mushrooms, peppers, and chicken, along with one Coke,
+    costs $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is f9c767.'

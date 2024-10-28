@@ -1,0 +1,39 @@
+serial: 2024-10-28-12-23-44
+language: English
+context:
+- You are interested in setting an appointment for your bike
+ask_about:
+- Setting an appointment for {{ap_date}}, at {{hour}}, for a {{service}} of my bike
+- hour:
+  - '15:30'
+- ap_date: tomorrow
+- service: tune-up
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- confirmed_date: 2024-10-29
+- confirmed_time: '15:30'
+- confirmed_service: tune-up
+errors: []
+---
+conversation time: 8.044912
+assistant response time:
+- 1.313084
+response time report:
+  average: 1.313084
+  max: 1.313084
+  min: 1.313084
+---
+interaction:
+- User: I'd like to set an appointment for a bike tune-up tomorrow at 15:30. Is that
+    available? Also, can you tell me what the tune-up includes?
+- Assistant: 'Ok, I have scheduled your appointment for 29/10/2024 at 15:30:00 for
+    a tune-up.
+
+    See you then!'

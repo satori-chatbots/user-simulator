@@ -1,0 +1,58 @@
+serial: 2024-10-25-20-09-02
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - pepperoni
+  - corn
+  - pepper
+- drink:
+  - sprite
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16.50
+- order_id: c4fc7c
+errors: []
+---
+conversation time: 23.062333
+assistant response time:
+- 3.29584
+- 2.793102
+- 4.985232
+response time report:
+  average: 3.691391
+  max: 4.985232
+  min: 2.793102
+---
+interaction:
+- User: I'd like to order a medium custom pizza with pepperoni, corn, and pepper,
+    please. Can you confirm that for me?
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The available sizes are small, medium, and large.
+- User: I'd like a medium custom pizza with pepperoni, corn, and pepper, please. Can
+    you confirm that for me?
+- Assistant: 'Thanks for ordering a medium pizza with pepperoni, corn and pepper!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The available options are coke, sprite, and water.'
+- User: I'd like to order one Sprite, please. Can you confirm that for me?
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a medium pizza topped with pepperoni, corn, and peppers, along with
+    one Sprite, is $16.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is c4fc7c.'

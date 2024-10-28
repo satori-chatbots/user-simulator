@@ -1,0 +1,59 @@
+serial: 2024-10-25-17-28-31
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 24.033706
+assistant response time:
+- 3.306887
+- 1.684055
+- 2.13528
+- 2.719121
+response time report:
+  average: 2.461335
+  max: 3.306887
+  min: 1.684055
+---
+interaction:
+- User: Hi, I'd like to order a small Hawaiian pizza, please.
+- Assistant: 'It looks like we have all the necessary information from the previous
+    conversation: a small Hawaiian pizza. If you need anything else or want to add
+    drinks to your order, feel free to let me know!'
+- User: Great, can I also get 2 cans of Sprite with that order?
+- Assistant: Sure, I can add 2 cans of Sprite to your order. So, you have a small
+    Hawaiian pizza and 2 cans of Sprite. Is there anything else you would like to
+    add or modify in your order?
+- User: No, that's all I need. Thank you!
+- Assistant: 'Thanks for ordering a small hawaiian pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I already mentioned I'd like 2 cans of Sprite with my order.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property pizza_size'

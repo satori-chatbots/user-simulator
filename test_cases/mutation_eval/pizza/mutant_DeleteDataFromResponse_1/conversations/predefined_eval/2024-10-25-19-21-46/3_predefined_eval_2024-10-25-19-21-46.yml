@@ -1,0 +1,61 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Sprite
+- number:
+  - 2
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $15.50
+- order_id: aa5983
+errors: []
+---
+conversation time: 29.275156
+assistant response time:
+- 1.626837
+- 2.078642
+- 2.25479
+- 0.975245
+- 3.57581
+response time report:
+  average: 2.102264
+  max: 3.57581
+  min: 0.975245
+---
+interaction:
+- User: Hi, I'd like to order a small carbonara pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Can I get a small carbonara pizza, please?
+- Assistant: I see that you would like a small carbonara pizza. Is there anything
+    else you would like to add to your order, such as drinks?
+- User: Yes, could I also get 2 cans of Sprite, please?
+- Assistant: 'Thanks for ordering a small carbonara pizza!
+
+    I see that you would like 2 cans of Sprite. Your order includes a small carbonara
+    pizza and 2 cans of Sprite. Is there anything else you would like to add?'
+- User: No, that's all for now. Thank you!
+- Assistant: "json\n{\n  \"num_drinks\": 2,\n  \"drinks\": \"sprite\"\n}\n"
+- User: Hi, I'd like to order a small carbonara pizza, please.
+- Assistant: 'Sure, I''ve received your order for two Sprites.
+
+    The cost for a small carbonara pizza and two Sprites is $15.50.
+
+    Your order will be ready in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is aa5983.'

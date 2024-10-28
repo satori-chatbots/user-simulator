@@ -1,0 +1,60 @@
+serial: 2024-10-25-19-49-17
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - marinera
+- drink:
+  - Sprite
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13.50
+- order_id: 0d3d60
+errors: []
+---
+conversation time: 23.310036
+assistant response time:
+- 3.410378
+- 0.837715
+- 2.509647
+- 3.599976
+response time report:
+  average: 2.589428
+  max: 3.599976
+  min: 0.837715
+---
+interaction:
+- User: Hi, I'd like to order a small marinara pizza, please.
+- Assistant: It seems like you have already provided the pizza type as "marinara"
+    and the size as "small". Is there anything else you would like to add to your
+    order, such as drinks?
+- User: Yes, could I get one can of Sprite, please?
+- Assistant: I've noted your order for a small marinara pizza and one can of Sprite.
+    Is there anything else you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a small marinera pizza!
+
+    It looks like you have already requested one can of Sprite. Could you please confirm
+    the number of drinks you would like to order?'
+- User: Yes, just one can of Sprite, please.
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a small marinera pizza and one Sprite is $13.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 0d3d60.'

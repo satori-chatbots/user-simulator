@@ -1,0 +1,61 @@
+serial: 2024-10-26-11-20-00
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18
+- order_id: 661aca
+errors: []
+---
+conversation time: 22.290274
+assistant response time:
+- 2.850981
+- 0.957677
+- 1.674761
+- 2.986846
+response time report:
+  average: 2.117566
+  max: 2.986846
+  min: 0.957677
+---
+interaction:
+- User: I'd like to order a medium Hawaiian pizza, please.
+- Assistant: It looks like you have ordered a medium Hawaiian pizza. If there's anything
+    else you need or if you want to add drinks to your order, feel free to let me
+    know!
+- User: Can I also get one can of water, please?
+- Assistant: Sure! I've added one can of water to your order. If there's anything
+    else you need, just let me know!
+- User: That's all for now, thank you!
+- Assistant: 'Thanks for ordering a medium hawaiian pizza!
+
+    Thank you for your order! Just to confirm, you would like one can of water. If
+    there''s anything else you need, feel free to let me know!'
+- User: Yes, that's correct. Just the medium Hawaiian pizza and one can of water.
+    Thank you!
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a medium Hawaiian pizza and one water is $18.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 661aca.'

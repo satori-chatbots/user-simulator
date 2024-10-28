@@ -1,0 +1,53 @@
+serial: 2024-10-25-17-41-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - olives
+  - mushrooms
+  - ham
+- drink:
+  - water
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 16.743126
+assistant response time:
+- 3.608789
+- 2.627686
+- 1.926543
+response time report:
+  average: 2.721006
+  max: 3.608789
+  min: 1.926543
+---
+interaction:
+- User: I'd like to order a medium custom pizza with olives, mushrooms, and ham, please.
+- Assistant: Could you please confirm the size of the pizza you would like to order?
+    The available sizes are small, medium, and large.
+- User: I'd like a medium custom pizza with olives, mushrooms, and ham, please.
+- Assistant: 'Thanks for ordering a medium pizza with olives, mushrooms and ham!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one water, please.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property pizza_size'

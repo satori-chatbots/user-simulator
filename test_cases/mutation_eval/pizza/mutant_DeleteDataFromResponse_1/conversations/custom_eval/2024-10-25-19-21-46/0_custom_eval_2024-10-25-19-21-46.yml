@@ -1,0 +1,56 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - olives
+  - cheese
+  - ham
+- drink:
+  - coke
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- order_id: f0a211
+errors: []
+---
+conversation time: 29.116424
+assistant response time:
+- 4.074721
+- 3.225279
+- 6.288443
+response time report:
+  average: 4.529481
+  max: 6.288443
+  min: 3.225279
+---
+interaction:
+- User: I'd like to order a small custom pizza with olives, cheese, and ham, please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The options are small, medium, or large.
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with olives, cheese and ham!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to order one coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a pizza topped with olives, cheese, and ham, along with one Coke,
+    is $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is f0a211.'

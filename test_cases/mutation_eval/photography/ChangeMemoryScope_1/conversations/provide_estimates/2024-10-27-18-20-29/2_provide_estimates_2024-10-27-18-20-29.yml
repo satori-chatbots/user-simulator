@@ -1,0 +1,45 @@
+serial: 2024-10-27-18-20-29
+language: English
+context:
+- your name is Maria Smith, and you own an art gallery.
+- you want an estimate to get some work done in your gallery, be direct and do not
+  ask for other details, you are just interested in the price.
+ask_about:
+- Provide an estimate to {{media}} {{number_artworks}} {{artworks}}
+- number_artworks:
+  - 4
+- media: photograph
+- artworks: ceramic objects
+conversation:
+- number: 9
+- goal_style:
+    all_answered:
+      export: true
+      limit: 5
+- interaction_style:
+  - default
+data_output:
+- price: null
+errors:
+- 500: Chatbot internal error
+- 1001: 1 goals left to complete.
+---
+conversation time: 7.959391
+assistant response time:
+- 2.161911
+- 1.263027
+response time report:
+  average: 1.712469
+  max: 2.161911
+  min: 1.263027
+---
+interaction:
+- User: Hi, I’m Maria Smith. Can I get an estimate for photographing 4 ceramic objects
+    for my gallery?
+- Assistant: Thank you for providing some of the information, Maria. I have noted
+    that you are interested in photographing 4 ceramic objects. Could you please confirm
+    that the media is photography, or let me know if you are interested in video or
+    3D rendering instead?
+- User: I’m specifically looking for photography. What would the estimate be for that?
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property media'

@@ -1,0 +1,62 @@
+serial: 2024-10-25-17-44-04
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $21
+- order_id: 69436b
+errors: []
+---
+conversation time: 34.398717
+assistant response time:
+- 1.869526
+- 1.861647
+- 1.326383
+- 2.043111
+- 3.133585
+response time report:
+  average: 2.04685
+  max: 3.133585
+  min: 1.326383
+---
+interaction:
+- User: Hi, I'd like to order a large margarita pizza, please.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Could I get a large margarita pizza, please?
+- Assistant: I see that you would like a large margarita pizza. Is there anything
+    else you would like to add to your order, such as drinks or another type of pizza?
+- User: Yes, I'd like to add a can of water, please.
+- Assistant: I've noted your order for a large margarita pizza and a can of water.
+    Is there anything else you would like to add to your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large margarita pizza!
+
+    I see that you would like to add a can of water to your order. Could you please
+    let me know how many drinks you would like in total?'
+- User: Just one can of water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a large margarita pizza and one water is $21.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 69436b.'

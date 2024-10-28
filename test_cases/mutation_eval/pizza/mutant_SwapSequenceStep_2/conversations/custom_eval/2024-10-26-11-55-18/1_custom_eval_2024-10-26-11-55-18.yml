@@ -1,0 +1,59 @@
+serial: 2024-10-26-11-55-18
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - olives
+  - chicken
+  - corn
+- drink:
+  - water
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16
+- order_id: 9a0ee7
+errors: []
+---
+conversation time: 32.462552
+assistant response time:
+- 3.587451
+- 1.736297
+- 4.032237
+response time report:
+  average: 3.118661
+  max: 4.032237
+  min: 1.736297
+---
+interaction:
+- User: I'd like to order a medium custom pizza with olives, chicken, and corn, please.
+- Assistant: It looks like we already have the pizza size as "medium" and the toppings
+    as "olives," "chicken," and "corn." Is there anything else you would like to add
+    or change to your order?
+- User: Yes, that sounds good. Can you please confirm the order for the medium custom
+    pizza with olives, chicken, and corn?
+- Assistant: 'Thanks for ordering a medium pizza with olives, chicken and corn!
+
+    Thank you for confirming your pizza order. Could you please let me know how many
+    drinks you would like to order and which type of drinks you prefer? We have coke,
+    sprite, and water available.'
+- User: I'd like to order one water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    A medium pizza topped with olives, chicken, and corn, along with one water, costs
+    $16.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 9a0ee7.'

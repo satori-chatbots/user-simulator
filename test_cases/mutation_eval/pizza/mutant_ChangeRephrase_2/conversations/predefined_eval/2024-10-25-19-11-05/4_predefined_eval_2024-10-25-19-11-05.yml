@@ -1,0 +1,63 @@
+serial: 2024-10-25-19-11-05
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - hawaiian
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.50
+- order_id: 1d66a3
+errors: []
+---
+conversation time: 24.473252
+assistant response time:
+- 1.397453
+- 2.27989
+- 0.973829
+- 2.141095
+- 3.388674
+response time report:
+  average: 2.036188
+  max: 3.388674
+  min: 0.973829
+---
+interaction:
+- User: I'd like to order a medium Hawaiian pizza, please.
+- Assistant: '{"type": "Hawaiian", "size": "medium"}'
+- User: That sounds great! Can you confirm the order for the medium Hawaiian pizza?
+- Assistant: I can confirm that you have ordered a medium Hawaiian pizza. Is there
+    anything else you would like to add to your order?
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: I've added one can of Coca-Cola to your order. Is there anything else
+    you would like to add or modify?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a medium hawaiian pizza!
+
+    I see that you would like to add one can of Coca-Cola to your order. Just to confirm,
+    is the number of drinks one, and the drink is Coke? If that''s correct, I''ll
+    proceed with your order. If not, please let me know the correct details.'
+- User: Yes, that's correct. Just one can of Coca-Cola, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium Hawaiian pizza and one Coke is $18.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 1d66a3.'

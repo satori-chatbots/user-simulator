@@ -1,0 +1,41 @@
+serial: 2024-10-28-12-17-14
+language: English
+context:
+- You are interested in asking the items below.
+- Just stick to asking opening times, prices of tire, price of tune-up, price of seat,
+  and actions to the care of bike. Do not ask anything else.
+ask_about:
+- opening and closing time of the bike shop
+- Which is the price of a new tire?
+- Which is the price of a tune-up?
+- Which is the price of a new seat?
+- What can I do to take care of my bike?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 9
+- interaction_style:
+  - default
+data_output:
+- opening_and_closing: null
+- tire: null
+- tune_up: null
+- seat_price: null
+- care_bike: null
+errors:
+- 500: Server error
+- 1001: 5 goals left to complete.
+---
+conversation time: 2.377164
+assistant response time:
+- 0.012498
+response time report:
+  average: 0.012498
+  max: 0.012498
+  min: 0.012498
+---
+interaction:
+- User: What are your opening and closing times?
+- Assistant: 'Error: chatbot server error'

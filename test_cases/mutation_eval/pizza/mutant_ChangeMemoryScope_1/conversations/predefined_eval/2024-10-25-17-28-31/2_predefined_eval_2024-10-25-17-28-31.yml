@@ -1,0 +1,64 @@
+serial: 2024-10-25-17-28-31
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - margarita
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 28.921255
+assistant response time:
+- 3.786712
+- 1.31302
+- 1.437758
+- 3.268722
+- 1.635091
+response time report:
+  average: 2.28826
+  max: 3.786712
+  min: 1.31302
+---
+interaction:
+- User: Hi, I'd like to order a large margarita pizza, please.
+- Assistant: 'It looks like we already have the information from the previous conversation:
+    a large margarita pizza. Is there anything else you would like to add to your
+    order, such as drinks?'
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: Great! I've added one can of Coca-Cola to your order. So, you have a
+    large margarita pizza and a can of Coca-Cola. Is there anything else you would
+    like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: Great! Your order is a large margarita pizza and one can of Coca-Cola.
+    Thank you for choosing Fast Pizza! If you need anything else, feel free to ask.
+    Have a wonderful day!
+- User: Hi, I'd like to order a large margarita pizza, please.
+- Assistant: 'Thanks for ordering a large margarita pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like to add one can of Coca-Cola, please.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property pizza_size'

@@ -1,0 +1,59 @@
+serial: 2024-10-25-17-28-31
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 2 goals left to complete.
+---
+conversation time: 17.185289
+assistant response time:
+- 3.189457
+- 1.094151
+- 2.251249
+- 1.659761
+response time report:
+  average: 2.048654
+  max: 3.189457
+  min: 1.094151
+---
+interaction:
+- User: I'd like to order a medium four cheese pizza, please.
+- Assistant: It looks like we have the pizza size as "medium" and the pizza type as
+    "four cheese." Is there anything else you would like to add to your order, such
+    as drinks?
+- User: Yes, I'd like to add one can of Coca-Cola, please.
+- Assistant: Great choice! I've added one can of Coca-Cola to your order. Your order
+    now includes a medium four cheese pizza and a can of Coca-Cola. Would you like
+    to add anything else or proceed to checkout?
+- User: No, that's all for now. Let's proceed to checkout, please.
+- Assistant: 'Thanks for ordering a medium four cheese pizza!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drink you prefer? The options are coke, sprite, or water.'
+- User: I already mentioned I'd like one can of Coca-Cola, please.
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Data is
+    missing the property pizza_size'

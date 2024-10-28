@@ -1,0 +1,61 @@
+serial: 2024-10-26-11-35-54
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - large
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $23.50
+- order_id: 7d60bf
+errors: []
+---
+conversation time: 23.29143
+assistant response time:
+- 3.08949
+- 0.947516
+- 1.75134
+- 2.461716
+response time report:
+  average: 2.062515
+  max: 3.08949
+  min: 0.947516
+---
+interaction:
+- User: Hi, I'd like to order a large Carbonara pizza, please.
+- Assistant: It seems like you have already provided the pizza type as "Carbonara"
+    and the size as "large". Is there anything else you would like to add to your
+    order, such as drinks?
+- User: Yes, I'd like to add 1 can of water, please.
+- Assistant: Great! I've added 1 can of water to your order. You have a large Carbonara
+    pizza and 1 can of water. Is there anything else you would like to add or modify
+    in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a large carbonara pizza!
+
+    It looks like you''ve already mentioned that you''d like to add 1 can of water
+    to your order. If there''s anything else you need, feel free to let me know!'
+- User: I think that's everything I need for now. Thank you!
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a large carbonara pizza and one water is $23.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 7d60bf.'

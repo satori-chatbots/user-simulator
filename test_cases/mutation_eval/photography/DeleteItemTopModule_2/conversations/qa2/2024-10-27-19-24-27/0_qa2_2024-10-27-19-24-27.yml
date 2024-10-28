@@ -1,0 +1,34 @@
+serial: 2024-10-27-19-24-27
+language: English
+context:
+- You want to obtain some information about the photography shop (charge and media).
+  Only focus on those two items.
+ask_about:
+- Do you charge per hour or by number of photos?
+- What media do you work on?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 6
+- interaction_style:
+  - default
+data_output:
+- charge: null
+- media_work: null
+errors:
+- 500: Server error
+- 1001: 2 goals left to complete.
+---
+conversation time: 2.145944
+assistant response time:
+- 0.011402
+response time report:
+  average: 0.011402
+  max: 0.011402
+  min: 0.011402
+---
+interaction:
+- User: Do you charge per hour or by the number of photos taken?
+- Assistant: 'Error: chatbot server error'

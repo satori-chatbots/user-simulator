@@ -1,0 +1,56 @@
+serial: 2024-10-26-11-13-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - ham
+  - chicken
+  - corn
+- drink:
+  - coke
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $11.50
+- order_id: cdd880
+errors: []
+---
+conversation time: 20.636411
+assistant response time:
+- 3.8435
+- 2.007654
+- 2.711962
+response time report:
+  average: 2.854372
+  max: 3.8435
+  min: 2.007654
+---
+interaction:
+- User: I'd like to order a small custom pizza with ham, chicken, and corn, please.
+- Assistant: 'It looks like we have the toppings you want: ham, chicken, and corn.
+    Could you please let me know the size of the pizza you''d like? The options are
+    small, medium, or large.'
+- User: I'd like a small pizza, please.
+- Assistant: 'Thanks for ordering a small pizza with ham, chicken and corn!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The options are coke, sprite, or water.'
+- User: I'd like one coke, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    A small pizza topped with ham, chicken, and corn, along with one Coke, costs $11.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is cdd880.'

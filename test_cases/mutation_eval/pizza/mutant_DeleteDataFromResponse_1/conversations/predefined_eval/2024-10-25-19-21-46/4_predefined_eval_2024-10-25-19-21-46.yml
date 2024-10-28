@@ -1,0 +1,62 @@
+serial: 2024-10-25-19-21-46
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - vegetarian
+- drink:
+  - Coca-Cola
+- number:
+  - 1
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $18.50
+- order_id: 1d5678
+errors: []
+---
+conversation time: 24.204528
+assistant response time:
+- 2.91839
+- 1.255982
+- 2.183029
+- 4.351714
+response time report:
+  average: 2.677278
+  max: 4.351714
+  min: 1.255982
+---
+interaction:
+- User: I'd like to order a medium vegetarian pizza, please.
+- Assistant: It looks like we have already collected the data for a medium vegetarian
+    pizza. Is there anything else you would like to order or any changes you would
+    like to make?
+- User: Can I also get a can of Coca-Cola, please?
+- Assistant: Sure! I've noted your order for a medium vegetarian pizza. Unfortunately,
+    I can't process drink orders directly, but you can add a can of Coca-Cola to your
+    order at the checkout. Is there anything else you'd like to add or change?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a medium vegetarian pizza!
+
+    It seems like you would like to add a drink to your order. Could you please let
+    me know how many drinks you would like and confirm if you would like Coke, Sprite,
+    or Water?'
+- User: Just one can of Coca-Cola, please.
+- Assistant: 'Sure, I''ve received your order for one Coke.
+
+    The cost for a medium vegetarian pizza and one Coke is $18.50.
+
+    Your order will be prepared in 15 minutes. Please visit our store at 23 Main Street,
+    NY. Your order ID is 1d5678.'

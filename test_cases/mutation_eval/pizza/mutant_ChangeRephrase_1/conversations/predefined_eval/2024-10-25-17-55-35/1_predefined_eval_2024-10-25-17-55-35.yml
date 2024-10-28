@@ -1,0 +1,64 @@
+serial: 2024-10-25-17-55-35
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - carbonara
+- drink:
+  - Coca-Cola
+- number:
+  - 2
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $20.50
+- order_id: 7be994
+errors: []
+---
+conversation time: 30.866904
+assistant response time:
+- 3.273963
+- 1.59959
+- 3.349784
+- 1.928746
+- 3.719943
+response time report:
+  average: 2.774405
+  max: 3.719943
+  min: 1.59959
+---
+interaction:
+- User: I'd like to order a medium carbonara pizza, please.
+- Assistant: It looks like you have already provided the pizza size as "medium" and
+    the pizza type as "carbonara." Is there anything else you would like to add to
+    your order, such as drinks or additional pizzas?
+- User: Could I also get 2 cans of Coca-Cola with that order, please?
+- Assistant: I've noted your order for a medium carbonara pizza and 2 cans of Coca-Cola.
+    Is there anything else you would like to add or modify in your order?
+- User: No, that's all for now. Thank you!
+- Assistant: 'Thanks for ordering a medium carbonara pizza!
+
+    Thank you for your order! You have requested 2 cans of Coca-Cola. If there''s
+    anything else you need, feel free to let me know. Enjoy your meal!'
+- User: Great, thanks! Looking forward to enjoying the meal.
+- Assistant: You're welcome! If you have any more questions or need further assistance,
+    feel free to reach out. Enjoy your meal from Fast Pizza!
+- User: I'd like to order a medium carbonara pizza, please.
+- Assistant: 'Alright, I''ve received your order for two Cokes.
+
+    The cost for a medium carbonara pizza and two Cokes is $20.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 7be994.'

@@ -1,0 +1,39 @@
+serial: 2024-10-27-19-39-24
+language: English
+context:
+- your name is Ann Clark, and you own an art gallery. Your email is ann@artgal.com
+ask_about:
+- Setting an appointment for {{ap_date}}, any time is fine, your phone number is {{phone_no}}
+- ap_date: tomorrow
+- phone_no: (617) 545-1356
+conversation:
+- number: 4
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- confirmed_appointment: 2024-10-28
+errors: []
+---
+conversation time: 10.912745
+assistant response time:
+- 2.851978
+- 3.549823
+response time report:
+  average: 3.2009
+  max: 3.549823
+  min: 2.851978
+---
+interaction:
+- User: Hi there! My name is Ann Clark, and I own an art gallery. I’m interested in
+    scheduling an appointment for tomorrow. Do you have any available times?
+- Assistant: Hi Ann Clark! I have your name, but I still need your phone number to
+    complete the appointment scheduling. Also, could you please confirm the date for
+    the appointment? Additionally, if you'd like to provide an email, it's optional
+    but can be helpful for communication. Thank you!
+- User: I can provide my phone number. It's (617) 545-1356. Can we schedule the appointment
+    for tomorrow?
+- Assistant: Thanks Ann Clark! We'll contact you very soon for a session on 28/10/2024.

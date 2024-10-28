@@ -1,0 +1,32 @@
+Global report:
+  Average assistant response time: 2.282823
+  Maximum assistant response time: 10.040479
+  Mínimum assistant response time: 0.522626
+  Errors:
+  - error: 1001
+    count: 2
+    conversations:
+    - 0_qa_eval_2024-10-26-11-20-00.yml
+    - 5_predefined_eval_2024-10-26-11-20-00.yml
+  - error: 504
+    count: 1
+    conversations:
+    - 5_predefined_eval_2024-10-26-11-20-00.yml
+---
+Test name: custom_eval
+Average assistant response time: 2.460905
+Maximum assistant response time: 3.308989
+Mínimum assistant response time: 1.036826
+Errors: []
+---
+Test name: qa_eval
+Average assistant response time: 2.460905
+Maximum assistant response time: 3.308989
+Mínimum assistant response time: 1.036826
+Errors: []
+---
+Test name: predefined_eval
+Average assistant response time: 2.460905
+Maximum assistant response time: 3.308989
+Mínimum assistant response time: 1.036826
+Errors: []

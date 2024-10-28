@@ -1,0 +1,72 @@
+Global report:
+  Average assistant response time: 4.351312
+  Maximum assistant response time: 8.632928
+  Mínimum assistant response time: 1.50068
+  Errors:
+  - error: 1001
+    count: 48
+    conversations:
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+    - 0_appointment_2024-10-28-13-22-43.yml
+    - 1_appointment_2024-10-28-13-22-43.yml
+    - 2_appointment_2024-10-28-13-22-43.yml
+    - 3_appointment_2024-10-28-13-22-43.yml
+---
+Test name: appointment
+Average assistant response time: 4.34661
+Maximum assistant response time: 7.430106
+Mínimum assistant response time: 2.31292
+Errors: []
+---
+Test name: qa
+Average assistant response time: 4.34661
+Maximum assistant response time: 7.430106
+Mínimum assistant response time: 2.31292
+Errors:
+- error: 1001
+  count: 1
+  conversations:
+  - 0_appointment_2024-10-28-13-22-43.yml

@@ -1,0 +1,65 @@
+serial: 2024-10-26-11-20-00
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for extra
+  toppings, discounts, or delivery times or any other thing.
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- pizza_type:
+  - four cheese
+- drink:
+  - Water
+- number:
+  - 1
+- size:
+  - small
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $13
+- order_id: 7fbe2e
+errors: []
+---
+conversation time: 21.412227
+assistant response time:
+- 2.934173
+- 0.949911
+- 0.858189
+- 1.978166
+- 3.49624
+response time report:
+  average: 2.043335
+  max: 3.49624
+  min: 0.858189
+---
+interaction:
+- User: Hi, I'd like to order a small four cheese pizza, please.
+- Assistant: It looks like you have already ordered a small four cheese pizza. Is
+    there anything else you would like to add to your order, such as drinks or another
+    type of pizza?
+- User: Yes, could I also get one can of water, please?
+- Assistant: Sure, I can add a can of water to your order. Is there anything else
+    you would like to add?
+- User: No, that's all for now. Thank you!
+- Assistant: You're welcome! Your order includes a small four cheese pizza and one
+    can of water. If you need anything else, feel free to ask. Have a great day!
+- User: Hi, I'd like to order a small four cheese pizza, please.
+- Assistant: 'Thanks for ordering a small four cheese pizza!
+
+    It looks like you have already ordered a small four cheese pizza. Would you like
+    to add any drinks to your order? If so, please let me know the type of drink (coke,
+    sprite, or water) and the quantity.'
+- User: Could I get one can of water, please?
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a small four-cheese pizza and one water is $13.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 7fbe2e.'

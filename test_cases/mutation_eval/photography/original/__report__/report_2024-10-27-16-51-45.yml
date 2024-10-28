@@ -1,0 +1,17 @@
+Global report:
+  Average assistant response time: 2.357684
+  Maximum assistant response time: 4.632554
+  Mínimum assistant response time: 0.763284
+  Errors:
+  - error: 1001
+    count: 3
+    conversations:
+    - 7_mutation_eval_photography_2024-10-27-16-51-45.yml
+    - 7_mutation_eval_photography_2024-10-27-16-51-45.yml
+    - 7_mutation_eval_photography_2024-10-27-16-51-45.yml
+---
+Test name: mutation_eval_photography
+Average assistant response time: 2.357684
+Maximum assistant response time: 4.632554
+Mínimum assistant response time: 0.763284
+Errors: []

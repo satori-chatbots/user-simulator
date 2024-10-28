@@ -1,0 +1,56 @@
+serial: 2024-10-25-19-30-26
+language: English
+context:
+- Just order the pizza, once confirmed, then order the drink. Do not ask for discounts,
+  or delivery times or any other thing.
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- toppings:
+  - bacon
+  - mushrooms
+  - pepperoni
+- drink:
+  - water
+- size:
+  - medium
+conversation:
+- number: 6
+- goal_style:
+    all_answered:
+      export: true
+      limit: 7
+- interaction_style:
+  - default
+data_output:
+- price: $16
+- order_id: 9f1b79
+errors: []
+---
+conversation time: 21.326432
+assistant response time:
+- 4.40467
+- 2.199543
+- 3.394392
+response time report:
+  average: 3.332868
+  max: 4.40467
+  min: 2.199543
+---
+interaction:
+- User: I'd like to order a medium custom pizza with bacon, mushrooms, and pepperoni,
+    please.
+- Assistant: Could you please let me know the size of the pizza you would like to
+    order? The available sizes are small, medium, and large.
+- User: I'd like a medium custom pizza with bacon, mushrooms, and pepperoni, please.
+- Assistant: 'Thanks for ordering a medium pizza with bacon, mushrooms and pepperoni!
+
+    Could you please let me know how many drinks you would like to order and which
+    type of drinks you prefer? The available options are coke, sprite, and water.'
+- User: I'd like to order one water, please.
+- Assistant: 'Sure, I''ve received your order for one water.
+
+    The cost for a medium pizza and one water is $16.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 9f1b79.'

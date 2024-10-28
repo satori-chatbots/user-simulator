@@ -1,0 +1,61 @@
+serial: 2024-10-28-13-22-43
+language: English
+context:
+- You are interested in asking the items below.
+- Just stick to asking opening times (weekdays and weekends), cost of visit, types
+  of animals accepted, care of pets. Do not ask anything else.
+ask_about:
+- When are you open on weekdays?
+- When are you open on weekends?
+- How much does a vet visit cost?
+- What kind of animals do you accept?
+- What can I do to take care of my pet?
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 9
+- interaction_style:
+  - default
+data_output:
+- opening_and_closing_weekdays: 9am to 6pm
+- opening_and_closing_weekends: We are not open on weekends.
+- visit_cost: From $50 to $60
+- animal_kinds: dogs, cats, and birds
+- care_pet: Their fundamental needs such as food, water, shelter, exercise, and love
+    should be met by you.
+errors: []
+---
+conversation time: 68.880785
+assistant response time:
+- 1.50068
+- 2.456211
+- 8.632928
+- 5.615879
+- 6.098828
+- 2.691663
+- 4.403231
+response time report:
+  average: 4.485631
+  max: 8.632928
+  min: 1.50068
+---
+interaction:
+- User: What are your opening hours on weekdays?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm.
+- User: What are your opening hours on weekends?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm. However,
+    we are not open on weekends.
+- User: How much does a vet visit cost?
+- Assistant: From $50 to $60
+- User: What kind of animals do you accept?
+- Assistant: Our expertise lies in dealing with dogs, cats, and birds. For other animals,
+    kindly seek consultation first.
+- User: What can I do to take care of my pet?
+- Assistant: Their fundamental needs such as food, water, shelter, exercise, and love
+    should be met by you.
+- User: What are your opening hours on weekdays?
+- Assistant: Our veterinary center is open every weekday from 9am to 6pm.
+- User: What are your opening hours on weekends?
+- Assistant: We are closed on weekends.

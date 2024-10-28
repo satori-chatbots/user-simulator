@@ -6,7 +6,8 @@ import pandas as pd
 import yaml
 from colorama import Fore, Style
 from technologies.chatbot_connectors import Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot, \
-    ChatbotLolaUMU, ChatbotServiceform, KukiChatbot, JulieChatbot, ChatbotCatalinaRivas, ChatbotSaicMalaga
+    ChatbotLolaUMU, ChatbotServiceform, KukiChatbot, JulieChatbot, ChatbotCatalinaRivas, ChatbotSaicMalaga, \
+    ChatbotGenion
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
 from user_sim.user_simulator import UserGeneration
@@ -133,6 +134,7 @@ def build_chatbot(technology, chatbot) -> Chatbot:
         'serviceform': ChatbotServiceform,
         'kuki': KukiChatbot,
         'julie': JulieChatbot,
+        'genion': ChatbotGenion
     }
     if technology in chatbot_builder:
         return chatbot_builder[technology](chatbot)
@@ -237,7 +239,7 @@ def generate(technology, chatbot, user, personality, extract):
 if __name__ == '__main__':
     parser = ArgumentParser(description='Conversation generator for a chatbot')
     parser.add_argument('--technology', required=True,
-                        choices=['rasa', 'taskyto', 'ada-uam', 'millionbot', 'lola', 'serviceform', 'kuki', 'julie', 'rivas_catalina', 'saic_malaga'],
+                        choices=['rasa', 'taskyto', 'ada-uam', 'millionbot', 'genion', 'lola', 'serviceform', 'kuki', 'julie', 'rivas_catalina', 'saic_malaga'],
                         help='Technology the chatbot is implemented in')
     parser.add_argument('--chatbot', required=True, help='URL where the chatbot is deployed')
     parser.add_argument('--user', required=True, help='User profile to test the chatbot')

@@ -67,6 +67,19 @@ class MillionBot(Chatbot):
             'Authorization': 'API-KEY 60553d58c41f5dfa095b34b5'
         }
 
+        # Always generate a new ID for the conversation
+        #import uuid
+        #unique_id = uuid.uuid4()
+        #conversation_id = unique_id.hex
+
+        # Randomly replace a letter in the conversation_id with a hexadecimal digit
+        #import random
+        #import string
+        #conversation_id = list(conversation_id)
+        #conversation_id[random.randint(0, len(conversation_id)-1)] = random.choice(string.hexdigits)
+        #conversation_id = ''.join(conversation_id)
+
+
         self.payload = {"conversation": conversation_id,
                         "sender_type": "User",
                         "sender": sender,
@@ -85,16 +98,19 @@ class MillionBot(Chatbot):
                                   "deleted": True,
                                   "attended": {},
                                   "userName": "UAM/UMU"}
+
                               }
+        self.timeout = 10
 
     def execute_with_input(self, user_msg):
         if self.reset_payload is not None:
+            # print(self.reset_payload)
             response = requests.post(self.reset_url, headers=self.headers, json=self.reset_payload)
             assert response.status_code == 200
             self.reset_payload = None
 
         self.payload['message']["text"] = user_msg
-        timeout = 10
+        timeout = self.timeout
         try:
             response = requests.post(self.url, headers=self.headers, json=self.payload, timeout=timeout)
             response_json = response.json()
@@ -184,7 +200,14 @@ class ChatbotSaicMalaga(MillionBot):
                           url="https://saic.malaga.eu/",
                           sender="671c0efd167d72734b243bd4")
 
-
+class ChatbotGenion(MillionBot):
+    def __init__(self, url):
+        MillionBot.__init__(self, url)
+        self.init_chatbot(bot_id = "65157185ba7cc62753c7d3e2",
+                          conversation_id="671f76dc9f9ee7cf16af0a59",
+                          url="https://1millionbot.com/chatbot-genion-2/",
+                          sender="671f76dc9f9ee7cf16af0a54")
+        self.timeout = 20
 
 ##############################################################################################################
 # Taskyto

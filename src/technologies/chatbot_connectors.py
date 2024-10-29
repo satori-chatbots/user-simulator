@@ -274,6 +274,32 @@ class ChatbotTaskyto(Chatbot):
 
         return True, ''
 
+    def execute_starter_chatbot(self):
+        timeout = 20
+        try:
+            post_response = requests.post(self.url + '/conversation/new')
+            post_response_json = post_response.json()
+            self.id = post_response_json.get('id')
+            if post_response.status_code == 200:
+                assistant_message = post_response_json.get('message')
+                if assistant_message is None:
+                    return True, 'Hello'
+                else:
+                    return True, assistant_message
+            else:
+                # There is an error, but it is an internal error
+                logger.error(f"Chatbot internal error")
+                errors.append({500: "Chatbot internal error"})
+                return False, post_response_json.get('error')
+        except requests.exceptions.ConnectionError:
+            logger.error(f"Couldn't connect with chatbot")
+            errors.append({500: f"Couldn't connect with chatbot"})
+            return False, 'cut connection'
+        except requests.Timeout:
+            logger.error(f"No response was received from the server in less than {timeout}")
+            errors.append({504: f"No response was received from the server in less than {timeout}"})
+            return False, 'timeout'
+
 ##############################################################################################################
 # Serviceform
 class ChatbotServiceform(Chatbot):
@@ -436,27 +462,4 @@ class JulieChatbot(Chatbot):
                 button_description += f'\n {button_text}'
         return button_description
 
-    def execute_starter_chatbot(self):
-        timeout = 20
-        try:
-            post_response = requests.post(self.url + '/conversation/new')
-            post_response_json = post_response.json()
-            self.id = post_response_json.get('id')
-            if post_response.status_code == 200:
-                assistant_message = post_response_json.get('message')
-                if assistant_message is None:
-                    return True, 'Hello'
-                else:
-                    return True, assistant_message
-            else:
-                # There is an error, but it is an internal error
-                errors.append({500: "Chatbot internal error"})
-                return False, post_response_json.get('error')
-        except requests.exceptions.ConnectionError:
-            logger.error(f"Couldn't connect with chatbot")
-            errors.append({500: f"Couldn't connect with chatbot"})
-            return False, 'cut connection'
-        except requests.Timeout:
-            logger.error(f"No response was received from the server in less than {timeout}")
-            errors.append({504: f"No response was received from the server in less than {timeout}"})
-            return False, 'timeout'
+

@@ -1,0 +1,96 @@
+serial: 2024-10-29-12-14-21
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - olives
+  - mushrooms
+  - bacon
+- drink:
+  - Orange Fanta
+- size:
+  - small
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+  - long phrases
+  - change languages:
+    - English
+    - portuguese
+    - chinese
+    - portuguese
+    - English
+  - all questions
+data_output:
+- price: null
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 62.251433
+assistant response time:
+- 6.939378
+- 4.559358
+- 3.616414
+- 3.586087
+- 4.305411
+response time report:
+  average: 4.601329
+  max: 6.939378
+  min: 3.586087
+---
+interaction:
+- Assistant: Hello
+- User: Hi theree, I was wondering if I cud order a smal custom pizaa with olivees,
+    mushroms, and baconn, and also if you hae a can of Orangge Fanta to go with that,
+    and could you please let me knoow how long it will takke to arrive at my place
+    and how much it will cost alltogether, thanking youuu in advance!
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Isso parece ótimo! Eu gostaria de saber cmo isso vai funcionar em termos de
+    preço total, incluindo a bebida, e também se há algum desconto especil para pedidos
+    de fine de semana ou se tem algum cupom que posso usar, e se tiver como adicionar
+    mais bacon sem custo adicional, seria incrível, e por acaso, vocês têm alguma
+    sobremessa que possa combinar com isso, tipo um biscoito ou um pedaço de brigadeiro,
+    e também, tem alguem jeito de acompanhar meu pedido online para ver quando ele
+    tá chegando?
+- Assistant: Desculpe, mas só posso responder em inglês ou espanhol. Poderia, por
+    favor, mudar para um desses idiomas?
+- User: 你好，我想知道如果在最后一分钟再加些蔬菜或其他配料是否会影响价格，或者如果我决定要额外的酱料会不会有额外的收费，另外，如果我想用一个特别大的盒子来装披萨，是否可以免费提供这个服务，还有如果我想要快递员唱生日快乐歌给我听，这个服务有没有提供呀？
+- Assistant: 'I''m sorry, I can only assist in English or Spanish. Could you please
+    switch to one of these languages?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Claro, sem problemi. Eu queria também saber se é possível fazer uma pizza
+    em formato de coração sem custo adicional e quanto tempo em média vocês demoram
+    para preparar pizzas personalizadas, e além disso, vocês aceitam pagamento em
+    cripto moeda como Bitcoin ou algum sistema de pagamento diferente além de cartão
+    e dinheiro, e se eu quiser uma embalagem ecológica ou reciclável tem alguma taxa
+    extra envolvida, e vocês têm algum pacote especial para festas, tipo duas pizzas
+    com refrigerante e sobremesa a um preço promocional, e por fim, teria como o entregador
+    me dar uma pista de dança antes de entregar a pizza, só para tornar o momento
+    mais divertido?
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Suree, I can rephraze that for you, so I was asking if it's possible to have
+    a heart-shaped piizza without any extra cost and how long do you usually take
+    to prepare custom pizzas, and also, do you accept payment in crypto like Bitcoin
+    or any other payment system besides card and cash, and if I want an eco-friendly
+    or recycvlable package is there any extra fee involved, plus do you have any special
+    party packages like two pizzas with a drink and dessert at a promotional price,
+    and finally, would it be possible for the delivery person to give me a dance move
+    or two before handing over the pizza just to make the moment a bit more fun, thanks
+    a tonn!
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

@@ -187,6 +187,13 @@ def generate(technology, chatbot, user, personality, extract):
 
                 elif not the_user.conversation_history['interaction']:
                     is_ok, response = the_chatbot.execute_starter_chatbot()
+                    if not is_ok:
+                        if response is not None:
+                            the_user.update_history("Assistant", "Error: " + response)
+                        else:
+                            the_user.update_history("Assistant", "Error: The server did not respond.")
+                        break
+
                     print_chatbot(response)
                     user_msg = the_user.open_conversation(response)
                 else:

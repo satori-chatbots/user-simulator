@@ -1,0 +1,94 @@
+serial: 2024-11-04-10-33-01
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - bacon
+  - cheese
+  - egg
+- drink:
+  - sprite
+- size:
+  - small
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - make spelling mistakes
+  - all questions
+  - change languages:
+    - English
+    - English
+    - English
+    - portuguese
+    - chinese
+  - long phrases
+data_output:
+- price: 13.50$
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 57.683001
+assistant response time:
+- 6.417457
+- 5.934127
+- 5.612408
+- 3.615932
+- 3.719422
+response time report:
+  average: 5.059869
+  max: 6.417457
+  min: 3.615932
+---
+interaction:
+- Assistant: Hello
+- User: Heloo ther, I wuld like to order a smal cuztom pizza and I am thinkin about
+    having bacon, chese, and egg on it, also can i get a Sprite as the drink, and
+    could you pls let me know how long it will take for the pizza to arrive at my
+    plce or how much the totl cost will be, I'm just realy curious about all these
+    detals before I finalize my order, I'm hopin that it's not too pricy or takes
+    too long, thnks!
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Oh, thnks for the informashun! I apprciate it, but wht about the cost of the
+    small pizza with all the toppings I mentoned, like bacon, chese, and egg, plus
+    the Sprite, I rlly hope it's not too expnsive, and also, just to be sure, you
+    said 15 minutes per pizza, does that mean it will take 15 minutes for my single
+    smal pizza to be ready, or is it possble it might take longer if you're busy,
+    I'm just tryna plan my time here, you kno?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Oh, thnks for clrifying the cost part, it's realy good to kno how the pricing
+    works, so if I undrstand corectly, the smal custom pizza with bacon, chese, and
+    egg whould be the same price as the predefined pizzas, which means it shuld cost
+    around 12$, and the Sprite, how much wuld that be, and just to confirm if you're
+    quite busy, cud it take mor than 15 minutes for my order, or is the 15 minutes
+    just the standard time you aim for, I just wnt to make sure I have all my detals
+    straight before I hit the final order buttn, you kno?
+- Assistant: Sprite and Coke are 1.50$. Water is 1$.
+- User: Ah, entendo, então a Sprite custaria 1.50$, mas quero ter certeza de que estou
+    captando tudo direitinho, então com a pizza pequena customizada com bacon, chese,
+    e egg sendo 12$, se eu somar a Sprite, estamos falando de um total de 13.50$,
+    certo? E sobre o tempo, é importante pra mim saber se esses 15 minutos são uma
+    estimativa geral ou se devo esperar um pouco mais se estiverem ocupados, porque
+    preciso planejar o que vou fazer enquanto espero a delicia chegar, estou certo
+    pensando assim ou tem algo que talvez eu não tenha considerado?
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: 哦，我懂了，所以下面我会用另外一种想法来表达我的问题，我是说如果这个小的定制披萨加上培根、奶酪和鸡蛋需要花费12美元，再加上Sprite的话，总共是13.50美元，对吗？还有，我真的很想知道这十五分钟的时间是个通常的估计，还是说如果店里忙的话，可能会需要更长的时间，因为我得计划一下在等这份美食送到的时候我能做些什么，您觉得我这样考虑是对的吗？我会不会漏掉其他我需要知道的事情呢？
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase? Please use
+    English or Spanish.`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

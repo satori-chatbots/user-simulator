@@ -1,0 +1,48 @@
+serial: 2024-11-04-11-50-35
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- 'the following drink: {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- toppings:
+  - cheese
+  - pepperoni
+  - mushrooms
+- drink:
+  - coke
+- size:
+  - small
+conversation:
+- number: 1
+- goal_style:
+    steps: 5
+- interaction_style:
+  - change languages:
+    - English
+  - all questions
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Couldn't connect with chatbot
+- 500: Couldn't connect with chatbot
+- 1001: 3 goals left to complete.
+---
+conversation time: 18.597518
+assistant response time:
+- 4.007456
+response time report:
+  average: 4.007456
+  max: 4.007456
+  min: 4.007456
+---
+interaction:
+- Assistant: cut connection
+- User: Hi, I’d like to order a small custom pizza with cheese, pepperoni, and mushrooms,
+    and a Coke; can you tell me how long it will take to arrive and what the total
+    cost will be?
+- Assistant: 'Error: cut connection'

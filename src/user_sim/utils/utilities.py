@@ -3,7 +3,7 @@ import pandas as pd
 import yaml
 import json
 import configparser
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 import re
 import random
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -414,66 +414,89 @@ def get_date_range(start, end, step, date_type):
 
     return range_date_list
 
+def get_fake_date():
+
+    fake_day = random.randint(29, 99)
+    fake_month = random.randint(13, 99)
+    fake_year = random.randint(2000, 2099)
+
+    return f"{fake_day}/{fake_month}/{fake_year}"
+
 
 def get_date_list(date):
-    if isinstance(date, str) and 'random' in date:
-        value = int(re.findall(r'random\((.*?)\)', date)[0])
+    custom_dates = []
+    generated_dates = []
+    if 'custom' in date:
+        if isinstance(date['custom'], list):
+            custom_dates = date['custom']
+        else:
+            custom_dates = [date['custom']]
+
+    if 'random' in date:
+        value = date['random']
         random_dates = []
         for i in range(value):
             str_date = get_random_date()
             random_dates.append(str_date)
-        return random_dates
+        generated_dates += random_dates
 
-    elif isinstance(date, dict):
-        if 'set' in date:
-            value = int(re.findall(r'today\((.*?)\)', date['set'])[0])
+    if 'set' in date:
+        value = int(re.findall(r'today\((.*?)\)', date['set'])[0])
 
-            if '>today' in date['set']:
-                today = datetime.now()
-                next_dates = [
-                    (today + timedelta(days=random.randint(1, 365))).strftime('%d/%m/%Y') for _ in range(value)
-                ]
-                return next_dates
+        if '>today' in date['set']:
+            today = datetime.now()
+            next_dates = [
+                (today + timedelta(days=random.randint(1, 365))).strftime('%d/%m/%Y') for _ in range(value)
+            ]
+            generated_dates += next_dates
 
-            elif '<today' in date['set']:
-                today = datetime.now()
-                previous_dates = [
-                    (today - timedelta(days=random.randint(1, 365))).strftime('%d/%m/%Y') for _ in range(value)
-                ]
-                return previous_dates
+        elif '<today' in date['set']:
+            today = datetime.now()
+            previous_dates = [
+                (today - timedelta(days=random.randint(1, 365))).strftime('%d/%m/%Y') for _ in range(value)
+            ]
+            generated_dates += previous_dates
 
-        elif 'range' in date:
-            start = datetime.strptime(date['range']['min'], '%d/%m/%Y')
-            end = datetime.strptime(date['range']['max'], '%d/%m/%Y')
-            if 'step' in date['range']:
-                step_value = int(re.findall(r'\((.*?)\)', date['range']['step'])[0])
+    if 'range' in date:
+        start = datetime.strptime(date['range']['min'], '%d/%m/%Y')
+        end = datetime.strptime(date['range']['max'], '%d/%m/%Y')
+        if 'step' in date['range']:
+            step_value = int(re.findall(r'\((.*?)\)', date['range']['step'])[0])
 
-                if 'linspace' in date['range']['step']:
-                    list_of_dates = get_date_range(start, end, step_value, 'linspace')
-                    return list_of_dates
+            if 'linspace' in date['range']['step']:
+                list_of_dates = get_date_range(start, end, step_value, 'linspace')
+                generated_dates += list_of_dates
 
-                elif 'day' in date['range']['step']:
-                    list_of_dates = get_date_range(start, end, step_value, 'day')
-                    return list_of_dates
+            elif 'day' in date['range']['step']:
+                list_of_dates = get_date_range(start, end, step_value, 'day')
+                generated_dates += list_of_dates
 
-                elif 'month' in date['range']['step']:
-                    list_of_dates = get_date_range(start, end, step_value, 'month')
-                    return list_of_dates
+            elif 'month' in date['range']['step']:
+                list_of_dates = get_date_range(start, end, step_value, 'month')
+                generated_dates += list_of_dates
 
-                elif 'year' in date['range']['step']:
-                    list_of_dates = get_date_range(start, end, step_value, 'year')
-                    return list_of_dates
-                else:
-                    raise InvalidFormat(f"The following parameter does not belong "
-                                        f"to date range field: {date['range']['step']}")
+            elif 'year' in date['range']['step']:
+                list_of_dates = get_date_range(start, end, step_value, 'year')
+                generated_dates += list_of_dates
+            else:
+                raise InvalidFormat(f"The following parameter does not belong "
+                                    f"to date range field: {date['range']['step']}")
 
-            elif 'random' in date['range']:
-                value = date['range']['random']
-                list_of_dates = get_date_range(start, end, value, 'random')
-                return list_of_dates
+        elif 'random' in date['range']:
+            value = date['range']['random']
+            list_of_dates = get_date_range(start, end, value, 'random')
+            generated_dates += list_of_dates
 
-        # elif 'custom' in date:
-        #     pass
+    if 'fake' in date:
+        num_dates = date["fake"]
+        fake_date_list = []
+        for dates in range(len(num_dates)):
+            fake_date_list.append(get_fake_date())
+
+        generated_dates += fake_date_list
+
+    final_date_list = generated_dates + custom_dates
+    return final_date_list
 
 
 def get_any_items(any_list, item_list):

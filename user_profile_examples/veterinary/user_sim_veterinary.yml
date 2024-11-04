@@ -2,7 +2,7 @@ llm:
   temperature: 0.8
   model: gpt-4o
 
-is_starter: True
+is_starter: False
 
 fallback: I'm sorry, I can help you to set an appointment for a session, provide price estimates, and answer on issues related to our shop
 
@@ -27,7 +27,7 @@ ask_about:
       type: string
       data:
         date:
-#          random(3)
+          random: 3
 #          set: ">today(4)"
 #          set: "<today(6)"
           range:

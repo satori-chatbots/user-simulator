@@ -1,0 +1,35 @@
+serial: 2024-11-04-12-02-27
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- opening and closing time
+- an appointment for {{date}} at {{time}}
+- time:
+  - 1:00 AM
+- date:
+  - 23/07/2032
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- date: null
+- time: null
+- opening_and_closing: null
+errors:
+- 500: Couldn't connect with chatbot
+- 1001: 3 goals left to complete.
+---
+conversation time: 4.010129
+assistant response time: []
+response time report:
+  average: .nan
+  max: .nan
+  min: .nan
+---
+interaction:
+- Assistant: 'Error: cut connection'

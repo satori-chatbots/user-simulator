@@ -44,6 +44,9 @@ def pick_goal_style(goal):
         raise InvalidGoalException(f"Invalid goal value: {goal}")
 
 
+
+
+
 def replace_placeholders(phrase, variables):
     def replacer(match):
         key = match.group(1)
@@ -123,7 +126,7 @@ class RoleData:
 
         conversation = self.list_to_dict_reformat(self.validated_data.conversations)
 
-        self.conversation_number = conversation['number']
+        self.conversation_number = self.get_conversation_number(conversation['number'])
         self.goal_style = pick_goal_style(conversation['goal_style'])  # list
         self.language = set_language(self.validated_data.language)  # str
         self.interaction_styles = self.pick_interaction_style(conversation['interaction_style'])  # list
@@ -161,6 +164,16 @@ class RoleData:
                     raise InvalidFormat(f"Key 'context' not found in personality file")
         else:
             raise InvalidDataType("Data for context is not a dictionary with context key.")
+
+    def get_conversation_number(self, conversation):
+        if isinstance(conversation, int):
+            return conversation
+        elif conversation == "all-combinations":
+            return self.ask_about.combinations
+        elif "sample(" in conversation:
+            pattern = r'sample\((.*?)\)'
+            percentage = int(re.findall(pattern, conversation)[0])
+            return self.ask_about.combinations * percentage
 
     def context_processor(self, context):
         if isinstance(context, dict):

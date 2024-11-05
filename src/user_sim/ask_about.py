@@ -6,13 +6,14 @@ import numpy as np
 import logging
 logger = logging.getLogger('Info Logger')
 
+
 class VarGenerators:
 
     def __init__(self, variable_list):
 
         self.variable_list = variable_list
         self.generator_list = self.create_generator_list()
-
+        self.combinations = 0
     class ForwardMatrixGenerator:
         def __init__(self):
             self.forward_function_list = []
@@ -85,6 +86,14 @@ class VarGenerators:
                             indices[i] = 0
                             i -= 1
 
+        def get_combinations(self):
+            if self.dependence_matrix:
+                N = len(self.dependence_matrix)
+                total_combinations = 2**N-1
+                return total_combinations
+            else:
+                return 0
+
         @staticmethod
         def forward_generator(value_list):
             while True:
@@ -144,6 +153,7 @@ class VarGenerators:
                 else:
                     raise InvalidFormat(f"an invalid function format was used: {variable['function']}")
 
+        self.combinations = my_forward.get_combinations()
         return generator_list + my_forward.get_generator_list()
 
     @staticmethod
@@ -267,7 +277,7 @@ class AskAboutClass:
 
         self.variable_list = self.get_variables(data)
         self.str_list = self.get_phrases(data)
-        self.var_generators = self.variable_generator(self.variable_list)
+        self.var_generators, self.combinations = self.variable_generator(self.variable_list)
         self.phrases = self.str_list.copy()
         self.picked_elements = []
 
@@ -414,7 +424,8 @@ class AskAboutClass:
     def variable_generator(variables):
         generators = VarGenerators(variables)
         generators_list = generators.generator_list
-        return generators_list
+        combinations = generators.combinations
+        return generators_list, combinations
 
     def picked_element_already_in_list(self, match, value):
         element_list = [list(element.keys())[0] for element in self.picked_elements]

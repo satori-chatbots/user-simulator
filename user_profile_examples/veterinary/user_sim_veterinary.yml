@@ -27,16 +27,16 @@ ask_about:
       type: string
       data:
         date:
-          random: 3
-#          set: ">today(4)"
-#          set: "<today(6)"
-          range:
-              min: 04/07/2024
-              max: 08/11/2040
-#              step: linspace(5) #(day(7), month(1), year(2), linspace(3))
-              random: 7
-          #fake: 5 TODO
-          custom: 31/02/2024 #TODO: añadir custom para poder crear listas compuestas con funciones y fechas personalizadas
+#          random: 3
+##          set: ">today(4)"
+##          set: "<today(6)"
+#          range:
+#              min: 04/07/2024
+#              max: 08/11/2040
+##              step: linspace(5) #(day(7), month(1), year(2), linspace(3))
+#              random: 7
+#          fake: 5
+          custom: yesterday #TODO: añadir custom para poder crear listas compuestas con funciones y fechas personalizadas
 
 
 output:

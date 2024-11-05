@@ -1,0 +1,49 @@
+serial: 2024-11-05-11-33-34
+language: English
+context:
+- your name is Jon Doe
+- you have a dog called Tommy
+ask_about:
+- opening and closing time
+- an appointment for {{date}} at {{time}}
+- time:
+  - 1:00 AM
+- date:
+  - yesterday
+conversation:
+- number: 1
+- goal_style:
+    steps: 4
+- interaction_style:
+  - default
+data_output:
+- date: null
+- time: null
+- opening_and_closing: Every day from 1pm to 11:30pm
+errors:
+- 500: Couldn't get response from the server
+- 1001: 2 goals left to complete.
+---
+conversation time: 34.822287
+assistant response time:
+- 6.899634
+- 4.812783
+- 4.223946
+- 2.80294
+response time report:
+  average: 4.684825
+  max: 6.899634
+  min: 2.80294
+---
+interaction:
+- Assistant: Hello
+- User: Hi there! Can you tell me what time you open and close?
+- Assistant: Every day from 1pm to 11:30pm
+- User: Is it possible to schedule an appointment for yesterday at 1:00 AM?
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: Sure, can I schedule an appointment for yesterday at 1:00 AM?
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Can I book an appointment for tomorrow instead?
+- Assistant: 'Error: chatbot internal error'

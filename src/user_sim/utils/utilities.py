@@ -489,9 +489,12 @@ def get_date_list(date):
 
     if 'fake' in date:
         num_dates = date["fake"]
+
         fake_date_list = []
-        for dates in range(len(num_dates)):
-            fake_date_list.append(get_fake_date())
+        while len(fake_date_list) < num_dates:
+            fake_date = get_fake_date()
+            if fake_date not in fake_date_list:
+                fake_date_list.append(get_fake_date())
 
         generated_dates += fake_date_list
 

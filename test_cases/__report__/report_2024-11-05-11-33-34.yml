@@ -1,0 +1,27 @@
+Global report:
+  Average assistant response time: 4.684825
+  Maximum assistant response time: 6.899634
+  Mínimum assistant response time: 2.80294
+  Errors:
+  - error: 500
+    count: 1
+    conversations:
+    - 0_veterinary_test_2024-11-05-11-33-34.yml
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_veterinary_test_2024-11-05-11-33-34.yml
+---
+Test name: veterinary_test
+Average assistant response time: 4.684825
+Maximum assistant response time: 6.899634
+Mínimum assistant response time: 2.80294
+Errors:
+- error: 500
+  count: 1
+  conversations:
+  - 0_veterinary_test_2024-11-05-11-33-34.yml
+- error: 1001
+  count: 1
+  conversations:
+  - 0_veterinary_test_2024-11-05-11-33-34.yml

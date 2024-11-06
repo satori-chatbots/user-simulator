@@ -15,12 +15,12 @@ context:
 
 ask_about:
   - "a {{size}} custom pizza with {{toppings}}"
-  - "the following drink: {{drink}}"
+  - "{{cans}} cans of {{drink}}"
   - how long is going to take the pizza to arrive
   - how much will it cost
 
   - size:
-      function: forward()
+      function: forward(toppings)
       type: string
       data:
         - small
@@ -28,20 +28,22 @@ ask_about:
         - big
 
   - toppings:
-      function: random(3)
+      function: forward()
       type: string
       data:
         - cheese
         - mushrooms
-        - pepperoni
-        - olives
-        - onion
-        - ham
-        - bacon
-        - egg
+
+  - cans:
+      function: forward(drink)
+      type: int
+      data:
+        min: 1
+        max: 3
+        step: 1
 
   - drink:
-      function: another()
+      function: forward()
       type: string
       data:
         - sprite
@@ -61,11 +63,10 @@ output:
 
 
 conversations:
-  - number: 1
+  - number: sample(0.2)
   - goal_style:
         steps: 5
   - interaction_style:
-#      - default
       - random:
         - make spelling mistakes
         - all questions

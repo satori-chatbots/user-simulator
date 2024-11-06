@@ -168,12 +168,13 @@ class RoleData:
     def get_conversation_number(self, conversation):
         if isinstance(conversation, int):
             return conversation
-        elif conversation == "all-combinations":
+        elif conversation == "all_combinations":
             return self.ask_about.combinations
         elif "sample(" in conversation:
             pattern = r'sample\((.*?)\)'
-            percentage = int(re.findall(pattern, conversation)[0])
-            return self.ask_about.combinations * percentage
+            percentage = float(re.findall(pattern, conversation)[0])
+            sample = round(self.ask_about.combinations * percentage)
+            return sample
 
     def context_processor(self, context):
         if isinstance(context, dict):

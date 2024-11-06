@@ -11,9 +11,10 @@ class VarGenerators:
 
     def __init__(self, variable_list):
 
+        self.combinations = 0
         self.variable_list = variable_list
         self.generator_list = self.create_generator_list()
-        self.combinations = 0
+
     class ForwardMatrixGenerator:
         def __init__(self):
             self.forward_function_list = []
@@ -88,9 +89,13 @@ class VarGenerators:
 
         def get_combinations(self):
             if self.dependence_matrix:
-                N = len(self.dependence_matrix)
-                total_combinations = 2**N-1
-                return total_combinations
+                combinations = []
+                for matrix in self.dependence_matrix:
+                    combinations_one_matrix = 1
+                    for sublist in matrix:
+                        combinations_one_matrix *= len(sublist)
+                    combinations.append(combinations_one_matrix)
+                return max(combinations)
             else:
                 return 0
 
@@ -152,8 +157,8 @@ class VarGenerators:
                         raise InvalidGenerator(f'Invalid generator function: {handler_name}')
                 else:
                     raise InvalidFormat(f"an invalid function format was used: {variable['function']}")
-
-        self.combinations = my_forward.get_combinations()
+        combinations = my_forward.get_combinations()
+        self.combinations = combinations
         return generator_list + my_forward.get_generator_list()
 
     @staticmethod
@@ -349,6 +354,7 @@ class AskAboutClass:
                                     data['step'], int):
                                 output_data_list = np.arange(data['min'], data['max'], data['step'])
                                 output_data_list = output_data_list.tolist()
+                                output_data_list.append(data['max'])
 
                             else:
                                 raise InvalidDataType(f'Some of the range function parameters are not integers.')
@@ -376,6 +382,8 @@ class AskAboutClass:
                         if 'step' in keys:
                             output_data_list = np.arange(data['min'], data['max'], data['step'])
                             output_data_list = output_data_list.tolist()
+                            output_data_list.append(data['max'])
+
                         elif 'linspace' in keys:
                             output_data_list = np.linspace(data['min'], data['max'], data['linspace'])
                             output_data_list = output_data_list.tolist()
@@ -446,7 +454,7 @@ class AskAboutClass:
                     variable = match.group(1)
                     return mapped_combinations.get(variable, match.group(0))
 
-                replaced_phrase = re.sub(r'\{\{(\w+)\}\}', replace_variable, phrase)
+                replaced_phrase = re.sub(r'\{\{(\w+)\}\}', str(replace_variable), phrase)
                 replaced_phrases.append(replaced_phrase)
             self.phrases = replaced_phrases
 

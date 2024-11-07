@@ -1,0 +1,40 @@
+serial: 2024-11-07-16-08-28
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Dr Pepper
+- number:
+  - 1
+- size: small
+- pizza_type: carbonara
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- all_answered:
+    export: true
+    limit: 20
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Couldn't connect with chatbot
+- 1001: 3 goals left to complete.
+---
+conversation time: 4.048048
+assistant response time: []
+response time report:
+  average: .nan
+  max: .nan
+  min: .nan
+---
+interaction:
+- Assistant: 'Error: cut connection'

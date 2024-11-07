@@ -74,7 +74,7 @@ class DataExtraction:
                        'str': "Extract and  display concisely only the requested information "
                               "without including additional context",
                        'time': 'Output the data in a "hh:mm:ss" format',
-                       'date': 'Output the data in a date format understandable for Python'}
+                       'date': 'Output the data in a date format understandable for Python with this structure: dd/mm/yyyy'}
 
         prompt_type = data_type.get(self.dtype)
         d_format = data_format.get(self.dtype)

@@ -83,22 +83,51 @@ def list_to_str(list_of_strings):
         # logging.getLogger().verbose(f'Error: {e}')
         return ''
 
+
 class LLM(BaseModel):
     model: Optional[str] = "gpt-4o"
     temperature: Optional[float] = 0.8
 
-class RoleDataModel(BaseModel):
 
-    fallback: str
-    llm: Optional[LLM] = LLM()
-    is_starter: Optional[bool] = True
+class User(BaseModel):
+    language: Optional[Union[str, None]] = 'English'
     role: str
-    context: Union[List[Union[str, Dict]], Dict, None]
-    ask_about: list
+    context: Optional[Union[List[Union[str, Dict]], Dict, None]] = None
+    goals: list
+
+
+class Chatbot(BaseModel):
+    is_starter: Optional[bool] = True
+    fallback: str
     output: list
-    conversations: list
-    language: Union[str, None]
+
+
+class Conversation(BaseModel):
+    number: Union[int, str]
+    goal_style: Dict
+    interaction_style: list
+
+
+class RoleDataModel(BaseModel):
     test_name: str
+    llm: Optional[LLM] = LLM()
+    user: User
+    chatbot: Chatbot
+    conversation: Conversation
+
+
+# class RoleDataModel(BaseModel):
+#
+#     fallback: str
+#     llm: Optional[LLM] = LLM()
+#     is_starter: Optional[bool] = True
+#     role: str
+#     context: Union[List[Union[str, Dict]], Dict, None]
+#     ask_about: list
+#     output: list
+#     conversations: list
+#     language: Union[str, None]
+#     test_name: str
 
 
 class RoleData:
@@ -113,39 +142,43 @@ class RoleData:
             print(e.json())
             raise
 
-        self.fallback = self.validated_data.fallback
+    #Test Name
+        self.test_name = self.validated_data.test_name
 
-        self.temperature = self.validated_data.llm.temperature
+    #LLM
         self.model = self.validated_data.llm.model
-        self.is_starter = self.validated_data.is_starter
-        self.role = self.validated_data.role
-        self.raw_context = self.validated_data.context
-        self.context = self.context_processor(self.validated_data.context)  # list
-        self.ask_about = AskAboutClass(self.validated_data.ask_about)  # list
-        self.output = self.validated_data.output  # dict
+        self.temperature = self.validated_data.llm.temperature
 
-        conversation = self.list_to_dict_reformat(self.validated_data.conversations)
+    #User
+        self.language = set_language(self.validated_data.user.language)
+        self.role = self.validated_data.user.role
+        self.raw_context = self.validated_data.user.context
+        self.context = self.context_processor(self.raw_context)
+        self.ask_about = AskAboutClass(self.validated_data.user.goals)
 
-        self.conversation_number = self.get_conversation_number(conversation['number'])
-        self.goal_style = pick_goal_style(conversation['goal_style'])  # list
-        self.language = set_language(self.validated_data.language)  # str
-        self.interaction_styles = self.pick_interaction_style(conversation['interaction_style'])  # list
-        self.test_name = self.validated_data.test_name  # str
+    #Chatbot
+        self.is_starter = self.validated_data.chatbot.is_starter
+        self.fallback = self.validated_data.chatbot.fallback
+        self.output = self.validated_data.chatbot.output
+
+    #Conversation
+        self.conversation_number = self.get_conversation_number(self.validated_data.conversation.number)
+        self.goal_style = pick_goal_style(self.validated_data.conversation.goal_style)
+        self.interaction_styles = self.pick_interaction_style(self.validated_data.conversation.interaction_style)
 
     def reset_attributes(self):
         logger.info(f"Preparing attributes for next conversation...")
-        self.fallback = self.validated_data.fallback
-        self.temperature = self.validated_data.llm.temperature
-        self.model = self.validated_data.llm.model
-        self.is_starter = self.validated_data.is_starter
-        self.role = self.validated_data.role
-        self.context = self.context_processor(self.validated_data.context)  # list
+        self.fallback = self.validated_data.chatbot.fallback
+        # self.temperature = self.validated_data.llm.temperature
+        # self.model = self.validated_data.llm.model
+        # self.is_starter = self.validated_data.is_starter
+        # self.role = self.validated_data.role
+        self.context = self.context_processor(self.raw_context)
         self.ask_about.reset()  # self.picked_elements = [], self.phrases = []
 
-        conversation = self.list_to_dict_reformat(self.validated_data.conversations)
-        self.goal_style = pick_goal_style(conversation['goal_style'])  # list
-        self.language = set_language(self.validated_data.language)  # str
-        self.interaction_styles = self.pick_interaction_style(conversation['interaction_style'])  # list
+        self.goal_style = pick_goal_style(self.validated_data.conversation.goal_style)
+        self.language = set_language(self.validated_data.user.language)
+        self.interaction_styles = self.pick_interaction_style(self.validated_data.conversation.interaction_style)
 
     @staticmethod
     def list_to_dict_reformat(conv):

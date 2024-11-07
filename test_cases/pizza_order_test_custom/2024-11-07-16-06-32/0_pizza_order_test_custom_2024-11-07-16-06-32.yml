@@ -1,0 +1,37 @@
+serial: 2024-11-07-16-06-32
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- cans: 1
+- drink: sprite
+- size: small
+- toppings: cheese
+conversation:
+- interaction_style:
+  - change languages: []
+  - long phrases
+  - make spelling mistakes
+- number: 2
+- steps: 5
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Couldn't connect with chatbot
+- 1001: 3 goals left to complete.
+---
+conversation time: 4.047084
+assistant response time: []
+response time report:
+  average: .nan
+  max: .nan
+  min: .nan
+---
+interaction:
+- Assistant: 'Error: cut connection'

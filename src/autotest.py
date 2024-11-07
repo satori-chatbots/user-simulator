@@ -29,19 +29,31 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
         for inter in up.interaction_styles:
             interaction_style_list.append(inter.get_metadata())
 
-        for conv in user_profile.yaml['conversations']:
-            keys = list(conv.keys())
-            if keys[0] == 'interaction_style':
-                conversation_list.append({'interaction_style': interaction_style_list})
+        # for conv in user_profile.yaml['conversation']:
+        #     keys = list(conv.keys())
+        #     if keys[0] == 'interaction_style':
+        #         conversation_list.append({'interaction_style': interaction_style_list})
+        #
+        #     elif keys[0] == 'goal_style':
+        #         if 'random steps' in conv[keys[0]]:
+        #             conversation_list.append({keys[0]: {'steps': user_profile.goal_style[1]}})
+        #         else:
+        #             conversation_list.append(conv)
+        #
+        #     else:
+        #         conversation_list.append(conv)
 
-            elif keys[0] == 'goal_style':
-                if 'random steps' in conv[keys[0]]:
-                    conversation_list.append({keys[0]: {'steps': user_profile.goal_style[1]}})
-                else:
-                    conversation_list.append(conv)
+        conversation_list.append({'interaction_style': interaction_style_list})
 
-            else:
-                conversation_list.append(conv)
+        if isinstance(up.yaml['conversation']['number'], int):
+            conversation_list.append({'number': up.yaml['conversation']['number']})
+        else:
+            conversation_list.append({'number': up.conversation_number})
+
+        if 'random steps' in up.yaml['conversation']['goal_style']:
+            conversation_list.append({'goal_style': {'steps': up.goal_style[1]}})
+        else:
+            conversation_list.append(up.yaml['conversation']['goal_style'])
 
         return conversation_list
 
@@ -75,7 +87,7 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
     context = {'context': user_profile.raw_context}
     ask_about = {'ask_about': ask_about_metadata(user_profile)}
     conversation = {'conversation': conversation_metadata(user_profile)}
-    language = {'language': user_profile.yaml['language'] if user_profile.yaml['language'] else 'English'}
+    language = {'language': user_profile.language}
     serial_dict = {'serial': serial}
     errors_dict = {'errors': errors}
     metadata = {**serial_dict,
@@ -157,13 +169,13 @@ def generate(technology, chatbot, user, personality, extract):
 
             the_chatbot.fallback = user_profile.fallback
             the_user = UserGeneration(user_profile, the_chatbot)
-            starter = user_profile.is_starter
+            bot_starter = user_profile.is_starter
             response_time = []
 
             start_time_conversation = timeit.default_timer()
             response = ''
             while True:
-                if starter:
+                if not bot_starter:
                     user_msg = the_user.open_conversation()
                     print_user(user_msg)
 
@@ -183,7 +195,7 @@ def generate(technology, chatbot, user, personality, extract):
                             the_user.update_history("Assistant", "Error: The server did not respond.")
 
                     print_chatbot(response)
-                    starter = False
+                    bot_starter = True
 
                 elif not the_user.conversation_history['interaction']:
                     is_ok, response = the_chatbot.execute_starter_chatbot()

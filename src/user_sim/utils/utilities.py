@@ -169,7 +169,10 @@ def save_test_conv(history, metadata, test_name, path, serial, conversation_time
     with open(file_path_yaml, "w", encoding="UTF-8") as archivo:
         yaml.dump_all(data, archivo, allow_unicode=True, default_flow_style=False, sort_keys=False)
     if av_data[1]:
-        av_data[0].to_csv(file_path_csv, index=True, sep=';', header=True, columns=['verification', 'data'])
+        if av_data[0]:
+            av_data[0].to_csv(file_path_csv, index=True, sep=';', header=True, columns=['verification', 'data'])
+        else:
+            logger.warning(f"all_answered export was set to True but no data could be retrieved.")
 
     print(f"Conversation saved in {path}")
     print('------------------------------')
@@ -226,8 +229,8 @@ class ExecutionStats:
                     except yaml.YAMLError as e:
                         print(f'error while processing the file {yaml_file}: {e}')
 
-            self.profile_art.append(assistant_response_times)
-            self.profile_edf.append(error_df)
+        self.profile_art.append(assistant_response_times)
+        self.profile_edf.append(error_df)
 
     def show_last_stats(self):
 

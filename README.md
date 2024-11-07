@@ -314,7 +314,29 @@ The tester defines some certain values to obtain from the conversation to valida
 
   This field defines some parameters that will dictate how the conversations will be generated. It consists of 3 parameters: number, goal_style and interaction_style.
 
-- number: this parameter indicates the number of conversations to generate.
+- number: this parameter indicates the number of conversations to generate. A number can be assigned to this field in order to determine a specific amount
+of conversations. When nested forward functions are defined in the ask_about field, it is possible to set the "all_combinations" option, so the number
+of conversation to generate will be determined by the number of combinations obtained from the nested forward functions.
+  ```
+  drink:
+    function: forward(size)
+    type: str
+    data:
+      - coke
+      - Fanta
+  
+  size:
+    function: forward()
+    type: str
+    data:
+      - small
+      - medium
+      - large
+  
+  (this ask_about will generate 2 x 3 = 6 conversations)
+  ```
+  Another option named "sample()" is defined on this field. This option gets a sample of all combinations possible determined by a decimal percentage.
+  Based on the previous example, when the number of conversation parameter is set to sample(0.2), a total amount of 6 x 0.2 = 1.2 ≈ 1 conversation will be generated.
 - goal_style: this defines how the conversation should end. There are 3 options in this update
   - steps: the tester should input the number of interactions to be done before the conversation ends.
   - random steps: a random number of interactions will be done between 1 and an amount defined by the user. This amount can't exceed 20.

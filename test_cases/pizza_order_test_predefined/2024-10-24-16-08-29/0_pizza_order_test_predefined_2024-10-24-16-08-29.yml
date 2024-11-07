@@ -1,0 +1,89 @@
+serial: 2024-10-24-16-08-29
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Margarita
+- number:
+  - 1
+- size: small
+- pizza_type: four cheese
+conversation:
+- number: 1
+- goal_style:
+    all_answered:
+      export: true
+      limit: 20
+- interaction_style:
+  - default
+data_output:
+- price: $13.50
+- time: 00:15:00
+- order_id: 48228f
+errors: []
+---
+conversation time: 78.301468
+assistant response time:
+- 8.938565
+- 6.378461
+- 10.728664
+- 3.112136
+- 3.125345
+- 3.383836
+response time report:
+  average: 5.944501
+  max: 10.728664
+  min: 3.112136
+---
+interaction:
+- User: Hey there! 😊 I'm in the mood for some pizza today. Could you help me out with
+    ordering a small four cheese pizza? Also, I'm curious, do you have any vegan options?
+    🌱
+- Assistant: It looks like you have already provided the pizza size as "small" and
+    the pizza type as "four cheese." Is there anything else you would like to add
+    to your order, such as drinks?
+- User: Oh, definitely! Could I get a can of Margarita with that? 🍹 Also, just wondering,
+    how long do you think it'll take for the pizza to arrive? I'm getting pretty hungry
+    over here! 😋
+- Assistant: 'Thanks for ordering a small four cheese pizza!
+
+    It seems like you mentioned wanting a drink, but Margarita isn''t available. Could
+    you please let me know how many drinks you would like and choose from coke, sprite,
+    or water? Also, the delivery time for your pizza is typically around 30-45 minutes.
+    Let me know if you have any other questions!'
+- User: Oh, bummer about the Margarita! 😅 In that case, I'll go with a can of Sprite,
+    please. 🥤 By the way, do you guys have any cool vegan pizzas on the menu? I'm
+    always on the lookout for new vegan options to try! 🌿
+- Assistant: 'Sure, I''ve received your order for one Sprite.
+
+    The cost for a small four-cheese pizza and one Sprite is $13.50.
+
+    Your order will be ready in 15 minutes. Please visit our shop at 23 Main Street,
+    NY. Your order ID is 48228f.'
+- User: Thanks for the info! 😊 I'll swing by to pick it up. Oh, and about those vegan
+    options—do you have any recommendations? I'm always excited to try something new
+    and delicious! 🌱 Also, do you have any fun plans for the weekend? I love hearing
+    what people are up to! 🎉
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Sure thing! 😊 I was just asking if you have any recommendations for vegan
+    options on your menu. I'm always on the hunt for something new and tasty to try!
+    🌿 And I was also curious if you have any fun plans for the weekend. I love hearing
+    about what people are up to! 🎉
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: No worries, let me try again! 😊 Do you have any vegan pizza recommendations
+    on your menu? I'm always eager to try something new and delicious! 🌿 And just
+    out of curiosity, do you have any exciting plans for the weekend? I love hearing
+    about what people are up to! 🎉
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

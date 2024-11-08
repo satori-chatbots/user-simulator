@@ -1,57 +1,54 @@
+test_name: "kuki_chatbot_tests"
+
 llm:
   temperature: 0.8
   model: gpt-4o
 
-is_starter: True
+user:
+  language: English
+  role: |
+    Act as a young boy interested in technology, seeking help from Kuki the chatbot to solve your school duties
+  context:
+    #  personality:
+    - You should act as a young boy trying to solve math exercises
+  goals:
+    - "What is the result of {{operation}} {{number1}} and {{number2}}?"
+    - operation:
+        function: forward()
+        type: string
+        data:
+          - adding
+          - substracting
+          - multiplying
+          - dividing
+    - number1:
+        function: random()
+        type: int
+        data:
+          min: 4134
+          max: 5678
+          step: 12
+    - number2:
+        function: random()
+        type: int
+        data:
+          min: 24134
+          max: 56768
+          step: 127
 
-fallback: If you could bring someone from the dead, who would it be?
+chatbot:
+  is_starter: True
+  fallback: If you could bring someone from the dead, who would it be?
+  output:
+    - result:
+        type: float
+        description: the result of the operation of the two numbers, when explicitly found in the conversation and given by the assistant
 
-role: |
-  Act as a young boy interested in technology, seeking help from Kuki the chatbot to solve your school duties  
-
-context:
-#  personality:
-  - You should act as a young boy trying to solve math exercises
-
-ask_about:
-  - "What is the result of {{operation}} {{number1}} and {{number2}}?"
-  - operation:
-      function: forward()
-      type: string
-      data:
-        - adding
-        - substracting
-        - multiplying
-        - dividing
-  - number1:
-      function: random()
-      type: int
-      data:
-        min: 4134
-        max: 5678
-        step: 12
-  - number2:
-      function: random()
-      type: int
-      data:
-        min: 24134
-        max: 56768
-        step: 127
-
-output:
-  - result:
-      type: float
-      description: the result of the operation of the two numbers, when explicitly found in the conversation and given by the assistant
-
-conversations:
-  - number: 4
-  - goal_style:
+conversation:
+  number: 4
+  goal_style:
       all_answered:
          export: True
          limit: 3
-  - interaction_style:
+  interaction_style:
       - default
-
-language: English
-
-test_name: "kuki_chatbot_tests"

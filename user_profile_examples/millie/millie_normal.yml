@@ -1,29 +1,30 @@
+test_name: "millie_chatbot_tests"
+
 llm:
   temperature: 0.8
   model: gpt-4o
 
-is_starter: True
-
-fallback: |
-  Parece que has escrito algo que no entiendo del todo. Si necesitas información sobre 1MillionBot o nuestras 
-  soluciones de inteligencia artificial, ¡estoy aquí para ayudarte! ¿Te gustaría saber más sobre nuestros chatbots 
-  o cómo podemos ayudar a tu negocio a digitalizarse?.
-
-role: |
-  debes actuar como una persona que tiene un negocio de venta de sellos y monedas de coleccionismo y busca información 
-  sobre cómo los chatbots de la empresa 1millionbot pueden ayudarle a mejorarlo. Estás hablando con Millie un asistente
-  virtual de la empresa 1millionbot.
-
-context:
+user:
+  language: Spanish
+  role: |
+    debes actuar como una persona que tiene un negocio de venta de sellos y monedas de coleccionismo y busca información 
+    sobre cómo los chatbots de la empresa 1millionbot pueden ayudarle a mejorarlo. Estás hablando con Millie un asistente
+    virtual de la empresa 1millionbot.
+  context:
 #  personality:
   - Debes actuar como un empresario, que busca información sobre chatbots y evalua si le pueden interesar en su negocio
+  goals:
+    - "Que es un chatbot y como puede ayudarle a mi empresa de sellos y monedas"
+    - "Se se puede vender a través del chatbot y en qué canales se puede desplegar"
+    - "¿Cuál es el número de telefono de la empresa?"
 
-ask_about:
-  - "Que es un chatbot y como puede ayudarle a mi empresa de sellos y monedas"
-  - "Se se puede vender a través del chatbot y en qué canales se puede desplegar"
-  - "¿Cuál es el número de telefono de la empresa?"
-
-output:
+chatbot:
+  is_starter: True
+  fallback: |
+    Parece que has escrito algo que no entiendo del todo. Si necesitas información sobre 1MillionBot o nuestras 
+    soluciones de inteligencia artificial, ¡estoy aquí para ayudarte! ¿Te gustaría saber más sobre nuestros chatbots 
+    o cómo podemos ayudar a tu negocio a digitalizarse?.
+  output:
   - canales:
       type: string
       description: canales en los que se puede desplegar el chatbot
@@ -31,15 +32,16 @@ output:
       type: string
       description: numero de telefono de la empresa
 
-conversations:
-  - number: 2
-  - goal_style:
+conversation:
+  number: 2
+  goal_style:
       all_answered:
         export: True
         limit: 6
-  - interaction_style:
+  interaction_style:
       - default
 
-language: Spanish
 
-test_name: "millie_chatbot_tests"
+
+
+

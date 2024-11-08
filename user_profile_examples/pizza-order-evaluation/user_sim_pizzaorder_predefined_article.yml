@@ -1,73 +1,72 @@
+test_name: "pizza_order_test_predefined_article"
+
 llm:
   temperature: 0.8
   model: gpt-4o
 
-is_starter: True
+user:
+  language: English
+  role: you must act as a user ordering a pizza to a pizza shop.
+  context:
+    - personality: personalities/conversational-user.yml
+  goals:
+    - "a {{size}} {{pizza_type}} pizza"
+    - "{{number}} cans of {{drink}}"
 
-fallback: I'm sorry, I did not get what you said. Can you rephrase?
+    - number:
+        function: forward()
+        type: int
+        data:
+          min: 1
+          max: 3
+          step: 1
 
-role:
-  you must act as a user ordering a pizza to a pizza shop.
+    - size:
+        function: forward(pizza_type)
+        type: string
+        data:
+          - small
+          - medium
+          - large
 
-context:
-  - personality: personalities/conversational-user.yml
+    - pizza_type:
+        function: forward()
+        type: string
+        data:
+          - margarita
+          - carbonara
+          - marinera
+          - hawaiian
+          - four cheese
+          - vegetarian
 
-ask_about:
-  - "a {{size}} {{pizza_type}} pizza"
-  - "{{number}} cans of {{drink}}"
+    - drink:
+        function: another()
+        type: string
+        data:
+          - Sprite
+          - Coca-Cola
+          - Water
 
-  - number:
-      function: forward()
-      type: int
-      data:
-        min: 1
-        max: 3
-        step: 1
+chatbot:
+  is_starter: True
+  fallback: I'm sorry, I did not get what you said. Can you rephrase?
+  output:
+    - price:
+        type: money
+        description: The price of the pizza order
+    - order_id:
+        type: str
+        description: my order ID
 
-  - size:
-      function: forward(pizza_type)
-      type: string
-      data:
-        - small
-        - medium
-        - large
-
-  - pizza_type:
-      function: forward()
-      type: string
-      data:
-        - margarita
-        - carbonara
-        - marinera
-        - hawaiian
-        - four cheese
-        - vegetarian
-
-  - drink:
-      function: another()
-      type: string
-      data:
-        - Sprite
-        - Coca-Cola
-        - Water
-
-output:
-  - price:
-      type: money
-      description: The price of the pizza order
-  - order_id:
-      type: str
-      description: my order ID
-
-
-conversations:
-  - number: 3
-  - goal_style:
+conversation:
+  number: 3
+  goal_style:
       # steps: 1
       all_answered:
         export: True
         limit: 6
-  - interaction_style:
+  interaction_style:
       - default
       #- change language:
       #    - spanish
@@ -79,8 +78,3 @@ conversations:
 #            - italian
 #            - portuguese
 #            - chinese
-
-
-language: English
-
-test_name: "pizza_order_test_predefined_article"

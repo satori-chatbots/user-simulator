@@ -8,16 +8,16 @@ user:
   language: English
   role: you have to act as a user ordering a pizza to a pizza shop.
   context:
-    #  personality:
+    - personality: personalities/formal-user.yml
     - your name is Jon Doe
-  goals: #ask_about:
+  goals:
     - "a {{size}} custom pizza with {{toppings}}"
     - "{{cans}} cans of {{drink}}"
     - how long is going to take the pizza to arrive
     - how much will it cost
 
     - size:
-        function: forward(toppings)
+        function: another()
         type: string
         data:
           - small
@@ -25,11 +25,12 @@ user:
           - big
 
     - toppings:
-        function: forward()
+        function: random(rand)
         type: string
         data:
           - cheese
           - mushrooms
+          - pepperoni
 
     - cans:
         function: forward(drink)
@@ -53,7 +54,7 @@ chatbot:
   output:
     - price:
         type: money
-        description: The price of the pizza order
+        description: The final price of the pizza order
     - time:
         type: time
         description: how long is going to take the pizza to be ready

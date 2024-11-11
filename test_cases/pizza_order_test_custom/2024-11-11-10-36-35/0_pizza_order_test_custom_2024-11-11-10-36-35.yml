@@ -1,0 +1,129 @@
+serial: 2024-11-11-10-36-35
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- cans: 1
+- drink: sprite
+- size: small
+- toppings: cheese
+conversation:
+- interaction_style:
+  - long phrases
+- number: 2
+- steps: 5
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 128.91274
+assistant response time:
+- 3.294396
+- 5.467821
+- 5.525871
+- 7.691728
+- 2.99353
+response time report:
+  average: 4.994669
+  max: 7.691728
+  min: 2.99353
+---
+interaction:
+- Assistant: Hello
+- User: Hello there! I hope you're having a fantastic day. I was wondering if you
+    could help me with something special. I have this idea in mind for a custom pizza
+    that I would love to order, and I think it would be absolutely delicious. Could
+    you tell me more about how one might go about ordering a custom pizza from your
+    establishment, and if it's possible to customize every single aspect of it, such
+    as the crust, the sauce, the cheese, and the toppings? Also, I'm quite fond of
+    having a refreshing beverage with my meal, so I'd like to know if your menu includes
+    any special offers or deals on a certain number of cans of soda or another drink
+    to go along with my pizza. Lastly, if it's not too much trouble, could you kindly
+    inform me how long it typically takes for a pizza to be prepared and delivered
+    once an order is placed, and what the approximate cost might be for such a delightful
+    dining experience? Thank you so much for your assistance!
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hello once again! It seems there might have been a little confusion earlier,
+    but no worries. I'm really eager to dive into the details of ordering a custom
+    pizza from your fantastic pizza shop. I'm curious to know all about the customization
+    options available, like if I can choose the type of crust, perhaps something unique
+    or traditional, the variety of sauces, cheeses, and of course, the toppings which
+    make each pizza so distinct and personal. And on top of this, I'm contemplating
+    the idea of pairing my custom pizza with a few cans of soda or any other refreshing
+    drink you might suggest. Is there a special deal if I order a certain amount?
+    Furthermore, understanding the time it takes from placing the order to having
+    the delicious pizza in my hands would be incredibly helpful. And, if it's not
+    too much trouble, an estimate of the cost for such a delightful dining adventure
+    would be fantastic. Thank you so much for your patience and help!
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: Oh, thank you for that wonderful selection of pizzas you have! I'm really
+    intrigued by the option to create a Custom pizza, where I can choose the ingredients
+    myself. This sounds like such a delightful opportunity to craft a pizza to my
+    exact preferences. Could you let me know what kind of crust options are available
+    for the Custom pizza? I'm especially interested in whether you offer something
+    like a thin crust, a classic hand-tossed, or perhaps even a deep-dish style. Additionally,
+    I'm curious about the variety of sauces I can select from. Is there a tangy tomato,
+    a creamy Alfredo, or maybe something else that's a bit more adventurous? As for
+    the cheese, do you offer different types like mozzarella, cheddar, or even a spicy
+    pepper jack? And when it comes to toppings, I'm eager to know if there's any limit
+    to the number of toppings I can pile on. Oh, and about the drinks, could you tell
+    me if there are any promotions for ordering a few cans of soda or any recommended
+    pairings? Lastly, if I were to place an order for this dream pizza of mine, how
+    long might it take for it to arrive at my doorstep, and could you give me a ballpark
+    figure on the cost? Thank you so much for guiding me through this delicious process!
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: Oh, thank you once again for offering such a delightful variety of pizza options!
+    I'm still quite excited about the prospect of creating a Custom pizza tailored
+    to my unique taste preferences. Could you tell me more about the crust options
+    available for the Custom pizza? I'm really curious if there's a choice between
+    a thin crust, a classic hand-tossed, or even something like a deep-dish style.
+    Additionally, I'd love to know about the different sauces I can choose from. Is
+    there a classic tomato sauce, perhaps a creamy Alfredo, or maybe something a bit
+    more unusual or adventurous? When it comes to cheese, do you offer options like
+    mozzarella, cheddar, or maybe a spicier choice like pepper jack? And of course,
+    the toppings are so essential—I'm eager to find out if there's a limit to how
+    many I'm allowed to select. Regarding beverages, are there any promotions if I
+    order several cans of soda, or is there a particular drink you would recommend
+    to pair with my pizza creation? Finally, I would greatly appreciate knowing how
+    long the process might take from placing the order to receiving this custom masterpiece
+    at my door, and an approximate cost for this culinary journey would be wonderful
+    to know as well. Thank you for your patience and assistance in this delicious
+    pursuit!
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase?
+- User: 'Hello again! It looks like there might have been a bit of confusion earlier,
+    but that''s perfectly okay. I''m still very eager to explore the exciting possibilities
+    of creating a Custom pizza to suit my personal tastes at your fantastic pizza
+    shop. Could you please share more information about the crust options? I''m particularly
+    interested in knowing if there''s a choice between a thin crust, a classic hand-tossed
+    style, or perhaps even a deep-dish option. In addition to that, I''d love to hear
+    about the variety of sauces I can choose from, such as a classic tomato sauce,
+    a creamy Alfredo, or perhaps something more unique and adventurous.
+
+
+    When it comes to cheese, I''m curious to know if you offer options like mozzarella,
+    cheddar, or even a spicy pepper jack. As for the toppings, I''d like to know if
+    there''s any limit to the number I can select for my pizza creation. On the beverage
+    side of things, do you have any promotions or deals if I decide to order multiple
+    cans of soda, or is there a particular drink that you would suggest pairing with
+    my custom pizza?
+
+
+    Lastly, it would be really helpful to know how long it typically takes for a custom
+    pizza order to be prepared and delivered to my doorstep. Also, if you could provide
+    me with an approximate cost for this delightful dining experience, that would
+    be fantastic. Thank you so much for your assistance and for guiding me through
+    this delicious process!'
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

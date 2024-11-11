@@ -1,7 +1,7 @@
 # User simulator for chatbot testing
 
 ## Description
-The evolution of technology increased the complexity of chatbots and also it's testing methods. With the introduction of LLMs, chatbots are capable of humanizing
+The evolution of technology increased the complexity of chatbots, and also it's testing methods. With the introduction of LLMs, chatbots are capable of humanizing
 conversations and imitating the pragmatics of natural language. Several approaches have been created in order to evaluate the
 performance of chatbots. 
 
@@ -10,7 +10,7 @@ with the chatbot to test.
 
 ## Usage
 
-In order to run the simulator, a specific chatbot should be deployed previously (i.e Taskyto, Rasa...). 
+In order to run the simulator, a specific chatbot should be deployed previously (i.e. Taskyto, Rasa...). 
 
 The script "autorun.py" contains the functions to load the user simulator profile, start a conversation with the chatbot 
 and save this conversation and its configuration parámeters. The user simulator profile is stored in yaml files,
@@ -24,122 +24,117 @@ The most important API key is `OPENAI_API_KEY`.
 
 ## User Profile YAML Configuration
 
-This file contains all the properties the user will follow in order to carry out the conversation. Sice the user simulator is
-based in OpenAI GPT4-o LLM technology, some of the fields should be written as prompts in natural language. For this fileds, a 
+This file contains all the properties the user will follow in order to carry out the conversation. Since the user simulator is
+based in OpenAI GPT4-o LLM technology, some of the fields should be written as prompts in natural language. For these fields, a 
 prompt engineering task should be carried out by the tester to narrow down the role of the user simulator and guide its
 behaviour. A description of the fields and an example of the YAML structure is described below.
 
 ```
-# (dict) Indicates the llm model and temperature to use.
+test_name: "pizza_order_test_custom"
+
 llm:
-  model: gpt-4o                  
   temperature: 0.8
+  model: gpt-4o
 
-# (bool) defines wether the user simulator or the chatbot will start the conversation.
-is_starter: True                       
+user:
+  language: English
+  role: you have to act as a user ordering a pizza to a pizza shop.
+  context:
+    - personality: personalities/formal-user.yml
+    - your name is Jon Doe
+  goals:
+    - "a {{size}} custom pizza with {{toppings}}"
+    - "{{cans}} cans of {{drink}}"
+    - how long is going to take the pizza to arrive
+    - how much will it cost
 
-# (str) the chatbot's own fallback message
-fallback:
-  I'm sorry it's a little loud in my pizza shop, can you say that again?
+    - size:
+        function: another()
+        type: string
+        data:
+          - small
+          - medium
+          - big
 
-# (str) the main role the user will perform
-role:                                 
-  you have to act as a user ordering a pizza to a pizza shop
+    - toppings:
+        function: random(rand)
+        type: string
+        data:
+          - cheese
+          - mushrooms
+          - pepperoni
 
-# (list of str) features addeed to the prompt in order to narrow down the user's role
-context:
-  - personality:  personalities/formal-user.yml                             
-  - you're vegan
-  - your name is John
+    - cans:
+        function: forward(drink)
+        type: int
+        data:
+          min: 1
+          max: 3
+          step: 1
 
-# (list of types) defines what should be said by the user simulator to test tome specific capabilities of the chatbot.
-ask_about:
-  - "a pizza with the following size: {{size}}"
-  - "the following drink: {{drink}}"
-  - "the following toppings: {{toppings}}"
-  - how long is going to take the pizza to arrive
+    - drink:
+        function: forward()
+        type: string
+        data:
+          - sprite
+          - coke
+          - Orange Fanta
 
-  - size:
-      function: forward(drink)
-      type: string
-      data:
-        - small
-        - medium
-        - big
+chatbot:
+  is_starter: True
+  fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
+  output:
+    - price:
+        type: money
+        description: The final price of the pizza order
+    - time:
+        type: time
+        description: how long is going to take the pizza to be ready
+    - order_id:
+        type: str
+        description: my order ID
 
-  - toppings:
-      function: random(rand)
-      type: string
-      data:
-        - cheese
-        - mushrooms
-        - pepper
-        - ham
-        - bacon
-        - pepperoni
-        - olives
-        - corn
-        - chicken
-
-  - drink:
-      function: forward()
-      type: string
-      data:
-        - sprite
-        - coke
-        - Orange Fanta
-
-
-# Outputs some specific data defined by the tester.
-output:
-  - price:
-      type: money
-      description: The price of the pizza order
-  - time:
-      type: time
-      description: how long is going to take to deliver the pizza
-
-# (list of dict) In this field some parameters should be defined to indicate how the conversations will be carried out.
-conversations:
-  - number: 1
-  - goal_style:
-        steps: 5
-  - interaction_style:
+conversation:
+  number: sample(0.2)
+  goal_style:
+    steps: 5
+  interaction_style:
+    - random:
+      - make spelling mistakes
+      - all questions
+      - long phrases
       - change language:
           - italian
           - portuguese
           - chinese
 
-# (str) Main language of the conversation
-language: English
-
-# (str) Name of the test suit
-test_name: "pizza_order_test"
-
 ```
 
-## llm
+# test_name
+
+Here it is defined the name of the test suit. This name will be assigned to the exported test file and the folder containing the tests.
+
+# llm
   This parameter establishes the characteristics of the llm model. It consists of a dictionary with two fields, "model" and "temperature".
   - model: This parameter indicates the llm model that will carry out the conversation as the user simulator. Models to use should be available in
 LangChain's OpenAI module.
   - temperature: This parameter controls the randomness and diversity of the responses generated by the LLM. The value supported is float between 0.0 and 1.0.
 
-
-
   The llm parameter is optional, thus if it is not instantiated in the yaml file, model and temperature will be set 
   to default values, which are gpt-4o and 0.8 respectively.
 
-## is_starter
 
-  This parameter defines whether the user will start the conversation or not. The value supported is boolean and will be set depending on the chatbot to test.
+# user
 
-## fallback
+This field defines the properties of the user simulator in 3 parameters: language, role, context and goals
 
-  Here, the tester should provide the chatbot's original fallback message in order to allow the user simulator to detect fallbacks. This is needed to avoid fallback loops, allowing the user simulator to rephrase the query or change the topic.
+## language
+
+This parameter defines the main language that will be used in the conversations. If no language is provided, it is set to English by default.
 
 ## role
 
-  In this field, the tester should define the role the user will deploy during the conversation as a prompt, according to the chatbot to test. 
+  In this field, the tester should define the role the user will deploy during the conversation as a prompt, according to the chatbot to test.
 
 ## context
 
@@ -148,11 +143,10 @@ LangChain's OpenAI module.
   An option for loading predefined "personalities" can be enabled by typing inside of this field "personality:" and the
   path to the YAML file containing the desired personality. These personalities can go along with characteristics added
   by the programmer.
-  
 
-## ask_about
+## goals
 
-This field is used to narrow down the conversation topics the user simulator will carry out with the chatbot. 
+This field, named "ask_about" in previous versions is used to narrow down the conversation topics the user simulator will carry out with the chatbot. 
 It consists of a list of strings and dictionaries.
 
 The tester define a list of prompts with indications for the user simulator to check on the chatbot. 
@@ -162,7 +156,7 @@ shown in the example above with the exact same name as written between brackets 
 
 Variables follow a specific structure defined by 3 fields as shown below: data, type and function.
 ```
-ask_about:
+goals:
   - "cost estimation for photos of {{number_photo}} artworks"
   - number_photo:
       function: forward()
@@ -205,12 +199,13 @@ ask_about:
 ```
   By using this function, an LLM creates a list following the instructions provided by the user inside the parenthesis. 
   This function can be used alone in the list or accompanied by other items added by the user. When used with other items,
-  the "any()" function will exclude these items from the list generation in case they're related to the instruction. Multiple
+  the "any()" function will exclude these items from the list generation process in case they're related to the instruction. Multiple
   "any()" functions can be used inside the list.
-  Note that if any amount is specified in the prompt, the "any()" function will create a list with an unpredictable amount of items.
+  Note that if no amount is specified in the prompt, the "any()" function will create a list with an unpredictable amount of items.
 
 
-  Other option available in this field is the possibility to add personalized list functions to create data lists.
+  The possibility to add personalized list functions to create data lists is another option available in this field,
+  as shown in the example below.
 
 ```
   - number:
@@ -242,7 +237,7 @@ ask_about:
   ### function
   Functions are useful to determine how data will be added to the prompt.
 
-  Since the data is listed, functions can be used to iterate through these lists in order to change the information
+  Since the data is listed, functions are used to iterate through these lists in order to change the information
   inside the variable in each conversation. The functions available in this update are the following:
 
 - default(): the default() function assigns all data in the list to the variable in the prompt.
@@ -253,69 +248,100 @@ samples will be picked from the list. This number can't exceed the list length.
 This amount will not exceed the list length.
 - another(): the another() function will always randomly pick a different sample until finishing the options.
 - forward(): this function iterates through each of the samples in the list one by one. It allows to nest multiple
-functions of the same type in order to cover all combinations possible. An example of this is shown in the ask_about section
-in the main example. To nest forward() functions it is necessary to reference the variable that is going to nest by typing
-its name inside the brackets, as shown in the mentioned example:
+forward() functions in order to cover all combinations possible. An example of this is shown in the "goals" section
+in the main example. To nest forward() functions it is necessary to reference the variable that it is going to nest by typing
+its name inside the brackets, as shown in the example below:
 ```
-  - "a pizza with the following size: {{size}}"
-  - "the following drink: {{drink}}"
-  - "the following toppings: {{toppings}}"
-  - how long is going to take the pizza to arrive
+  goals:
+    - "{{cans}} cans of {{drink}}"
 
-  - size:
-      function: forward(drink)
-      type: string
-      data:
-        - small
-        - medium
-        - big
+    - cans:
+        function: forward(drink)
+        type: int
+        data:
+          min: 1
+          max: 3
+          step: 1
 
-  - toppings:
-      function: random(rand)
-      type: string
-      data:
-        - cheese
-        - mushrooms
-        - pepper
-        - ham
-        - bacon
-        - pepperoni
-        - olives
-        - corn
-        - chicken
-
-  - drink:
-      function: forward()
-      type: string
-      data:
-        - sprite
-        - coke
-        - Orange Fanta
+    - drink:
+        function: forward()
+        type: string
+        data:
+          - sprite
+          - coke
+          - Orange Fanta
 
 ```
+
+# chatbot
+
+  This field provides information about the chatbot configuration and the data to be obtained from the conversation.
+
+## is_starter
+
+  This parameter defines whether the chatbot will start the conversation or not. The value supported is boolean and 
+  will be set depending on the chatbot to test. 
+
+## fallback
+
+  Here, the tester should provide the chatbot's original fallback message in order to allow the user simulator to detect 
+  fallbacks. This is needed to avoid fallback loops, allowing the user simulator to rephrase the query or change the topic.
 
 ## output
 
 This field helps the tester get some certain information for the conversation once it is finished. It is used for data validation tasks.
 
-The tester defines some certain values to obtain from the conversation to validate the consistency of the chatbot. The values to obtain should be defined in a list of dictionaries with the name of the value, and should have the following structure:
+The tester defines some certain data to obtain from the conversation in order to validate the consistency and
+performance of the chatbot. This output field must follow the structure below:
+
+```
+  output:
+    - price:
+        type: money
+        description: The final price of the pizza order
+    - time:
+        type: time
+        description: how long is going to take the pizza to be ready
+    - order_id:
+        type: str
+        description: my order ID
+```
+
+A name for the data to output must be defined. Each output must contain these two parameters:
 
 - type: here it is defined the type of value to output. This type can be one of the following:
-  - int: Ouputs the data as an integer.
-  - float: Outputs the data as a float.
-  - money: Outputs the data as a monetary value with the currency used during the conversation.
-  - str: Outputs the data as text.
-  - time: Outputs the data in a time format.
-  - date: Outputs the data in a date format.
+  - int: Outputs data as an integer.
+  - float: Outputs data as a float.
+  - money: Outputs data as a monetary value with the currency used during the conversation.
+  - str: Outputs data as text.
+  - time: Outputs data in a time format.
+  - date: Outputs data in a date format.
 - description: In this parameter, the tester should prompt a text defining which information has to be obtained from the conversation.
 
 
-## conversations
+# conversation
 
-  This field defines some parameters that will dictate how the conversations will be generated. It consists of 3 parameters: number, goal_style and interaction_style.
+  This field defines some parameters that will dictate how the conversations will be generated. It consists 
+  of 3 parameters: number, goal_style and interaction_style.
+
+  ```
+conversation:
+  number: sample(0.2)
+  goal_style:
+    steps: 5
+  interaction_style:
+    - random:
+      - make spelling mistakes
+      - all questions
+      - long phrases
+      - change language:
+          - italian
+          - portuguese
+          - chinese
+  ```
 
 - number: this parameter indicates the number of conversations to generate. A number can be assigned to this field in order to determine a specific amount
-of conversations. When nested forward functions are defined in the ask_about field, it is possible to set the "all_combinations" option, so the number
+of conversations. When nested forward functions are defined in the "goals" field, it is possible to set the "all_combinations" option, so the number
 of conversation to generate will be determined by the number of combinations obtained from the nested forward functions.
   ```
   drink:
@@ -333,15 +359,16 @@ of conversation to generate will be determined by the number of combinations obt
       - medium
       - large
   
-  (this ask_about will generate 2 x 3 = 6 conversations)
+  # These "goals" variables will generate 2 x 3 = 6 conversations when "all_combinations" is selected.
   ```
-  Another option named "sample()" is defined on this field. This option gets a sample of all combinations possible determined by a decimal percentage.
-  Based on the previous example, when the number of conversation parameter is set to sample(0.2), a total amount of 6 x 0.2 = 1.2 ≈ 1 conversation will be generated.
+  In the same case, another option named "sample()" is defined on this field. This option allows to generate only a fraction of the total amount 
+  of combinations based on a decimal percentage defined inside the brackets.
+  In previous example, when the number of conversation parameter is set to sample(0.2), a total amount of 6 x 0.2 = 1.2 ≈ 1 conversation will be generated.
 - goal_style: this defines how the conversation should end. There are 3 options in this update
   - steps: the tester should input the number of interactions to be done before the conversation ends.
   - random steps: a random number of interactions will be done between 1 and an amount defined by the user. This amount can't exceed 20.
-  - all_answered: the conversation will end as long as all the queries in "ask_about" have been asked by the user and answered by the chatbot. 
-  This option creates an internal data frame that verifies if all "ask_about" queries are being responded or confirmed, and it is possible to export this
+  - all_answered: the conversation will end as long as all the queries in "goals" have been asked by the user and answered by the chatbot. 
+  This option creates an internal data frame that verifies if all "goals" queries are being responded or confirmed, and it is possible to export this
   dataframe once the conversation ended by setting the "export" field as True, as shown in the following example. This field is not mandatory, thus if only
   "all_answered" is defined, the export field is set as False by default.
     When all_answered is set, conversations are regulated with a loop break based on the chatbot's fallback message in order to avoid infinite loops when the chatbot does 
@@ -363,8 +390,8 @@ of conversation to generate will be determined by the number of combinations obt
   - change language: the user will change the language in the middle of a conversation. This should be defined as a list
                      of languages inside the parameter, as shown in the example above.
   - make spelling mistakes: the user will make typos and spelling mistakes during the conversation
-  - single question: the user makes only one query per interaction from "ask_about" field.
-  - all questions: the user asks everything inside the "ask_about" field in one interaction.
+  - single question: the user makes only one query per interaction from "goals" field.
+  - all questions: the user asks everything inside the "goals" field in one interaction.
   - random: this options allows to create a list inside of it with any of the interaction styles mentioned above. 
 Then, it selects a random amount of interaction styles to apply to the conversation. Here's an example on how to apply this interaction style:
     ```
@@ -380,10 +407,6 @@ Then, it selects a random amount of interaction styles to apply to the conversat
     ```
   - default: the user simulator will carry out the conversation in a natural way.
 
-## language
+  
 
-This parameter defines the main language that will be used in the conversations. If no language is provided, it is set to English by default.
 
-## test_name
-
-Here it is defined the name of the test suit. This name will be assigned to the exported test file and the folder containing the tests.

@@ -1,0 +1,79 @@
+serial: 2024-11-11-10-36-35
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- cans: 1
+- drink: coke
+- size: small
+- toppings: mushrooms
+conversation:
+- interaction_style:
+  - change languages:
+    - English
+    - English
+    - English
+    - portuguese
+    - English
+  - all questions
+- number: 2
+- steps: 5
+data_output:
+- price: null
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 73.50945
+assistant response time:
+- 5.345369
+- 7.262701
+- 3.17427
+- 3.38335
+- 7.523031
+response time report:
+  average: 5.337744
+  max: 7.523031
+  min: 3.17427
+---
+interaction:
+- Assistant: Hello
+- User: Hi, I'd like to order a custom pizza with extra cheese, pepperoni, and olives,
+    and can I also get three cans of pineapple juice; how long will it take to arrive
+    and what will the total cost be?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Can you confirm if you have pineapple juice available, and can you also provide
+    a breakdown of the total cost for the pizza with extra cheese, pepperoni, and
+    olives, as well as the three cans of pineapple juice?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Thank you for the pricing details. Could you please confirm the total cost
+    of my custom pizza with extra cheese, pepperoni, and olives, and also let me know
+    the price for the three cans of pineapple juice?
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Claro, sem problemas. Poderia confirmar o custo total da minha pizza personalizada
+    com queijo extra, pepperoni e azeitonas, e também quanto custam as três latas
+    de suco de abacaxi?
+- Assistant: 'I''m sorry, but I can only assist in English or Spanish. Could you please
+    switch to one of these languages?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Sure, could you please confirm the total cost of my custom pizza with extra
+    cheese, pepperoni, and olives, and also let me know how much the three cans of
+    pineapple juice will cost?
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

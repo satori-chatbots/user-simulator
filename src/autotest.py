@@ -29,20 +29,6 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
         for inter in up.interaction_styles:
             interaction_style_list.append(inter.get_metadata())
 
-        # for conv in user_profile.yaml['conversation']:
-        #     keys = list(conv.keys())
-        #     if keys[0] == 'interaction_style':
-        #         conversation_list.append({'interaction_style': interaction_style_list})
-        #
-        #     elif keys[0] == 'goal_style':
-        #         if 'random steps' in conv[keys[0]]:
-        #             conversation_list.append({keys[0]: {'steps': user_profile.goal_style[1]}})
-        #         else:
-        #             conversation_list.append(conv)
-        #
-        #     else:
-        #         conversation_list.append(conv)
-
         conversation_list.append({'interaction_style': interaction_style_list})
 
         if isinstance(up.yaml['conversation']['number'], int):

@@ -3,6 +3,7 @@ test_name: "pizza_order_test_custom"
 llm:
   temperature: 0.8
   model: gpt-4o
+  speech: true
 
 user:
   language: English

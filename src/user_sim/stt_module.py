@@ -12,7 +12,7 @@ pygame.mixer.init()
 warnings.filterwarnings("ignore", category=FutureWarning, module="whisper")
 warnings.filterwarnings("ignore", category=RuntimeWarning, module="pydub")
 client = OpenAI()
-audio_format = "wav"
+audio_format = "mp3"
 
 # obtain audio from the microphone
 r = sr.Recognizer()

@@ -87,7 +87,7 @@ def list_to_str(list_of_strings):
 class LLM(BaseModel):
     model: Optional[str] = "gpt-4o"
     temperature: Optional[float] = 0.8
-
+    format: Optional[str] = "text"  # text, speech, hybrid
 
 class User(BaseModel):
     language: Optional[Union[str, None]] = 'English'
@@ -116,20 +116,6 @@ class RoleDataModel(BaseModel):
     conversation: Conversation
 
 
-# class RoleDataModel(BaseModel):
-#
-#     fallback: str
-#     llm: Optional[LLM] = LLM()
-#     is_starter: Optional[bool] = True
-#     role: str
-#     context: Union[List[Union[str, Dict]], Dict, None]
-#     ask_about: list
-#     output: list
-#     conversations: list
-#     language: Union[str, None]
-#     test_name: str
-
-
 class RoleData:
 
     def __init__(self, yaml_file, personality_file):
@@ -148,6 +134,7 @@ class RoleData:
     #LLM
         self.model = self.validated_data.llm.model
         self.temperature = self.validated_data.llm.temperature
+        self.format = self.validated_data.llm.format
 
     #User
         self.language = set_language(self.validated_data.user.language)

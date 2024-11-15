@@ -6,6 +6,8 @@ from playsound import playsound
 import pygame
 from pydub import AudioSegment
 import simpleaudio as sa
+import logging
+logger = logging.getLogger('Info Logger')
 
 
 pygame.mixer.init()
@@ -14,50 +16,48 @@ warnings.filterwarnings("ignore", category=RuntimeWarning, module="pydub")
 client = OpenAI()
 audio_format = "mp3"
 
-# obtain audio from the microphone
-r = sr.Recognizer()
-with sr.Microphone() as source:
-    print("Say something!")
-    r.energy_threshold = 50     # lower values for quieter rooms
-    r.pause_threshold = 1
-    audio = r.listen(source)
+class STTModule:
 
+    def __init__(self, energy_threshold=50, pause_threshold=1):
 
-try:
-    # for testing purposes, we're just using the default API key
-    # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
-    # instead of `r.recognize_google(audio)`
-    print("Recognizing...")
-    start = time.time()
-    text = r.recognize_whisper(audio)
-    print("Recognition: " + text)
-    end = time.time()
-    print(f"Recognition time:  {end - start}")
+        self.energy_th = energy_threshold
+        self.pause_th = pause_threshold
 
-    with client.audio.speech.with_streaming_response.create(
-        model="tts-1",
-        voice="alloy",
-        input=text,
-        response_format=audio_format
-    ) as response:
-        response.stream_to_file("audio_test/output." + audio_format)
+    def hear(self):
+        r = sr.Recognizer()
+        with sr.Microphone() as source:
+            logger.info("Listening...")
+            r.energy_threshold = self.energy_th  # lower values for quieter rooms
+            r.pause_threshold = self.pause_th
+            audio = r.listen(source)
 
-    end_response = time.time()
-    print(f"Response time: {end_response - end}")
-    print("Playing...")
+        try:
+            logger.info("Recognizing...")
+            start = time.time()
+            text = r.recognize_whisper(audio)
+            end = time.time()
+            logger.info(f"Recognition time:  {end - start}")
+            return True, text
+        except sr.UnknownValueError:
+            logger.warning("Recognition model could not understand audio")
+            return True, "Repeat, please."
+        except sr.RequestError as e:
+            logger.warning("Could not request results from Speech Recognition service; {0}".format(e))
+            return False, None
 
-    pygame.mixer.music.load("audio_test/output." + audio_format)
-    pygame.mixer.music.play()
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
+    @staticmethod
+    def say(message):
 
-    end_process = time.time()
+        with client.audio.speech.with_streaming_response.create(
+            model="tts-1",
+            voice="alloy",
+            input=message,
+            response_format=audio_format
+        ) as response:
+            response.stream_to_file("audio_test/output." + audio_format)
 
-    print(f"Process time: {end_process - start} ")
-except sr.UnknownValueError:
-    print("Google Speech Recognition could not understand audio")
-except sr.RequestError as e:
-    print("Could not request results from Google Speech Recognition service; {0}".format(e))
-
-
-
+        logger.info("Playing...")
+        pygame.mixer.music.load("audio_test/output." + audio_format)
+        pygame.mixer.music.play()
+        while pygame.mixer.music.get_busy():
+            pygame.time.Clock().tick(10)

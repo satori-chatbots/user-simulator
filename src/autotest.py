@@ -1,6 +1,8 @@
 import time
 import timeit
 from argparse import ArgumentParser
+
+from src.user_sim.stt_module import STTModule
 from user_sim.utils.config import errors
 import pandas as pd
 import yaml
@@ -148,6 +150,7 @@ def generate(technology, chatbot, user, personality, extract):
     for profile in profiles:
         user_profile = RoleData(profile, personality)
         test_name = user_profile.test_name
+        chat_format = user_profile.format
         start_time_test = timeit.default_timer()
 
         for i in range(user_profile.conversation_number):
@@ -160,31 +163,177 @@ def generate(technology, chatbot, user, personality, extract):
 
             start_time_conversation = timeit.default_timer()
             response = ''
-            while True:
-                if not bot_starter:
-                    user_msg = the_user.open_conversation()
+
+            # if chat_format == "text":
+            #     while True:
+            #         if not bot_starter:
+            #             user_msg = the_user.open_conversation()
+            #             print_user(user_msg)
+            #
+            #             start_response_time = timeit.default_timer()
+            #             is_ok, response = the_chatbot.execute_with_input(user_msg)
+            #             end_response_time = timeit.default_timer()
+            #             response_time.append(timedelta(seconds=end_response_time - start_response_time).total_seconds())
+            #
+            #             if not is_ok:
+            #                 if response is not None:
+            #                     the_user.update_history("Assistant", "Error: " + response)  # added by JL
+            #                 else:
+            #                     the_user.update_history("Assistant", "Error: The server did not respond.")  # added by JL
+            #                 break
+            #             else:
+            #                 if response is None:
+            #                     the_user.update_history("Assistant", "Error: The server did not respond.")
+            #
+            #             print_chatbot(response)
+            #             bot_starter = True
+            #
+            #         elif not the_user.conversation_history['interaction']:
+            #             is_ok, response = the_chatbot.execute_starter_chatbot()
+            #             if not is_ok:
+            #                 if response is not None:
+            #                     the_user.update_history("Assistant", "Error: " + response)
+            #                 else:
+            #                     the_user.update_history("Assistant", "Error: The server did not respond.")
+            #                 break
+            #
+            #             print_chatbot(response)
+            #             user_msg = the_user.open_conversation(response)
+            #         else:
+            #             user_msg = the_user.get_response(response)
+            #
+            #         if user_msg == "exit":
+            #             break
+            #         else:
+            #             print_user(user_msg)
+            #
+            #             start_response_time = timeit.default_timer()
+            #             is_ok, response = the_chatbot.execute_with_input(user_msg)
+            #             end_response_time = timeit.default_timer()
+            #             time_sec = timedelta(seconds=end_response_time - start_response_time).total_seconds()
+            #             response_time.append(time_sec)
+            #
+            #             if response == 'timeout':
+            #                 break
+            #
+            #             print_chatbot(response)
+            #
+            #             if not is_ok:
+            #                 if response is not None:
+            #                     the_user.update_history("Assistant", "Error: " + response)  # added by JL
+            #                 else:
+            #                     the_user.update_history("Assistant", "Error: The server did not respond.")  # added by JL
+            #                 break
+            #
+            # elif chat_format == "speech":
+            #     stt = STTModule()
+            #     while True:
+            #         if not bot_starter:
+            #             user_msg = the_user.open_conversation()
+            #             print_user(user_msg)
+            #             stt.say(user_msg)
+            #             start_response_time = timeit.default_timer()
+            #             is_ok, response = stt.hear()
+            #             end_response_time = timeit.default_timer()
+            #             response_time.append(timedelta(seconds=end_response_time - start_response_time).total_seconds())
+            #
+            #             if not is_ok:
+            #                 if response is not None:
+            #                     the_user.update_history("Assistant", "Error: " + response)  # added by JL
+            #                 else:
+            #                     the_user.update_history("Assistant",
+            #                                             "Error: The server did not respond.")  # added by JL
+            #                 break
+            #             else:
+            #                 if response is None:
+            #                     the_user.update_history("Assistant", "Error: The server did not respond.")
+            #
+            #             print_chatbot(response)
+            #             bot_starter = True
+            #
+            #         elif not the_user.conversation_history['interaction']:
+            #             is_ok, response = stt.hear()
+            #             if not is_ok:
+            #                 if response is not None:
+            #                     the_user.update_history("Assistant", "Error: " + response)
+            #                 else:
+            #                     the_user.update_history("Assistant", "Error: The server did not respond.")
+            #                 break
+            #
+            #             print_chatbot(response)
+            #             user_msg = the_user.open_conversation(response)
+            #         else:
+            #             user_msg = the_user.get_response(response)
+            #
+            #         if user_msg == "exit":
+            #             break
+            #         else:
+            #
+            #             print_user(user_msg)
+            #             stt.say(user_msg)
+            #
+            #             start_response_time = timeit.default_timer()
+            #             is_ok, response = stt.hear()
+            #             end_response_time = timeit.default_timer()
+            #             time_sec = timedelta(seconds=end_response_time - start_response_time).total_seconds()
+            #             response_time.append(time_sec)
+            #
+            #             if response == 'timeout':  # todo: configure in stt_module
+            #                 break
+            #
+            #             print_chatbot(response)
+            #
+            #             if not is_ok:
+            #                 if response is not None:
+            #                     the_user.update_history("Assistant", "Error: " + response)  # added by JL
+            #                 else:
+            #                     the_user.update_history("Assistant",
+            #                                             "Error: The server did not respond.")  # added by JL
+            #                 break
+
+
+            if chat_format == "speech":
+                stt = STTModule()
+
+                def send_user_message(user_msg):
+                    print_user(user_msg)
+                    stt.say(user_msg)
+
+                def get_chatbot_response(user_msg):
+                    start_response_time = timeit.default_timer()
+                    is_ok, response = stt.hear()
+                    end_response_time = timeit.default_timer()
+                    time_sec = timedelta(seconds=end_response_time - start_response_time).total_seconds()
+                    response_time.append(time_sec)
+                    return is_ok, response
+
+                def get_chatbot_starter_response():
+                    is_ok, response = stt.hear()
+                    return is_ok, response
+
+            elif chat_format == "text":
+                def send_user_message(user_msg):
                     print_user(user_msg)
 
+                def get_chatbot_response(user_msg):
                     start_response_time = timeit.default_timer()
                     is_ok, response = the_chatbot.execute_with_input(user_msg)
                     end_response_time = timeit.default_timer()
-                    response_time.append(timedelta(seconds=end_response_time - start_response_time).total_seconds())
+                    time_sec = timedelta(seconds=end_response_time - start_response_time).total_seconds()
+                    response_time.append(time_sec)
+                    return is_ok, response
 
-                    if not is_ok:
-                        if response is not None:
-                            the_user.update_history("Assistant", "Error: " + response)  # added by JL
-                        else:
-                            the_user.update_history("Assistant", "Error: The server did not respond.")  # added by JL
-                        break
-                    else:
-                        if response is None:
-                            the_user.update_history("Assistant", "Error: The server did not respond.")
-
-                    print_chatbot(response)
-                    bot_starter = True
-
-                elif not the_user.conversation_history['interaction']:
+                def get_chatbot_starter_response():
                     is_ok, response = the_chatbot.execute_starter_chatbot()
+                    return is_ok, response
+
+            while True:
+
+                if not bot_starter:
+                    user_msg = the_user.open_conversation()
+                    send_user_message(user_msg)
+
+                    is_ok, response = get_chatbot_response(user_msg)
                     if not is_ok:
                         if response is not None:
                             the_user.update_history("Assistant", "Error: " + response)
@@ -193,31 +342,36 @@ def generate(technology, chatbot, user, personality, extract):
                         break
 
                     print_chatbot(response)
+                    bot_starter = True
+
+                elif not the_user.conversation_history["interaction"]:
+                    is_ok, response = get_chatbot_starter_response()
+                    if not is_ok:
+                        if response is not None:
+                            the_user.update_history("Assistant", "Error: " + response)
+                        else:
+                            the_user.update_history("Assistant", "Error: The server did not respond.")
+                        break
+                    print_chatbot(response)
                     user_msg = the_user.open_conversation(response)
+
                 else:
                     user_msg = the_user.get_response(response)
 
                 if user_msg == "exit":
                     break
                 else:
-                    print_user(user_msg)
+                    send_user_message(user_msg)
 
-                    start_response_time = timeit.default_timer()
-                    is_ok, response = the_chatbot.execute_with_input(user_msg)
-                    end_response_time = timeit.default_timer()
-                    time_sec = timedelta(seconds=end_response_time - start_response_time).total_seconds()
-                    response_time.append(time_sec)
-
+                    is_ok, response = get_chatbot_response(user_msg)
                     if response == 'timeout':
                         break
-
                     print_chatbot(response)
-
                     if not is_ok:
                         if response is not None:
-                            the_user.update_history("Assistant", "Error: " + response)  # added by JL
+                            the_user.update_history("Assistant", "Error: " + response)
                         else:
-                            the_user.update_history("Assistant", "Error: The server did not respond.")  # added by JL
+                            the_user.update_history("Assistant", "Error: The server did not respond.")
                         break
 
             if extract:

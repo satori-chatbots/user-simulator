@@ -355,8 +355,8 @@ def generate(technology, chatbot, user, personality, extract):
                     print_chatbot(response)
                     user_msg = the_user.open_conversation(response)
 
-                else:
-                    user_msg = the_user.get_response(response)
+
+                user_msg = the_user.get_response(response)
 
                 if user_msg == "exit":
                     break

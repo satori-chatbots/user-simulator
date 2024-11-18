@@ -2,10 +2,11 @@ import speech_recognition as sr
 import time
 from openai import OpenAI
 import warnings
-from playsound import playsound
+
+# from playsound import playsound
 import pygame
-from pydub import AudioSegment
-import simpleaudio as sa
+# from pydub import AudioSegment
+# import simpleaudio as sa
 import logging
 logger = logging.getLogger('Info Logger')
 
@@ -57,7 +58,9 @@ class STTModule:
             response.stream_to_file("audio_test/output." + audio_format)
 
         logger.info("Playing...")
-        pygame.mixer.music.load("audio_test/output." + audio_format)
-        pygame.mixer.music.play()
-        while pygame.mixer.music.get_busy():
-            pygame.time.Clock().tick(10)
+        audio_path = f"audio_test/output.{audio_format}"
+        with open(audio_path, 'rb') as audio_file:
+            pygame.mixer.music.load(audio_file)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(10)

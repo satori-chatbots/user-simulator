@@ -9,7 +9,7 @@ user:
   language: English
   role: you have to act as a user ordering a pizza to a pizza shop.
   context:
-    - personality: personalities/formal-user.yml
+    - personality: personalities/conversational-user.yml
     - your name is Jon Doe
   goals:
     - "a {{size}} custom pizza with {{toppings}}"
@@ -50,7 +50,7 @@ user:
           - Orange Fanta
 
 chatbot:
-  is_starter: True
+  is_starter: False
   fallback: I'm sorry it's a little loud in my pizza shop, can you say that again?
   output:
     - price:
@@ -70,8 +70,8 @@ conversation:
   interaction_style:
     - random:
       - make spelling mistakes
-      - all questions
-      - long phrases
+#      - all questions
+#      - long phrases
       - change language:
           - italian
           - portuguese

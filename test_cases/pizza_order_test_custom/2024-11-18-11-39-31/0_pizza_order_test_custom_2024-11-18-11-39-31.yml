@@ -1,0 +1,68 @@
+serial: 2024-11-18-11-39-31
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - big
+- toppings:
+  - mushrooms
+  - cheese
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - change languages:
+    - chinese
+    - English
+    - English
+    - English
+    - English
+- number: 2
+- steps: 5
+data_output:
+- price: $15
+- time: 00:20:00
+- order_id: A2B345
+errors: []
+---
+conversation time: 167.921138
+assistant response time:
+- 6.219096
+- 8.350722
+- 5.474416
+- 6.484429
+- 10.634256
+response time report:
+  average: 7.432583
+  max: 10.634256
+  min: 5.474416
+---
+interaction:
+- User: 你好！我想点一个大号的自定义披萨，上面要有蘑菇和奶酪。你知道要多长时间能送到吗？还有，这会花多少钱呢？😋🍕
+- Assistant: ' I can''t attend you in Chinese.'
+- User: Hey there! So, I'm looking to order a big custom pizza with mushrooms and
+    cheese. 🍄🧀 Oh, and how many cans of... umm, something fun can I add to that? 😄
+    Also, any idea how long it might take to arrive and how much it'll cost? I love
+    a good pizza night! 🤗
+- Assistant: ' Pizza''s cost $15.'
+- User: Oh, $15 sounds pretty reasonable! 😊 But I'm curious, do you have any fun drink
+    options I can add to my order? Maybe something that pairs well with pizza? Also,
+    any idea on the delivery time? Can't wait to dive into that cheesy goodness! 🍕🚀
+- Assistant: ' We have sprite, coke and orange fun time.'
+- User: Sprite, Coke, and Orange Fun Time? 🤔 I love a bit of variety! How about I
+    go with two cans of Orange Fun Time? Sounds like a party in a can! 🎉 How long
+    do you think it’ll take for the pizza and drinks to get here? 🚴‍♂️✨ And do you
+    have any recommendations for desserts? I could always use something sweet after
+    a savory pizza! 🍰😊
+- Assistant: ' It''s going to take 20 minutes.'
+- User: Awesome, 20 minutes sounds perfect! 🚀 Now, let's see about dessert... Do you
+    have any recommendations? I’m feeling like something sweet to cap off the pizza
+    feast. 🍕🍰 Oh, and while we're chatting, what’s your favorite pizza topping? Just
+    curious! 😊
+- Assistant: ' We don''t have desserts. Your idea order is A2B345.'

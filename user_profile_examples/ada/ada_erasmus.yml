@@ -19,16 +19,16 @@ user:
     - "¿Cómo contactas con el CAU para solicitar ayuda?"
 
 chatbot:
-  is_starter: True
+  is_starter: False
   fallback: |
     Disculpa, pero... ¿Me lo puedes repetir con otras palabras? o, si lo prefieres, puedes consultar nuestro catálogo de servicios.
     Respondo a preguntas dirigidas al Centro de Atención a Usuarios del servicio de Tecnologías de la Información.
   output:
     - email_cau:
-        type: email
+        type: str
         description: correo electronico (email) del CAU
     - telefono_cau:
-        type: telefono
+        type: int
         description: el numero de telefono del CAU
 
 

@@ -1,0 +1,105 @@
+serial: 2024-11-26-11-57-41
+language: English
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- ¿Se prestan portatiles en la UAM?
+- ¿Dónde se puede imprimir?
+- ¿Cómo contactas con el CAU para solicitar ayuda?
+conversation:
+- interaction_style:
+  - default
+- number: 3
+- all_answered:
+    export: true
+    limit: 6
+data_output:
+- email_cau: cau@uam.es
+- telefono_cau: 914974029
+errors:
+- 500: Couldn't get response from the server
+---
+conversation time: 32.945585
+assistant response time:
+- 0.829438
+- 0.737798
+- 0.614409
+- 0.540406
+response time report:
+  average: 0.680512
+  max: 0.829438
+  min: 0.540406
+---
+interaction:
+- User: Hi there! I'm an Erasmus student at UAM and I have a couple of questions.
+    First, do they lend laptops at UAM?
+- Assistant: '<p>Lo siento pero puede que no tenga información disponible sobre esa
+    cuestión. <br><br>Respondo preguntas dirigidas al CAU del servicio de Tecnologías
+    de la Información de la UAM.<br><br>Puedes consultar <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">aquí</a>
+    nuestro catálogo de servicios TI y contactar con nosotros en <a href="mailto:cau@uam.es">cau@uam.es</a> <br><br><br><br></p>
+
+    '
+- User: Could you tell me where I can print documents at UAM?
+- Assistant: '<p>La <strong>Universidad Autónoma de Madrid</strong> es una universidad
+    moderna, comprometida con la formación integral de sus estudiantes y reconocida
+    internacionalmente.</p>
+
+    <p> </p>
+
+    <p>Conoce el <a href="https://www.uam.es/uam/vida-universitaria/facultades">listado
+    de Facultades y Escuelas de la UAM</a>. Podrás acceder a una oferta de más de
+    50 Grados y Dobles Grados, Másteres oficiales y muchos más programas y títulos
+    propios.<br><br></p>
+
+
+
+    AVAILABLE BUTTONS:
+
+
+    - BUTTON TEXT: <p>DÍA DE BIENVENIDA </p> LINK: https://uam.es/uam/bienvenidauam
+
+    - BUTTON TEXT: <p>CONTACTA CON LA UAM</p> LINK: https://www.uam.es/uam/contacto
+
+    - BUTTON TEXT: <p>UBICACIÓN</p> LINK: https://www.google.com/maps/place/Universidad+Aut%C3%B3noma+de+Madrid/@40.5466983,-3.6943619,15z/data=!4m5!3m4!1s0x0:0x8586e92e648f8b2d!8m2!3d40.5466983!4d-3.6943619
+
+    - BUTTON TEXT: <p>VIDA UNIVERSITARIA</p> LINK: https://www.uam.es/uam/vida-universitaria/campus
+
+    - BUTTON TEXT: <p>SERVICIOS DE INTERÉS UAM</p> LINK: https://www.uam.es/uam/vida-universitaria/servicios
+
+    '
+- User: How can I contact the CAU for technical assistance at UAM?
+- Assistant: '<p>Contacta con el Centro de Atención a Usuarios (CAU) de Tecnologías
+    de la Información por cualquiera de estos medios:<br><br><strong>Por correo electrónico:
+    <a href="mailto:cau@uam.es">cau@uam.es</a><br></strong></p>
+
+    <p> </p>
+
+    <p><strong>Por teléfono 📞:</strong> 914974029.</p>
+
+    <p> </p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><strong>Presencialmente:</strong>  </span>Escuela
+    Politécnica Superior. Edificio B. Calle Francisco Tomás y Valiente nº 11. Campus
+    Cantoblanco. 28049 Madrid</p>
+
+    <p style="color: rgb(34, 43, 69); font-family: ''Open Sans'', sans-serif; font-size:
+    15px; font-weight: 400; line-height: var(--text-paragraph-line-height);"><span
+    style="font-weight: bolder;"><a style="text-decoration: var(--link-text-decoration);"
+    href="https://www.uam.es/uam/media/doc/1606854713536/plano-uam-final.pdf">(ver
+    Plano Campus)</a></span></p>
+
+    <p><br><strong>Horario de atención telefónica, remota y presencial​: </strong>De
+    lunes a viernes, excepto festivos, de 9:00h a 17:30h.<br><strong>Horario en períodos
+    de suspensión de actividad laboral de la UAM: </strong>De lunes a viernes (excepto
+    festivos), de 9:00h a 14:00h. Solamente se presta atención telefónica.</p>
+
+    <p><strong><br>Consultar el <a href="https://www.uam.es/uam/tecnologias-informacion/servicios-ti">CATÁLOGO
+    DE SERVICIOS OFRECIDOS</a></strong></p>
+
+    '
+- User: Thanks for the info! By the way, is there a place on campus where I can grab
+    some coffee or maybe a snack between classes?
+- Assistant: 'Error: The server did not respond.'

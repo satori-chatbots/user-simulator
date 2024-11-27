@@ -1,0 +1,34 @@
+serial: 2024-11-26-11-22-44
+language: English
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- ¿Se prestan portatiles en la UAM?
+- ¿Dónde se puede imprimir?
+- ¿Cómo contactas con el CAU para solicitar ayuda?
+conversation:
+- interaction_style:
+  - default
+- number: 3
+- all_answered:
+    export: true
+    limit: 6
+data_output:
+- email_cau: null
+- telefono_cau: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 2 goals left to complete.
+---
+conversation time: 4.336386
+assistant response time:
+- 0.987904
+response time report:
+  average: 0.987904
+  max: 0.987904
+  min: 0.987904
+---
+interaction:
+- User: Hi! I'm an Erasmus student at UAM. Do you know if they lend laptops here?
+- Assistant: 'Error: The server did not respond.'

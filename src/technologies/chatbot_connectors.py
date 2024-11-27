@@ -152,6 +152,8 @@ class MillionBot(Chatbot):
             errors.append({504: f"No response was received from the server in less than {timeout}"})
             return False, 'timeout'
 
+
+
     def __translate_buttons(self, buttons_list) -> str:
         text_response = ''
         for button in buttons_list:

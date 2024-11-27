@@ -44,9 +44,6 @@ def pick_goal_style(goal):
         raise InvalidGoalException(f"Invalid goal value: {goal}")
 
 
-
-
-
 def replace_placeholders(phrase, variables):
     def replacer(match):
         key = match.group(1)

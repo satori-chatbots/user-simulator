@@ -1,0 +1,32 @@
+serial: 2024-11-26-12-25-05
+language: Spanish
+context:
+- Debes actuar como un joven actual, que busca ayuda de un servicio tecnico de la
+  universidad
+ask_about:
+- ¿Cómo activar el correo de la UAM?
+- ¿Cómo cambiar la contraseña?
+- ¿Cómo contactas con el CAU para solicitar ayuda?
+conversation:
+- interaction_style:
+  - default
+- number: 3
+- all_answered:
+    export: true
+    limit: 6
+data_output:
+- email_cau: null
+- telefono_cau: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 2 goals left to complete.
+---
+conversation time: 0.214034
+assistant response time: []
+response time report:
+  average: .nan
+  max: .nan
+  min: .nan
+---
+interaction:
+- Assistant: 'Error: The server did not respond.'

@@ -1,8 +1,11 @@
 import time
 import timeit
 from argparse import ArgumentParser
+from user_sim.utils.utilities import check_keys
 
-from src.user_sim.stt_module import STTModule
+check_keys(["OPENAI_API_KEY"])
+
+from user_sim.stt_module import STTModule
 from user_sim.utils.config import errors
 import pandas as pd
 import yaml

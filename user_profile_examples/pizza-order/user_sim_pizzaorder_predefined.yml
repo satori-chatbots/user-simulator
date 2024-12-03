@@ -72,7 +72,7 @@ conversation:
 #      steps: 5
     all_answered:
       export: True
-      limit: 20
+      limit: 5
   interaction_style:
     - default
 #    - random:

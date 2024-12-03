@@ -1,0 +1,8 @@
+stt:
+  energy_threshold: 100
+  pause_threshold: 1
+
+tts:
+  model: "tts-1-hd"
+  voice: "onyx"
+  speed: 1.0

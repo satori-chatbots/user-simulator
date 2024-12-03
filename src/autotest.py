@@ -150,7 +150,7 @@ def generate(technology, chatbot, user, personality, extract):
     for profile in profiles:
         user_profile = RoleData(profile, personality)
         test_name = user_profile.test_name
-        chat_format = user_profile.format
+        chat_format = user_profile.format_type
         start_time_test = timeit.default_timer()
 
         for i in range(user_profile.conversation_number):
@@ -166,7 +166,7 @@ def generate(technology, chatbot, user, personality, extract):
 
 
             if chat_format == "speech":
-                stt = STTModule()
+                stt = STTModule(user_profile.format_config)
 
                 def send_user_message(user_msg):
                     print_user(user_msg)
@@ -185,6 +185,11 @@ def generate(technology, chatbot, user, personality, extract):
                     return is_ok, response
 
             elif chat_format == "text":
+
+                if user_profile.format_config:
+                    logger.warning("Chat format is text, but an SR configuration was provided. This configuration will"
+                                   " be ignored.")
+
                 def send_user_message(user_msg):
                     print_user(user_msg)
 
@@ -269,12 +274,17 @@ def generate(technology, chatbot, user, personality, extract):
         print(f"Execution Time: {formatted_time} (s)")
         print('------------------------------')
 
-        my_execution_stat.add_test_name(test_name)
-        my_execution_stat.show_last_stats()
+        if user_profile.conversation_number > 0:
+            my_execution_stat.add_test_name(test_name)
+            my_execution_stat.show_last_stats()
 
-    if extract:
+    if extract and len(my_execution_stat.test_names) == len(profiles):
         my_execution_stat.show_global_stats()
         my_execution_stat.export_stats()
+    elif extract:
+        logger.warning("Stats export was enabled but couldn't retrieve all stats. No stats will be exported.")
+    else:
+        pass
 
 
 if __name__ == '__main__':

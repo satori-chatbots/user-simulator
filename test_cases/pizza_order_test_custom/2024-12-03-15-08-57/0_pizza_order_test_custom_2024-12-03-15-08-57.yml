@@ -1,0 +1,47 @@
+serial: 2024-12-03-15-08-57
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - big
+- toppings:
+  - cheese
+  - mushrooms
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 5
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 3 goals left to complete.
+---
+conversation time: 17.533899
+assistant response time:
+- 0.016366
+response time report:
+  average: 0.016365
+  max: 0.016365
+  min: 0.016365
+---
+interaction:
+- User: "Heyyy! \U0001F917 So, I'm Jon Doe, and I'm cravving some pizaa right now.\
+    \ Can ya help me out? \U0001F60B I'm thinkin' of getting a biiiig custom pizaa\
+    \ with extra cheeese, mushroums, and... wait, did I mention extra cheeese? Haha!\
+    \ Oh, and maybe a can of sprite too. \U0001F964  \n\nSoo, how long yer gonna take\
+    \ to get heer? And, hmm, how much will it cost? \U0001F914 Just curious, you know.\
+    \ Btw, do ya have a favrit pizza topping urself? \U0001F355 Just wonderin', we're\
+    \ all friends here, right? \U0001F604"
+- Assistant: 'Error: chatbot server error'

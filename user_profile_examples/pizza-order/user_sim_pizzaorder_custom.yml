@@ -3,7 +3,9 @@ test_name: "pizza_order_test_custom"
 llm:
   temperature: 0.8
   model: gpt-4o
-  format: speech
+  format:
+    type: speech
+    config: speech_configuration/speech_config.yml
 
 user:
   language: English
@@ -12,7 +14,7 @@ user:
     - personality: personalities/conversational-user.yml
     - your name is Jon Doe
   goals:
-    - "a {{size}} custom pizza with {{toppings}}"
+    - "a {{size}} custom pizza with {{toppings}}, {{size}}"
     - "{{cans}} cans of {{drink}}"
     - how long is going to take the pizza to arrive
     - how much will it cost
@@ -64,7 +66,7 @@ chatbot:
         description: my order ID
 
 conversation:
-  number: sample(0.2)
+  number: 2
   goal_style:
     steps: 5
   interaction_style:
@@ -72,7 +74,7 @@ conversation:
       - make spelling mistakes
 #      - all questions
 #      - long phrases
-      - change language:
-          - italian
-          - portuguese
-          - chinese
+#      - change language:
+#          - italian
+#          - portuguese
+#          - chinese

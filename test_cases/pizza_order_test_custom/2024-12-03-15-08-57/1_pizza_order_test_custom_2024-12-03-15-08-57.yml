@@ -1,0 +1,45 @@
+serial: 2024-12-03-15-08-57
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - small
+- toppings:
+  - mushrooms
+  - cheese
+  - pepperoni
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 5
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 3 goals left to complete.
+---
+conversation time: 9.158046
+assistant response time:
+- 0.010803
+response time report:
+  average: 0.010803
+  max: 0.010803
+  min: 0.010803
+---
+interaction:
+- User: heyy! 😊 So, I'm kinda hungrayyy and I was thinkin' about orderin' some pizzaaa
+    🍕. Can I get a smal custom pizza, with, like, mushrooms, cheese, and peporoni?
+    Oh, and a can of coke too, pleease. How much would that cost me? Also, how long
+    do ya think it will take to arive? Thanks a bunch! 😄
+- Assistant: 'Error: chatbot server error'

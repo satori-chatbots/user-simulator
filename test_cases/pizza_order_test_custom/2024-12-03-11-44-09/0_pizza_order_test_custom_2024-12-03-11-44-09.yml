@@ -1,0 +1,47 @@
+serial: 2024-12-03-11-44-09
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - big
+- toppings:
+  - pepperoni
+  - mushrooms
+  - cheese
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - change languages:
+    - portuguese
+- number: 2
+- steps: 5
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 3 goals left to complete.
+---
+conversation time: 85.319695
+assistant response time:
+- 30.604336
+response time report:
+  average: 30.604336
+  max: 30.604336
+  min: 30.604336
+---
+interaction:
+- User: Oi! Tudo bem? Quero pedir uma pizza grande personalizada. Tava pensando em
+    adicionar pepperoni, cogumelos e, claro, muito queijo! 😋 Ah, e quero saber quantas
+    latas de refrigerante vocês recomendam com a pizza. Será que pode me ajudar com
+    isso? Também tô curioso pra saber quanto tempo vai levar pra chegar e quanto vai
+    custar. 🤔 E aí, como tá o seu dia?
+- Assistant: 'Error: chatbot server error'

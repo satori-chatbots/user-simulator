@@ -81,10 +81,14 @@ def list_to_str(list_of_strings):
         return ''
 
 
+class ConvFormat(BaseModel):
+    type: Optional[str] = "text"
+    config: Optional[str] = None
+
 class LLM(BaseModel):
     model: Optional[str] = "gpt-4o"
     temperature: Optional[float] = 0.8
-    format: Optional[str] = "text"  # text, speech, hybrid
+    format: Optional[ConvFormat] = ConvFormat()  # text, speech, hybrid
 
 class User(BaseModel):
     language: Optional[Union[str, None]] = 'English'
@@ -131,7 +135,8 @@ class RoleData:
     #LLM
         self.model = self.validated_data.llm.model
         self.temperature = self.validated_data.llm.temperature
-        self.format = self.validated_data.llm.format
+        self.format_type = self.validated_data.llm.format.type
+        self.format_config = self.validated_data.llm.format.config
 
     #User
         self.language = set_language(self.validated_data.user.language)
@@ -153,10 +158,7 @@ class RoleData:
     def reset_attributes(self):
         logger.info(f"Preparing attributes for next conversation...")
         self.fallback = self.validated_data.chatbot.fallback
-        # self.temperature = self.validated_data.llm.temperature
-        # self.model = self.validated_data.llm.model
         # self.is_starter = self.validated_data.is_starter
-        # self.role = self.validated_data.role
         self.context = self.context_processor(self.raw_context)
         self.ask_about.reset()  # self.picked_elements = [], self.phrases = []
 
@@ -174,7 +176,7 @@ class RoleData:
         if context["personality"]:
             path = Path(context["personality"])
             if path.exists() and path.is_file():
-                personality = read_yaml(path)
+                personality = read_yaml(context["personality"])
                 try:
                     return personality['context']
                 except KeyError:
@@ -186,11 +188,16 @@ class RoleData:
         if isinstance(conversation, int):
             return conversation
         elif conversation == "all_combinations":
+            if self.ask_about.combinations <= 0:
+                logger.error("Conversation number set to 'all_combinations' but no combinations can be made.")
             return self.ask_about.combinations
         elif "sample(" in conversation:
             pattern = r'sample\((.*?)\)'
             percentage = float(re.findall(pattern, conversation)[0])
             sample = round(self.ask_about.combinations * percentage)
+
+            if sample <= 0 :
+                logger.error("Conversation number set to 'sample' but the fraction obtained is 0.")
             return sample
 
     def context_processor(self, context):

@@ -1,0 +1,31 @@
+Global report:
+  Average assistant response time: 0.013584
+  Maximum assistant response time: 0.016365
+  Mínimum assistant response time: 0.010803
+  Errors:
+  - error: 500
+    count: 2
+    conversations:
+    - 0_pizza_order_test_custom_2024-12-03-15-08-57.yml
+    - 1_pizza_order_test_custom_2024-12-03-15-08-57.yml
+  - error: 1001
+    count: 2
+    conversations:
+    - 0_pizza_order_test_custom_2024-12-03-15-08-57.yml
+    - 1_pizza_order_test_custom_2024-12-03-15-08-57.yml
+---
+Test name: pizza_order_test_custom
+Average assistant response time: 0.013584
+Maximum assistant response time: 0.016365
+Mínimum assistant response time: 0.010803
+Errors:
+- error: 500
+  count: 2
+  conversations:
+  - 0_pizza_order_test_custom_2024-12-03-15-08-57.yml
+  - 1_pizza_order_test_custom_2024-12-03-15-08-57.yml
+- error: 1001
+  count: 2
+  conversations:
+  - 0_pizza_order_test_custom_2024-12-03-15-08-57.yml
+  - 1_pizza_order_test_custom_2024-12-03-15-08-57.yml

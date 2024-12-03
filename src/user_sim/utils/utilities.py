@@ -104,9 +104,17 @@ def list_to_phrase(s_list: list, prompted=False):  # todo: cambiar a list_to_ask
 
 
 def read_yaml(file):
-    with open(file, 'r', encoding="UTF-8") as f:
-        yam_file = yaml.safe_load(f)
-    return yam_file
+
+    if not file.endswith(('.yaml', '.yml')):
+        raise InvalidFile("File type is not a YAML.")
+    try:
+        with open(file, 'r', encoding="UTF-8") as f:
+            yaml_file = yaml.safe_load(f)
+        return yaml_file
+    except yaml.YAMLError as e:
+        raise e
+
+
 
 
 def generate_serial():

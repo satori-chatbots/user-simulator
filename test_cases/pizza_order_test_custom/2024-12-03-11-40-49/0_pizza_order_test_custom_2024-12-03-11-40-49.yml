@@ -1,0 +1,49 @@
+serial: 2024-12-03-11-40-49
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - medium
+- toppings:
+  - cheese
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - change languages:
+    - English
+- number: 2
+- steps: 5
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 3 goals left to complete.
+---
+conversation time: 10.956933
+assistant response time:
+- 0.094394
+response time report:
+  average: 0.094394
+  max: 0.094394
+  min: 0.094394
+---
+interaction:
+- User: 'Hey there! 😊 I''m thinking about ordering some pizza tonight, and I wanted
+    to know more about a medium custom pizza with cheese. By the way, do you have
+    any recommendations for drinks? I might go for a couple of cans of... well, let''s
+    just say mystery drink for now! 😄
+
+
+    Also, how long do you think it''ll take for the pizza to get to me? And what''s
+    the damage gonna be on my wallet? 💸 Got any fun facts about pizza while we''re
+    at it? 🍕'
+- Assistant: 'Error: chatbot server error'

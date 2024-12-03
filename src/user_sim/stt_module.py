@@ -1,12 +1,11 @@
 import speech_recognition as sr
+from pydantic import BaseModel, ValidationError
+from typing import List, Union, Dict, Optional
 import time
+from .utils.utilities import read_yaml
 from openai import OpenAI
 import warnings
-
-# from playsound import playsound
 import pygame
-# from pydub import AudioSegment
-# import simpleaudio as sa
 import logging
 logger = logging.getLogger('Info Logger')
 
@@ -17,12 +16,49 @@ warnings.filterwarnings("ignore", category=RuntimeWarning, module="pydub")
 client = OpenAI()
 audio_format = "mp3"
 
+class SttModel(BaseModel):
+    energy_threshold: float = 50
+    pause_threshold: float = 1
+
+class TtsModel(BaseModel):
+    model: str = "tts-1"
+    voice: str = "alloy"
+    speed: float = 1.0
+
+class SpeechModel(BaseModel):
+    stt: Optional[SttModel] = SttModel
+    tts: Optional[TtsModel] = TtsModel
+
 class STTModule:
 
-    def __init__(self, energy_threshold=50, pause_threshold=1):
+    def __init__(self, config):
 
-        self.energy_th = energy_threshold
-        self.pause_th = pause_threshold
+        if config:
+            config_file = read_yaml(config)
+            try:
+                validated_data = SpeechModel(**config_file)
+            except ValidationError as e:
+                print(e.json())
+                raise
+
+        #STT
+            self.energy_th = validated_data.stt.energy_threshold
+            self.pause_th = validated_data.stt.pause_threshold
+
+        #TTS
+            self.model = validated_data.tts.model
+            self.voice = validated_data.tts.voice
+            self.speed = validated_data.tts.speed
+
+        else:
+        # STT
+            self.energy_th = 50
+            self.pause_th = 1
+
+        # TTS
+            self.model = "tts-1"
+            self.voice = "alloy"
+            self.speed = 1.0
 
     def hear(self):
         r = sr.Recognizer()
@@ -46,12 +82,13 @@ class STTModule:
             logger.warning("Could not request results from Speech Recognition service; {0}".format(e))
             return False, None
 
-    @staticmethod
-    def say(message):
+
+    def say(self, message):
 
         with client.audio.speech.with_streaming_response.create(
-            model="tts-1",
-            voice="alloy",
+            model=self.model,
+            voice=self.voice,
+            speed=self.speed,
             input=message,
             response_format=audio_format
         ) as response:

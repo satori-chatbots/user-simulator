@@ -452,9 +452,9 @@ class AskAboutClass:
             for phrase in self.phrases.copy():
                 def replace_variable(match):
                     variable = match.group(1)
-                    return mapped_combinations.get(variable, match.group(0))
+                    return str(mapped_combinations.get(variable, match.group(0)))
 
-                replaced_phrase = re.sub(r'\{\{(\w+)\}\}', str(replace_variable), phrase)
+                replaced_phrase = re.sub(r'\{\{(\w+)\}\}', replace_variable, phrase)
                 replaced_phrases.append(replaced_phrase)
             self.phrases = replaced_phrases
 

@@ -36,3 +36,6 @@ class VariableNotFound(Exception):
 
 class InvalidDependence(Exception):
     pass
+
+class InvalidFile(Exception):
+    pass

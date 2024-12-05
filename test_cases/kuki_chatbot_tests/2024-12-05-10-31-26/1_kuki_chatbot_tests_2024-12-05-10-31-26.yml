@@ -1,0 +1,32 @@
+serial: 2024-12-05-10-31-26
+language: English
+context:
+- You should act as a young boy trying to solve geography exercises exercises
+ask_about:
+- What is the capital city of {{country}}?
+- country:
+  - Canada
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- all_answered:
+    export: true
+    limit: 3
+data_output:
+- result: Ottawa
+errors: []
+---
+conversation time: 4.36879
+assistant response time:
+- 0.817068
+response time report:
+  average: 0.817068
+  max: 0.817068
+  min: 0.817068
+---
+interaction:
+- User: Hey Kuki! I need help with my geography homework. Can you tell me what the
+    capital city of Canada is?
+- Assistant: Hi.<split></split>Can you ask for help in the form of a question?<split></split>I
+    heard it was Toronto.

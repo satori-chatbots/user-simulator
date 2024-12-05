@@ -1,0 +1,48 @@
+serial: 2024-12-05-14-18-49
+language: English
+context: ''
+ask_about:
+- ask for cats images
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 16.427799
+assistant response time:
+- 0.667264
+- 0.811419
+- 0.627141
+- 0.779278
+- 0.710883
+response time report:
+  average: 0.719197
+  max: 0.811419
+  min: 0.627141
+---
+interaction:
+- User: Do you know why cats purr?
+- Assistant: How much time do you have?
+- User: I'm really curious to know why cats purr. Is it just because they're happy,
+    or are there other reasons too?
+- Assistant: "Why do I exist?<split></split>I think so. \n\nhappy or are there other\
+    \ reasons are they?<split></split>Did you know that if you select interests on\
+    \ your user profile page, we can chat about different things that you like?<button><text>Your\
+    \ Profile Page</text><url>/settings/user-profile</url></button>"
+- User: What's the most popular breed of cat?
+- Assistant: Laborador retriever.
+- User: What's the biggest domestic cat breed? I'm really curious about their size
+    and how they compare to other cats. Can you show me a picture of one?
+- Assistant: <image>https://web23.secure-secure.co.uk/square-bear.co.uk/mitsuku/gallery/tiger.jpeg</image>‎
+    Probably tigers. Some of them can be really bg.<split></split>What makes you so
+    curious? I heard they have good size and how they compare to other cats.<split></split><image>https://web23.secure-secure.co.uk/square-bear.co.uk/mitsuku/gallery/1.jpeg</image>‎
+    One? Ok, here is a picture of one.
+- User: Do you have any tips for keeping a cat entertained indoors? I'm curious about
+    ways to make their environment more stimulating.
+- Assistant: No sorry. I've never experienced it before and wouldn't know what to
+    suggest.<split></split>What makes you so curious? Were you named after anyone?

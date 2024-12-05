@@ -354,9 +354,9 @@ class KukiChatbot(Chatbot):
             'Content-Type': 'application/x-www-form-urlencoded'  # Standard for form data
         }
         self.payload = {
-            'uid': '54d5a563617d1999',
-            'input': 'And before?',
-            'sessionid': '485198820'
+            'uid': 'da8bb9b3e54e9a4b',
+            'input': 'Hello',
+            'sessionid': '485250873'
         }
 
     def execute_with_input(self, user_msg):

@@ -6,6 +6,7 @@ from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
+from image_recognition_module import image_description
 from .utils.config import errors
 import logging
 
@@ -13,7 +14,98 @@ parser = StrOutputParser()
 logger = logging.getLogger('Info Logger')
 
 
-class UserGeneration:
+class UserChain:
+
+    def __init__(self, user_role, model, temp):
+        self.user_role = user_role
+        self.original_model = model
+        self.current_model = self.original_model
+        self.user_llm = ChatOpenAI(model=self.current_model, temperature=temp)
+        self.user_context = PromptTemplate(
+            input_variables=["reminder", "history"],
+            template=self.set_role_template()
+        )
+        self.chain = self.user_context | self.user_llm | parser
+
+    def set_role_template(self):
+        reminder = """{reminder}"""
+        history = """History of the conversation so far: {history}"""
+        role_prompt = self.user_role + reminder + history
+        return role_prompt
+
+    @staticmethod
+    def parse_history(conversation_history):
+        lines = []
+        for inp in conversation_history['interaction']:
+            for k, v in inp.items():
+                lines.append(f"{k}: {v}")
+        return "\n".join(lines)
+
+    @staticmethod
+    def is_image(phrase):
+        pattern = r"<image>(.*?)</image>"
+        matches = re.findall(pattern, phrase)
+        return matches
+
+    @staticmethod
+    def replace_text(text, description):
+        pattern = r"<image>(.*?)</image>"
+        replaced = re.sub(pattern, description, text)
+        return replaced
+
+    @staticmethod
+    def get_last_msg(conversation_history):
+        last_msg = conversation_history["interaction"][-1]["Assistant"]
+        return last_msg
+
+    @staticmethod
+    def replace_image_tags(text, replacements):
+        # Define a function to replace each match with the corresponding replacement
+        def replacer(match):
+            nonlocal replacement_index
+            if replacement_index < len(replacements):
+                replacement = replacements[replacement_index]
+                replacement_index += 1
+                return f"<image>{replacement}</image>"
+            return match.group(0)  # If no more replacements, return the original match
+
+        replacement_index = 0
+        # Use re.sub with the replacer function to replace the tags
+        result = re.sub(r"<image>.*?</image>", replacer, text)
+        return result
+
+    def image_method(self, images, conversation_history, reminder):
+        descriptions = []
+        for image in images:
+            descriptions.append(image_description(image))
+
+        last_message = self.get_last_msg(conversation_history)
+        last_message_formatted = self.replace_image_tags(last_message, descriptions)
+        # last_message_formatted = self.replace_text(last_message, description)
+        conversation_history_edited = conversation_history.copy()
+        conversation_history_edited["interaction"][-1]["Assistant"] = last_message_formatted
+        history = self.parse_history(conversation_history_edited)  # formats list to str
+        response = self.chain.invoke({'history': history, 'reminder': reminder})
+        return response
+
+    def text_method(self, conversation_history, reminder):
+        history = self.parse_history(conversation_history)  # formats list to str
+        response = self.chain.invoke({'history': history, 'reminder': reminder})
+        return response
+
+    def invoke(self, conversation_history, reminder):
+        try:
+            image = self.is_image(self.get_last_msg(conversation_history))
+            if image:
+                response = self.image_method(image, conversation_history, reminder)
+            else:
+                response = self.text_method(conversation_history, reminder)
+        except IndexError:
+            response = self.text_method(conversation_history, reminder)
+
+        return response
+
+class UserSimulator:
 
     def __init__(self, user_profile, chatbot):
 
@@ -21,20 +113,16 @@ class UserGeneration:
         self.chatbot = chatbot
         self.temp = user_profile.temperature
         self.model = user_profile.model
-        self.user_llm = ChatOpenAI(model=self.model, temperature=self.temp)
         self.conversation_history = {'interaction': []}
         self.ask_about = user_profile.ask_about.prompt()
         self.data_gathering = ChatbotAssistant(user_profile.ask_about.phrases)
-        self.user_role_prompt = PromptTemplate(
-            input_variables=["reminder", "history"],
-            template=self.set_role_template()
-        )
         self.goal_style = user_profile.goal_style
         self.test_name = user_profile.test_name
         self.repeat_count = 0
         self.loop_count = 0
         self.interaction_count = 0
-        self.user_chain = self.user_role_prompt | self.user_llm | parser
+        self.user_chain = UserChain(self.user_profile.role, self.model, self.temp)
+        # self.user_chain = self.user_role_prompt | self.user_llm | parser
         self.my_context = self.InitialContext()
         self.output_slots = self.__build_slot_dict()
         self.error_report = []
@@ -55,11 +143,11 @@ class UserGeneration:
         def initiate_context(self, context):
 
             default_context = ["never recreate a whole conversation, just act as you're a user or client",
-                               "never indicate that you are the user, like 'user: bla bla'",
+                               "never generate a message starting by 'user:'",
                                'Sometimes, interact with what the assistant just said.',
                                'Never act as the assistant, always behave as a user.',
                                "Don't end the conversation until you've asked everything you need.",
-                               "you're testing a chatbot, so there are random values or irrational things "
+                               "you're testing a chatbot, so there can be random values or irrational things "
                                "in your requests"
                                ]
 
@@ -84,11 +172,7 @@ class UserGeneration:
         def reset_context(self):
             self.context_list = self.original_context.copy()
 
-    def set_role_template(self):
-        reminder = """{reminder}"""
-        history = """History of the conversation so far: {history}"""
-        role_prompt = self.user_profile.role + reminder + history
-        return role_prompt
+
 
     def repetition_track(self, response, reps=3):
 
@@ -190,9 +274,9 @@ class UserGeneration:
 
         self.my_context.add_context(self.user_profile.get_language())
 
-        history = self.get_history()
+        # history = self.get_history()
 
-        user_response = self.user_chain.invoke({'history': history, 'reminder': self.my_context.get_context()})
+        user_response = self.user_chain.invoke(self.conversation_history, self.my_context.get_context())
 
         self.update_history("User", user_response)
 
@@ -222,16 +306,17 @@ class UserGeneration:
 
         language_context = self.user_profile.get_language()
         self.my_context.add_context(language_context)
-        history = self.get_history()
+        # history = self.get_history()
 
         if input_msg:
+
             self.update_history("Assistant", input_msg)
             self.data_gathering.add_message(self.conversation_history)
             if self.end_conversation(input_msg):
                 return "exit"
             self.repetition_track(input_msg)
 
-        user_response = self.user_chain.invoke({'history': history, 'reminder': self.my_context.get_context()})
+        user_response = self.user_chain.invoke(self.conversation_history, self.my_context.get_context())
 
         self.update_history("User", user_response)
 

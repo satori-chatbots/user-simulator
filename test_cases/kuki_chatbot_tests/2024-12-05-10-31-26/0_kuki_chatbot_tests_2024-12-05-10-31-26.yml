@@ -1,0 +1,30 @@
+serial: 2024-12-05-10-31-26
+language: English
+context:
+- You should act as a young boy trying to solve geography exercises exercises
+ask_about:
+- What is the capital city of {{country}}?
+- country:
+  - Spain
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- all_answered:
+    export: true
+    limit: 3
+data_output:
+- result: Madrid
+errors: []
+---
+conversation time: 3.477771
+assistant response time:
+- 0.658442
+response time report:
+  average: 0.658442
+  max: 0.658442
+  min: 0.658442
+---
+interaction:
+- User: What's the capital city of Spain?
+- Assistant: The capital of Spain is Madrid.

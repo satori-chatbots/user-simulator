@@ -22,7 +22,7 @@ user:
           - Zambia
 
 chatbot:
-  is_starter: True
+  is_starter: False
   fallback: If you could bring someone from the dead, who would it be?
   output:
     - result:

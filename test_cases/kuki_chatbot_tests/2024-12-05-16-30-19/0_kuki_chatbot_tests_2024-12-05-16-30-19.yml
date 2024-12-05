@@ -1,0 +1,39 @@
+serial: 2024-12-05-16-30-19
+language: English
+context: ''
+ask_about:
+- ask for cats images
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 66.705005
+assistant response time:
+- 0.613402
+- 0.598958
+- 0.60569
+- 0.606984
+- 0.621374
+response time report:
+  average: 0.609281
+  max: 0.621374
+  min: 0.598958
+---
+interaction:
+- User: Do you know any interesting facts about cats?
+- Assistant: An animal with 4 legs that says meow and likes to drink milk.
+- User: How do they communicate with humans?
+- Assistant: Have you tried asking them?
+- User: What do cats like to eat besides milk?
+- Assistant: They like all sorts of things. I can't really narrow it down.
+- User: What colors can cats see?
+- Assistant: Black.
+- User: Can I see some images of cats?
+- Assistant: <image>https://web23.secure-secure.co.uk/square-bear.co.uk/mitsuku/gallery/cat.jpeg</image>‎
+    I have this picture.

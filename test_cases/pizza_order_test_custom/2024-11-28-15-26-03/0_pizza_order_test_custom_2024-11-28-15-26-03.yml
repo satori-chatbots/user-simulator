@@ -1,0 +1,112 @@
+serial: 2024-11-28-15-26-03
+language: English
+context:
+- personality: personalities/formal-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - big
+- toppings:
+  - mushrooms
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - make spelling mistakes
+  - all questions
+  - long phrases
+  - change languages:
+    - English
+    - English
+    - English
+    - English
+    - English
+- number: 3
+- steps: 5
+data_output:
+- price: null
+- time: 00:15:00
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 75.509379
+assistant response time:
+- 6.697963
+- 4.248973
+- 5.044254
+- 4.258359
+- 4.403149
+- 4.125495
+response time report:
+  average: 4.796365
+  max: 6.697963
+  min: 4.125495
+---
+interaction:
+- User: Greetings, most esteemed purveyor of fine Italian culinary delights, I must
+    kindly inquire, whilst expressing my utmost appreciation for your anticipated
+    prompt and precise response, whether it would be plausible to procure a generously
+    proportioned pizza, meticulously customized to include an ample quantity of succulent
+    mushrooms, alongside the enigmatic quantity of <function AskAboutClass.replace_variables.<locals>.replace_variable
+    at 0x000001A03913A7A0> cans of <function AskAboutClass.replace_variables.<locals>.replace_variable
+    at 0x000001A03913A7A0>, and, if I may further impose upon your esteemed self,
+    what might the estimated duration for the delivery of said pizza be, as well as
+    the total financial remuneration required to complete this most illustrious transaction?
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: 'Ah, I am profoundly grateful for your expeditious and informative response,
+    yet I find myself compelled, in the spirit of meticulous inquiry, to pose an additional
+    query regarding the culinary masterpiece I seek to acquire: could you kindly elucidate,
+    with the utmost precision, the precise financial outlay required for such an epicurean
+    indulgence, characterized by its lavish application of mushrooms and the aforementioned
+    enigmatic quantity of canned beverages, whilst also considering any potential
+    discounts or promotional offers that might be applicable to this esteemed transaction?'
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Ah, most esteemed purveyor of culinary mastery, I must extend my sincerest
+    gratitude for your detailed elucidation on the financial intricacies of this gastronomic
+    endeavor; however, I am compelled to inquire further, albeit with a modicum of
+    trepidation, as to whether there might exist a comprehensive enumeration of the
+    delectable ingredients available for customization beyond the succulent mushrooms,
+    and furthermore, should one be inclined to indulge in the acquisition of an extensive
+    quantity of said mysterious canned elixirs, what might the financial implications
+    be, particularly if such a request were to align fortuitously with any ongoing
+    promotional incentives or discounts that your esteemed establishment might currently
+    proffer?
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: Ah, esteemed custodian of culinary delights, your comprehensive response is
+    received with infinite gratitude; yet, I remain fervently curious, driven by an
+    insatiable thirst for precision, and thus I must inquire further concerning the
+    specific ingredients available for personalizing a custom pizza, beyond the aforementioned
+    mushrooms—might you be so kind as to provide a detailed list of these savory options?
+    Furthermore, I harbor an additional query pertaining to the fiscal ramifications
+    of acquiring a substantial quantity of those enigmatic canned beverages, especially
+    should there be serendipitous alignment with any current promotional incentives
+    or discounts that your esteemed establishment might graciously extend to a discerning
+    patron such as myself?
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)
+- User: Ah, most esteemed curator of gastronomic wonders, I am profoundly appreciative
+    of your gracious response, yet the inexorable pursuit of culinary enlightenment
+    compels me to inquire, with a fervor that knows no bounds, as to whether you might
+    be so kind as to furnish a comprehensive inventory of the exquisite ingredients
+    available for the meticulous customization of a bespoke pizza, transcending the
+    realm of mere mushrooms, for I yearn to explore the full spectrum of flavor possibilities;
+    additionally, I am inclined to seek enlightenment regarding the fiscal implications
+    of procuring a substantial cache of those mysterious canned libations, and I am
+    particularly eager to ascertain whether any fortuitous confluence with promotional
+    incentives or discounts might serve to ameliorate the pecuniary demands of this
+    indulgence, thereby enhancing the overall satisfaction of this most illustrious
+    culinary acquisition.
+- Assistant: 'I''m sorry, I did not get what you said. Can you rephrase?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

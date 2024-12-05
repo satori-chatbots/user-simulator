@@ -93,7 +93,7 @@ class LLM(BaseModel):
 class User(BaseModel):
     language: Optional[Union[str, None]] = 'English'
     role: str
-    context: Optional[Union[List[Union[str, Dict]], Dict, None]] = None
+    context: Optional[Union[List[Union[str, Dict]], Dict, None]] = ''
     goals: list
 
 

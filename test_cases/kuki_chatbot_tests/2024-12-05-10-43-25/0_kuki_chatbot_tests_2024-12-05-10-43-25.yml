@@ -1,0 +1,47 @@
+serial: 2024-12-05-10-43-25
+language: English
+context: ''
+ask_about:
+- ask for cats images
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 16.991231
+assistant response time:
+- 0.65312
+- 0.783214
+- 1.260253
+- 0.706694
+- 0.641935
+response time report:
+  average: 0.809043
+  max: 1.260253
+  min: 0.641935
+---
+interaction:
+- User: Hi there! Do you know why cats purr?
+- Assistant: <image>https://media.giphy.com/media/EK24OWrJSy1GkkNu0y/giphy.gif</image>‎
+    Hello.<split></split>How much time do you have?
+- User: I have some time! I'm curious about why cats purr. Is it just because they're
+    happy, or is there more to it?
+- Assistant: "When?<split></split>What makes you so curious?  Why did the robot cross\
+    \ the road?<split></split>I assume so. \n\nhappy or is there more are they?"
+- User: I'm curious because my cat purrs a lot, and I wonder if it means something
+    different than just being happy. Do you have any cute cat pictures to share?
+- Assistant: "What are you curious about? \n\nThey have a mind of their own.\n\nI\
+    \ will try my best.<split></split>Image from Tenor<image>https://media.tenor.com/dimT0JAAMb4AAAAM/cat-cute.gif</image>‎\
+    \ I hope you like this picture."
+- User: Oh, that's an adorable picture! Do you know if there are any other reasons
+    why cats might purr besides being happy?
+- Assistant: I hate one word answers.  Thanks for telling me.<split></split>Yes I
+    think there are.
+- User: What are some other reasons cats might purr? I'm really curious about this!
+- Assistant: I can't think of any other reasons cats might purr. Name some.<split></split>What
+    makes you so curious? This is "Name some.".

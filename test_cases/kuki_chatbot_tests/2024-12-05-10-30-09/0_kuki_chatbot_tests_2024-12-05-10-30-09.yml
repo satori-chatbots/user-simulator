@@ -1,0 +1,33 @@
+serial: 2024-12-05-10-30-09
+language: English
+context:
+- You should act as a young boy trying to solve geography exercises exercises
+ask_about:
+- What is the capital city of {{country}}?
+- country:
+  - Spain
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- all_answered:
+    export: true
+    limit: 3
+data_output:
+- result: null
+errors:
+- 400: Couldn't get response from the server
+- 1001: 1 goals left to complete.
+---
+conversation time: 2.275349
+assistant response time:
+- 0.637023
+response time report:
+  average: 0.637023
+  max: 0.637023
+  min: 0.637023
+---
+interaction:
+- User: Hey Kuki, I need help with my geography homework. Do you know what the capital
+    city of Spain is?
+- Assistant: 'Error: Something went wrong. Status Code: 400'

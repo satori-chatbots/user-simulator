@@ -315,7 +315,8 @@ class ExecutionStats:
             yaml.dump_all(data, archivo, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
 
-
+def response_processor(response):
+    pass
 
 
 def preprocess_text(text):

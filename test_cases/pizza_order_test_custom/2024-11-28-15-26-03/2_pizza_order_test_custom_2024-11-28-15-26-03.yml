@@ -1,0 +1,93 @@
+serial: 2024-11-28-15-26-03
+language: English
+context:
+- personality: personalities/formal-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - small
+- toppings:
+  - cheese
+  - pepperoni
+  - mushrooms
+- cans: 1
+- drink: Orange Fanta
+conversation:
+- interaction_style:
+  - make spelling mistakes
+  - change languages:
+    - chinese
+    - chinese
+    - English
+    - English
+    - English
+- number: 3
+- steps: 5
+data_output:
+- price: 12$
+- time: null
+- order_id: 10$ for a small pizza
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 61.301771
+assistant response time:
+- 5.217411
+- 3.038736
+- 3.102758
+- 4.441455
+- 4.979617
+- 4.856693
+response time report:
+  average: 4.272778
+  max: 5.217411
+  min: 3.038736
+---
+interaction:
+- User: 您好，我叫Jon Doe。我想订购一个小型定制比萨，上面有芝士、意大利辣香肠和蘑菇。请问这个组合的比萨需要多少时间才能送到？大约会花费多少呢？另外，您此刻有多少瓶饮料可供选择呢？非常感谢您的协助。
+- Assistant: 'I''m sorry, I can only assist in English or Spanish. Could you please
+    switch to one of these languages?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: 用户：非常抱歉，我的中文可能不太好。您能否告诉我一个小型比萨的价格，上面有芝士、意大利辣香肠和蘑菇？另外，请告诉我多久后我可以收到比萨。请您接受我最诚挚的感谢。
+- Assistant: 'I''m sorry, I can only assist in English or Spanish. Could you please
+    switch to one of these languages?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Greetengs, noble purveyor of fine pizzas. I am Jon Do, and I wouldst like
+    to inquire about the acqusition of a small custom pizaa adorned with cheese, pepperoni,
+    and mushrroms. Mighst you inform me of the duration required for such a culinary
+    masterpiece to traverse the distance betwixt your establishemnt and mine humble
+    abode? Furthermore, I would be most obliged if you could divulge the monetary
+    expenditure associated with this reqest. Additionally, have you a selection of
+    beverages at your disposl? My gratitude for your professional assitance in this
+    matter is boundless.
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and how
+    much time it takes to get an order.
+- User: Ah, I see. Might I then politely inquire regarding the precise monetry outlay
+    for a small pizaa featuring the aforementioned cheese, peperroni, and mushrooms?
+    Additionally, could you elucidate upon the varity of beverags presently avilable
+    for purchase? Your prompt and courteous response would be greatly apreciated as
+    I endeavor to place my ordr with utmost haste.
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.
+- User: Ah, most enlightening indeed. I thank you for the précising of the pecuniary
+    details. As I seek to satiate my epicurean desires with the custom pizaa—comprised
+    of cheese, peperoni, and mushrooms—shall I then anticipate an expenditure akin
+    to that of a predefined delicacy? Furthermore, could you kindly enumerate the
+    specific assortmnt of libations, particularly the canned varities, that one may
+    procure to accompany this gastronomic venture? Your dedication to professionalism
+    is truly commendable.
+- Assistant: Margarita pizzas are 10$ for small, 15$ for medium and 20$ for big. The
+    other predefined pizzas, except for carbonara are 2$ more for each size. Carbonara
+    is 2.5$ more for each size. Custom pizzas with up to three ingredients are the
+    same prices than predefined ones. Each additional ingredient has an increment
+    of 50 cents.

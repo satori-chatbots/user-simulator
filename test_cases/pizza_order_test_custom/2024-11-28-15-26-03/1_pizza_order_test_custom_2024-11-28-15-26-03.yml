@@ -1,0 +1,109 @@
+serial: 2024-11-28-15-26-03
+language: English
+context:
+- personality: personalities/formal-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - medium
+- toppings:
+  - pepperoni
+  - cheese
+  - mushrooms
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - all questions
+  - change languages:
+    - English
+    - portuguese
+    - chinese
+    - English
+    - English
+  - make spelling mistakes
+  - long phrases
+- number: 3
+- steps: 5
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 72.895013
+assistant response time:
+- 6.451948
+- 4.357488
+- 3.139031
+- 3.459026
+- 4.646421
+- 4.217005
+response time report:
+  average: 4.378486
+  max: 6.451948
+  min: 3.139031
+---
+interaction:
+- User: Good day, kind sir or madam, I would like to inquire, in the most formal and
+    respectful manner possible, about the possibility of placing an order for a medium-sized
+    customized pizza that would be adorned with the delightful toppings of pepperoni,
+    cheese, and mushrooms, and furthermore, I would also like to know if it would
+    be feasible to include a certain unspecified number of cans of a beverage that
+    is currently not defined, and if you could kindly provide me with the estimations
+    regarding the duration it would take for this culinary creation to be delivered
+    to my humble abode, as well as the total financial outlay that would be required
+    for this transaction, I would be exceedingly appreciative of your precise and
+    professional response.
+- Assistant: It depends on the number of pizzas of the order, typically around 15
+    minutes per pizza, but depends on how busy we are.
+- User: Muito obrigado pela sua resposta incrivelmente detalhada e esclarecedora,
+    que foi recebida com grande apreciação de minha parte, e agora, se não for pedir
+    muito, eu gostaria de saber, em termos extremamente precisos, se há algum tipo
+    de desconto ou promoção disponível para este pedido específico, pois estou bastante
+    curioso para compreender todas as opções financeiras que estão à minha disposição,
+    e também gostaria de saber se há alguma possibilidade de personalizar ainda mais
+    o meu pedido de pizza, talvez adicionando outros ingredientes que possam harmonizar
+    bem com os sabores previamente escolhidos, como por exemplo, cebolas caramelizadas
+    ou pimentões vermelhos, e por último, mas não menos importante, eu apreciaria
+    receber informações detalhadas sobre a quantidade exata de tempo que levaria para
+    esta refeição ser meticulosamente preparada e posteriormente transportada até
+    meu local de residência.
+- Assistant: I'm sorry, I did not get what you said. Can you rephrase? Please use
+    English or Spanish.
+- User: 尊敬的客服人员您好，请允许我以最正式和学术的方式继续我们的对话，首先，感谢您之前提供的有价值的信息，现在我还想知道，若我希望在这次订单中进一步个性化我的披萨，可能添加如焦糖洋葱或红椒等配料，并期待您能够告知此类定制是否可能，另外，您是否能慷慨地告知我，如果选择这些额外配料的话，是否有任何特别的优惠或促销活动可以适用，再者，我还想了解关于此订单的准备与配送时间的更详细的信息，尤其是在当下的繁忙时段内，我会非常感激您给予的回答，并承诺更加重视您的专业见解。
+- Assistant: I'm sorry, but I can only assist you in English or Spanish. Could you
+    please switch to one of these languages?
+- User: My sincere apologiez for any confuzion caused, and in an effort to adhere
+    to the linguistic preferences as stated, I would like to once again, in the most
+    eloquent and refined manner, inquire regarding the possiblity of further customizing
+    the aforementioned medium-sized pizza with the delectable toppings of pepperoni,
+    cheese, and mushrooms; specifically, I am keen to ascertain the viability of incorporating
+    additional ingredients such as caramelized onions or red bell peppers, and furthermore,
+    should such culinary enhancements be feasible, I am most eager to discover if
+    there exist any promotional offers or discounts applicable to this particular
+    order, and lastly, with utmost respect for your time, I kindly request a more
+    detailed estimation concerning the preparation and delivery timeline for this
+    gastronomic creation, especially considering the current busyness of your esteemed
+    establishment.
+- Assistant: I do not know. I can answer questions about our opening hours, types
+    of pizza we serve, prices of pizzas and beverages, how to get the order, and the
+    time it takes to prepare an order.
+- User: With the utmost appreciation for your willingness to assist, I humbly request
+    further elucidation on the various types of pizzas that your esteemed establishment
+    offers, more specifically concerning the availability of customization options
+    such as the inclusion of caramelized onions or red bell peppers atop a medium-sized
+    pizza adorned with pepperoni, cheese, and mushrooms, and if you would be so kind,
+    I am also keenly interested in understanding the precise pricing structure associated
+    with such bespoke creations, alongside any potential promotional discounts or
+    offers that may be currently available, and lastly, with great respect for your
+    efficiency, I seek to ascertain a more precise estimate of the time required for
+    the preparation and delivery of such an order, especially in light of the current
+    operational demands you may be experiencing.
+- Assistant: We have Margarita, Carbonara, Marinera, Hawaiian, Four cheese, Vegetarian,
+    and Custom (you choose the ingredients)

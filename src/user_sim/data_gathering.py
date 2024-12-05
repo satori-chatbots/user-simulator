@@ -39,7 +39,7 @@ class ChatbotAssistant:
         self.properties = self.process_ask_about(ask_about)
         self.system_message = {"role": "system",
                                "content": "You are a helpful assistant that detects when a query in a conversation "
-                                          "has been answered or confirmed by the chatbot."}
+                                          "has been answered, confirmed or provided by the chatbot."}
         self.messages = [self.system_message]
         self.gathering_register = []
 
@@ -54,7 +54,7 @@ class ChatbotAssistant:
                 "properties": {
                     "verification": {
                         "type": "boolean",
-                        "description": f"the following has been answered or confirmed by the chatbot: {ab}"
+                        "description": f"the following has been answered, confirmed or provided by the chatbot: {ab}"
                     },
                     "data": {
                         "type": ["string", "null"],

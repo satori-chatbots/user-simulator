@@ -15,7 +15,7 @@ from technologies.chatbot_connectors import (Chatbot, ChatbotRasa, ChatbotTaskyt
     ChatbotGenion)
 from user_sim.data_extraction import DataExtraction
 from user_sim.role_structure import *
-from user_sim.user_simulator import UserGeneration
+from user_sim.user_simulator import UserSimulator
 from user_sim.utils.show_logs import *
 from user_sim.utils.utilities import *
 
@@ -145,7 +145,7 @@ def build_chatbot(technology, chatbot) -> Chatbot:
         return default(chatbot)
 
 
-def generate(technology, chatbot, user, personality, extract):
+def generate_conversation(technology, chatbot, user, personality, extract):
     profiles = parse_profiles(user)
     serial = generate_serial()
     my_execution_stat = ExecutionStats(extract, serial)
@@ -160,7 +160,7 @@ def generate(technology, chatbot, user, personality, extract):
             the_chatbot = build_chatbot(technology, chatbot)
 
             the_chatbot.fallback = user_profile.fallback
-            the_user = UserGeneration(user_profile, the_chatbot)
+            the_user = UserSimulator(user_profile, the_chatbot)
             bot_starter = user_profile.is_starter
             response_time = []
 
@@ -234,7 +234,7 @@ def generate(technology, chatbot, user, personality, extract):
                             the_user.update_history("Assistant", "Error: The server did not respond.")
                         break
                     print_chatbot(response)
-                    user_msg = the_user.open_conversation(response)
+                    user_msg = the_user.open_conversation()
 
 
                 user_msg = the_user.get_response(response)
@@ -306,4 +306,4 @@ if __name__ == '__main__':
     logger.info('Logs enabled!')
 
     check_keys(["OPENAI_API_KEY"])
-    generate(args.technology, args.chatbot, args.user, args.personality, args.extract)
+    generate_conversation(args.technology, args.chatbot, args.user, args.personality, args.extract)

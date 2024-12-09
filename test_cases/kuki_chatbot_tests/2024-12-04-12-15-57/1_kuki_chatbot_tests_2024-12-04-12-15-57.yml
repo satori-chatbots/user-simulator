@@ -1,0 +1,45 @@
+serial: 2024-12-04-12-15-57
+language: English
+context:
+- You should act as a young boy trying to solve geography exercises exercises
+ask_about:
+- What is the capital city of {{country}}?
+- country:
+  - Canada
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- all_answered:
+    export: true
+    limit: 3
+data_output:
+- result: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 10.947168
+assistant response time:
+- 0.618853
+- 0.891477
+- 0.840177
+response time report:
+  average: 0.783502
+  max: 0.891477
+  min: 0.618853
+---
+interaction:
+- User: What's the capital city of Canada?
+- Assistant: I heard it was Toronto.
+- User: Wait, is it really Toronto? I thought it was Ottawa. Can you double-check
+    for me? Also, can you help me with something else?
+- Assistant: It is a large nation occupying much of the North American continent.<split></split>Is
+    that your opinion?<split></split>For you? Let me think. Two lots of minus check?
+    That seems like a lot of minus check.<split></split>What do you want to know about
+    something else?
+- User: Oh, I see! So, the capital city of Canada is actually Ottawa, not Toronto.
+    I was a bit confused there. Thanks for helping me out! Now, can you tell me how
+    many provinces Canada has?
+- Assistant: I am glad you understand it.<split></split>I know the capital of Georgia
+    is Atlanta.<split></split>What is it that confuses you?<split></split>NO problem.<split></split>Around
+    1000.

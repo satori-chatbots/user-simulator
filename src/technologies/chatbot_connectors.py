@@ -3,6 +3,8 @@ import uuid
 from abc import abstractmethod
 import requests
 from user_sim.utils.config import errors
+import re
+from src.user_sim.image_recognition_module import image_description
 import logging
 
 logger = logging.getLogger('Info Logger')
@@ -30,6 +32,10 @@ class Chatbot:
            Otherwise, False means that there is an error in the chatbot."""
         raise NotImplementedError()
 
+    @abstractmethod
+    def replace_image_tags(self, text):
+        """Returns a description of an image in the chatbot message if an image is detected."""
+        raise NotImplementedError()
 
 ##############################################################################################################
 # RASA
@@ -356,7 +362,7 @@ class KukiChatbot(Chatbot):
         self.payload = {
             'uid': 'da8bb9b3e54e9a4b',
             'input': 'Hello',
-            'sessionid': '485250873'
+            'sessionid': '485255309'
         }
 
     def execute_with_input(self, user_msg):
@@ -367,7 +373,7 @@ class KukiChatbot(Chatbot):
             if response.status_code == 200:
                 response_dict = json.loads(response.text)
                 responses = response_dict['responses']
-                all_responses = '\n'.join(responses)
+                all_responses = self.replace_image_tags('\n'.join(responses))
                 return True, all_responses
             else:
                 # There is an error, but it is an internal error
@@ -383,6 +389,35 @@ class KukiChatbot(Chatbot):
             logger.error(f"No response was received from the server in less than {timeout}")
             errors.append({504: f"No response was received from the server in less than {timeout}"})
             return False, 'timeout'
+
+    def replace_image_tags(self, text):
+
+        def is_image(phrase):
+            pattern = r"<image>(.*?)</image>"
+            matches = re.findall(pattern, phrase)
+            return matches
+
+        def replacer(match):
+            nonlocal replacement_index, descriptions
+            if replacement_index < len(descriptions):
+                original_image = match.group(1)
+                replacement = descriptions[replacement_index]
+                replacement_index += 1
+                return f"<image>{original_image}</image> {replacement}"
+            return match.group(0)  # If no more replacements, return the original match
+
+        images = is_image(text)
+        if images:
+            descriptions = []
+            for image in images:
+                descriptions.append(image_description(image))
+
+            replacement_index = 0
+
+            result = re.sub(r"<image>(.*?)</image>", replacer, text)
+            return result
+        else:
+            return text
 
 ##############################################################################################################
 # Julie chatbot

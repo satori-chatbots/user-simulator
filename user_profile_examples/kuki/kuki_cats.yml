@@ -1,0 +1,32 @@
+
+test_name: "kuki_chatbot_tests"
+
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+user:
+  language: English
+  role: |
+    Act as a young boy interested in cats
+  context:
+    #  personality:
+    - You want cat images
+  goals:
+    - "cat images"
+
+chatbot:
+  is_starter: False
+  fallback: If you could bring someone from the dead, who would it be?
+  output:
+    - result:
+        type: string
+        description: the image of a cat
+
+conversation:
+  number: 1
+  goal_style:
+    steps: 6
+
+  interaction_style:
+      - default

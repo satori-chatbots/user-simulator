@@ -6,7 +6,7 @@ from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
-from image_recognition_module import image_description
+# from image_recognition_module import image_description
 from .utils.config import errors
 import logging
 
@@ -41,68 +41,13 @@ class UserChain:
                 lines.append(f"{k}: {v}")
         return "\n".join(lines)
 
-    @staticmethod
-    def is_image(phrase):
-        pattern = r"<image>(.*?)</image>"
-        matches = re.findall(pattern, phrase)
-        return matches
-
-    @staticmethod
-    def replace_text(text, description):
-        pattern = r"<image>(.*?)</image>"
-        replaced = re.sub(pattern, description, text)
-        return replaced
-
-    @staticmethod
-    def get_last_msg(conversation_history):
-        last_msg = conversation_history["interaction"][-1]["Assistant"]
-        return last_msg
-
-    @staticmethod
-    def replace_image_tags(text, replacements):
-        # Define a function to replace each match with the corresponding replacement
-        def replacer(match):
-            nonlocal replacement_index
-            if replacement_index < len(replacements):
-                replacement = replacements[replacement_index]
-                replacement_index += 1
-                return f"<image>{replacement}</image>"
-            return match.group(0)  # If no more replacements, return the original match
-
-        replacement_index = 0
-        # Use re.sub with the replacer function to replace the tags
-        result = re.sub(r"<image>.*?</image>", replacer, text)
-        return result
-
-    def image_method(self, images, conversation_history, reminder):
-        descriptions = []
-        for image in images:
-            descriptions.append(image_description(image))
-
-        last_message = self.get_last_msg(conversation_history)
-        last_message_formatted = self.replace_image_tags(last_message, descriptions)
-        # last_message_formatted = self.replace_text(last_message, description)
-        conversation_history_edited = conversation_history.copy()
-        conversation_history_edited["interaction"][-1]["Assistant"] = last_message_formatted
-        history = self.parse_history(conversation_history_edited)  # formats list to str
-        response = self.chain.invoke({'history': history, 'reminder': reminder})
-        return response
-
     def text_method(self, conversation_history, reminder):
         history = self.parse_history(conversation_history)  # formats list to str
         response = self.chain.invoke({'history': history, 'reminder': reminder})
         return response
 
     def invoke(self, conversation_history, reminder):
-        try:
-            image = self.is_image(self.get_last_msg(conversation_history))
-            if image:
-                response = self.image_method(image, conversation_history, reminder)
-            else:
-                response = self.text_method(conversation_history, reminder)
-        except IndexError:
-            response = self.text_method(conversation_history, reminder)
-
+        response = self.text_method(conversation_history, reminder)
         return response
 
 class UserSimulator:

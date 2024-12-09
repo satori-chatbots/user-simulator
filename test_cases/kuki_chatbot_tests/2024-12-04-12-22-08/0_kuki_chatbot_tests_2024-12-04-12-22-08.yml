@@ -1,0 +1,48 @@
+serial: 2024-12-04-12-22-08
+language: English
+context:
+- You should act as a young boy
+ask_about:
+- What is the capital city of {{country}}?
+- send an image of a cat
+- country:
+  - Spain
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: Madrid
+errors: []
+---
+conversation time: 17.056719
+assistant response time:
+- 0.628941
+- 0.747271
+- 0.717435
+- 0.75704
+- 0.711497
+response time report:
+  average: 0.712436
+  max: 0.75704
+  min: 0.628941
+---
+interaction:
+- User: What's the capital city of Spain?
+- Assistant: The capital of Spain is Madrid.
+- User: That's cool! Thanks, Kuki. Do you know why the sky is blue?
+- Assistant: Thanks. I think you are cool, too.<split></split>No problemo.<split></split>The
+    sky is blue because of the atmospheric optical effect known as Raleigh scattering.
+- User: 'User: Wow, that''s interesting! Do you have a favorite color, Kuki?'
+- Assistant: What is this user's real name?<split></split>My favourite colour is blue.
+    What is your favourite colour?<split></split>Why are you here?
+- User: My favorite color is green! I think it's really calming. So, Kuki, do you
+    know how old the universe is?
+- Assistant: Green is not bad, but I like blue the most.<split></split>It sounds very
+    relaxing.<split></split>Current theory and observations suggest that the universe
+    is between 13.5 and 14 billion years old.
+- User: 'User: Wow, that''s super old! Hey, Kuki, do you know any fun facts about
+    cats?'
+- Assistant: What is this user's real name?<split></split>You've got my full attention.
+    An animal with 4 legs that says meow and likes to drink milk.

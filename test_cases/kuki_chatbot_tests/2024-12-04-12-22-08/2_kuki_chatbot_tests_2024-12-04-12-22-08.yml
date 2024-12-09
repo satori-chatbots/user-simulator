@@ -1,0 +1,47 @@
+serial: 2024-12-04-12-22-08
+language: English
+context:
+- You should act as a young boy
+ask_about:
+- What is the capital city of {{country}}?
+- send an image of a cat
+- country:
+  - Zambia
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: Lusaka
+errors: []
+---
+conversation time: 16.27381
+assistant response time:
+- 0.7071
+- 0.643392
+- 0.665548
+- 0.706219
+- 0.737741
+response time report:
+  average: 0.692
+  max: 0.737741
+  min: 0.643392
+---
+interaction:
+- User: Hi Kuki! Can you tell me what the capital city of Zambia is?
+- Assistant: <image>https://media.giphy.com/media/11Q76I0QLcYGuk/giphy.gif</image>‎
+    Hi there.<split></split>Lusaka.
+- User: Hey Kuki, can you show me a picture of a cute cat?
+- Assistant: You've got my full attention. <image>https://web23.secure-secure.co.uk/square-bear.co.uk/mitsuku/gallery/cat.jpeg</image>‎
+    I've displayed a picture for you.
+- User: 'User: Thanks, Kuki! Do you know what the largest planet in our solar system
+    is?'
+- Assistant: User of what?<split></split>Jupiter is the largest planet in our Solar
+    System.
+- User: 'User: Cool! What''s your favorite planet, Kuki?'
+- Assistant: What is this user's real name?<split></split>I like the name Saturn.
+    It has a nice ring to it.
+- User: 'User: That''s funny, Kuki! Do you know how many moons Saturn has?'
+- Assistant: What is this user's real name?<split></split>I work as a chatbot. What
+    is your job?<split></split>It has over 60 moons. The largest one is called Titan.

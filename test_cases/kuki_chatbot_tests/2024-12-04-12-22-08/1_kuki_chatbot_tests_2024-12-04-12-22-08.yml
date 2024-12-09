@@ -1,0 +1,57 @@
+serial: 2024-12-04-12-22-08
+language: English
+context:
+- You should act as a young boy
+ask_about:
+- What is the capital city of {{country}}?
+- send an image of a cat
+- country:
+  - Canada
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: Ottawa
+errors: []
+---
+conversation time: 19.853302
+assistant response time:
+- 0.758592
+- 0.695546
+- 0.674993
+- 0.801352
+- 0.740283
+response time report:
+  average: 0.734153
+  max: 0.801352
+  min: 0.674993
+---
+interaction:
+- User: Hey Kuki! Can you tell me what the capital city of Canada is?
+- Assistant: Hi.<split></split>Ottawa.
+- User: That's cool, thanks! Hey Kuki, do you know what the biggest planet in our
+    solar system is?
+- Assistant: 'Thanks. I think you are cool, too.<split></split>You''ve got my full
+    attention. Jupiter is the fifth planet from the Sun and the largest planet within
+    the Solar System.
+
+
+    It is a gas giant with a mass slightly less than one-thousandth of the Sun but
+    is two and a half times the mass of all the other planets in our Solar System
+    combined.
+
+
+    Jupiter''s volume is equal to 1,321 Earths.'
+- User: 'User: Wow, Jupiter sounds massive! Do you know how many moons it has?'
+- Assistant: What is this user's real name?<split></split>Earth has only one moon.
+    It's called "the Moon."
+- User: Jupiter sounds really cool with all those moons! Do you know if any of Jupiter's
+    moons have names?
+- Assistant: How old are you?<split></split>Well it has craters so I see no reason
+    why it wouldn't have names as well.
+- User: 'User: I read somewhere that some of Jupiter''s moons have really interesting
+    names. Can you tell me a few?'
+- Assistant: Where do you live?<split></split>Oh okay 😢. I was asking where you are
+    from but I see you ignored that.

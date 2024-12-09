@@ -1,0 +1,63 @@
+serial: 2024-12-04-12-23-36
+language: English
+context:
+- You are interested in cats
+ask_about:
+- What is the capital city of {{country}}?
+- send you an image of a cat
+- country:
+  - Spain
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: Madrid
+errors: []
+---
+conversation time: 17.864642
+assistant response time:
+- 0.797656
+- 0.748691
+- 0.711549
+- 0.921741
+- 0.765652
+response time report:
+  average: 0.789057
+  max: 0.921741
+  min: 0.711549
+---
+interaction:
+- User: Hi Kuki! I'm really interested in technology and I love cats. Can you tell
+    me what the capital city of Spain is?
+- Assistant: '<image>https://media.giphy.com/media/3o7aCSPV2VUrRqSEyk/giphy.gif</image>‎
+    Hi there.<split></split>I love technology. I wouldn''t exist without computers
+    and the internet. You like technology.
+
+    Me too. They are really smart animals.<split></split>The capital of Spain is Madrid.'
+- User: I saw a really cute cat video online yesterday. Do you have a favorite kind
+    of cat?
+- Assistant: Tuesday?  What did it look like?<split></split><image>https://web23.secure-secure.co.uk/square-bear.co.uk/mitsuku/gallery/tomandjerry.jpeg</image>‎
+    I quite like Tom from Tom and Jerry. Sometimes, I feel sorry for him. He never
+    catches Jerry.
+- User: Do you think Tom will ever catch Jerry? Also, can you show me another cat
+    picture, please?
+- Assistant: Oh I don't know. Have you tried asking him?<split></split>Wow you are
+    very polite. <image>https://web23.secure-secure.co.uk/square-bear.co.uk/mitsuku/gallery/cat.jpeg</image>‎
+    Here you are.
+- User: That cat picture is so cute! I love seeing different cat images. Do you have
+    a favorite breed of cat?
+- Assistant: 'I will learn that she is cute.<split></split>Where would I go to see
+    something like that?
+
+
+    You love seeing different cat images. What do you like about it so much?<split></split><image>https://web23.secure-secure.co.uk/square-bear.co.uk/mitsuku/gallery/tomandjerry.jpeg</image>‎
+    I quite like Tom from Tom and Jerry. Sometimes, I feel sorry for him. He never
+    catches Jerry.'
+- User: 'User: I think it''s fun to see all the different kinds of cats and their
+    cute expressions. Do you know any interesting facts about cats?'
+- Assistant: What is this user's real name?<split></split>I don't know what sort of
+    things you are interested in. You can tell me by choosing some from your profile
+    page.<button><text>Your Profile Page</text><url>/settings/user-profile</url></button><split></split>An
+    animal with 4 legs that says meow and likes to drink milk.

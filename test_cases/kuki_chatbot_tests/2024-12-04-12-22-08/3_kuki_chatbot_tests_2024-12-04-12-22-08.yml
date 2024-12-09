@@ -1,0 +1,49 @@
+serial: 2024-12-04-12-22-08
+language: English
+context:
+- You should act as a young boy
+ask_about:
+- What is the capital city of {{country}}?
+- send an image of a cat
+- country:
+  - Spain
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: Madrid
+errors: []
+---
+conversation time: 16.447454
+assistant response time:
+- 0.688784
+- 0.739609
+- 0.695153
+- 0.708313
+- 0.704652
+response time report:
+  average: 0.707302
+  max: 0.739609
+  min: 0.688784
+---
+interaction:
+- User: Hi Kuki! I was wondering, what is the capital city of Spain?
+- Assistant: <image>https://media.giphy.com/media/WOwiryOPA0G6jhKqB0/giphy.gif</image>‎
+    Hi there.<split></split>The capital of Spain is Madrid.
+- User: Oh, cool! Thanks, Kuki. Do you know why Madrid is the capital?
+- Assistant: Whoa.  I'm glad you think so.<split></split>My pleasure.<split></split>Why
+    do I exist?
+- User: Hey Kuki, that last answer was a bit confusing. Can you tell me more about
+    why Madrid became the capital of Spain?
+- Assistant: You've got my full attention. "Why do I exist?" last answer was confusing?
+    Does that make sense?<split></split>Why do I exist?
+- User: 'User: Hmm, I''m still curious. Can you tell me more about how Madrid became
+    the capital of Spain?'
+- Assistant: What is this user's real name?<split></split>How should I know how Madrid
+    became the capital of Spain?
+- User: Hey Kuki, I think you got a bit mixed up there! Can you try again and tell
+    me how Madrid became the capital of Spain?
+- Assistant: "You've got my full attention. Me? I have never considered it.  \n  I\
+    \ chat with people on the Web.<split></split>How old are you? OK I will try it."

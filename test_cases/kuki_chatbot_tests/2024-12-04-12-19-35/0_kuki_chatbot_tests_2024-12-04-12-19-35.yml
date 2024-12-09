@@ -1,0 +1,62 @@
+serial: 2024-12-04-12-19-35
+language: English
+context:
+- You should act as a young boy trying to solve geography exercises exercises
+ask_about:
+- What is the capital city of {{country}}?
+- send an image of a cat
+- country:
+  - Spain
+conversation:
+- interaction_style:
+  - default
+- number: 4
+- steps: 5
+data_output:
+- result: Madrid
+errors: []
+---
+conversation time: 19.801243
+assistant response time:
+- 0.610929
+- 0.682861
+- 0.654667
+- 0.640192
+- 0.693264
+response time report:
+  average: 0.656382
+  max: 0.693264
+  min: 0.610929
+---
+interaction:
+- User: What is the capital city of Spain?
+- Assistant: The capital of Spain is Madrid.
+- User: Oh cool, thanks! Can you tell me how many continents there are in the world?
+- Assistant: 'Yay.  Yes, it''s all cool.<split></split>There are seven continents
+    in the world:
+
+
+    Africa
+
+    Antarctica
+
+    Asia
+
+    Australasia
+
+    Europe
+
+    North America and
+
+    South America.'
+- User: 'User: Wow, I didn''t know there were seven! What''s the largest continent
+    by land area?'
+- Assistant: What is this user's real name?<split></split>Probably the continent by
+    land area that is bigger than the others.
+- User: What's the largest continent by land area?
+- Assistant: Probably the continent by land area that is bigger than the others.<split></split>I
+    really like kebabs. What is your favourite food?
+- User: 'User: Oh, I love pizza! But hey, can you actually tell me which continent
+    is the largest by land area?'
+- Assistant: What is this user's real name?<split></split>You've got my full attention.
+    Asia.

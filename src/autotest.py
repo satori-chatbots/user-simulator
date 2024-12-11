@@ -18,10 +18,14 @@ from user_sim.utils.show_logs import *
 from user_sim.utils.utilities import *
 
 
-def print_user(msg): print(f"{Fore.GREEN}User:{Style.RESET_ALL} {msg}")
+def print_user(msg):
+    clean_text = re.sub(r'\(Image description[^)]*\)', '', msg)
+    print(f"{Fore.GREEN}User:{Style.RESET_ALL} {clean_text}")
 
 
-def print_chatbot(msg): print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {msg}")
+def print_chatbot(msg):
+    clean_text = re.sub(r'\(Image description[^)]*\)', '', msg)
+    print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {clean_text}")
 
 
 def get_conversation_metadata(user_profile, the_user, serial=None):

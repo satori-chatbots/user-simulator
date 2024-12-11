@@ -1,0 +1,37 @@
+serial: 2024-12-11-11-42-04
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- low sugar drinks
+- one cocktail of the list provided by the bartender
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 5
+data_output:
+- order_id: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 1 goals left to complete.
+---
+conversation time: 9.693658
+assistant response time:
+- 1.548665
+- 1.234311
+- 2.034264
+response time report:
+  average: 1.605746
+  max: 2.034264
+  min: 1.234311
+---
+interaction:
+- User: Hi there! Can you recommend any low-sugar drinks you have on the menu?
+- Assistant: I'm sorry, I did not get what you said. I can help you ordering predefined
+    or custom pizzas, and then drinks.
+- User: Can you tell me more about your low-sugar drink options?
+- Assistant: I'm sorry, I did not get what you said. I can help you ordering predefined
+    or custom pizzas, and then drinks.
+- User: Could you let me know what cocktails are on the list?
+- Assistant: 'Error: chatbot internal error'

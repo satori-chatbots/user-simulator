@@ -4,7 +4,7 @@ from abc import abstractmethod
 import requests
 from user_sim.utils.config import errors
 import re
-from src.user_sim.image_recognition_module import image_description
+from user_sim.image_recognition_module import image_description
 import logging
 
 logger = logging.getLogger('Info Logger')
@@ -33,7 +33,7 @@ class Chatbot:
         raise NotImplementedError()
 
     @abstractmethod
-    def replace_image_tags(self, text):
+    def image_processor(self, text):
         """Returns a description of an image in the chatbot message if an image is detected."""
         raise NotImplementedError()
 
@@ -269,7 +269,8 @@ class ChatbotTaskyto(Chatbot):
 
                 if post_response.status_code == 200:
                     assistant_message = post_response_json.get('message')
-                    return True, assistant_message
+                    message = self.image_processor(assistant_message)
+                    return True, message
 
                 else:
                     # There is an error, but it is an internal error
@@ -290,10 +291,11 @@ class ChatbotTaskyto(Chatbot):
             self.id = post_response_json.get('id')
             if post_response.status_code == 200:
                 assistant_message = post_response_json.get('message')
-                if assistant_message is None:
+                message = self.image_processor(assistant_message)
+                if message is None:
                     return True, 'Hello'
                 else:
-                    return True, assistant_message
+                    return True, message
             else:
                 # There is an error, but it is an internal error
                 logger.error(f"Chatbot internal error")
@@ -308,6 +310,37 @@ class ChatbotTaskyto(Chatbot):
             errors.append({504: f"No response was received from the server in less than {timeout}"})
             return False, 'timeout'
 
+    def image_processor(self, text):
+
+        def is_image(phrase):
+            pattern = r"<image>(.*?)</image>"
+            matches = re.findall(pattern, phrase)
+            return matches
+
+        def replacer(match):
+            nonlocal replacement_index, descriptions
+            if replacement_index < len(descriptions):
+                original_image = match.group(1)
+                replacement = descriptions[replacement_index]
+                replacement_index += 1
+                return f"<image>{original_image}</image> {replacement}"
+            return match.group(0)  # If no more replacements, return the original match
+
+        if text is None:
+            return text
+        else:
+            images = is_image(text)
+            if images:
+                descriptions = []
+                for image in images:
+                    descriptions.append(image_description(image))
+
+                replacement_index = 0
+
+                result = re.sub(r"<image>(.*?)</image>", replacer, text)
+                return result
+            else:
+                return text
 ##############################################################################################################
 # Serviceform
 class ChatbotServiceform(Chatbot):
@@ -373,7 +406,7 @@ class KukiChatbot(Chatbot):
             if response.status_code == 200:
                 response_dict = json.loads(response.text)
                 responses = response_dict['responses']
-                all_responses = self.replace_image_tags('\n'.join(responses))
+                all_responses = self.image_processor('\n'.join(responses))
                 return True, all_responses
             else:
                 # There is an error, but it is an internal error
@@ -390,7 +423,7 @@ class KukiChatbot(Chatbot):
             errors.append({504: f"No response was received from the server in less than {timeout}"})
             return False, 'timeout'
 
-    def replace_image_tags(self, text):
+    def image_processor(self, text):
 
         def is_image(phrase):
             pattern = r"<image>(.*?)</image>"

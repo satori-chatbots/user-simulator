@@ -1,0 +1,29 @@
+serial: 2024-12-11-10-27-37
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- low sugar drinks
+- one cocktail of the list provided by the bartender
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 5
+data_output:
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 1 goals left to complete.
+---
+conversation time: 1.558797
+assistant response time:
+- 0.005039
+response time report:
+  average: 0.005039
+  max: 0.005039
+  min: 0.005039
+---
+interaction:
+- User: What's a good low-sugar drink you have?
+- Assistant: 'Error: chatbot server error'

@@ -1,0 +1,29 @@
+serial: 2024-12-11-10-56-41
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- low sugar drinks
+- one cocktail of the list provided by the bartender
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 5
+data_output:
+- order_id: null
+errors:
+- 500: Couldn't connect with chatbot
+- 1001: 1 goals left to complete.
+---
+conversation time: 4.176478
+assistant response time:
+- 2.025719
+response time report:
+  average: 2.025719
+  max: 2.025719
+  min: 2.025719
+---
+interaction:
+- User: Hi there! Could you tell me if you have any low-sugar drink options?
+- Assistant: 'Error: cut connection'

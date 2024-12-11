@@ -1,0 +1,19 @@
+Global report:
+  Average assistant response time: 9.832794
+  Maximum assistant response time: 16.289491
+  Mínimum assistant response time: 5.663636
+  Errors:
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_bartender_2024-12-11-12-00-54.yml
+---
+Test name: bartender
+Average assistant response time: 9.832794
+Maximum assistant response time: 16.289491
+Mínimum assistant response time: 5.663636
+Errors:
+- error: 1001
+  count: 1
+  conversations:
+  - 0_bartender_2024-12-11-12-00-54.yml

@@ -1,0 +1,87 @@
+serial: 2024-12-11-12-10-01
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- one cocktail of the list provided by the bartender
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 5
+data_output:
+- order_id: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 66.414533
+assistant response time:
+- 5.356919
+- 19.09717
+- 5.863667
+- 9.985185
+- 6.212018
+response time report:
+  average: 9.302991
+  max: 19.09717
+  min: 5.356919
+---
+interaction:
+- User: Hey there! What's the vibe like in this bar tonight?
+- Assistant: I'm unsure about that. However, I can provide information on the types
+    of cocktails we offer, their costs, how to order them, and our locations.
+- User: What kind of cocktails do you have on the menu tonight?
+- Assistant: 'You can find all our cocktails listed on our menu, which is available
+    at this link: <image>https://marketplace.canva.com/EAFCEzKBlVs/1/0/1131w/canva-yellow-cocktail-menu-template-j9lnMnVLSuE.jpg</image>
+    (Image description: The image is a cocktail menu for "Fauget Cocktails." It has
+    a dark blue background with gold and white text. The menu is divided into two
+    sections: "Cocktails" and "Whiskey," each listing various drinks priced at $5.00.
+
+
+    ### Cocktails:
+
+    1. **Classic Mojito**: Rum infused with fresh lime, mint, and sugar.
+
+    2. **Royal Martini**: Freshly brewed espresso mixed with rum and lime.
+
+    3. **Raspberry Mojito**: Rum stirred with raspberry, fresh mint, lime, and sugar.
+
+    4. **Daiquiri**: Rum, lemon juice, and sugar mixed with apple.
+
+    5. **Retro Margarita**: Tequila, lime juice, rum with a pinch of salt.
+
+    6. **Dry Fruit Mojito**: Vodka mixed with sugar and dry fruits.
+
+    7. **Classic Margarita**: Tequila mixed with sugar and lime.
+
+
+    ### Whiskey:
+
+    1. **Manhattan**: White rum mixed with whiskey and sugar.
+
+    2. **Whiskey Sour**: Fresh lemon juice infused with premium whiskey and lime.
+
+    3. **Bourbon Flip**: Premium whiskey, lime mixed with sugar syrup.
+
+    4. **Old Fashioned**: Brown sugar, lime, and sugar mixed with whiskey.
+
+    5. **Paper Plane**: Premium whiskey mixed with lime and sugar.
+
+    6. **Gin Fizz**: Premium gin mixed with sugar syrup.
+
+    7. **Gim Gimlet**: Premium gin with lime and tequila.
+
+
+    The menu has decorative line art illustrations of cocktails in glasses at the
+    top corners, with geometric patterns framing the content.)'
+- User: That menu looks interesting! Can you tell me more about the Royal Martini?
+- Assistant: I'm unsure about that. However, I can provide information on the types
+    of cocktails we offer, their cost, how to obtain them, and our location of operation.
+- User: Does the Royal Martini have a strong coffee flavor? I'm curious about how
+    the espresso blends with the rum and lime.
+- Assistant: I'm unsure about that. However, I can provide information on the types
+    of cocktails we offer, their costs, how you can obtain them, and our locations.
+- User: Is the Royal Martini one of the popular choices at the bar?
+- Assistant: I'm unsure about that. However, I can provide information on the types
+    of cocktails we offer, their cost, how you can obtain them, and our location of
+    operation.

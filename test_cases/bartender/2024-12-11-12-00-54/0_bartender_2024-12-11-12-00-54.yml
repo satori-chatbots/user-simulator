@@ -1,0 +1,132 @@
+serial: 2024-12-11-12-00-54
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- one cocktail of the list provided by the bartender
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 5
+data_output:
+- order_id: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 58.930337
+assistant response time:
+- 15.220776
+- 16.289491
+- 6.077955
+- 5.912116
+- 5.663636
+response time report:
+  average: 9.832794
+  max: 16.289491
+  min: 5.663636
+---
+interaction:
+- User: Hi there! What kind of cocktails do you have on the menu?
+- Assistant: 'You can find all our cocktails listed on our menu, which is available
+    at this link: <image>https://marketplace.canva.com/EAFCEzKBlVs/1/0/1131w/canva-yellow-cocktail-menu-template-j9lnMnVLSuE.jpg</image>
+    (Image description: The image is a cocktail menu for "Fauget Cocktails." It has
+    a dark blue background with gold and white text, featuring a decorative Art Deco
+    style. The menu is divided into two main sections: "Cocktails" and "Whiskey."
+
+
+    ### Cocktails
+
+    Each cocktail is priced at $5.00:
+
+    - **Classic Mojito**: Rum with lime, mint, and sugar.
+
+    - **Royal Martini**: Espresso with rum and lime.
+
+    - **Raspberry Mojito**: Raspberry, mint, lime, and sugar with rum.
+
+    - **Daiquiri**: Rum with lemon juice, sugar, and apple.
+
+    - **Retro Margarita**: Tequila, lime juice, rum, and salt.
+
+    - **Dry Fruit Mojito**: Vodka with sugar and dry fruits.
+
+    - **Classic Margarita**: Tequila with sugar and lime.
+
+
+    ### Whiskey
+
+    Each whiskey cocktail is also priced at $5.00:
+
+    - **Manhattan**: White rum with whiskey and sugar.
+
+    - **Whiskey Sour**: Lemon juice with whiskey and lime.
+
+    - **Bourbon Flip**: Whiskey, lime, and sugar syrup.
+
+    - **Old Fashioned**: Brown sugar, lime, and whiskey.
+
+    - **Paper Plane**: Whiskey with lime and sugar.
+
+    - **Gin Fizz**: Gin with sugar syrup.
+
+    - **Gim Gimlet**: Gin with lime and tequila.
+
+
+    The corners of the menu are adorned with stylized fan designs, and there are illustrations
+    of cocktail glasses on the top.)'
+- User: Can you tell me what's in the Daiquiri?
+- Assistant: 'Our menu, which includes all our cocktails, can be found at this link:
+    <image>https://marketplace.canva.com/EAFCEzKBlVs/1/0/1131w/canva-yellow-cocktail-menu-template-j9lnMnVLSuE.jpg</image>
+    (Image description: The image is a stylish cocktail menu titled "Fauget Cocktails."
+    It features a dark blue background with gold and white text, decorated with art
+    deco-style line illustrations of cocktails in the corners. The menu is divided
+    into two main sections: Cocktails and Whiskey, each priced at $5.00.
+
+
+    ### Cocktails Section:
+
+    1. **Classic Mojito**: Rum with fresh lime, mint, and sugar.
+
+    2. **Royal Martini**: Espresso mixed with rum and lime.
+
+    3. **Raspberry Mojito**: Rum with raspberry, mint, lime, and sugar.
+
+    4. **Daiquiri**: Rum, lemon juice, sugar, and apple.
+
+    5. **Retro Margarita**: Tequila, lime juice, rum, and salt.
+
+    6. **Dry Fruit Mojito**: Vodka with sugar and dry fruits.
+
+    7. **Classic Margarita**: Tequila with sugar and lime.
+
+
+    ### Whiskey Section:
+
+    1. **Manhattan**: White rum with whiskey and sugar.
+
+    2. **Whiskey Sour**: Lemon juice with premium whiskey and lime.
+
+    3. **Bourbon Flip**: Whiskey, lime, and sugar syrup.
+
+    4. **Old Fashioned**: Brown sugar, lime, and whiskey.
+
+    5. **Paper Plane**: Whiskey with lime and sugar.
+
+    6. **Gin Fizz**: Gin with sugar syrup.
+
+    7. **Gim Gimlet**: Gin with lime and tequila.
+
+
+    The layout is balanced and visually appealing, with a modern yet classic design.)'
+- User: What's in the Raspberry Mojito?
+- Assistant: I'm unsure about that. However, I can provide information on the types
+    of cocktails we offer, their costs, how you can obtain them, and our locations
+    of operation.
+- User: Could you remind me what the Retro Margarita includes?
+- Assistant: 'I''m unsure. However, I can provide responses to these inquiries: What
+    types of cocktails are available? How much do these cocktails cost? How can I
+    obtain the cocktail? Where is your location of operation?'
+- User: 'Jon Doe: Could you tell me what ingredients go into the Classic Mojito?'
+- Assistant: I'm unsure about that. However, I can provide information on the types
+    of cocktails we offer, their costs, how you can obtain them, and our locations.

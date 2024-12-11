@@ -10,7 +10,6 @@ user:
   context:
     - your name is Jon Doe
   goals:
-    - low sugar drinks
     - one cocktail of the list provided by the bartender
 
 

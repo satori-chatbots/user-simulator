@@ -2,13 +2,11 @@ import time
 import timeit
 from argparse import ArgumentParser
 from user_sim.utils.utilities import check_keys
+import yaml
 
 check_keys(["OPENAI_API_KEY"])
 
-from user_sim.stt_module import STTModule
 from user_sim.utils.config import errors
-import pandas as pd
-import yaml
 from colorama import Fore, Style
 from technologies.chatbot_connectors import (Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot,
                                              ChatbotLolaUMU, ChatbotServiceform, KukiChatbot, JulieChatbot, ChatbotCatalinaRivas, ChatbotSaicMalaga, \
@@ -169,6 +167,8 @@ def generate_conversation(technology, chatbot, user, personality, extract):
 
 
             if chat_format == "speech":
+                from user_sim.stt_module import STTModule
+
                 stt = STTModule(user_profile.format_config)
 
                 def send_user_message(user_msg):

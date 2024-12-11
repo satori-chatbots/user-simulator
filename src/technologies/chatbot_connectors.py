@@ -4,7 +4,7 @@ from abc import abstractmethod
 import requests
 from user_sim.utils.config import errors
 import re
-from src.user_sim.image_recognition_module import image_description
+from user_sim.image_recognition_module import image_description
 import logging
 
 logger = logging.getLogger('Info Logger')
@@ -498,5 +498,3 @@ class JulieChatbot(Chatbot):
                     button_text += f" LINK: <empty>\n"
                 button_description += f'\n {button_text}'
         return button_description
-
-

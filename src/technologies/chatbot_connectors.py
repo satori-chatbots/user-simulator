@@ -531,5 +531,3 @@ class JulieChatbot(Chatbot):
                     button_text += f" LINK: <empty>\n"
                 button_description += f'\n {button_text}'
         return button_description
-
-

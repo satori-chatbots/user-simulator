@@ -1,0 +1,38 @@
+test_name: "bartender"
+
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+user:
+  language: English
+  role: you have to act as a customer in a bar
+  context:
+    - your name is Jon Doe
+  goals:
+    - low sugar drinks
+    - one cocktail of the list provided by the bartender
+
+
+chatbot:
+  is_starter: False
+  fallback: I'm sorry, but I did not understand what you said, can you rephrase?
+  output:
+    - order_id:
+        type: str
+        description: the order ID
+
+conversation:
+  number: 1
+  goal_style:
+    steps: 5
+  interaction_style:
+    - default
+#    - random:
+#      - make spelling mistakes
+#      - all questions
+#      - long phrases
+#      - change language:
+#          - italian
+#          - portuguese
+#          - chinese

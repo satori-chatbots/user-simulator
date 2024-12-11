@@ -1,0 +1,29 @@
+serial: 2024-12-10-11-02-55
+language: English
+context:
+- your name is Jon Doe
+ask_about:
+- low sugar drinks
+- one cocktail of the list provided by the bartender
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 5
+data_output:
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 1 goals left to complete.
+---
+conversation time: 4.211568
+assistant response time:
+- 0.018916
+response time report:
+  average: 0.018916
+  max: 0.018916
+  min: 0.018916
+---
+interaction:
+- User: Hi there! Could you tell me which drinks are low in sugar?
+- Assistant: 'Error: chatbot server error'

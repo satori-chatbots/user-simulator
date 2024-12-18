@@ -1,11 +1,15 @@
 import json
+import os.path
 import uuid
 from abc import abstractmethod
 import requests
+from attr.validators import matches_re
+from user_sim.pdf_reader_module import *
 from user_sim.utils.config import errors
 import re
 from user_sim.image_recognition_module import image_description
 import logging
+from urllib.parse import urlparse
 
 logger = logging.getLogger('Info Logger')
 
@@ -35,6 +39,10 @@ class Chatbot:
     @abstractmethod
     def image_processor(self, text):
         """Returns a description of an image in the chatbot message if an image is detected."""
+        raise NotImplementedError()
+
+    def pdf_processor(self, text):
+
         raise NotImplementedError()
 
 ##############################################################################################################
@@ -270,6 +278,7 @@ class ChatbotTaskyto(Chatbot):
                 if post_response.status_code == 200:
                     assistant_message = post_response_json.get('message')
                     message = self.image_processor(assistant_message)
+                    message = self.pdf_processor(message)
                     return True, message
 
                 else:
@@ -310,9 +319,48 @@ class ChatbotTaskyto(Chatbot):
             errors.append({504: f"No response was received from the server in less than {timeout}"})
             return False, 'timeout'
 
+    def pdf_processor(self, text):
+
+        def get_pdf_file(phrase):
+            pattern = r"<a href='(.*?)'>"
+            matches = re.findall(pattern, phrase)
+            return matches
+
+        def replacer(match):
+            nonlocal replacement_index, descriptions
+            if replacement_index < len(descriptions):
+                original_link = match.group(1)
+                replacement = descriptions[replacement_index]
+                replacement_index += 1
+                return f"<a href='{original_link}'> </a> {replacement}"
+            return match.group(0)
+
+        if text is None:
+            return text
+        else:
+            pdfs = get_pdf_file(text)
+            if pdfs:
+                descriptions = []
+                for pdf in pdfs:
+                    pdf_path = get_pdf(pdf)
+                    if pdf_path is not None:
+                        descriptions.append(pdf_reader(pdf_path))
+
+                        replacement_index = 0
+
+                        result = re.sub(r"<a href='(.*?)</a>", replacer, text)
+
+                    else:
+                        result = text
+
+                return result
+            else:
+                return text
+
+
     def image_processor(self, text):
 
-        def is_image(phrase):
+        def get_images(phrase):
             pattern = r"<image>(.*?)</image>"
             matches = re.findall(pattern, phrase)
             return matches
@@ -329,7 +377,7 @@ class ChatbotTaskyto(Chatbot):
         if text is None:
             return text
         else:
-            images = is_image(text)
+            images = get_images(text)
             if images:
                 descriptions = []
                 for image in images:
@@ -341,6 +389,8 @@ class ChatbotTaskyto(Chatbot):
                 return result
             else:
                 return text
+
+
 ##############################################################################################################
 # Serviceform
 class ChatbotServiceform(Chatbot):

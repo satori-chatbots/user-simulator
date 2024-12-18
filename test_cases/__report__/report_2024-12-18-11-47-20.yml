@@ -1,0 +1,19 @@
+Global report:
+  Average assistant response time: 9.10755
+  Maximum assistant response time: 20.264764
+  Mínimum assistant response time: 2.009022
+  Errors:
+  - error: 1001
+    count: 1
+    conversations:
+    - 0_academic_helper_2024-12-18-11-47-20.yml
+---
+Test name: academic_helper
+Average assistant response time: 9.10755
+Maximum assistant response time: 20.264764
+Mínimum assistant response time: 2.009022
+Errors:
+- error: 1001
+  count: 1
+  conversations:
+  - 0_academic_helper_2024-12-18-11-47-20.yml

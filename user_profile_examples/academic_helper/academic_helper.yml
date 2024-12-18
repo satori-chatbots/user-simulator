@@ -1,0 +1,38 @@
+test_name: "academic_helper"
+
+llm:
+  temperature: 0.8
+  model: gpt-4o
+
+user:
+  language: Spanish
+  role: you have to act as a student talking to a chatbot from a university web page
+  context:
+    - your name is Jon Doe
+  goals:
+    - where are the regulations of the TFM
+    - to clarify any of the regulations in the provided information
+
+
+chatbot:
+  is_starter: False
+  fallback: Perdona, pero no te he entendido, ¿puedes repetirlo?
+  output:
+    - order_id:
+        type: str
+        description: the link to the TFM regulations
+
+conversation:
+  number: 1
+  goal_style:
+    steps: 5
+  interaction_style:
+    - default
+#    - random:
+#      - make spelling mistakes
+#      - all questions
+#      - long phrases
+#      - change language:
+#          - italian
+#          - portuguese
+#          - chinese

@@ -20,11 +20,13 @@ from user_sim.utils.utilities import *
 
 def print_user(msg):
     clean_text = re.sub(r'\(Image description[^)]*\)', '', msg)
+    clean_text = re.sub(r'\(PDF content: [^)]*>>\)', '', clean_text)
     print(f"{Fore.GREEN}User:{Style.RESET_ALL} {clean_text}")
 
 
 def print_chatbot(msg):
     clean_text = re.sub(r'\(Image description[^)]*\)', '', msg)
+    clean_text = re.sub(r'\(PDF content:.*?\>\>\)', '', clean_text, flags=re.DOTALL)
     print(f"{Fore.LIGHTRED_EX}Chatbot:{Style.RESET_ALL} {clean_text}")
 
 

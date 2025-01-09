@@ -1,11 +1,13 @@
 from langchain_openai import ChatOpenAI
-from langchain.schema.messages import HumanMessage, SystemMessage
+from langchain.schema.messages import HumanMessage
 import fitz
 import base64
 import re
 from urllib.parse import urlparse
 import os
 import requests
+import hashlib
+import tempfile
 import logging
 logger = logging.getLogger('Info Logger')
 chat = ChatOpenAI(model="gpt-4o")
@@ -32,6 +34,7 @@ def image_description(image):
     )
     output_text = output.content
     return output_text
+
 
 def pdf_reader(pdf):
     doc = fitz.open(pdf)
@@ -71,7 +74,6 @@ def get_pdf(match):
             os.makedirs(pdfs_dir)
 
         if 'filename=' in content_disposition:
-            # Extraemos el filename del Content-Disposition (si está entre comillas o no)
             filename_match = re.search(r'filename="?([^"]+)"?', content_disposition)
             if filename_match:
                 filename = filename_match.group(1)
@@ -96,23 +98,11 @@ def get_pdf(match):
         return None
 
 
-# def process_pdf(matches):
-#
-#     get_pdf(matches)
-#
-#     if os.path.exists(pdfs_path):
-#         full_path = os.path.join(self.pdfs_path, self.pdfs_list[-1])
-#         full_text = pdf_reader(full_path)
-#         return full_text
+def hash_generate(pdf_path):
+    hasher = hashlib.md5()
+    with open(pdf_path, 'rb') as pdf_file:
+        buf = pdf_file.read()
+        hasher.update(buf)
+    return hasher.hexdigest()
 
 
-
-
-
-# text = "La EPS imparte los siguientes grados: <a href='https://www.uam.es/EPS/documento/1446848909624/tfms---plazos-para-tramitar-2024-25.pdf?blobheader=application/pdf'>Aquí</a> está. "
-#
-# get_pdf(text)
-#
-# # url = "pdfs/Normativa_TFMs_EPS.pdf"
-# # op = pdf_reader(url)
-# # print(op)

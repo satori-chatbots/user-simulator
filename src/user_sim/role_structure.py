@@ -196,7 +196,7 @@ class RoleData:
             percentage = float(re.findall(pattern, conversation)[0])
             sample = round(self.ask_about.combinations * percentage)
 
-            if sample <= 0 :
+            if sample <= 0:
                 logger.error("Conversation number set to 'sample' but the fraction obtained is 0.")
             return sample
 

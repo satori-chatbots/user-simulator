@@ -3,8 +3,9 @@ import os.path
 import uuid
 from abc import abstractmethod
 import requests
+import tempfile
 from attr.validators import matches_re
-from user_sim.pdf_reader_module import *
+from user_sim.pdf_reader_module import get_pdf, pdf_reader, hash_generate
 from user_sim.utils.config import errors
 import re
 from user_sim.image_recognition_module import image_description
@@ -41,9 +42,16 @@ class Chatbot:
         """Returns a description of an image in the chatbot message if an image is detected."""
         raise NotImplementedError()
 
-    def pdf_processor(self, text):
 
+    @abstractmethod
+    def pdf_processor(self, text):
+        """Returns a description of a PDF in the chatbot message if a PDF is detected."""
         raise NotImplementedError()
+
+    @abstractmethod
+    def clean_temp_files(self):
+        """Cleans temporary files from the Chatbot class"""
+        pass
 
 ##############################################################################################################
 # RASA
@@ -238,6 +246,7 @@ class ChatbotTaskyto(Chatbot):
     def __init__(self, url):
         Chatbot.__init__(self, url)
         self.id = None
+        self.temporal_description = {}
 
     def execute_with_input(self, user_msg):
         if self.id is None:
@@ -321,7 +330,7 @@ class ChatbotTaskyto(Chatbot):
 
     def pdf_processor(self, text):
 
-        def get_pdf_file(phrase):
+        def get_pdf_link(phrase):
             pattern = r"<a href='(.*?)'>"
             matches = re.findall(pattern, phrase)
             return matches
@@ -338,16 +347,26 @@ class ChatbotTaskyto(Chatbot):
         if text is None:
             return text
         else:
-            pdfs = get_pdf_file(text)
+            pdfs = get_pdf_link(text)
             if pdfs:
                 descriptions = []
                 for pdf in pdfs:
                     pdf_path = get_pdf(pdf)
                     if pdf_path is not None:
-                        descriptions.append(pdf_reader(pdf_path))
+                        pdf_hash = hash_generate(pdf_path)
+
+                        if pdf_hash in self.temporal_description:
+                            with open(self.temporal_description[pdf_hash], 'r') as pdf_txt:
+                                content = pdf_txt.read()
+                            descriptions.append(content)
+                        else:
+                            description = pdf_reader(pdf_path)
+                            with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.txt') as temp_file:
+                                temp_file.write(description)
+                                self.temporal_description[pdf_hash] = temp_file.name
+                            descriptions.append(description)
 
                         replacement_index = 0
-
                         result = re.sub(r"<a href='(.*?)</a>", replacer, text)
 
                     else:
@@ -357,6 +376,11 @@ class ChatbotTaskyto(Chatbot):
             else:
                 return text
 
+    def clean_temp_files(self):
+        for temp_path in self.temporal_description.values():
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+        self.temporal_description.clear()
 
     def image_processor(self, text):
 

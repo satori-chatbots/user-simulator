@@ -276,6 +276,7 @@ def generate_conversation(technology, chatbot, user, personality, extract):
                                formatted_time_conv, response_time, answer_validation_data, counter=i)
 
             user_profile.reset_attributes()
+            the_chatbot.clean_temp_files()
 
         end_time_test = timeit.default_timer()
         execution_time = end_time_test - start_time_test

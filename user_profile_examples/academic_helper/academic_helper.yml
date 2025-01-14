@@ -14,7 +14,6 @@ user:
     - where are the regulations of the TFM
     - to clarify any of the regulations in the provided information
 
-
 chatbot:
   is_starter: False
   fallback: Perdona, pero no te he entendido, ¿puedes repetirlo?
@@ -24,9 +23,9 @@ chatbot:
         description: the link to the TFM regulations
 
 conversation:
-  number: 1
+  number: 2
   goal_style:
-    steps: 8
+    steps: 4
   interaction_style:
     - default
 #    - random:

@@ -1,0 +1,11 @@
+Global report:
+  Average assistant response time: 10.696636
+  Maximum assistant response time: 27.358038
+  Mínimum assistant response time: 4.365169
+  Errors: []
+---
+Test name: academic_helper
+Average assistant response time: 10.696636
+Maximum assistant response time: 27.358038
+Mínimum assistant response time: 4.365169
+Errors: []

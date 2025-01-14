@@ -8,9 +8,15 @@ import os
 import requests
 import hashlib
 import tempfile
+import json
 import logging
 logger = logging.getLogger('Info Logger')
 chat = ChatOpenAI(model="gpt-4o")
+
+current_script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))
+temp_file_dir = os.path.join(project_root, "temp_files")
+hash_register_path = os.path.join(temp_file_dir, "hash_register.json")
 
 
 def image_description(image):
@@ -66,8 +72,6 @@ def get_pdf(match):
     if 'application/pdf' in content_type:
         extension = ".pdf"
 
-        current_script_dir = os.path.dirname(os.path.abspath(__file__))
-        project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))
         pdfs_dir = os.path.join(project_root, "pdfs")
 
         if not os.path.exists(pdfs_dir):
@@ -106,3 +110,24 @@ def hash_generate(pdf_path):
     return hasher.hexdigest()
 
 
+def pdf_register_load():
+    if not os.path.exists(temp_file_dir):
+        os.makedirs(temp_file_dir)
+        return {}
+    else:
+        if not os.path.exists(hash_register_path):
+            with open(hash_register_path, 'w') as file:
+                json.dump({}, file)
+            return {}
+        else:
+            with open(hash_register_path, 'r') as file:
+                hash_reg = json.load(file)
+            return hash_reg
+
+def update_register(hash_register):
+    with open(hash_register_path, 'w') as file:
+        json.dump(hash_register, file)
+
+def clear_register():
+    with open(hash_register_path, 'w') as file:
+        json.dump({}, file)

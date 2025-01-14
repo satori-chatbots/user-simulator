@@ -149,10 +149,11 @@ def build_chatbot(technology, chatbot) -> Chatbot:
         return default(chatbot)
 
 
-def generate_conversation(technology, chatbot, user, personality, extract):
+def generate_conversation(technology, chatbot, user, personality, extract, clean_cache):
     profiles = parse_profiles(user)
     serial = generate_serial()
     my_execution_stat = ExecutionStats(extract, serial)
+    the_chatbot = build_chatbot(technology, chatbot)
 
     for profile in profiles:
         user_profile = RoleData(profile, personality)
@@ -161,7 +162,7 @@ def generate_conversation(technology, chatbot, user, personality, extract):
         start_time_test = timeit.default_timer()
 
         for i in range(user_profile.conversation_number):
-            the_chatbot = build_chatbot(technology, chatbot)
+            # the_chatbot = build_chatbot(technology, chatbot)
 
             the_chatbot.fallback = user_profile.fallback
             the_user = UserSimulator(user_profile, the_chatbot)
@@ -276,7 +277,7 @@ def generate_conversation(technology, chatbot, user, personality, extract):
                                formatted_time_conv, response_time, answer_validation_data, counter=i)
 
             user_profile.reset_attributes()
-            the_chatbot.clean_temp_files()
+
 
         end_time_test = timeit.default_timer()
         execution_time = end_time_test - start_time_test
@@ -287,6 +288,9 @@ def generate_conversation(technology, chatbot, user, personality, extract):
         if user_profile.conversation_number > 0:
             my_execution_stat.add_test_name(test_name)
             my_execution_stat.show_last_stats()
+
+    if clean_cache:
+        the_chatbot.clean_temp_files()
 
     if extract and len(my_execution_stat.test_names) == len(profiles):
         my_execution_stat.show_global_stats()
@@ -307,10 +311,11 @@ if __name__ == '__main__':
     parser.add_argument('--personality', required=False, help='Personality file')
     parser.add_argument("--extract", default=False, help='Path to store conversation user-chatbot')
     parser.add_argument('--verbose', action='store_true', help='Shows debug prints')
+    parser.add_argument('--clean_cache', action='store_true', help='Deletes temporary files.')
     args = parser.parse_args()
 
     logger = create_logger(args.verbose, 'Info Logger')
     logger.info('Logs enabled!')
 
     check_keys(["OPENAI_API_KEY"])
-    generate_conversation(args.technology, args.chatbot, args.user, args.personality, args.extract)
+    generate_conversation(args.technology, args.chatbot, args.user, args.personality, args.extract, args.clean_cache)

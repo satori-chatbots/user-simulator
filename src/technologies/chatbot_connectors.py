@@ -4,8 +4,8 @@ import uuid
 from abc import abstractmethod
 import requests
 import tempfile
-from attr.validators import matches_re
-from user_sim.pdf_reader_module import get_pdf, pdf_reader, hash_generate
+from user_sim.pdf_reader_module import get_pdf, pdf_reader, hash_generate, pdf_register_load, update_register, \
+    clear_register
 from user_sim.utils.config import errors
 import re
 from user_sim.image_recognition_module import image_description
@@ -246,7 +246,7 @@ class ChatbotTaskyto(Chatbot):
     def __init__(self, url):
         Chatbot.__init__(self, url)
         self.id = None
-        self.temporal_description = {}
+        self.temporal_description = pdf_register_load()
 
     def execute_with_input(self, user_msg):
         if self.id is None:
@@ -336,10 +336,10 @@ class ChatbotTaskyto(Chatbot):
             return matches
 
         def replacer(match):
-            nonlocal replacement_index, descriptions
-            if replacement_index < len(descriptions):
+            nonlocal replacement_index, description_list
+            if replacement_index < len(description_list):
                 original_link = match.group(1)
-                replacement = descriptions[replacement_index]
+                replacement = description_list[replacement_index]
                 replacement_index += 1
                 return f"<a href='{original_link}'> </a> {replacement}"
             return match.group(0)
@@ -349,7 +349,7 @@ class ChatbotTaskyto(Chatbot):
         else:
             pdfs = get_pdf_link(text)
             if pdfs:
-                descriptions = []
+                description_list = []
                 for pdf in pdfs:
                     pdf_path = get_pdf(pdf)
                     if pdf_path is not None:
@@ -358,13 +358,22 @@ class ChatbotTaskyto(Chatbot):
                         if pdf_hash in self.temporal_description:
                             with open(self.temporal_description[pdf_hash], 'r') as pdf_txt:
                                 content = pdf_txt.read()
-                            descriptions.append(content)
+                            description_list.append(content)
                         else:
                             description = pdf_reader(pdf_path)
-                            with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.txt') as temp_file:
+
+                            current_script_dir = os.path.dirname(os.path.abspath(__file__))
+                            project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))
+                            temp_file_dir = os.path.join(project_root, "temp_files")
+                            if not os.path.exists(temp_file_dir):
+                                os.makedirs(temp_file_dir)
+
+                            with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.txt', dir=temp_file_dir) as temp_file:
                                 temp_file.write(description)
                                 self.temporal_description[pdf_hash] = temp_file.name
-                            descriptions.append(description)
+                                update_register(self.temporal_description)
+                            logger.info(f"Temporary file created at '{temp_file_dir}'. Hash: {pdf_hash}")
+                            description_list.append(description)
 
                         replacement_index = 0
                         result = re.sub(r"<a href='(.*?)</a>", replacer, text)
@@ -381,6 +390,7 @@ class ChatbotTaskyto(Chatbot):
             if os.path.exists(temp_path):
                 os.remove(temp_path)
         self.temporal_description.clear()
+        clear_register()
 
     def image_processor(self, text):
 

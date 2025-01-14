@@ -1,0 +1,31 @@
+serial: 2025-01-13-14-05-44
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 4
+data_output:
+- order_id: null
+errors:
+- 500: Server error
+- 1001: 1 goals left to complete.
+---
+conversation time: 2.329245
+assistant response time:
+- 0.009964
+response time report:
+  average: 0.009964
+  max: 0.009964
+  min: 0.009964
+---
+interaction:
+- User: Hola, estoy interesado en saber qué estudios de grado se ofrecen en la EPS.
+    ¿Podrías darme más información sobre eso?
+- Assistant: 'Error: chatbot server error'

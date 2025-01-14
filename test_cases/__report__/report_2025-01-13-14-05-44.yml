@@ -1,0 +1,31 @@
+Global report:
+  Average assistant response time: 0.028751
+  Maximum assistant response time: 0.047538
+  Mínimum assistant response time: 0.009964
+  Errors:
+  - error: 500
+    count: 2
+    conversations:
+    - 0_academic_helper_2025-01-13-14-05-44.yml
+    - 1_academic_helper_2025-01-13-14-05-44.yml
+  - error: 1001
+    count: 2
+    conversations:
+    - 0_academic_helper_2025-01-13-14-05-44.yml
+    - 1_academic_helper_2025-01-13-14-05-44.yml
+---
+Test name: academic_helper
+Average assistant response time: 0.028751
+Maximum assistant response time: 0.047538
+Mínimum assistant response time: 0.009964
+Errors:
+- error: 500
+  count: 2
+  conversations:
+  - 0_academic_helper_2025-01-13-14-05-44.yml
+  - 1_academic_helper_2025-01-13-14-05-44.yml
+- error: 1001
+  count: 2
+  conversations:
+  - 0_academic_helper_2025-01-13-14-05-44.yml
+  - 1_academic_helper_2025-01-13-14-05-44.yml

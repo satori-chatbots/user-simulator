@@ -11,7 +11,7 @@ import tempfile
 import json
 import logging
 logger = logging.getLogger('Info Logger')
-chat = ChatOpenAI(model="gpt-4o")
+chat = ChatOpenAI(model="gpt-4o-mini")
 
 current_script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))
@@ -20,7 +20,6 @@ hash_register_path = os.path.join(temp_file_dir, "hash_register.json")
 
 
 def image_description(image):
-    chat = ChatOpenAI(model="gpt-4o")
     output = chat.invoke(
         [
             HumanMessage(

@@ -3,6 +3,7 @@ from langchain.schema.messages import HumanMessage, SystemMessage
 import os
 import logging
 import json
+import hashlib
 logger = logging.getLogger('Info Logger')
 chat = ChatOpenAI(model="gpt-4o-mini")
 
@@ -12,7 +13,16 @@ temp_file_dir = os.path.join(project_root, "temp_files")
 image_register_path = os.path.join(temp_file_dir, "image_register.json")
 
 
-def generate_image_description(image):
+def hash_generate(image):
+    hasher = hashlib.md5()
+    hasher.update(image)
+    return hasher.hexdigest()
+
+def generate_image_description(image, url=True):
+
+    if not url:
+        image = f"data:image/png;base64,{image.decode("utf-8")}"
+
     output = chat.invoke(
         [
             HumanMessage(
@@ -55,14 +65,15 @@ def load_image_register():
             return image_reg
 
 
-def image_description(image):
+def image_description(image, url=True):
     register = load_image_register()
+    image_hash = hash_generate(image)
 
-    if image in register:
-        return register[image]
+    if image_hash in register:
+        return register[image_hash]
 
-    description = generate_image_description(image)
-    register[image] = description
+    description = generate_image_description(image, url)
+    register[image_hash] = description
     update_image_register(register)
     return description
 

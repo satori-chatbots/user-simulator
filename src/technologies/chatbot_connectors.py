@@ -4,7 +4,7 @@ import uuid
 from abc import abstractmethod
 import requests
 import tempfile
-from user_sim.pdf_reader_module import get_pdf, pdf_reader, hash_generate, pdf_register_load, update_register, \
+from user_sim.pdf_reader_module import get_pdf, pdf_reader, hash_generate, load_pdf_register, save_register, \
     clear_register
 from user_sim.utils.config import errors
 import re
@@ -246,7 +246,7 @@ class ChatbotTaskyto(Chatbot):
     def __init__(self, url):
         Chatbot.__init__(self, url)
         self.id = None
-        self.temporal_description = pdf_register_load()
+        self.temporal_description = load_pdf_register()
 
     def execute_with_input(self, user_msg):
         if self.id is None:
@@ -353,35 +353,12 @@ class ChatbotTaskyto(Chatbot):
                 for pdf in pdfs:
                     pdf_path = get_pdf(pdf)
                     if pdf_path is not None:
-                        pdf_hash = hash_generate(pdf_path)
-
-                        if pdf_hash in self.temporal_description:
-                            with open(self.temporal_description[pdf_hash], 'r') as pdf_txt:
-                                content = pdf_txt.read()
-                            description_list.append(content)
-                        else:
-                            description = pdf_reader(pdf_path)
-
-                            current_script_dir = os.path.dirname(os.path.abspath(__file__))
-                            project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))
-                            temp_file_dir = os.path.join(project_root, "temp_files")
-                            if not os.path.exists(temp_file_dir):
-                                os.makedirs(temp_file_dir)
-
-                            with tempfile.NamedTemporaryFile(delete=False, mode='w', suffix='.txt', dir=temp_file_dir) as temp_file:
-                                temp_file.write(description)
-                                self.temporal_description[pdf_hash] = temp_file.name
-                                update_register(self.temporal_description)
-                            logger.info(f"Temporary file created at '{temp_file_dir}'. Hash: {pdf_hash}")
-                            description_list.append(description)
+                        description = pdf_reader(pdf_path)
+                        description_list.append(description)
 
                         replacement_index = 0
-                        result = re.sub(r"<a href='(.*?)</a>", replacer, text)
-
-                    else:
-                        result = text
-
-                return result
+                        text = re.sub(r"<a href='(.*?)</a>", replacer, text)
+                return text
             else:
                 return text
 

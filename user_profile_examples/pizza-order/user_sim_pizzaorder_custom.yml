@@ -2,7 +2,7 @@ test_name: "pizza_order_test_custom"
 
 llm:
   temperature: 0.8
-  model: gpt-4o
+  model: gpt-4o-mini
   format:
     type: speech
     config: speech_configuration/speech_config.yml

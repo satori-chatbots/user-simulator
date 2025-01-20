@@ -1,6 +1,10 @@
 import time
 import timeit
 from argparse import ArgumentParser
+from codecs import ignore_errors
+
+from pygame.display import update
+
 from user_sim.utils.utilities import check_keys
 import yaml
 
@@ -128,8 +132,7 @@ def parse_profiles(user_path):
         raise Exception(f'Invalid path for user profile operation: {user_path}')
 
 
-def build_chatbot(technology, chatbot) -> Chatbot:
-    default = Chatbot
+def build_chatbot(technology, *args, **kwargs) -> Chatbot:
     chatbot_builder = {
         'rasa': ChatbotRasa,
         'taskyto': ChatbotTaskyto,
@@ -143,17 +146,17 @@ def build_chatbot(technology, chatbot) -> Chatbot:
         'julie': JulieChatbot,
         'genion': ChatbotGenion
     }
-    if technology in chatbot_builder:
-        return chatbot_builder[technology](chatbot)
-    else:
-        return default(chatbot)
+    chatbot_class = chatbot_builder.get(technology, Chatbot)
+    return chatbot_class(*args, **kwargs)
 
 
-def generate_conversation(technology, chatbot, user, personality, extract, clean_cache):
+def generate_conversation(technology, chatbot, user,
+                          personality, extract, clean_cache,
+                          ignore_cache, update_cache):
     profiles = parse_profiles(user)
     serial = generate_serial()
     my_execution_stat = ExecutionStats(extract, serial)
-    the_chatbot = build_chatbot(technology, chatbot)
+    the_chatbot = build_chatbot(technology, chatbot, ignore_cache=ignore_cache, update_cache=update_cache)
 
     for profile in profiles:
         user_profile = RoleData(profile, personality)
@@ -162,8 +165,6 @@ def generate_conversation(technology, chatbot, user, personality, extract, clean
         start_time_test = timeit.default_timer()
 
         for i in range(user_profile.conversation_number):
-            # the_chatbot = build_chatbot(technology, chatbot)
-
             the_chatbot.fallback = user_profile.fallback
             the_user = UserSimulator(user_profile, the_chatbot)
             bot_starter = user_profile.is_starter
@@ -312,10 +313,14 @@ if __name__ == '__main__':
     parser.add_argument("--extract", default=False, help='Path to store conversation user-chatbot')
     parser.add_argument('--verbose', action='store_true', help='Shows debug prints')
     parser.add_argument('--clean_cache', action='store_true', help='Deletes temporary files.')
+    parser.add_argument('--ignore_cache', action='store_true', help='Ignores cache for temporary files')
+    parser.add_argument('--update_cache', action='store_true', help='Overwrites temporary files in cache')
     args = parser.parse_args()
 
     logger = create_logger(args.verbose, 'Info Logger')
     logger.info('Logs enabled!')
 
     check_keys(["OPENAI_API_KEY"])
-    generate_conversation(args.technology, args.chatbot, args.user, args.personality, args.extract, args.clean_cache)
+    generate_conversation(args.technology, args.chatbot, args.user,
+                          args.personality, args.extract, args.clean_cache,
+                          args.ignore_cache, args.update_cache)

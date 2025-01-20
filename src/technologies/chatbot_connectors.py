@@ -4,8 +4,11 @@ import uuid
 from abc import abstractmethod
 import requests
 import tempfile
-from user_sim.pdf_reader_module import get_pdf, pdf_reader, hash_generate, load_pdf_register, save_register, \
-    clear_register
+
+from langchain_core.language_models.llms import update_cache
+
+from user_sim.pdf_reader_module import get_pdf, pdf_reader, clear_pdf_register
+from user_sim.image_recognition_module import clear_image_register
 from user_sim.utils.config import errors
 import re
 from user_sim.image_recognition_module import image_description
@@ -243,10 +246,11 @@ class ChatbotGenion(MillionBot):
 ##############################################################################################################
 # Taskyto
 class ChatbotTaskyto(Chatbot):
-    def __init__(self, url):
+    def __init__(self, url, **kwargs):
         Chatbot.__init__(self, url)
         self.id = None
-        self.temporal_description = load_pdf_register()
+        self.update_cache = kwargs.get("update_cache", None)
+        self.ignore_cache = kwargs.get("ignore_cache", None)
 
     def execute_with_input(self, user_msg):
         if self.id is None:
@@ -353,7 +357,7 @@ class ChatbotTaskyto(Chatbot):
                 for pdf in pdfs:
                     pdf_path = get_pdf(pdf)
                     if pdf_path is not None:
-                        description = pdf_reader(pdf_path)
+                        description = pdf_reader(pdf_path, self.ignore_cache, self.update_cache)
                         description_list.append(description)
 
                         replacement_index = 0
@@ -363,11 +367,8 @@ class ChatbotTaskyto(Chatbot):
                 return text
 
     def clean_temp_files(self):
-        for temp_path in self.temporal_description.values():
-            if os.path.exists(temp_path):
-                os.remove(temp_path)
-        self.temporal_description.clear()
-        clear_register()
+        clear_pdf_register()
+        clear_image_register()
 
     def image_processor(self, text):
 
@@ -392,7 +393,7 @@ class ChatbotTaskyto(Chatbot):
             if images:
                 descriptions = []
                 for image in images:
-                    descriptions.append(image_description(image))
+                    descriptions.append(image_description(image, ignore_cache=self.ignore_cache, update_cache=self.update_cache))
 
                 replacement_index = 0
 
@@ -447,7 +448,7 @@ class ChatbotServiceform(Chatbot):
 ##############################################################################################################
 # Kuki chatbot
 class KukiChatbot(Chatbot):
-    def __init__(self, url):
+    def __init__(self, url, **kwargs):
         Chatbot.__init__(self, url)
         self.url = "https://kuli.kuki.ai/cptalk"
         self.headers = {
@@ -458,6 +459,8 @@ class KukiChatbot(Chatbot):
             'input': 'Hello',
             'sessionid': '485255309'
         }
+        self.ignore_cache = kwargs.get("ignore_cache", None)
+        self.update_cache = kwargs.get("update_cache", None)
 
     def execute_with_input(self, user_msg):
         self.payload['input'] = user_msg
@@ -504,7 +507,7 @@ class KukiChatbot(Chatbot):
         if images:
             descriptions = []
             for image in images:
-                descriptions.append(image_description(image))
+                descriptions.append(image_description(image,ignore_cache=self.ignore_cache, update_cache=self.update_cache))
 
             replacement_index = 0
 

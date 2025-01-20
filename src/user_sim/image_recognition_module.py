@@ -45,7 +45,7 @@ def generate_image_description(image, url=True):
     return output_text
 
 
-def update_image_register(register):
+def save_image_register(register):
     with open(image_register_path, "w", encoding="utf-8") as file:
         json.dump(register, file, ensure_ascii=False, indent=4)
 
@@ -65,16 +65,35 @@ def load_image_register():
             return image_reg
 
 
-def image_description(image, url=True):
-    register = load_image_register()
+def image_description(image, url=True, ignore_cache=False, update_cache=False):
+    if ignore_cache:
+        register = {}
+        logger.info("Cache will be ignored.")
+    else:
+        register = load_image_register()
+
     image_hash = hash_generate(image)
 
     if image_hash in register:
+        if update_cache:
+            description = generate_image_description(image, url)
+            register[image_hash] = description
+            logger.info("Cache updated!")
+        # description = register[image_hash]
+        logger.info("Retrieved information from cache.")
         return register[image_hash]
+    else:
+        description = generate_image_description(image, url)
+        register[image_hash] = description
 
-    description = generate_image_description(image, url)
-    register[image_hash] = description
-    update_image_register(register)
+    if ignore_cache:
+        logger.info("Images cache was ignored")
+    else:
+        save_image_register(register)
+        logger.info("Images cache was saved!")
+
     return description
 
-
+def clear_image_register():
+    with open(image_register_path, 'w') as file:
+        json.dump({}, file)

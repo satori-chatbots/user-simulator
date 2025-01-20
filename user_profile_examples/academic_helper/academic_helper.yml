@@ -2,7 +2,7 @@ test_name: "academic_helper"
 
 llm:
   temperature: 0.8
-  model: gpt-4o
+  model: gpt-4o-mini
 
 user:
   language: Spanish
@@ -23,7 +23,7 @@ chatbot:
         description: the link to the TFM regulations
 
 conversation:
-  number: 2
+  number: 1
   goal_style:
     steps: 4
   interaction_style:

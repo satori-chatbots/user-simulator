@@ -64,17 +64,23 @@ def hash_generate(pdf_path):
     return hasher.hexdigest()
 
 
-def save_register(hash_register):
+def save_pdf_register(hash_register):
     with open(hash_register_path, 'w') as file:
         json.dump(hash_register, file, ensure_ascii=False, indent=4)
 
-def clear_register():
+def clear_pdf_register():
     with open(hash_register_path, 'w') as file:
         json.dump({}, file)
 
 def pdf_reader(pdf, ignore_cache=False, update_cache=False):
 
-    register = {} if ignore_cache else load_pdf_register()
+    # register = {} if ignore_cache else load_pdf_register()
+    if ignore_cache:
+        register = {}
+        logger.info("Cache will be ignored.")
+    else:
+        register = load_pdf_register()
+
     pdf_hash = hash_generate(pdf)
 
     def process_pdf(pdf_file):
@@ -92,7 +98,7 @@ def pdf_reader(pdf, ignore_cache=False, update_cache=False):
                     base_image = doc.extract_image(xref)
                     image_bytes = base_image["image"]
                     image_base64 = base64.b64encode(image_bytes)
-                    description = image_description(image_base64, url=False)
+                    description = image_description(image_base64, url=False, ignore_cache=ignore_cache, update_cache=update_cache)
                     plain_text += f"Image description {img_index + 1}: {description}"
         return f"(PDF content: {plain_text} >>)"
 
@@ -100,16 +106,19 @@ def pdf_reader(pdf, ignore_cache=False, update_cache=False):
         if update_cache:
             output_text = process_pdf(pdf)
             register[pdf_hash] = output_text
-        else:
-            pass
+            logger.info("Cache updated!")
         output_text = register[pdf_hash]
+        logger.info("Retrieved information from cache.")
 
     else:
         output_text = process_pdf(pdf)
         register[pdf_hash] = output_text
 
-    if not ignore_cache:
-        save_register(register)
+    if ignore_cache:
+        logger.info("PDF cache was ignored.")
+    else:
+        save_pdf_register(register)
+        logger.info("PDF cache was saved!")
 
     logger.info(output_text)
     return output_text

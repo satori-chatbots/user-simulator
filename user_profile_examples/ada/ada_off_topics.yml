@@ -2,7 +2,7 @@ test_name: "ada_chatbot_tests"
 
 llm:
   temperature: 0.8
-  model: gpt-4o
+  model: gpt-4o-mini
 
 user:
   language: Spanish

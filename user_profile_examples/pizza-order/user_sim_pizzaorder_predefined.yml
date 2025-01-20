@@ -2,7 +2,7 @@ test_name: "pizza_order_test_predefined"
 
 llm:
   temperature: 0.0
-  model: gpt-4o
+  model: gpt-4o-mini
 
 user:
   role: you must act as a user ordering a pizza to a pizza shop.

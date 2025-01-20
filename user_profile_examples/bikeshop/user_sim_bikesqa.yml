@@ -2,7 +2,7 @@ test_name: "qa_bikes_test"
 
 llm:
   temperature: 0.8
-  model: gpt-4o
+  model: gpt-4o-mini
 
 user:
   language: Spanish

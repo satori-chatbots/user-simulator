@@ -1,0 +1,374 @@
+serial: 2025-01-17-13-30-40
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 4
+data_output:
+- order_id: https://www.uam.es/EPS/documento/1242700679175/Normativa_TFMs_EPS.pdf?blobheader=application/pdf
+errors: []
+---
+conversation time: 91.665377
+assistant response time:
+- 9.197591
+- 36.93955
+- 8.213642
+- 5.073184
+response time report:
+  average: 14.855991
+  max: 36.93955
+  min: 5.073184
+---
+interaction:
+- User: Hola, soy Jon Doe. ¿Me podrías contar qué estudios de pregrado se ofrecen
+    en la EPS?
+- Assistant: 'La EPS imparte los siguientes grados: Grado en Ingeniería Biomédica,
+    Grado en Ciencia e Ingeniería de Datos, Grado en Ingeniería Informática (EURO-INF),
+    Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación (EUR-ACE) y
+    Doble Grado en Ingeniería Informática y Matemáticas. Tienes más información <a
+    href=''https://www.uam.es/EPS/Home.htm?language=es''>aquí</a>'
+- User: Hola, gracias por la información. Me gustaría saber más sobre el TFM. ¿Dónde
+    puedo encontrar las regulaciones del TFM?
+- Assistant: "<a href='https://www.uam.es/EPS/documento/1242700679175/Normativa_TFMs_EPS.pdf?blobheader=application/pdf'>Aquí'>\
+    \ </a> (PDF content: Page nª0: Normativa del Trabajo Fin de Máster \nVisto bueno\
+    \ de la Comisión de Garantía de Calidad en los Estudios. \nAprobado en la Junta\
+    \ de Centro de la Escuela Politécnica Superior el 08/06/2022. \n1.-Rango de aplicación\
+    \ \n1.1.- Normativa aplicable a todas las Titulaciones Oficiales de Máster de\
+    \ la Escuela Politécnica Supe­\nrior de la Universidad Autónoma de Madrid, que\
+    \ sustituye a normativas anteriores. \n1.2.- Esta normativa aplica a los actuales\
+    \ másteres: \n• Máster Universitario en Ciencia de Datos (MUCD). \n• Máster Universitario\
+    \ en Deep Learning for Audio and Video Signal Processing (MUDL4AVSP). \n• Máster\
+    \ Universitario en Ingeniería Informática (MUII). \n• Máster Universitario en\
+    \ Ingeniería de Telecomunicación (MUIT). \n• Máster Universitario en Investigación\
+    \ e Innovación en Inteligencia Computacional y Sis­\ntemas Interactivos (MUI2ICSI).\
+    \ \n1.3.- Igualmente, aplica a estudiantes de títulos interuniversitarios que\
+    \ realicen su Trabajo Fin de \nMáster (TFM) en la EPS, siempre que no entre en\
+    \ conflicto con los convenios de dichos másteres, \nque tendrían precedencia a\
+    \ esta norma: \n• Máster Universitario en Métodos Formales en Ingeniería Informática\
+    \ (MUMFII). \n• Máster Universitario en Image Processing and Computer Vision,\
+    \ Europeo (MUIPCV). \n1.4.- También aplica a los Programas de Máster Combinados\
+    \ y a futuros Másteres Universitarios Ofi­\nciales de la EPS. \n2.-Directores,\
+    \ codirectores y ponente del TFM \n2.1.-Condiciones del los directores, codirectores\
+    \ y ponentes \n2.1.1.- El director, codirector y el ponente del TFM deberán, en\
+    \ cualquier caso, cumplir al menos una \nde las siguientes condiciones: \n• Disponer\
+    \ de una titulación igual o superior a la que otorga el Máster. \n• Disponer de\
+    \ una titulación asimilable, a juicio de la Comisión de Coordinación y Segui­\n\
+    miento del Máster, a la que otorga el Máster. \nUniversidad Autónoma de Madrid\
+    \ \nEscuela Politécnica Superior \n1/8 \n Images in this page: Image description\
+    \ 1: (Image description: The image features the text \"Escuela Politécnica Superior\"\
+    \ prominently displayed against a black background. The text is rendered in a\
+    \ modern, sans-serif font, which gives it a clean and professional appearance.\
+    \ The letters are in a light gray color, creating a strong contrast with the black\
+    \ background, making the text easily legible.\n\nThe layout of the text is structured\
+    \ in three lines, with \"Escuela\" at the top, followed by \"Politécnica\" in\
+    \ the middle, and \"Superior\" at the bottom. This vertical arrangement adds to\
+    \ the visual balance of the image. The overall aesthetic is minimalistic, focusing\
+    \ on the institution's name without any additional graphics or embellishments.\
+    \ \n\nThis design suggests a formal or academic context, likely associated with\
+    \ a higher education institution specializing in technical or engineering disciplines.)Page\
+    \ nª1: • Aportar una extensa y destacada experiencia investigadora o profesional\
+    \ en el ámbito \ndel Máster, valorada positivamente por la Comisión de Coordinación\
+    \ y Seguimiento del \nMáster. \n2.2.-Dirección \n2.2.1.- El TFM podrá ser dirigido\
+    \ por: \n• Un profesor permanente de los centros de la UAM que impartan docencia\
+    \ en el Máster \n(en adelante, Centros) con vinculación permanente a la UAM. \n\
+    • Un profesor sin vinculación permanente de los centros de la UAM que impartan\
+    \ docen­\ncia en el Máster (en adelante, Centros). \n• Por un profesor, investigador\
+    \ o doctorando de los Centros de la UAM que no imparten \ndocencia en el máster.\
+    \ \n• Por un investigador o profesional externo a la UAM. \n2.2.2.- Salvo en el\
+    \ primer caso, deberá existir un ponente del TFM, que será profesor permanente\
+    \ de \nlos Centros que imparten docencia en el máster. \n2.2.3.- El director,\
+    \ y en su caso el ponente, velará por la adecuada calidad académica del TFM, así\
+    \ co­\nmo por que las competencias y la carga de trabajo asociadas al mismo sean\
+    \ acordes con la memoria \nde verificación del Máster. \n2.2.4.- En casos justificados\
+    \ y aprobados por la Comisión de Coordinación y Seguimiento del Más­\nter, el\
+    \ TFM podrá ser codirigido por un máximo de dos codirectores. En caso de que ninguno\
+    \ de los \ncodirectores sean profesores permanentes de los Centros con vinculación\
+    \ permanente a la UAM, \nserá necesario que exista adicionalmente un ponente del\
+    \ TFM que sí lo sea. En caso de que los dos \ncodirectores sean profesores del\
+    \ mismo departamento, la propuesta de TFM debe incluir una jus­\ntificación detallada\
+    \ de la codirección. La Comisión de Coordinación y Seguimiento del título será\
+    \ la \nencargada de dar el visto bueno a la codirección después de estudiar la\
+    \ justificación presentada. \n2.2.5.- Para asegurar una adecuada dedicación a\
+    \ las labores de dirección o codirección, los profe­\nsores de la EPS no podrán\
+    \ dirigir o codirigir el equivalente a 4 TFMs de forma simultánea. En casos \n\
+    excepcionales podrá solicitarse superar este límite, siempre que la Comisión de\
+    \ Coordinación y Se­\nguimiento del Título lo apruebe y el número total de trabajos\
+    \ de fin de máster dirigidos por el profesor \nno sea superior a 6. \n3.-Oferta\
+    \ y asignación de TFMs \n3.1.- El coordinador de la asignatura TFM mantendrá una\
+    \ lista actualizada de oferta y asignación de \nTFMs. \nUniversidad Autónoma de\
+    \ Madrid \nEscuela Politécnica Superior \n2/8 \n Images in this page: Image description\
+    \ 1: (Image description: The image features the text \"Escuela Politécnica Superior,\"\
+    \ which translates to \"Higher Polytechnic School\" in English. The font appears\
+    \ to be elegant and somewhat modern, with a slight slant or italicization that\
+    \ adds a sense of sophistication. The letters are likely displayed in a light\
+    \ or metallic color against a dark background, enhancing visibility and creating\
+    \ a contrast that draws attention to the text. The overall design suggests an\
+    \ academic or institutional theme, possibly associated with engineering or technical\
+    \ education. The simplicity of the design emphasizes clarity and professionalism.)Page\
+    \ nª2: 3.2.- La lista de oferta se actualizará al menos durante los meses de enero,\
+    \ junio y septiembre con \nlas ofertas que envíen los profesores de los Centros\
+    \ al coordinador de la asignatura TFM por correo \nelectrónico u otro medio telemático\
+    \ habilitado para dicho fin. \n3.3.- La asignación se realizará en el momento\
+    \ en que el proponente de la oferta notifique el es­\ntudiante asignado al coordinador\
+    \ de la asignatura TFM por el mecanismo que dicho coordinador \nestablezca. La\
+    \ asignación será efectiva siempre que se cumpla el apartado 2 de esta normativa.\
+    \ \n3.4.- En cualquier momento del curso será posible realizar de manera simultánea\
+    \ la oferta y la asig­\nnación del TFM por mutuo acuerdo con el estudiante, comunicándolo\
+    \ para ello al coordinador de la \nasignatura TFM. \n• En el Máster en MUI2ICSI\
+    \ cada estudiante cuenta con un Tutor Académico desde su \ningreso en el Máster.\
+    \ Dicho tutor será considerado, por defecto, el Director del TFM de \ndicho estudiante.\
+    \ Por este motivo, la oferta y asignación de TFMs en el Máster MUI2ICSI \nse realizará\
+    \ de acuerdo con el punto 3.3 de esta normativa, no siendo necesario, por \ntanto,\
+    \ mantener un listado actualizado de ofertas de TFM. \n3.5.- Los Departamentos\
+    \ deberán garantizar que la oferta de TFMs sea acorde a la potencial deman­\n\
+    da de TFMs en cada Máster y de modo proporcional a la implicación del Departamento\
+    \ en la docencia \ndel Máster. \n3.6.- Cuando proceda, los directores de TFM deberán\
+    \ solicitar la evaluación del Comité de Ética UAM \nen el momento de su asignación\
+    \ (ver apartado 6). \n4.-Calendario de defensas \n4.1.- Los periodos anuales de\
+    \ convocatorias de defensas públicas de TFMs se publicarán cada curso \nacadémico.\
+    \ La correspondiente comisión delegada de la Junta de Centro elaborará y elevará\
+    \ a dicha \nJunta de Centro la propuesta de calendario. \n4.2.- El calendario\
+    \ contendrá información sobre los periodos de presentación de proyecto, presen­\n\
+    tación de la memoria del TFM en el registro de la EPS y defensa pública del TFM.\
+    \ \n4.3.- El calendario se confeccionará a partir del calendario académico de\
+    \ la UAM para másteres ofi­\nciales y velará, en lo posible, por los intereses\
+    \ de los estudiantes y de los tribunales. \n4.4.- En cada curso académico el estudiante\
+    \ tendrá derecho a dos convocatorias entre el total de los \nperiodos de defensa\
+    \ ofertados en el curso académico. \n4.5.- ADVERTENCIA A ESTUDIANTES, DIRECTORES\
+    \ Y TUTORES: A efectos de becas y otros trámites \nadministrativos, para que se\
+    \ considere dentro del curso académico, la defensa del TFM deberá tener \nlugar\
+    \ antes del cierre oficial del curso académico en julio. \nUniversidad Autónoma\
+    \ de Madrid \nEscuela Politécnica Superior \n3/8 \n Images in this page: Image\
+    \ description 1: (Image description: The image features the text \"Escuela Politécnica\
+    \ Superior,\" which translates to \"Higher Polytechnic School\" in English. The\
+    \ font used is elegant and modern, likely in a light gray color against a contrasting\
+    \ darker background, which enhances readability. The text is centered and appears\
+    \ to convey a sense of professionalism and academic seriousness. This design might\
+    \ suggest a focus on engineering or technical education, typical of polytechnic\
+    \ institutions. Overall, the image gives off a clean and sophisticated vibe, suitable\
+    \ for an educational setting.)Page nª3: 5.-Presentación del proyecto y propuesta\
+    \ de tribunal \n5.1.- El estudiante presentará, dentro del periodo asignado en\
+    \ el calendario, un proyecto del TFM con \nel título del mismo, contenido, plan\
+    \ de trabajo incluyendo dedicación, y propuesta de seis miembros \ndel tribunal.\
+    \ Al menos tres de ellos serán externos al grupo de investigación del director/es\
+    \ y ponente. \nDicho proyecto contendrá el visto bueno del director o codirectores\
+    \ y en su caso, del ponente. La \npropuesta de proyecto se entregará electrónicamente\
+    \ a la Administración de la EPS a través de la \ndirección gestionmaster.eps@uam.es.\
+    \ El estudiante deberá conservar el mensaje de confirmación \nde recepción de\
+    \ la Administración de la EPS como mecanismo de acreditación de su presentación.\
+    \ \n5.2.- La estructura del documento de propuesta de TFM se adecuará a la plantilla\
+    \ adjunta como ane­\nxo a esta normativa. \n6.-Revisión por el Comité de Ética\
+    \ \n6.1.- Para el desarrollo del Trabajo de Fin de Máster, tanto el director y\
+    \ codirectores como el estu­\ndiante deberán respetar la normativa vigente en\
+    \ lo referente a: \n• Protección de Datos de carácter personal (LOPD y demás normativa\
+    \ sobre la materia). \n• Buenas prácticas en investigación (véase Código de Buenas\
+    \ Prácticas en Investigación \nde la UAM, aprobado en Consejo de Gobierno y otra\
+    \ normativa que resulte de aplicación \nsegún el caso). \n• Propiedad intelectual\
+    \ e industrial. \n6.2.- Cuando proceda, los directores de TFM deberán solicitar\
+    \ la evaluación del Comité de Ética UAM \nen el momento de su asignación. En el\
+    \ momento de ser adjudicados se deberá descargar la ''Solicitud \nde Evaluación\
+    \ del Comité de Ética'' y enviarlo cumplimentado al coordinador de la asignatura\
+    \ TFM, \nquién los remitirá a la ''Comisión de Investigación e Innovación (CII)''\
+    \ para su revisión antes del envío \ndefinitivo al CEI-UAM. Junto a la solicitud,\
+    \ se deberá adjuntar una breve memoria que detalle las \nactividades a realizar,\
+    \ incluyendo la metodología y el material, en su caso, que se va a utilizar. Los\
+    \ \ntrabajos que se realicen en el marco de un proyecto de investigación que cuente\
+    \ con la aprobación \nde un Comité de Ética de la Investigación deberán adjuntar\
+    \ la aprobación de dicho proyecto por \nparte del CEI-UAM. \n6.3.- Las solicitudes\
+    \ de evaluación por el Comité de Ética deberán remitirse al Coordinador de la\
+    \ ti­\ntulación, quien, a su vez, centralizará las solicitudes para remitirlas\
+    \ al Subcomité de Ética del Centro. \nEste subcomité comunicará al CEI-UAM sus\
+    \ resoluciones. \n6.4.- En cualquier caso los TFM siempre podrán defenderse, aunque\
+    \ no cuenten con esa evaluación, \nlo que no se podrá es otorgar un visado ético\
+    \ de ningún trabajo a posteriori, y por tanto si ese certi­\nficado es requerido\
+    \ para una posterior publicación no se podrá otorgar por ninguna instancia. \n\
+    Universidad Autónoma de Madrid \nEscuela Politécnica Superior \n4/8 \n Images\
+    \ in this page: Image description 1: (Image description: The image features the\
+    \ text \"Escuela Politécnica Superior,\" which translates to \"Higher Polytechnic\
+    \ School\" in English. The font appears elegant and somewhat modern, with a clean\
+    \ design that suggests a formal or academic institution. The use of light grey\
+    \ or silver color against a dark background enhances readability and gives a professional\
+    \ appearance. \n\nThe overall composition is simple, focusing on the institutional\
+    \ name, which likely represents a school or university dedicated to higher education\
+    \ in technical or engineering fields. The minimalist style may indicate a contemporary\
+    \ approach to visual identity, appealing to students and professionals in areas\
+    \ such as engineering, technology, or applied sciences.)Page nª4: 7.-Modificaciones\
+    \ formales del TFM \n7.1.- Si durante el desarrollo del TFM surgieran modificaciones\
+    \ significativas respecto a la propuesta \naprobada, se deberá solicitar aprobación\
+    \ de las modificaciones cumplimentando el anexo para tal \nefecto. Las modificaciones\
+    \ propuestas serán evaluadas y aprobadas por la Comisión de Coordina­\nción y\
+    \ Seguimiento del Máster. Dependiendo de la envergadura del cambio a realizar,\
+    \ los plazos de \nsolicitud serán: \n• En el caso de cambios significativos, como\
+    \ cambio de contenidos, objetivos o plan de \ntrabajo, el plazo será de al menos\
+    \ dos meses antes de la entrega de la memoria. \n• Si los cambios son de carácter\
+    \ menor, como cambios en el título que no afecten al \ncontenido, objetivos o\
+    \ plan de trabajo, el plazo será de al menos 15 días antes de la \nentrega de\
+    \ la memoria. \n7.2.- Tanto el director como el estudiante podrán solicitar, de\
+    \ mutuo acuerdo o unilateralmente, anu­\nlación del compromiso para la realización\
+    \ del TFM asignado. Será la Comisión de Coordinación y Se­\nguimiento del Máster\
+    \ la encargada de aprobar dicha cancelación a la vista de los datos aportados\
+    \ \ny/o solicitados a cualquiera de los implicados en el TFM. La solicitud de\
+    \ cancelación se realizará me­\ndiante instancia según el modelo del anexo para\
+    \ anulación del TFM. \n8.-Solicitud de defensa \n8.1.- Una vez superadas todas\
+    \ las asignaturas obligatorias y optativas del Máster, incluyendo adicio­\nnalmente\
+    \ aquellos complementos formativos que se hubieran indicado en el momento de la\
+    \ admi­\nsión al Máster, se podrá solicitar la defensa del TFM. \n8.2.- El estudiante\
+    \ que desee defender su TFM: \n• Enviará electrónicamente a la dirección gestionmaster.eps@uam.es\
+    \ la memoria del TFM \nen formato PDF. \n• El estudiante deberá conservar el mensaje\
+    \ de confirmación de recepción de la Admi­\nnistración de la EPS como mecanismo\
+    \ de acreditación de su presentación. \n8.3.- La portada de la memoria deberá\
+    \ adecuarse a la plantilla adjunta como anexo a esta normativa. \nLa memoria deberá\
+    \ incluir un resumen del trabajo, con una extensión mínima de una página (sin\
+    \ \nincluir referencias bibliográficas) y máxima de dos. \n8.4.- El envío de la\
+    \ memoria vendrá acompañado de un documento de Solicitud de Defensa que se \n\
+    adecuará a la plantilla adjunta a esta normativa. El documento de Solicitud de\
+    \ Defensa incluirá: \n• Máster cursado, ya sea de forma individual o combinada\
+    \ con otro máster. \n• Título del TFM. \n• Nombre del estudiante. \n• Nombre del\
+    \ director o directores, y en su caso, del ponente. \n• Competencias adquiridas\
+    \ en el TFM de acuerdo al Máster cursado. \n• Dedicación del estudiante al TFM.\
+    \ \nUniversidad Autónoma de Madrid \nEscuela Politécnica Superior \n5/8 \n Images\
+    \ in this page: Image description 1: (Image description: The image features the\
+    \ text \"Escuela Politécnica Superior\" prominently displayed. The font appears\
+    \ elegant and sophisticated, likely suggesting an academic or institutional context.\
+    \ The letters are rendered in a light color against a darker background, creating\
+    \ a strong contrast that enhances readability. The overall design is clean and\
+    \ minimalist, which may convey a sense of professionalism and seriousness associated\
+    \ with higher education institutions. \n\nThe phrase \"Escuela Politécnica Superior\"\
+    \ translates to \"Higher Polytechnic School,\" indicating that this entity is\
+    \ likely involved in technical or engineering education. The simplicity of the\
+    \ design may also reflect a focus on clarity and purpose, aligning with the values\
+    \ often associated with educational institutions.)Page nª5: • Justificación de\
+    \ resultados extraordinarios. \n• Autoría y originalidad del TFM. \n• Firma del\
+    \ estudiante, director o codirectores, y en su caso, del ponente. \n8.5.- En caso\
+    \ de que el TFM haya dado lugar a resultados excepcionales que, a juicio de director,\
+    \ codi­\nrectores y, en su caso, ponente, lo hagan merecedor de una calificación\
+    \ superior al 9,5 (ver apartado \n10.6) deberá incluir un informe sobre dichos\
+    \ resultados y la documentación que los acredite, en su \ncaso. Dicho documento\
+    \ estará firmado por el estudiante y su director, codirectores y ponente, si \n\
+    procede. \n8.6.- Ejemplos de documentos que acrediten los resultados excepcionales\
+    \ podrán ser: \n• En el caso de transferencia tecnológica al sector productivo\
+    \ se solicitará carta emitida \npor la empresa con membrete y firma en la que\
+    \ se declare justificadamente que el TFM \nha dado lugar a un producto que está\
+    \ siendo utilizado por la empresa o institución. \n• En el caso de publicaciones\
+    \ científicas internacionales, copia del artículo en el que \nconste nombre de\
+    \ la revista o acta de congreso, número, volumen, doi o cualquier otra \ninformación\
+    \ identificativa. Para las publicaciones aceptadas pero no publicadas, se pre­\n\
+    sentará carta de aceptación de la editorial o del comité responsable de la evaluación.\
+    \ \n• En el caso de una patente, copia del registro de la solicitud. \n8.7.- Este\
+    \ informe de resultados excepcionales será remitido a los miembros del tribunal\
+    \ junto con \nlos criterios que la Comisión de Coordinación y Seguimiento del\
+    \ Máster haya establecido para poder \noptar a una calificación superior al 9,5.\
+    \ \n8.8.- El director o codirectores y el ponente (en su caso) enviarán a gestionmaster.eps@uam.es\
+    \ un \ninforme en el que se explique la componente de investigación, innovación\
+    \ y/o de carácter profesional \ndel trabajo y se justifique la adquisición de\
+    \ las competencias asociadas al TFM así como la dedicación \ndel estudiante acorde\
+    \ con el número de ECTS del TFM, y una propuesta de calificación, que será \n\
+    ponderada por el tribunal según lo indicado en la memoria de verificación del\
+    \ Máster. \n9.-Composición del tribunal \n9.1.- El tribunal será nombrado por\
+    \ la Comisión de Coordinación y Seguimiento del Máster. \n9.2.- El tribunal estará\
+    \ formado por tres miembros que actúan como titulares, más tres suplentes. Los\
+    \ \ntitulares y suplentes se elegirán, preferiblemente, entre los miembros de\
+    \ la propuesta realizada en la \nentrega del Proyecto (ver apartado 5). Los miembros\
+    \ del tribunal deberán realizar su investigación \no actividad profesional en\
+    \ el campo en el que se ha desarrollado el trabajo o en otros afines. \n9.3.-\
+    \ Todos los miembros del tribunal tendrán una titulación igual o superior a la\
+    \ otorgada por el Más­\nter. \n9.4.- Al menos un miembro del tribunal y uno de\
+    \ los suplentes deben ser externos a los grupos de \ninvestigación a los que pertenezcan,\
+    \ en su caso, director(es) y ponente. \nUniversidad Autónoma de Madrid \nEscuela\
+    \ Politécnica Superior \n6/8 \n Images in this page: Image description 1: (Image\
+    \ description: The image features the text \"Escuela Politécnica Superior\" prominently\
+    \ displayed. The font is elegant and modern, likely suggesting a formal or academic\
+    \ context. The text is centered and appears to be on a dark background, which\
+    \ enhances the visibility and impact of the words. The overall design suggests\
+    \ an institution focused on higher education, possibly in the fields of engineering\
+    \ or technology, given the term \"politécnica.\" The simplicity of the design\
+    \ conveys professionalism and seriousness.)Page nª6: 9.5.- El presidente del tribunal\
+    \ será miembro de alguno de los departamentos que imparten docencia \nen el Máster.\
+    \ \n9.6.- Uno de los miembros del tribunal puede ser ajeno a los departamentos\
+    \ que imparten docencia \nen el Máster. \n9.7.- En ningún caso el director, directores\
+    \ o ponente del TFM podrán formar parte del tribunal, pero \nsí podrán informar\
+    \ oralmente al tribunal, a puerta cerrada tras el turno de preguntas y antes de\
+    \ la \ndeliberación para establecer la calificación del TFM. En este informe oral\
+    \ se valorará el trabajo del \nestudiante. El informe oral podrá ser sustituido\
+    \ por un informe escrito que entregarán al presidente \ndel tribunal antes de\
+    \ la defensa del TFM. \n10.-Desarrollo de la defensa y evaluación \n10.1.- La\
+    \ defensa del TFM se realizará en sesión pública, ante el tribunal nombrado por\
+    \ la Comisión \nde Coordinación y Seguimiento del Título. \n10.2.- El director,\
+    \ codirectores o ponente (si fuera necesario) deberán reservar el aula o sala\
+    \ en la \nque se va a defender el TFM y comunicará la reserva, con suficiente\
+    \ antelación, a los miembros del \ntribunal, al candidato y al coordinador de\
+    \ la asignatura de TFM. \n10.3.- La exposición del trabajo tendrá una duración\
+    \ aproximada de 30 minutos, seguida de un turno \nde preguntas por parte del tribunal.\
+    \ \n10.4.- El TFM se calificará según lo establecido por la memoria de verificación\
+    \ del Máster y los acuer­\ndos tomados por la Comisión de Coordinación y Seguimiento\
+    \ del Máster. Los criterios deben ser \nclaros y unánimes para cada curso académico\
+    \ y estarán reflejados en la guía docente del TFM. \n10.5.- La calificación estará\
+    \ en escala numérica de 0 a 10 y con un decimal. Se indicará asimismo \nla calificación\
+    \ cualitativa correspondiente (0,0-4,9: suspenso, 5,0-6,9: aprobado, 7,0-8,9:\
+    \ notable o \n9,0-10: sobresaliente). \n10.6.- Para que un TFM pueda ser calificado\
+    \ con una puntuación superior a 9,5 en la nota emitida \npor cada miembro del\
+    \ tribunal y en la nota final, deberá haber generado resultados excepcionales.\
+    \ \nDichos resultados excepcionales deberán haber sido reflejados en un informe\
+    \ incluido en el docu­\nmento de solicitud de defensa del TFM (ver punto 8.4).\
+    \ Con esta documentación y después de la \ndefensa pública, el tribunal tendrá\
+    \ la potestad de emitir una calificación superior al 9,5 si así lo esti­\nma oportuno.\
+    \ \n10.7.- El tribunal cumplimentará y firmará un acta con la calificación final\
+    \ del estudiante. \n10.8.- La mención de matrícula de honor se realizará de forma\
+    \ unificada, considerando el número \ntotal de matriculados en el trabajo de fin\
+    \ de Máster. Después de terminar el plazo de defensas de \nTFMs de cada curso\
+    \ académico, una comisión nombrada al efecto llevará a cabo una evaluación de\
+    \ \nlos TFMs leídos y concederá la calificación de Matrícula de Honor entre los\
+    \ TFMs que han obteni­\ndo una calificación de Sobresaliente, hasta el máximo\
+    \ establecido por la normativa aplicable. Para \ndicha evaluación se tendrá en\
+    \ cuenta el impacto producido por las publicaciones, patentes, transfe­\nrencias\
+    \ tecnológicas, y cualquier otra contribución equivalente o superior a las anteriores\
+    \ a las que \nhaya dado lugar el TFM, siendo valorada la importancia de la contribución\
+    \ individual del estudiante \nUniversidad Autónoma de Madrid \nEscuela Politécnica\
+    \ Superior \n7/8 \n Images in this page: Image description 1: (Image description:\
+    \ The image features the text \"Escuela Politécnica Superior\" prominently displayed.\
+    \ The font appears to be elegant and modern, with a slight stylization that suggests\
+    \ a formal or academic context. The text is likely intended to represent a higher\
+    \ education institution focused on technical or engineering disciplines, given\
+    \ the term \"Politécnica,\" which typically refers to polytechnic schools. The\
+    \ background is likely simple or minimalistic, emphasizing the text itself. The\
+    \ overall aesthetic conveys a sense of professionalism and academic rigor.)Page\
+    \ nª7: evaluado. Para realizar esta evaluación se solicitará a los posibles candidatos\
+    \ información actualiza­\nda hasta el día 31 de octubre tras el cierre del curso\
+    \ académico, no entrando en consideración los \nméritos producidos tras esa fecha.\
+    \ \n11.-Disposición final \n11.1.- Esta normativa entrará en vigor al día siguiente\
+    \ de su aprobación en Junta de Centro. \nUniversidad Autónoma de Madrid \nEscuela\
+    \ Politécnica Superior \n8/8 \n Images in this page: Image description 1: (Image\
+    \ description: The image features the text \"Escuela Politécnica Superior,\" which\
+    \ translates to \"Higher Polytechnic School\" in English. The text is presented\
+    \ in a stylized font, likely emphasizing an academic or institutional theme. The\
+    \ background is dark, which may serve to make the text stand out more prominently.\
+    \ The overall design suggests a formal or educational context, possibly related\
+    \ to a university or technical institution. The color scheme and font choice convey\
+    \ a sense of professionalism and authority typical for educational institutions.)\
+    \ >>) la tienes"
+- User: Hola, gracias por el enlace. Me gustaría saber si hay algún aspecto específico
+    de la normativa del TFM que deba tener en cuenta, o si hay algún requisito particular
+    que deba cumplir al presentar mi trabajo.
+- Assistant: Hola Jon, la normativa del TFM incluye varios aspectos importantes que
+    debes tener en cuenta. Algunos de ellos son la elección del tema y del tutor,
+    la planificación del trabajo, la redacción y defensa del mismo. En cuanto a los
+    requisitos, estos pueden variar dependiendo del máster que estés cursando. Te
+    recomendaría que leas detenidamente la normativa y, en caso de dudas, te pongas
+    en contacto con la coordinación de tu máster.
+- User: Hola, gracias por la información. ¿Podrías darme más detalles sobre el proceso
+    de elección del tema y del tutor para el TFM? ¿Hay algún procedimiento específico
+    que deba seguir?
+- Assistant: Hola, la elección del tema y del tutor para el Trabajo de Fin de Máster
+    (TFM) depende en gran medida del programa de máster específico que estés cursando.
+    En general, se te animará a que explores las líneas de investigación de los departamentos
+    y grupos de investigación de la EPS y a que hables con los profesores para encontrar
+    un tema y un tutor que se ajusten a tus intereses y objetivos académicos. Sin
+    embargo, te recomendaría que consultes la normativa específica de tu programa
+    de máster para obtener información más detallada.

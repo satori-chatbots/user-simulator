@@ -3,6 +3,7 @@ from pydantic import BaseModel, ValidationError
 from typing import List, Union, Dict, Optional
 import time
 from .utils.utilities import read_yaml
+from .utils.token_cost_calculator import calculate_cost
 from openai import OpenAI
 import warnings
 import pygame
@@ -15,6 +16,16 @@ warnings.filterwarnings("ignore", category=FutureWarning, module="whisper")
 warnings.filterwarnings("ignore", category=RuntimeWarning, module="pydub")
 client = OpenAI()
 audio_format = "mp3"
+
+
+def get_audio_duration(audio):
+    from pydub import AudioSegment
+    import io
+    wav_data = audio.get_wav_data()
+    audio_segment = AudioSegment.from_file(io.BytesIO(wav_data), format="wav")
+    duration_seconds = len(audio_segment) / 1000.0
+    return duration_seconds
+
 
 class SttModel(BaseModel):
     energy_threshold: float = 50
@@ -73,6 +84,8 @@ class STTModule:
             start = time.time()
             text = r.recognize_whisper(audio)
             end = time.time()
+            audio_length = get_audio_duration(audio)
+            calculate_cost(model="whisper", module="stt_module", audio_length=audio_length)
             logger.info(f"Recognition time:  {end - start}")
             return True, text
         except sr.UnknownValueError:
@@ -94,6 +107,7 @@ class STTModule:
         ) as response:
             response.stream_to_file("audio_test/output." + audio_format)
 
+        calculate_cost(message, model=self.model, module="tts_module")
         logger.info("Playing...")
         audio_path = f"audio_test/output.{audio_format}"
         with open(audio_path, 'rb') as audio_file:

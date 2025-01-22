@@ -1,7 +1,6 @@
-
 import ast
 import pandas as pd
-
+from .utils.token_cost_calculator import calculate_cost
 import re
 from .utils.exceptions import *
 
@@ -80,8 +79,9 @@ class ChatbotAssistant:
         self.gathering_register = self.create_dataframe()
 
     def get_json(self):
+        model = "gpt-4o-mini"
         response = client.chat.completions.create(
-            model="gpt-4o-2024-08-06",
+            model=model,
             messages=self.messages,
             response_format={
                 "type": "json_schema",
@@ -97,7 +97,9 @@ class ChatbotAssistant:
                 }
             }
         )
-        data = json.loads(response.choices[0].message.content)
+        output_message = response.choices[0].message.content
+        data = json.loads(output_message)
+        calculate_cost(self.messages, output_message, model=model, module="data_gathering")
         return data
 
     def create_dataframe(self):

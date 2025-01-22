@@ -1,6 +1,7 @@
 import time
 import timeit
 from argparse import ArgumentParser
+from user_sim.utils.config import errors
 from codecs import ignore_errors
 
 from pygame.display import update
@@ -10,7 +11,7 @@ import yaml
 
 check_keys(["OPENAI_API_KEY"])
 
-from user_sim.utils.config import errors
+
 from colorama import Fore, Style
 from technologies.chatbot_connectors import (Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot,
                                              ChatbotLolaUMU, ChatbotServiceform, KukiChatbot, JulieChatbot, ChatbotCatalinaRivas, ChatbotSaicMalaga, \

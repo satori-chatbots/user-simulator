@@ -1,11 +1,13 @@
 from langchain_openai import ChatOpenAI
 from langchain.schema.messages import HumanMessage, SystemMessage
+from .utils.token_cost_calculator import calculate_cost
 import os
 import logging
 import json
 import hashlib
 logger = logging.getLogger('Info Logger')
-chat = ChatOpenAI(model="gpt-4o-mini")
+model = "gpt-4o-mini"
+chat = ChatOpenAI(model=model)
 
 current_script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))
@@ -21,17 +23,19 @@ def hash_generate(image):
 def generate_image_description(image, url=True):
 
     if not url:
-        image = f"data:image/png;base64,{image.decode("utf-8")}"
-
+        image_parsed = f"data:image/png;base64,{image.decode("utf-8")}"
+    else:
+        image_parsed = image
+    prompt = "describe in detail this image"
     output = chat.invoke(
         [
             HumanMessage(
                 content=[
-                    {"type": "text", "text": "describe in detail this image"},
+                    {"type": "text", "text": prompt},
                     {
                         "type": "image_url",
                         "image_url": {
-                            "url": image,
+                            "url": image_parsed,
                             "detail": "auto"
                         }
                     }
@@ -42,6 +46,8 @@ def generate_image_description(image, url=True):
     )
     output_text = f"(Image description: {output.content})"
     logger.info(output_text)
+    calculate_cost(prompt, output_text, model=model, module="image recognition module", image=image)
+
     return output_text
 
 

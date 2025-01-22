@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 import os
 import requests
 import hashlib
-import tempfile
+
 import json
 import logging
 from user_sim.image_recognition_module import image_description
@@ -19,27 +19,6 @@ project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))
 temp_file_dir = os.path.join(project_root, "temp_files")
 hash_register_path = os.path.join(temp_file_dir, "hash_register.json")
 
-
-# def image_description(image):
-#     output = chat.invoke(
-#         [
-#             HumanMessage(
-#                 content=[
-#                     {
-#                         "type": "text",
-#                         "text": "describe this image in one line with the important details"
-#                     },
-#                     {
-#                         "type": "image_url",
-#                         "image_url": { "url": f"data:image/png;base64,{image}" }
-#                     }
-#                 ]
-#
-#             )
-#         ]
-#     )
-#     output_text = output.content
-#     return output_text
 
 def load_pdf_register():
     if not os.path.exists(temp_file_dir):

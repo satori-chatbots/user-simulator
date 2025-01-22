@@ -2,6 +2,7 @@ import logging
 import json
 from openai import OpenAI
 from dateutil import parser
+from .utils.token_cost_calculator import calculate_cost
 
 client = OpenAI()
 logger = logging.getLogger('Info Logger')
@@ -82,6 +83,7 @@ class DataExtraction:
 
     def get_data_extraction(self):
 
+        model = "gpt-4o-mini"
         dtype = self.get_data_prompt()[0]
         dformat = self.get_data_prompt()[1]
 
@@ -113,12 +115,13 @@ class DataExtraction:
         }
 
         response = client.chat.completions.create(
-            model="gpt-4o-2024-08-06",
+            model=model,
             messages=self.system_message,
             response_format=response_format
         )
-        llm_output = json.loads(response.choices[0].message.content)
-
+        output_message = response.choices[0].message.content
+        llm_output = json.loads(output_message)
+        calculate_cost(self.system_message, output_message, model=model, module="data_extraction") #todo: parse system message
         logger.info(f'LLM output for data extraction: {llm_output}')
         text = llm_output['answer']
         data = self.data_process(text, self.dtype)

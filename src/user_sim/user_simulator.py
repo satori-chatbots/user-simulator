@@ -2,13 +2,17 @@ import logging
 from .data_extraction import DataExtraction
 from .utils.config import errors
 from .utils.utilities import *
+from .utils.token_cost_calculator import calculate_cost
 from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
+from .utils.token_cost_calculator import calculate_cost
 # from image_recognition_module import image_description
 from .utils.config import errors
+
 import logging
+
 
 parser = StrOutputParser()
 logger = logging.getLogger('Info Logger')
@@ -44,10 +48,12 @@ class UserChain:
     def text_method(self, conversation_history, reminder):
         history = self.parse_history(conversation_history)  # formats list to str
         response = self.chain.invoke({'history': history, 'reminder': reminder})
+        calculate_cost(history, response, self.current_model, module="user_simulator")
         return response
 
     def invoke(self, conversation_history, reminder):
         response = self.text_method(conversation_history, reminder)
+
         return response
 
 class UserSimulator:

@@ -7,6 +7,9 @@ import tiktoken
 import pandas as pd
 import tempfile
 import logging
+
+from user_sim.utils.utilities import get_encoding
+
 logger = logging.getLogger('Info Logger')
 
 columns = ["Module", "Total Cost", "Timestamp", "Input Cost", "Input Message", "Output Cost", "Output Message"]
@@ -31,6 +34,8 @@ def count_tokens(text, model="gpt-4"):
 def calculate_image_cost(image):
     def get_dimensions(image_input):
         try:
+            if isinstance(image_input, bytes):
+                image_input = image_input.decode('utf-8')
             if re.match(r'^https?://', image_input) or re.match(r'^http?://', image_input):  # Detects if it's a URL
                 response = requests.get(image_input)
                 response.raise_for_status()  #
@@ -40,12 +45,18 @@ def calculate_image_cost(image):
                 image = Image.open(BytesIO(decoded_image))
 
             # Get the dimensions
-            width, height = image.size
-            return width, height
+            w, h = image.size
+            return w, h
         except Exception as e:
-            return f"Error processing the image: {e}"
+            logger.error(e)
+            return None
 
-    width, height = get_dimensions(image)
+    dimensions = get_dimensions(image)
+    if dimensions is None:
+        logger.warning("Couldn't get image dimensions.")
+        return None
+    width, height = dimensions
+
     # Initial configuration
     price_per_million_tokens = 0.15
     tokens_per_tile = 5667
@@ -97,14 +108,16 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
         output_cost = output_tokens * model_pricing["output"]
         total_cost = input_cost + output_cost
 
+
+
     def update_dataframe():
         new_row = {"Module": module, "Total Cost": total_cost, "Timestamp": pd.Timestamp.now(),
                    "Input Cost": input_cost, "Input Message": input_message,
                    "Output Cost": output_cost, "Output Message": output_message}
 
-        temp_cost_df = pd.read_csv(temp_file)
+        temp_cost_df = pd.read_csv(temp_file.name, encoding=get_encoding(temp_file.name))
         temp_cost_df.loc[len(temp_cost_df)] = new_row
-        temp_cost_df.to_csv(temp_file)
+        temp_cost_df.to_csv(temp_file.name, index=False)
         logger.info("Updated 'cost dataframe with new cost.")
 
     update_dataframe()

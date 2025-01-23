@@ -3,6 +3,7 @@ import json
 from openai import OpenAI
 from dateutil import parser
 from .utils.token_cost_calculator import calculate_cost
+from .utils.utilities import parse_content_to_text
 
 client = OpenAI()
 logger = logging.getLogger('Info Logger')
@@ -121,7 +122,8 @@ class DataExtraction:
         )
         output_message = response.choices[0].message.content
         llm_output = json.loads(output_message)
-        calculate_cost(self.system_message, output_message, model=model, module="data_extraction") #todo: parse system message
+        parsed_input_message = parse_content_to_text(self.system_message)
+        calculate_cost(parsed_input_message, output_message, model=model, module="data_extraction") #todo: parse system message
         logger.info(f'LLM output for data extraction: {llm_output}')
         text = llm_output['answer']
         data = self.data_process(text, self.dtype)

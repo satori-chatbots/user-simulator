@@ -1,5 +1,3 @@
-from langchain_openai import ChatOpenAI
-from langchain.schema.messages import HumanMessage
 import fitz
 import base64
 import re
@@ -12,7 +10,6 @@ import json
 import logging
 from user_sim.image_recognition_module import image_description
 logger = logging.getLogger('Info Logger')
-chat = ChatOpenAI(model="gpt-4o-mini")
 
 current_script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_script_dir, "../.."))

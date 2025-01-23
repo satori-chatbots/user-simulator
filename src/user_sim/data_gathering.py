@@ -3,6 +3,7 @@ import pandas as pd
 from .utils.token_cost_calculator import calculate_cost
 import re
 from .utils.exceptions import *
+from .utils.utilities import parse_content_to_text
 
 import json
 
@@ -34,7 +35,9 @@ def to_dict(in_val):
 
 class ChatbotAssistant:
     def __init__(self, ask_about):
-
+        self.verification_description = "the following has been answered, confirmed or provided by the chatbot:"
+        self.data_description = """"the piece of the conversation where the following has been answered 
+                                or confirmed by the assistant. Don't consider the user's interactions:"""
         self.properties = self.process_ask_about(ask_about)
         self.system_message = {"role": "system",
                                "content": "You are a helpful assistant that detects when a query in a conversation "
@@ -43,22 +46,22 @@ class ChatbotAssistant:
         self.gathering_register = []
 
 
-    @staticmethod
-    def process_ask_about(ask_about):
+
+    def process_ask_about(self, ask_about):
         properties = {
         }
+
         for ab in ask_about:
             properties[ab.replace(' ', '_')] = {
                 "type": "object",
                 "properties": {
                     "verification": {
                         "type": "boolean",
-                        "description": f"the following has been answered, confirmed or provided by the chatbot: {ab}"
+                        "description": f"{self.verification_description} {ab}"
                     },
                     "data": {
                         "type": ["string", "null"],
-                        "description": f"the piece of the conversation where the following has been answered "
-                                       f"or confirmed by the assistant. Don't consider the user's interactions: {ab} "
+                        "description": f"{self.data_description} {ab} "
                     }
                 },
                 "required": ["verification", "data"],
@@ -99,7 +102,8 @@ class ChatbotAssistant:
         )
         output_message = response.choices[0].message.content
         data = json.loads(output_message)
-        calculate_cost(self.messages, output_message, model=model, module="data_gathering")
+        parsed_input_message = parse_content_to_text(self.messages) + self.verification_description + self.data_description
+        calculate_cost(parsed_input_message, output_message, model=model, module="data_gathering")
         return data
 
     def create_dataframe(self):

@@ -1,0 +1,48 @@
+serial: 2025-01-24-12-49-11
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - big
+- toppings:
+  - cheese
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 59.308839
+assistant response time:
+- 5.569552
+response time report:
+  average: 5.569552
+  max: 5.569552
+  min: 5.569552
+---
+interaction:
+- User: "Hey there! So, I'm Jon Doe, and I'm feelin' super hungry right now! \U0001F355\
+    \ I was thinking about orderin' a big custom pizza with lotsa cheese, like, the\
+    \ more the merrier, ya know? \U0001F60B Also, can I grab a can of coke with that?\
+    \ How much is that gonna cost me? \n\nOh, and do you have any idea how long it’ll\
+    \ take for the pizza to get here? I'm like, sooo eager to devour it! \U0001F602\
+    \ If I order now, can I get it before I finish binge-watching my show? What’s\
+    \ your fav pizza topping by the way? I’m always lookin’ for new ideas!"
+- Assistant: Hola Jon Doe, lamento la confusión pero soy un asistente que proporciona
+    información sobre trámites académicos de la Escuela Politécnica Superior de la
+    Universidad Autónoma de Madrid. No puedo ayudarte con pedidos de pizza. ¿Hay algo
+    relacionado con la universidad que necesites saber?

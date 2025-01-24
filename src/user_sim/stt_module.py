@@ -31,14 +31,17 @@ class SttModel(BaseModel):
     energy_threshold: float = 50
     pause_threshold: float = 1
 
+
 class TtsModel(BaseModel):
     model: str = "tts-1"
     voice: str = "alloy"
     speed: float = 1.0
 
+
 class SpeechModel(BaseModel):
     stt: Optional[SttModel] = SttModel
     tts: Optional[TtsModel] = TtsModel
+
 
 class STTModule:
 

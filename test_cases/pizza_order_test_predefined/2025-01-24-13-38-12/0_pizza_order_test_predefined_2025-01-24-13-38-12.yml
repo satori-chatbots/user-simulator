@@ -1,0 +1,69 @@
+serial: 2025-01-24-13-38-12
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Pepsi
+- number:
+  - 1
+- size: small
+- pizza_type: marinara
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 5
+data_output:
+- price: null
+- time: None
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+---
+conversation time: 44.874719
+assistant response time:
+- 3.61708
+- 4.35106
+- 4.432326
+- 3.716415
+- 3.609659
+response time report:
+  average: 3.945308
+  max: 4.432326
+  min: 3.609659
+---
+interaction:
+- User: Hey there! 😊 I’m in the mood for some pizza tonight. Can I get a small marinara
+    pizza? Also, I’d love a can of Pepsi to go with it! What do you think? How much
+    is that going to cost me? 🍕🥤
+- Assistant: Perdona, pero no te he entendido, ¿puedes repetirlo?
+- User: Hey! No worries, I can repeat that! 😊 So, I’d like to order a small marinara
+    pizza and a can of Pepsi. What’s the total cost for that? And how long do you
+    think it’ll take to arrive? I’m super hungry! 🍕🥤
+- Assistant: Perdona, pero no te he entendido, ¿puedes repetirlo?
+- User: Hey there! 😊 I see we’re having a little trouble communicating. No biggie!
+    Just to clarify, I want a small marinara pizza and a can of Pepsi. Can you let
+    me know how much that’ll cost and how long it’ll take to get here? I’m really
+    looking forward to it! 🍕🥤 By the way, do you have any favorite pizza toppings?
+    I’m vegan, so I usually stick to the classics!
+- Assistant: Perdona, pero no te he entendido, ¿puedes repetirlo?
+- User: "Hey! \U0001F60A It seems like we’re still having a bit of a mix-up here.\
+    \ Just to keep it simple, I’d like to order a small marinara pizza and a can of\
+    \ Pepsi. Can you tell me the total cost for that? And how long do you think it’ll\
+    \ take to arrive? I’m really craving some pizza right now! \U0001F355\U0001F964\
+    \ \n\nOh, and speaking of pizza, do you have any recommendations for vegan toppings?\
+    \ I’m always looking to try something new!"
+- Assistant: Perdona, pero no te he entendido, ¿puedes repetirlo?
+- User: "Hey there! \U0001F60A It looks like we’re still having a little hiccup in\
+    \ our chat. Just to keep it straightforward, I’d like to order a small marinara\
+    \ pizza and a can of Pepsi. Can you let me know how much that’ll cost and how\
+    \ long it’ll take to get here? I’m really excited for some pizza! \U0001F355\U0001F964\
+    \ \n\nBy the way, do you ever get to try vegan pizzas? I’m always on the lookout\
+    \ for new toppings!"
+- Assistant: Perdona, pero no te he entendido, ¿puedes repetirlo?

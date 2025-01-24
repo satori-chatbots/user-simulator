@@ -18,6 +18,8 @@ Errors:
   count: 1
   conversations:
   - 0_pizza_order_test_custom_2024-10-18-10-51-33.yml
+
+Total cost:
 ---
 Test name: pizza_order_test_predefined
 Average assistant response time: 6.586108

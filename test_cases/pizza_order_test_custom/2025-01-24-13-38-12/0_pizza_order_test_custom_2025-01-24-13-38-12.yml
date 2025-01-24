@@ -1,0 +1,43 @@
+serial: 2025-01-24-13-38-12
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - big
+- toppings:
+  - pepperoni
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 12.499326
+assistant response time:
+- 6.531082
+response time report:
+  average: 6.531082
+  max: 6.531082
+  min: 6.531082
+---
+interaction:
+- User: "Hey there! I'm Jon Doe, and I'm super huŋgry right now! \U0001F604 I was\
+    \ wondering if I could order a big custom pizza with lotsa pepperoni on it. Yumm!\
+    \ Also, I’d like a can of sprite to wash it down. How much is that gonna cost\
+    \ me? \U0001F914 \n\nOh, and by the way, how long do you think it’ll take to get\
+    \ here? I'm really looking forward to it! \U0001F355✨"
+- Assistant: Perdona, pero no te he entendido, ¿puedes repetirlo?

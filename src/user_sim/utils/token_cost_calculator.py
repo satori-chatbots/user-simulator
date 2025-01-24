@@ -3,16 +3,22 @@ import requests
 import base64
 from io import BytesIO
 import re
+import os
 import tiktoken
 import pandas as pd
 import tempfile
 import logging
+from user_sim.utils import config
+
+
 
 from user_sim.utils.utilities import get_encoding
 
 logger = logging.getLogger('Info Logger')
 
-columns = ["Module", "Total Cost", "Timestamp", "Input Cost", "Input Message", "Output Cost", "Output Message"]
+columns = ["Conversation", "Module", "Total Cost",
+           "Timestamp", "Input Cost", "Input Message",
+           "Output Cost", "Output Message"]
 cost_df = pd.DataFrame(columns=columns)
 temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False)
 cost_df.to_csv(temp_file.name, index=False)
@@ -109,13 +115,14 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
         total_cost = input_cost + output_cost
 
 
-
     def update_dataframe():
-        new_row = {"Module": module, "Total Cost": total_cost, "Timestamp": pd.Timestamp.now(),
+        new_row = {"Conversation": config.conversation_name, "Module": module, "Total Cost": total_cost,
+                   "Timestamp": pd.Timestamp.now(),
                    "Input Cost": input_cost, "Input Message": input_message,
                    "Output Cost": output_cost, "Output Message": output_message}
 
-        temp_cost_df = pd.read_csv(temp_file.name, encoding=get_encoding(temp_file.name))
+        encoding = get_encoding(temp_file.name)["encoding"]
+        temp_cost_df = pd.read_csv(temp_file.name, encoding=encoding)
         temp_cost_df.loc[len(temp_cost_df)] = new_row
         temp_cost_df.to_csv(temp_file.name, index=False)
         logger.info("Updated 'cost dataframe with new cost.")
@@ -130,16 +137,20 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
         "total_cost": total_cost
     }
 
+def get_cost_report(test_cases_folder):
+    export_path = test_cases_folder + f"/__cost_report__"
+    serial_pattern = r'_(\d{4}(?:-\d{2}){5})\.yml$'
+    if not os.path.exists(export_path):
+        os.makedirs(export_path)
 
+    result = re.search(serial_pattern, test_cases_folder)
+    serial = result.group(1) if result else None
 
+    export_file_name = export_path + f"/report_{serial}.csv"
 
+    encoding = get_encoding(temp_file.name)["encoding"]
+    temp_cost_df = pd.read_csv(temp_file.name, encoding=encoding)
+    temp_cost_df.to_csv(export_file_name, index=False)
 
-
-
-
-
-
-
-
-
-
+    temp_file.close()
+    os.remove(temp_file.name)

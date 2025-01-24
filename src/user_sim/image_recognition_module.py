@@ -5,6 +5,7 @@ import os
 import logging
 import json
 import hashlib
+
 logger = logging.getLogger('Info Logger')
 model = "gpt-4o-mini"
 chat = ChatOpenAI(model=model)
@@ -15,10 +16,12 @@ temp_file_dir = os.path.join(project_root, "temp_files")
 image_register_path = os.path.join(temp_file_dir, "image_register.json")
 
 
+
 def hash_generate(image):
     hasher = hashlib.md5()
     hasher.update(image)
     return hasher.hexdigest()
+
 
 def generate_image_description(image, url=True):
 

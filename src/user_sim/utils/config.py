@@ -1,2 +1,2 @@
 errors = []
-cost = []
+conversation_name = ""

@@ -53,7 +53,7 @@ user:
           - any(3 alcoholic drinks)
 
 chatbot:
-  is_starter: True
+  is_starter: False
   fallback: I'm sorry, I did not get what you said. Can you rephrase?
   output:
     - price:
@@ -69,10 +69,10 @@ chatbot:
 conversation:
   number: 1
   goal_style:
-#      steps: 5
-    all_answered:
-      export: True
-      limit: 5
+      steps: 5
+#    all_answered:
+#      export: True
+#      limit: 5
   interaction_style:
     - default
 #    - random:

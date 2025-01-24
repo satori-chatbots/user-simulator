@@ -1,0 +1,30 @@
+serial: 2025-01-24-14-06-30
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 1
+data_output:
+- order_id: null
+errors:
+- 1001: 1 goals left to complete.
+---
+conversation time: 7.009083
+assistant response time:
+- 4.420994
+response time report:
+  average: 4.420994
+  max: 4.420994
+  min: 4.420994
+---
+interaction:
+- User: Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en
+    la EPS?
+- Assistant: ''

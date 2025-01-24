@@ -1,0 +1,44 @@
+serial: 2025-01-24-13-38-12
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - medium
+- toppings:
+  - mushrooms
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 13.161365
+assistant response time:
+- 4.205302
+response time report:
+  average: 4.205302
+  max: 4.205302
+  min: 4.205302
+---
+interaction:
+- User: "Hey there! \U0001F60A I was wonderin if I could order a medium custom pizzza\
+    \ with mushroms. Oh, and maybe a can of coke too? Do you think you cud tell me\
+    \ how much that’ll cost? I’m kinda hungry over here! \U0001F355\U0001F60B \n\n\
+    Also, how long do you think it’s gonna take to arrive? I hope it’s faster than\
+    \ my last order, that was like forever! \U0001F605 By the way, what’s your favorite\
+    \ pizza topping? I’m always lookin for new ideas!"
+- Assistant: Perdona, pero no te he entendido, ¿puedes repetirlo?

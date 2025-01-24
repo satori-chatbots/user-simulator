@@ -12,7 +12,8 @@ import importlib.util
 from .exceptions import *
 from openai import OpenAI
 from user_sim.utils.config import errors
-import chardet
+# import chardet
+from charset_normalizer import detect
 import logging
 
 logger = logging.getLogger('Info Logger')
@@ -41,11 +42,15 @@ def parse_content_to_text(messages):
     return " ".join([message["content"] for message in messages if "content" in message])
 
 def get_encoding(encoded_file):
+    # with open(encoded_file, 'rb') as file:
+    #     result = chardet.detect(file.read())
+    #     encoding = result['encoding']
+    #     logger.info(f"Encoding detected: {encoding}")
+    #     return encoding
+
     with open(encoded_file, 'rb') as file:
-        result = chardet.detect(file.read())
-        encoding = result['encoding']
-        logger.info(f"Encoding detected: {encoding}")
-        return encoding
+        detected = detect(file.read())
+        return detected
 
 
 def save_json(msg, test_name, path):
@@ -289,7 +294,7 @@ class ExecutionStats:
               '------------------------------')
 
     def export_stats(self):
-        export_path = self.path + f"/__report__"
+        export_path = self.path + f"/__time_report__"
 
         if not os.path.exists(export_path):
             os.makedirs(export_path)

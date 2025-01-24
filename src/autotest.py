@@ -1,7 +1,7 @@
 import time
 import timeit
 from argparse import ArgumentParser
-from user_sim.utils.config import errors
+from user_sim.utils import config
 from codecs import ignore_errors
 
 from pygame.display import update
@@ -21,6 +21,8 @@ from user_sim.role_structure import *
 from user_sim.user_simulator import UserSimulator
 from user_sim.utils.show_logs import *
 from user_sim.utils.utilities import *
+from user_sim.utils.token_cost_calculator import get_cost_report
+
 
 
 def print_user(msg):
@@ -151,6 +153,7 @@ def build_chatbot(technology, *args, **kwargs) -> Chatbot:
     return chatbot_class(*args, **kwargs)
 
 
+
 def generate_conversation(technology, chatbot, user,
                           personality, extract, clean_cache,
                           ignore_cache, update_cache):
@@ -159,6 +162,7 @@ def generate_conversation(technology, chatbot, user,
     my_execution_stat = ExecutionStats(extract, serial)
     the_chatbot = build_chatbot(technology, chatbot, ignore_cache=ignore_cache, update_cache=update_cache)
 
+
     for profile in profiles:
         user_profile = RoleData(profile, personality)
         test_name = user_profile.test_name
@@ -166,6 +170,7 @@ def generate_conversation(technology, chatbot, user,
         start_time_test = timeit.default_timer()
 
         for i in range(user_profile.conversation_number):
+            config.conversation_name = f'{i}_{test_name}_{serial}.yml'
             the_chatbot.fallback = user_profile.fallback
             the_user = UserSimulator(user_profile, the_chatbot)
             bot_starter = user_profile.is_starter
@@ -173,7 +178,6 @@ def generate_conversation(technology, chatbot, user,
 
             start_time_conversation = timeit.default_timer()
             response = ''
-
 
             if chat_format == "speech":
                 from user_sim.stt_module import STTModule
@@ -280,7 +284,6 @@ def generate_conversation(technology, chatbot, user,
 
             user_profile.reset_attributes()
 
-
         end_time_test = timeit.default_timer()
         execution_time = end_time_test - start_time_test
         formatted_time = timedelta(seconds=execution_time).total_seconds()
@@ -290,6 +293,8 @@ def generate_conversation(technology, chatbot, user,
         if user_profile.conversation_number > 0:
             my_execution_stat.add_test_name(test_name)
             my_execution_stat.show_last_stats()
+
+    get_cost_report(extract)
 
     if clean_cache:
         the_chatbot.clean_temp_files()

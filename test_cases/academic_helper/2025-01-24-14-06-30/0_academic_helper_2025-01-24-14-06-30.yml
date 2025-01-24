@@ -1,0 +1,31 @@
+serial: 2025-01-24-14-06-30
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 1
+data_output:
+- order_id: null
+errors:
+- 504: No response was received from the server in less than 20
+- 1001: 1 goals left to complete.
+---
+conversation time: 26.226567
+assistant response time:
+- 24.158795
+response time report:
+  average: 24.158795
+  max: 24.158795
+  min: 24.158795
+---
+interaction:
+- User: Hola, soy Jon Doe. Me gustaría saber, ¿qué estudios de pregrado se ofrecen
+    en la EPS?
+- Assistant: 'Error: timeout'

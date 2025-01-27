@@ -38,16 +38,12 @@ def check_keys(key_list: list):
 check_keys(["OPENAI_API_KEY"])
 client = OpenAI()
 
+
 def parse_content_to_text(messages):
     return " ".join([message["content"] for message in messages if "content" in message])
 
-def get_encoding(encoded_file):
-    # with open(encoded_file, 'rb') as file:
-    #     result = chardet.detect(file.read())
-    #     encoding = result['encoding']
-    #     logger.info(f"Encoding detected: {encoding}")
-    #     return encoding
 
+def get_encoding(encoded_file):
     with open(encoded_file, 'rb') as file:
         detected = detect(file.read())
         return detected

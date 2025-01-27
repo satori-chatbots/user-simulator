@@ -11,8 +11,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import importlib.util
 from .exceptions import *
 from openai import OpenAI
-from user_sim.utils.config import errors
-# import chardet
+from user_sim.utils import config
+
 from charset_normalizer import detect
 import logging
 
@@ -196,7 +196,7 @@ def save_test_conv(history, metadata, test_name, path, serial, conversation_time
 
     print(f"Conversation saved in {path}")
     print('------------------------------')
-    errors.clear()
+    config.errors.clear()
 
 
 class ExecutionStats:
@@ -253,13 +253,13 @@ class ExecutionStats:
         self.profile_edf.append(error_df)
 
     def show_last_stats(self):
-
+        cost_ds = pd.read_csv(config.cost_ds_path, encoding=get_encoding(config.cost_ds_path)["encoding"])
         self.get_stats()
 
         time_stats = get_time_stats(self.profile_art[-1])
         print(f"Average assistant response time: {time_stats['average']} (s)")
         print(f"Maximum assistant response time: {time_stats['max']} (s)")
-        print(f"Mínimum assistant response time: {time_stats['min']} (s)")
+        print(f"Minimum assistant response time: {time_stats['min']} (s)")
 
         error_stats = get_error_stats(self.profile_edf[-1])
         for error in error_stats:
@@ -267,18 +267,21 @@ class ExecutionStats:
                   f"- Count: {error['count']} \n "
                   f"- Conversations: {error['conversations']}")
 
+        total_cost = round(float(cost_ds[cost_ds["Test Name"] == config.test_name]["Total Cost"].sum()), 8)
+        print(f"Total Cost: ${total_cost}")
+
         print('------------------------------\n'
               '------------------------------')
 
     def show_global_stats(self):
-
+        cost_ds = pd.read_csv(config.cost_ds_path, encoding=get_encoding(config.cost_ds_path)["encoding"])
         self.global_time_stats = [time for profile in self.profile_art for time in profile]
         self.global_error_stats = pd.concat(self.profile_edf, ignore_index=True)
 
         time_stats = get_time_stats(self.global_time_stats)
         print(f"Average assistant response time: {time_stats['average']} (s)")
         print(f"Maximum assistant response time: {time_stats['max']} (s)")
-        print(f"Mínimum assistant response time: {time_stats['min']} (s)")
+        print(f"Minimum assistant response time: {time_stats['min']} (s)")
 
         error_stats = get_error_stats(self.global_error_stats)
         for error in error_stats:
@@ -286,11 +289,15 @@ class ExecutionStats:
                   f"- Count: {error['count']} \n "
                   f"- Conversations: {error['conversations']}")
 
+        total_cost = round(float(cost_ds["Total Cost"].sum()), 8)
+        print(f"Total Cost: ${total_cost}")
+
         print('------------------------------\n'
               '------------------------------')
 
     def export_stats(self):
-        export_path = self.path + f"/__time_report__"
+        export_path = self.path + f"/__report__"
+        cost_ds = pd.read_csv(config.cost_ds_path, encoding=get_encoding(config.cost_ds_path)["encoding"])
 
         if not os.path.exists(export_path):
             os.makedirs(export_path)
@@ -299,24 +306,28 @@ class ExecutionStats:
         for index, name in enumerate(self.test_names):
             time_stats = get_time_stats(self.profile_art[index])
             error_stats = get_error_stats(self.profile_edf[index])
+            total_cost = round(float(cost_ds[cost_ds["Test Name"]==name]["Total Cost"].sum()), 8)
 
             single_reports.append({
                 "Test name": name,
                 "Average assistant response time": time_stats['average'],
                 "Maximum assistant response time": time_stats['max'],
-                "Mínimum assistant response time": time_stats['min'],
-                "Errors":  error_stats
+                "Minimum assistant response time": time_stats['min'],
+                "Errors":  error_stats,
+                "Total Cost": total_cost
             })
 
         glb_time_stats = get_time_stats(self.global_time_stats)
         glb_error_stats = get_error_stats(self.global_error_stats)
+        glb_total_cost = round(float(cost_ds["Total Cost"].sum()), 8)
 
         global_reports = {
             "Global report": {
                 "Average assistant response time": glb_time_stats['average'],
                 "Maximum assistant response time": glb_time_stats['max'],
-                "Mínimum assistant response time": glb_time_stats['min'],
-                "Errors": glb_error_stats
+                "Minimum assistant response time": glb_time_stats['min'],
+                "Errors": glb_error_stats,
+                "Total Cost": glb_total_cost
             }
         }
 
@@ -557,7 +568,7 @@ def get_any_items(any_list, item_list):
                     "content": f"A list of any of these: {content}. Avoid putting any of these: {output_list}"}]
 
         response = client.chat.completions.create(
-            model="gpt-4o-2024-08-06",
+            model="gpt-4o-mini",
             messages=message,
             response_format=response_format
         )

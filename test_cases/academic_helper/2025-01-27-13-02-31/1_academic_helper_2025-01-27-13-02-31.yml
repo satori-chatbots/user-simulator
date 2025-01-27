@@ -1,0 +1,34 @@
+serial: 2025-01-27-13-02-31
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 1
+data_output:
+- order_id: https://www.uam.es/EPS/Home.htm?language=es
+errors: []
+total_cost($): 0.0002118
+---
+conversation time: 7.115114
+assistant response time:
+- 3.789689
+response time report:
+  average: 3.789689
+  max: 3.789689
+  min: 3.789689
+---
+interaction:
+- User: Hola, soy Jon Doe. ¿Podrías decirme qué programas de estudios de pregrado
+    se ofrecen en la EPS?
+- Assistant: 'La EPS imparte los siguientes grados: Grado en Ingeniería Biomédica,
+    Grado en Ciencia e Ingeniería de Datos, Grado en Ingeniería Informática (EURO-INF),
+    Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación (EUR-ACE) y
+    Doble Grado en Ingeniería Informática y Matemáticas. Tienes más información <a
+    href=''https://www.uam.es/EPS/Home.htm?language=es''>aquí</a>'

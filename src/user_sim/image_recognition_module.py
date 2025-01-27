@@ -26,7 +26,7 @@ def hash_generate(image):
 def generate_image_description(image, url=True):
 
     if not url:
-        image_parsed = f"data:image/png;base64,{image.decode("utf-8")}"
+        image_parsed = f"data:image/png;base64,{image.decode('utf-8')}"
     else:
         image_parsed = image
     prompt = "describe in detail this image"

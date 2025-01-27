@@ -16,13 +16,13 @@ from user_sim.utils.utilities import get_encoding
 
 logger = logging.getLogger('Info Logger')
 
-columns = ["Conversation", "Module", "Total Cost",
-           "Timestamp", "Input Cost", "Input Message",
-           "Output Cost", "Output Message"]
-cost_df = pd.DataFrame(columns=columns)
-temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False)
-cost_df.to_csv(temp_file.name, index=False)
-logger.info("Cost dataframe created as temporary file.")
+# columns = ["Conversation", "Module", "Total Cost",
+#            "Timestamp", "Input Cost", "Input Message",
+#            "Output Cost", "Output Message"]
+# cost_df = pd.DataFrame(columns=columns)
+# temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False)
+# cost_df.to_csv(temp_file.name, index=False)
+# logger.info("Cost dataframe created as temporary file.")
 
 PRICING = {
     "gpt-4o": {"input": 2.5 / 10**6, "output": 10 / 10**6},
@@ -30,6 +30,17 @@ PRICING = {
     "whisper": 0.006/60,
     "tts-1": 15/10**10
 }
+
+def create_cost_dataset(serial, test_cases_folder):
+    path = f"{test_cases_folder}/__cost_report__/cost_report_{serial}.csv"
+    columns = ["Conversation", "Test Name", "Module", "Total Cost",
+               "Timestamp", "Input Cost", "Input Message",
+               "Output Cost", "Output Message"]
+    cost_df = pd.DataFrame(columns=columns)
+    # temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False)
+    cost_df.to_csv(path, index=False)
+    config.cost_ds_path = path
+    logger.info(f"Cost dataframe created at {path}.")
 
 
 def count_tokens(text, model="gpt-4"):
@@ -116,16 +127,16 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
 
 
     def update_dataframe():
-        new_row = {"Conversation": config.conversation_name, "Module": module, "Total Cost": total_cost,
+        new_row = {"Conversation": config.conversation_name,"Test Name":config.test_name, "Module": module, "Total Cost": total_cost,
                    "Timestamp": pd.Timestamp.now(),
                    "Input Cost": input_cost, "Input Message": input_message,
                    "Output Cost": output_cost, "Output Message": output_message}
 
-        encoding = get_encoding(temp_file.name)["encoding"]
-        temp_cost_df = pd.read_csv(temp_file.name, encoding=encoding)
+        encoding = get_encoding(config.cost_ds_path)["encoding"]
+        temp_cost_df = pd.read_csv(config.cost_ds_path, encoding=encoding)
         temp_cost_df.loc[len(temp_cost_df)] = new_row
-        temp_cost_df.to_csv(temp_file.name, index=False)
-        logger.info("Updated 'cost dataframe with new cost.")
+        temp_cost_df.to_csv(config.cost_ds_path, index=False)
+        logger.info("Updated 'cost_report' dataframe with new cost.")
 
     update_dataframe()
 
@@ -139,18 +150,15 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
 
 def get_cost_report(test_cases_folder):
     export_path = test_cases_folder + f"/__cost_report__"
-    serial_pattern = r'_(\d{4}(?:-\d{2}){5})\.yml$'
+    serial = config.serial
     if not os.path.exists(export_path):
         os.makedirs(export_path)
 
-    result = re.search(serial_pattern, test_cases_folder)
-    serial = result.group(1) if result else None
-
     export_file_name = export_path + f"/report_{serial}.csv"
 
-    encoding = get_encoding(temp_file.name)["encoding"]
-    temp_cost_df = pd.read_csv(temp_file.name, encoding=encoding)
+    encoding = get_encoding(config.cost_ds_path)["encoding"]
+    temp_cost_df = pd.read_csv(config.cost_ds_path, encoding=encoding)
     temp_cost_df.to_csv(export_file_name, index=False)
 
-    temp_file.close()
-    os.remove(temp_file.name)
+    # config.cost_ds_path.close()
+    # os.remove(temp_file.name)

@@ -1,0 +1,51 @@
+serial: 2025-01-27-13-39-17
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- you are vegan
+ask_about:
+- a {{size}} {{pizza_type}} pizza
+- '{{number}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- drink:
+  - Old Fashioned
+- number:
+  - 1
+- size: small
+- pizza_type: pepperoni
+conversation:
+- interaction_style:
+  - default
+- number: 1
+- steps: 2
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+total_cost($): 0.0004539
+---
+conversation time: 12.976925
+assistant response time:
+- 1.203889
+- 1.015696
+response time report:
+  average: 1.109792
+  max: 1.203889
+  min: 1.015696
+---
+interaction:
+- User: Hey there! 😊 I’m in the mood for some pizza tonight. Can I get a small pepperoni
+    pizza? Also, I’d love to grab a can of Old Fashioned to go with it. What do you
+    think? How much is that gonna set me back? 🍕🥤
+- Assistant: 'Perdona, pero no te he entendido, ¿puedes repetirlo?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: Hey! No worries, I can repeat that! 😊 So, I’m looking for a small pepperoni
+    pizza and a can of Old Fashioned. What do you think the total cost would be? And
+    how long do you think it’ll take to arrive? I’m super hungry! 🍕✨
+- Assistant: 'Perdona, pero no te he entendido, ¿puedes repetirlo?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

@@ -1,0 +1,55 @@
+serial: 2025-01-27-13-39-17
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - medium
+- toppings:
+  - mushrooms
+  - cheese
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 2
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+total_cost($): 0.00054135
+---
+conversation time: 16.85173
+assistant response time:
+- 1.089605
+- 0.964363
+response time report:
+  average: 1.026984
+  max: 1.089605
+  min: 0.964363
+---
+interaction:
+- User: "Heyy there! \U0001F604 I hope ur havin a gr8 day! So, I'm thinkin of orderin\
+    \ a medium custom pizza with mushrums and cheese, can ya help me wit that? Also,\
+    \ how much do u think it's gonna cost? \U0001F355✨ \n\nAnd hey, do u like pizza?\
+    \ What's ur fav topping? I'm always curious to know!"
+- Assistant: 'Perdona, pero no te he entendido, ¿puedes repetirlo?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: "Hiii! \U0001F604 No prob! So, I want a medium custom pizza wit mushrums and\
+    \ cheese, plz. And I’d like a can of coke too! How much do ya think that’ll be?\
+    \ And like, how long do u think it’ll take to get here? \n\nOh, and by the way,\
+    \ my name's Jon Doe! What's ur name? Do u ever get tired of pizza or is it just\
+    \ me? \U0001F355❤️"
+- Assistant: 'Perdona, pero no te he entendido, ¿puedes repetirlo?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

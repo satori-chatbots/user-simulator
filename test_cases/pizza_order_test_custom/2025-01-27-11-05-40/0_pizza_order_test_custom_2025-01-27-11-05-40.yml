@@ -1,0 +1,48 @@
+serial: 2025-01-27-11-05-40
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - medium
+- toppings:
+  - pepperoni
+  - mushrooms
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 3 goals left to complete.
+---
+conversation time: 13.100754
+assistant response time:
+- 0.715128
+response time report:
+  average: 0.715128
+  max: 0.715128
+  min: 0.715128
+---
+interaction:
+- User: "Hey thare! \U0001F60A I’m Jon Doe, and I’m in the mood for some yummy pizza!\
+    \ So, I was wunderin if I could order a medium custom pizza with pepproni and\
+    \ mushrroms? \U0001F355 Oh, and could ya throw in a can of sprite too? \n\nAlso,\
+    \ how much is that gonna cost me? And like, how long do ya think it’ll take to\
+    \ get here? I’m super hungry, lol! \U0001F605 "
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Error
+    code: 401 - {''error'': {''message'': ''Incorrect API key provided: sk-sJ2SJ***************************************dxVk.
+    You can find your API key at https://platform.openai.com/account/api-keys.'',
+    ''type'': ''invalid_request_error'', ''param'': None, ''code'': ''invalid_api_key''}}'

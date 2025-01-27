@@ -25,7 +25,7 @@ chatbot:
 conversation:
   number: 2
   goal_style:
-    steps: 1
+    steps: 5
   interaction_style:
     - default
 #    - random:

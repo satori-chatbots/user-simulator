@@ -1,0 +1,48 @@
+serial: 2025-01-27-11-07-45
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - big
+- toppings:
+  - mushrooms
+  - pepperoni
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 21.292954
+assistant response time:
+- 3.648057
+response time report:
+  average: 3.648057
+  max: 3.648057
+  min: 3.648057
+---
+interaction:
+- User: "Hey there! \U0001F604 My nam is Jon Doe, and I'm in the mood for sum pizza!\
+    \ Can I order a big custom pizza with mushrums and pepperoni? That sounds delish,\
+    \ right? \U0001F355 Also, I wanna grab a can of coke too. So, like, how much will\
+    \ it cost me and how long is it gonna take to arrive? I'm super hungry over here!\
+    \ \U0001F924 \n\nOh, by the way, do you like pizza too? What's your fav topping?"
+- Assistant: 'Thanks for ordering a large pizza with mushrooms and pepperoni!
+
+    I see that you''ve mentioned wanting a can of coke, but I still need to know how
+    many drinks you''d like to order. Could you please let me know the number of drinks?
+    😊'

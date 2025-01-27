@@ -1,0 +1,46 @@
+serial: 2025-01-27-11-05-40
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - small
+- toppings:
+  - pepperoni
+  - mushrooms
+  - cheese
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Couldn't get response from the server
+- 1001: 3 goals left to complete.
+---
+conversation time: 12.296978
+assistant response time:
+- 2.027554
+response time report:
+  average: 2.027554
+  max: 2.027554
+  min: 2.027554
+---
+interaction:
+- User: "Heyyy! How’s it going? \U0001F604 I’m Jon Doe, just chillin’ and thinkin’\
+    \ about a yummy pizza. Can I order a small costom pizza with pepperoni, mushroms,\
+    \ and like, tons of cheese? \U0001F355 Also, I’d like to grab a can of coke with\
+    \ that. \n\nOh, and how long is it gonna take for the pizza to arrive? I’m super\
+    \ hungry over here! \U0001F924 And like, how much do I have to fork out for that?"
+- Assistant: 'Error: chatbot internal error'

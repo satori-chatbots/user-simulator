@@ -1,0 +1,32 @@
+serial: 2025-01-27-13-25-27
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 1
+data_output:
+- order_id: null
+errors:
+- 500: Couldn't connect with chatbot
+- 1001: 1 goals left to complete.
+total_cost($): 8.265e-05
+---
+conversation time: 3.668112
+assistant response time:
+- 2.040478
+response time report:
+  average: 2.040478
+  max: 2.040478
+  min: 2.040478
+---
+interaction:
+- User: Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en
+    la EPS?
+- Assistant: 'Error: cut connection'

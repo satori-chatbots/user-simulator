@@ -8,7 +8,6 @@ from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from .utils.token_cost_calculator import calculate_cost
-# from image_recognition_module import image_description
 from .utils.config import errors
 
 import logging
@@ -48,7 +47,7 @@ class UserChain:
     def text_method(self, conversation_history, reminder):
         history = self.parse_history(conversation_history)  # formats list to str
         response = self.chain.invoke({'history': history, 'reminder': reminder})
-        calculate_cost(history, response, self.current_model, module="user_simulator")
+        calculate_cost(history+reminder, response, self.current_model, module="user_simulator")
         return response
 
     def invoke(self, conversation_history, reminder):
@@ -73,7 +72,6 @@ class UserSimulator:
         self.loop_count = 0
         self.interaction_count = 0
         self.user_chain = UserChain(self.user_profile.role, self.model, self.temp)
-        # self.user_chain = self.user_role_prompt | self.user_llm | parser
         self.my_context = self.InitialContext()
         self.output_slots = self.__build_slot_dict()
         self.error_report = []
@@ -93,7 +91,7 @@ class UserSimulator:
 
         def initiate_context(self, context):
 
-            default_context = ["never recreate a whole conversation, just act as you're a user or client",
+            default_context = ["never recreate a whole conversation, just act like you're a user or client",
                                "never generate a message starting by 'user:'",
                                'Sometimes, interact with what the assistant just said.',
                                'Never act as the assistant, always behave as a user.',

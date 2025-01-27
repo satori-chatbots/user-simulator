@@ -1,0 +1,19 @@
+Conversation,Test Name,Module,Total Cost,Timestamp,Input Cost,Input Message,Output Cost,Output Message
+0_academic_helper_2025-01-27-13-25-27.yml,academic_helper,user_simulator,1.38e-05,2025-01-27 13:25:28.595325,0.0,,1.38e-05,"Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en la EPS?"
+0_academic_helper_2025-01-27-13-25-27.yml,academic_helper,data_gathering,6.345e-05,2025-01-27 13:25:29.853496,1.305e-05,"You are a helpful assistant that detects when a query in a conversation has been answered, confirmed or provided by the chatbot. User: Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en la EPS?
+the following has been answered, confirmed or provided by the chatbot:""the piece of the conversation where the following has been answered 
+                                or confirmed by the assistant. Don't consider the user's interactions:",5.04e-05,"{""What_undergraduate_studies_are_offered_at_the_EPS?"":{""verification"":true,""data"":""\""En la EPS se ofrecen programas de pregrado en ingeniería, ciencias sociales y ciencias aplicadas.\""""},""where_are_the_regulations_of_the_TFM"":{""verification"":false,""data"":null},""to_clarify_any_of_the_regulations_in_the_provided_information"":{""verification"":false,""data"":null}}"
+0_academic_helper_2025-01-27-13-25-27.yml,academic_helper,data_extraction,1.74e-05,2025-01-27 13:25:35.612122,1.44e-05,"
+        You're an assistant that analyzes a conversation between a user and a chatbot.
+        Your objective is to test the chatbot's capabilities by extract the information only if the chatbot provides it 
+        or verifies it. Output only the requested data, If you couldn't find it, output None.
+         [{'User': 'Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en la EPS?'}, {'Assistant': 'Error: cut connection'}]",3e-06,"{""answer"":null}"
+1_academic_helper_2025-01-27-13-25-27.yml,academic_helper,user_simulator,1.38e-05,2025-01-27 13:25:36.644059,0.0,,1.38e-05,"Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en la EPS?"
+1_academic_helper_2025-01-27-13-25-27.yml,academic_helper,data_gathering,5.145e-05,2025-01-27 13:25:37.535344,1.305e-05,"You are a helpful assistant that detects when a query in a conversation has been answered, confirmed or provided by the chatbot. User: Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en la EPS?
+the following has been answered, confirmed or provided by the chatbot:""the piece of the conversation where the following has been answered 
+                                or confirmed by the assistant. Don't consider the user's interactions:",3.84e-05,"{""What_undergraduate_studies_are_offered_at_the_EPS?"":{""verification"":false,""data"":null},""where_are_the_regulations_of_the_TFM"":{""verification"":false,""data"":null},""to_clarify_any_of_the_regulations_in_the_provided_information"":{""verification"":false,""data"":null}}"
+1_academic_helper_2025-01-27-13-25-27.yml,academic_helper,data_extraction,1.74e-05,2025-01-27 13:25:40.075623,1.44e-05,"
+        You're an assistant that analyzes a conversation between a user and a chatbot.
+        Your objective is to test the chatbot's capabilities by extract the information only if the chatbot provides it 
+        or verifies it. Output only the requested data, If you couldn't find it, output None.
+         [{'User': 'Hola, soy Jon Doe. ¿Podrías decirme qué estudios de pregrado se ofrecen en la EPS?'}, {'Assistant': 'Error: cut connection'}]",3e-06,"{""answer"":null}"

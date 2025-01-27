@@ -21,8 +21,7 @@ from user_sim.role_structure import *
 from user_sim.user_simulator import UserSimulator
 from user_sim.utils.show_logs import *
 from user_sim.utils.utilities import *
-from user_sim.utils.token_cost_calculator import get_cost_report
-
+from user_sim.utils.token_cost_calculator import create_cost_dataset
 
 
 def print_user(msg):
@@ -81,9 +80,19 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
         has_none = any(value is None for value in data_dict.values())
         if has_none:
             count_none = sum(1 for value in data_dict.values() if value is None)
-            errors.append({1001: f"{count_none} goals left to complete."})
+            config.errors.append({1001: f"{count_none} goals left to complete."})
 
         return data_list
+
+    def total_cost_calculator():
+        encoding = get_encoding(config.cost_ds_path)["encoding"]
+        cost_df = pd.read_csv(config.cost_ds_path, encoding=encoding)
+
+        total_sum_cost = cost_df[cost_df["Conversation"]==config.conversation_name]['Total Cost'].sum()
+        total_sum_cost = round(float(total_sum_cost), 8)
+
+        return total_sum_cost
+
 
     data_output = {'data_output': data_output_extraction(user_profile, the_user)}
     context = {'context': user_profile.raw_context}
@@ -91,14 +100,16 @@ def get_conversation_metadata(user_profile, the_user, serial=None):
     conversation = {'conversation': conversation_metadata(user_profile)}
     language = {'language': user_profile.language}
     serial_dict = {'serial': serial}
-    errors_dict = {'errors': errors}
+    errors_dict = {'errors': config.errors}
+    total_cost = {'total_cost($)': total_cost_calculator()}
     metadata = {**serial_dict,
                 **language,
                 **context,
                 **ask_about,
                 **conversation,
                 **data_output,
-                **errors_dict
+                **errors_dict,
+                **total_cost
                 }
 
     return metadata
@@ -159,6 +170,8 @@ def generate_conversation(technology, chatbot, user,
                           ignore_cache, update_cache):
     profiles = parse_profiles(user)
     serial = generate_serial()
+    config.serial = serial
+    create_cost_dataset(serial, extract)
     my_execution_stat = ExecutionStats(extract, serial)
     the_chatbot = build_chatbot(technology, chatbot, ignore_cache=ignore_cache, update_cache=update_cache)
 
@@ -166,6 +179,7 @@ def generate_conversation(technology, chatbot, user,
     for profile in profiles:
         user_profile = RoleData(profile, personality)
         test_name = user_profile.test_name
+        config.test_name = test_name
         chat_format = user_profile.format_type
         start_time_test = timeit.default_timer()
 
@@ -294,7 +308,6 @@ def generate_conversation(technology, chatbot, user,
             my_execution_stat.add_test_name(test_name)
             my_execution_stat.show_last_stats()
 
-    get_cost_report(extract)
 
     if clean_cache:
         the_chatbot.clean_temp_files()

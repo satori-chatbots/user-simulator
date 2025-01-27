@@ -1,0 +1,50 @@
+serial: 2025-01-27-12-35-28
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 1
+data_output:
+- order_id: None
+errors: []
+total_cost: !!python/object/apply:numpy.core.multiarray.scalar
+- !!python/object/apply:numpy.dtype
+  args:
+  - f8
+  - false
+  - true
+  state: !!python/tuple
+  - 3
+  - <
+  - null
+  - null
+  - null
+  - -1
+  - -1
+  - 0
+- !!binary |
+  VE+LZgpCLj8=
+---
+conversation time: 8.182329
+assistant response time:
+- 4.663704
+response time report:
+  average: 4.663704
+  max: 4.663704
+  min: 4.663704
+---
+interaction:
+- User: Hola, soy Jon Doe. ¿Me podrías decir qué estudios de pregrado se ofrecen en
+    la EPS?
+- Assistant: 'La EPS imparte los siguientes grados: Grado en Ingeniería Biomédica,
+    Grado en Ciencia e Ingeniería de Datos, Grado en Ingeniería Informática (EURO-INF),
+    Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación (EUR-ACE) y
+    Doble Grado en Ingeniería Informática y Matemáticas. Tienes más información <a
+    href=''https://www.uam.es/EPS/Home.htm?language=es''>aquí</a>'

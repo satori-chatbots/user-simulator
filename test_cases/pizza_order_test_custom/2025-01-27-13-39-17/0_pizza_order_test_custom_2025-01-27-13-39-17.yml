@@ -1,0 +1,60 @@
+serial: 2025-01-27-13-39-17
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - small
+- toppings:
+  - pepperoni
+  - cheese
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 2
+data_output:
+- price: null
+- time: None
+- order_id: null
+errors:
+- 1001: 2 goals left to complete.
+total_cost($): 0.0005841
+---
+conversation time: 13.238139
+assistant response time:
+- 1.12419
+- 0.901378
+response time report:
+  average: 1.012784
+  max: 1.12419
+  min: 0.901378
+---
+interaction:
+- User: 'Heyy there! 😄 I''m Jon Doe, and I was thinkin’ about orderin a small custom
+    pizza. Can I get it with pepproni and cheese, and maybe a can of sprite on the
+    side? 🍕🥤
+
+
+    Oh, and by the way, how much will that cost me? Like, I hope it''s not too much!
+    😅 Also, how long do you think it’s gonna take to get here? I''m super hungry!'
+- Assistant: 'Perdona, pero no te he entendido, ¿puedes repetirlo?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'
+- User: "Heyy! Oh wow, I totally just saw your message, and I'm like, \"What?!\" \U0001F605\
+    \ So, a small custom pizza with pepproni and cheese sounds sooo yummy! I think\
+    \ I need this in my life right now, haha! \n\nBut seriously, could you tell me\
+    \ how much that's gonna set me back? I really hope I don’t need to sell a kidney\
+    \ for this, lol! \U0001F61C \U0001F974 And what's the wait time lookin’ like?\
+    \ I’m like, starvin' over here! \n\nOh! And do you like pizza too? \U0001F355\
+    \ What’s your favorite topping?"
+- Assistant: 'Perdona, pero no te he entendido, ¿puedes repetirlo?`
+
+    For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/OUTPUT_PARSING_FAILURE'

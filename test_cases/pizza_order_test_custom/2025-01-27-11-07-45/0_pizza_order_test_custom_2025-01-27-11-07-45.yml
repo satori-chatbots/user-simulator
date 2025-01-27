@@ -1,0 +1,47 @@
+serial: 2025-01-27-11-07-45
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - medium
+- toppings:
+  - cheese
+  - pepperoni
+  - mushrooms
+- cans: 1
+- drink: sprite
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 1001: 3 goals left to complete.
+---
+conversation time: 10.79323
+assistant response time:
+- 4.676946
+response time report:
+  average: 4.676946
+  max: 4.676946
+  min: 4.676946
+---
+interaction:
+- User: "Hey there! \U0001F604 My name's Jon Doe, and I'm in the mood for some pizzzaaa!\
+    \ I was thinkin' about a medium custom pizza, ya know? Can you hook me up with\
+    \ cheese, pepperoni, and mushrroms? \U0001F355 \n\nOh, and I gotta have a can\
+    \ of sprite with that too! \U0001F964 So, like, how much is that gonna set me\
+    \ back? And how long do you think it'll take to get here? I'm so hungry, I could\
+    \ eat a horse! \U0001F602"
+- Assistant: It looks like I still need to know the pizza size. Could you please let
+    me know if you would like a small, medium, or large pizza?

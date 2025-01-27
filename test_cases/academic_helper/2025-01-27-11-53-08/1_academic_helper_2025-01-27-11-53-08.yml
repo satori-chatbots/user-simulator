@@ -1,0 +1,34 @@
+serial: 2025-01-27-11-53-08
+language: Spanish
+context:
+- your name is Jon Doe
+ask_about:
+- What undergraduate studies are offered at the EPS?
+- where are the regulations of the TFM
+- to clarify any of the regulations in the provided information
+conversation:
+- interaction_style:
+  - default
+- number: 2
+- steps: 1
+data_output:
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 1 goals left to complete.
+---
+conversation time: 2.317835
+assistant response time:
+- 0.430208
+response time report:
+  average: 0.430208
+  max: 0.430208
+  min: 0.430208
+---
+interaction:
+- User: Hola, soy Jon Doe. Quería saber, ¿cuáles son los estudios de pregrado que
+    se ofrecen en la EPS?
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Error
+    code: 403 - {''error'': {''message'': ''Project `proj_cUPux8eGPKeVs9kJ1iGPCkSB`
+    does not have access to model `gpt-4`'', ''type'': ''invalid_request_error'',
+    ''param'': None, ''code'': ''model_not_found''}}'

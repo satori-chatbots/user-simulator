@@ -1,0 +1,47 @@
+serial: 2025-01-27-11-06-38
+language: English
+context:
+- personality: personalities/conversational-user.yml
+- your name is Jon Doe
+ask_about:
+- a {{size}} custom pizza with {{toppings}}, {{size}}
+- '{{cans}} cans of {{drink}}'
+- how long is going to take the pizza to arrive
+- how much will it cost
+- size:
+  - medium
+- toppings:
+  - mushrooms
+  - pepperoni
+- cans: 1
+- drink: coke
+conversation:
+- interaction_style:
+  - make spelling mistakes
+- number: 2
+- steps: 1
+data_output:
+- price: null
+- time: null
+- order_id: null
+errors:
+- 500: Chatbot internal error
+- 1001: 3 goals left to complete.
+---
+conversation time: 4.497261
+assistant response time:
+- 0.611098
+response time report:
+  average: 0.611098
+  max: 0.611098
+  min: 0.611098
+---
+interaction:
+- User: Hey there! 😄 I'm Jon Doe, and I'm cravin some pizza right now! So, I was wonderin
+    if I could order a medium custom pizza with those yummy mushroons and pepperoni
+    on it? 🍕 Oh, and can I get a can of coke too? How much is all that gonna cost
+    me? And like, how long will it take to arrve? I'm super hungry over here! 😂
+- Assistant: 'Error: 500 Internal Server Error: Error executing the engine: Error
+    code: 403 - {''error'': {''message'': ''Project `proj_cUPux8eGPKeVs9kJ1iGPCkSB`
+    does not have access to model `gpt-4o`'', ''type'': ''invalid_request_error'',
+    ''param'': None, ''code'': ''model_not_found''}}'

@@ -69,7 +69,7 @@ chatbot:
 conversation:
   number: 1
   goal_style:
-      steps: 5
+      steps: 2
 #    all_answered:
 #      export: True
 #      limit: 5

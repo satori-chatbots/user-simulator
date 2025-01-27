@@ -16,13 +16,9 @@ from user_sim.utils.utilities import get_encoding
 
 logger = logging.getLogger('Info Logger')
 
-# columns = ["Conversation", "Module", "Total Cost",
-#            "Timestamp", "Input Cost", "Input Message",
-#            "Output Cost", "Output Message"]
-# cost_df = pd.DataFrame(columns=columns)
-# temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False)
-# cost_df.to_csv(temp_file.name, index=False)
-# logger.info("Cost dataframe created as temporary file.")
+columns = ["Conversation", "Test Name", "Module", "Total Cost",
+           "Timestamp", "Input Cost", "Input Message",
+           "Output Cost", "Output Message"]
 
 PRICING = {
     "gpt-4o": {"input": 2.5 / 10**6, "output": 10 / 10**6},
@@ -32,12 +28,15 @@ PRICING = {
 }
 
 def create_cost_dataset(serial, test_cases_folder):
-    path = f"{test_cases_folder}/__cost_report__/cost_report_{serial}.csv"
-    columns = ["Conversation", "Test Name", "Module", "Total Cost",
-               "Timestamp", "Input Cost", "Input Message",
-               "Output Cost", "Output Message"]
+    folder = f"{test_cases_folder}/__cost_report__"
+    file = f"cost_report_{serial}.csv"
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+        logger.info(f"Created cost report folder at: {folder}")
+
+    path = f"{folder}/{file}"
+
     cost_df = pd.DataFrame(columns=columns)
-    # temp_file = tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False)
     cost_df.to_csv(path, index=False)
     config.cost_ds_path = path
     logger.info(f"Cost dataframe created at {path}.")

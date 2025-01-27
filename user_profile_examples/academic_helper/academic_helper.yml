@@ -23,9 +23,9 @@ chatbot:
         description: the link to the TFM regulations
 
 conversation:
-  number: 2
+  number: 1
   goal_style:
-    steps: 5
+    steps: 1
   interaction_style:
     - default
 #    - random:

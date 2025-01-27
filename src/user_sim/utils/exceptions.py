@@ -39,3 +39,6 @@ class InvalidDependence(Exception):
 
 class InvalidFile(Exception):
     pass
+
+class NoCostException(Exception):
+    pass

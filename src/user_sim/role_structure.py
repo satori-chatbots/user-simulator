@@ -4,7 +4,9 @@ from .interaction_styles import *
 from .ask_about import *
 from .utils.exceptions import *
 from .utils.languages import Languages
+from .utils import cost_estimation
 from pathlib import Path
+
 import logging
 logger = logging.getLogger('Info Logger')
 
@@ -14,10 +16,17 @@ def pick_goal_style(goal):
     if goal is None:
         return goal, False
     elif 'steps' in goal:
-        if goal['steps'] < 20:
+        if goal['steps'] <= 20 or goal['steps'] > 0:
             return list(goal.keys())[0], goal['steps']
         else:
-            raise OutOfLimitException(f"Goal steps higher than 20 steps: {goal['random steps']}")
+            raise OutOfLimitException(f"Goal steps higher than 20 steps or lower than 0 steps: {goal['steps']}")
+    elif 'cost' in goal:
+        if goal['cost']>0:
+            return list(goal.keys())[0], goal['cost']
+        else:
+            raise NoCostException(f"Goal cost can't be lower than or equal to 0: {goal['cost']}")
+
+
     elif 'all_answered' in goal or 'default' in goal:
         if isinstance(goal, dict):
 
@@ -154,6 +163,9 @@ class RoleData:
         self.conversation_number = self.get_conversation_number(self.validated_data.conversation.number)
         self.goal_style = pick_goal_style(self.validated_data.conversation.goal_style)
         self.interaction_styles = self.pick_interaction_style(self.validated_data.conversation.interaction_style)
+
+    cost_estimation.initialize_class()
+
 
     def reset_attributes(self):
         logger.info(f"Preparing attributes for next conversation...")

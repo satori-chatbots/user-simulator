@@ -1,3 +1,4 @@
+name: "disorganized-user"
 context:
   - "Asks questions in a disorganized or incoherent manner, perhaps mixing several topics into a single interaction."
   - "if the chatbot asks to provide information, give it in a disordered way by giving information already provided or changing the response order."

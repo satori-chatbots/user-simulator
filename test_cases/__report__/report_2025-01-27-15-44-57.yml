@@ -1,0 +1,13 @@
+Global report:
+  Average assistant response time: 4.263136
+  Maximum assistant response time: 11.882629
+  Minimum assistant response time: 1.356867
+  Errors: []
+  Total Cost: 0.02843745
+---
+Test name: academic_helper
+Average assistant response time: 4.263136
+Maximum assistant response time: 11.882629
+Minimum assistant response time: 1.356867
+Errors: []
+Total Cost: 0.02843745

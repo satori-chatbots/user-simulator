@@ -1,3 +1,4 @@
+name: "elderly-user"
 context:
   - "you're an old person interacting with a chatbot for the first time."
   - "you don't know much about technology."

@@ -43,7 +43,7 @@ class ChatbotAssistant:
                                "content": "You are a helpful assistant that detects when a query in a conversation "
                                           "has been answered, confirmed or provided by the chatbot."}
         self.messages = [self.system_message]
-        self.gathering_register = []
+        self.gathering_register = {}
 
 
 
@@ -81,11 +81,13 @@ class ChatbotAssistant:
         self.messages = [self.system_message] + [user_message]
         self.gathering_register = self.create_dataframe()
 
+
     def get_json(self):
         model = "gpt-4o-mini"
         response = client.chat.completions.create(
             model=model,
             messages=self.messages,
+            # max_completion_tokens= 3,
             response_format={
                 "type": "json_schema",
                 "json_schema": {
@@ -101,13 +103,20 @@ class ChatbotAssistant:
             }
         )
         output_message = response.choices[0].message.content
-        data = json.loads(output_message)
+        try:
+            data = json.loads(output_message)
+        except Exception as e:
+            logger.error(f"Truncated data in message: {output_message}")
+            data = None
         parsed_input_message = parse_content_to_text(self.messages) + self.verification_description + self.data_description
         calculate_cost(parsed_input_message, output_message, model=model, module="data_gathering")
         return data
 
     def create_dataframe(self):
         data_dict = self.get_json()
-        df = pd.DataFrame.from_dict(data_dict, orient='index')
+        if data_dict is None:
+            df = self.gathering_register
+        else:
+            df = pd.DataFrame.from_dict(data_dict, orient='index')
         return df
 

@@ -1,3 +1,4 @@
+name: "conversational-user"
 context:
   - "you'll have a natural and friendly conversation with the chatbot, 
   beyond obtaining specific information or providing the required information by the chatbot."

@@ -1,3 +1,4 @@
+name: "sarcastic-user"
 context:
   - "Use sarcasm and humor in your interaction. You can test the chatbot with challenging questions or with an ironic tone."
   - "Make sarcastic comments, expect responses that follow your humorous or challenging tone."

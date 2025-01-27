@@ -1,14 +1,12 @@
 import logging
 from .data_extraction import DataExtraction
-from .utils.config import errors
 from .utils.utilities import *
-from .utils.token_cost_calculator import calculate_cost
 from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from .utils.token_cost_calculator import calculate_cost
-from .utils.config import errors
+from .utils import config
 
 import logging
 
@@ -171,13 +169,18 @@ class UserSimulator:
 
     def end_conversation(self, input_msg):
 
+        if self.goal_style[0] == 'cost':
+            if config.total_cost >= self.goal_style[1]:
+                logger.info('is end')
+                return True
+
         if self.goal_style[0] == 'steps' or self.goal_style[0] == 'random steps':
             if self.interaction_count >= self.goal_style[1]:
                 logger.info('is end')
                 return True
 
         elif self.conversation_ending(input_msg) or self.loop_count >= 9:
-            errors.append({1000: 'Exceeded loop Limit'})
+            config.errors.append({1000: 'Exceeded loop Limit'})
             logger.warning('Loop count surpassed 9 interactions. Ending conversation.')
             return True
 

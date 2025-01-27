@@ -6,8 +6,10 @@ import configparser
 from datetime import datetime, timedelta, date
 import re
 import random
+from .cost_estimation import predictable
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+# from .token_cost_calculator import calculate_cost
 import importlib.util
 from .exceptions import *
 from openai import OpenAI
@@ -538,6 +540,7 @@ def get_date_list(date):
 
 
 def get_any_items(any_list, item_list):
+    model = "gpt-4o-mini"
     response_format = {
         "type": "json_schema",
         "json_schema": {
@@ -567,15 +570,19 @@ def get_any_items(any_list, item_list):
                    {"role": "user",
                     "content": f"A list of any of these: {content}. Avoid putting any of these: {output_list}"}]
 
+        predictable["any_list"]["input_message"], predictable["any_list"]["times_executed"] = (message, len(any_list))
+
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=model,
             messages=message,
             response_format=response_format
         )
 
         raw_data = json.loads(response.choices[0].message.content)
         output_data = raw_data["answer"]
-
         output_list += output_data
+
+        input_message = parse_content_to_text(message)
+        # calculate_cost(input_message, raw_data, model=model, module="goals__any_list")
 
     return output_list

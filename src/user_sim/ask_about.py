@@ -248,17 +248,14 @@ def dependency_error_check(variable_list):
 
 
 def check_circular_dependency(items):
-    # Building a name-to-dependency mapping
     dependencies = {}
     for item in items:
         name = item['name']
         dep = item['dependence']
         dependencies[name] = dep
 
-    # Función para realizar DFS y detectar ciclos
     def visit(node, visited, stack):
         if node in stack:
-            # Se detectó una dependencia circular
             cycle = ' -> '.join(stack + [node])
             raise Exception(f"Circular dependency detected: {cycle}")
         if node in visited or node not in dependencies:

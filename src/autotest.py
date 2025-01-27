@@ -1,17 +1,9 @@
 import time
 import timeit
-from argparse import ArgumentParser
-from user_sim.utils import config
-from codecs import ignore_errors
-
-from pygame.display import update
-
-from user_sim.utils.utilities import check_keys
 import yaml
-
-check_keys(["OPENAI_API_KEY"])
-
-
+from argparse import ArgumentParser
+from user_sim.utils.utilities import check_keys
+from user_sim.utils import config
 from colorama import Fore, Style
 from technologies.chatbot_connectors import (Chatbot, ChatbotRasa, ChatbotTaskyto, ChatbotAdaUam, ChatbotMillionBot,
                                              ChatbotLolaUMU, ChatbotServiceform, KukiChatbot, JulieChatbot, ChatbotCatalinaRivas, ChatbotSaicMalaga, \
@@ -23,6 +15,7 @@ from user_sim.utils.show_logs import *
 from user_sim.utils.utilities import *
 from user_sim.utils.token_cost_calculator import create_cost_dataset
 
+check_keys(["OPENAI_API_KEY"])
 
 def print_user(msg):
     clean_text = re.sub(r'\(Image description[^)]*\)', '', msg)

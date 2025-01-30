@@ -20,7 +20,7 @@ PRICING = {
     "gpt-4o": {"input": 2.5 / 10**6, "output": 10 / 10**6},
     "gpt-4o-mini": {"input": 0.15 / 10**6, "output": 0.6 / 10**6},
     "whisper": 0.006/60,
-    "tts-1": 15/10**10
+    "tts-1": 0.0015/1000  # (characters, not tokens)
 }
 
 def create_cost_dataset(serial, test_cases_folder):
@@ -38,9 +38,14 @@ def create_cost_dataset(serial, test_cases_folder):
     logger.info(f"Cost dataframe created at {path}.")
 
 
-def count_tokens(text, model="gpt-4"):
+def count_tokens(text, model="gpt-4o-mini"):
     encoding = tiktoken.encoding_for_model(model)
     return len(encoding.encode(text))
+
+
+def calculate_text_cost(tokens, model="gpt-4o-mini", io_type="input"):
+    cost = tokens * PRICING[model][io_type]
+    return cost
 
 
 def calculate_image_cost(image):
@@ -87,6 +92,7 @@ def calculate_image_cost(image):
 
     return total_price
 
+
 def calculate_cost(input_message='', output_message='', model="gpt-4o", module=None, **kwargs):
     input_tokens = count_tokens(input_message, model)
     output_tokens = count_tokens(output_message, model)
@@ -103,7 +109,7 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
 
     elif model == "tts_1":
         model_pricing = PRICING[model]
-        input_cost = input_message * model_pricing
+        input_cost = len(input_message) * model_pricing
         output_cost = None
         total_cost = input_cost
 
@@ -146,6 +152,7 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
         "total_cost": total_cost
     }
 
+
 def get_cost_report(test_cases_folder):
     export_path = test_cases_folder + f"/__cost_report__"
     serial = config.serial
@@ -160,3 +167,13 @@ def get_cost_report(test_cases_folder):
 
     # config.cost_ds_path.close()
     # os.remove(temp_file.name)
+
+
+def calculate_input_tokens(input_message, model=config.model):
+    input_cost = count_tokens(input_message, model) * PRICING[model]["input"]
+    config.total_cost += input_cost
+
+
+def calculate_output_tokens(input_message, model=config.model):
+    output_cost = count_tokens(input_message, model) * PRICING[model]["output"]
+    config.total_cost += output_cost

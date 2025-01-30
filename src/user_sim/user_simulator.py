@@ -89,14 +89,7 @@ class UserSimulator:
 
         def initiate_context(self, context):
 
-            default_context = ["never recreate a whole conversation, just act like you're a user or client",
-                               "never generate a message starting by 'user:'",
-                               'Sometimes, interact with what the assistant just said.',
-                               'Never act as the assistant, always behave as a user.',
-                               "Don't end the conversation until you've asked everything you need.",
-                               "you're testing a chatbot, so there can be random values or irrational things "
-                               "in your requests"
-                               ]
+            default_context = config.default_context
 
             if isinstance(context, list):
                 self.original_context = context.copy() + default_context.copy()
@@ -118,8 +111,6 @@ class UserSimulator:
 
         def reset_context(self):
             self.context_list = self.original_context.copy()
-
-
 
     def repetition_track(self, response, reps=3):
 

@@ -3,7 +3,7 @@ from typing import List, Union, Dict, Optional
 from .interaction_styles import *
 from .ask_about import *
 from .utils.exceptions import *
-from .utils.languages import Languages
+from .utils.languages import languages
 from .utils import cost_estimation
 from pathlib import Path
 
@@ -70,7 +70,7 @@ def set_language(lang):
         logger.info("Language parameter empty. Setting language to Default (English)")
         return "English"
     try:
-        if lang in Languages:
+        if lang in languages:
             logger.info(f"Language set to {lang}")
             return lang
         else:
@@ -152,6 +152,7 @@ class RoleData:
         self.role = self.validated_data.user.role
         self.raw_context = self.validated_data.user.context
         self.context = self.context_processor(self.raw_context)
+        self.personality = None
         self.ask_about = AskAboutClass(self.validated_data.user.goals)
 
     #Chatbot
@@ -183,13 +184,14 @@ class RoleData:
         result_dict = {k: v for d in conv for k, v in d.items()}
         return result_dict
 
-    @staticmethod
-    def personality_extraction(context):
+
+    def personality_extraction(self, context):
         if context["personality"]:
             path = Path(context["personality"])
             if path.exists() and path.is_file():
                 personality = read_yaml(context["personality"])
                 try:
+                    self.personality = personality["name"]
                     return personality['context']
                 except KeyError:
                     raise InvalidFormat(f"Key 'context' not found in personality file")
@@ -243,7 +245,7 @@ class RoleData:
                 personality = read_yaml(self.personality_file)
                 personality_phrases = personality['context']
 
-            total_phrases =  personality_phrases + custom_phrases
+            total_phrases = personality_phrases + custom_phrases
             return list_to_str(total_phrases)
 
     def get_interaction_metadata(self):
@@ -303,9 +305,6 @@ class RoleData:
 
         elif isinstance(interactions[0], dict) and 'random' in list(interactions[0].keys()):
             # todo: add validation funct to admit random only if it's alone in the list
-            # inter_keys = list(interactions[0].keys())
-
-            # if 'random' in inter_keys:
             inter_rand = interactions[0]['random']
             choice = choice_styles(inter_rand)
             return get_styles(choice)

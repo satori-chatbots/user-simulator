@@ -1,5 +1,6 @@
 import random
 import logging
+
 logger = logging.getLogger('Info Logger')
 
 
@@ -66,20 +67,20 @@ class ChangeLanguage(InteractionStyle):
         super().__init__(inter_type='change language')
         self.default_language = default_language
         self.languages_list = []
+        self.chance = 0.3
 
     def get_prompt(self):
 
-        lang = self.language()
+        lang = self.language(self.chance)
         prompt = f"""Please, always talk in {lang}, even If the assistant tells you that he doesn't understand, 
                 or you had a conversation in another language before. """
         return prompt
 
-    def language(self, chance=30):
-
+    def language(self, chance=0.3):
+        chance = chance*100
         rand_number = random.randint(1, 100)
         if rand_number <= chance:
             lang = random.choice(self.languages_options)
-            # logging.getLogger().verbose(f'the language is: {lang}')
             logger.info(f'Language was set to {lang}')
             self.languages_list.append(lang)
             return lang

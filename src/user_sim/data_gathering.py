@@ -4,7 +4,7 @@ from .utils.token_cost_calculator import calculate_cost
 import re
 from .utils.exceptions import *
 from .utils.utilities import parse_content_to_text
-
+from .utils.utilities import config
 import json
 
 from openai import OpenAI
@@ -87,7 +87,7 @@ class ChatbotAssistant:
         response = client.chat.completions.create(
             model=model,
             messages=self.messages,
-            # max_completion_tokens= 3,
+            max_completion_tokens=config.max_output_tokens_allowed(model),
             response_format={
                 "type": "json_schema",
                 "json_schema": {
@@ -102,13 +102,20 @@ class ChatbotAssistant:
                 }
             }
         )
+        parsed_input_message = parse_content_to_text(
+            self.messages) + self.verification_description + self.data_description
+
+        if config.max_input_tokens_allowed(parsed_input_message, model):
+            logger.error(f"Token limit was surpassed")
+            config.total_cost = config.limit_cost
+            return None
+
         output_message = response.choices[0].message.content
         try:
             data = json.loads(output_message)
         except Exception as e:
             logger.error(f"Truncated data in message: {output_message}")
             data = None
-        parsed_input_message = parse_content_to_text(self.messages) + self.verification_description + self.data_description
         calculate_cost(parsed_input_message, output_message, model=model, module="data_gathering")
         return data
 

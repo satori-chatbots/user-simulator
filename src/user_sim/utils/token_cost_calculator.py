@@ -7,7 +7,10 @@ import os
 import tiktoken
 import pandas as pd
 import logging
+
+from user_sim.image_recognition_module import model
 from user_sim.utils import config
+from user_sim.utils.config import total_cost, token_count_enabled
 from user_sim.utils.utilities import get_encoding
 
 logger = logging.getLogger('Info Logger')
@@ -21,6 +24,13 @@ PRICING = {
     "gpt-4o-mini": {"input": 0.15 / 10**6, "output": 0.6 / 10**6},
     "whisper": 0.006/60,
     "tts-1": 0.0015/1000  # (characters, not tokens)
+}
+
+TOKENS = {
+    "gpt-4o": {"input": 10**6/2.5, "output": 10**6/10},
+    "gpt-4o-mini": {"input": 10**6/0.15, "output": 10**6/0.6},
+    "whisper": 60/0.006,
+    "tts-1": 1000/0.0015  # (characters, not tokens)
 }
 
 def create_cost_dataset(serial, test_cases_folder):
@@ -93,6 +103,44 @@ def calculate_image_cost(image):
     return total_price
 
 
+
+# VISION
+def input_vision_module_cost(input_message, image, model):
+    input_tokens = count_tokens(input_message, model)
+    image_cost = calculate_image_cost(image)
+    model_pricing = PRICING[model]
+    input_cost = input_tokens * model_pricing["input"] + image_cost
+    return input_cost
+def output_vision_module_cost(output_message, model):
+    output_tokens = count_tokens(output_message, model)
+    model_pricing = PRICING[model]
+    output_cost = output_tokens * model_pricing["output"]
+    return output_cost
+
+# TTS-STT
+def input_tts_module_cost(input_message, model):
+    model_pricing = PRICING[model]
+    input_cost = len(input_message) * model_pricing
+    return input_cost
+def whisper_module_cost(audio_length, model):
+    audio_length = audio_length
+    model_pricing = PRICING[model]
+    input_cost = audio_length * model_pricing
+    return input_cost
+
+# TEXT
+def input_text_module_cost(input_message, model):
+    input_tokens = count_tokens(input_message, model)
+    model_pricing = PRICING[model]
+    input_cost = input_tokens * model_pricing["input"]
+    return input_cost
+def output_text_module_cost(output_message, model):
+    output_tokens = count_tokens(output_message, model)
+    model_pricing = PRICING[model]
+    output_cost = output_tokens * model_pricing["output"]
+    return output_cost
+
+
 def calculate_cost(input_message='', output_message='', model="gpt-4o", module=None, **kwargs):
     input_tokens = count_tokens(input_message, model)
     output_tokens = count_tokens(output_message, model)
@@ -101,29 +149,20 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
         raise ValueError(f"Pricing not available for model: {model}")
 
     if model == "whisper":
-        audio_length = kwargs.get("audio_length", 0)
-        model_pricing = PRICING[model]
-        input_cost = None
-        output_cost = None
-        total_cost = audio_length * model_pricing
+        total_cost = whisper_module_cost(kwargs.get("audio_length", None), model)
 
     elif model == "tts_1":
-        model_pricing = PRICING[model]
-        input_cost = len(input_message) * model_pricing
-        output_cost = None
+        input_cost = input_tts_module_cost(input_message, model)
         total_cost = input_cost
 
-    elif (model == "gpt-4o" or model == "gpt-4o-mini") and kwargs.get("image", None):
-        image_cost = calculate_image_cost(kwargs.get("image", None))
-        model_pricing = PRICING[model]
-        input_cost = input_tokens * model_pricing["input"] + image_cost
-        output_cost = output_tokens * model_pricing["output"]
+    elif kwargs.get("image", None):
+        input_cost = input_vision_module_cost(input_message, kwargs.get("image", None), model)
+        output_cost = output_vision_module_cost(output_message, model)
         total_cost = input_cost + output_cost
 
     else:
-        model_pricing = PRICING[model]
-        input_cost = input_tokens * model_pricing["input"]
-        output_cost = output_tokens * model_pricing["output"]
+        input_cost = input_text_module_cost(input_message, model)
+        output_cost = output_vision_module_cost(output_message, model)
         total_cost = input_cost + output_cost
 
 
@@ -170,10 +209,57 @@ def get_cost_report(test_cases_folder):
 
 
 def calculate_input_tokens(input_message, model=config.model):
-    input_cost = count_tokens(input_message, model) * PRICING[model]["input"]
-    config.total_cost += input_cost
+    if max_input_tokens_allowed(model, ):
+        return True
+    else:
+        input_cost = count_tokens(input_message, model) * PRICING[model]["input"]
+        config.total_cost += input_cost
+        config.total_individual_cost += input_cost
 
 
 def calculate_output_tokens(input_message, model=config.model):
     output_cost = count_tokens(input_message, model) * PRICING[model]["output"]
     config.total_cost += output_cost
+    config.total_individual_cost += output_cost
+
+def max_input_tokens_allowed(text='', model_used='gpt-4o-mini', **kwargs):
+
+    def get_delta(sim_cost, sim_ind_cost):
+        delta_cost = config.limit_cost - sim_cost
+        delta_individual_cost = config.limit_individual_cost - sim_ind_cost
+        return True if delta_cost <= 0 or delta_individual_cost <= 0 else False
+
+    if config.token_count_enabled:
+        if kwargs.get("image", None):
+            input_cost = input_vision_module_cost(text, kwargs.get("image", 0), model_used)
+            simulated_cost = input_cost + config.total_cost
+            simulated_individual_cost = input_cost + config.total_individual_cost
+            return get_delta(simulated_cost,simulated_individual_cost)
+        elif model_used == "tts-1":
+            input_cost = input_tts_module_cost(text, model_used)
+            simulated_cost = input_cost + config.total_cost
+            simulated_individual_cost = input_cost + config.total_individual_cost
+            return get_delta(simulated_cost,simulated_individual_cost)
+        elif model_used == "whisper":
+            input_cost = whisper_module_cost(kwargs.get("audio_length", 0), model_used)
+            simulated_cost = input_cost + config.total_cost
+            simulated_individual_cost = input_cost + config.total_individual_cost
+            return get_delta(simulated_cost,simulated_individual_cost)
+        else:
+            input_cost = input_text_module_cost(text, model_used)
+            simulated_cost = input_cost + config.total_cost
+            simulated_individual_cost = input_cost + config.total_individual_cost
+            return get_delta(simulated_cost,simulated_individual_cost)
+    else:
+        return False
+
+def max_output_tokens_allowed(model_used):
+    if token_count_enabled:
+        delta_cost = config.limit_cost - config.total_cost
+        delta_individual_cost = config.limit_individual_cost - config.total_individual_cost
+
+        delta = min([delta_cost, delta_individual_cost])
+
+        return delta * TOKENS[model_used]["output"]
+    else:
+        return

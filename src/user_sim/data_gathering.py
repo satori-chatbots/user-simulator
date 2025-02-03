@@ -1,6 +1,6 @@
 import ast
 import pandas as pd
-from .utils.token_cost_calculator import calculate_cost
+from .utils.token_cost_calculator import calculate_cost, max_output_tokens_allowed, max_input_tokens_allowed
 import re
 from .utils.exceptions import *
 from .utils.utilities import parse_content_to_text
@@ -84,11 +84,10 @@ class ChatbotAssistant:
 
     def get_json(self):
         model = "gpt-4o-mini"
-        response = client.chat.completions.create(
-            model=model,
-            messages=self.messages,
-            max_completion_tokens=config.max_output_tokens_allowed(model),
-            response_format={
+        params = {
+            "model": model,
+            "messages": self.messages,
+            "response_format":{
                 "type": "json_schema",
                 "json_schema": {
                     "name": "ask_about_validation",
@@ -101,16 +100,21 @@ class ChatbotAssistant:
                     }
                 }
             }
-        )
+        }
+        if config.token_count_enabled:
+            params["max_completion_tokens"] = max_output_tokens_allowed(model)
+
+
         parsed_input_message = parse_content_to_text(
             self.messages) + self.verification_description + self.data_description
 
-        if config.max_input_tokens_allowed(parsed_input_message, model):
+        if max_input_tokens_allowed(parsed_input_message, model):
             logger.error(f"Token limit was surpassed")
-            config.total_cost = config.limit_cost
             return None
 
+        response = client.chat.completions.create(**params)
         output_message = response.choices[0].message.content
+
         try:
             data = json.loads(output_message)
         except Exception as e:

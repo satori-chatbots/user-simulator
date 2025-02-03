@@ -2,7 +2,7 @@ import logging
 import json
 from openai import OpenAI
 from dateutil import parser
-from .utils.token_cost_calculator import calculate_cost
+from .utils.token_cost_calculator import calculate_cost, max_input_tokens_allowed, max_output_tokens_allowed
 from .utils.utilities import parse_content_to_text
 
 client = OpenAI()
@@ -87,6 +87,7 @@ class DataExtraction:
         model = "gpt-4o-mini"
         dtype = self.get_data_prompt()[0]
         dformat = self.get_data_prompt()[1]
+        parsed_input_message = parse_content_to_text(self.system_message)
 
         if dtype is None:
             logger.warning(f"Data type {self.dtype} is not supported. Using 'str' by default.")
@@ -115,6 +116,7 @@ class DataExtraction:
             }
         }
 
+
         response = client.chat.completions.create(
             model=model,
             messages=self.system_message,
@@ -122,8 +124,8 @@ class DataExtraction:
         )
         output_message = response.choices[0].message.content
         llm_output = json.loads(output_message)
-        parsed_input_message = parse_content_to_text(self.system_message)
-        calculate_cost(parsed_input_message, output_message, model=model, module="data_extraction") #todo: parse system message
+
+        calculate_cost(parsed_input_message, output_message, model=model, module="data_extraction")
         logger.info(f'LLM output for data extraction: {llm_output}')
         text = llm_output['answer']
         data = self.data_process(text, self.dtype)

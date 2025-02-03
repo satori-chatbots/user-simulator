@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 from langchain.schema.messages import HumanMessage, SystemMessage
-from .utils.token_cost_calculator import calculate_cost
+from .utils.token_cost_calculator import calculate_cost, max_input_tokens_allowed, max_output_tokens_allowed
 import os
 import logging
 import json
@@ -29,7 +29,12 @@ def generate_image_description(image, url=True):
         image_parsed = f"data:image/png;base64,{image.decode('utf-8')}"
     else:
         image_parsed = image
+
     prompt = "describe in detail this image"
+    if max_input_tokens_allowed(prompt, model, image=image_parsed):
+        logger.error(f"Token limit was surpassed")
+        return None
+
     output = chat.invoke(
         [
             HumanMessage(

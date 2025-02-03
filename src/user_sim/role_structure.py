@@ -1,10 +1,11 @@
-from pydantic import BaseModel, ValidationError
+from pydantic import BaseModel, ValidationError, field_validator, validator
 from typing import List, Union, Dict, Optional
 from .interaction_styles import *
 from .ask_about import *
 from .utils.exceptions import *
 from .utils.languages import languages
 from .utils import cost_estimation
+from .utils import config
 from pathlib import Path
 
 import logging
@@ -15,17 +16,21 @@ def pick_goal_style(goal):
 
     if goal is None:
         return goal, False
-    elif 'steps' in goal:
+
+    if 'max_cost' in goal:
+        if goal['max_cost'] > 0:
+            config.limit_individual_cost = goal['max_cost']
+            config.token_count_enabled = True
+        else:
+            raise NoCostException(f"Goal cost can't be lower than or equal to 0: {goal['cost']}")
+    else:
+        config.limit_individual_cost = config.limit_cost
+
+    if 'steps' in goal:
         if goal['steps'] <= 20 or goal['steps'] > 0:
             return list(goal.keys())[0], goal['steps']
         else:
             raise OutOfLimitException(f"Goal steps higher than 20 steps or lower than 0 steps: {goal['steps']}")
-    elif 'cost' in goal:
-        if goal['cost']>0:
-            return list(goal.keys())[0], goal['cost']
-        else:
-            raise NoCostException(f"Goal cost can't be lower than or equal to 0: {goal['cost']}")
-
 
     elif 'all_answered' in goal or 'default' in goal:
         if isinstance(goal, dict):
@@ -49,6 +54,7 @@ def pick_goal_style(goal):
             return list(goal.keys())[0], random.randint(1, goal['random steps'])
         else:
             raise OutOfLimitException(f"Goal steps higher than 20 steps: {goal['random steps']}")
+
     else:
         raise InvalidGoalException(f"Invalid goal value: {goal}")
 
@@ -114,9 +120,16 @@ class Chatbot(BaseModel):
 
 class Conversation(BaseModel):
     number: Union[int, str]
+    max_cost: Optional[float]=10**9
     goal_style: Dict
     interaction_style: list
 
+    @field_validator('max_cost', mode='before')
+    @classmethod
+    def set_token_count_enabled(cls, value):
+        if value is not None:
+            config.token_count_enabled = True
+        return value
 
 class RoleDataModel(BaseModel):
     test_name: str
@@ -162,6 +175,7 @@ class RoleData:
 
     #Conversation
         self.conversation_number = self.get_conversation_number(self.validated_data.conversation.number)
+        self.max_cost = self.validated_data.conversation.max_cost
         self.goal_style = pick_goal_style(self.validated_data.conversation.goal_style)
         self.interaction_styles = self.pick_interaction_style(self.validated_data.conversation.interaction_style)
 

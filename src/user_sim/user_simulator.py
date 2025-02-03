@@ -44,11 +44,16 @@ class UserChain:
 
     def text_method(self, conversation_history, reminder):
         history = self.parse_history(conversation_history)  # formats list to str
+        if max_input_tokens_allowed(history+reminder, model_used=self.current_model):
+            logger.error(f"Token limit was surpassed")
+            return "exit"
+
         response = self.chain.invoke({'history': history, 'reminder': reminder})
         calculate_cost(history+reminder, response, self.current_model, module="user_simulator")
         return response
 
     def invoke(self, conversation_history, reminder):
+
         response = self.text_method(conversation_history, reminder)
 
         return response
@@ -160,10 +165,10 @@ class UserSimulator:
 
     def end_conversation(self, input_msg):
 
-        if self.goal_style[0] == 'cost':
-            if config.total_cost >= self.goal_style[1]:
-                logger.info('is end')
-                return True
+
+        if config.total_cost >= config.limit_cost or config.total_individual_cost >= config.limit_individual_cost:
+            logger.info('is end')
+            return True
 
         if self.goal_style[0] == 'steps' or self.goal_style[0] == 'random steps':
             if self.interaction_count >= self.goal_style[1]:
@@ -249,15 +254,14 @@ class UserSimulator:
 
         language_context = self.user_profile.get_language()
         self.my_context.add_context(language_context)
-        # history = self.get_history()
 
         if input_msg:
-
             self.update_history("Assistant", input_msg)
             self.data_gathering.add_message(self.conversation_history)
             if self.end_conversation(input_msg):
                 return "exit"
             self.repetition_track(input_msg)
+
 
         user_response = self.user_chain.invoke(self.conversation_history, self.my_context.get_context())
 

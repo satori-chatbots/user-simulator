@@ -207,7 +207,7 @@ def generate_conversation(technology, chatbot, user,
                     is_ok, response = stt.hear()
                     return is_ok, response
 
-            elif chat_format == "text":
+            else:
 
                 if user_profile.format_config:
                     logger.warning("Chat format is text, but an SR configuration was provided. This configuration will"
@@ -228,42 +228,42 @@ def generate_conversation(technology, chatbot, user,
                     is_ok, response = the_chatbot.execute_starter_chatbot()
                     return is_ok, response
 
-            while True:
+            start_loop = True
+            if bot_starter:
+                is_ok, response = get_chatbot_starter_response()
+                if not is_ok:
+                    if response is not None:
+                        the_user.update_history("Assistant", "Error: " + response)
+                    else:
+                        the_user.update_history("Assistant", "Error: The server did not respond.")
+                    start_loop = False
+                print_chatbot(response)
+                user_msg = the_user.open_conversation()
+                if user_msg == "exit":
+                    start_loop = False
 
-                if not bot_starter:
-                    user_msg = the_user.open_conversation()
+            else:
+                user_msg = the_user.open_conversation()
+                if user_msg == "exit":
+                    start_loop = False
+                else:
                     send_user_message(user_msg)
-
                     is_ok, response = get_chatbot_response(user_msg)
                     if not is_ok:
                         if response is not None:
                             the_user.update_history("Assistant", "Error: " + response)
                         else:
                             the_user.update_history("Assistant", "Error: The server did not respond.")
+                        start_loop = False
+                    else:
+                        print_chatbot(response)
+
+            if start_loop:
+                while True:
+                    user_msg = the_user.get_response(response)
+                    if user_msg == "exit":
                         break
-
-                    print_chatbot(response)
-                    bot_starter = True
-
-                elif not the_user.conversation_history["interaction"]:
-                    is_ok, response = get_chatbot_starter_response()
-                    if not is_ok:
-                        if response is not None:
-                            the_user.update_history("Assistant", "Error: " + response)
-                        else:
-                            the_user.update_history("Assistant", "Error: The server did not respond.")
-                        break
-                    print_chatbot(response)
-                    user_msg = the_user.open_conversation()
-
-
-                user_msg = the_user.get_response(response)
-
-                if user_msg == "exit":
-                    break
-                else:
                     send_user_message(user_msg)
-
                     is_ok, response = get_chatbot_response(user_msg)
                     if response == 'timeout':
                         break
@@ -289,6 +289,7 @@ def generate_conversation(technology, chatbot, user,
                 save_test_conv(history, metadata, test_name, extract, serial,
                                formatted_time_conv, response_time, answer_validation_data, counter=i)
 
+            config.total_individual_cost = 0
             user_profile.reset_attributes()
 
         end_time_test = timeit.default_timer()

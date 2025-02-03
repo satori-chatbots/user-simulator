@@ -2,8 +2,10 @@ import speech_recognition as sr
 from pydantic import BaseModel, ValidationError
 from typing import List, Union, Dict, Optional
 import time
+
+from .image_recognition_module import model
 from .utils.utilities import read_yaml
-from .utils.token_cost_calculator import calculate_cost
+from .utils.token_cost_calculator import calculate_cost, max_input_tokens_allowed, max_output_tokens_allowed
 from openai import OpenAI
 import warnings
 import pygame
@@ -85,9 +87,14 @@ class STTModule:
         try:
             logger.info("Recognizing...")
             start = time.time()
+            audio_length = get_audio_duration(audio)
+            if max_input_tokens_allowed(model_used="whisper", audio_length=audio_length):
+                logger.error(f"Token limit was surpassed")
+                return False, None
+
             text = r.recognize_whisper(audio)
             end = time.time()
-            audio_length = get_audio_duration(audio)
+
             calculate_cost(model="whisper", module="stt_module", audio_length=audio_length)
             logger.info(f"Recognition time:  {end - start}")
             return True, text
@@ -100,6 +107,9 @@ class STTModule:
 
 
     def say(self, message):
+
+        if max_input_tokens_allowed(message, self.model):
+            return
 
         with client.audio.speech.with_streaming_response.create(
             model=self.model,

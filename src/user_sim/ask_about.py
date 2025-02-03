@@ -1,9 +1,11 @@
-import random
-import copy
 from .utils.exceptions import *
+from .utils.token_cost_calculator import calculate_cost
 from .utils.utilities import *
 import numpy as np
 import logging
+import random
+import copy
+
 logger = logging.getLogger('Info Logger')
 
 
@@ -283,8 +285,7 @@ class AskAboutClass:
         self.phrases = self.str_list.copy()
         self.picked_elements = []
 
-    @staticmethod
-    def get_variables(data):
+    def get_variables(self, data):
         variables = []
 
         for item in data:
@@ -321,7 +322,7 @@ class AskAboutClass:
                             item_list.append(value)
 
                     if any_list:
-                        data_list = get_any_items(any_list, item_list)
+                        data_list = self.get_any_items(any_list, item_list)
                     else:
                         data_list = item_list
 
@@ -431,6 +432,55 @@ class AskAboutClass:
         generators_list = generators.generator_list
         combinations = generators.combinations
         return generators_list, combinations
+
+    @staticmethod
+    def get_any_items(any_list, item_list):
+        model = "gpt-4o-mini"
+        response_format = {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "List_of_values",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "answer": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "required": ["answer"],
+                    "additionalProperties": False
+                }
+            }
+        }
+        output_list = item_list.copy()
+
+        for data in any_list:
+            content = re.findall(r'any\((.*?)\)', data)
+            message = [{"role": "system",
+                        "content": "You are a helpful assistant that creates a list of whatever the user asks."},
+                       {"role": "user",
+                        "content": f"A list of any of these: {content}. Avoid putting any of these: {output_list}"}]
+
+            predictable["any_list"]["input_message"], predictable["any_list"]["times_executed"] = (
+            message, len(any_list))
+
+            response = client.chat.completions.create(
+                model=model,
+                messages=message,
+                response_format=response_format
+            )
+
+            raw_data = json.loads(response.choices[0].message.content)
+            output_data = raw_data["answer"]
+            output_list += output_data
+
+            input_message = parse_content_to_text(message)
+            calculate_cost(input_message, raw_data, model=model, module="goals__any_list")
+        return output_list
 
     def picked_element_already_in_list(self, match, value):
         element_list = [list(element.keys())[0] for element in self.picked_elements]

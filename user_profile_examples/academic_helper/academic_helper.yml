@@ -24,10 +24,10 @@ chatbot:
 
 conversation:
   number: 1
-  max_cost: 15
+#  max_cost: 2,5
   goal_style:
-    steps: 2
-    max_cost: 2
+    steps: 30
+    max_cost: 1
   interaction_style:
     - default
 #    - random:

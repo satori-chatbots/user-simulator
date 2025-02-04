@@ -1,10 +1,13 @@
 from .utils.exceptions import *
-from .utils.token_cost_calculator import calculate_cost
+from .utils.token_cost_calculator import calculate_cost, max_input_tokens_allowed, max_output_tokens_allowed
 from .utils.utilities import *
 import numpy as np
 import logging
 import random
 import copy
+from openai import OpenAI
+client = OpenAI()
+
 
 logger = logging.getLogger('Info Logger')
 
@@ -464,22 +467,29 @@ class AskAboutClass:
                         "content": "You are a helpful assistant that creates a list of whatever the user asks."},
                        {"role": "user",
                         "content": f"A list of any of these: {content}. Avoid putting any of these: {output_list}"}]
+            input_message = parse_content_to_text(message)
+            if max_input_tokens_allowed(input_message, model_used=model):
+                logger.error(f"Token limit was surpassed")
+                return output_list
+            params = {
+                "model": model,
+                "messages": message,
+                "response_format": response_format,
+            }
+            if config.token_count_enabled:
+                params["max_completion_tokens"] = max_output_tokens_allowed(model)
 
-            predictable["any_list"]["input_message"], predictable["any_list"]["times_executed"] = (
-            message, len(any_list))
+            response = client.chat.completions.create(**params)
+            try:
+                raw_data = json.loads(response.choices[0].message.content)
+                output_data = raw_data["answer"]
+                calculate_cost(input_message, raw_data["answer"], model=model, module="goals_any_list")
+            except Exception as e:
+                logger.error(f"Truncated data in message: {response.choices[0].message.content}")
+                output_data = None
 
-            response = client.chat.completions.create(
-                model=model,
-                messages=message,
-                response_format=response_format
-            )
-
-            raw_data = json.loads(response.choices[0].message.content)
-            output_data = raw_data["answer"]
             output_list += output_data
 
-            input_message = parse_content_to_text(message)
-            calculate_cost(input_message, raw_data, model=model, module="goals__any_list")
         return output_list
 
     def picked_element_already_in_list(self, match, value):

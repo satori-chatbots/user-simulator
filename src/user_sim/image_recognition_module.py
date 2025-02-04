@@ -1,6 +1,7 @@
 from langchain_openai import ChatOpenAI
 from langchain.schema.messages import HumanMessage, SystemMessage
 from .utils.token_cost_calculator import calculate_cost, max_input_tokens_allowed, max_output_tokens_allowed
+from .utils import config
 import os
 import logging
 import json
@@ -31,12 +32,11 @@ def generate_image_description(image, url=True):
         image_parsed = image
 
     prompt = "describe in detail this image"
-    if max_input_tokens_allowed(prompt, model, image=image_parsed):
+    if max_input_tokens_allowed(prompt, model, image=image):
         logger.error(f"Token limit was surpassed")
-        return None
 
-    output = chat.invoke(
-        [
+        return None
+    content = [
             HumanMessage(
                 content=[
                     {"type": "text", "text": prompt},
@@ -51,7 +51,12 @@ def generate_image_description(image, url=True):
 
             )
         ]
-    )
+
+    if config.token_count_enabled:
+        output = chat.bind(max_tokens=max_output_tokens_allowed(model)).invoke(content)
+    else:
+        output = chat.invoke(content)
+
     output_text = f"(Image description: {output.content})"
     logger.info(output_text)
     calculate_cost(prompt, output_text, model=model, module="image recognition module", image=image)

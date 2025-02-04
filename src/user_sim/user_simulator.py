@@ -5,7 +5,7 @@ from .data_gathering import *
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
-from .utils.token_cost_calculator import calculate_cost
+from .utils.token_cost_calculator import calculate_cost, max_input_tokens_allowed, max_output_tokens_allowed
 from .utils import config
 
 import logging
@@ -21,13 +21,13 @@ class UserChain:
         self.user_role = user_role
         self.original_model = model
         self.current_model = self.original_model
-        self.user_llm = ChatOpenAI(model=self.current_model, temperature=temp)
+        self.temperature = temp
         self.user_context = PromptTemplate(
             input_variables=["reminder", "history"],
             template=self.set_role_template()
         )
-        self.chain = self.user_context | self.user_llm | parser
-
+        # self.chain = self.user_context | self.user_llm | parser
+        self.chain = None
     def set_role_template(self):
         reminder = """{reminder}"""
         history = """History of the conversation so far: {history}"""
@@ -47,9 +47,19 @@ class UserChain:
         if max_input_tokens_allowed(history+reminder, model_used=self.current_model):
             logger.error(f"Token limit was surpassed")
             return "exit"
+        params = {
+            "model": self.current_model,
+            "temperature": self.temperature,
+        }
+        if config.token_count_enabled:
+            params["max_tokens"] = max_output_tokens_allowed(self.current_model)
+
+        user_llm = ChatOpenAI(**params)
+
+        self.chain = self.user_context | user_llm | parser
 
         response = self.chain.invoke({'history': history, 'reminder': reminder})
-        calculate_cost(history+reminder, response, self.current_model, module="user_simulator")
+        calculate_cost(history + reminder, response, self.current_model, module="user_simulator")
         return response
 
     def invoke(self, conversation_history, reminder):
@@ -261,7 +271,6 @@ class UserSimulator:
             if self.end_conversation(input_msg):
                 return "exit"
             self.repetition_track(input_msg)
-
 
         user_response = self.user_chain.invoke(self.conversation_history, self.my_context.get_context())
 

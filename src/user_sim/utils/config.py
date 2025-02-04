@@ -6,20 +6,19 @@ serial = ""
 model = "gpt-4o-mini"
 cost_ds_path = ''
 test_name = ''
+
+# cost metrics
 token_count_enabled = False
-limit_individual_cost = 10000000000
 limit_cost = 10000000000
+limit_individual_cost = 10000000000
 total_cost = 0
 total_individual_cost = 0
 
 
 
-def count_tokens(text, model_used="gpt-4o-mini"):
-    encoding = tiktoken.encoding_for_model(model_used)
-    return len(encoding.encode(text))
-
-
-
+# def count_tokens(text, model_used="gpt-4o-mini"):
+#     encoding = tiktoken.encoding_for_model(model_used)
+#     return len(encoding.encode(text))
 
 
 

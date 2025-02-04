@@ -6,7 +6,6 @@ import configparser
 from datetime import datetime, timedelta, date
 import re
 import random
-from .cost_estimation import predictable
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 # from .token_cost_calculator import calculate_cost

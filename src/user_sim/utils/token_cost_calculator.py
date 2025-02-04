@@ -7,15 +7,13 @@ import os
 import tiktoken
 import pandas as pd
 import logging
-
-from user_sim.image_recognition_module import model
 from user_sim.utils import config
 from user_sim.utils.config import total_cost, token_count_enabled
 from user_sim.utils.utilities import get_encoding
 
 logger = logging.getLogger('Info Logger')
 
-columns = ["Conversation", "Test Name", "Module", "Total Cost",
+columns = ["Conversation", "Test Name", "Module", "Model", "Total Cost",
            "Timestamp", "Input Cost", "Input Message",
            "Output Cost", "Output Message"]
 
@@ -108,6 +106,10 @@ def calculate_image_cost(image):
 def input_vision_module_cost(input_message, image, model):
     input_tokens = count_tokens(input_message, model)
     image_cost = calculate_image_cost(image)
+    if image_cost is None:
+        logger.warning("Image cost set to $0.")
+        image_cost = 0
+
     model_pricing = PRICING[model]
     input_cost = input_tokens * model_pricing["input"] + image_cost
     return input_cost
@@ -167,8 +169,8 @@ def calculate_cost(input_message='', output_message='', model="gpt-4o", module=N
 
 
     def update_dataframe():
-        new_row = {"Conversation": config.conversation_name,"Test Name":config.test_name, "Module": module, "Total Cost": total_cost,
-                   "Timestamp": pd.Timestamp.now(),
+        new_row = {"Conversation": config.conversation_name, "Test Name": config.test_name, "Module": module,
+                   "Model": model, "Total Cost": total_cost, "Timestamp": pd.Timestamp.now(),
                    "Input Cost": input_cost, "Input Message": input_message,
                    "Output Cost": output_cost, "Output Message": output_message}
 
@@ -224,9 +226,10 @@ def calculate_output_tokens(input_message, model=config.model):
 
 def max_input_tokens_allowed(text='', model_used='gpt-4o-mini', **kwargs):
 
-    def get_delta(sim_cost, sim_ind_cost):
+    def get_delta_verification(sim_cost, sim_ind_cost):
         delta_cost = config.limit_cost - sim_cost
         delta_individual_cost = config.limit_individual_cost - sim_ind_cost
+        logger.info(f"${delta_cost} for global and ${delta_individual_cost} for individual input cost left.")
         return True if delta_cost <= 0 or delta_individual_cost <= 0 else False
 
     if config.token_count_enabled:
@@ -234,22 +237,22 @@ def max_input_tokens_allowed(text='', model_used='gpt-4o-mini', **kwargs):
             input_cost = input_vision_module_cost(text, kwargs.get("image", 0), model_used)
             simulated_cost = input_cost + config.total_cost
             simulated_individual_cost = input_cost + config.total_individual_cost
-            return get_delta(simulated_cost,simulated_individual_cost)
+            return get_delta_verification(simulated_cost, simulated_individual_cost)
         elif model_used == "tts-1":
             input_cost = input_tts_module_cost(text, model_used)
             simulated_cost = input_cost + config.total_cost
             simulated_individual_cost = input_cost + config.total_individual_cost
-            return get_delta(simulated_cost,simulated_individual_cost)
+            return get_delta_verification(simulated_cost, simulated_individual_cost)
         elif model_used == "whisper":
             input_cost = whisper_module_cost(kwargs.get("audio_length", 0), model_used)
             simulated_cost = input_cost + config.total_cost
             simulated_individual_cost = input_cost + config.total_individual_cost
-            return get_delta(simulated_cost,simulated_individual_cost)
+            return get_delta_verification(simulated_cost, simulated_individual_cost)
         else:
             input_cost = input_text_module_cost(text, model_used)
             simulated_cost = input_cost + config.total_cost
             simulated_individual_cost = input_cost + config.total_individual_cost
-            return get_delta(simulated_cost,simulated_individual_cost)
+            return get_delta_verification(simulated_cost, simulated_individual_cost)
     else:
         return False
 
@@ -259,7 +262,8 @@ def max_output_tokens_allowed(model_used):
         delta_individual_cost = config.limit_individual_cost - config.total_individual_cost
 
         delta = min([delta_cost, delta_individual_cost])
-
-        return delta * TOKENS[model_used]["output"]
+        output_tokens = delta * TOKENS[model_used]["output"]
+        logger.info(f"{output_tokens} output tokens left.")
+        return output_tokens
     else:
         return

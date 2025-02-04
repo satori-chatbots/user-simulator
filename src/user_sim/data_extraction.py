@@ -89,6 +89,7 @@ class DataExtraction:
         dformat = self.get_data_prompt()[1]
         parsed_input_message = parse_content_to_text(self.system_message)
 
+
         if dtype is None:
             logger.warning(f"Data type {self.dtype} is not supported. Using 'str' by default.")
             dtype = 'string'

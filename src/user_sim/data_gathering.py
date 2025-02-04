@@ -45,8 +45,6 @@ class ChatbotAssistant:
         self.messages = [self.system_message]
         self.gathering_register = {}
 
-
-
     def process_ask_about(self, ask_about):
         properties = {
         }
@@ -101,8 +99,6 @@ class ChatbotAssistant:
                 }
             }
         }
-        if config.token_count_enabled:
-            params["max_completion_tokens"] = max_output_tokens_allowed(model)
 
 
         parsed_input_message = parse_content_to_text(

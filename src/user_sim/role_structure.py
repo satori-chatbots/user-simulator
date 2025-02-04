@@ -4,7 +4,6 @@ from .interaction_styles import *
 from .ask_about import *
 from .utils.exceptions import *
 from .utils.languages import languages
-from .utils import cost_estimation
 from .utils import config
 from pathlib import Path
 
@@ -176,10 +175,9 @@ class RoleData:
     #Conversation
         self.conversation_number = self.get_conversation_number(self.validated_data.conversation.number)
         self.max_cost = self.validated_data.conversation.max_cost
+        config.limit_cost = self.max_cost
         self.goal_style = pick_goal_style(self.validated_data.conversation.goal_style)
         self.interaction_styles = self.pick_interaction_style(self.validated_data.conversation.interaction_style)
-
-    cost_estimation.initialize_class()
 
 
     def reset_attributes(self):
